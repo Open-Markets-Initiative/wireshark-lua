@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Equities Bqt Xdp 1.7.a Protocol
-local nyse_equities_bqt_xdp_v1_7_a = Proto("Nyse.Equities.Bqt.Xdp.v1.7.a.Lua", "Nyse Equities Bqt Xdp 1.7.a")
+local omi_nyse_equities_bqt_xdp_v1_7_a = Proto("Nyse.Equities.Bqt.Xdp.v1.7.a.Lua", "Nyse Equities Bqt Xdp 1.7.a")
 
 -- Component Tables
 local show = {}
@@ -20,117 +20,117 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nyse Equities Bqt Xdp 1.7.a Fields
-nyse_equities_bqt_xdp_v1_7_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.equities.bqt.xdp.v1.7.a.askprice", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.equities.bqt.xdp.v1.7.a.askquotecondition", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.equities.bqt.xdp.v1.7.a.askvolume", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.equities.bqt.xdp.v1.7.a.beginseqnum", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.equities.bqt.xdp.v1.7.a.bidprice", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.equities.bqt.xdp.v1.7.a.bidquotecondition", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.equities.bqt.xdp.v1.7.a.bidvolume", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.bqt_message = ProtoField.new("Bqt Message", "nyse.equities.bqt.xdp.v1.7.a.bqtmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.bqt.xdp.v1.7.a.channelid", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.close = ProtoField.new("Close", "nyse.equities.bqt.xdp.v1.7.a.close", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.complete = ProtoField.new("Complete", "nyse.equities.bqt.xdp.v1.7.a.complete", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedsecuritystatusmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single Sided Quote Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_stock_summary_message = ProtoField.new("Consolidated Stock Summary Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedstocksummarymessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_symbol_clear_message = ProtoField.new("Consolidated Symbol Clear Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedsymbolclearmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtradecancelmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_correction_message = ProtoField.new("Consolidated Trade Correction Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtradecorrectionmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_message = ProtoField.new("Consolidated Trade Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtrademessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trading_session_change_message = ProtoField.new("Consolidated Trading Session Change Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtradingsessionchangemessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_volume_message = ProtoField.new("Consolidated Volume Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedvolumemessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.bqt.xdp.v1.7.a.currentrefreshpkt", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.bqt.xdp.v1.7.a.deliveryflag", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.bqt.xdp.v1.7.a.endseqnum", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.bqt.xdp.v1.7.a.exchangecode", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.bqt.xdp.v1.7.a.haltcondition", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.bqt.xdp.v1.7.a.heartbeatresponsemessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.high_price = ProtoField.new("High Price", "nyse.equities.bqt.xdp.v1.7.a.highprice", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.bqt.xdp.v1.7.a.lastseqnum", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.bqt.xdp.v1.7.a.lastsymbolseqnum", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.lot_size = ProtoField.new("Lot Size", "nyse.equities.bqt.xdp.v1.7.a.lotsize", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.low_price = ProtoField.new("Low Price", "nyse.equities.bqt.xdp.v1.7.a.lowprice", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_id = ProtoField.new("Market Id", "nyse.equities.bqt.xdp.v1.7.a.marketid", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_ask = ProtoField.new("Market Id Of Best Ask", "nyse.equities.bqt.xdp.v1.7.a.marketidofbestask", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_bid = ProtoField.new("Market Id Of Best Bid", "nyse.equities.bqt.xdp.v1.7.a.marketidofbestbid", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_high_price = ProtoField.new("Market Id Of High Price", "nyse.equities.bqt.xdp.v1.7.a.marketidofhighprice", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_low_price = ProtoField.new("Market Id Of Low Price", "nyse.equities.bqt.xdp.v1.7.a.marketidoflowprice", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.equities.bqt.xdp.v1.7.a.marketidofopenprice", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_the_close = ProtoField.new("Market Id Of The Close", "nyse.equities.bqt.xdp.v1.7.a.marketidoftheclose", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.market_state = ProtoField.new("Market State", "nyse.equities.bqt.xdp.v1.7.a.marketstate", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.message = ProtoField.new("Message", "nyse.equities.bqt.xdp.v1.7.a.message", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.message_count = ProtoField.new("Message Count", "nyse.equities.bqt.xdp.v1.7.a.messagecount", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.message_header = ProtoField.new("Message Header", "nyse.equities.bqt.xdp.v1.7.a.messageheader", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.message_size = ProtoField.new("Message Size", "nyse.equities.bqt.xdp.v1.7.a.messagesize", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.message_type = ProtoField.new("Message Type", "nyse.equities.bqt.xdp.v1.7.a.messagetype", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.bqt.xdp.v1.7.a.messageunavailablemessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.mpv = ProtoField.new("Mpv", "nyse.equities.bqt.xdp.v1.7.a.mpv", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.bqt.xdp.v1.7.a.nanoseconds", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.bqt.xdp.v1.7.a.nextsourceseqnum", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.num_close_prices = ProtoField.new("Num Close Prices", "nyse.equities.bqt.xdp.v1.7.a.numcloseprices", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.open = ProtoField.new("Open", "nyse.equities.bqt.xdp.v1.7.a.open", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.equities.bqt.xdp.v1.7.a.originaltradeid", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.packet = ProtoField.new("Packet", "nyse.equities.bqt.xdp.v1.7.a.packet", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.bqt.xdp.v1.7.a.packetheader", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.bqt.xdp.v1.7.a.packetsize", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.payload = ProtoField.new("Payload", "nyse.equities.bqt.xdp.v1.7.a.payload", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.bqt.xdp.v1.7.a.prevcloseprice", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.bqt.xdp.v1.7.a.prevclosevolume", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.price = ProtoField.new("Price", "nyse.equities.bqt.xdp.v1.7.a.price", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.bqt.xdp.v1.7.a.price1", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.price_2 = ProtoField.new("Price 2", "nyse.equities.bqt.xdp.v1.7.a.price2", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.equities.bqt.xdp.v1.7.a.priceresolution", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.equities.bqt.xdp.v1.7.a.pricescalecode", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.product_id = ProtoField.new("Product Id", "nyse.equities.bqt.xdp.v1.7.a.productid", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.equities.bqt.xdp.v1.7.a.quotecondition", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.reason = ProtoField.new("Reason", "nyse.equities.bqt.xdp.v1.7.a.reason", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.bqt.xdp.v1.7.a.refreshheadermessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.bqt.xdp.v1.7.a.refreshrequestmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.bqt.xdp.v1.7.a.requestresponsemessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.bqt.xdp.v1.7.a.requestseqnum", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.bqt.xdp.v1.7.a.reserved1", ftypes.BYTES)
-nyse_equities_bqt_xdp_v1_7_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.bqt.xdp.v1.7.a.reserved2", ftypes.BYTES)
-nyse_equities_bqt_xdp_v1_7_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.equities.bqt.xdp.v1.7.a.retailpricingindicator", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.bqt.xdp.v1.7.a.retransmissionrequestmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.bqt.xdp.v1.7.a.retransmitmethod", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.bqt.xdp.v1.7.a.roundlot", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.bqt.xdp.v1.7.a.rpiindicator", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.security_status = ProtoField.new("Security Status", "nyse.equities.bqt.xdp.v1.7.a.securitystatus", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.security_type = ProtoField.new("Security Type", "nyse.equities.bqt.xdp.v1.7.a.securitytype", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.bqt.xdp.v1.7.a.sequencenumber", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.bqt.xdp.v1.7.a.sequencenumberresetmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.session_state = ProtoField.new("Session State", "nyse.equities.bqt.xdp.v1.7.a.sessionstate", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.side = ProtoField.new("Side", "nyse.equities.bqt.xdp.v1.7.a.side", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.source_id = ProtoField.new("Source Id", "nyse.equities.bqt.xdp.v1.7.a.sourceid", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.source_time = ProtoField.new("Source Time", "nyse.equities.bqt.xdp.v1.7.a.sourcetime", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.bqt.xdp.v1.7.a.sourcetimens", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.ssr_state = ProtoField.new("Ssr State", "nyse.equities.bqt.xdp.v1.7.a.ssrstate", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.equities.bqt.xdp.v1.7.a.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.equities.bqt.xdp.v1.7.a.ssrtriggeringvolume", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.status = ProtoField.new("Status", "nyse.equities.bqt.xdp.v1.7.a.status", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.symbol = ProtoField.new("Symbol", "nyse.equities.bqt.xdp.v1.7.a.symbol", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.bqt.xdp.v1.7.a.symbolindex", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.bqt.xdp.v1.7.a.symbolindexmappingmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.bqt.xdp.v1.7.a.symbolindexmappingrequestmessage", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.bqt.xdp.v1.7.a.symbolseqnum", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_number = ProtoField.new("Symbol Seq Number", "nyse.equities.bqt.xdp.v1.7.a.symbolseqnumber", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.system_id = ProtoField.new("System Id", "nyse.equities.bqt.xdp.v1.7.a.systemid", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.time = ProtoField.new("Time", "nyse.equities.bqt.xdp.v1.7.a.time", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.bqt.xdp.v1.7.a.timestamp", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.bqt.xdp.v1.7.a.totalrefreshpkts", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.equities.bqt.xdp.v1.7.a.totalvolume", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_1 = ProtoField.new("Trade Condition 1", "nyse.equities.bqt.xdp.v1.7.a.tradecondition1", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_2 = ProtoField.new("Trade Condition 2", "nyse.equities.bqt.xdp.v1.7.a.tradecondition2", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.equities.bqt.xdp.v1.7.a.tradecondition3", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.equities.bqt.xdp.v1.7.a.tradecondition4", ftypes.STRING)
-nyse_equities_bqt_xdp_v1_7_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.equities.bqt.xdp.v1.7.a.tradeid", ftypes.UINT32)
-nyse_equities_bqt_xdp_v1_7_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.equities.bqt.xdp.v1.7.a.tradesession", ftypes.UINT8)
-nyse_equities_bqt_xdp_v1_7_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.bqt.xdp.v1.7.a.unitoftrade", ftypes.UINT16)
-nyse_equities_bqt_xdp_v1_7_a.fields.volume = ProtoField.new("Volume", "nyse.equities.bqt.xdp.v1.7.a.volume", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.equities.bqt.xdp.v1.7.a.askprice", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.equities.bqt.xdp.v1.7.a.askquotecondition", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.equities.bqt.xdp.v1.7.a.askvolume", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.equities.bqt.xdp.v1.7.a.beginseqnum", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.equities.bqt.xdp.v1.7.a.bidprice", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.equities.bqt.xdp.v1.7.a.bidquotecondition", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.equities.bqt.xdp.v1.7.a.bidvolume", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.bqt_message = ProtoField.new("Bqt Message", "nyse.equities.bqt.xdp.v1.7.a.bqtmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.bqt.xdp.v1.7.a.channelid", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.close = ProtoField.new("Close", "nyse.equities.bqt.xdp.v1.7.a.close", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.complete = ProtoField.new("Complete", "nyse.equities.bqt.xdp.v1.7.a.complete", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedsecuritystatusmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single Sided Quote Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_stock_summary_message = ProtoField.new("Consolidated Stock Summary Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedstocksummarymessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_symbol_clear_message = ProtoField.new("Consolidated Symbol Clear Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedsymbolclearmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtradecancelmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_correction_message = ProtoField.new("Consolidated Trade Correction Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtradecorrectionmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_message = ProtoField.new("Consolidated Trade Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtrademessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trading_session_change_message = ProtoField.new("Consolidated Trading Session Change Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedtradingsessionchangemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_volume_message = ProtoField.new("Consolidated Volume Message", "nyse.equities.bqt.xdp.v1.7.a.consolidatedvolumemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.bqt.xdp.v1.7.a.currentrefreshpkt", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.bqt.xdp.v1.7.a.deliveryflag", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.bqt.xdp.v1.7.a.endseqnum", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.bqt.xdp.v1.7.a.exchangecode", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.bqt.xdp.v1.7.a.haltcondition", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.bqt.xdp.v1.7.a.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.high_price = ProtoField.new("High Price", "nyse.equities.bqt.xdp.v1.7.a.highprice", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.bqt.xdp.v1.7.a.lastseqnum", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.bqt.xdp.v1.7.a.lastsymbolseqnum", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.lot_size = ProtoField.new("Lot Size", "nyse.equities.bqt.xdp.v1.7.a.lotsize", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.low_price = ProtoField.new("Low Price", "nyse.equities.bqt.xdp.v1.7.a.lowprice", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id = ProtoField.new("Market Id", "nyse.equities.bqt.xdp.v1.7.a.marketid", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_ask = ProtoField.new("Market Id Of Best Ask", "nyse.equities.bqt.xdp.v1.7.a.marketidofbestask", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_bid = ProtoField.new("Market Id Of Best Bid", "nyse.equities.bqt.xdp.v1.7.a.marketidofbestbid", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_high_price = ProtoField.new("Market Id Of High Price", "nyse.equities.bqt.xdp.v1.7.a.marketidofhighprice", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_low_price = ProtoField.new("Market Id Of Low Price", "nyse.equities.bqt.xdp.v1.7.a.marketidoflowprice", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.equities.bqt.xdp.v1.7.a.marketidofopenprice", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_the_close = ProtoField.new("Market Id Of The Close", "nyse.equities.bqt.xdp.v1.7.a.marketidoftheclose", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_state = ProtoField.new("Market State", "nyse.equities.bqt.xdp.v1.7.a.marketstate", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.message = ProtoField.new("Message", "nyse.equities.bqt.xdp.v1.7.a.message", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_count = ProtoField.new("Message Count", "nyse.equities.bqt.xdp.v1.7.a.messagecount", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_header = ProtoField.new("Message Header", "nyse.equities.bqt.xdp.v1.7.a.messageheader", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_size = ProtoField.new("Message Size", "nyse.equities.bqt.xdp.v1.7.a.messagesize", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_type = ProtoField.new("Message Type", "nyse.equities.bqt.xdp.v1.7.a.messagetype", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.bqt.xdp.v1.7.a.messageunavailablemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.mpv = ProtoField.new("Mpv", "nyse.equities.bqt.xdp.v1.7.a.mpv", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.bqt.xdp.v1.7.a.nanoseconds", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.bqt.xdp.v1.7.a.nextsourceseqnum", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.num_close_prices = ProtoField.new("Num Close Prices", "nyse.equities.bqt.xdp.v1.7.a.numcloseprices", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.open = ProtoField.new("Open", "nyse.equities.bqt.xdp.v1.7.a.open", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.equities.bqt.xdp.v1.7.a.originaltradeid", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet = ProtoField.new("Packet", "nyse.equities.bqt.xdp.v1.7.a.packet", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.bqt.xdp.v1.7.a.packetheader", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.bqt.xdp.v1.7.a.packetsize", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.payload = ProtoField.new("Payload", "nyse.equities.bqt.xdp.v1.7.a.payload", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.bqt.xdp.v1.7.a.prevcloseprice", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.bqt.xdp.v1.7.a.prevclosevolume", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.price = ProtoField.new("Price", "nyse.equities.bqt.xdp.v1.7.a.price", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.bqt.xdp.v1.7.a.price1", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_2 = ProtoField.new("Price 2", "nyse.equities.bqt.xdp.v1.7.a.price2", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.equities.bqt.xdp.v1.7.a.priceresolution", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.equities.bqt.xdp.v1.7.a.pricescalecode", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.product_id = ProtoField.new("Product Id", "nyse.equities.bqt.xdp.v1.7.a.productid", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.equities.bqt.xdp.v1.7.a.quotecondition", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.reason = ProtoField.new("Reason", "nyse.equities.bqt.xdp.v1.7.a.reason", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.bqt.xdp.v1.7.a.refreshheadermessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.bqt.xdp.v1.7.a.refreshrequestmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.bqt.xdp.v1.7.a.requestresponsemessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.bqt.xdp.v1.7.a.requestseqnum", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.bqt.xdp.v1.7.a.reserved1", ftypes.BYTES)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.bqt.xdp.v1.7.a.reserved2", ftypes.BYTES)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.equities.bqt.xdp.v1.7.a.retailpricingindicator", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.bqt.xdp.v1.7.a.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.bqt.xdp.v1.7.a.retransmitmethod", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.bqt.xdp.v1.7.a.roundlot", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.bqt.xdp.v1.7.a.rpiindicator", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.security_status = ProtoField.new("Security Status", "nyse.equities.bqt.xdp.v1.7.a.securitystatus", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.security_type = ProtoField.new("Security Type", "nyse.equities.bqt.xdp.v1.7.a.securitytype", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.bqt.xdp.v1.7.a.sequencenumber", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.bqt.xdp.v1.7.a.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.session_state = ProtoField.new("Session State", "nyse.equities.bqt.xdp.v1.7.a.sessionstate", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.side = ProtoField.new("Side", "nyse.equities.bqt.xdp.v1.7.a.side", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.source_id = ProtoField.new("Source Id", "nyse.equities.bqt.xdp.v1.7.a.sourceid", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.source_time = ProtoField.new("Source Time", "nyse.equities.bqt.xdp.v1.7.a.sourcetime", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.bqt.xdp.v1.7.a.sourcetimens", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.ssr_state = ProtoField.new("Ssr State", "nyse.equities.bqt.xdp.v1.7.a.ssrstate", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.equities.bqt.xdp.v1.7.a.ssrtriggeringexchangeid", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.equities.bqt.xdp.v1.7.a.ssrtriggeringvolume", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.status = ProtoField.new("Status", "nyse.equities.bqt.xdp.v1.7.a.status", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol = ProtoField.new("Symbol", "nyse.equities.bqt.xdp.v1.7.a.symbol", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.bqt.xdp.v1.7.a.symbolindex", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.bqt.xdp.v1.7.a.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.bqt.xdp.v1.7.a.symbolindexmappingrequestmessage", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.bqt.xdp.v1.7.a.symbolseqnum", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_number = ProtoField.new("Symbol Seq Number", "nyse.equities.bqt.xdp.v1.7.a.symbolseqnumber", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.system_id = ProtoField.new("System Id", "nyse.equities.bqt.xdp.v1.7.a.systemid", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.time = ProtoField.new("Time", "nyse.equities.bqt.xdp.v1.7.a.time", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.bqt.xdp.v1.7.a.timestamp", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.bqt.xdp.v1.7.a.totalrefreshpkts", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.equities.bqt.xdp.v1.7.a.totalvolume", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_1 = ProtoField.new("Trade Condition 1", "nyse.equities.bqt.xdp.v1.7.a.tradecondition1", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_2 = ProtoField.new("Trade Condition 2", "nyse.equities.bqt.xdp.v1.7.a.tradecondition2", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.equities.bqt.xdp.v1.7.a.tradecondition3", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.equities.bqt.xdp.v1.7.a.tradecondition4", ftypes.STRING)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.equities.bqt.xdp.v1.7.a.tradeid", ftypes.UINT32)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.equities.bqt.xdp.v1.7.a.tradesession", ftypes.UINT8)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.bqt.xdp.v1.7.a.unitoftrade", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.volume = ProtoField.new("Volume", "nyse.equities.bqt.xdp.v1.7.a.volume", ftypes.UINT32)
 
 -- Nyse Equities Bqt Xdp 1.7.a generated fields
-nyse_equities_bqt_xdp_v1_7_a.fields.message_index = ProtoField.new("Message Index", "nyse.equities.bqt.xdp.v1.7.a.messageindex", ftypes.UINT16)
+omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_index = ProtoField.new("Message Index", "nyse.equities.bqt.xdp.v1.7.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -163,130 +163,130 @@ show.symbol_index_mapping_request_message = true
 show.payload = false
 
 -- Register Nyse Equities Bqt Xdp 1.7.a Show Options
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message = Pref.bool("Show Bqt Message", show.bqt_message, "Parse and add Bqt Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message = Pref.bool("Show Consolidated Security Status Message", show.consolidated_security_status_message, "Parse and add Consolidated Security Status Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message = Pref.bool("Show Consolidated Single Sided Quote Message", show.consolidated_single_sided_quote_message, "Parse and add Consolidated Single Sided Quote Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message = Pref.bool("Show Consolidated Stock Summary Message", show.consolidated_stock_summary_message, "Parse and add Consolidated Stock Summary Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message = Pref.bool("Show Consolidated Symbol Clear Message", show.consolidated_symbol_clear_message, "Parse and add Consolidated Symbol Clear Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message = Pref.bool("Show Consolidated Trade Cancel Message", show.consolidated_trade_cancel_message, "Parse and add Consolidated Trade Cancel Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message = Pref.bool("Show Consolidated Trade Correction Message", show.consolidated_trade_correction_message, "Parse and add Consolidated Trade Correction Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message = Pref.bool("Show Consolidated Trade Message", show.consolidated_trade_message, "Parse and add Consolidated Trade Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message = Pref.bool("Show Consolidated Trading Session Change Message", show.consolidated_trading_session_change_message, "Parse and add Consolidated Trading Session Change Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message = Pref.bool("Show Consolidated Volume Message", show.consolidated_volume_message, "Parse and add Consolidated Volume Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message = Pref.bool("Show Bqt Message", show.bqt_message, "Parse and add Bqt Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message = Pref.bool("Show Consolidated Security Status Message", show.consolidated_security_status_message, "Parse and add Consolidated Security Status Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message = Pref.bool("Show Consolidated Single Sided Quote Message", show.consolidated_single_sided_quote_message, "Parse and add Consolidated Single Sided Quote Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message = Pref.bool("Show Consolidated Stock Summary Message", show.consolidated_stock_summary_message, "Parse and add Consolidated Stock Summary Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message = Pref.bool("Show Consolidated Symbol Clear Message", show.consolidated_symbol_clear_message, "Parse and add Consolidated Symbol Clear Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message = Pref.bool("Show Consolidated Trade Cancel Message", show.consolidated_trade_cancel_message, "Parse and add Consolidated Trade Cancel Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message = Pref.bool("Show Consolidated Trade Correction Message", show.consolidated_trade_correction_message, "Parse and add Consolidated Trade Correction Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message = Pref.bool("Show Consolidated Trade Message", show.consolidated_trade_message, "Parse and add Consolidated Trade Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message = Pref.bool("Show Consolidated Trading Session Change Message", show.consolidated_trading_session_change_message, "Parse and add Consolidated Trading Session Change Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message = Pref.bool("Show Consolidated Volume Message", show.consolidated_volume_message, "Parse and add Consolidated Volume Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_equities_bqt_xdp_v1_7_a.prefs_changed()
+function omi_nyse_equities_bqt_xdp_v1_7_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.bqt_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message then
-    show.bqt_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message
+  if show.bqt_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message then
+    show.bqt_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message
     changed = true
   end
-  if show.consolidated_security_status_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message then
-    show.consolidated_security_status_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message
+  if show.consolidated_security_status_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message then
+    show.consolidated_security_status_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message
     changed = true
   end
-  if show.consolidated_single_sided_quote_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message then
-    show.consolidated_single_sided_quote_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message
+  if show.consolidated_single_sided_quote_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message then
+    show.consolidated_single_sided_quote_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message
     changed = true
   end
-  if show.consolidated_stock_summary_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message then
-    show.consolidated_stock_summary_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message
+  if show.consolidated_stock_summary_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message then
+    show.consolidated_stock_summary_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message
     changed = true
   end
-  if show.consolidated_symbol_clear_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message then
-    show.consolidated_symbol_clear_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message
+  if show.consolidated_symbol_clear_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message then
+    show.consolidated_symbol_clear_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message
     changed = true
   end
-  if show.consolidated_trade_cancel_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message then
-    show.consolidated_trade_cancel_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message
+  if show.consolidated_trade_cancel_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message then
+    show.consolidated_trade_cancel_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message
     changed = true
   end
-  if show.consolidated_trade_correction_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message then
-    show.consolidated_trade_correction_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message
+  if show.consolidated_trade_correction_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message then
+    show.consolidated_trade_correction_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message
     changed = true
   end
-  if show.consolidated_trade_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message then
-    show.consolidated_trade_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message
+  if show.consolidated_trade_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message then
+    show.consolidated_trade_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message
     changed = true
   end
-  if show.consolidated_trading_session_change_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message then
-    show.consolidated_trading_session_change_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message
+  if show.consolidated_trading_session_change_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message then
+    show.consolidated_trading_session_change_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message
     changed = true
   end
-  if show.consolidated_volume_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message then
-    show.consolidated_volume_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message
+  if show.consolidated_volume_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message then
+    show.consolidated_volume_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message
     changed = true
   end
-  if show.heartbeat_response_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message
+  if show.heartbeat_response_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message
     changed = true
   end
-  if show.message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_message then
-    show.message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_message
+  if show.message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message then
+    show.message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header then
-    show.message_header = nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header
+  if show.message_header ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header then
+    show.message_header = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message
+  if show.message_unavailable_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message
     changed = true
   end
-  if show.packet ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet then
-    show.packet = nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet
+  if show.packet ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet then
+    show.packet = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header then
-    show.packet_header = nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header
+  if show.packet_header ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header then
+    show.packet_header = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_header_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message then
-    show.refresh_header_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message
+  if show.refresh_header_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message then
+    show.refresh_header_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message
     changed = true
   end
-  if show.refresh_request_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message then
-    show.refresh_request_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message
+  if show.refresh_request_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message then
+    show.refresh_request_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message
     changed = true
   end
-  if show.request_response_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message then
-    show.request_response_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message
+  if show.request_response_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message then
+    show.request_response_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message
     changed = true
   end
-  if show.retransmission_request_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message
+  if show.retransmission_request_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message
     changed = true
   end
-  if show.sequence_number_reset_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.symbol_index_mapping_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message
+  if show.symbol_index_mapping_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message
     changed = true
   end
-  if show.symbol_index_mapping_request_message ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message
+  if show.symbol_index_mapping_request_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message
     changed = true
   end
-  if show.payload ~= nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload then
-    show.payload = nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload
+  if show.payload ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload then
+    show.payload = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_payload
     changed = true
   end
 
@@ -323,7 +323,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.complete = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.complete(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.complete, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.complete, range, value, display)
 
   return offset + length, value
 end
@@ -359,7 +359,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.reason = function(buffer, offset, packet, p
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.reason, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -379,7 +379,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.total_volume = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.total_volume, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -399,7 +399,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_seq_number = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.symbol_seq_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_number, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_number, range, value, display)
 
   return offset + length, value
 end
@@ -419,7 +419,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
@@ -472,7 +472,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_volume_message = function(buffer, offset, packet, parent)
   if show.consolidated_volume_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_volume_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_volume_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_volume_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -501,7 +501,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.close = function(buffer, offset, packet, pa
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.close, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.close, range, value, display)
 
   return offset + length, value
 end
@@ -534,7 +534,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_id_of_the_close = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_id_of_the_close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_the_close, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_the_close, range, value, display)
 
   return offset + length, value
 end
@@ -554,7 +554,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.num_close_prices = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.num_close_prices(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.num_close_prices, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.num_close_prices, range, value, display)
 
   return offset + length, value
 end
@@ -587,7 +587,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_id_of_open_price = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_id_of_open_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_open_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_open_price, range, value, display)
 
   return offset + length, value
 end
@@ -620,7 +620,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_id_of_low_price = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_id_of_low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_low_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_low_price, range, value, display)
 
   return offset + length, value
 end
@@ -653,7 +653,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_id_of_high_price = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_id_of_high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_high_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_high_price, range, value, display)
 
   return offset + length, value
 end
@@ -673,7 +673,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.open = function(buffer, offset, packet, par
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.open(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.open, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.open, range, value, display)
 
   return offset + length, value
 end
@@ -693,7 +693,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.low_price = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.low_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -713,7 +713,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.high_price = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.high_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -733,7 +733,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.source_time_ns = function(buffer, offset, p
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.source_time_ns, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.source_time_ns, range, value, display)
 
   return offset + length, value
 end
@@ -753,7 +753,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.source_time = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.source_time, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -846,7 +846,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_stock_summary_message = function(buffer, offset, packet, parent)
   if show.consolidated_stock_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_stock_summary_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_stock_summary_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_stock_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -903,7 +903,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_id = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id, range, value, display)
 
   return offset + length, value
 end
@@ -960,7 +960,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.trade_condition_4 = function(buffer, offset
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.trade_condition_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_4, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_4, range, value, display)
 
   return offset + length, value
 end
@@ -996,7 +996,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.trade_condition_3 = function(buffer, offset
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.trade_condition_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_3, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_3, range, value, display)
 
   return offset + length, value
 end
@@ -1038,7 +1038,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.trade_condition_2 = function(buffer, offset
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.trade_condition_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_2, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_2, range, value, display)
 
   return offset + length, value
 end
@@ -1071,7 +1071,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.trade_condition_1 = function(buffer, offset
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.trade_condition_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_1, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_condition_1, range, value, display)
 
   return offset + length, value
 end
@@ -1091,7 +1091,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.volume = function(buffer, offset, packet, p
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.volume, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -1111,7 +1111,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.price = function(buffer, offset, packet, pa
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1131,7 +1131,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.trade_id = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.trade_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -1151,7 +1151,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.original_trade_id = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.original_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.original_trade_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.original_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -1244,7 +1244,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_correction_message = function(buffer, offset, packet, parent)
   if show.consolidated_trade_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_correction_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_correction_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1311,7 +1311,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_cancel_message = function(buffer, offset, packet, parent)
   if show.consolidated_trade_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_cancel_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1340,7 +1340,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_seq_num = function(buffer, offset, p
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1428,7 +1428,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_message = function(buffer, offset, packet, parent)
   if show.consolidated_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1470,7 +1470,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.rpi_indicator = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.rpi_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.rpi_indicator, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.rpi_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1506,7 +1506,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.quote_condition = function(buffer, offset, 
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.quote_condition, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1533,7 +1533,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.side = function(buffer, offset, packet, par
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.side, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1601,7 +1601,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_single_sided_quote_message = function(buffer, offset, packet, parent)
   if show.consolidated_single_sided_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_single_sided_quote_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_single_sided_quote_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_single_sided_quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1643,7 +1643,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_id_of_best_bid = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_id_of_best_bid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_bid, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_bid, range, value, display)
 
   return offset + length, value
 end
@@ -1676,7 +1676,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_id_of_best_ask = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_id_of_best_ask(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_ask, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_id_of_best_ask, range, value, display)
 
   return offset + length, value
 end
@@ -1709,7 +1709,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.retail_pricing_indicator = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.retail_pricing_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.retail_pricing_indicator, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.retail_pricing_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1742,7 +1742,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.bid_quote_condition = function(buffer, offs
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.bid_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.bid_quote_condition, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.bid_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1775,7 +1775,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.ask_quote_condition = function(buffer, offs
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.ask_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.ask_quote_condition, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.ask_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1795,7 +1795,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.bid_volume = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.bid_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.bid_volume, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.bid_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1815,7 +1815,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.bid_price = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.bid_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1835,7 +1835,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.ask_volume = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.ask_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.ask_volume, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.ask_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1855,7 +1855,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.ask_price = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.ask_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -1938,7 +1938,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.bqt_message = function(buffer, offset, packet, parent)
   if show.bqt_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.bqt_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.bqt_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.bqt_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1967,7 +1967,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.last_symbol_seq_num = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.last_symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.last_symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.last_symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1987,7 +1987,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.last_seq_num = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.last_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.last_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.last_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2007,7 +2007,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.total_refresh_pkts = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.total_refresh_pkts(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.total_refresh_pkts, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.total_refresh_pkts, range, value, display)
 
   return offset + length, value
 end
@@ -2027,7 +2027,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.current_refresh_pkt = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.current_refresh_pkt(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.current_refresh_pkt, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.current_refresh_pkt, range, value, display)
 
   return offset + length, value
 end
@@ -2075,7 +2075,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.refresh_header_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2114,7 +2114,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.session_state = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.session_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.session_state, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.session_state, range, value, display)
 
   return offset + length, value
 end
@@ -2150,7 +2150,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.market_state = function(buffer, offset, pac
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.market_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.market_state, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.market_state, range, value, display)
 
   return offset + length, value
 end
@@ -2177,7 +2177,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.ssr_state = function(buffer, offset, packet
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.ssr_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.ssr_state, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.ssr_state, range, value, display)
 
   return offset + length, value
 end
@@ -2197,7 +2197,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.time = function(buffer, offset, packet, par
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.time, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -2217,7 +2217,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.ssr_triggering_volume = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_volume, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2292,7 +2292,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.ssr_triggering_exchange_id = function(buffe
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_exchange_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.ssr_triggering_exchange_id, range, value, display)
 
   return offset + length, value
 end
@@ -2312,7 +2312,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.price_2 = function(buffer, offset, packet, 
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.price_2, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_2, range, value, display)
 
   return offset + length, value
 end
@@ -2332,7 +2332,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.price_1 = function(buffer, offset, packet, 
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.price_1, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_1, range, value, display)
 
   return offset + length, value
 end
@@ -2352,7 +2352,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.reserved_2 = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_bqt_xdp_v1_7_a_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -2406,7 +2406,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.halt_condition = function(buffer, offset, p
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.halt_condition, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
@@ -2475,7 +2475,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.security_status = function(buffer, offset, 
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.security_status, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -2583,7 +2583,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_security_status_message = function(buffer, offset, packet, parent)
   if show.consolidated_security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_security_status_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_security_status_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_security_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2612,7 +2612,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.trade_session = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.trade_session(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.trade_session, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.trade_session, range, value, display)
 
   return offset + length, value
 end
@@ -2670,7 +2670,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trading_session_change_message = function(buffer, offset, packet, parent)
   if show.consolidated_trading_session_change_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trading_session_change_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trading_session_change_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trading_session_change_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2699,7 +2699,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.next_source_seq_num = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.next_source_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.next_source_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.next_source_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2752,7 +2752,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_symbol_clear_message = function(buffer, offset, packet, parent)
   if show.consolidated_symbol_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_symbol_clear_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_symbol_clear_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_symbol_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2781,7 +2781,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.channel_id = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.channel_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -2801,7 +2801,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.product_id = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.product_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -2821,7 +2821,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.end_seq_num = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.end_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.end_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.end_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2841,7 +2841,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.begin_seq_num = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.begin_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.begin_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.begin_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2889,7 +2889,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_unavailable_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2918,7 +2918,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.source_id = function(buffer, offset, packet
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.source_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.source_id, range, value, display)
 
   return offset + length, value
 end
@@ -2966,7 +2966,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.refresh_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2999,7 +2999,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.retransmit_method = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.retransmit_method(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.retransmit_method, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.retransmit_method, range, value, display)
 
   return offset + length, value
 end
@@ -3052,7 +3052,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3094,7 +3094,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.heartbeat_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3154,7 +3154,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.status = function(buffer, offset, packet, p
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.status, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -3174,7 +3174,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.request_seq_num = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.request_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.request_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.request_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3237,7 +3237,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.request_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.request_response_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3299,7 +3299,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.retransmission_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3328,7 +3328,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.unit_of_trade = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.unit_of_trade(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.unit_of_trade, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.unit_of_trade, range, value, display)
 
   return offset + length, value
 end
@@ -3348,7 +3348,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.mpv = function(buffer, offset, packet, pare
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.mpv, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -3375,7 +3375,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.round_lot = function(buffer, offset, packet
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.round_lot, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
@@ -3405,7 +3405,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.price_resolution = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.price_resolution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.price_resolution, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_resolution, range, value, display)
 
   return offset + length, value
 end
@@ -3425,7 +3425,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.prev_close_volume = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.prev_close_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_volume, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3445,7 +3445,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.prev_close_price = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.prev_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_price, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.prev_close_price, range, value, display)
 
   return offset + length, value
 end
@@ -3465,7 +3465,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.lot_size = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.lot_size, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -3534,7 +3534,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.security_type = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.security_type, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -3554,7 +3554,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.price_scale_code = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.price_scale_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.price_scale_code, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.price_scale_code, range, value, display)
 
   return offset + length, value
 end
@@ -3599,7 +3599,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.exchange_code = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.exchange_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.exchange_code, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.exchange_code, range, value, display)
 
   return offset + length, value
 end
@@ -3619,7 +3619,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.system_id = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.system_id, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.system_id, range, value, display)
 
   return offset + length, value
 end
@@ -3639,7 +3639,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.reserved_1 = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_bqt_xdp_v1_7_a_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -3659,7 +3659,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.symbol = function(buffer, offset, packet, p
   local value = range:string()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3767,7 +3767,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3824,7 +3824,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4022,7 +4022,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.payload = function(buffer, offset, packet, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_equities_bqt_xdp_v1_7_a_display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.payload, range, display)
+  local element = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.payload, range, display)
 
   return nyse_equities_bqt_xdp_v1_7_a_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -4100,7 +4100,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.message_type = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_type, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -4120,7 +4120,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.message_size = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_size, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -4158,7 +4158,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_header, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4197,7 +4197,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.message_fields = function(buffer, offset, p
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_index, message_index)
+    local iteration = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -4220,7 +4220,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.message = function(buffer, offset, packet, 
     local length = nyse_equities_bqt_xdp_v1_7_a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message, range, display)
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message, range, display)
   end
 
   return nyse_equities_bqt_xdp_v1_7_a_dissect.message_fields(buffer, offset, packet, parent)
@@ -4241,7 +4241,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.nanoseconds = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.nanoseconds, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -4261,7 +4261,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.timestamp = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -4281,7 +4281,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -4301,7 +4301,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.message_count = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_count, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -4355,7 +4355,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.delivery_flag = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.delivery_flag, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
@@ -4375,7 +4375,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.packet_size = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bqt_xdp_v1_7_a_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -4433,7 +4433,7 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_equities_bqt_xdp_v1_7_a_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4471,23 +4471,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_equities_bqt_xdp_v1_7_a.init()
+function omi_nyse_equities_bqt_xdp_v1_7_a.init()
 end
 
 -- Dissector for Nyse Equities Bqt Xdp 1.7.a
-function nyse_equities_bqt_xdp_v1_7_a.dissector(buffer, packet, parent)
+function omi_nyse_equities_bqt_xdp_v1_7_a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_equities_bqt_xdp_v1_7_a.name
+  packet.cols.protocol = omi_nyse_equities_bqt_xdp_v1_7_a.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_equities_bqt_xdp_v1_7_a, buffer(), nyse_equities_bqt_xdp_v1_7_a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a, buffer(), omi_nyse_equities_bqt_xdp_v1_7_a.description, "("..buffer:len().." Bytes)")
   return nyse_equities_bqt_xdp_v1_7_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_equities_bqt_xdp_v1_7_a)
+udp_table:add(65333, omi_nyse_equities_bqt_xdp_v1_7_a)
 
 
 -----------------------------------------------------------------------
@@ -4495,25 +4495,25 @@ udp_table:add(65333, nyse_equities_bqt_xdp_v1_7_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_equities_bqt_xdp_v1_7_a_packet_size = function(buffer)
+verify.omi_nyse_equities_bqt_xdp_v1_7_a_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nyse Equities Bqt Xdp 1.7.a
-local function nyse_equities_bqt_xdp_v1_7_a_heuristic(buffer, packet, parent)
+local function omi_nyse_equities_bqt_xdp_v1_7_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_equities_bqt_xdp_v1_7_a_packet_size(buffer) then return false end
+  if not verify.omi_nyse_equities_bqt_xdp_v1_7_a_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_equities_bqt_xdp_v1_7_a
-  nyse_equities_bqt_xdp_v1_7_a.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_equities_bqt_xdp_v1_7_a
+  omi_nyse_equities_bqt_xdp_v1_7_a.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Equities Bqt Xdp 1.7.a
-nyse_equities_bqt_xdp_v1_7_a:register_heuristic("udp", nyse_equities_bqt_xdp_v1_7_a_heuristic)
+omi_nyse_equities_bqt_xdp_v1_7_a:register_heuristic("udp", omi_nyse_equities_bqt_xdp_v1_7_a_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

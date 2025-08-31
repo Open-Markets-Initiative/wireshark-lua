@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx Options Memo Sbe 1.6.a Protocol
-local memx_options_memo_sbe_v1_6_a = Proto("Memx.Options.Memo.Sbe.v1.6.a.Lua", "Memx Options Memo Sbe 1.6.a")
+local omi_memx_options_memo_sbe_v1_6_a = Proto("Memx.Options.Memo.Sbe.v1.6.a.Lua", "Memx Options Memo Sbe 1.6.a")
 
 -- Component Tables
 local show = {}
@@ -21,181 +21,181 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Memx Options Memo Sbe 1.6.a Fields
-memx_options_memo_sbe_v1_6_a.fields.alloc_canc_replace_reason = ProtoField.new("Alloc Canc Replace Reason", "memx.options.memo.sbe.v1.6.a.alloccancreplacereason", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.alloc_id = ProtoField.new("Alloc Id", "memx.options.memo.sbe.v1.6.a.allocid", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.alloc_position_effect = ProtoField.new("Alloc Position Effect", "memx.options.memo.sbe.v1.6.a.allocpositioneffect", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.alloc_qty = ProtoField.new("Alloc Qty", "memx.options.memo.sbe.v1.6.a.allocqty", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.alloc_rej_code = ProtoField.new("Alloc Rej Code", "memx.options.memo.sbe.v1.6.a.allocrejcode", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.alloc_status = ProtoField.new("Alloc Status", "memx.options.memo.sbe.v1.6.a.allocstatus", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.alloc_trans_type = ProtoField.new("Alloc Trans Type", "memx.options.memo.sbe.v1.6.a.alloctranstype", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.alloc_type = ProtoField.new("Alloc Type", "memx.options.memo.sbe.v1.6.a.alloctype", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.bid_px = ProtoField.new("Bid Px", "memx.options.memo.sbe.v1.6.a.bidpx", ftypes.DOUBLE)
-memx_options_memo_sbe_v1_6_a.fields.bid_size = ProtoField.new("Bid Size", "memx.options.memo.sbe.v1.6.a.bidsize", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.options.memo.sbe.v1.6.a.blocklength", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.block_length_short = ProtoField.new("Block Length Short", "memx.options.memo.sbe.v1.6.a.blocklengthshort", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.options.memo.sbe.v1.6.a.cancelgroupid", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.cancel_orders_from_this_port_only = ProtoField.new("Cancel Orders From This Port Only", "memx.options.memo.sbe.v1.6.a.cancelordersfromthisportonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-memx_options_memo_sbe_v1_6_a.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.options.memo.sbe.v1.6.a.cancelreason", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.clordid = ProtoField.new("ClOrdId", "memx.options.memo.sbe.v1.6.a.clordid", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.options.memo.sbe.v1.6.a.commonheader", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.contra_trading_capacity = ProtoField.new("Contra Trading Capacity", "memx.options.memo.sbe.v1.6.a.contratradingcapacity", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.count = ProtoField.new("Count", "memx.options.memo.sbe.v1.6.a.count", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.cum_qty = ProtoField.new("Cum Qty", "memx.options.memo.sbe.v1.6.a.cumqty", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "memx.options.memo.sbe.v1.6.a.cxlrejreason", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "memx.options.memo.sbe.v1.6.a.cxlrejresponseto", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.data = ProtoField.new("Data", "memx.options.memo.sbe.v1.6.a.data", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.efid_optional = ProtoField.new("Efid Optional", "memx.options.memo.sbe.v1.6.a.efidoptional", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.exec_id = ProtoField.new("Exec Id", "memx.options.memo.sbe.v1.6.a.execid", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.exec_inst = ProtoField.new("Exec Inst", "memx.options.memo.sbe.v1.6.a.execinst", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "memx.options.memo.sbe.v1.6.a.execrefid", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "memx.options.memo.sbe.v1.6.a.execrestatementreason", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group = ProtoField.new("Execution Allocations Group", "memx.options.memo.sbe.v1.6.a.executionallocationsgroup", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_allocations_groups = ProtoField.new("Execution Allocations Groups", "memx.options.memo.sbe.v1.6.a.executionallocationsgroups", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "memx.options.memo.sbe.v1.6.a.extendedrestatementreason", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "memx.options.memo.sbe.v1.6.a.externalroutingnotallowed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
-memx_options_memo_sbe_v1_6_a.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.options.memo.sbe.v1.6.a.intermarketsweep", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
-memx_options_memo_sbe_v1_6_a.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "memx.options.memo.sbe.v1.6.a.lastliquidityind", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.last_mkt = ProtoField.new("Last Mkt", "memx.options.memo.sbe.v1.6.a.lastmkt", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.last_px = ProtoField.new("Last Px", "memx.options.memo.sbe.v1.6.a.lastpx", ftypes.DOUBLE)
-memx_options_memo_sbe_v1_6_a.fields.last_qty = ProtoField.new("Last Qty", "memx.options.memo.sbe.v1.6.a.lastqty", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.last_qty_optional = ProtoField.new("Last Qty Optional", "memx.options.memo.sbe.v1.6.a.lastqtyoptional", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.leaves_qty = ProtoField.new("Leaves Qty", "memx.options.memo.sbe.v1.6.a.leavesqty", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.list_seq_no = ProtoField.new("List Seq No", "memx.options.memo.sbe.v1.6.a.listseqno", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.lockout = ProtoField.new("Lockout", "memx.options.memo.sbe.v1.6.a.lockout", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-memx_options_memo_sbe_v1_6_a.fields.lockout_id = ProtoField.new("Lockout Id", "memx.options.memo.sbe.v1.6.a.lockoutid", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.options.memo.sbe.v1.6.a.loginacceptedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.options.memo.sbe.v1.6.a.loginrejectcode", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.options.memo.sbe.v1.6.a.loginrejectedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.login_request_message = ProtoField.new("Login Request Message", "memx.options.memo.sbe.v1.6.a.loginrequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "memx.options.memo.sbe.v1.6.a.masscancelinst", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "memx.options.memo.sbe.v1.6.a.masscancelrejectreason", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.match_trade_prevention = ProtoField.new("Match Trade Prevention", "memx.options.memo.sbe.v1.6.a.matchtradeprevention", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.message_count = ProtoField.new("Message Count", "memx.options.memo.sbe.v1.6.a.messagecount", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.message_length = ProtoField.new("Message Length", "memx.options.memo.sbe.v1.6.a.messagelength", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.message_type = ProtoField.new("Message Type", "memx.options.memo.sbe.v1.6.a.messagetype", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.mtp_group_id = ProtoField.new("Mtp Group Id", "memx.options.memo.sbe.v1.6.a.mtpgroupid", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.options.memo.sbe.v1.6.a.nextsequencenumber", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.num_in_group = ProtoField.new("Num In Group", "memx.options.memo.sbe.v1.6.a.numingroup", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.number_of_orders = ProtoField.new("Number Of Orders", "memx.options.memo.sbe.v1.6.a.numberoforders", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.offer_px = ProtoField.new("Offer Px", "memx.options.memo.sbe.v1.6.a.offerpx", ftypes.DOUBLE)
-memx_options_memo_sbe_v1_6_a.fields.offer_size = ProtoField.new("Offer Size", "memx.options.memo.sbe.v1.6.a.offersize", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.options_security_id_optional = ProtoField.new("Options Security Id Optional", "memx.options.memo.sbe.v1.6.a.optionssecurityidoptional", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.ord_status = ProtoField.new("Ord Status", "memx.options.memo.sbe.v1.6.a.ordstatus", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.ord_type = ProtoField.new("Ord Type", "memx.options.memo.sbe.v1.6.a.ordtype", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.order_id = ProtoField.new("Order Id", "memx.options.memo.sbe.v1.6.a.orderid", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.order_id_optional = ProtoField.new("Order Id Optional", "memx.options.memo.sbe.v1.6.a.orderidoptional", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.order_qty = ProtoField.new("Order Qty", "memx.options.memo.sbe.v1.6.a.orderqty", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "memx.options.memo.sbe.v1.6.a.orderrejectreason", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.orig_list_seq_no = ProtoField.new("Orig List Seq No", "memx.options.memo.sbe.v1.6.a.origlistseqno", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.options.memo.sbe.v1.6.a.origclordid", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "memx.options.memo.sbe.v1.6.a.origclordidoptional", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.options.memo.sbe.v1.6.a.packet", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.options.memo.sbe.v1.6.a.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
-memx_options_memo_sbe_v1_6_a.fields.parties_group = ProtoField.new("Parties Group", "memx.options.memo.sbe.v1.6.a.partiesgroup", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.parties_groups = ProtoField.new("Parties Groups", "memx.options.memo.sbe.v1.6.a.partiesgroups", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.party_id = ProtoField.new("Party Id", "memx.options.memo.sbe.v1.6.a.partyid", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.party_id_source = ProtoField.new("Party Id Source", "memx.options.memo.sbe.v1.6.a.partyidsource", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.party_role = ProtoField.new("Party Role", "memx.options.memo.sbe.v1.6.a.partyrole", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.payload = ProtoField.new("Payload", "memx.options.memo.sbe.v1.6.a.payload", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.memo.sbe.v1.6.a.pendingmessagecount", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.position_effect = ProtoField.new("Position Effect", "memx.options.memo.sbe.v1.6.a.positioneffect", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.position_effect_optional = ProtoField.new("Position Effect Optional", "memx.options.memo.sbe.v1.6.a.positioneffectoptional", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.price_optional = ProtoField.new("Price Optional", "memx.options.memo.sbe.v1.6.a.priceoptional", ftypes.DOUBLE)
-memx_options_memo_sbe_v1_6_a.fields.quotes_group = ProtoField.new("Quotes Group", "memx.options.memo.sbe.v1.6.a.quotesgroup", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.quotes_groups = ProtoField.new("Quotes Groups", "memx.options.memo.sbe.v1.6.a.quotesgroups", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.ref_alloc_id_optional = ProtoField.new("Ref Alloc Id Optional", "memx.options.memo.sbe.v1.6.a.refallocidoptional", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.rej_reason = ProtoField.new("Rej Reason", "memx.options.memo.sbe.v1.6.a.rejreason", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "memx.options.memo.sbe.v1.6.a.repeatinggroupdimensions", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.options.memo.sbe.v1.6.a.replayallrequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.options.memo.sbe.v1.6.a.replaybeginmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.options.memo.sbe.v1.6.a.replaycompletemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "memx.options.memo.sbe.v1.6.a.replayrejectcode", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.options.memo.sbe.v1.6.a.replayrejectedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.options.memo.sbe.v1.6.a.replayrequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group = ProtoField.new("Reported Allocations Group", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroup", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.reported_allocations_groups = ProtoField.new("Reported Allocations Groups", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroups", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "memx.options.memo.sbe.v1.6.a.repricebehavior", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "memx.options.memo.sbe.v1.6.a.repricefrequency", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group = ProtoField.new("Requested Allocations Group", "memx.options.memo.sbe.v1.6.a.requestedallocationsgroup", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.requested_allocations_groups = ProtoField.new("Requested Allocations Groups", "memx.options.memo.sbe.v1.6.a.requestedallocationsgroups", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.options.memo.sbe.v1.6.a.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
-memx_options_memo_sbe_v1_6_a.fields.reserved_5 = ProtoField.new("Reserved 5", "memx.options.memo.sbe.v1.6.a.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
-memx_options_memo_sbe_v1_6_a.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.options.memo.sbe.v1.6.a.riskgroupid", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.memo.sbe.v1.6.a.sbeheader", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.memo.sbe.v1.6.a.sbemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema Id", "memx.options.memo.sbe.v1.6.a.schemaid", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.secondary_alloc_id = ProtoField.new("Secondary Alloc Id", "memx.options.memo.sbe.v1.6.a.secondaryallocid", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.security_id = ProtoField.new("Security Id", "memx.options.memo.sbe.v1.6.a.securityid", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.send_cancels = ProtoField.new("Send Cancels", "memx.options.memo.sbe.v1.6.a.sendcancels", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-memx_options_memo_sbe_v1_6_a.fields.sending_time = ProtoField.new("Sending Time", "memx.options.memo.sbe.v1.6.a.sendingtime", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.memo.sbe.v1.6.a.sequencedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.session_id = ProtoField.new("Session Id", "memx.options.memo.sbe.v1.6.a.sessionid", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.side = ProtoField.new("Side", "memx.options.memo.sbe.v1.6.a.side", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.side_optional = ProtoField.new("Side Optional", "memx.options.memo.sbe.v1.6.a.sideoptional", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.options.memo.sbe.v1.6.a.startofsessionmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.options.memo.sbe.v1.6.a.streambeginmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.options.memo.sbe.v1.6.a.streamcompletemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.options.memo.sbe.v1.6.a.streamrejectcode", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.options.memo.sbe.v1.6.a.streamrejectedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.options.memo.sbe.v1.6.a.streamrequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.options.memo.sbe.v1.6.a.supportedrequestmode", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.symbol = ProtoField.new("Symbol", "memx.options.memo.sbe.v1.6.a.symbol", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.template_id = ProtoField.new("Template Id", "memx.options.memo.sbe.v1.6.a.templateid", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.time_in_force = ProtoField.new("Time In Force", "memx.options.memo.sbe.v1.6.a.timeinforce", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.token = ProtoField.new("Token", "memx.options.memo.sbe.v1.6.a.token", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.token_type = ProtoField.new("Token Type", "memx.options.memo.sbe.v1.6.a.tokentype", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "memx.options.memo.sbe.v1.6.a.totalaffectedorders", ftypes.UINT32)
-memx_options_memo_sbe_v1_6_a.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.options.memo.sbe.v1.6.a.totalsequencecount", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.trade_date = ProtoField.new("Trade Date", "memx.options.memo.sbe.v1.6.a.tradedate", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.trade_id = ProtoField.new("Trade Id", "memx.options.memo.sbe.v1.6.a.tradeid", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.options.memo.sbe.v1.6.a.tradingcapacity", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.transact_time = ProtoField.new("Transact Time", "memx.options.memo.sbe.v1.6.a.transacttime", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.memo.sbe.v1.6.a.trdmatchid", ftypes.UINT64)
-memx_options_memo_sbe_v1_6_a.fields.underlier_optional = ProtoField.new("Underlier Optional", "memx.options.memo.sbe.v1.6.a.underlieroptional", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.underlying_or_series = ProtoField.new("Underlying Or Series", "memx.options.memo.sbe.v1.6.a.underlyingorseries", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.options.memo.sbe.v1.6.a.unsequencedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.user_status = ProtoField.new("User Status", "memx.options.memo.sbe.v1.6.a.userstatus", ftypes.UINT8)
-memx_options_memo_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.options.memo.sbe.v1.6.a.version", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_canc_replace_reason = ProtoField.new("Alloc Canc Replace Reason", "memx.options.memo.sbe.v1.6.a.alloccancreplacereason", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_id = ProtoField.new("Alloc Id", "memx.options.memo.sbe.v1.6.a.allocid", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_position_effect = ProtoField.new("Alloc Position Effect", "memx.options.memo.sbe.v1.6.a.allocpositioneffect", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_qty = ProtoField.new("Alloc Qty", "memx.options.memo.sbe.v1.6.a.allocqty", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_rej_code = ProtoField.new("Alloc Rej Code", "memx.options.memo.sbe.v1.6.a.allocrejcode", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_status = ProtoField.new("Alloc Status", "memx.options.memo.sbe.v1.6.a.allocstatus", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_trans_type = ProtoField.new("Alloc Trans Type", "memx.options.memo.sbe.v1.6.a.alloctranstype", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.alloc_type = ProtoField.new("Alloc Type", "memx.options.memo.sbe.v1.6.a.alloctype", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.bid_px = ProtoField.new("Bid Px", "memx.options.memo.sbe.v1.6.a.bidpx", ftypes.DOUBLE)
+omi_memx_options_memo_sbe_v1_6_a.fields.bid_size = ProtoField.new("Bid Size", "memx.options.memo.sbe.v1.6.a.bidsize", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.options.memo.sbe.v1.6.a.blocklength", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.block_length_short = ProtoField.new("Block Length Short", "memx.options.memo.sbe.v1.6.a.blocklengthshort", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.options.memo.sbe.v1.6.a.cancelgroupid", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.cancel_orders_from_this_port_only = ProtoField.new("Cancel Orders From This Port Only", "memx.options.memo.sbe.v1.6.a.cancelordersfromthisportonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_memx_options_memo_sbe_v1_6_a.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.options.memo.sbe.v1.6.a.cancelreason", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.clordid = ProtoField.new("ClOrdId", "memx.options.memo.sbe.v1.6.a.clordid", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.options.memo.sbe.v1.6.a.commonheader", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.contra_trading_capacity = ProtoField.new("Contra Trading Capacity", "memx.options.memo.sbe.v1.6.a.contratradingcapacity", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.count = ProtoField.new("Count", "memx.options.memo.sbe.v1.6.a.count", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.cum_qty = ProtoField.new("Cum Qty", "memx.options.memo.sbe.v1.6.a.cumqty", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "memx.options.memo.sbe.v1.6.a.cxlrejreason", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "memx.options.memo.sbe.v1.6.a.cxlrejresponseto", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.data = ProtoField.new("Data", "memx.options.memo.sbe.v1.6.a.data", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.efid_optional = ProtoField.new("Efid Optional", "memx.options.memo.sbe.v1.6.a.efidoptional", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.exec_id = ProtoField.new("Exec Id", "memx.options.memo.sbe.v1.6.a.execid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.exec_inst = ProtoField.new("Exec Inst", "memx.options.memo.sbe.v1.6.a.execinst", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "memx.options.memo.sbe.v1.6.a.execrefid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "memx.options.memo.sbe.v1.6.a.execrestatementreason", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group = ProtoField.new("Execution Allocations Group", "memx.options.memo.sbe.v1.6.a.executionallocationsgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_allocations_groups = ProtoField.new("Execution Allocations Groups", "memx.options.memo.sbe.v1.6.a.executionallocationsgroups", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "memx.options.memo.sbe.v1.6.a.extendedrestatementreason", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "memx.options.memo.sbe.v1.6.a.externalroutingnotallowed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
+omi_memx_options_memo_sbe_v1_6_a.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.options.memo.sbe.v1.6.a.intermarketsweep", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
+omi_memx_options_memo_sbe_v1_6_a.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "memx.options.memo.sbe.v1.6.a.lastliquidityind", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.last_mkt = ProtoField.new("Last Mkt", "memx.options.memo.sbe.v1.6.a.lastmkt", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.last_px = ProtoField.new("Last Px", "memx.options.memo.sbe.v1.6.a.lastpx", ftypes.DOUBLE)
+omi_memx_options_memo_sbe_v1_6_a.fields.last_qty = ProtoField.new("Last Qty", "memx.options.memo.sbe.v1.6.a.lastqty", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.last_qty_optional = ProtoField.new("Last Qty Optional", "memx.options.memo.sbe.v1.6.a.lastqtyoptional", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.leaves_qty = ProtoField.new("Leaves Qty", "memx.options.memo.sbe.v1.6.a.leavesqty", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.list_seq_no = ProtoField.new("List Seq No", "memx.options.memo.sbe.v1.6.a.listseqno", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.lockout = ProtoField.new("Lockout", "memx.options.memo.sbe.v1.6.a.lockout", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_memx_options_memo_sbe_v1_6_a.fields.lockout_id = ProtoField.new("Lockout Id", "memx.options.memo.sbe.v1.6.a.lockoutid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.options.memo.sbe.v1.6.a.loginacceptedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.options.memo.sbe.v1.6.a.loginrejectcode", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.options.memo.sbe.v1.6.a.loginrejectedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.login_request_message = ProtoField.new("Login Request Message", "memx.options.memo.sbe.v1.6.a.loginrequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "memx.options.memo.sbe.v1.6.a.masscancelinst", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "memx.options.memo.sbe.v1.6.a.masscancelrejectreason", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.match_trade_prevention = ProtoField.new("Match Trade Prevention", "memx.options.memo.sbe.v1.6.a.matchtradeprevention", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.message_count = ProtoField.new("Message Count", "memx.options.memo.sbe.v1.6.a.messagecount", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.message_length = ProtoField.new("Message Length", "memx.options.memo.sbe.v1.6.a.messagelength", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.message_type = ProtoField.new("Message Type", "memx.options.memo.sbe.v1.6.a.messagetype", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.mtp_group_id = ProtoField.new("Mtp Group Id", "memx.options.memo.sbe.v1.6.a.mtpgroupid", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.options.memo.sbe.v1.6.a.nextsequencenumber", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.num_in_group = ProtoField.new("Num In Group", "memx.options.memo.sbe.v1.6.a.numingroup", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.number_of_orders = ProtoField.new("Number Of Orders", "memx.options.memo.sbe.v1.6.a.numberoforders", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.offer_px = ProtoField.new("Offer Px", "memx.options.memo.sbe.v1.6.a.offerpx", ftypes.DOUBLE)
+omi_memx_options_memo_sbe_v1_6_a.fields.offer_size = ProtoField.new("Offer Size", "memx.options.memo.sbe.v1.6.a.offersize", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.options_security_id_optional = ProtoField.new("Options Security Id Optional", "memx.options.memo.sbe.v1.6.a.optionssecurityidoptional", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.ord_status = ProtoField.new("Ord Status", "memx.options.memo.sbe.v1.6.a.ordstatus", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.ord_type = ProtoField.new("Ord Type", "memx.options.memo.sbe.v1.6.a.ordtype", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.order_id = ProtoField.new("Order Id", "memx.options.memo.sbe.v1.6.a.orderid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.order_id_optional = ProtoField.new("Order Id Optional", "memx.options.memo.sbe.v1.6.a.orderidoptional", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.order_qty = ProtoField.new("Order Qty", "memx.options.memo.sbe.v1.6.a.orderqty", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "memx.options.memo.sbe.v1.6.a.orderrejectreason", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.orig_list_seq_no = ProtoField.new("Orig List Seq No", "memx.options.memo.sbe.v1.6.a.origlistseqno", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.options.memo.sbe.v1.6.a.origclordid", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "memx.options.memo.sbe.v1.6.a.origclordidoptional", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.options.memo.sbe.v1.6.a.packet", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.options.memo.sbe.v1.6.a.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_memx_options_memo_sbe_v1_6_a.fields.parties_group = ProtoField.new("Parties Group", "memx.options.memo.sbe.v1.6.a.partiesgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.parties_groups = ProtoField.new("Parties Groups", "memx.options.memo.sbe.v1.6.a.partiesgroups", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.party_id = ProtoField.new("Party Id", "memx.options.memo.sbe.v1.6.a.partyid", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.party_id_source = ProtoField.new("Party Id Source", "memx.options.memo.sbe.v1.6.a.partyidsource", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.party_role = ProtoField.new("Party Role", "memx.options.memo.sbe.v1.6.a.partyrole", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.payload = ProtoField.new("Payload", "memx.options.memo.sbe.v1.6.a.payload", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.memo.sbe.v1.6.a.pendingmessagecount", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.position_effect = ProtoField.new("Position Effect", "memx.options.memo.sbe.v1.6.a.positioneffect", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.position_effect_optional = ProtoField.new("Position Effect Optional", "memx.options.memo.sbe.v1.6.a.positioneffectoptional", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.price_optional = ProtoField.new("Price Optional", "memx.options.memo.sbe.v1.6.a.priceoptional", ftypes.DOUBLE)
+omi_memx_options_memo_sbe_v1_6_a.fields.quotes_group = ProtoField.new("Quotes Group", "memx.options.memo.sbe.v1.6.a.quotesgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.quotes_groups = ProtoField.new("Quotes Groups", "memx.options.memo.sbe.v1.6.a.quotesgroups", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.ref_alloc_id_optional = ProtoField.new("Ref Alloc Id Optional", "memx.options.memo.sbe.v1.6.a.refallocidoptional", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.rej_reason = ProtoField.new("Rej Reason", "memx.options.memo.sbe.v1.6.a.rejreason", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "memx.options.memo.sbe.v1.6.a.repeatinggroupdimensions", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.options.memo.sbe.v1.6.a.replayallrequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.options.memo.sbe.v1.6.a.replaybeginmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.options.memo.sbe.v1.6.a.replaycompletemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "memx.options.memo.sbe.v1.6.a.replayrejectcode", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.options.memo.sbe.v1.6.a.replayrejectedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.options.memo.sbe.v1.6.a.replayrequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group = ProtoField.new("Reported Allocations Group", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.reported_allocations_groups = ProtoField.new("Reported Allocations Groups", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroups", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "memx.options.memo.sbe.v1.6.a.repricebehavior", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "memx.options.memo.sbe.v1.6.a.repricefrequency", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group = ProtoField.new("Requested Allocations Group", "memx.options.memo.sbe.v1.6.a.requestedallocationsgroup", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.requested_allocations_groups = ProtoField.new("Requested Allocations Groups", "memx.options.memo.sbe.v1.6.a.requestedallocationsgroups", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.options.memo.sbe.v1.6.a.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
+omi_memx_options_memo_sbe_v1_6_a.fields.reserved_5 = ProtoField.new("Reserved 5", "memx.options.memo.sbe.v1.6.a.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_memx_options_memo_sbe_v1_6_a.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.options.memo.sbe.v1.6.a.riskgroupid", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.memo.sbe.v1.6.a.sbeheader", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.memo.sbe.v1.6.a.sbemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema Id", "memx.options.memo.sbe.v1.6.a.schemaid", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.secondary_alloc_id = ProtoField.new("Secondary Alloc Id", "memx.options.memo.sbe.v1.6.a.secondaryallocid", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.security_id = ProtoField.new("Security Id", "memx.options.memo.sbe.v1.6.a.securityid", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.send_cancels = ProtoField.new("Send Cancels", "memx.options.memo.sbe.v1.6.a.sendcancels", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_memx_options_memo_sbe_v1_6_a.fields.sending_time = ProtoField.new("Sending Time", "memx.options.memo.sbe.v1.6.a.sendingtime", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.memo.sbe.v1.6.a.sequencedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.session_id = ProtoField.new("Session Id", "memx.options.memo.sbe.v1.6.a.sessionid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.side = ProtoField.new("Side", "memx.options.memo.sbe.v1.6.a.side", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.side_optional = ProtoField.new("Side Optional", "memx.options.memo.sbe.v1.6.a.sideoptional", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.options.memo.sbe.v1.6.a.startofsessionmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.options.memo.sbe.v1.6.a.streambeginmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.options.memo.sbe.v1.6.a.streamcompletemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.options.memo.sbe.v1.6.a.streamrejectcode", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.options.memo.sbe.v1.6.a.streamrejectedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.options.memo.sbe.v1.6.a.streamrequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.options.memo.sbe.v1.6.a.supportedrequestmode", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.symbol = ProtoField.new("Symbol", "memx.options.memo.sbe.v1.6.a.symbol", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.template_id = ProtoField.new("Template Id", "memx.options.memo.sbe.v1.6.a.templateid", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.time_in_force = ProtoField.new("Time In Force", "memx.options.memo.sbe.v1.6.a.timeinforce", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.token = ProtoField.new("Token", "memx.options.memo.sbe.v1.6.a.token", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.token_type = ProtoField.new("Token Type", "memx.options.memo.sbe.v1.6.a.tokentype", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "memx.options.memo.sbe.v1.6.a.totalaffectedorders", ftypes.UINT32)
+omi_memx_options_memo_sbe_v1_6_a.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.options.memo.sbe.v1.6.a.totalsequencecount", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.trade_date = ProtoField.new("Trade Date", "memx.options.memo.sbe.v1.6.a.tradedate", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.trade_id = ProtoField.new("Trade Id", "memx.options.memo.sbe.v1.6.a.tradeid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.options.memo.sbe.v1.6.a.tradingcapacity", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.transact_time = ProtoField.new("Transact Time", "memx.options.memo.sbe.v1.6.a.transacttime", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.memo.sbe.v1.6.a.trdmatchid", ftypes.UINT64)
+omi_memx_options_memo_sbe_v1_6_a.fields.underlier_optional = ProtoField.new("Underlier Optional", "memx.options.memo.sbe.v1.6.a.underlieroptional", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.underlying_or_series = ProtoField.new("Underlying Or Series", "memx.options.memo.sbe.v1.6.a.underlyingorseries", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.options.memo.sbe.v1.6.a.unsequencedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.user_status = ProtoField.new("User Status", "memx.options.memo.sbe.v1.6.a.userstatus", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.options.memo.sbe.v1.6.a.version", ftypes.UINT16)
 
 -- Memx Options Memo Sbe 1.6.a messages
-memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message = ProtoField.new("Allocation Instruction Ack Message", "memx.options.memo.sbe.v1.6.a.allocationinstructionackmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_alert_message = ProtoField.new("Allocation Instruction Alert Message", "memx.options.memo.sbe.v1.6.a.allocationinstructionalertmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message = ProtoField.new("Allocation Instruction Message", "memx.options.memo.sbe.v1.6.a.allocationinstructionmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_component_new_message = ProtoField.new("Execution Report Bulk Quote Component New Message", "memx.options.memo.sbe.v1.6.a.executionreportbulkquotecomponentnewmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_pending_new_message = ProtoField.new("Execution Report Bulk Quote Pending New Message", "memx.options.memo.sbe.v1.6.a.executionreportbulkquotependingnewmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "memx.options.memo.sbe.v1.6.a.executionreportcanceledmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "memx.options.memo.sbe.v1.6.a.executionreportnewmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "memx.options.memo.sbe.v1.6.a.executionreportpendingcancelmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_replace_message = ProtoField.new("Execution Report Pending Replace Message", "memx.options.memo.sbe.v1.6.a.executionreportpendingreplacemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_rejected_message = ProtoField.new("Execution Report Rejected Message", "memx.options.memo.sbe.v1.6.a.executionreportrejectedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_replaced_message = ProtoField.new("Execution Report Replaced Message", "memx.options.memo.sbe.v1.6.a.executionreportreplacedmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_restatement_message = ProtoField.new("Execution Report Restatement Message", "memx.options.memo.sbe.v1.6.a.executionreportrestatementmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_break_message = ProtoField.new("Execution Report Trade Break Message", "memx.options.memo.sbe.v1.6.a.executionreporttradebreakmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_correction_message = ProtoField.new("Execution Report Trade Correction Message", "memx.options.memo.sbe.v1.6.a.executionreporttradecorrectionmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "memx.options.memo.sbe.v1.6.a.executionreporttrademessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.long_one_sided_bulk_quote_message = ProtoField.new("Long One Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.longonesidedbulkquotemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.long_two_sided_bulk_quote_message = ProtoField.new("Long Two Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.longtwosidedbulkquotemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_done_message = ProtoField.new("Mass Cancel Clear Lockout Done Message", "memx.options.memo.sbe.v1.6.a.masscancelclearlockoutdonemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_reject_message = ProtoField.new("Mass Cancel Clear Lockout Reject Message", "memx.options.memo.sbe.v1.6.a.masscancelclearlockoutrejectmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_request_message = ProtoField.new("Mass Cancel Clear Lockout Request Message", "memx.options.memo.sbe.v1.6.a.masscancelclearlockoutrequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_done_message = ProtoField.new("Mass Cancel Done Message", "memx.options.memo.sbe.v1.6.a.masscanceldonemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_message = ProtoField.new("Mass Cancel Reject Message", "memx.options.memo.sbe.v1.6.a.masscancelrejectmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "memx.options.memo.sbe.v1.6.a.masscancelrequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.new_order_single_message = ProtoField.new("New Order Single Message", "memx.options.memo.sbe.v1.6.a.newordersinglemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.order_cancel_reject_message = ProtoField.new("Order Cancel Reject Message", "memx.options.memo.sbe.v1.6.a.ordercancelrejectmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.order_cancel_replace_request_message = ProtoField.new("Order Cancel Replace Request Message", "memx.options.memo.sbe.v1.6.a.ordercancelreplacerequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "memx.options.memo.sbe.v1.6.a.ordercancelrequestmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "memx.options.memo.sbe.v1.6.a.pendingmasscancelmessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.short_one_sided_bulk_quote_message = ProtoField.new("Short One Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.shortonesidedbulkquotemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.short_two_sided_bulk_quote_message = ProtoField.new("Short Two Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.shorttwosidedbulkquotemessage", ftypes.STRING)
-memx_options_memo_sbe_v1_6_a.fields.user_notification_message = ProtoField.new("User Notification Message", "memx.options.memo.sbe.v1.6.a.usernotificationmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message = ProtoField.new("Allocation Instruction Ack Message", "memx.options.memo.sbe.v1.6.a.allocationinstructionackmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_alert_message = ProtoField.new("Allocation Instruction Alert Message", "memx.options.memo.sbe.v1.6.a.allocationinstructionalertmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message = ProtoField.new("Allocation Instruction Message", "memx.options.memo.sbe.v1.6.a.allocationinstructionmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_component_new_message = ProtoField.new("Execution Report Bulk Quote Component New Message", "memx.options.memo.sbe.v1.6.a.executionreportbulkquotecomponentnewmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_pending_new_message = ProtoField.new("Execution Report Bulk Quote Pending New Message", "memx.options.memo.sbe.v1.6.a.executionreportbulkquotependingnewmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "memx.options.memo.sbe.v1.6.a.executionreportcanceledmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "memx.options.memo.sbe.v1.6.a.executionreportnewmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "memx.options.memo.sbe.v1.6.a.executionreportpendingcancelmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_replace_message = ProtoField.new("Execution Report Pending Replace Message", "memx.options.memo.sbe.v1.6.a.executionreportpendingreplacemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_rejected_message = ProtoField.new("Execution Report Rejected Message", "memx.options.memo.sbe.v1.6.a.executionreportrejectedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_replaced_message = ProtoField.new("Execution Report Replaced Message", "memx.options.memo.sbe.v1.6.a.executionreportreplacedmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_restatement_message = ProtoField.new("Execution Report Restatement Message", "memx.options.memo.sbe.v1.6.a.executionreportrestatementmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_break_message = ProtoField.new("Execution Report Trade Break Message", "memx.options.memo.sbe.v1.6.a.executionreporttradebreakmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_correction_message = ProtoField.new("Execution Report Trade Correction Message", "memx.options.memo.sbe.v1.6.a.executionreporttradecorrectionmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "memx.options.memo.sbe.v1.6.a.executionreporttrademessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.long_one_sided_bulk_quote_message = ProtoField.new("Long One Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.longonesidedbulkquotemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.long_two_sided_bulk_quote_message = ProtoField.new("Long Two Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.longtwosidedbulkquotemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_done_message = ProtoField.new("Mass Cancel Clear Lockout Done Message", "memx.options.memo.sbe.v1.6.a.masscancelclearlockoutdonemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_reject_message = ProtoField.new("Mass Cancel Clear Lockout Reject Message", "memx.options.memo.sbe.v1.6.a.masscancelclearlockoutrejectmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_request_message = ProtoField.new("Mass Cancel Clear Lockout Request Message", "memx.options.memo.sbe.v1.6.a.masscancelclearlockoutrequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_done_message = ProtoField.new("Mass Cancel Done Message", "memx.options.memo.sbe.v1.6.a.masscanceldonemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_message = ProtoField.new("Mass Cancel Reject Message", "memx.options.memo.sbe.v1.6.a.masscancelrejectmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "memx.options.memo.sbe.v1.6.a.masscancelrequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.new_order_single_message = ProtoField.new("New Order Single Message", "memx.options.memo.sbe.v1.6.a.newordersinglemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.order_cancel_reject_message = ProtoField.new("Order Cancel Reject Message", "memx.options.memo.sbe.v1.6.a.ordercancelrejectmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.order_cancel_replace_request_message = ProtoField.new("Order Cancel Replace Request Message", "memx.options.memo.sbe.v1.6.a.ordercancelreplacerequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "memx.options.memo.sbe.v1.6.a.ordercancelrequestmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "memx.options.memo.sbe.v1.6.a.pendingmasscancelmessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.short_one_sided_bulk_quote_message = ProtoField.new("Short One Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.shortonesidedbulkquotemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.short_two_sided_bulk_quote_message = ProtoField.new("Short Two Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.shorttwosidedbulkquotemessage", ftypes.STRING)
+omi_memx_options_memo_sbe_v1_6_a.fields.user_notification_message = ProtoField.new("User Notification Message", "memx.options.memo.sbe.v1.6.a.usernotificationmessage", ftypes.STRING)
 
 -- Memx Options Memo Sbe 1.6.a generated fields
-memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index = ProtoField.new("Execution Allocations Group Index", "memx.options.memo.sbe.v1.6.a.executionallocationsgroupindex", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.parties_group_index = ProtoField.new("Parties Group Index", "memx.options.memo.sbe.v1.6.a.partiesgroupindex", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.quotes_group_index = ProtoField.new("Quotes Group Index", "memx.options.memo.sbe.v1.6.a.quotesgroupindex", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index = ProtoField.new("Reported Allocations Group Index", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroupindex", ftypes.UINT16)
-memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group_index = ProtoField.new("Requested Allocations Group Index", "memx.options.memo.sbe.v1.6.a.requestedallocationsgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index = ProtoField.new("Execution Allocations Group Index", "memx.options.memo.sbe.v1.6.a.executionallocationsgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.parties_group_index = ProtoField.new("Parties Group Index", "memx.options.memo.sbe.v1.6.a.partiesgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.quotes_group_index = ProtoField.new("Quotes Group Index", "memx.options.memo.sbe.v1.6.a.quotesgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index = ProtoField.new("Reported Allocations Group Index", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroupindex", ftypes.UINT16)
+omi_memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group_index = ProtoField.new("Requested Allocations Group Index", "memx.options.memo.sbe.v1.6.a.requestedallocationsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -269,335 +269,335 @@ show.data = false
 show.payload = false
 
 -- Register Memx Options Memo Sbe 1.6.a Show Options
-memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message = Pref.bool("Show Allocation Instruction Ack Message", show.allocation_instruction_ack_message, "Parse and add Allocation Instruction Ack Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message = Pref.bool("Show Allocation Instruction Alert Message", show.allocation_instruction_alert_message, "Parse and add Allocation Instruction Alert Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message = Pref.bool("Show Allocation Instruction Message", show.allocation_instruction_message, "Parse and add Allocation Instruction Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_group = Pref.bool("Show Execution Allocations Group", show.execution_allocations_group, "Parse and add Execution Allocations Group to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_groups = Pref.bool("Show Execution Allocations Groups", show.execution_allocations_groups, "Parse and add Execution Allocations Groups to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_component_new_message = Pref.bool("Show Execution Report Bulk Quote Component New Message", show.execution_report_bulk_quote_component_new_message, "Parse and add Execution Report Bulk Quote Component New Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_pending_new_message = Pref.bool("Show Execution Report Bulk Quote Pending New Message", show.execution_report_bulk_quote_pending_new_message, "Parse and add Execution Report Bulk Quote Pending New Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_canceled_message = Pref.bool("Show Execution Report Canceled Message", show.execution_report_canceled_message, "Parse and add Execution Report Canceled Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_cancel_message = Pref.bool("Show Execution Report Pending Cancel Message", show.execution_report_pending_cancel_message, "Parse and add Execution Report Pending Cancel Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_replace_message = Pref.bool("Show Execution Report Pending Replace Message", show.execution_report_pending_replace_message, "Parse and add Execution Report Pending Replace Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_rejected_message = Pref.bool("Show Execution Report Rejected Message", show.execution_report_rejected_message, "Parse and add Execution Report Rejected Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_replaced_message = Pref.bool("Show Execution Report Replaced Message", show.execution_report_replaced_message, "Parse and add Execution Report Replaced Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_restatement_message = Pref.bool("Show Execution Report Restatement Message", show.execution_report_restatement_message, "Parse and add Execution Report Restatement Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_break_message = Pref.bool("Show Execution Report Trade Break Message", show.execution_report_trade_break_message, "Parse and add Execution Report Trade Break Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_correction_message = Pref.bool("Show Execution Report Trade Correction Message", show.execution_report_trade_correction_message, "Parse and add Execution Report Trade Correction Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_message = Pref.bool("Show Execution Report Trade Message", show.execution_report_trade_message, "Parse and add Execution Report Trade Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_long_one_sided_bulk_quote_message = Pref.bool("Show Long One Sided Bulk Quote Message", show.long_one_sided_bulk_quote_message, "Parse and add Long One Sided Bulk Quote Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_long_two_sided_bulk_quote_message = Pref.bool("Show Long Two Sided Bulk Quote Message", show.long_two_sided_bulk_quote_message, "Parse and add Long Two Sided Bulk Quote Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_done_message = Pref.bool("Show Mass Cancel Clear Lockout Done Message", show.mass_cancel_clear_lockout_done_message, "Parse and add Mass Cancel Clear Lockout Done Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_reject_message = Pref.bool("Show Mass Cancel Clear Lockout Reject Message", show.mass_cancel_clear_lockout_reject_message, "Parse and add Mass Cancel Clear Lockout Reject Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_request_message = Pref.bool("Show Mass Cancel Clear Lockout Request Message", show.mass_cancel_clear_lockout_request_message, "Parse and add Mass Cancel Clear Lockout Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_done_message = Pref.bool("Show Mass Cancel Done Message", show.mass_cancel_done_message, "Parse and add Mass Cancel Done Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_reject_message = Pref.bool("Show Order Cancel Reject Message", show.order_cancel_reject_message, "Parse and add Order Cancel Reject Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_pending_mass_cancel_message = Pref.bool("Show Pending Mass Cancel Message", show.pending_mass_cancel_message, "Parse and add Pending Mass Cancel Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_quotes_group = Pref.bool("Show Quotes Group", show.quotes_group, "Parse and add Quotes Group to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_quotes_groups = Pref.bool("Show Quotes Groups", show.quotes_groups, "Parse and add Quotes Groups to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_group = Pref.bool("Show Reported Allocations Group", show.reported_allocations_group, "Parse and add Reported Allocations Group to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_groups = Pref.bool("Show Reported Allocations Groups", show.reported_allocations_groups, "Parse and add Reported Allocations Groups to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_group = Pref.bool("Show Requested Allocations Group", show.requested_allocations_group, "Parse and add Requested Allocations Group to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_groups = Pref.bool("Show Requested Allocations Groups", show.requested_allocations_groups, "Parse and add Requested Allocations Groups to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_short_one_sided_bulk_quote_message = Pref.bool("Show Short One Sided Bulk Quote Message", show.short_one_sided_bulk_quote_message, "Parse and add Short One Sided Bulk Quote Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_short_two_sided_bulk_quote_message = Pref.bool("Show Short Two Sided Bulk Quote Message", show.short_two_sided_bulk_quote_message, "Parse and add Short Two Sided Bulk Quote Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_user_notification_message = Pref.bool("Show User Notification Message", show.user_notification_message, "Parse and add User Notification Message to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-memx_options_memo_sbe_v1_6_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message = Pref.bool("Show Allocation Instruction Ack Message", show.allocation_instruction_ack_message, "Parse and add Allocation Instruction Ack Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message = Pref.bool("Show Allocation Instruction Alert Message", show.allocation_instruction_alert_message, "Parse and add Allocation Instruction Alert Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message = Pref.bool("Show Allocation Instruction Message", show.allocation_instruction_message, "Parse and add Allocation Instruction Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_group = Pref.bool("Show Execution Allocations Group", show.execution_allocations_group, "Parse and add Execution Allocations Group to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_groups = Pref.bool("Show Execution Allocations Groups", show.execution_allocations_groups, "Parse and add Execution Allocations Groups to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_component_new_message = Pref.bool("Show Execution Report Bulk Quote Component New Message", show.execution_report_bulk_quote_component_new_message, "Parse and add Execution Report Bulk Quote Component New Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_pending_new_message = Pref.bool("Show Execution Report Bulk Quote Pending New Message", show.execution_report_bulk_quote_pending_new_message, "Parse and add Execution Report Bulk Quote Pending New Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_canceled_message = Pref.bool("Show Execution Report Canceled Message", show.execution_report_canceled_message, "Parse and add Execution Report Canceled Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_cancel_message = Pref.bool("Show Execution Report Pending Cancel Message", show.execution_report_pending_cancel_message, "Parse and add Execution Report Pending Cancel Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_replace_message = Pref.bool("Show Execution Report Pending Replace Message", show.execution_report_pending_replace_message, "Parse and add Execution Report Pending Replace Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_rejected_message = Pref.bool("Show Execution Report Rejected Message", show.execution_report_rejected_message, "Parse and add Execution Report Rejected Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_replaced_message = Pref.bool("Show Execution Report Replaced Message", show.execution_report_replaced_message, "Parse and add Execution Report Replaced Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_restatement_message = Pref.bool("Show Execution Report Restatement Message", show.execution_report_restatement_message, "Parse and add Execution Report Restatement Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_break_message = Pref.bool("Show Execution Report Trade Break Message", show.execution_report_trade_break_message, "Parse and add Execution Report Trade Break Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_correction_message = Pref.bool("Show Execution Report Trade Correction Message", show.execution_report_trade_correction_message, "Parse and add Execution Report Trade Correction Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_message = Pref.bool("Show Execution Report Trade Message", show.execution_report_trade_message, "Parse and add Execution Report Trade Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_long_one_sided_bulk_quote_message = Pref.bool("Show Long One Sided Bulk Quote Message", show.long_one_sided_bulk_quote_message, "Parse and add Long One Sided Bulk Quote Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_long_two_sided_bulk_quote_message = Pref.bool("Show Long Two Sided Bulk Quote Message", show.long_two_sided_bulk_quote_message, "Parse and add Long Two Sided Bulk Quote Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_done_message = Pref.bool("Show Mass Cancel Clear Lockout Done Message", show.mass_cancel_clear_lockout_done_message, "Parse and add Mass Cancel Clear Lockout Done Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_reject_message = Pref.bool("Show Mass Cancel Clear Lockout Reject Message", show.mass_cancel_clear_lockout_reject_message, "Parse and add Mass Cancel Clear Lockout Reject Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_request_message = Pref.bool("Show Mass Cancel Clear Lockout Request Message", show.mass_cancel_clear_lockout_request_message, "Parse and add Mass Cancel Clear Lockout Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_done_message = Pref.bool("Show Mass Cancel Done Message", show.mass_cancel_done_message, "Parse and add Mass Cancel Done Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_reject_message = Pref.bool("Show Order Cancel Reject Message", show.order_cancel_reject_message, "Parse and add Order Cancel Reject Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_pending_mass_cancel_message = Pref.bool("Show Pending Mass Cancel Message", show.pending_mass_cancel_message, "Parse and add Pending Mass Cancel Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_quotes_group = Pref.bool("Show Quotes Group", show.quotes_group, "Parse and add Quotes Group to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_quotes_groups = Pref.bool("Show Quotes Groups", show.quotes_groups, "Parse and add Quotes Groups to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_group = Pref.bool("Show Reported Allocations Group", show.reported_allocations_group, "Parse and add Reported Allocations Group to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_groups = Pref.bool("Show Reported Allocations Groups", show.reported_allocations_groups, "Parse and add Reported Allocations Groups to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_group = Pref.bool("Show Requested Allocations Group", show.requested_allocations_group, "Parse and add Requested Allocations Group to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_groups = Pref.bool("Show Requested Allocations Groups", show.requested_allocations_groups, "Parse and add Requested Allocations Groups to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_short_one_sided_bulk_quote_message = Pref.bool("Show Short One Sided Bulk Quote Message", show.short_one_sided_bulk_quote_message, "Parse and add Short One Sided Bulk Quote Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_short_two_sided_bulk_quote_message = Pref.bool("Show Short Two Sided Bulk Quote Message", show.short_two_sided_bulk_quote_message, "Parse and add Short Two Sided Bulk Quote Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_user_notification_message = Pref.bool("Show User Notification Message", show.user_notification_message, "Parse and add User Notification Message to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+omi_memx_options_memo_sbe_v1_6_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function memx_options_memo_sbe_v1_6_a.prefs_changed()
+function omi_memx_options_memo_sbe_v1_6_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.allocation_instruction_ack_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message then
-    show.allocation_instruction_ack_message = memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message
+  if show.allocation_instruction_ack_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message then
+    show.allocation_instruction_ack_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_ack_message
     changed = true
   end
-  if show.allocation_instruction_alert_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message then
-    show.allocation_instruction_alert_message = memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message
+  if show.allocation_instruction_alert_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message then
+    show.allocation_instruction_alert_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_alert_message
     changed = true
   end
-  if show.allocation_instruction_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message then
-    show.allocation_instruction_message = memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message
+  if show.allocation_instruction_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message then
+    show.allocation_instruction_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_allocation_instruction_message
     changed = true
   end
-  if show.common_header ~= memx_options_memo_sbe_v1_6_a.prefs.show_common_header then
-    show.common_header = memx_options_memo_sbe_v1_6_a.prefs.show_common_header
+  if show.common_header ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_common_header then
+    show.common_header = omi_memx_options_memo_sbe_v1_6_a.prefs.show_common_header
     changed = true
   end
-  if show.exec_inst ~= memx_options_memo_sbe_v1_6_a.prefs.show_exec_inst then
-    show.exec_inst = memx_options_memo_sbe_v1_6_a.prefs.show_exec_inst
+  if show.exec_inst ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_exec_inst then
+    show.exec_inst = omi_memx_options_memo_sbe_v1_6_a.prefs.show_exec_inst
     changed = true
   end
-  if show.execution_allocations_group ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_group then
-    show.execution_allocations_group = memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_group
+  if show.execution_allocations_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_group then
+    show.execution_allocations_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_group
     changed = true
   end
-  if show.execution_allocations_groups ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_groups then
-    show.execution_allocations_groups = memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_groups
+  if show.execution_allocations_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_groups then
+    show.execution_allocations_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_allocations_groups
     changed = true
   end
-  if show.execution_report_bulk_quote_component_new_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_component_new_message then
-    show.execution_report_bulk_quote_component_new_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_component_new_message
+  if show.execution_report_bulk_quote_component_new_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_component_new_message then
+    show.execution_report_bulk_quote_component_new_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_component_new_message
     changed = true
   end
-  if show.execution_report_bulk_quote_pending_new_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_pending_new_message then
-    show.execution_report_bulk_quote_pending_new_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_pending_new_message
+  if show.execution_report_bulk_quote_pending_new_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_pending_new_message then
+    show.execution_report_bulk_quote_pending_new_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_bulk_quote_pending_new_message
     changed = true
   end
-  if show.execution_report_canceled_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_canceled_message then
-    show.execution_report_canceled_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_canceled_message
+  if show.execution_report_canceled_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_canceled_message then
+    show.execution_report_canceled_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_canceled_message
     changed = true
   end
-  if show.execution_report_new_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_new_message then
-    show.execution_report_new_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_new_message
+  if show.execution_report_new_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_new_message then
+    show.execution_report_new_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_new_message
     changed = true
   end
-  if show.execution_report_pending_cancel_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_cancel_message then
-    show.execution_report_pending_cancel_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_cancel_message
+  if show.execution_report_pending_cancel_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_cancel_message then
+    show.execution_report_pending_cancel_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_cancel_message
     changed = true
   end
-  if show.execution_report_pending_replace_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_replace_message then
-    show.execution_report_pending_replace_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_replace_message
+  if show.execution_report_pending_replace_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_replace_message then
+    show.execution_report_pending_replace_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_pending_replace_message
     changed = true
   end
-  if show.execution_report_rejected_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_rejected_message then
-    show.execution_report_rejected_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_rejected_message
+  if show.execution_report_rejected_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_rejected_message then
+    show.execution_report_rejected_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_rejected_message
     changed = true
   end
-  if show.execution_report_replaced_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_replaced_message then
-    show.execution_report_replaced_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_replaced_message
+  if show.execution_report_replaced_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_replaced_message then
+    show.execution_report_replaced_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_replaced_message
     changed = true
   end
-  if show.execution_report_restatement_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_restatement_message then
-    show.execution_report_restatement_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_restatement_message
+  if show.execution_report_restatement_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_restatement_message then
+    show.execution_report_restatement_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_restatement_message
     changed = true
   end
-  if show.execution_report_trade_break_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_break_message then
-    show.execution_report_trade_break_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_break_message
+  if show.execution_report_trade_break_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_break_message then
+    show.execution_report_trade_break_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_break_message
     changed = true
   end
-  if show.execution_report_trade_correction_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_correction_message then
-    show.execution_report_trade_correction_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_correction_message
+  if show.execution_report_trade_correction_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_correction_message then
+    show.execution_report_trade_correction_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_correction_message
     changed = true
   end
-  if show.execution_report_trade_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_message then
-    show.execution_report_trade_message = memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_message
+  if show.execution_report_trade_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_message then
+    show.execution_report_trade_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_execution_report_trade_message
     changed = true
   end
-  if show.login_accepted_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_login_accepted_message then
-    show.login_accepted_message = memx_options_memo_sbe_v1_6_a.prefs.show_login_accepted_message
+  if show.login_accepted_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_accepted_message then
+    show.login_accepted_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_accepted_message
     changed = true
   end
-  if show.login_rejected_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_login_rejected_message then
-    show.login_rejected_message = memx_options_memo_sbe_v1_6_a.prefs.show_login_rejected_message
+  if show.login_rejected_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_rejected_message then
+    show.login_rejected_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_rejected_message
     changed = true
   end
-  if show.login_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_login_request_message then
-    show.login_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_login_request_message
+  if show.login_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_request_message then
+    show.login_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_login_request_message
     changed = true
   end
-  if show.long_one_sided_bulk_quote_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_long_one_sided_bulk_quote_message then
-    show.long_one_sided_bulk_quote_message = memx_options_memo_sbe_v1_6_a.prefs.show_long_one_sided_bulk_quote_message
+  if show.long_one_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_long_one_sided_bulk_quote_message then
+    show.long_one_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_long_one_sided_bulk_quote_message
     changed = true
   end
-  if show.long_two_sided_bulk_quote_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_long_two_sided_bulk_quote_message then
-    show.long_two_sided_bulk_quote_message = memx_options_memo_sbe_v1_6_a.prefs.show_long_two_sided_bulk_quote_message
+  if show.long_two_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_long_two_sided_bulk_quote_message then
+    show.long_two_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_long_two_sided_bulk_quote_message
     changed = true
   end
-  if show.mass_cancel_clear_lockout_done_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_done_message then
-    show.mass_cancel_clear_lockout_done_message = memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_done_message
+  if show.mass_cancel_clear_lockout_done_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_done_message then
+    show.mass_cancel_clear_lockout_done_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_done_message
     changed = true
   end
-  if show.mass_cancel_clear_lockout_reject_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_reject_message then
-    show.mass_cancel_clear_lockout_reject_message = memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_reject_message
+  if show.mass_cancel_clear_lockout_reject_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_reject_message then
+    show.mass_cancel_clear_lockout_reject_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_reject_message
     changed = true
   end
-  if show.mass_cancel_clear_lockout_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_request_message then
-    show.mass_cancel_clear_lockout_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_request_message
+  if show.mass_cancel_clear_lockout_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_request_message then
+    show.mass_cancel_clear_lockout_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_clear_lockout_request_message
     changed = true
   end
-  if show.mass_cancel_done_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_done_message then
-    show.mass_cancel_done_message = memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_done_message
+  if show.mass_cancel_done_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_done_message then
+    show.mass_cancel_done_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_done_message
     changed = true
   end
-  if show.mass_cancel_inst ~= memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_inst then
-    show.mass_cancel_inst = memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_inst
+  if show.mass_cancel_inst ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_inst then
+    show.mass_cancel_inst = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_inst
     changed = true
   end
-  if show.mass_cancel_reject_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_reject_message then
-    show.mass_cancel_reject_message = memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_reject_message
+  if show.mass_cancel_reject_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_reject_message then
+    show.mass_cancel_reject_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_reject_message
     changed = true
   end
-  if show.mass_cancel_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message then
-    show.mass_cancel_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message
+  if show.mass_cancel_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message then
+    show.mass_cancel_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_mass_cancel_request_message
     changed = true
   end
-  if show.new_order_single_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message then
-    show.new_order_single_message = memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message
+  if show.new_order_single_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message then
+    show.new_order_single_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_new_order_single_message
     changed = true
   end
-  if show.order_cancel_reject_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_reject_message then
-    show.order_cancel_reject_message = memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_reject_message
+  if show.order_cancel_reject_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_reject_message then
+    show.order_cancel_reject_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_reject_message
     changed = true
   end
-  if show.order_cancel_replace_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_replace_request_message then
-    show.order_cancel_replace_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_replace_request_message
+  if show.order_cancel_replace_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_replace_request_message then
+    show.order_cancel_replace_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_replace_request_message
     changed = true
   end
-  if show.order_cancel_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_request_message
+  if show.order_cancel_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_request_message then
+    show.order_cancel_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_order_cancel_request_message
     changed = true
   end
-  if show.packet ~= memx_options_memo_sbe_v1_6_a.prefs.show_packet then
-    show.packet = memx_options_memo_sbe_v1_6_a.prefs.show_packet
+  if show.packet ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_packet then
+    show.packet = omi_memx_options_memo_sbe_v1_6_a.prefs.show_packet
     changed = true
   end
-  if show.parties_group ~= memx_options_memo_sbe_v1_6_a.prefs.show_parties_group then
-    show.parties_group = memx_options_memo_sbe_v1_6_a.prefs.show_parties_group
+  if show.parties_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_parties_group then
+    show.parties_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_parties_group
     changed = true
   end
-  if show.parties_groups ~= memx_options_memo_sbe_v1_6_a.prefs.show_parties_groups then
-    show.parties_groups = memx_options_memo_sbe_v1_6_a.prefs.show_parties_groups
+  if show.parties_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_parties_groups then
+    show.parties_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_parties_groups
     changed = true
   end
-  if show.pending_mass_cancel_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_pending_mass_cancel_message then
-    show.pending_mass_cancel_message = memx_options_memo_sbe_v1_6_a.prefs.show_pending_mass_cancel_message
+  if show.pending_mass_cancel_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_pending_mass_cancel_message then
+    show.pending_mass_cancel_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_pending_mass_cancel_message
     changed = true
   end
-  if show.quotes_group ~= memx_options_memo_sbe_v1_6_a.prefs.show_quotes_group then
-    show.quotes_group = memx_options_memo_sbe_v1_6_a.prefs.show_quotes_group
+  if show.quotes_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_quotes_group then
+    show.quotes_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_quotes_group
     changed = true
   end
-  if show.quotes_groups ~= memx_options_memo_sbe_v1_6_a.prefs.show_quotes_groups then
-    show.quotes_groups = memx_options_memo_sbe_v1_6_a.prefs.show_quotes_groups
+  if show.quotes_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_quotes_groups then
+    show.quotes_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_quotes_groups
     changed = true
   end
-  if show.repeating_group_dimensions ~= memx_options_memo_sbe_v1_6_a.prefs.show_repeating_group_dimensions then
-    show.repeating_group_dimensions = memx_options_memo_sbe_v1_6_a.prefs.show_repeating_group_dimensions
+  if show.repeating_group_dimensions ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_repeating_group_dimensions then
+    show.repeating_group_dimensions = omi_memx_options_memo_sbe_v1_6_a.prefs.show_repeating_group_dimensions
     changed = true
   end
-  if show.replay_all_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_replay_all_request_message then
-    show.replay_all_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_replay_all_request_message
+  if show.replay_all_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_all_request_message then
+    show.replay_all_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_all_request_message
     changed = true
   end
-  if show.replay_begin_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_replay_begin_message then
-    show.replay_begin_message = memx_options_memo_sbe_v1_6_a.prefs.show_replay_begin_message
+  if show.replay_begin_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_begin_message then
+    show.replay_begin_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_begin_message
     changed = true
   end
-  if show.replay_complete_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_replay_complete_message then
-    show.replay_complete_message = memx_options_memo_sbe_v1_6_a.prefs.show_replay_complete_message
+  if show.replay_complete_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_complete_message then
+    show.replay_complete_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_complete_message
     changed = true
   end
-  if show.replay_rejected_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_replay_rejected_message then
-    show.replay_rejected_message = memx_options_memo_sbe_v1_6_a.prefs.show_replay_rejected_message
+  if show.replay_rejected_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_rejected_message then
+    show.replay_rejected_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_rejected_message
     changed = true
   end
-  if show.replay_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_replay_request_message then
-    show.replay_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_replay_request_message
+  if show.replay_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_request_message then
+    show.replay_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_replay_request_message
     changed = true
   end
-  if show.reported_allocations_group ~= memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_group then
-    show.reported_allocations_group = memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_group
+  if show.reported_allocations_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_group then
+    show.reported_allocations_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_group
     changed = true
   end
-  if show.reported_allocations_groups ~= memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_groups then
-    show.reported_allocations_groups = memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_groups
+  if show.reported_allocations_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_groups then
+    show.reported_allocations_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_reported_allocations_groups
     changed = true
   end
-  if show.requested_allocations_group ~= memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_group then
-    show.requested_allocations_group = memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_group
+  if show.requested_allocations_group ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_group then
+    show.requested_allocations_group = omi_memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_group
     changed = true
   end
-  if show.requested_allocations_groups ~= memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_groups then
-    show.requested_allocations_groups = memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_groups
+  if show.requested_allocations_groups ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_groups then
+    show.requested_allocations_groups = omi_memx_options_memo_sbe_v1_6_a.prefs.show_requested_allocations_groups
     changed = true
   end
-  if show.sbe_header ~= memx_options_memo_sbe_v1_6_a.prefs.show_sbe_header then
-    show.sbe_header = memx_options_memo_sbe_v1_6_a.prefs.show_sbe_header
+  if show.sbe_header ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_sbe_header then
+    show.sbe_header = omi_memx_options_memo_sbe_v1_6_a.prefs.show_sbe_header
     changed = true
   end
-  if show.sbe_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_sbe_message then
-    show.sbe_message = memx_options_memo_sbe_v1_6_a.prefs.show_sbe_message
+  if show.sbe_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_sbe_message then
+    show.sbe_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_sbe_message
     changed = true
   end
-  if show.sequenced_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_sequenced_message then
-    show.sequenced_message = memx_options_memo_sbe_v1_6_a.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_sequenced_message then
+    show.sequenced_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_sequenced_message
     changed = true
   end
-  if show.short_one_sided_bulk_quote_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_short_one_sided_bulk_quote_message then
-    show.short_one_sided_bulk_quote_message = memx_options_memo_sbe_v1_6_a.prefs.show_short_one_sided_bulk_quote_message
+  if show.short_one_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_short_one_sided_bulk_quote_message then
+    show.short_one_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_short_one_sided_bulk_quote_message
     changed = true
   end
-  if show.short_two_sided_bulk_quote_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_short_two_sided_bulk_quote_message then
-    show.short_two_sided_bulk_quote_message = memx_options_memo_sbe_v1_6_a.prefs.show_short_two_sided_bulk_quote_message
+  if show.short_two_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_short_two_sided_bulk_quote_message then
+    show.short_two_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_short_two_sided_bulk_quote_message
     changed = true
   end
-  if show.start_of_session_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_start_of_session_message then
-    show.start_of_session_message = memx_options_memo_sbe_v1_6_a.prefs.show_start_of_session_message
+  if show.start_of_session_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_start_of_session_message then
+    show.start_of_session_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_start_of_session_message
     changed = true
   end
-  if show.stream_begin_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_stream_begin_message then
-    show.stream_begin_message = memx_options_memo_sbe_v1_6_a.prefs.show_stream_begin_message
+  if show.stream_begin_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_begin_message then
+    show.stream_begin_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_begin_message
     changed = true
   end
-  if show.stream_complete_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_stream_complete_message then
-    show.stream_complete_message = memx_options_memo_sbe_v1_6_a.prefs.show_stream_complete_message
+  if show.stream_complete_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_complete_message then
+    show.stream_complete_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_complete_message
     changed = true
   end
-  if show.stream_rejected_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_stream_rejected_message then
-    show.stream_rejected_message = memx_options_memo_sbe_v1_6_a.prefs.show_stream_rejected_message
+  if show.stream_rejected_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_rejected_message then
+    show.stream_rejected_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_rejected_message
     changed = true
   end
-  if show.stream_request_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_stream_request_message then
-    show.stream_request_message = memx_options_memo_sbe_v1_6_a.prefs.show_stream_request_message
+  if show.stream_request_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_request_message then
+    show.stream_request_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_stream_request_message
     changed = true
   end
-  if show.unsequenced_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_unsequenced_message then
-    show.unsequenced_message = memx_options_memo_sbe_v1_6_a.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_unsequenced_message
     changed = true
   end
-  if show.user_notification_message ~= memx_options_memo_sbe_v1_6_a.prefs.show_user_notification_message then
-    show.user_notification_message = memx_options_memo_sbe_v1_6_a.prefs.show_user_notification_message
+  if show.user_notification_message ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_user_notification_message then
+    show.user_notification_message = omi_memx_options_memo_sbe_v1_6_a.prefs.show_user_notification_message
     changed = true
   end
-  if show.data ~= memx_options_memo_sbe_v1_6_a.prefs.show_data then
-    show.data = memx_options_memo_sbe_v1_6_a.prefs.show_data
+  if show.data ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_data then
+    show.data = omi_memx_options_memo_sbe_v1_6_a.prefs.show_data
     changed = true
   end
-  if show.payload ~= memx_options_memo_sbe_v1_6_a.prefs.show_payload then
-    show.payload = memx_options_memo_sbe_v1_6_a.prefs.show_payload
+  if show.payload ~= omi_memx_options_memo_sbe_v1_6_a.prefs.show_payload then
+    show.payload = omi_memx_options_memo_sbe_v1_6_a.prefs.show_payload
     changed = true
   end
 
@@ -631,7 +631,7 @@ memx_options_memo_sbe_v1_6_a_dissect.sending_time = function(buffer, offset, pac
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.sending_time, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -656,7 +656,7 @@ memx_options_memo_sbe_v1_6_a_dissect.lockout_id = function(buffer, offset, packe
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.lockout_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.lockout_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.lockout_id, range, value, display)
 
   return offset + length, value
 end
@@ -692,7 +692,7 @@ memx_options_memo_sbe_v1_6_a_dissect.clordid = function(buffer, offset, packet, 
 
   local display = memx_options_memo_sbe_v1_6_a_display.clordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.clordid, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -735,7 +735,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_done_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_clear_lockout_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_done_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_done_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_done_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -789,7 +789,7 @@ memx_options_memo_sbe_v1_6_a_dissect.rej_reason = function(buffer, offset, packe
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.rej_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.rej_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.rej_reason, range, value, display)
 
   return offset + length, value
 end
@@ -837,7 +837,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_clear_lockout_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_reject_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -876,7 +876,7 @@ memx_options_memo_sbe_v1_6_a_dissect.user_status = function(buffer, offset, pack
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.user_status(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.user_status, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.user_status, range, value, display)
 
   return offset + length, value
 end
@@ -914,7 +914,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.user_notification_message = function(buffer, offset, packet, parent)
   if show.user_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.user_notification_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.user_notification_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.user_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -959,7 +959,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_id = function(buffer, offset, packet,
 
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_id, range, value, display)
 
   return offset + length, value
 end
@@ -999,7 +999,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_position_effect = function(buffer, of
 
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_position_effect(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_position_effect, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_position_effect, range, value, display)
 
   return offset + length, value
 end
@@ -1019,7 +1019,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_qty = function(buffer, offset, packet
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_qty(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_qty, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1048,7 +1048,7 @@ memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group_fields = functio
 
   -- Implicit Reported Allocations Group Index
   if reported_allocations_group_index ~= nil then
-    local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index, reported_allocations_group_index)
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index, reported_allocations_group_index)
     iteration:set_generated()
   end
 
@@ -1068,7 +1068,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group = function(buffer, offset, packet, parent, reported_allocations_group_index)
   if show.reported_allocations_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group_fields(buffer, offset, packet, parent, reported_allocations_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1097,7 +1097,7 @@ memx_options_memo_sbe_v1_6_a_dissect.num_in_group = function(buffer, offset, pac
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.num_in_group(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.num_in_group, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -1117,7 +1117,7 @@ memx_options_memo_sbe_v1_6_a_dissect.block_length_short = function(buffer, offse
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.block_length_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.block_length_short, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -1155,7 +1155,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.repeating_group_dimensions = function(buffer, offset, packet, parent)
   if show.repeating_group_dimensions then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.repeating_group_dimensions, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.repeating_group_dimensions, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1212,7 +1212,7 @@ memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_groups = function(buff
     local length = memx_options_memo_sbe_v1_6_a_size_of.reported_allocations_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.reported_allocations_groups(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.reported_allocations_groups, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reported_allocations_groups, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_groups_fields(buffer, offset, packet, parent)
@@ -1239,7 +1239,7 @@ memx_options_memo_sbe_v1_6_a_dissect.last_px = function(buffer, offset, packet, 
   local value = translate.last_px(raw)
   local display = memx_options_memo_sbe_v1_6_a_display.last_px(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.last_px, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -1259,7 +1259,7 @@ memx_options_memo_sbe_v1_6_a_dissect.last_qty = function(buffer, offset, packet,
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.last_qty, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1279,7 +1279,7 @@ memx_options_memo_sbe_v1_6_a_dissect.trade_id = function(buffer, offset, packet,
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.trade_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -1308,7 +1308,7 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields = functi
 
   -- Implicit Execution Allocations Group Index
   if execution_allocations_group_index ~= nil then
-    local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index, execution_allocations_group_index)
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index, execution_allocations_group_index)
     iteration:set_generated()
   end
 
@@ -1328,7 +1328,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group = function(buffer, offset, packet, parent, execution_allocations_group_index)
   if show.execution_allocations_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields(buffer, offset, packet, parent, execution_allocations_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1385,7 +1385,7 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_groups = function(buf
     local length = memx_options_memo_sbe_v1_6_a_size_of.execution_allocations_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_allocations_groups(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_allocations_groups, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_allocations_groups, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_groups_fields(buffer, offset, packet, parent)
@@ -1422,7 +1422,7 @@ memx_options_memo_sbe_v1_6_a_dissect.trade_date = function(buffer, offset, packe
 
   local display = memx_options_memo_sbe_v1_6_a_display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.trade_date, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -1458,7 +1458,7 @@ memx_options_memo_sbe_v1_6_a_dissect.security_id = function(buffer, offset, pack
 
   local display = memx_options_memo_sbe_v1_6_a_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.security_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -1501,7 +1501,7 @@ memx_options_memo_sbe_v1_6_a_dissect.side = function(buffer, offset, packet, par
 
   local display = memx_options_memo_sbe_v1_6_a_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.side, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1531,7 +1531,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_canc_replace_reason = function(buffer
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_canc_replace_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_canc_replace_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_canc_replace_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1567,7 +1567,7 @@ memx_options_memo_sbe_v1_6_a_dissect.ref_alloc_id_optional = function(buffer, of
 
   local display = memx_options_memo_sbe_v1_6_a_display.ref_alloc_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.ref_alloc_id_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.ref_alloc_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1600,7 +1600,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_trans_type = function(buffer, offset,
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_trans_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_trans_type, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_trans_type, range, value, display)
 
   return offset + length, value
 end
@@ -1627,7 +1627,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_type = function(buffer, offset, packe
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_type, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_type, range, value, display)
 
   return offset + length, value
 end
@@ -1713,7 +1713,7 @@ memx_options_memo_sbe_v1_6_a_dissect.allocation_instruction_alert_message = func
     local length = memx_options_memo_sbe_v1_6_a_size_of.allocation_instruction_alert_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.allocation_instruction_alert_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_alert_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_alert_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.allocation_instruction_alert_message_fields(buffer, offset, packet, parent)
@@ -1780,7 +1780,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_rej_code = function(buffer, offset, p
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_rej_code(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_rej_code, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_rej_code, range, value, display)
 
   return offset + length, value
 end
@@ -1813,7 +1813,7 @@ memx_options_memo_sbe_v1_6_a_dissect.alloc_status = function(buffer, offset, pac
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.alloc_status(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.alloc_status, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.alloc_status, range, value, display)
 
   return offset + length, value
 end
@@ -1849,7 +1849,7 @@ memx_options_memo_sbe_v1_6_a_dissect.secondary_alloc_id = function(buffer, offse
 
   local display = memx_options_memo_sbe_v1_6_a_display.secondary_alloc_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.secondary_alloc_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.secondary_alloc_id, range, value, display)
 
   return offset + length, value
 end
@@ -1925,7 +1925,7 @@ memx_options_memo_sbe_v1_6_a_dissect.allocation_instruction_ack_message = functi
     local length = memx_options_memo_sbe_v1_6_a_size_of.allocation_instruction_ack_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.allocation_instruction_ack_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_ack_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.allocation_instruction_ack_message_fields(buffer, offset, packet, parent)
@@ -1972,7 +1972,7 @@ memx_options_memo_sbe_v1_6_a_dissect.side_optional = function(buffer, offset, pa
 
   local display = memx_options_memo_sbe_v1_6_a_display.side_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.side_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.side_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2008,7 +2008,7 @@ memx_options_memo_sbe_v1_6_a_dissect.options_security_id_optional = function(buf
 
   local display = memx_options_memo_sbe_v1_6_a_display.options_security_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.options_security_id_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.options_security_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2227,7 +2227,7 @@ memx_options_memo_sbe_v1_6_a_dissect.cxl_rej_reason = function(buffer, offset, p
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.cxl_rej_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.cxl_rej_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cxl_rej_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2267,7 +2267,7 @@ memx_options_memo_sbe_v1_6_a_dissect.cxl_rej_response_to = function(buffer, offs
 
   local display = memx_options_memo_sbe_v1_6_a_display.cxl_rej_response_to(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.cxl_rej_response_to, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cxl_rej_response_to, range, value, display)
 
   return offset + length, value
 end
@@ -2287,7 +2287,7 @@ memx_options_memo_sbe_v1_6_a_dissect.list_seq_no = function(buffer, offset, pack
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.list_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.list_seq_no, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.list_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -2350,7 +2350,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.order_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.order_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.order_cancel_reject_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2379,7 +2379,7 @@ memx_options_memo_sbe_v1_6_a_dissect.total_affected_orders = function(buffer, of
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.total_affected_orders(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.total_affected_orders, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.total_affected_orders, range, value, display)
 
   return offset + length, value
 end
@@ -2422,7 +2422,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_done_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_done_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_done_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2463,16 +2463,16 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_inst_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 5: 5 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.reserved_5, buffer(offset, 1))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reserved_5, buffer(offset, 1))
 
   -- Cancel Orders From This Port Only: 1 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.cancel_orders_from_this_port_only, buffer(offset, 1))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cancel_orders_from_this_port_only, buffer(offset, 1))
 
   -- Send Cancels: 1 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.send_cancels, buffer(offset, 1))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.send_cancels, buffer(offset, 1))
 
   -- Lockout: 1 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.lockout, buffer(offset, 1))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.lockout, buffer(offset, 1))
 end
 
 -- Dissect: Mass Cancel Inst
@@ -2480,7 +2480,7 @@ memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_inst = function(buffer, offset,
   local size = 1
   local range = buffer(offset, size)
   local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_inst(range, packet, parent)
-  local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_inst, range, display)
+  local element = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_inst, range, display)
 
   if show.mass_cancel_inst then
     memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_inst_bits(buffer, offset, packet, element)
@@ -2509,7 +2509,7 @@ memx_options_memo_sbe_v1_6_a_dissect.cancel_group_id = function(buffer, offset, 
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.cancel_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.cancel_group_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cancel_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -2545,7 +2545,7 @@ memx_options_memo_sbe_v1_6_a_dissect.underlier_optional = function(buffer, offse
 
   local display = memx_options_memo_sbe_v1_6_a_display.underlier_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.underlier_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.underlier_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2578,7 +2578,7 @@ memx_options_memo_sbe_v1_6_a_dissect.underlying_or_series = function(buffer, off
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.underlying_or_series(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.underlying_or_series, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.underlying_or_series, range, value, display)
 
   return offset + length, value
 end
@@ -2614,7 +2614,7 @@ memx_options_memo_sbe_v1_6_a_dissect.efid_optional = function(buffer, offset, pa
 
   local display = memx_options_memo_sbe_v1_6_a_display.efid_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.efid_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.efid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2695,7 +2695,7 @@ memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_reason = function(buffer
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2768,7 +2768,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2850,7 +2850,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
   if show.pending_mass_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.pending_mass_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.pending_mass_cancel_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2879,7 +2879,7 @@ memx_options_memo_sbe_v1_6_a_dissect.transact_time = function(buffer, offset, pa
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.transact_time, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -2899,7 +2899,7 @@ memx_options_memo_sbe_v1_6_a_dissect.cum_qty = function(buffer, offset, packet, 
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.cum_qty(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.cum_qty, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2919,7 +2919,7 @@ memx_options_memo_sbe_v1_6_a_dissect.leaves_qty = function(buffer, offset, packe
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.leaves_qty, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2944,7 +2944,7 @@ memx_options_memo_sbe_v1_6_a_dissect.last_qty_optional = function(buffer, offset
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.last_qty_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.last_qty_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.last_qty_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2983,7 +2983,7 @@ memx_options_memo_sbe_v1_6_a_dissect.extended_restatement_reason = function(buff
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.extended_restatement_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.extended_restatement_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.extended_restatement_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3016,7 +3016,7 @@ memx_options_memo_sbe_v1_6_a_dissect.exec_restatement_reason = function(buffer, 
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.exec_restatement_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.exec_restatement_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.exec_restatement_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3074,7 +3074,7 @@ memx_options_memo_sbe_v1_6_a_dissect.ord_status = function(buffer, offset, packe
 
   local display = memx_options_memo_sbe_v1_6_a_display.ord_status(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.ord_status, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.ord_status, range, value, display)
 
   return offset + length, value
 end
@@ -3094,7 +3094,7 @@ memx_options_memo_sbe_v1_6_a_dissect.exec_id = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.exec_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -3114,7 +3114,7 @@ memx_options_memo_sbe_v1_6_a_dissect.order_id = function(buffer, offset, packet,
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.order_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3217,7 +3217,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_restatement_message = function(buffer, offset, packet, parent)
   if show.execution_report_restatement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_restatement_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_restatement_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3246,7 +3246,7 @@ memx_options_memo_sbe_v1_6_a_dissect.exec_ref_id = function(buffer, offset, pack
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.exec_ref_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.exec_ref_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.exec_ref_id, range, value, display)
 
   return offset + length, value
 end
@@ -3266,7 +3266,7 @@ memx_options_memo_sbe_v1_6_a_dissect.trd_match_id = function(buffer, offset, pac
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.trd_match_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.trd_match_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.trd_match_id, range, value, display)
 
   return offset + length, value
 end
@@ -3344,7 +3344,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_break_message = function(buffer, offset, packet, parent)
   if show.execution_report_trade_break_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_break_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_break_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3441,7 +3441,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_correction_message = function(buffer, offset, packet, parent)
   if show.execution_report_trade_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_correction_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_correction_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3470,7 +3470,7 @@ memx_options_memo_sbe_v1_6_a_dissect.orig_list_seq_no = function(buffer, offset,
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.orig_list_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.orig_list_seq_no, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.orig_list_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -3506,7 +3506,7 @@ memx_options_memo_sbe_v1_6_a_dissect.price_optional = function(buffer, offset, p
   local value = translate.price_optional(raw)
   local display = memx_options_memo_sbe_v1_6_a_display.price_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.price_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3546,7 +3546,7 @@ memx_options_memo_sbe_v1_6_a_dissect.ord_type = function(buffer, offset, packet,
 
   local display = memx_options_memo_sbe_v1_6_a_display.ord_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.ord_type, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.ord_type, range, value, display)
 
   return offset + length, value
 end
@@ -3566,7 +3566,7 @@ memx_options_memo_sbe_v1_6_a_dissect.order_qty = function(buffer, offset, packet
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.order_qty(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.order_qty, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3602,7 +3602,7 @@ memx_options_memo_sbe_v1_6_a_dissect.origclordid = function(buffer, offset, pack
 
   local display = memx_options_memo_sbe_v1_6_a_display.origclordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.origclordid, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.origclordid, range, value, display)
 
   return offset + length, value
 end
@@ -3710,7 +3710,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_replaced_message = function(buffer, offset, packet, parent)
   if show.execution_report_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_replaced_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_replaced_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3817,7 +3817,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_replace_message = function(buffer, offset, packet, parent)
   if show.execution_report_pending_replace_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_replace_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_replace_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3949,7 +3949,7 @@ memx_options_memo_sbe_v1_6_a_dissect.cancel_reason = function(buffer, offset, pa
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.cancel_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.cancel_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3985,7 +3985,7 @@ memx_options_memo_sbe_v1_6_a_dissect.origclordid_optional = function(buffer, off
 
   local display = memx_options_memo_sbe_v1_6_a_display.origclordid_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.origclordid_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.origclordid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4083,7 +4083,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_canceled_message = function(buffer, offset, packet, parent)
   if show.execution_report_canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_canceled_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_canceled_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4170,7 +4170,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_cancel_message = function(buffer, offset, packet, parent)
   if show.execution_report_pending_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_cancel_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4230,7 +4230,7 @@ memx_options_memo_sbe_v1_6_a_dissect.party_role = function(buffer, offset, packe
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.party_role(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.party_role, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.party_role, range, value, display)
 
   return offset + length, value
 end
@@ -4263,7 +4263,7 @@ memx_options_memo_sbe_v1_6_a_dissect.party_id_source = function(buffer, offset, 
 
   local display = memx_options_memo_sbe_v1_6_a_display.party_id_source(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.party_id_source, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.party_id_source, range, value, display)
 
   return offset + length, value
 end
@@ -4299,7 +4299,7 @@ memx_options_memo_sbe_v1_6_a_dissect.party_id = function(buffer, offset, packet,
 
   local display = memx_options_memo_sbe_v1_6_a_display.party_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.party_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.party_id, range, value, display)
 
   return offset + length, value
 end
@@ -4328,7 +4328,7 @@ memx_options_memo_sbe_v1_6_a_dissect.parties_group_fields = function(buffer, off
 
   -- Implicit Parties Group Index
   if parties_group_index ~= nil then
-    local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.parties_group_index, parties_group_index)
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
   end
 
@@ -4348,7 +4348,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.parties_group = function(buffer, offset, packet, parent, parties_group_index)
   if show.parties_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.parties_group, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.parties_group, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.parties_group_fields(buffer, offset, packet, parent, parties_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -4405,7 +4405,7 @@ memx_options_memo_sbe_v1_6_a_dissect.parties_groups = function(buffer, offset, p
     local length = memx_options_memo_sbe_v1_6_a_size_of.parties_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.parties_groups(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.parties_groups, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.parties_groups, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.parties_groups_fields(buffer, offset, packet, parent)
@@ -4451,7 +4451,7 @@ memx_options_memo_sbe_v1_6_a_dissect.contra_trading_capacity = function(buffer, 
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.contra_trading_capacity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.contra_trading_capacity, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.contra_trading_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -4496,7 +4496,7 @@ memx_options_memo_sbe_v1_6_a_dissect.trading_capacity = function(buffer, offset,
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.trading_capacity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.trading_capacity, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.trading_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -4536,7 +4536,7 @@ memx_options_memo_sbe_v1_6_a_dissect.position_effect = function(buffer, offset, 
 
   local display = memx_options_memo_sbe_v1_6_a_display.position_effect(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.position_effect, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.position_effect, range, value, display)
 
   return offset + length, value
 end
@@ -4572,7 +4572,7 @@ memx_options_memo_sbe_v1_6_a_dissect.last_mkt = function(buffer, offset, packet,
 
   local display = memx_options_memo_sbe_v1_6_a_display.last_mkt(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.last_mkt, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.last_mkt, range, value, display)
 
   return offset + length, value
 end
@@ -4602,7 +4602,7 @@ memx_options_memo_sbe_v1_6_a_dissect.last_liquidity_ind = function(buffer, offse
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.last_liquidity_ind(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.last_liquidity_ind, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.last_liquidity_ind, range, value, display)
 
   return offset + length, value
 end
@@ -4733,7 +4733,7 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_message = function(b
     local length = memx_options_memo_sbe_v1_6_a_size_of.execution_report_trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_trade_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
@@ -5067,7 +5067,7 @@ memx_options_memo_sbe_v1_6_a_dissect.order_reject_reason = function(buffer, offs
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.order_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.order_reject_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.order_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -5145,7 +5145,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_rejected_message = function(buffer, offset, packet, parent)
   if show.execution_report_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_rejected_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5247,7 +5247,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_component_new_message = function(buffer, offset, packet, parent)
   if show.execution_report_bulk_quote_component_new_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_component_new_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_component_new_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_component_new_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5276,7 +5276,7 @@ memx_options_memo_sbe_v1_6_a_dissect.number_of_orders = function(buffer, offset,
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.number_of_orders(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.number_of_orders, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.number_of_orders, range, value, display)
 
   return offset + length, value
 end
@@ -5301,7 +5301,7 @@ memx_options_memo_sbe_v1_6_a_dissect.risk_group_id = function(buffer, offset, pa
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.risk_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.risk_group_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.risk_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -5337,7 +5337,7 @@ memx_options_memo_sbe_v1_6_a_dissect.match_trade_prevention = function(buffer, o
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.match_trade_prevention(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.match_trade_prevention, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.match_trade_prevention, range, value, display)
 
   return offset + length, value
 end
@@ -5362,7 +5362,7 @@ memx_options_memo_sbe_v1_6_a_dissect.mtp_group_id = function(buffer, offset, pac
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.mtp_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.mtp_group_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mtp_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -5394,16 +5394,16 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.exec_inst_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 13: 13 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.reserved_13, buffer(offset, 2))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reserved_13, buffer(offset, 2))
 
   -- External Routing Not Allowed: 1 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.external_routing_not_allowed, buffer(offset, 2))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.external_routing_not_allowed, buffer(offset, 2))
 
   -- Intermarket Sweep: 1 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.intermarket_sweep, buffer(offset, 2))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.intermarket_sweep, buffer(offset, 2))
 
   -- Participate Do Not Initiate: 1 Bit
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.participate_do_not_initiate, buffer(offset, 2))
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.participate_do_not_initiate, buffer(offset, 2))
 end
 
 -- Dissect: Exec Inst
@@ -5411,7 +5411,7 @@ memx_options_memo_sbe_v1_6_a_dissect.exec_inst = function(buffer, offset, packet
   local size = 2
   local range = buffer(offset, size)
   local display = memx_options_memo_sbe_v1_6_a_display.exec_inst(range, packet, parent)
-  local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.exec_inst, range, display)
+  local element = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.exec_inst, range, display)
 
   if show.exec_inst then
     memx_options_memo_sbe_v1_6_a_dissect.exec_inst_bits(buffer, offset, packet, element)
@@ -5455,7 +5455,7 @@ memx_options_memo_sbe_v1_6_a_dissect.time_in_force = function(buffer, offset, pa
 
   local display = memx_options_memo_sbe_v1_6_a_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.time_in_force, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -5491,7 +5491,7 @@ memx_options_memo_sbe_v1_6_a_dissect.symbol = function(buffer, offset, packet, p
 
   local display = memx_options_memo_sbe_v1_6_a_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.symbol, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -5587,7 +5587,7 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_pending_new_mes
     local length = memx_options_memo_sbe_v1_6_a_size_of.execution_report_bulk_quote_pending_new_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_bulk_quote_pending_new_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_pending_new_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_pending_new_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_pending_new_message_fields(buffer, offset, packet, parent)
@@ -5621,7 +5621,7 @@ memx_options_memo_sbe_v1_6_a_dissect.reprice_behavior = function(buffer, offset,
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.reprice_behavior(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.reprice_behavior, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reprice_behavior, range, value, display)
 
   return offset + length, value
 end
@@ -5657,7 +5657,7 @@ memx_options_memo_sbe_v1_6_a_dissect.reprice_frequency = function(buffer, offset
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.reprice_frequency(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.reprice_frequency, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.reprice_frequency, range, value, display)
 
   return offset + length, value
 end
@@ -5700,7 +5700,7 @@ memx_options_memo_sbe_v1_6_a_dissect.position_effect_optional = function(buffer,
 
   local display = memx_options_memo_sbe_v1_6_a_display.position_effect_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.position_effect_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.position_effect_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5856,7 +5856,7 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_report_new_message = function(buf
     local length = memx_options_memo_sbe_v1_6_a_size_of.execution_report_new_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_new_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_new_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.execution_report_new_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
@@ -5884,7 +5884,7 @@ memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group_fields = functi
 
   -- Implicit Requested Allocations Group Index
   if requested_allocations_group_index ~= nil then
-    local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group_index, requested_allocations_group_index)
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group_index, requested_allocations_group_index)
     iteration:set_generated()
   end
 
@@ -5901,7 +5901,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group = function(buffer, offset, packet, parent, requested_allocations_group_index)
   if show.requested_allocations_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group_fields(buffer, offset, packet, parent, requested_allocations_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -5958,7 +5958,7 @@ memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_groups = function(buf
     local length = memx_options_memo_sbe_v1_6_a_size_of.requested_allocations_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.requested_allocations_groups(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.requested_allocations_groups, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.requested_allocations_groups, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_groups_fields(buffer, offset, packet, parent)
@@ -6035,7 +6035,7 @@ memx_options_memo_sbe_v1_6_a_dissect.allocation_instruction_message = function(b
     local length = memx_options_memo_sbe_v1_6_a_size_of.allocation_instruction_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.allocation_instruction_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.allocation_instruction_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.allocation_instruction_message_fields(buffer, offset, packet, parent)
@@ -6079,7 +6079,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_request_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_clear_lockout_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6156,7 +6156,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.mass_cancel_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6190,7 +6190,7 @@ memx_options_memo_sbe_v1_6_a_dissect.order_id_optional = function(buffer, offset
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.order_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.order_id_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.order_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -6253,7 +6253,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.order_cancel_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6340,7 +6340,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_replace_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.order_cancel_replace_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6375,7 +6375,7 @@ memx_options_memo_sbe_v1_6_a_dissect.offer_px = function(buffer, offset, packet,
   local value = translate.offer_px(raw)
   local display = memx_options_memo_sbe_v1_6_a_display.offer_px(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.offer_px, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.offer_px, range, value, display)
 
   return offset + length, value
 end
@@ -6395,7 +6395,7 @@ memx_options_memo_sbe_v1_6_a_dissect.offer_size = function(buffer, offset, packe
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.offer_size, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -6421,7 +6421,7 @@ memx_options_memo_sbe_v1_6_a_dissect.bid_px = function(buffer, offset, packet, p
   local value = translate.bid_px(raw)
   local display = memx_options_memo_sbe_v1_6_a_display.bid_px(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.bid_px, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.bid_px, range, value, display)
 
   return offset + length, value
 end
@@ -6441,7 +6441,7 @@ memx_options_memo_sbe_v1_6_a_dissect.bid_size = function(buffer, offset, packet,
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.bid_size, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -6476,7 +6476,7 @@ memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields = function(buffer, offs
 
   -- Implicit Quotes Group Index
   if quotes_group_index ~= nil then
-    local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.quotes_group_index, quotes_group_index)
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.quotes_group_index, quotes_group_index)
     iteration:set_generated()
   end
 
@@ -6505,7 +6505,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.quotes_group = function(buffer, offset, packet, parent, quotes_group_index)
   if show.quotes_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.quotes_group, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.quotes_group, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields(buffer, offset, packet, parent, quotes_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -6562,7 +6562,7 @@ memx_options_memo_sbe_v1_6_a_dissect.quotes_groups = function(buffer, offset, pa
     local length = memx_options_memo_sbe_v1_6_a_size_of.quotes_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.quotes_groups(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.quotes_groups, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.quotes_groups, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.quotes_groups_fields(buffer, offset, packet, parent)
@@ -6649,7 +6649,7 @@ memx_options_memo_sbe_v1_6_a_dissect.long_one_sided_bulk_quote_message = functio
     local length = memx_options_memo_sbe_v1_6_a_size_of.long_one_sided_bulk_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.long_one_sided_bulk_quote_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.long_one_sided_bulk_quote_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.long_one_sided_bulk_quote_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.long_one_sided_bulk_quote_message_fields(buffer, offset, packet, parent)
@@ -6736,7 +6736,7 @@ memx_options_memo_sbe_v1_6_a_dissect.short_one_sided_bulk_quote_message = functi
     local length = memx_options_memo_sbe_v1_6_a_size_of.short_one_sided_bulk_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.short_one_sided_bulk_quote_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.short_one_sided_bulk_quote_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.short_one_sided_bulk_quote_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.short_one_sided_bulk_quote_message_fields(buffer, offset, packet, parent)
@@ -6823,7 +6823,7 @@ memx_options_memo_sbe_v1_6_a_dissect.long_two_sided_bulk_quote_message = functio
     local length = memx_options_memo_sbe_v1_6_a_size_of.long_two_sided_bulk_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.long_two_sided_bulk_quote_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.long_two_sided_bulk_quote_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.long_two_sided_bulk_quote_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.long_two_sided_bulk_quote_message_fields(buffer, offset, packet, parent)
@@ -6910,7 +6910,7 @@ memx_options_memo_sbe_v1_6_a_dissect.short_two_sided_bulk_quote_message = functi
     local length = memx_options_memo_sbe_v1_6_a_size_of.short_two_sided_bulk_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.short_two_sided_bulk_quote_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.short_two_sided_bulk_quote_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.short_two_sided_bulk_quote_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.short_two_sided_bulk_quote_message_fields(buffer, offset, packet, parent)
@@ -7032,7 +7032,7 @@ memx_options_memo_sbe_v1_6_a_dissect.new_order_single_message = function(buffer,
     local length = memx_options_memo_sbe_v1_6_a_size_of.new_order_single_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.new_order_single_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.new_order_single_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.new_order_single_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
@@ -7318,7 +7318,7 @@ memx_options_memo_sbe_v1_6_a_dissect.payload = function(buffer, offset, packet, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_options_memo_sbe_v1_6_a_display.payload(buffer, packet, parent)
-  local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.payload, range, display)
+  local element = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.payload, range, display)
 
   return memx_options_memo_sbe_v1_6_a_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -7338,7 +7338,7 @@ memx_options_memo_sbe_v1_6_a_dissect.version = function(buffer, offset, packet, 
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.version, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -7358,7 +7358,7 @@ memx_options_memo_sbe_v1_6_a_dissect.schema_id = function(buffer, offset, packet
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.schema_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -7472,7 +7472,7 @@ memx_options_memo_sbe_v1_6_a_dissect.template_id = function(buffer, offset, pack
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.template_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -7492,7 +7492,7 @@ memx_options_memo_sbe_v1_6_a_dissect.block_length = function(buffer, offset, pac
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.block_length, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -7540,7 +7540,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7596,7 +7596,7 @@ memx_options_memo_sbe_v1_6_a_dissect.sbe_message = function(buffer, offset, pack
     local length = memx_options_memo_sbe_v1_6_a_size_of.sbe_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.sbe_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.sbe_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.sbe_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.sbe_message_fields(buffer, offset, packet, parent)
@@ -7633,7 +7633,7 @@ memx_options_memo_sbe_v1_6_a_dissect.sequenced_message = function(buffer, offset
     local length = memx_options_memo_sbe_v1_6_a_size_of.sequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.sequenced_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.sequenced_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.sequenced_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.sequenced_message_fields(buffer, offset, packet, parent)
@@ -7654,7 +7654,7 @@ memx_options_memo_sbe_v1_6_a_dissect.total_sequence_count = function(buffer, off
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.total_sequence_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.total_sequence_count, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.total_sequence_count, range, value, display)
 
   return offset + length, value
 end
@@ -7687,7 +7687,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_complete_message = function(buffer, offset, packet, parent)
   if show.stream_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.stream_complete_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7726,7 +7726,7 @@ memx_options_memo_sbe_v1_6_a_dissect.stream_reject_code = function(buffer, offse
   local value = range:string()
   local display = memx_options_memo_sbe_v1_6_a_display.stream_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_reject_code, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.stream_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -7759,7 +7759,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
   if show.stream_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.stream_rejected_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7788,7 +7788,7 @@ memx_options_memo_sbe_v1_6_a_dissect.next_sequence_number = function(buffer, off
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.next_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.next_sequence_number, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.next_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -7826,7 +7826,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_begin_message = function(buffer, offset, packet, parent)
   if show.stream_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_begin_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.stream_begin_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7855,7 +7855,7 @@ memx_options_memo_sbe_v1_6_a_dissect.message_count = function(buffer, offset, pa
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.message_count, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -7888,7 +7888,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_complete_message = function(buffer, offset, packet, parent)
   if show.replay_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.replay_complete_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7930,7 +7930,7 @@ memx_options_memo_sbe_v1_6_a_dissect.replay_reject_code = function(buffer, offse
   local value = range:string()
   local display = memx_options_memo_sbe_v1_6_a_display.replay_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_reject_code, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.replay_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -7963,7 +7963,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
   if show.replay_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.replay_rejected_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7992,7 +7992,7 @@ memx_options_memo_sbe_v1_6_a_dissect.pending_message_count = function(buffer, of
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.pending_message_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.pending_message_count, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.pending_message_count, range, value, display)
 
   return offset + length, value
 end
@@ -8030,7 +8030,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_begin_message = function(buffer, offset, packet, parent)
   if show.replay_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_begin_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.replay_begin_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8059,7 +8059,7 @@ memx_options_memo_sbe_v1_6_a_dissect.session_id = function(buffer, offset, packe
   local value = range:uint64()
   local display = memx_options_memo_sbe_v1_6_a_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.session_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -8092,7 +8092,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.start_of_session_message = function(buffer, offset, packet, parent)
   if show.start_of_session_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.start_of_session_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.start_of_session_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8134,7 +8134,7 @@ memx_options_memo_sbe_v1_6_a_dissect.login_reject_code = function(buffer, offset
   local value = range:string()
   local display = memx_options_memo_sbe_v1_6_a_display.login_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.login_reject_code, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.login_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -8167,7 +8167,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.login_rejected_message = function(buffer, offset, packet, parent)
   if show.login_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.login_rejected_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8206,7 +8206,7 @@ memx_options_memo_sbe_v1_6_a_dissect.supported_request_mode = function(buffer, o
   local value = range:string()
   local display = memx_options_memo_sbe_v1_6_a_display.supported_request_mode(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.supported_request_mode, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.supported_request_mode, range, value, display)
 
   return offset + length, value
 end
@@ -8239,7 +8239,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.login_accepted_message = function(buffer, offset, packet, parent)
   if show.login_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_accepted_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.login_accepted_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8284,7 +8284,7 @@ memx_options_memo_sbe_v1_6_a_dissect.unsequenced_message = function(buffer, offs
     local length = memx_options_memo_sbe_v1_6_a_size_of.unsequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memo_sbe_v1_6_a_display.unsequenced_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.unsequenced_message, range, display)
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.unsequenced_message, range, display)
   end
 
   return memx_options_memo_sbe_v1_6_a_dissect.unsequenced_message_fields(buffer, offset, packet, parent)
@@ -8323,7 +8323,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_request_message = function(buffer, offset, packet, parent)
   if show.stream_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.stream_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.stream_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8365,7 +8365,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
   if show.replay_all_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_all_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.replay_all_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8394,7 +8394,7 @@ memx_options_memo_sbe_v1_6_a_dissect.count = function(buffer, offset, packet, pa
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.count, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -8437,7 +8437,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_request_message = function(buffer, offset, packet, parent)
   if show.replay_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.replay_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.replay_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8466,7 +8466,7 @@ memx_options_memo_sbe_v1_6_a_dissect.token = function(buffer, offset, packet, pa
   local value = range:string()
   local display = memx_options_memo_sbe_v1_6_a_display.token(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.token, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.token, range, value, display)
 
   return offset + length, value
 end
@@ -8486,7 +8486,7 @@ memx_options_memo_sbe_v1_6_a_dissect.token_type = function(buffer, offset, packe
   local value = range:string()
   local display = memx_options_memo_sbe_v1_6_a_display.token_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.token_type, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.token_type, range, value, display)
 
   return offset + length, value
 end
@@ -8524,7 +8524,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.login_request_message = function(buffer, offset, packet, parent)
   if show.login_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.login_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.login_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8690,7 +8690,7 @@ memx_options_memo_sbe_v1_6_a_dissect.data = function(buffer, offset, packet, par
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_options_memo_sbe_v1_6_a_display.data(buffer, packet, parent)
-  local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.data, range, display)
+  local element = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.data, range, display)
 
   return memx_options_memo_sbe_v1_6_a_dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
@@ -8710,7 +8710,7 @@ memx_options_memo_sbe_v1_6_a_dissect.message_length = function(buffer, offset, p
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.message_length, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -8779,7 +8779,7 @@ memx_options_memo_sbe_v1_6_a_dissect.message_type = function(buffer, offset, pac
   local value = range:uint()
   local display = memx_options_memo_sbe_v1_6_a_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_6_a.fields.message_type, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -8817,7 +8817,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memo_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8853,23 +8853,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function memx_options_memo_sbe_v1_6_a.init()
+function omi_memx_options_memo_sbe_v1_6_a.init()
 end
 
 -- Dissector for Memx Options Memo Sbe 1.6.a
-function memx_options_memo_sbe_v1_6_a.dissector(buffer, packet, parent)
+function omi_memx_options_memo_sbe_v1_6_a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = memx_options_memo_sbe_v1_6_a.name
+  packet.cols.protocol = omi_memx_options_memo_sbe_v1_6_a.name
 
   -- Dissect protocol
-  local protocol = parent:add(memx_options_memo_sbe_v1_6_a, buffer(), memx_options_memo_sbe_v1_6_a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_memx_options_memo_sbe_v1_6_a, buffer(), omi_memx_options_memo_sbe_v1_6_a.description, "("..buffer:len().." Bytes)")
   return memx_options_memo_sbe_v1_6_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, memx_options_memo_sbe_v1_6_a)
+tcp_table:add(65333, omi_memx_options_memo_sbe_v1_6_a)
 
 
 -----------------------------------------------------------------------
@@ -8877,7 +8877,7 @@ tcp_table:add(65333, memx_options_memo_sbe_v1_6_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.memx_options_memo_sbe_v1_6_a_packet_size = function(buffer)
+verify.omi_memx_options_memo_sbe_v1_6_a_packet_size = function(buffer)
 
   return true
 end
@@ -8931,9 +8931,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Memx Options Memo Sbe 1.6.a
-local function memx_options_memo_sbe_v1_6_a_heuristic(buffer, packet, parent)
+local function omi_memx_options_memo_sbe_v1_6_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.memx_options_memo_sbe_v1_6_a_packet_size(buffer) then return false end
+  if not verify.omi_memx_options_memo_sbe_v1_6_a_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -8948,14 +8948,14 @@ local function memx_options_memo_sbe_v1_6_a_heuristic(buffer, packet, parent)
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = memx_options_memo_sbe_v1_6_a
-  memx_options_memo_sbe_v1_6_a.dissector(buffer, packet, parent)
+  packet.conversation = omi_memx_options_memo_sbe_v1_6_a
+  omi_memx_options_memo_sbe_v1_6_a.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Memx Options Memo Sbe 1.6.a
-memx_options_memo_sbe_v1_6_a:register_heuristic("tcp", memx_options_memo_sbe_v1_6_a_heuristic)
+omi_memx_options_memo_sbe_v1_6_a:register_heuristic("tcp", omi_memx_options_memo_sbe_v1_6_a_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

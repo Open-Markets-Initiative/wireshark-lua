@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg TradeEcho Mifid Gtp 24.4 Protocol
-local lseg_tradeecho_mifid_gtp_v24_4 = Proto("Lseg.TradeEcho.Mifid.Gtp.v24.4.Lua", "Lseg TradeEcho Mifid Gtp 24.4")
+local omi_lseg_tradeecho_mifid_gtp_v24_4 = Proto("Lseg.TradeEcho.Mifid.Gtp.v24.4.Lua", "Lseg TradeEcho Mifid Gtp 24.4")
 
 -- Component Tables
 local show = {}
@@ -21,129 +21,129 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Lseg TradeEcho Mifid Gtp 24.4 Fields
-lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.tradeecho.mifid.gtp.v24.4.agencycrossindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_trade_flag = ProtoField.new("Agency Cross Trade Flag", "lseg.tradeecho.mifid.gtp.v24.4.agencycrosstradeflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.algo_transaction_flag = ProtoField.new("Algo Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.algotransactionflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.tradeecho.mifid.gtp.v24.4.algorithmicindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.tradeecho.mifid.gtp.v24.4.allowedbooktypes", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.amendment_flag = ProtoField.new("Amendment Flag", "lseg.tradeecho.mifid.gtp.v24.4.amendmentflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.average_daily_turnover = ProtoField.new("Average Daily Turnover", "lseg.tradeecho.mifid.gtp.v24.4.averagedailyturnover", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.benchmark_transaction_flag = ProtoField.new("Benchmark Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.benchmarktransactionflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.cancellation_flag = ProtoField.new("Cancellation Flag", "lseg.tradeecho.mifid.gtp.v24.4.cancellationflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.consecutive_aggregation_flag = ProtoField.new("Consecutive Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.consecutiveaggregationflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.contingent_transaction_flag = ProtoField.new("Contingent Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.contingenttransactionflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.tradeecho.mifid.gtp.v24.4.currency", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.da_full_details_flag = ProtoField.new("Da Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.dafulldetailsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.daily_aggregated_transaction_flag = ProtoField.new("Daily Aggregated Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.dailyaggregatedtransactionflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.deferral_enrichment_type = ProtoField.new("Deferral Enrichment Type", "lseg.tradeecho.mifid.gtp.v24.4.deferralenrichmenttype", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.duplicate_flag = ProtoField.new("Duplicate Flag", "lseg.tradeecho.mifid.gtp.v24.4.duplicateflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "lseg.tradeecho.mifid.gtp.v24.4.duplicativeindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.tradeecho.mifid.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.emission_allowance_type = ProtoField.new("Emission Allowance Type", "lseg.tradeecho.mifid.gtp.v24.4.emissionallowancetype", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.tradeecho.mifid.gtp.v24.4.eventcode", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.exchange_for_physicals_flag = ProtoField.new("Exchange For Physicals Flag", "lseg.tradeecho.mifid.gtp.v24.4.exchangeforphysicalsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.fa_full_details_flag = ProtoField.new("Fa Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.fafulldetailsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.four_weeks_aggregation_flag = ProtoField.new("Four Weeks Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.fourweeksaggregationflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.indefinite_aggregation_flag = ProtoField.new("Indefinite Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.indefiniteaggregationflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.tradeecho.mifid.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "lseg.tradeecho.mifid.gtp.v24.4.instrumentidentificationcode", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "lseg.tradeecho.mifid.gtp.v24.4.instrumentidentificationcodetype", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.mifid.gtp.v24.4.isin", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.ld_full_details_flag = ProtoField.new("Ld Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.ldfulldetailsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.mifid.gtp.v24.4.length", ftypes.UINT16)
-lseg_tradeecho_mifid_gtp_v24_4.fields.limited_details_flag = ProtoField.new("Limited Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.limiteddetailsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.tradeecho.mifid.gtp.v24.4.marketclosingpriceflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.mifid.gtp.v24.4.marketdatagroup", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.tradeecho.mifid.gtp.v24.4.marketmechanism", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid.gtp.v24.4.message", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.mifid.gtp.v24.4.messagecount", ftypes.UINT8)
-lseg_tradeecho_mifid_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid.gtp.v24.4.messageheader", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.mifid.gtp.v24.4.messagelength", ftypes.UINT8)
-lseg_tradeecho_mifid_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.mifid.gtp.v24.4.messagetype", ftypes.UINT8)
-lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.tradeecho.mifid.gtp.v24.4.mifidprice", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.tradeecho.mifid.gtp.v24.4.mifidquantity", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_trading_date_and_time = ProtoField.new("Mi Fid Trading Date And Time", "lseg.tradeecho.mifid.gtp.v24.4.mifidtradingdateandtime", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.tradeecho.mifid.gtp.v24.4.modificationindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.tradeecho.mifid.gtp.v24.4.negotiationindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.mifid.gtp.v24.4.newendtime", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_contribution_to_discovery = ProtoField.new("Non Price Contribution To Discovery", "lseg.tradeecho.mifid.gtp.v24.4.nonpricecontributiontodiscovery", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_forming_transactions_flag = ProtoField.new("Non Price Forming Transactions Flag", "lseg.tradeecho.mifid.gtp.v24.4.nonpriceformingtransactionsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.tradeecho.mifid.gtp.v24.4.notionalamount", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.tradeecho.mifid.gtp.v24.4.notionalcurrency", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.nt_large_in_scale_flag = ProtoField.new("Nt Large In Scale Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntlargeinscaleflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.nt_liquidity_flag = ProtoField.new("Nt Liquidity Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntliquidityflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.nt_pre_trade_transparency_flag = ProtoField.new("Nt Pre Trade Transparency Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntpretradetransparencyflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.nt_price_conditions_flag = ProtoField.new("Nt Price Conditions Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntpriceconditionsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.tradeecho.mifid.gtp.v24.4.numberoftrades", ftypes.UINT32)
-lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades_onbook_only = ProtoField.new("Number Of Trades Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.numberoftradesonbookonly", ftypes.UINT32)
-lseg_tradeecho_mifid_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.mifid.gtp.v24.4.offbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-lseg_tradeecho_mifid_gtp_v24_4.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.tradeecho.mifid.gtp.v24.4.offbookautomatedindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.mifid.gtp.v24.4.orderbooktype", ftypes.UINT8)
-lseg_tradeecho_mifid_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid.gtp.v24.4.packet", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.tradeecho.mifid.gtp.v24.4.payload", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.portfolio_transaction_flag = ProtoField.new("Portfolio Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.portfoliotransactionflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.tradeecho.mifid.gtp.v24.4.posttradedeferralreason", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.mifid.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.price_conditions = ProtoField.new("Price Conditions", "lseg.tradeecho.mifid.gtp.v24.4.priceconditions", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.price_currency = ProtoField.new("Price Currency", "lseg.tradeecho.mifid.gtp.v24.4.pricecurrency", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.tradeecho.mifid.gtp.v24.4.priceformationindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.price_improvement_flag = ProtoField.new("Price Improvement Flag", "lseg.tradeecho.mifid.gtp.v24.4.priceimprovementflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.price_notation = ProtoField.new("Price Notation", "lseg.tradeecho.mifid.gtp.v24.4.pricenotation", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.pt_deferral_reason_flag = ProtoField.new("Pt Deferral Reason Flag", "lseg.tradeecho.mifid.gtp.v24.4.ptdeferralreasonflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.pt_illiquid_flag = ProtoField.new("Pt Illiquid Flag", "lseg.tradeecho.mifid.gtp.v24.4.ptilliquidflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.tradeecho.mifid.gtp.v24.4.publicationdateandtime", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "lseg.tradeecho.mifid.gtp.v24.4.quantityinmeasurementunit", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.tradeecho.mifid.gtp.v24.4.referencepriceindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_transaction_flag = ProtoField.new("Reference Price Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.referencepricetransactionflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.tradeecho.mifid.gtp.v24.4.reserved1", ftypes.BYTES)
-lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.tradeecho.mifid.gtp.v24.4.reserved23", ftypes.BYTES)
-lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.mifid.gtp.v24.4.reserved25", ftypes.BYTES)
-lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.mifid.gtp.v24.4.reserved5", ftypes.BYTES)
-lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.tradeecho.mifid.gtp.v24.4.reserved8", ftypes.BYTES)
-lseg_tradeecho_mifid_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.mifid.gtp.v24.4.segment", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.tradeecho.mifid.gtp.v24.4.sequencenumber", ftypes.UINT32)
-lseg_tradeecho_mifid_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.tradeecho.mifid.gtp.v24.4.sessionchangereason", ftypes.UINT8)
-lseg_tradeecho_mifid_gtp_v24_4.fields.si_quote_book = ProtoField.new("Si Quote Book", "lseg.tradeecho.mifid.gtp.v24.4.siquotebook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-lseg_tradeecho_mifid_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.mifid.gtp.v24.4.sourcevenue", ftypes.UINT16)
-lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_flag = ProtoField.new("Special Dividend Flag", "lseg.tradeecho.mifid.gtp.v24.4.specialdividendflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.tradeecho.mifid.gtp.v24.4.specialdividendindicator", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.mifid.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution = ProtoField.new("Thirdcountry Trading Venue Of Execution", "lseg.tradeecho.mifid.gtp.v24.4.thirdcountrytradingvenueofexecution", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.mifid.gtp.v24.4.tickid", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid.gtp.v24.4.timestamp", ftypes.UINT64)
-lseg_tradeecho_mifid_gtp_v24_4.fields.total_number_of_transactions = ProtoField.new("Total Number Of Transactions", "lseg.tradeecho.mifid.gtp.v24.4.totalnumberoftransactions", ftypes.UINT32)
-lseg_tradeecho_mifid_gtp_v24_4.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.tradeecho.mifid.gtp.v24.4.tradingmode", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.mifid.gtp.v24.4.tradingstatus", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.tradeecho.mifid.gtp.v24.4.transactioncategory", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.tradeecho.mifid.gtp.v24.4.transactionidentificationcode", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "lseg.tradeecho.mifid.gtp.v24.4.transactiontobecleared", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.tradeecho.mifid.gtp.v24.4.turnover", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid.gtp.v24.4.unitheader", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.unused_6 = ProtoField.new("Unused 6", "lseg.tradeecho.mifid.gtp.v24.4.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
-lseg_tradeecho_mifid_gtp_v24_4.fields.venue_book_definition_id = ProtoField.new("Venue Book Definition Id", "lseg.tradeecho.mifid.gtp.v24.4.venuebookdefinitionid", ftypes.UINT8)
-lseg_tradeecho_mifid_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.mifid.gtp.v24.4.venueinstrumentid", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.venue_measurement_unit_notation = ProtoField.new("Venue Measurement Unit Notation", "lseg.tradeecho.mifid.gtp.v24.4.venuemeasurementunitnotation", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.tradeecho.mifid.gtp.v24.4.venueofexecution", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.mifid.gtp.v24.4.venueofpublication", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.venue_type = ProtoField.new("Venue Type", "lseg.tradeecho.mifid.gtp.v24.4.venuetype", ftypes.UINT8)
-lseg_tradeecho_mifid_gtp_v24_4.fields.vo_full_details_flag = ProtoField.new("Vo Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.vofulldetailsflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.volume = ProtoField.new("Volume", "lseg.tradeecho.mifid.gtp.v24.4.volume", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_flag = ProtoField.new("Volume Omission Flag", "lseg.tradeecho.mifid.gtp.v24.4.volumeomissionflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_for_sovereign_debt_flag = ProtoField.new("Volume Omission For Sovereign Debt Flag", "lseg.tradeecho.mifid.gtp.v24.4.volumeomissionforsovereigndebtflag", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.volumeonbookonly", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid.gtp.v24.4.vwap", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.tradeecho.mifid.gtp.v24.4.agencycrossindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_trade_flag = ProtoField.new("Agency Cross Trade Flag", "lseg.tradeecho.mifid.gtp.v24.4.agencycrosstradeflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.algo_transaction_flag = ProtoField.new("Algo Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.algotransactionflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.tradeecho.mifid.gtp.v24.4.algorithmicindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.tradeecho.mifid.gtp.v24.4.allowedbooktypes", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.amendment_flag = ProtoField.new("Amendment Flag", "lseg.tradeecho.mifid.gtp.v24.4.amendmentflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.average_daily_turnover = ProtoField.new("Average Daily Turnover", "lseg.tradeecho.mifid.gtp.v24.4.averagedailyturnover", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.benchmark_transaction_flag = ProtoField.new("Benchmark Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.benchmarktransactionflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.cancellation_flag = ProtoField.new("Cancellation Flag", "lseg.tradeecho.mifid.gtp.v24.4.cancellationflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.consecutive_aggregation_flag = ProtoField.new("Consecutive Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.consecutiveaggregationflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.contingent_transaction_flag = ProtoField.new("Contingent Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.contingenttransactionflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.tradeecho.mifid.gtp.v24.4.currency", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.da_full_details_flag = ProtoField.new("Da Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.dafulldetailsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.daily_aggregated_transaction_flag = ProtoField.new("Daily Aggregated Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.dailyaggregatedtransactionflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.deferral_enrichment_type = ProtoField.new("Deferral Enrichment Type", "lseg.tradeecho.mifid.gtp.v24.4.deferralenrichmenttype", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.duplicate_flag = ProtoField.new("Duplicate Flag", "lseg.tradeecho.mifid.gtp.v24.4.duplicateflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "lseg.tradeecho.mifid.gtp.v24.4.duplicativeindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.tradeecho.mifid.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.emission_allowance_type = ProtoField.new("Emission Allowance Type", "lseg.tradeecho.mifid.gtp.v24.4.emissionallowancetype", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.tradeecho.mifid.gtp.v24.4.eventcode", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.exchange_for_physicals_flag = ProtoField.new("Exchange For Physicals Flag", "lseg.tradeecho.mifid.gtp.v24.4.exchangeforphysicalsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.fa_full_details_flag = ProtoField.new("Fa Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.fafulldetailsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.four_weeks_aggregation_flag = ProtoField.new("Four Weeks Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.fourweeksaggregationflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.indefinite_aggregation_flag = ProtoField.new("Indefinite Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.indefiniteaggregationflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.tradeecho.mifid.gtp.v24.4.instrument", ftypes.UINT64)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "lseg.tradeecho.mifid.gtp.v24.4.instrumentidentificationcode", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "lseg.tradeecho.mifid.gtp.v24.4.instrumentidentificationcodetype", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.mifid.gtp.v24.4.isin", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.ld_full_details_flag = ProtoField.new("Ld Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.ldfulldetailsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.mifid.gtp.v24.4.length", ftypes.UINT16)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.limited_details_flag = ProtoField.new("Limited Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.limiteddetailsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.tradeecho.mifid.gtp.v24.4.marketclosingpriceflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.mifid.gtp.v24.4.marketdatagroup", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.tradeecho.mifid.gtp.v24.4.marketmechanism", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.mifid.gtp.v24.4.messagecount", ftypes.UINT8)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.mifid.gtp.v24.4.messagelength", ftypes.UINT8)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.mifid.gtp.v24.4.messagetype", ftypes.UINT8)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.tradeecho.mifid.gtp.v24.4.mifidprice", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.tradeecho.mifid.gtp.v24.4.mifidquantity", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_trading_date_and_time = ProtoField.new("Mi Fid Trading Date And Time", "lseg.tradeecho.mifid.gtp.v24.4.mifidtradingdateandtime", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.tradeecho.mifid.gtp.v24.4.modificationindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.tradeecho.mifid.gtp.v24.4.negotiationindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.mifid.gtp.v24.4.newendtime", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_contribution_to_discovery = ProtoField.new("Non Price Contribution To Discovery", "lseg.tradeecho.mifid.gtp.v24.4.nonpricecontributiontodiscovery", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_forming_transactions_flag = ProtoField.new("Non Price Forming Transactions Flag", "lseg.tradeecho.mifid.gtp.v24.4.nonpriceformingtransactionsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.tradeecho.mifid.gtp.v24.4.notionalamount", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.tradeecho.mifid.gtp.v24.4.notionalcurrency", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_large_in_scale_flag = ProtoField.new("Nt Large In Scale Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntlargeinscaleflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_liquidity_flag = ProtoField.new("Nt Liquidity Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntliquidityflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_pre_trade_transparency_flag = ProtoField.new("Nt Pre Trade Transparency Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntpretradetransparencyflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_price_conditions_flag = ProtoField.new("Nt Price Conditions Flag", "lseg.tradeecho.mifid.gtp.v24.4.ntpriceconditionsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.tradeecho.mifid.gtp.v24.4.numberoftrades", ftypes.UINT32)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades_onbook_only = ProtoField.new("Number Of Trades Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.numberoftradesonbookonly", ftypes.UINT32)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.mifid.gtp.v24.4.offbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.tradeecho.mifid.gtp.v24.4.offbookautomatedindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.mifid.gtp.v24.4.orderbooktype", ftypes.UINT8)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.tradeecho.mifid.gtp.v24.4.payload", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.portfolio_transaction_flag = ProtoField.new("Portfolio Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.portfoliotransactionflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.tradeecho.mifid.gtp.v24.4.posttradedeferralreason", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.mifid.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_conditions = ProtoField.new("Price Conditions", "lseg.tradeecho.mifid.gtp.v24.4.priceconditions", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_currency = ProtoField.new("Price Currency", "lseg.tradeecho.mifid.gtp.v24.4.pricecurrency", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.tradeecho.mifid.gtp.v24.4.priceformationindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_improvement_flag = ProtoField.new("Price Improvement Flag", "lseg.tradeecho.mifid.gtp.v24.4.priceimprovementflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_notation = ProtoField.new("Price Notation", "lseg.tradeecho.mifid.gtp.v24.4.pricenotation", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.pt_deferral_reason_flag = ProtoField.new("Pt Deferral Reason Flag", "lseg.tradeecho.mifid.gtp.v24.4.ptdeferralreasonflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.pt_illiquid_flag = ProtoField.new("Pt Illiquid Flag", "lseg.tradeecho.mifid.gtp.v24.4.ptilliquidflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.tradeecho.mifid.gtp.v24.4.publicationdateandtime", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "lseg.tradeecho.mifid.gtp.v24.4.quantityinmeasurementunit", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.tradeecho.mifid.gtp.v24.4.referencepriceindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_transaction_flag = ProtoField.new("Reference Price Transaction Flag", "lseg.tradeecho.mifid.gtp.v24.4.referencepricetransactionflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.tradeecho.mifid.gtp.v24.4.reserved1", ftypes.BYTES)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.tradeecho.mifid.gtp.v24.4.reserved23", ftypes.BYTES)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.mifid.gtp.v24.4.reserved25", ftypes.BYTES)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.mifid.gtp.v24.4.reserved5", ftypes.BYTES)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.tradeecho.mifid.gtp.v24.4.reserved8", ftypes.BYTES)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.mifid.gtp.v24.4.segment", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.tradeecho.mifid.gtp.v24.4.sequencenumber", ftypes.UINT32)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.tradeecho.mifid.gtp.v24.4.sessionchangereason", ftypes.UINT8)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.si_quote_book = ProtoField.new("Si Quote Book", "lseg.tradeecho.mifid.gtp.v24.4.siquotebook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.mifid.gtp.v24.4.sourcevenue", ftypes.UINT16)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_flag = ProtoField.new("Special Dividend Flag", "lseg.tradeecho.mifid.gtp.v24.4.specialdividendflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.tradeecho.mifid.gtp.v24.4.specialdividendindicator", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.mifid.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution = ProtoField.new("Thirdcountry Trading Venue Of Execution", "lseg.tradeecho.mifid.gtp.v24.4.thirdcountrytradingvenueofexecution", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.mifid.gtp.v24.4.tickid", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid.gtp.v24.4.timestamp", ftypes.UINT64)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.total_number_of_transactions = ProtoField.new("Total Number Of Transactions", "lseg.tradeecho.mifid.gtp.v24.4.totalnumberoftransactions", ftypes.UINT32)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.tradeecho.mifid.gtp.v24.4.tradingmode", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.mifid.gtp.v24.4.tradingstatus", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.tradeecho.mifid.gtp.v24.4.transactioncategory", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.tradeecho.mifid.gtp.v24.4.transactionidentificationcode", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "lseg.tradeecho.mifid.gtp.v24.4.transactiontobecleared", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.tradeecho.mifid.gtp.v24.4.turnover", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid.gtp.v24.4.unitheader", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.unused_6 = ProtoField.new("Unused 6", "lseg.tradeecho.mifid.gtp.v24.4.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_book_definition_id = ProtoField.new("Venue Book Definition Id", "lseg.tradeecho.mifid.gtp.v24.4.venuebookdefinitionid", ftypes.UINT8)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.mifid.gtp.v24.4.venueinstrumentid", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_measurement_unit_notation = ProtoField.new("Venue Measurement Unit Notation", "lseg.tradeecho.mifid.gtp.v24.4.venuemeasurementunitnotation", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.tradeecho.mifid.gtp.v24.4.venueofexecution", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.mifid.gtp.v24.4.venueofpublication", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_type = ProtoField.new("Venue Type", "lseg.tradeecho.mifid.gtp.v24.4.venuetype", ftypes.UINT8)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vo_full_details_flag = ProtoField.new("Vo Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.vofulldetailsflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume = ProtoField.new("Volume", "lseg.tradeecho.mifid.gtp.v24.4.volume", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_flag = ProtoField.new("Volume Omission Flag", "lseg.tradeecho.mifid.gtp.v24.4.volumeomissionflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_for_sovereign_debt_flag = ProtoField.new("Volume Omission For Sovereign Debt Flag", "lseg.tradeecho.mifid.gtp.v24.4.volumeomissionforsovereigndebtflag", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.volumeonbookonly", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid.gtp.v24.4.vwap", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
 -- Lseg TradeEcho Mifid Gtp 24.4 messages
-lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.mifid.gtp.v24.4.instrumentdirectory", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.mifid.gtp.v24.4.instrumentstatus", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report = ProtoField.new("Mifid Ii Trade Report", "lseg.tradeecho.mifid.gtp.v24.4.mifidiitradereport", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.statistics = ProtoField.new("Statistics", "lseg.tradeecho.mifid.gtp.v24.4.statistics", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.mifid.gtp.v24.4.systemevent", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.mifid.gtp.v24.4.instrumentdirectory", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.mifid.gtp.v24.4.instrumentstatus", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report = ProtoField.new("Mifid Ii Trade Report", "lseg.tradeecho.mifid.gtp.v24.4.mifidiitradereport", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.statistics = ProtoField.new("Statistics", "lseg.tradeecho.mifid.gtp.v24.4.statistics", ftypes.STRING)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.mifid.gtp.v24.4.systemevent", ftypes.STRING)
 
 -- Lseg TradeEcho Mifid Gtp 24.4 generated fields
-lseg_tradeecho_mifid_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.mifid.gtp.v24.4.messageindex", ftypes.UINT16)
+omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.mifid.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -163,65 +163,65 @@ show.unit_header = true
 show.payload = false
 
 -- Register Lseg TradeEcho Mifid Gtp 24.4 Show Options
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_directory = Pref.bool("Show Instrument Directory", show.instrument_directory, "Parse and add Instrument Directory to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_status = Pref.bool("Show Instrument Status", show.instrument_status, "Parse and add Instrument Status to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_report = Pref.bool("Show Mifid Ii Trade Report", show.mifid_ii_trade_report, "Parse and add Mifid Ii Trade Report to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_statistics = Pref.bool("Show Statistics", show.statistics, "Parse and add Statistics to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_system_event = Pref.bool("Show System Event", show.system_event, "Parse and add System Event to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-lseg_tradeecho_mifid_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_directory = Pref.bool("Show Instrument Directory", show.instrument_directory, "Parse and add Instrument Directory to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_status = Pref.bool("Show Instrument Status", show.instrument_status, "Parse and add Instrument Status to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_report = Pref.bool("Show Mifid Ii Trade Report", show.mifid_ii_trade_report, "Parse and add Mifid Ii Trade Report to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_statistics = Pref.bool("Show Statistics", show.statistics, "Parse and add Statistics to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_system_event = Pref.bool("Show System Event", show.system_event, "Parse and add System Event to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function lseg_tradeecho_mifid_gtp_v24_4.prefs_changed()
+function omi_lseg_tradeecho_mifid_gtp_v24_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.allowed_book_types ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types then
-    show.allowed_book_types = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types
+  if show.allowed_book_types ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types then
+    show.allowed_book_types = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types
     changed = true
   end
-  if show.instrument_directory ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_directory then
-    show.instrument_directory = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_directory
+  if show.instrument_directory ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_directory then
+    show.instrument_directory = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_directory
     changed = true
   end
-  if show.instrument_status ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_status then
-    show.instrument_status = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_status
+  if show.instrument_status ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_status then
+    show.instrument_status = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_instrument_status
     changed = true
   end
-  if show.message ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message then
-    show.message = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message
+  if show.message ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message then
+    show.message = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message
     changed = true
   end
-  if show.message_header ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header then
-    show.message_header = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header
+  if show.message_header ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header then
+    show.message_header = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header
     changed = true
   end
-  if show.mifid_ii_trade_report ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_report then
-    show.mifid_ii_trade_report = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_report
+  if show.mifid_ii_trade_report ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_report then
+    show.mifid_ii_trade_report = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_report
     changed = true
   end
-  if show.packet ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet then
-    show.packet = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet
+  if show.packet ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet then
+    show.packet = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet
     changed = true
   end
-  if show.statistics ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_statistics then
-    show.statistics = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_statistics
+  if show.statistics ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_statistics then
+    show.statistics = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_statistics
     changed = true
   end
-  if show.system_event ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_system_event then
-    show.system_event = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_system_event
+  if show.system_event ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_system_event then
+    show.system_event = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_system_event
     changed = true
   end
-  if show.unit_header ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header then
-    show.unit_header = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header
+  if show.unit_header ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header then
+    show.unit_header = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header
     changed = true
   end
-  if show.payload ~= lseg_tradeecho_mifid_gtp_v24_4.prefs.show_payload then
-    show.payload = lseg_tradeecho_mifid_gtp_v24_4.prefs.show_payload
+  if show.payload ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_payload then
+    show.payload = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_payload
     changed = true
   end
 
@@ -269,7 +269,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.nt_pre_trade_transparency_flag = function
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.nt_pre_trade_transparency_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.nt_pre_trade_transparency_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_pre_trade_transparency_flag, range, value, display)
 
   return offset + length, value
 end
@@ -289,7 +289,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.nt_large_in_scale_flag = function(buffer,
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.nt_large_in_scale_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.nt_large_in_scale_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_large_in_scale_flag, range, value, display)
 
   return offset + length, value
 end
@@ -309,7 +309,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.market_closing_price_flag = function(buff
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.market_closing_price_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.market_closing_price_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.market_closing_price_flag, range, value, display)
 
   return offset + length, value
 end
@@ -329,7 +329,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.price_conditions = function(buffer, offse
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.price_conditions(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.price_conditions, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_conditions, range, value, display)
 
   return offset + length, value
 end
@@ -349,7 +349,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.contingent_transaction_flag = function(bu
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.contingent_transaction_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.contingent_transaction_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.contingent_transaction_flag, range, value, display)
 
   return offset + length, value
 end
@@ -369,7 +369,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.portfolio_transaction_flag = function(buf
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.portfolio_transaction_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.portfolio_transaction_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.portfolio_transaction_flag, range, value, display)
 
   return offset + length, value
 end
@@ -389,7 +389,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.thirdcountry_trading_venue_of_execution =
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.thirdcountry_trading_venue_of_execution(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution, range, value, display)
 
   return offset + length, value
 end
@@ -409,7 +409,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.duplicative_indicator = function(buffer, 
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.duplicative_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.duplicative_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.duplicative_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -429,7 +429,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.deferral_enrichment_type = function(buffe
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.deferral_enrichment_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.deferral_enrichment_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.deferral_enrichment_type, range, value, display)
 
   return offset + length, value
 end
@@ -449,7 +449,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.post_trade_deferral_reason = function(buf
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.post_trade_deferral_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.post_trade_deferral_reason, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.post_trade_deferral_reason, range, value, display)
 
   return offset + length, value
 end
@@ -469,7 +469,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.algorithmic_indicator = function(buffer, 
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.algorithmic_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.algorithmic_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.algorithmic_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -489,7 +489,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.price_formation_indicator = function(buff
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.price_formation_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.price_formation_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_formation_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -509,7 +509,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.off_book_automated_indicator = function(b
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.off_book_automated_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.off_book_automated_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.off_book_automated_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -529,7 +529,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.special_dividend_indicator = function(buf
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.special_dividend_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -549,7 +549,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.reference_price_indicator = function(buff
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.reference_price_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -579,7 +579,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.modification_indicator = function(buffer,
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.modification_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.modification_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.modification_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -606,7 +606,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.agency_cross_indicator = function(buffer,
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.agency_cross_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -645,7 +645,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.negotiation_indicator = function(buffer, 
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.negotiation_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.negotiation_indicator, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.negotiation_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -684,7 +684,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.transaction_category = function(buffer, o
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.transaction_category(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_category, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_category, range, value, display)
 
   return offset + length, value
 end
@@ -714,7 +714,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.trading_mode = function(buffer, offset, p
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.trading_mode(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.trading_mode, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.trading_mode, range, value, display)
 
   return offset + length, value
 end
@@ -738,7 +738,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.market_mechanism = function(buffer, offse
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.market_mechanism(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.market_mechanism, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.market_mechanism, range, value, display)
 
   return offset + length, value
 end
@@ -758,7 +758,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_of_publication = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.venue_of_publication(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_publication, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_publication, range, value, display)
 
   return offset + length, value
 end
@@ -778,7 +778,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.emission_allowance_type = function(buffer
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.emission_allowance_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.emission_allowance_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.emission_allowance_type, range, value, display)
 
   return offset + length, value
 end
@@ -805,7 +805,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.transaction_to_be_cleared = function(buff
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.transaction_to_be_cleared(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_to_be_cleared, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_to_be_cleared, range, value, display)
 
   return offset + length, value
 end
@@ -825,7 +825,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.quantity_in_measurement_unit = function(b
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.quantity_in_measurement_unit(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.quantity_in_measurement_unit, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.quantity_in_measurement_unit, range, value, display)
 
   return offset + length, value
 end
@@ -845,7 +845,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_measurement_unit_notation = functio
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.venue_measurement_unit_notation(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.venue_measurement_unit_notation, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_measurement_unit_notation, range, value, display)
 
   return offset + length, value
 end
@@ -872,7 +872,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_book_definition_id = function(buffe
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.venue_book_definition_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.venue_book_definition_id, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_book_definition_id, range, value, display)
 
   return offset + length, value
 end
@@ -905,7 +905,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_type = function(buffer, offset, pac
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.venue_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.venue_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_type, range, value, display)
 
   return offset + length, value
 end
@@ -925,7 +925,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.reserved_1 = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_1, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -945,7 +945,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.consecutive_aggregation_flag = function(b
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.consecutive_aggregation_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.consecutive_aggregation_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.consecutive_aggregation_flag, range, value, display)
 
   return offset + length, value
 end
@@ -965,7 +965,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.volume_omission_for_sovereign_debt_flag =
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.volume_omission_for_sovereign_debt_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_for_sovereign_debt_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_for_sovereign_debt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -985,7 +985,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.indefinite_aggregation_flag = function(bu
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.indefinite_aggregation_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.indefinite_aggregation_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.indefinite_aggregation_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1005,7 +1005,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.fa_full_details_flag = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.fa_full_details_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.fa_full_details_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.fa_full_details_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1025,7 +1025,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.four_weeks_aggregation_flag = function(bu
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.four_weeks_aggregation_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.four_weeks_aggregation_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.four_weeks_aggregation_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1045,7 +1045,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.vo_full_details_flag = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.vo_full_details_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.vo_full_details_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vo_full_details_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1065,7 +1065,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.volume_omission_flag = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.volume_omission_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1085,7 +1085,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.da_full_details_flag = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.da_full_details_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.da_full_details_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.da_full_details_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1105,7 +1105,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.daily_aggregated_transaction_flag = funct
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.daily_aggregated_transaction_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.daily_aggregated_transaction_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.daily_aggregated_transaction_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1125,7 +1125,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.ld_full_details_flag = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.ld_full_details_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.ld_full_details_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.ld_full_details_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1145,7 +1145,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.limited_details_flag = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.limited_details_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.limited_details_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.limited_details_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1165,7 +1165,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.exchange_for_physicals_flag = function(bu
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.exchange_for_physicals_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.exchange_for_physicals_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.exchange_for_physicals_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1185,7 +1185,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.duplicate_flag = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.duplicate_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.duplicate_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.duplicate_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1205,7 +1205,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.amendment_flag = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.amendment_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.amendment_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.amendment_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1225,7 +1225,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.cancellation_flag = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.cancellation_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.cancellation_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.cancellation_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1245,7 +1245,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.price_improvement_flag = function(buffer,
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.price_improvement_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.price_improvement_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_improvement_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1265,7 +1265,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.pt_illiquid_flag = function(buffer, offse
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.pt_illiquid_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.pt_illiquid_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.pt_illiquid_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1285,7 +1285,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.algo_transaction_flag = function(buffer, 
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.algo_transaction_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.algo_transaction_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.algo_transaction_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1305,7 +1305,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.nt_price_conditions_flag = function(buffe
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.nt_price_conditions_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.nt_price_conditions_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_price_conditions_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1325,7 +1325,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.nt_liquidity_flag = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.nt_liquidity_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.nt_liquidity_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.nt_liquidity_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1345,7 +1345,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.reference_price_transaction_flag = functi
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.reference_price_transaction_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_transaction_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reference_price_transaction_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1365,7 +1365,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.pt_deferral_reason_flag = function(buffer
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.pt_deferral_reason_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.pt_deferral_reason_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.pt_deferral_reason_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1385,7 +1385,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.special_dividend_flag = function(buffer, 
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.special_dividend_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1405,7 +1405,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.non_price_contribution_to_discovery = fun
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.non_price_contribution_to_discovery(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_contribution_to_discovery, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_contribution_to_discovery, range, value, display)
 
   return offset + length, value
 end
@@ -1425,7 +1425,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.non_price_forming_transactions_flag = fun
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.non_price_forming_transactions_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_forming_transactions_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.non_price_forming_transactions_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1445,7 +1445,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.agency_cross_trade_flag = function(buffer
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.agency_cross_trade_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_trade_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.agency_cross_trade_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1465,7 +1465,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.benchmark_transaction_flag = function(buf
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.benchmark_transaction_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.benchmark_transaction_flag, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.benchmark_transaction_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1485,7 +1485,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.publication_date_and_time = function(buff
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.publication_date_and_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.publication_date_and_time, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.publication_date_and_time, range, value, display)
 
   return offset + length, value
 end
@@ -1505,7 +1505,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_of_execution = function(buffer, off
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.venue_of_execution(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_execution, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_of_execution, range, value, display)
 
   return offset + length, value
 end
@@ -1525,7 +1525,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.notional_currency = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.notional_currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.notional_currency, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.notional_currency, range, value, display)
 
   return offset + length, value
 end
@@ -1545,7 +1545,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.notional_amount = function(buffer, offset
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.notional_amount(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.notional_amount, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.notional_amount, range, value, display)
 
   return offset + length, value
 end
@@ -1565,7 +1565,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.price_currency = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.price_currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.price_currency, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_currency, range, value, display)
 
   return offset + length, value
 end
@@ -1598,7 +1598,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.price_notation = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.price_notation(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.price_notation, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_notation, range, value, display)
 
   return offset + length, value
 end
@@ -1618,7 +1618,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_identification_code = function
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_identification_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code, range, value, display)
 
   return offset + length, value
 end
@@ -1642,7 +1642,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_identification_code_type = fun
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_identification_code_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code_type, range, value, display)
 
   return offset + length, value
 end
@@ -1662,7 +1662,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.mi_fid_trading_date_and_time = function(b
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.mi_fid_trading_date_and_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_trading_date_and_time, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_trading_date_and_time, range, value, display)
 
   return offset + length, value
 end
@@ -1682,7 +1682,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.mi_fid_quantity = function(buffer, offset
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.mi_fid_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_quantity, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1702,7 +1702,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.mi_fid_price = function(buffer, offset, p
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.mi_fid_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_price, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1722,7 +1722,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.source_venue = function(buffer, offset, p
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.source_venue(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.source_venue, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.source_venue, range, value, display)
 
   return offset + length, value
 end
@@ -1742,7 +1742,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.reserved_8 = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.reserved_8(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_8, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -1762,7 +1762,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.total_number_of_transactions = function(b
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.total_number_of_transactions(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.total_number_of_transactions, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.total_number_of_transactions, range, value, display)
 
   return offset + length, value
 end
@@ -1782,7 +1782,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.transaction_identification_code = functio
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.transaction_identification_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_identification_code, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.transaction_identification_code, range, value, display)
 
   return offset + length, value
 end
@@ -1802,7 +1802,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument = function(buffer, offset, pac
   local value = range:le_uint64()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument, range, value, display)
 
   return offset + length, value
 end
@@ -1826,7 +1826,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.timestamp = function(buffer, offset, pack
   local value = range:le_uint64()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.timestamp, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2224,7 +2224,7 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report = function(buffer, offset, packet, parent)
   if show.mifid_ii_trade_report then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2259,7 +2259,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.turnover_onbook_only = function(buffer, o
   local value = translate.turnover_onbook_only(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.turnover_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.turnover_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.turnover_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -2285,7 +2285,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.turnover = function(buffer, offset, packe
   local value = translate.turnover(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.turnover(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.turnover, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.turnover, range, value, display)
 
   return offset + length, value
 end
@@ -2305,7 +2305,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.number_of_trades_onbook_only = function(b
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.number_of_trades_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -2325,7 +2325,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.number_of_trades = function(buffer, offse
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.number_of_trades(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.number_of_trades, range, value, display)
 
   return offset + length, value
 end
@@ -2351,7 +2351,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.vwap_onbook_only = function(buffer, offse
   local value = translate.vwap_onbook_only(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.vwap_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.vwap_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vwap_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -2377,7 +2377,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.vwap = function(buffer, offset, packet, p
   local value = translate.vwap(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.vwap(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.vwap, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vwap, range, value, display)
 
   return offset + length, value
 end
@@ -2403,7 +2403,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.volume_onbook_only = function(buffer, off
   local value = translate.volume_onbook_only(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.volume_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.volume_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -2429,7 +2429,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.volume = function(buffer, offset, packet,
   local value = translate.volume(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.volume, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -2512,7 +2512,7 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics = function(buffer, offset, packet, parent)
   if show.statistics then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.statistics, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.statistics, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2548,7 +2548,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.order_book_type = function(buffer, offset
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.order_book_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.order_book_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.order_book_type, range, value, display)
 
   return offset + length, value
 end
@@ -2568,7 +2568,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.new_end_time = function(buffer, offset, p
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.new_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.new_end_time, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.new_end_time, range, value, display)
 
   return offset + length, value
 end
@@ -2592,7 +2592,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.session_change_reason = function(buffer, 
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.session_change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.session_change_reason, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2625,7 +2625,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.trading_status = function(buffer, offset,
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.trading_status, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -2688,7 +2688,7 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status = function(buffer, offset, packet, parent)
   if show.instrument_status then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2717,7 +2717,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.reserved_25 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.reserved_25(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_25, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_25, range, value, display)
 
   return offset + length, value
 end
@@ -2743,7 +2743,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.average_daily_turnover = function(buffer,
   local value = translate.average_daily_turnover(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.average_daily_turnover(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.average_daily_turnover, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.average_daily_turnover, range, value, display)
 
   return offset + length, value
 end
@@ -2763,7 +2763,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.reserved_5 = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.reserved_5(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_5, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_5, range, value, display)
 
   return offset + length, value
 end
@@ -2783,7 +2783,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.currency = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.currency, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -2803,7 +2803,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.reserved_23 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.reserved_23(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_23, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.reserved_23, range, value, display)
 
   return offset + length, value
 end
@@ -2823,7 +2823,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.segment = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.segment(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.segment, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.segment, range, value, display)
 
   return offset + length, value
 end
@@ -2849,7 +2849,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.static_circuit_breaker_tolerances = funct
   local value = translate.static_circuit_breaker_tolerances(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.static_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2875,7 +2875,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.dynamic_circuit_breaker_tolerances = func
   local value = translate.dynamic_circuit_breaker_tolerances(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.dynamic_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2901,7 +2901,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.price_band_tolerances = function(buffer, 
   local value = translate.price_band_tolerances(raw)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.price_band_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.price_band_tolerances, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.price_band_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2921,7 +2921,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.tick_id = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.tick_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.tick_id, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.tick_id, range, value, display)
 
   return offset + length, value
 end
@@ -2941,7 +2941,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_instrument_id = function(buffer, of
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.venue_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.venue_instrument_id, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.venue_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -2969,13 +2969,13 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.allowed_book_types_bits = function(buffer, offset, packet, parent)
 
   -- Si Quote Book: 1 Bit
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.si_quote_book, buffer(offset, 1))
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.si_quote_book, buffer(offset, 1))
 
   -- Off Book: 1 Bit
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.off_book, buffer(offset, 1))
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.off_book, buffer(offset, 1))
 
   -- Unused 6: 6 Bit
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.unused_6, buffer(offset, 1))
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.unused_6, buffer(offset, 1))
 end
 
 -- Dissect: Allowed Book Types
@@ -2983,7 +2983,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.allowed_book_types = function(buffer, off
   local size = 1
   local range = buffer(offset, size)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.allowed_book_types(range, packet, parent)
-  local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.allowed_book_types, range, display)
+  local element = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.allowed_book_types, range, display)
 
   if show.allowed_book_types then
     lseg_tradeecho_mifid_gtp_v24_4_dissect.allowed_book_types_bits(buffer, offset, packet, element)
@@ -3007,7 +3007,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.isin = function(buffer, offset, packet, p
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.isin, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -3115,7 +3115,7 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory = function(buffer, offset, packet, parent)
   if show.instrument_directory then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3154,7 +3154,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.event_code = function(buffer, offset, pac
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.event_code, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -3197,7 +3197,7 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event = function(buffer, offset, packet, parent)
   if show.system_event then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.system_event, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.system_event, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3283,7 +3283,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.payload = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.payload(buffer, packet, parent)
-  local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.payload, range, display)
+  local element = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.payload, range, display)
 
   return lseg_tradeecho_mifid_gtp_v24_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -3319,7 +3319,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.message_type = function(buffer, offset, p
   local value = range:uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3339,7 +3339,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.message_length = function(buffer, offset,
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_length, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -3377,7 +3377,7 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3416,7 +3416,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.message_fields = function(buffer, offset,
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_index, message_index)
+    local iteration = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -3439,7 +3439,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.message = function(buffer, offset, packet
     local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.message(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message, range, display)
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message, range, display)
   end
 
   return lseg_tradeecho_mifid_gtp_v24_4_dissect.message_fields(buffer, offset, packet, parent)
@@ -3460,7 +3460,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.sequence_number = function(buffer, offset
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.sequence_number, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3480,7 +3480,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.market_data_group = function(buffer, offs
   local value = range:string()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.market_data_group(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.market_data_group, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
@@ -3500,7 +3500,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.message_count = function(buffer, offset, 
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_count, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3520,7 +3520,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.length = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = lseg_tradeecho_mifid_gtp_v24_4_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.length, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -3568,7 +3568,7 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3606,23 +3606,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function lseg_tradeecho_mifid_gtp_v24_4.init()
+function omi_lseg_tradeecho_mifid_gtp_v24_4.init()
 end
 
 -- Dissector for Lseg TradeEcho Mifid Gtp 24.4
-function lseg_tradeecho_mifid_gtp_v24_4.dissector(buffer, packet, parent)
+function omi_lseg_tradeecho_mifid_gtp_v24_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = lseg_tradeecho_mifid_gtp_v24_4.name
+  packet.cols.protocol = omi_lseg_tradeecho_mifid_gtp_v24_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(lseg_tradeecho_mifid_gtp_v24_4, buffer(), lseg_tradeecho_mifid_gtp_v24_4.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4, buffer(), omi_lseg_tradeecho_mifid_gtp_v24_4.description, "("..buffer:len().." Bytes)")
   return lseg_tradeecho_mifid_gtp_v24_4_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, lseg_tradeecho_mifid_gtp_v24_4)
+udp_table:add(65333, omi_lseg_tradeecho_mifid_gtp_v24_4)
 
 
 -----------------------------------------------------------------------
@@ -3630,25 +3630,25 @@ udp_table:add(65333, lseg_tradeecho_mifid_gtp_v24_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.lseg_tradeecho_mifid_gtp_v24_4_packet_size = function(buffer)
+verify.omi_lseg_tradeecho_mifid_gtp_v24_4_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Lseg TradeEcho Mifid Gtp 24.4
-local function lseg_tradeecho_mifid_gtp_v24_4_heuristic(buffer, packet, parent)
+local function omi_lseg_tradeecho_mifid_gtp_v24_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.lseg_tradeecho_mifid_gtp_v24_4_packet_size(buffer) then return false end
+  if not verify.omi_lseg_tradeecho_mifid_gtp_v24_4_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = lseg_tradeecho_mifid_gtp_v24_4
-  lseg_tradeecho_mifid_gtp_v24_4.dissector(buffer, packet, parent)
+  packet.conversation = omi_lseg_tradeecho_mifid_gtp_v24_4
+  omi_lseg_tradeecho_mifid_gtp_v24_4.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Lseg TradeEcho Mifid Gtp 24.4
-lseg_tradeecho_mifid_gtp_v24_4:register_heuristic("udp", lseg_tradeecho_mifid_gtp_v24_4_heuristic)
+omi_lseg_tradeecho_mifid_gtp_v24_4:register_heuristic("udp", omi_lseg_tradeecho_mifid_gtp_v24_4_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

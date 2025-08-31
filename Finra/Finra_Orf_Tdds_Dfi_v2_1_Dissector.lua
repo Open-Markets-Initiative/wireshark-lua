@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Finra Orf Tdds Dfi 2.1 Protocol
-local finra_orf_tdds_dfi_v2_1 = Proto("Finra.Orf.Tdds.Dfi.v2.1.Lua", "Finra Orf Tdds Dfi 2.1")
+local omi_finra_orf_tdds_dfi_v2_1 = Proto("Finra.Orf.Tdds.Dfi.v2.1.Lua", "Finra Orf Tdds Dfi 2.1")
 
 -- Component Tables
 local show = {}
@@ -20,103 +20,103 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Finra Orf Tdds Dfi 2.1 Fields
-finra_orf_tdds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.orf.tdds.dfi.v2.1.action", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.orf.tdds.dfi.v2.1.actiondatetime", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.administrative = ProtoField.new("Administrative", "finra.orf.tdds.dfi.v2.1.administrative", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.orf.tdds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.administrative_payload = ProtoField.new("Administrative Payload", "finra.orf.tdds.dfi.v2.1.administrativepayload", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.orf.tdds.dfi.v2.1.asofindicator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.closing_price = ProtoField.new("Closing Price", "finra.orf.tdds.dfi.v2.1.closingprice", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.closing_price_denominator = ProtoField.new("Closing Price Denominator", "finra.orf.tdds.dfi.v2.1.closingpricedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.closing_price_market_center = ProtoField.new("Closing Price Market Center", "finra.orf.tdds.dfi.v2.1.closingpricemarketcenter", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.control = ProtoField.new("Control", "finra.orf.tdds.dfi.v2.1.control", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.control_message_type = ProtoField.new("Control Message Type", "finra.orf.tdds.dfi.v2.1.controlmessagetype", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.control_payload = ProtoField.new("Control Payload", "finra.orf.tdds.dfi.v2.1.controlpayload", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.corrected_trade_information = ProtoField.new("Corrected Trade Information", "finra.orf.tdds.dfi.v2.1.correctedtradeinformation", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.count = ProtoField.new("Count", "finra.orf.tdds.dfi.v2.1.count", ftypes.UINT16)
-finra_orf_tdds_dfi_v2_1.fields.currency = ProtoField.new("Currency", "finra.orf.tdds.dfi.v2.1.currency", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.orf.tdds.dfi.v2.1.dailyhighprice", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.daily_high_price_denominator = ProtoField.new("Daily High Price Denominator", "finra.orf.tdds.dfi.v2.1.dailyhighpricedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.orf.tdds.dfi.v2.1.dailylowprice", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.daily_low_price_denominator = ProtoField.new("Daily Low Price Denominator", "finra.orf.tdds.dfi.v2.1.dailylowpricedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.orf.tdds.dfi.v2.1.datetime", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.orf.tdds.dfi.v2.1.day", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.orf.tdds.dfi.v2.1.executiondatetime", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.fractional_second = ProtoField.new("Fractional Second", "finra.orf.tdds.dfi.v2.1.fractionalsecond", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.orf.tdds.dfi.v2.1.highprice", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.high_price_denominator = ProtoField.new("High Price Denominator", "finra.orf.tdds.dfi.v2.1.highpricedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.orf.tdds.dfi.v2.1.hour", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.orf.tdds.dfi.v2.1.lastsaleprice", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.last_sale_price_denominator = ProtoField.new("Last Sale Price Denominator", "finra.orf.tdds.dfi.v2.1.lastsalepricedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.last_sale_price_market_center = ProtoField.new("Last Sale Price Market Center", "finra.orf.tdds.dfi.v2.1.lastsalepricemarketcenter", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.length = ProtoField.new("Length", "finra.orf.tdds.dfi.v2.1.length", ftypes.UINT16)
-finra_orf_tdds_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.orf.tdds.dfi.v2.1.lowprice", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.low_price_denominator = ProtoField.new("Low Price Denominator", "finra.orf.tdds.dfi.v2.1.lowpricedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.orf.tdds.dfi.v2.1.marketcenteroriginatorid", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.message = ProtoField.new("Message", "finra.orf.tdds.dfi.v2.1.message", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.orf.tdds.dfi.v2.1.messagecategory", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.orf.tdds.dfi.v2.1.messageheader", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.orf.tdds.dfi.v2.1.minute", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.mold_udp64 = ProtoField.new("Mold Udp64", "finra.orf.tdds.dfi.v2.1.moldudp64", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.orf.tdds.dfi.v2.1.month", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.net_change_amount = ProtoField.new("Net Change Amount", "finra.orf.tdds.dfi.v2.1.netchangeamount", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.net_change_denominator = ProtoField.new("Net Change Denominator", "finra.orf.tdds.dfi.v2.1.netchangedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.net_change_direction = ProtoField.new("Net Change Direction", "finra.orf.tdds.dfi.v2.1.netchangedirection", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.orf.tdds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.orf.tdds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.packet = ProtoField.new("Packet", "finra.orf.tdds.dfi.v2.1.packet", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.packet_header = ProtoField.new("Packet Header", "finra.orf.tdds.dfi.v2.1.packetheader", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.payload = ProtoField.new("Payload", "finra.orf.tdds.dfi.v2.1.payload", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.orf.tdds.dfi.v2.1.pricechangeindicator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.reason_code = ProtoField.new("Reason Code", "finra.orf.tdds.dfi.v2.1.reasoncode", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.report_function = ProtoField.new("Report Function", "finra.orf.tdds.dfi.v2.1.reportfunction", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.report_volume = ProtoField.new("Report Volume", "finra.orf.tdds.dfi.v2.1.reportvolume", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.orf.tdds.dfi.v2.1.reportvolumeshort", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.reserved = ProtoField.new("Reserved", "finra.orf.tdds.dfi.v2.1.reserved", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_1 = ProtoField.new("Sale Condition Level 1", "finra.orf.tdds.dfi.v2.1.saleconditionlevel1", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_2 = ProtoField.new("Sale Condition Level 2", "finra.orf.tdds.dfi.v2.1.saleconditionlevel2", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_3 = ProtoField.new("Sale Condition Level 3", "finra.orf.tdds.dfi.v2.1.saleconditionlevel3", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_4 = ProtoField.new("Sale Condition Level 4", "finra.orf.tdds.dfi.v2.1.saleconditionlevel4", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.orf.tdds.dfi.v2.1.second", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "finra.orf.tdds.dfi.v2.1.securitysymbol", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "finra.orf.tdds.dfi.v2.1.securitysymbolshort", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "finra.orf.tdds.dfi.v2.1.sellerssaledays", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.sequence = ProtoField.new("Sequence", "finra.orf.tdds.dfi.v2.1.sequence", ftypes.UINT64)
-finra_orf_tdds_dfi_v2_1.fields.session = ProtoField.new("Session", "finra.orf.tdds.dfi.v2.1.session", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.orf.tdds.dfi.v2.1.text", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.total_security_volume = ProtoField.new("Total Security Volume", "finra.orf.tdds.dfi.v2.1.totalsecurityvolume", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade = ProtoField.new("Trade", "finra.orf.tdds.dfi.v2.1.trade", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.orf.tdds.dfi.v2.1.tradeidentifier", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.orf.tdds.dfi.v2.1.tradeinformation", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.orf.tdds.dfi.v2.1.trademessagetype", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_payload = ProtoField.new("Trade Payload", "finra.orf.tdds.dfi.v2.1.tradepayload", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_price = ProtoField.new("Trade Price", "finra.orf.tdds.dfi.v2.1.tradeprice", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_price_denominator = ProtoField.new("Trade Price Denominator", "finra.orf.tdds.dfi.v2.1.tradepricedenominator", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.orf.tdds.dfi.v2.1.tradepriceshort", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.orf.tdds.dfi.v2.1.tradesummaryinformation", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.orf.tdds.dfi.v2.1.year", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.orf.tdds.dfi.v2.1.action", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.orf.tdds.dfi.v2.1.actiondatetime", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.administrative = ProtoField.new("Administrative", "finra.orf.tdds.dfi.v2.1.administrative", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.orf.tdds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.administrative_payload = ProtoField.new("Administrative Payload", "finra.orf.tdds.dfi.v2.1.administrativepayload", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.orf.tdds.dfi.v2.1.asofindicator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.closing_price = ProtoField.new("Closing Price", "finra.orf.tdds.dfi.v2.1.closingprice", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.closing_price_denominator = ProtoField.new("Closing Price Denominator", "finra.orf.tdds.dfi.v2.1.closingpricedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.closing_price_market_center = ProtoField.new("Closing Price Market Center", "finra.orf.tdds.dfi.v2.1.closingpricemarketcenter", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.control = ProtoField.new("Control", "finra.orf.tdds.dfi.v2.1.control", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.control_message_type = ProtoField.new("Control Message Type", "finra.orf.tdds.dfi.v2.1.controlmessagetype", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.control_payload = ProtoField.new("Control Payload", "finra.orf.tdds.dfi.v2.1.controlpayload", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.corrected_trade_information = ProtoField.new("Corrected Trade Information", "finra.orf.tdds.dfi.v2.1.correctedtradeinformation", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.count = ProtoField.new("Count", "finra.orf.tdds.dfi.v2.1.count", ftypes.UINT16)
+omi_finra_orf_tdds_dfi_v2_1.fields.currency = ProtoField.new("Currency", "finra.orf.tdds.dfi.v2.1.currency", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.orf.tdds.dfi.v2.1.dailyhighprice", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.daily_high_price_denominator = ProtoField.new("Daily High Price Denominator", "finra.orf.tdds.dfi.v2.1.dailyhighpricedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.orf.tdds.dfi.v2.1.dailylowprice", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.daily_low_price_denominator = ProtoField.new("Daily Low Price Denominator", "finra.orf.tdds.dfi.v2.1.dailylowpricedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.orf.tdds.dfi.v2.1.datetime", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.orf.tdds.dfi.v2.1.day", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.orf.tdds.dfi.v2.1.executiondatetime", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.fractional_second = ProtoField.new("Fractional Second", "finra.orf.tdds.dfi.v2.1.fractionalsecond", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.orf.tdds.dfi.v2.1.highprice", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.high_price_denominator = ProtoField.new("High Price Denominator", "finra.orf.tdds.dfi.v2.1.highpricedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.orf.tdds.dfi.v2.1.hour", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.orf.tdds.dfi.v2.1.lastsaleprice", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.last_sale_price_denominator = ProtoField.new("Last Sale Price Denominator", "finra.orf.tdds.dfi.v2.1.lastsalepricedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.last_sale_price_market_center = ProtoField.new("Last Sale Price Market Center", "finra.orf.tdds.dfi.v2.1.lastsalepricemarketcenter", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.length = ProtoField.new("Length", "finra.orf.tdds.dfi.v2.1.length", ftypes.UINT16)
+omi_finra_orf_tdds_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.orf.tdds.dfi.v2.1.lowprice", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.low_price_denominator = ProtoField.new("Low Price Denominator", "finra.orf.tdds.dfi.v2.1.lowpricedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.orf.tdds.dfi.v2.1.marketcenteroriginatorid", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.message = ProtoField.new("Message", "finra.orf.tdds.dfi.v2.1.message", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.orf.tdds.dfi.v2.1.messagecategory", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.orf.tdds.dfi.v2.1.messageheader", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.orf.tdds.dfi.v2.1.minute", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.mold_udp64 = ProtoField.new("Mold Udp64", "finra.orf.tdds.dfi.v2.1.moldudp64", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.orf.tdds.dfi.v2.1.month", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.net_change_amount = ProtoField.new("Net Change Amount", "finra.orf.tdds.dfi.v2.1.netchangeamount", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.net_change_denominator = ProtoField.new("Net Change Denominator", "finra.orf.tdds.dfi.v2.1.netchangedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.net_change_direction = ProtoField.new("Net Change Direction", "finra.orf.tdds.dfi.v2.1.netchangedirection", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.orf.tdds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.orf.tdds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.packet = ProtoField.new("Packet", "finra.orf.tdds.dfi.v2.1.packet", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.packet_header = ProtoField.new("Packet Header", "finra.orf.tdds.dfi.v2.1.packetheader", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.payload = ProtoField.new("Payload", "finra.orf.tdds.dfi.v2.1.payload", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.orf.tdds.dfi.v2.1.pricechangeindicator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.reason_code = ProtoField.new("Reason Code", "finra.orf.tdds.dfi.v2.1.reasoncode", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.report_function = ProtoField.new("Report Function", "finra.orf.tdds.dfi.v2.1.reportfunction", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.report_volume = ProtoField.new("Report Volume", "finra.orf.tdds.dfi.v2.1.reportvolume", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.orf.tdds.dfi.v2.1.reportvolumeshort", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.reserved = ProtoField.new("Reserved", "finra.orf.tdds.dfi.v2.1.reserved", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_1 = ProtoField.new("Sale Condition Level 1", "finra.orf.tdds.dfi.v2.1.saleconditionlevel1", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_2 = ProtoField.new("Sale Condition Level 2", "finra.orf.tdds.dfi.v2.1.saleconditionlevel2", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_3 = ProtoField.new("Sale Condition Level 3", "finra.orf.tdds.dfi.v2.1.saleconditionlevel3", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_4 = ProtoField.new("Sale Condition Level 4", "finra.orf.tdds.dfi.v2.1.saleconditionlevel4", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.orf.tdds.dfi.v2.1.second", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "finra.orf.tdds.dfi.v2.1.securitysymbol", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "finra.orf.tdds.dfi.v2.1.securitysymbolshort", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "finra.orf.tdds.dfi.v2.1.sellerssaledays", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.sequence = ProtoField.new("Sequence", "finra.orf.tdds.dfi.v2.1.sequence", ftypes.UINT64)
+omi_finra_orf_tdds_dfi_v2_1.fields.session = ProtoField.new("Session", "finra.orf.tdds.dfi.v2.1.session", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.orf.tdds.dfi.v2.1.text", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.total_security_volume = ProtoField.new("Total Security Volume", "finra.orf.tdds.dfi.v2.1.totalsecurityvolume", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade = ProtoField.new("Trade", "finra.orf.tdds.dfi.v2.1.trade", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.orf.tdds.dfi.v2.1.tradeidentifier", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.orf.tdds.dfi.v2.1.tradeinformation", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.orf.tdds.dfi.v2.1.trademessagetype", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_payload = ProtoField.new("Trade Payload", "finra.orf.tdds.dfi.v2.1.tradepayload", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_price = ProtoField.new("Trade Price", "finra.orf.tdds.dfi.v2.1.tradeprice", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_price_denominator = ProtoField.new("Trade Price Denominator", "finra.orf.tdds.dfi.v2.1.tradepricedenominator", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.orf.tdds.dfi.v2.1.tradepriceshort", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.orf.tdds.dfi.v2.1.tradesummaryinformation", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.orf.tdds.dfi.v2.1.year", ftypes.STRING)
 
 -- Finra Orf Tdds Dfi 2.1 messages
-finra_orf_tdds_dfi_v2_1.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "finra.orf.tdds.dfi.v2.1.closingtradesummaryreportmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.end_of_day_message = ProtoField.new("End Of Day Message", "finra.orf.tdds.dfi.v2.1.endofdaymessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.end_of_retransmission_requests_message = ProtoField.new("End Of Retransmission Requests Message", "finra.orf.tdds.dfi.v2.1.endofretransmissionrequestsmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "finra.orf.tdds.dfi.v2.1.endoftradereportingmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.end_of_transmissions_message = ProtoField.new("End Of Transmissions Message", "finra.orf.tdds.dfi.v2.1.endoftransmissionsmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.general_administrative_message = ProtoField.new("General Administrative Message", "finra.orf.tdds.dfi.v2.1.generaladministrativemessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "finra.orf.tdds.dfi.v2.1.lineintegritymessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "finra.orf.tdds.dfi.v2.1.marketsessionclosemessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "finra.orf.tdds.dfi.v2.1.marketsessionopenmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.market_wide_circuit_breaker_event_message = ProtoField.new("Market Wide Circuit Breaker Event Message", "finra.orf.tdds.dfi.v2.1.marketwidecircuitbreakereventmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "finra.orf.tdds.dfi.v2.1.sequencenumberresetmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "finra.orf.tdds.dfi.v2.1.startofdaymessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "finra.orf.tdds.dfi.v2.1.tradecancelerrormessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "finra.orf.tdds.dfi.v2.1.tradecorrectionmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_report_long_form_message = ProtoField.new("Trade Report Long Form Message", "finra.orf.tdds.dfi.v2.1.tradereportlongformmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trade_report_short_form_message = ProtoField.new("Trade Report Short Form Message", "finra.orf.tdds.dfi.v2.1.tradereportshortformmessage", ftypes.STRING)
-finra_orf_tdds_dfi_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "finra.orf.tdds.dfi.v2.1.tradingactionmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "finra.orf.tdds.dfi.v2.1.closingtradesummaryreportmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.end_of_day_message = ProtoField.new("End Of Day Message", "finra.orf.tdds.dfi.v2.1.endofdaymessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.end_of_retransmission_requests_message = ProtoField.new("End Of Retransmission Requests Message", "finra.orf.tdds.dfi.v2.1.endofretransmissionrequestsmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "finra.orf.tdds.dfi.v2.1.endoftradereportingmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.end_of_transmissions_message = ProtoField.new("End Of Transmissions Message", "finra.orf.tdds.dfi.v2.1.endoftransmissionsmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.general_administrative_message = ProtoField.new("General Administrative Message", "finra.orf.tdds.dfi.v2.1.generaladministrativemessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "finra.orf.tdds.dfi.v2.1.lineintegritymessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "finra.orf.tdds.dfi.v2.1.marketsessionclosemessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "finra.orf.tdds.dfi.v2.1.marketsessionopenmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.market_wide_circuit_breaker_event_message = ProtoField.new("Market Wide Circuit Breaker Event Message", "finra.orf.tdds.dfi.v2.1.marketwidecircuitbreakereventmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "finra.orf.tdds.dfi.v2.1.sequencenumberresetmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "finra.orf.tdds.dfi.v2.1.startofdaymessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "finra.orf.tdds.dfi.v2.1.tradecancelerrormessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "finra.orf.tdds.dfi.v2.1.tradecorrectionmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_report_long_form_message = ProtoField.new("Trade Report Long Form Message", "finra.orf.tdds.dfi.v2.1.tradereportlongformmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trade_report_short_form_message = ProtoField.new("Trade Report Short Form Message", "finra.orf.tdds.dfi.v2.1.tradereportshortformmessage", ftypes.STRING)
+omi_finra_orf_tdds_dfi_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "finra.orf.tdds.dfi.v2.1.tradingactionmessage", ftypes.STRING)
 
 -- Finra Orf Tdds Dfi 2.1 generated fields
-finra_orf_tdds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.orf.tdds.dfi.v2.1.messageindex", ftypes.UINT16)
+omi_finra_orf_tdds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.orf.tdds.dfi.v2.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -162,195 +162,195 @@ show.payload = false
 show.trade_payload = false
 
 -- Register Finra Orf Tdds Dfi 2.1 Show Options
-finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message = Pref.bool("Show Closing Trade Summary Report Message", show.closing_trade_summary_report_message, "Parse and add Closing Trade Summary Report Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_corrected_trade_information = Pref.bool("Show Corrected Trade Information", show.corrected_trade_information, "Parse and add Corrected Trade Information to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message = Pref.bool("Show End Of Retransmission Requests Message", show.end_of_retransmission_requests_message, "Parse and add End Of Retransmission Requests Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime = Pref.bool("Show Execution Datetime", show.execution_datetime, "Parse and add Execution Datetime to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message = Pref.bool("Show Market Wide Circuit Breaker Event Message", show.market_wide_circuit_breaker_event_message, "Parse and add Market Wide Circuit Breaker Event Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_mold_udp64 = Pref.bool("Show Mold Udp64", show.mold_udp64, "Parse and add Mold Udp64 to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_original_dissemination_date = Pref.bool("Show Original Dissemination Date", show.original_dissemination_date, "Parse and add Original Dissemination Date to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_original_trade_information = Pref.bool("Show Original Trade Information", show.original_trade_information, "Parse and add Original Trade Information to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade_information = Pref.bool("Show Trade Information", show.trade_information, "Parse and add Trade Information to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message = Pref.bool("Show Trade Report Long Form Message", show.trade_report_long_form_message, "Parse and add Trade Report Long Form Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message = Pref.bool("Show Trade Report Short Form Message", show.trade_report_short_form_message, "Parse and add Trade Report Short Form Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information = Pref.bool("Show Trade Summary Information", show.trade_summary_information, "Parse and add Trade Summary Information to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message = Pref.bool("Show Closing Trade Summary Report Message", show.closing_trade_summary_report_message, "Parse and add Closing Trade Summary Report Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_corrected_trade_information = Pref.bool("Show Corrected Trade Information", show.corrected_trade_information, "Parse and add Corrected Trade Information to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message = Pref.bool("Show End Of Retransmission Requests Message", show.end_of_retransmission_requests_message, "Parse and add End Of Retransmission Requests Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime = Pref.bool("Show Execution Datetime", show.execution_datetime, "Parse and add Execution Datetime to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message = Pref.bool("Show Market Wide Circuit Breaker Event Message", show.market_wide_circuit_breaker_event_message, "Parse and add Market Wide Circuit Breaker Event Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_mold_udp64 = Pref.bool("Show Mold Udp64", show.mold_udp64, "Parse and add Mold Udp64 to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_dissemination_date = Pref.bool("Show Original Dissemination Date", show.original_dissemination_date, "Parse and add Original Dissemination Date to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_trade_information = Pref.bool("Show Original Trade Information", show.original_trade_information, "Parse and add Original Trade Information to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_information = Pref.bool("Show Trade Information", show.trade_information, "Parse and add Trade Information to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message = Pref.bool("Show Trade Report Long Form Message", show.trade_report_long_form_message, "Parse and add Trade Report Long Form Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message = Pref.bool("Show Trade Report Short Form Message", show.trade_report_short_form_message, "Parse and add Trade Report Short Form Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information = Pref.bool("Show Trade Summary Information", show.trade_summary_information, "Parse and add Trade Summary Information to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
 
 -- Handle changed preferences
-function finra_orf_tdds_dfi_v2_1.prefs_changed()
+function omi_finra_orf_tdds_dfi_v2_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.action_datetime ~= finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime then
-    show.action_datetime = finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime
+  if show.action_datetime ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime then
+    show.action_datetime = omi_finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime
     changed = true
   end
-  if show.administrative ~= finra_orf_tdds_dfi_v2_1.prefs.show_administrative then
-    show.administrative = finra_orf_tdds_dfi_v2_1.prefs.show_administrative
+  if show.administrative ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative then
+    show.administrative = omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative
     changed = true
   end
-  if show.closing_trade_summary_report_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message then
-    show.closing_trade_summary_report_message = finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message
+  if show.closing_trade_summary_report_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message then
+    show.closing_trade_summary_report_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message
     changed = true
   end
-  if show.control ~= finra_orf_tdds_dfi_v2_1.prefs.show_control then
-    show.control = finra_orf_tdds_dfi_v2_1.prefs.show_control
+  if show.control ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_control then
+    show.control = omi_finra_orf_tdds_dfi_v2_1.prefs.show_control
     changed = true
   end
-  if show.corrected_trade_information ~= finra_orf_tdds_dfi_v2_1.prefs.show_corrected_trade_information then
-    show.corrected_trade_information = finra_orf_tdds_dfi_v2_1.prefs.show_corrected_trade_information
+  if show.corrected_trade_information ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_corrected_trade_information then
+    show.corrected_trade_information = omi_finra_orf_tdds_dfi_v2_1.prefs.show_corrected_trade_information
     changed = true
   end
-  if show.datetime ~= finra_orf_tdds_dfi_v2_1.prefs.show_datetime then
-    show.datetime = finra_orf_tdds_dfi_v2_1.prefs.show_datetime
+  if show.datetime ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_datetime then
+    show.datetime = omi_finra_orf_tdds_dfi_v2_1.prefs.show_datetime
     changed = true
   end
-  if show.end_of_day_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message then
-    show.end_of_day_message = finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message
+  if show.end_of_day_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message then
+    show.end_of_day_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message
     changed = true
   end
-  if show.end_of_retransmission_requests_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message then
-    show.end_of_retransmission_requests_message = finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message
+  if show.end_of_retransmission_requests_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message then
+    show.end_of_retransmission_requests_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message
     changed = true
   end
-  if show.end_of_trade_reporting_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message then
-    show.end_of_trade_reporting_message = finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message
+  if show.end_of_trade_reporting_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message then
+    show.end_of_trade_reporting_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message
     changed = true
   end
-  if show.end_of_transmissions_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message then
-    show.end_of_transmissions_message = finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message
+  if show.end_of_transmissions_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message then
+    show.end_of_transmissions_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message
     changed = true
   end
-  if show.execution_datetime ~= finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime then
-    show.execution_datetime = finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime
+  if show.execution_datetime ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime then
+    show.execution_datetime = omi_finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime
     changed = true
   end
-  if show.general_administrative_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message then
-    show.general_administrative_message = finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message
+  if show.general_administrative_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message then
+    show.general_administrative_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message
     changed = true
   end
-  if show.line_integrity_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message then
-    show.line_integrity_message = finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message
+  if show.line_integrity_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message then
+    show.line_integrity_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message
     changed = true
   end
-  if show.market_session_close_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message then
-    show.market_session_close_message = finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message
+  if show.market_session_close_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message then
+    show.market_session_close_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message
     changed = true
   end
-  if show.market_session_open_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message then
-    show.market_session_open_message = finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message
+  if show.market_session_open_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message then
+    show.market_session_open_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message
     changed = true
   end
-  if show.market_wide_circuit_breaker_event_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message then
-    show.market_wide_circuit_breaker_event_message = finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message
+  if show.market_wide_circuit_breaker_event_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message then
+    show.market_wide_circuit_breaker_event_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message
     changed = true
   end
-  if show.message ~= finra_orf_tdds_dfi_v2_1.prefs.show_message then
-    show.message = finra_orf_tdds_dfi_v2_1.prefs.show_message
+  if show.message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_message then
+    show.message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_message
     changed = true
   end
-  if show.message_header ~= finra_orf_tdds_dfi_v2_1.prefs.show_message_header then
-    show.message_header = finra_orf_tdds_dfi_v2_1.prefs.show_message_header
+  if show.message_header ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_message_header then
+    show.message_header = omi_finra_orf_tdds_dfi_v2_1.prefs.show_message_header
     changed = true
   end
-  if show.mold_udp64 ~= finra_orf_tdds_dfi_v2_1.prefs.show_mold_udp64 then
-    show.mold_udp64 = finra_orf_tdds_dfi_v2_1.prefs.show_mold_udp64
+  if show.mold_udp64 ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_mold_udp64 then
+    show.mold_udp64 = omi_finra_orf_tdds_dfi_v2_1.prefs.show_mold_udp64
     changed = true
   end
-  if show.original_dissemination_date ~= finra_orf_tdds_dfi_v2_1.prefs.show_original_dissemination_date then
-    show.original_dissemination_date = finra_orf_tdds_dfi_v2_1.prefs.show_original_dissemination_date
+  if show.original_dissemination_date ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_dissemination_date then
+    show.original_dissemination_date = omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_dissemination_date
     changed = true
   end
-  if show.original_trade_information ~= finra_orf_tdds_dfi_v2_1.prefs.show_original_trade_information then
-    show.original_trade_information = finra_orf_tdds_dfi_v2_1.prefs.show_original_trade_information
+  if show.original_trade_information ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_trade_information then
+    show.original_trade_information = omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_trade_information
     changed = true
   end
-  if show.packet ~= finra_orf_tdds_dfi_v2_1.prefs.show_packet then
-    show.packet = finra_orf_tdds_dfi_v2_1.prefs.show_packet
+  if show.packet ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet then
+    show.packet = omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= finra_orf_tdds_dfi_v2_1.prefs.show_packet_header then
-    show.packet_header = finra_orf_tdds_dfi_v2_1.prefs.show_packet_header
+  if show.packet_header ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet_header then
+    show.packet_header = omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet_header
     changed = true
   end
-  if show.sequence_number_reset_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.start_of_day_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message then
-    show.start_of_day_message = finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message
+  if show.start_of_day_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message then
+    show.start_of_day_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message
     changed = true
   end
-  if show.trade ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade then
-    show.trade = finra_orf_tdds_dfi_v2_1.prefs.show_trade
+  if show.trade ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade then
+    show.trade = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade
     changed = true
   end
-  if show.trade_cancel_error_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message then
-    show.trade_cancel_error_message = finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message
+  if show.trade_cancel_error_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message then
+    show.trade_cancel_error_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message
     changed = true
   end
-  if show.trade_correction_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message then
-    show.trade_correction_message = finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message
+  if show.trade_correction_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message then
+    show.trade_correction_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message
     changed = true
   end
-  if show.trade_information ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade_information then
-    show.trade_information = finra_orf_tdds_dfi_v2_1.prefs.show_trade_information
+  if show.trade_information ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_information then
+    show.trade_information = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_information
     changed = true
   end
-  if show.trade_report_long_form_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message then
-    show.trade_report_long_form_message = finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message
+  if show.trade_report_long_form_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message then
+    show.trade_report_long_form_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message
     changed = true
   end
-  if show.trade_report_short_form_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message then
-    show.trade_report_short_form_message = finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message
+  if show.trade_report_short_form_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message then
+    show.trade_report_short_form_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message
     changed = true
   end
-  if show.trade_summary_information ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information then
-    show.trade_summary_information = finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information
+  if show.trade_summary_information ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information then
+    show.trade_summary_information = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information
     changed = true
   end
-  if show.trading_action_message ~= finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message then
-    show.trading_action_message = finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message
+  if show.trading_action_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message then
+    show.trading_action_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message
     changed = true
   end
-  if show.administrative_payload ~= finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload then
-    show.administrative_payload = finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload
+  if show.administrative_payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload then
+    show.administrative_payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative_payload
     changed = true
   end
-  if show.control_payload ~= finra_orf_tdds_dfi_v2_1.prefs.show_control_payload then
-    show.control_payload = finra_orf_tdds_dfi_v2_1.prefs.show_control_payload
+  if show.control_payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_control_payload then
+    show.control_payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_control_payload
     changed = true
   end
-  if show.payload ~= finra_orf_tdds_dfi_v2_1.prefs.show_payload then
-    show.payload = finra_orf_tdds_dfi_v2_1.prefs.show_payload
+  if show.payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_payload then
+    show.payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_payload
     changed = true
   end
-  if show.trade_payload ~= finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload then
-    show.trade_payload = finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload
+  if show.trade_payload ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload then
+    show.trade_payload = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_payload
     changed = true
   end
 
@@ -385,7 +385,7 @@ finra_orf_tdds_dfi_v2_1_dissect.fractional_second = function(buffer, offset, pac
 
   local display = finra_orf_tdds_dfi_v2_1_display.fractional_second(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.fractional_second, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.fractional_second, range, value, display)
 
   return offset + length, value
 end
@@ -410,7 +410,7 @@ finra_orf_tdds_dfi_v2_1_dissect.second = function(buffer, offset, packet, parent
 
   local display = finra_orf_tdds_dfi_v2_1_display.second(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.second, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.second, range, value, display)
 
   return offset + length, value
 end
@@ -435,7 +435,7 @@ finra_orf_tdds_dfi_v2_1_dissect.minute = function(buffer, offset, packet, parent
 
   local display = finra_orf_tdds_dfi_v2_1_display.minute(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.minute, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.minute, range, value, display)
 
   return offset + length, value
 end
@@ -460,7 +460,7 @@ finra_orf_tdds_dfi_v2_1_dissect.hour = function(buffer, offset, packet, parent)
 
   local display = finra_orf_tdds_dfi_v2_1_display.hour(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.hour, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.hour, range, value, display)
 
   return offset + length, value
 end
@@ -485,7 +485,7 @@ finra_orf_tdds_dfi_v2_1_dissect.day = function(buffer, offset, packet, parent)
 
   local display = finra_orf_tdds_dfi_v2_1_display.day(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.day, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.day, range, value, display)
 
   return offset + length, value
 end
@@ -510,7 +510,7 @@ finra_orf_tdds_dfi_v2_1_dissect.month = function(buffer, offset, packet, parent)
 
   local display = finra_orf_tdds_dfi_v2_1_display.month(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.month, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.month, range, value, display)
 
   return offset + length, value
 end
@@ -535,7 +535,7 @@ finra_orf_tdds_dfi_v2_1_dissect.year = function(buffer, offset, packet, parent)
 
   local display = finra_orf_tdds_dfi_v2_1_display.year(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.year, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.year, range, value, display)
 
   return offset + length, value
 end
@@ -598,7 +598,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.datetime = function(buffer, offset, packet, parent)
   if show.datetime then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.datetime, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.datetime, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -634,7 +634,7 @@ finra_orf_tdds_dfi_v2_1_dissect.market_center_originator_id = function(buffer, o
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.market_center_originator_id(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.market_center_originator_id, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.market_center_originator_id, range, value, display)
 
   return offset + length, value
 end
@@ -654,7 +654,7 @@ finra_orf_tdds_dfi_v2_1_dissect.trade_identifier = function(buffer, offset, pack
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.trade_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_identifier, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -697,7 +697,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.message_header, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -739,7 +739,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.end_of_trade_reporting_message = function(buffer, offset, packet, parent)
   if show.end_of_trade_reporting_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.end_of_trade_reporting_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_trade_reporting_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -781,7 +781,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -823,7 +823,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.line_integrity_message = function(buffer, offset, packet, parent)
   if show.line_integrity_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.line_integrity_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.line_integrity_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -865,7 +865,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
   if show.end_of_transmissions_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.end_of_transmissions_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_transmissions_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -907,7 +907,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.end_of_retransmission_requests_message = function(buffer, offset, packet, parent)
   if show.end_of_retransmission_requests_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.end_of_retransmission_requests_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_retransmission_requests_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -949,7 +949,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.market_session_close_message = function(buffer, offset, packet, parent)
   if show.market_session_close_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.market_session_close_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.market_session_close_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -991,7 +991,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.market_session_open_message = function(buffer, offset, packet, parent)
   if show.market_session_open_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.market_session_open_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.market_session_open_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1033,7 +1033,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.end_of_day_message = function(buffer, offset, packet, parent)
   if show.end_of_day_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.end_of_day_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_day_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1075,7 +1075,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.start_of_day_message = function(buffer, offset, packet, parent)
   if show.start_of_day_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.start_of_day_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.start_of_day_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1193,7 +1193,7 @@ finra_orf_tdds_dfi_v2_1_dissect.control_payload = function(buffer, offset, packe
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_orf_tdds_dfi_v2_1_display.control_payload(buffer, packet, parent)
-  local element = parent:add(finra_orf_tdds_dfi_v2_1.fields.control_payload, range, display)
+  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.control_payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -1241,7 +1241,7 @@ finra_orf_tdds_dfi_v2_1_dissect.control_message_type = function(buffer, offset, 
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.control_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.control_message_type, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1285,7 +1285,7 @@ finra_orf_tdds_dfi_v2_1_dissect.control = function(buffer, offset, packet, paren
     local length = finra_orf_tdds_dfi_v2_1_size_of.control(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_orf_tdds_dfi_v2_1_display.control(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.control, range, display)
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.control, range, display)
   end
 
   return finra_orf_tdds_dfi_v2_1_dissect.control_fields(buffer, offset, packet, parent)
@@ -1306,7 +1306,7 @@ finra_orf_tdds_dfi_v2_1_dissect.reason_code = function(buffer, offset, packet, p
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.reason_code, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -1369,7 +1369,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.action_datetime = function(buffer, offset, packet, parent)
   if show.action_datetime then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.action_datetime, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.action_datetime, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.action_datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1411,7 +1411,7 @@ finra_orf_tdds_dfi_v2_1_dissect.action = function(buffer, offset, packet, parent
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.action(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.action, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.action, range, value, display)
 
   return offset + length, value
 end
@@ -1459,7 +1459,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.market_wide_circuit_breaker_event_message = function(buffer, offset, packet, parent)
   if show.market_wide_circuit_breaker_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.market_wide_circuit_breaker_event_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.market_wide_circuit_breaker_event_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1488,7 +1488,7 @@ finra_orf_tdds_dfi_v2_1_dissect.security_symbol = function(buffer, offset, packe
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.security_symbol, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1541,7 +1541,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trading_action_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1575,7 +1575,7 @@ finra_orf_tdds_dfi_v2_1_dissect.total_security_volume = function(buffer, offset,
 
   local display = finra_orf_tdds_dfi_v2_1_display.total_security_volume(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.total_security_volume, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.total_security_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1595,7 +1595,7 @@ finra_orf_tdds_dfi_v2_1_dissect.currency = function(buffer, offset, packet, pare
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.currency, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -1625,7 +1625,7 @@ finra_orf_tdds_dfi_v2_1_dissect.net_change_direction = function(buffer, offset, 
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.net_change_direction(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.net_change_direction, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.net_change_direction, range, value, display)
 
   return offset + length, value
 end
@@ -1650,7 +1650,7 @@ finra_orf_tdds_dfi_v2_1_dissect.net_change_amount = function(buffer, offset, pac
 
   local display = finra_orf_tdds_dfi_v2_1_display.net_change_amount(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.net_change_amount, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.net_change_amount, range, value, display)
 
   return offset + length, value
 end
@@ -1670,7 +1670,7 @@ finra_orf_tdds_dfi_v2_1_dissect.net_change_denominator = function(buffer, offset
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.net_change_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.net_change_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.net_change_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -1690,7 +1690,7 @@ finra_orf_tdds_dfi_v2_1_dissect.reserved = function(buffer, offset, packet, pare
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.reserved, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -1715,7 +1715,7 @@ finra_orf_tdds_dfi_v2_1_dissect.closing_price = function(buffer, offset, packet,
 
   local display = finra_orf_tdds_dfi_v2_1_display.closing_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.closing_price, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.closing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1735,7 +1735,7 @@ finra_orf_tdds_dfi_v2_1_dissect.closing_price_denominator = function(buffer, off
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.closing_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.closing_price_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.closing_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -1762,7 +1762,7 @@ finra_orf_tdds_dfi_v2_1_dissect.closing_price_market_center = function(buffer, o
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.closing_price_market_center(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.closing_price_market_center, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.closing_price_market_center, range, value, display)
 
   return offset + length, value
 end
@@ -1787,7 +1787,7 @@ finra_orf_tdds_dfi_v2_1_dissect.daily_low_price = function(buffer, offset, packe
 
   local display = finra_orf_tdds_dfi_v2_1_display.daily_low_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.daily_low_price, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.daily_low_price, range, value, display)
 
   return offset + length, value
 end
@@ -1807,7 +1807,7 @@ finra_orf_tdds_dfi_v2_1_dissect.daily_low_price_denominator = function(buffer, o
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.daily_low_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.daily_low_price_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.daily_low_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -1832,7 +1832,7 @@ finra_orf_tdds_dfi_v2_1_dissect.daily_high_price = function(buffer, offset, pack
 
   local display = finra_orf_tdds_dfi_v2_1_display.daily_high_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.daily_high_price, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.daily_high_price, range, value, display)
 
   return offset + length, value
 end
@@ -1852,7 +1852,7 @@ finra_orf_tdds_dfi_v2_1_dissect.daily_high_price_denominator = function(buffer, 
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.daily_high_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.daily_high_price_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.daily_high_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -1955,7 +1955,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.closing_trade_summary_report_message = function(buffer, offset, packet, parent)
   if show.closing_trade_summary_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.closing_trade_summary_report_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.closing_trade_summary_report_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1984,7 +1984,7 @@ finra_orf_tdds_dfi_v2_1_dissect.text = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.text, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2022,7 +2022,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.general_administrative_message = function(buffer, offset, packet, parent)
   if show.general_administrative_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.general_administrative_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.general_administrative_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2100,7 +2100,7 @@ finra_orf_tdds_dfi_v2_1_dissect.administrative_payload = function(buffer, offset
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_orf_tdds_dfi_v2_1_display.administrative_payload(buffer, packet, parent)
-  local element = parent:add(finra_orf_tdds_dfi_v2_1.fields.administrative_payload, range, display)
+  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.administrative_payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -2133,7 +2133,7 @@ finra_orf_tdds_dfi_v2_1_dissect.administrative_message_type = function(buffer, o
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.administrative_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.administrative_message_type, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.administrative_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2177,7 +2177,7 @@ finra_orf_tdds_dfi_v2_1_dissect.administrative = function(buffer, offset, packet
     local length = finra_orf_tdds_dfi_v2_1_size_of.administrative(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_orf_tdds_dfi_v2_1_display.administrative(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.administrative, range, display)
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.administrative, range, display)
   end
 
   return finra_orf_tdds_dfi_v2_1_dissect.administrative_fields(buffer, offset, packet, parent)
@@ -2223,7 +2223,7 @@ finra_orf_tdds_dfi_v2_1_dissect.price_change_indicator = function(buffer, offset
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.price_change_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.price_change_indicator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.price_change_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2250,7 +2250,7 @@ finra_orf_tdds_dfi_v2_1_dissect.last_sale_price_market_center = function(buffer,
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.last_sale_price_market_center(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.last_sale_price_market_center, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.last_sale_price_market_center, range, value, display)
 
   return offset + length, value
 end
@@ -2275,7 +2275,7 @@ finra_orf_tdds_dfi_v2_1_dissect.last_sale_price = function(buffer, offset, packe
 
   local display = finra_orf_tdds_dfi_v2_1_display.last_sale_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.last_sale_price, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.last_sale_price, range, value, display)
 
   return offset + length, value
 end
@@ -2295,7 +2295,7 @@ finra_orf_tdds_dfi_v2_1_dissect.last_sale_price_denominator = function(buffer, o
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.last_sale_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.last_sale_price_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.last_sale_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -2320,7 +2320,7 @@ finra_orf_tdds_dfi_v2_1_dissect.low_price = function(buffer, offset, packet, par
 
   local display = finra_orf_tdds_dfi_v2_1_display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.low_price, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -2340,7 +2340,7 @@ finra_orf_tdds_dfi_v2_1_dissect.low_price_denominator = function(buffer, offset,
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.low_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.low_price_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.low_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -2365,7 +2365,7 @@ finra_orf_tdds_dfi_v2_1_dissect.high_price = function(buffer, offset, packet, pa
 
   local display = finra_orf_tdds_dfi_v2_1_display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.high_price, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -2385,7 +2385,7 @@ finra_orf_tdds_dfi_v2_1_dissect.high_price_denominator = function(buffer, offset
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.high_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.high_price_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.high_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -2458,7 +2458,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.trade_summary_information = function(buffer, offset, packet, parent)
   if show.trade_summary_information then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_summary_information, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_summary_information, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.trade_summary_information_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2492,7 +2492,7 @@ finra_orf_tdds_dfi_v2_1_dissect.sellers_sale_days = function(buffer, offset, pac
 
   local display = finra_orf_tdds_dfi_v2_1_display.sellers_sale_days(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.sellers_sale_days, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sellers_sale_days, range, value, display)
 
   return offset + length, value
 end
@@ -2525,7 +2525,7 @@ finra_orf_tdds_dfi_v2_1_dissect.sale_condition_level_4 = function(buffer, offset
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.sale_condition_level_4(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_4, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_4, range, value, display)
 
   return offset + length, value
 end
@@ -2558,7 +2558,7 @@ finra_orf_tdds_dfi_v2_1_dissect.sale_condition_level_3 = function(buffer, offset
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.sale_condition_level_3(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_3, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_3, range, value, display)
 
   return offset + length, value
 end
@@ -2578,7 +2578,7 @@ finra_orf_tdds_dfi_v2_1_dissect.sale_condition_level_2 = function(buffer, offset
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.sale_condition_level_2(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_2, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_2, range, value, display)
 
   return offset + length, value
 end
@@ -2611,7 +2611,7 @@ finra_orf_tdds_dfi_v2_1_dissect.sale_condition_level_1 = function(buffer, offset
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.sale_condition_level_1(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_1, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sale_condition_level_1, range, value, display)
 
   return offset + length, value
 end
@@ -2674,7 +2674,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.execution_datetime = function(buffer, offset, packet, parent)
   if show.execution_datetime then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.execution_datetime, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.execution_datetime, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.execution_datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2713,7 +2713,7 @@ finra_orf_tdds_dfi_v2_1_dissect.as_of_indicator = function(buffer, offset, packe
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.as_of_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.as_of_indicator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.as_of_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2733,7 +2733,7 @@ finra_orf_tdds_dfi_v2_1_dissect.trade_price = function(buffer, offset, packet, p
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_price, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -2753,7 +2753,7 @@ finra_orf_tdds_dfi_v2_1_dissect.trade_price_denominator = function(buffer, offse
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.trade_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_price_denominator, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -2778,7 +2778,7 @@ finra_orf_tdds_dfi_v2_1_dissect.report_volume = function(buffer, offset, packet,
 
   local display = finra_orf_tdds_dfi_v2_1_display.report_volume(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.report_volume, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.report_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2861,7 +2861,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.corrected_trade_information = function(buffer, offset, packet, parent)
   if show.corrected_trade_information then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.corrected_trade_information, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.corrected_trade_information, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2953,7 +2953,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.original_trade_information = function(buffer, offset, packet, parent)
   if show.original_trade_information then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.original_trade_information, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.original_trade_information, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.original_trade_information_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2992,7 +2992,7 @@ finra_orf_tdds_dfi_v2_1_dissect.report_function = function(buffer, offset, packe
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.report_function(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.report_function, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.report_function, range, value, display)
 
   return offset + length, value
 end
@@ -3035,7 +3035,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.original_dissemination_date = function(buffer, offset, packet, parent)
   if show.original_dissemination_date then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.original_dissemination_date, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.original_dissemination_date, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3107,7 +3107,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   if show.trade_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_correction_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_correction_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3174,7 +3174,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_error_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_cancel_error_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_cancel_error_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3271,7 +3271,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.trade_information = function(buffer, offset, packet, parent)
   if show.trade_information then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_information, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_information, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.trade_information_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3328,7 +3328,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.trade_report_long_form_message = function(buffer, offset, packet, parent)
   if show.trade_report_long_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_report_long_form_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_report_long_form_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3362,7 +3362,7 @@ finra_orf_tdds_dfi_v2_1_dissect.report_volume_short = function(buffer, offset, p
 
   local display = finra_orf_tdds_dfi_v2_1_display.report_volume_short(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.report_volume_short, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.report_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -3387,7 +3387,7 @@ finra_orf_tdds_dfi_v2_1_dissect.trade_price_short = function(buffer, offset, pac
 
   local display = finra_orf_tdds_dfi_v2_1_display.trade_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_price_short, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -3407,7 +3407,7 @@ finra_orf_tdds_dfi_v2_1_dissect.security_symbol_short = function(buffer, offset,
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.security_symbol_short(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.security_symbol_short, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.security_symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -3470,7 +3470,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.trade_report_short_form_message = function(buffer, offset, packet, parent)
   if show.trade_report_short_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_report_short_form_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_report_short_form_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3548,7 +3548,7 @@ finra_orf_tdds_dfi_v2_1_dissect.trade_payload = function(buffer, offset, packet,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_orf_tdds_dfi_v2_1_display.trade_payload(buffer, packet, parent)
-  local element = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_payload, range, display)
+  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1_dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
 end
@@ -3581,7 +3581,7 @@ finra_orf_tdds_dfi_v2_1_dissect.trade_message_type = function(buffer, offset, pa
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.trade_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.trade_message_type, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3625,7 +3625,7 @@ finra_orf_tdds_dfi_v2_1_dissect.trade = function(buffer, offset, packet, parent)
     local length = finra_orf_tdds_dfi_v2_1_size_of.trade(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_orf_tdds_dfi_v2_1_display.trade(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.trade, range, display)
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade, range, display)
   end
 
   return finra_orf_tdds_dfi_v2_1_dissect.trade_fields(buffer, offset, packet, parent)
@@ -3687,7 +3687,7 @@ finra_orf_tdds_dfi_v2_1_dissect.payload = function(buffer, offset, packet, paren
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_orf_tdds_dfi_v2_1_display.payload(buffer, packet, parent)
-  local element = parent:add(finra_orf_tdds_dfi_v2_1.fields.payload, range, display)
+  local element = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.payload, range, display)
 
   return finra_orf_tdds_dfi_v2_1_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
@@ -3717,7 +3717,7 @@ finra_orf_tdds_dfi_v2_1_dissect.message_category = function(buffer, offset, pack
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.message_category, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -3737,7 +3737,7 @@ finra_orf_tdds_dfi_v2_1_dissect.length = function(buffer, offset, packet, parent
   local value = range:uint()
   local display = finra_orf_tdds_dfi_v2_1_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.length, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -3775,7 +3775,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.mold_udp64 = function(buffer, offset, packet, parent)
   if show.mold_udp64 then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.mold_udp64, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.mold_udp64, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.mold_udp64_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3814,7 +3814,7 @@ finra_orf_tdds_dfi_v2_1_dissect.message_fields = function(buffer, offset, packet
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(finra_orf_tdds_dfi_v2_1.fields.message_index, message_index)
+    local iteration = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -3837,7 +3837,7 @@ finra_orf_tdds_dfi_v2_1_dissect.message = function(buffer, offset, packet, paren
     local length = finra_orf_tdds_dfi_v2_1_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_orf_tdds_dfi_v2_1_display.message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.message, range, display)
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.message, range, display)
   end
 
   return finra_orf_tdds_dfi_v2_1_dissect.message_fields(buffer, offset, packet, parent)
@@ -3858,7 +3858,7 @@ finra_orf_tdds_dfi_v2_1_dissect.count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = finra_orf_tdds_dfi_v2_1_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.count, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -3878,7 +3878,7 @@ finra_orf_tdds_dfi_v2_1_dissect.sequence = function(buffer, offset, packet, pare
   local value = range:uint64()
   local display = finra_orf_tdds_dfi_v2_1_display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.sequence, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sequence, range, value, display)
 
   return offset + length, value
 end
@@ -3898,7 +3898,7 @@ finra_orf_tdds_dfi_v2_1_dissect.session = function(buffer, offset, packet, paren
   local value = range:string()
   local display = finra_orf_tdds_dfi_v2_1_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_1.fields.session, range, value, display)
+  parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -3941,7 +3941,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_orf_tdds_dfi_v2_1.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.packet_header, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3979,23 +3979,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function finra_orf_tdds_dfi_v2_1.init()
+function omi_finra_orf_tdds_dfi_v2_1.init()
 end
 
 -- Dissector for Finra Orf Tdds Dfi 2.1
-function finra_orf_tdds_dfi_v2_1.dissector(buffer, packet, parent)
+function omi_finra_orf_tdds_dfi_v2_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = finra_orf_tdds_dfi_v2_1.name
+  packet.cols.protocol = omi_finra_orf_tdds_dfi_v2_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(finra_orf_tdds_dfi_v2_1, buffer(), finra_orf_tdds_dfi_v2_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_finra_orf_tdds_dfi_v2_1, buffer(), omi_finra_orf_tdds_dfi_v2_1.description, "("..buffer:len().." Bytes)")
   return finra_orf_tdds_dfi_v2_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, finra_orf_tdds_dfi_v2_1)
+udp_table:add(65333, omi_finra_orf_tdds_dfi_v2_1)
 
 
 -----------------------------------------------------------------------
@@ -4003,25 +4003,25 @@ udp_table:add(65333, finra_orf_tdds_dfi_v2_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.finra_orf_tdds_dfi_v2_1_packet_size = function(buffer)
+verify.omi_finra_orf_tdds_dfi_v2_1_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Finra Orf Tdds Dfi 2.1
-local function finra_orf_tdds_dfi_v2_1_heuristic(buffer, packet, parent)
+local function omi_finra_orf_tdds_dfi_v2_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.finra_orf_tdds_dfi_v2_1_packet_size(buffer) then return false end
+  if not verify.omi_finra_orf_tdds_dfi_v2_1_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = finra_orf_tdds_dfi_v2_1
-  finra_orf_tdds_dfi_v2_1.dissector(buffer, packet, parent)
+  packet.conversation = omi_finra_orf_tdds_dfi_v2_1
+  omi_finra_orf_tdds_dfi_v2_1.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Finra Orf Tdds Dfi 2.1
-finra_orf_tdds_dfi_v2_1:register_heuristic("udp", finra_orf_tdds_dfi_v2_1_heuristic)
+omi_finra_orf_tdds_dfi_v2_1:register_heuristic("udp", omi_finra_orf_tdds_dfi_v2_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Siac Opra Recipient Obi 6.2 Protocol
-local siac_opra_recipient_obi_v6_2 = Proto("Siac.Opra.Recipient.Obi.v6.2.Lua", "Siac Opra Recipient Obi 6.2")
+local omi_siac_opra_recipient_obi_v6_2 = Proto("Siac.Opra.Recipient.Obi.v6.2.Lua", "Siac Opra Recipient Obi 6.2")
 
 -- Component Tables
 local show = {}
@@ -21,98 +21,98 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Siac Opra Recipient Obi 6.2 Fields
-siac_opra_recipient_obi_v6_2.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v6.2.administrativemessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "siac.opra.recipient.obi.v6.2.bboindicator", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_bid_and_offer_appendage = ProtoField.new("Best Bid And Offer Appendage", "siac.opra.recipient.obi.v6.2.bestbidandofferappendage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_bid_appendage = ProtoField.new("Best Bid Appendage", "siac.opra.recipient.obi.v6.2.bestbidappendage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_bid_denominator_code = ProtoField.new("Best Bid Denominator Code", "siac.opra.recipient.obi.v6.2.bestbiddenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.opra.recipient.obi.v6.2.bestbidparticipantid", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_bid_price = ProtoField.new("Best Bid Price", "siac.opra.recipient.obi.v6.2.bestbidprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.best_bid_size = ProtoField.new("Best Bid Size", "siac.opra.recipient.obi.v6.2.bestbidsize", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.best_offer_appendage = ProtoField.new("Best Offer Appendage", "siac.opra.recipient.obi.v6.2.bestofferappendage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_offer_denominator_code = ProtoField.new("Best Offer Denominator Code", "siac.opra.recipient.obi.v6.2.bestofferdenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "siac.opra.recipient.obi.v6.2.bestofferparticipantid", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.best_offer_price = ProtoField.new("Best Offer Price", "siac.opra.recipient.obi.v6.2.bestofferprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.best_offer_size = ProtoField.new("Best Offer Size", "siac.opra.recipient.obi.v6.2.bestoffersize", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.opra.recipient.obi.v6.2.bidindexvalue", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.recipient.obi.v6.2.bidprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v6.2.bidpriceshort", ftypes.DOUBLE)
-siac_opra_recipient_obi_v6_2.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.recipient.obi.v6.2.bidsize", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.recipient.obi.v6.2.bidsizeshort", ftypes.UINT16)
-siac_opra_recipient_obi_v6_2.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.recipient.obi.v6.2.blockchecksum", ftypes.UINT16)
-siac_opra_recipient_obi_v6_2.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v6.2.blockheader", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.recipient.obi.v6.2.blockpadbyte", ftypes.UINT8)
-siac_opra_recipient_obi_v6_2.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.recipient.obi.v6.2.blocksequencenumber", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.block_size = ProtoField.new("Block Size", "siac.opra.recipient.obi.v6.2.blocksize", ftypes.UINT16)
-siac_opra_recipient_obi_v6_2.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v6.2.blocktimestamp", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.control_message = ProtoField.new("Control Message", "siac.opra.recipient.obi.v6.2.controlmessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.recipient.obi.v6.2.controlmessagetype", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.recipient.obi.v6.2.datafeedindicator", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.denominator_code = ProtoField.new("Denominator Code", "siac.opra.recipient.obi.v6.2.denominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message = ProtoField.new("Equity And Index End Of Day Summary Message", "siac.opra.recipient.obi.v6.2.equityandindexendofdaysummarymessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message = ProtoField.new("Equity And Index Last Sale Message", "siac.opra.recipient.obi.v6.2.equityandindexlastsalemessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.expiration_block = ProtoField.new("Expiration Block", "siac.opra.recipient.obi.v6.2.expirationblock", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.expiration_day = ProtoField.new("Expiration Day", "siac.opra.recipient.obi.v6.2.expirationday", ftypes.UINT8)
-siac_opra_recipient_obi_v6_2.fields.expiration_month = ProtoField.new("Expiration Month", "siac.opra.recipient.obi.v6.2.expirationmonth", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.expiration_year = ProtoField.new("Expiration Year", "siac.opra.recipient.obi.v6.2.expirationyear", ftypes.UINT8)
-siac_opra_recipient_obi_v6_2.fields.high_price = ProtoField.new("High Price", "siac.opra.recipient.obi.v6.2.highprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.index_value = ProtoField.new("Index Value", "siac.opra.recipient.obi.v6.2.indexvalue", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.index_value_denominator_code = ProtoField.new("Index Value Denominator Code", "siac.opra.recipient.obi.v6.2.indexvaluedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v6.2.lastprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message = ProtoField.new("Long Equity And Index Quote Message", "siac.opra.recipient.obi.v6.2.longequityandindexquotemessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v6.2.lowprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v6.2.message", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v6.2.messagecategory", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v6.2.messagedata", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.recipient.obi.v6.2.messagedatalength", ftypes.UINT16)
-siac_opra_recipient_obi_v6_2.fields.message_indicator = ProtoField.new("Message Indicator", "siac.opra.recipient.obi.v6.2.messageindicator", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.message_type = ProtoField.new("Message Type", "siac.opra.recipient.obi.v6.2.messagetype", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v6.2.messagesinblock", ftypes.UINT8)
-siac_opra_recipient_obi_v6_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v6.2.nanoseconds", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v6.2.netchange", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.recipient.obi.v6.2.offerindexvalue", ftypes.INT64)
-siac_opra_recipient_obi_v6_2.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.recipient.obi.v6.2.offerprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.recipient.obi.v6.2.offerpriceshort", ftypes.DOUBLE)
-siac_opra_recipient_obi_v6_2.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.recipient.obi.v6.2.offersize", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.opra.recipient.obi.v6.2.offersizeshort", ftypes.UINT16)
-siac_opra_recipient_obi_v6_2.fields.open_interest_message = ProtoField.new("Open Interest Message", "siac.opra.recipient.obi.v6.2.openinterestmessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v6.2.openinterestvolume", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v6.2.openprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v6.2.packet", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.recipient.obi.v6.2.participantid", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.opra.recipient.obi.v6.2.participantreferencenumber", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v6.2.payload", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v6.2.premiumprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v6.2.premiumpricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v6.2.price", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.opra.recipient.obi.v6.2.quotemessagetype", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v6.2.reserved1", ftypes.BYTES)
-siac_opra_recipient_obi_v6_2.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v6.2.reserved4", ftypes.BYTES)
-siac_opra_recipient_obi_v6_2.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.recipient.obi.v6.2.retransmissionindicator", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.seconds = ProtoField.new("Seconds", "siac.opra.recipient.obi.v6.2.seconds", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.recipient.obi.v6.2.securitysymbol", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.recipient.obi.v6.2.securitysymbolshort", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v6.2.sessionindicator", ftypes.UINT8)
-siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message = ProtoField.new("Short Equity And Index Quote Message", "siac.opra.recipient.obi.v6.2.shortequityandindexquotemessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v6.2.size", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.recipient.obi.v6.2.strikeprice", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v6.2.strikepricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v6.2.strikepriceshort", ftypes.DOUBLE)
-siac_opra_recipient_obi_v6_2.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v6.2.tradeidentifier", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.opra.recipient.obi.v6.2.trademessagetype", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.transaction_id = ProtoField.new("Transaction Id", "siac.opra.recipient.obi.v6.2.transactionid", ftypes.UINT32)
-siac_opra_recipient_obi_v6_2.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v6.2.underlyingprice", ftypes.INT64)
-siac_opra_recipient_obi_v6_2.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.recipient.obi.v6.2.underlyingpricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.underlying_value_bid_and_offer_message = ProtoField.new("Underlying Value Bid And Offer Message", "siac.opra.recipient.obi.v6.2.underlyingvaluebidandoffermessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.underlying_value_last_sale_message = ProtoField.new("Underlying Value Last Sale Message", "siac.opra.recipient.obi.v6.2.underlyingvaluelastsalemessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v6.2.underlyingvaluemessage", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.underlying_value_message_payload = ProtoField.new("Underlying Value Message Payload", "siac.opra.recipient.obi.v6.2.underlyingvaluemessagepayload", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.underlying_value_message_type = ProtoField.new("Underlying Value Message Type", "siac.opra.recipient.obi.v6.2.underlyingvaluemessagetype", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v6.2.version", ftypes.UINT8)
-siac_opra_recipient_obi_v6_2.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v6.2.volume", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v6.2.administrativemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "siac.opra.recipient.obi.v6.2.bboindicator", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_bid_and_offer_appendage = ProtoField.new("Best Bid And Offer Appendage", "siac.opra.recipient.obi.v6.2.bestbidandofferappendage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_bid_appendage = ProtoField.new("Best Bid Appendage", "siac.opra.recipient.obi.v6.2.bestbidappendage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_bid_denominator_code = ProtoField.new("Best Bid Denominator Code", "siac.opra.recipient.obi.v6.2.bestbiddenominatorcode", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.opra.recipient.obi.v6.2.bestbidparticipantid", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_bid_price = ProtoField.new("Best Bid Price", "siac.opra.recipient.obi.v6.2.bestbidprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.best_bid_size = ProtoField.new("Best Bid Size", "siac.opra.recipient.obi.v6.2.bestbidsize", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.best_offer_appendage = ProtoField.new("Best Offer Appendage", "siac.opra.recipient.obi.v6.2.bestofferappendage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_offer_denominator_code = ProtoField.new("Best Offer Denominator Code", "siac.opra.recipient.obi.v6.2.bestofferdenominatorcode", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "siac.opra.recipient.obi.v6.2.bestofferparticipantid", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.best_offer_price = ProtoField.new("Best Offer Price", "siac.opra.recipient.obi.v6.2.bestofferprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.best_offer_size = ProtoField.new("Best Offer Size", "siac.opra.recipient.obi.v6.2.bestoffersize", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.opra.recipient.obi.v6.2.bidindexvalue", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.recipient.obi.v6.2.bidprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v6.2.bidpriceshort", ftypes.DOUBLE)
+omi_siac_opra_recipient_obi_v6_2.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.recipient.obi.v6.2.bidsize", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.recipient.obi.v6.2.bidsizeshort", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v6_2.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.recipient.obi.v6.2.blockchecksum", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v6_2.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v6.2.blockheader", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.recipient.obi.v6.2.blockpadbyte", ftypes.UINT8)
+omi_siac_opra_recipient_obi_v6_2.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.recipient.obi.v6.2.blocksequencenumber", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.block_size = ProtoField.new("Block Size", "siac.opra.recipient.obi.v6.2.blocksize", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v6_2.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v6.2.blocktimestamp", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.control_message = ProtoField.new("Control Message", "siac.opra.recipient.obi.v6.2.controlmessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.recipient.obi.v6.2.controlmessagetype", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.recipient.obi.v6.2.datafeedindicator", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.denominator_code = ProtoField.new("Denominator Code", "siac.opra.recipient.obi.v6.2.denominatorcode", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message = ProtoField.new("Equity And Index End Of Day Summary Message", "siac.opra.recipient.obi.v6.2.equityandindexendofdaysummarymessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message = ProtoField.new("Equity And Index Last Sale Message", "siac.opra.recipient.obi.v6.2.equityandindexlastsalemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.expiration_block = ProtoField.new("Expiration Block", "siac.opra.recipient.obi.v6.2.expirationblock", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.expiration_day = ProtoField.new("Expiration Day", "siac.opra.recipient.obi.v6.2.expirationday", ftypes.UINT8)
+omi_siac_opra_recipient_obi_v6_2.fields.expiration_month = ProtoField.new("Expiration Month", "siac.opra.recipient.obi.v6.2.expirationmonth", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.expiration_year = ProtoField.new("Expiration Year", "siac.opra.recipient.obi.v6.2.expirationyear", ftypes.UINT8)
+omi_siac_opra_recipient_obi_v6_2.fields.high_price = ProtoField.new("High Price", "siac.opra.recipient.obi.v6.2.highprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.index_value = ProtoField.new("Index Value", "siac.opra.recipient.obi.v6.2.indexvalue", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.index_value_denominator_code = ProtoField.new("Index Value Denominator Code", "siac.opra.recipient.obi.v6.2.indexvaluedenominatorcode", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v6.2.lastprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message = ProtoField.new("Long Equity And Index Quote Message", "siac.opra.recipient.obi.v6.2.longequityandindexquotemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v6.2.lowprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v6.2.message", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v6.2.messagecategory", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v6.2.messagedata", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.recipient.obi.v6.2.messagedatalength", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v6_2.fields.message_indicator = ProtoField.new("Message Indicator", "siac.opra.recipient.obi.v6.2.messageindicator", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.message_type = ProtoField.new("Message Type", "siac.opra.recipient.obi.v6.2.messagetype", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v6.2.messagesinblock", ftypes.UINT8)
+omi_siac_opra_recipient_obi_v6_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v6.2.nanoseconds", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v6.2.netchange", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.recipient.obi.v6.2.offerindexvalue", ftypes.INT64)
+omi_siac_opra_recipient_obi_v6_2.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.recipient.obi.v6.2.offerprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.recipient.obi.v6.2.offerpriceshort", ftypes.DOUBLE)
+omi_siac_opra_recipient_obi_v6_2.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.recipient.obi.v6.2.offersize", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.opra.recipient.obi.v6.2.offersizeshort", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v6_2.fields.open_interest_message = ProtoField.new("Open Interest Message", "siac.opra.recipient.obi.v6.2.openinterestmessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v6.2.openinterestvolume", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v6.2.openprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v6.2.packet", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.recipient.obi.v6.2.participantid", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.opra.recipient.obi.v6.2.participantreferencenumber", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v6.2.payload", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v6.2.premiumprice", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v6.2.premiumpricedenominatorcode", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v6.2.price", ftypes.INT32)
+omi_siac_opra_recipient_obi_v6_2.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.opra.recipient.obi.v6.2.quotemessagetype", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v6.2.reserved1", ftypes.BYTES)
+omi_siac_opra_recipient_obi_v6_2.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v6.2.reserved4", ftypes.BYTES)
+omi_siac_opra_recipient_obi_v6_2.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.recipient.obi.v6.2.retransmissionindicator", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.seconds = ProtoField.new("Seconds", "siac.opra.recipient.obi.v6.2.seconds", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.recipient.obi.v6.2.securitysymbol", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.recipient.obi.v6.2.securitysymbolshort", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v6.2.sessionindicator", ftypes.UINT8)
+omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message = ProtoField.new("Short Equity And Index Quote Message", "siac.opra.recipient.obi.v6.2.shortequityandindexquotemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v6.2.size", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.recipient.obi.v6.2.strikeprice", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v6.2.strikepricedenominatorcode", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v6.2.strikepriceshort", ftypes.DOUBLE)
+omi_siac_opra_recipient_obi_v6_2.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v6.2.tradeidentifier", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.opra.recipient.obi.v6.2.trademessagetype", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.transaction_id = ProtoField.new("Transaction Id", "siac.opra.recipient.obi.v6.2.transactionid", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v6.2.underlyingprice", ftypes.INT64)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.recipient.obi.v6.2.underlyingpricedenominatorcode", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_bid_and_offer_message = ProtoField.new("Underlying Value Bid And Offer Message", "siac.opra.recipient.obi.v6.2.underlyingvaluebidandoffermessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_last_sale_message = ProtoField.new("Underlying Value Last Sale Message", "siac.opra.recipient.obi.v6.2.underlyingvaluelastsalemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v6.2.underlyingvaluemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message_payload = ProtoField.new("Underlying Value Message Payload", "siac.opra.recipient.obi.v6.2.underlyingvaluemessagepayload", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message_type = ProtoField.new("Underlying Value Message Type", "siac.opra.recipient.obi.v6.2.underlyingvaluemessagetype", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_2.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v6.2.version", ftypes.UINT8)
+omi_siac_opra_recipient_obi_v6_2.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v6.2.volume", ftypes.UINT32)
 
 -- Siac Opra Recipient Obi 6.2 generated fields
-siac_opra_recipient_obi_v6_2.fields.message_index = ProtoField.new("Message Index", "siac.opra.recipient.obi.v6.2.messageindex", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v6_2.fields.message_index = ProtoField.new("Message Index", "siac.opra.recipient.obi.v6.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -141,110 +141,110 @@ show.payload = false
 show.underlying_value_message_payload = false
 
 -- Register Siac Opra Recipient Obi 6.2 Show Options
-siac_opra_recipient_obi_v6_2.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage = Pref.bool("Show Best Bid And Offer Appendage", show.best_bid_and_offer_appendage, "Parse and add Best Bid And Offer Appendage to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage = Pref.bool("Show Best Bid Appendage", show.best_bid_appendage, "Parse and add Best Bid Appendage to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage = Pref.bool("Show Best Offer Appendage", show.best_offer_appendage, "Parse and add Best Offer Appendage to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp = Pref.bool("Show Block Timestamp", show.block_timestamp, "Parse and add Block Timestamp to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message = Pref.bool("Show Equity And Index End Of Day Summary Message", show.equity_and_index_end_of_day_summary_message, "Parse and add Equity And Index End Of Day Summary Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message = Pref.bool("Show Equity And Index Last Sale Message", show.equity_and_index_last_sale_message, "Parse and add Equity And Index Last Sale Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_expiration_block = Pref.bool("Show Expiration Block", show.expiration_block, "Parse and add Expiration Block to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message = Pref.bool("Show Long Equity And Index Quote Message", show.long_equity_and_index_quote_message, "Parse and add Long Equity And Index Quote Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message = Pref.bool("Show Short Equity And Index Quote Message", show.short_equity_and_index_quote_message, "Parse and add Short Equity And Index Quote Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message = Pref.bool("Show Underlying Value Bid And Offer Message", show.underlying_value_bid_and_offer_message, "Parse and add Underlying Value Bid And Offer Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message = Pref.bool("Show Underlying Value Last Sale Message", show.underlying_value_last_sale_message, "Parse and add Underlying Value Last Sale Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message_payload = Pref.bool("Show Underlying Value Message Payload", show.underlying_value_message_payload, "Parse and add Underlying Value Message Payload to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage = Pref.bool("Show Best Bid And Offer Appendage", show.best_bid_and_offer_appendage, "Parse and add Best Bid And Offer Appendage to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage = Pref.bool("Show Best Bid Appendage", show.best_bid_appendage, "Parse and add Best Bid Appendage to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage = Pref.bool("Show Best Offer Appendage", show.best_offer_appendage, "Parse and add Best Offer Appendage to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp = Pref.bool("Show Block Timestamp", show.block_timestamp, "Parse and add Block Timestamp to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message = Pref.bool("Show Equity And Index End Of Day Summary Message", show.equity_and_index_end_of_day_summary_message, "Parse and add Equity And Index End Of Day Summary Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message = Pref.bool("Show Equity And Index Last Sale Message", show.equity_and_index_last_sale_message, "Parse and add Equity And Index Last Sale Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block = Pref.bool("Show Expiration Block", show.expiration_block, "Parse and add Expiration Block to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message = Pref.bool("Show Long Equity And Index Quote Message", show.long_equity_and_index_quote_message, "Parse and add Long Equity And Index Quote Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message = Pref.bool("Show Short Equity And Index Quote Message", show.short_equity_and_index_quote_message, "Parse and add Short Equity And Index Quote Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message = Pref.bool("Show Underlying Value Bid And Offer Message", show.underlying_value_bid_and_offer_message, "Parse and add Underlying Value Bid And Offer Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message = Pref.bool("Show Underlying Value Last Sale Message", show.underlying_value_last_sale_message, "Parse and add Underlying Value Last Sale Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message_payload = Pref.bool("Show Underlying Value Message Payload", show.underlying_value_message_payload, "Parse and add Underlying Value Message Payload to protocol tree")
 
 -- Handle changed preferences
-function siac_opra_recipient_obi_v6_2.prefs_changed()
+function omi_siac_opra_recipient_obi_v6_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.administrative_message ~= siac_opra_recipient_obi_v6_2.prefs.show_administrative_message then
-    show.administrative_message = siac_opra_recipient_obi_v6_2.prefs.show_administrative_message
+  if show.administrative_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative_message then
+    show.administrative_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative_message
     changed = true
   end
-  if show.best_bid_and_offer_appendage ~= siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage then
-    show.best_bid_and_offer_appendage = siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage
+  if show.best_bid_and_offer_appendage ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage then
+    show.best_bid_and_offer_appendage = omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage
     changed = true
   end
-  if show.best_bid_appendage ~= siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage then
-    show.best_bid_appendage = siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage
+  if show.best_bid_appendage ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage then
+    show.best_bid_appendage = omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage
     changed = true
   end
-  if show.best_offer_appendage ~= siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage then
-    show.best_offer_appendage = siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage
+  if show.best_offer_appendage ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage then
+    show.best_offer_appendage = omi_siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage
     changed = true
   end
-  if show.block_header ~= siac_opra_recipient_obi_v6_2.prefs.show_block_header then
-    show.block_header = siac_opra_recipient_obi_v6_2.prefs.show_block_header
+  if show.block_header ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_block_header then
+    show.block_header = omi_siac_opra_recipient_obi_v6_2.prefs.show_block_header
     changed = true
   end
-  if show.block_timestamp ~= siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp then
-    show.block_timestamp = siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp
+  if show.block_timestamp ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp then
+    show.block_timestamp = omi_siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp
     changed = true
   end
-  if show.control_message ~= siac_opra_recipient_obi_v6_2.prefs.show_control_message then
-    show.control_message = siac_opra_recipient_obi_v6_2.prefs.show_control_message
+  if show.control_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_control_message then
+    show.control_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_control_message
     changed = true
   end
-  if show.equity_and_index_end_of_day_summary_message ~= siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message then
-    show.equity_and_index_end_of_day_summary_message = siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message
+  if show.equity_and_index_end_of_day_summary_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message then
+    show.equity_and_index_end_of_day_summary_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary_message
     changed = true
   end
-  if show.equity_and_index_last_sale_message ~= siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message then
-    show.equity_and_index_last_sale_message = siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message
+  if show.equity_and_index_last_sale_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message then
+    show.equity_and_index_last_sale_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale_message
     changed = true
   end
-  if show.expiration_block ~= siac_opra_recipient_obi_v6_2.prefs.show_expiration_block then
-    show.expiration_block = siac_opra_recipient_obi_v6_2.prefs.show_expiration_block
+  if show.expiration_block ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block then
+    show.expiration_block = omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block
     changed = true
   end
-  if show.long_equity_and_index_quote_message ~= siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message then
-    show.long_equity_and_index_quote_message = siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message
+  if show.long_equity_and_index_quote_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message then
+    show.long_equity_and_index_quote_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote_message
     changed = true
   end
-  if show.message ~= siac_opra_recipient_obi_v6_2.prefs.show_message then
-    show.message = siac_opra_recipient_obi_v6_2.prefs.show_message
+  if show.message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_message then
+    show.message = omi_siac_opra_recipient_obi_v6_2.prefs.show_message
     changed = true
   end
-  if show.open_interest_message ~= siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message then
-    show.open_interest_message = siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message
+  if show.open_interest_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message then
+    show.open_interest_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest_message
     changed = true
   end
-  if show.packet ~= siac_opra_recipient_obi_v6_2.prefs.show_packet then
-    show.packet = siac_opra_recipient_obi_v6_2.prefs.show_packet
+  if show.packet ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_packet then
+    show.packet = omi_siac_opra_recipient_obi_v6_2.prefs.show_packet
     changed = true
   end
-  if show.short_equity_and_index_quote_message ~= siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message then
-    show.short_equity_and_index_quote_message = siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message
+  if show.short_equity_and_index_quote_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message then
+    show.short_equity_and_index_quote_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote_message
     changed = true
   end
-  if show.underlying_value_bid_and_offer_message ~= siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message then
-    show.underlying_value_bid_and_offer_message = siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message
+  if show.underlying_value_bid_and_offer_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message then
+    show.underlying_value_bid_and_offer_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_bid_and_offer_message
     changed = true
   end
-  if show.underlying_value_last_sale_message ~= siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message then
-    show.underlying_value_last_sale_message = siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message
+  if show.underlying_value_last_sale_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message then
+    show.underlying_value_last_sale_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_last_sale_message
     changed = true
   end
-  if show.underlying_value_message ~= siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message then
-    show.underlying_value_message = siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message
+  if show.underlying_value_message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message then
+    show.underlying_value_message = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message
     changed = true
   end
-  if show.payload ~= siac_opra_recipient_obi_v6_2.prefs.show_payload then
-    show.payload = siac_opra_recipient_obi_v6_2.prefs.show_payload
+  if show.payload ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_payload then
+    show.payload = omi_siac_opra_recipient_obi_v6_2.prefs.show_payload
     changed = true
   end
-  if show.underlying_value_message_payload ~= siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message_payload then
-    show.underlying_value_message_payload = siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message_payload
+  if show.underlying_value_message_payload ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message_payload then
+    show.underlying_value_message_payload = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value_message_payload
     changed = true
   end
 
@@ -284,7 +284,7 @@ siac_opra_recipient_obi_v6_2_dissect.block_pad_byte = function(buffer, offset, p
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.block_pad_byte(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.block_pad_byte, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.block_pad_byte, range, value, display)
 
   return offset + length, value
 end
@@ -304,7 +304,7 @@ siac_opra_recipient_obi_v6_2_dissect.offer_index_value = function(buffer, offset
   local value = range:int64()
   local display = siac_opra_recipient_obi_v6_2_display.offer_index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.offer_index_value, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.offer_index_value, range, value, display)
 
   return offset + length, value
 end
@@ -324,7 +324,7 @@ siac_opra_recipient_obi_v6_2_dissect.bid_index_value = function(buffer, offset, 
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.bid_index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.bid_index_value, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.bid_index_value, range, value, display)
 
   return offset + length, value
 end
@@ -369,7 +369,7 @@ siac_opra_recipient_obi_v6_2_dissect.index_value_denominator_code = function(buf
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.index_value_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.index_value_denominator_code, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.index_value_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -389,7 +389,7 @@ siac_opra_recipient_obi_v6_2_dissect.reserved_1 = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_recipient_obi_v6_2_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.reserved_1, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -409,7 +409,7 @@ siac_opra_recipient_obi_v6_2_dissect.security_symbol = function(buffer, offset, 
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.security_symbol, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -429,7 +429,7 @@ siac_opra_recipient_obi_v6_2_dissect.participant_reference_number = function(buf
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.participant_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.participant_reference_number, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.participant_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -449,7 +449,7 @@ siac_opra_recipient_obi_v6_2_dissect.transaction_id = function(buffer, offset, p
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.transaction_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.transaction_id, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.transaction_id, range, value, display)
 
   return offset + length, value
 end
@@ -469,7 +469,7 @@ siac_opra_recipient_obi_v6_2_dissect.message_indicator = function(buffer, offset
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.message_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.message_indicator, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -537,7 +537,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.underlying_value_bid_and_offer_message = function(buffer, offset, packet, parent)
   if show.underlying_value_bid_and_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.underlying_value_bid_and_offer_message, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_bid_and_offer_message, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.underlying_value_bid_and_offer_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -566,7 +566,7 @@ siac_opra_recipient_obi_v6_2_dissect.reserved_4 = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_recipient_obi_v6_2_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.reserved_4, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -586,7 +586,7 @@ siac_opra_recipient_obi_v6_2_dissect.index_value = function(buffer, offset, pack
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.index_value, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.index_value, range, value, display)
 
   return offset + length, value
 end
@@ -654,7 +654,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.underlying_value_last_sale_message = function(buffer, offset, packet, parent)
   if show.underlying_value_last_sale_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.underlying_value_last_sale_message, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_last_sale_message, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.underlying_value_last_sale_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -716,7 +716,7 @@ siac_opra_recipient_obi_v6_2_dissect.underlying_value_message_payload = function
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_opra_recipient_obi_v6_2_display.underlying_value_message_payload(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v6_2.fields.underlying_value_message_payload, range, display)
+  local element = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message_payload, range, display)
 
   return siac_opra_recipient_obi_v6_2_dissect.underlying_value_message_payload_branches(buffer, offset, packet, parent, underlying_value_message_type)
 end
@@ -743,7 +743,7 @@ siac_opra_recipient_obi_v6_2_dissect.underlying_value_message_type = function(bu
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.underlying_value_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.underlying_value_message_type, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -787,7 +787,7 @@ siac_opra_recipient_obi_v6_2_dissect.underlying_value_message = function(buffer,
     local length = siac_opra_recipient_obi_v6_2_size_of.underlying_value_message(buffer, offset)
     local range = buffer(offset, length)
     local display = siac_opra_recipient_obi_v6_2_display.underlying_value_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.underlying_value_message, range, display)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message, range, display)
   end
 
   return siac_opra_recipient_obi_v6_2_dissect.underlying_value_message_fields(buffer, offset, packet, parent)
@@ -854,7 +854,7 @@ siac_opra_recipient_obi_v6_2_dissect.control_message_type = function(buffer, off
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.control_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.control_message_type, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -902,7 +902,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.control_message = function(buffer, offset, packet, parent)
   if show.control_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.control_message, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.control_message, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.control_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -927,7 +927,7 @@ siac_opra_recipient_obi_v6_2_dissect.message_data = function(buffer, offset, pac
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.message_data(value, buffer, offset, packet, parent, size)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.message_data, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_data, range, value, display)
 
   return offset + size
 end
@@ -947,7 +947,7 @@ siac_opra_recipient_obi_v6_2_dissect.message_data_length = function(buffer, offs
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.message_data_length(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.message_data_length, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_data_length, range, value, display)
 
   return offset + length, value
 end
@@ -967,7 +967,7 @@ siac_opra_recipient_obi_v6_2_dissect.message_type = function(buffer, offset, pac
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.message_type, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1028,7 +1028,7 @@ siac_opra_recipient_obi_v6_2_dissect.administrative_message = function(buffer, o
   if show.administrative_message then
     local range = buffer(offset, size_of_administrative_message)
     local display = siac_opra_recipient_obi_v6_2_display.administrative_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.administrative_message, range, display)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.administrative_message, range, display)
   end
 
   siac_opra_recipient_obi_v6_2_dissect.administrative_message_fields(buffer, offset, packet, parent, size_of_administrative_message)
@@ -1051,7 +1051,7 @@ siac_opra_recipient_obi_v6_2_dissect.size = function(buffer, offset, packet, par
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.size, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -1071,7 +1071,7 @@ siac_opra_recipient_obi_v6_2_dissect.price = function(buffer, offset, packet, pa
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1091,7 +1091,7 @@ siac_opra_recipient_obi_v6_2_dissect.denominator_code = function(buffer, offset,
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.denominator_code, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -1166,7 +1166,7 @@ siac_opra_recipient_obi_v6_2_dissect.participant_id = function(buffer, offset, p
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.participant_id, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1214,7 +1214,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.best_offer_appendage = function(buffer, offset, packet, parent)
   if show.best_offer_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.best_offer_appendage, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_offer_appendage, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.best_offer_appendage_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1271,7 +1271,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.best_bid_appendage = function(buffer, offset, packet, parent)
   if show.best_bid_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.best_bid_appendage, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_bid_appendage, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.best_bid_appendage_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1300,7 +1300,7 @@ siac_opra_recipient_obi_v6_2_dissect.offer_size_short = function(buffer, offset,
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.offer_size_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.offer_size_short, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.offer_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1326,7 +1326,7 @@ siac_opra_recipient_obi_v6_2_dissect.offer_price_short = function(buffer, offset
   local value = translate.offer_price_short(raw)
   local display = siac_opra_recipient_obi_v6_2_display.offer_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.offer_price_short, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.offer_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1346,7 +1346,7 @@ siac_opra_recipient_obi_v6_2_dissect.bid_size_short = function(buffer, offset, p
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.bid_size_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.bid_size_short, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1372,7 +1372,7 @@ siac_opra_recipient_obi_v6_2_dissect.bid_price_short = function(buffer, offset, 
   local value = translate.bid_price_short(raw)
   local display = siac_opra_recipient_obi_v6_2_display.bid_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.bid_price_short, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1398,7 +1398,7 @@ siac_opra_recipient_obi_v6_2_dissect.strike_price_short = function(buffer, offse
   local value = translate.strike_price_short(raw)
   local display = siac_opra_recipient_obi_v6_2_display.strike_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.strike_price_short, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.strike_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1418,7 +1418,7 @@ siac_opra_recipient_obi_v6_2_dissect.expiration_year = function(buffer, offset, 
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.expiration_year, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -1438,7 +1438,7 @@ siac_opra_recipient_obi_v6_2_dissect.expiration_day = function(buffer, offset, p
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.expiration_day(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.expiration_day, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.expiration_day, range, value, display)
 
   return offset + length, value
 end
@@ -1531,7 +1531,7 @@ siac_opra_recipient_obi_v6_2_dissect.expiration_month = function(buffer, offset,
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.expiration_month, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -1574,7 +1574,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.expiration_block = function(buffer, offset, packet, parent)
   if show.expiration_block then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.expiration_block, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.expiration_block, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.expiration_block_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1603,7 +1603,7 @@ siac_opra_recipient_obi_v6_2_dissect.security_symbol_short = function(buffer, of
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.security_symbol_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.security_symbol_short, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.security_symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -1675,7 +1675,7 @@ siac_opra_recipient_obi_v6_2_dissect.bbo_indicator = function(buffer, offset, pa
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.bbo_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.bbo_indicator, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.bbo_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1729,7 +1729,7 @@ siac_opra_recipient_obi_v6_2_dissect.quote_message_type = function(buffer, offse
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.quote_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.quote_message_type, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.quote_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1845,7 +1845,7 @@ siac_opra_recipient_obi_v6_2_dissect.short_equity_and_index_quote_message = func
     local length = siac_opra_recipient_obi_v6_2_size_of.short_equity_and_index_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = siac_opra_recipient_obi_v6_2_display.short_equity_and_index_quote_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message, range, display)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message, range, display)
   end
 
   return siac_opra_recipient_obi_v6_2_dissect.short_equity_and_index_quote_message_fields(buffer, offset, packet, parent)
@@ -1866,7 +1866,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_offer_size = function(buffer, offset, 
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.best_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_offer_size, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -1886,7 +1886,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_offer_price = function(buffer, offset,
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.best_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_offer_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -1934,7 +1934,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_offer_denominator_code = function(buff
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.best_offer_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_offer_denominator_code, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_offer_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -2006,7 +2006,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_offer_participant_id = function(buffer
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.best_offer_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_offer_participant_id, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_offer_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -2026,7 +2026,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_bid_size = function(buffer, offset, pa
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.best_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_bid_size, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -2046,7 +2046,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_bid_price = function(buffer, offset, p
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_bid_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -2094,7 +2094,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_bid_denominator_code = function(buffer
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.best_bid_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_bid_denominator_code, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_bid_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -2166,7 +2166,7 @@ siac_opra_recipient_obi_v6_2_dissect.best_bid_participant_id = function(buffer, 
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.best_bid_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.best_bid_participant_id, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_bid_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -2234,7 +2234,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.best_bid_and_offer_appendage = function(buffer, offset, packet, parent)
   if show.best_bid_and_offer_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.best_bid_and_offer_appendage, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.best_bid_and_offer_appendage, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.best_bid_and_offer_appendage_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2263,7 +2263,7 @@ siac_opra_recipient_obi_v6_2_dissect.offer_size = function(buffer, offset, packe
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.offer_size, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -2283,7 +2283,7 @@ siac_opra_recipient_obi_v6_2_dissect.offer_price = function(buffer, offset, pack
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.offer_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -2303,7 +2303,7 @@ siac_opra_recipient_obi_v6_2_dissect.bid_size = function(buffer, offset, packet,
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.bid_size, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -2323,7 +2323,7 @@ siac_opra_recipient_obi_v6_2_dissect.bid_price = function(buffer, offset, packet
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.bid_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -2368,7 +2368,7 @@ siac_opra_recipient_obi_v6_2_dissect.premium_price_denominator_code = function(b
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.premium_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.premium_price_denominator_code, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.premium_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -2388,7 +2388,7 @@ siac_opra_recipient_obi_v6_2_dissect.strike_price = function(buffer, offset, pac
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.strike_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2427,7 +2427,7 @@ siac_opra_recipient_obi_v6_2_dissect.strike_price_denominator_code = function(bu
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.strike_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.strike_price_denominator_code, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.strike_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -2573,7 +2573,7 @@ siac_opra_recipient_obi_v6_2_dissect.long_equity_and_index_quote_message = funct
     local length = siac_opra_recipient_obi_v6_2_size_of.long_equity_and_index_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = siac_opra_recipient_obi_v6_2_display.long_equity_and_index_quote_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message, range, display)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.long_equity_and_index_quote_message, range, display)
   end
 
   return siac_opra_recipient_obi_v6_2_dissect.long_equity_and_index_quote_message_fields(buffer, offset, packet, parent)
@@ -2594,7 +2594,7 @@ siac_opra_recipient_obi_v6_2_dissect.underlying_price = function(buffer, offset,
   local value = range:int64()
   local display = siac_opra_recipient_obi_v6_2_display.underlying_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.underlying_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_price, range, value, display)
 
   return offset + length, value
 end
@@ -2642,7 +2642,7 @@ siac_opra_recipient_obi_v6_2_dissect.underlying_price_denominator_code = functio
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.underlying_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.underlying_price_denominator_code, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.underlying_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -2662,7 +2662,7 @@ siac_opra_recipient_obi_v6_2_dissect.net_change = function(buffer, offset, packe
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.net_change(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.net_change, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.net_change, range, value, display)
 
   return offset + length, value
 end
@@ -2682,7 +2682,7 @@ siac_opra_recipient_obi_v6_2_dissect.last_price = function(buffer, offset, packe
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.last_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.last_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.last_price, range, value, display)
 
   return offset + length, value
 end
@@ -2702,7 +2702,7 @@ siac_opra_recipient_obi_v6_2_dissect.low_price = function(buffer, offset, packet
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.low_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -2722,7 +2722,7 @@ siac_opra_recipient_obi_v6_2_dissect.high_price = function(buffer, offset, packe
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.high_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -2742,7 +2742,7 @@ siac_opra_recipient_obi_v6_2_dissect.open_price = function(buffer, offset, packe
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.open_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.open_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.open_price, range, value, display)
 
   return offset + length, value
 end
@@ -2762,7 +2762,7 @@ siac_opra_recipient_obi_v6_2_dissect.open_interest_volume = function(buffer, off
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.open_interest_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.open_interest_volume, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.open_interest_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2782,7 +2782,7 @@ siac_opra_recipient_obi_v6_2_dissect.volume = function(buffer, offset, packet, p
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.volume, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -2915,7 +2915,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.equity_and_index_end_of_day_summary_message = function(buffer, offset, packet, parent)
   if show.equity_and_index_end_of_day_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary_message, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.equity_and_index_end_of_day_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3002,7 +3002,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.open_interest_message = function(buffer, offset, packet, parent)
   if show.open_interest_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.open_interest_message, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.open_interest_message, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.open_interest_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3031,7 +3031,7 @@ siac_opra_recipient_obi_v6_2_dissect.trade_identifier = function(buffer, offset,
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.trade_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.trade_identifier, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.trade_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -3051,7 +3051,7 @@ siac_opra_recipient_obi_v6_2_dissect.premium_price = function(buffer, offset, pa
   local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.premium_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.premium_price, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.premium_price, range, value, display)
 
   return offset + length, value
 end
@@ -3138,7 +3138,7 @@ siac_opra_recipient_obi_v6_2_dissect.trade_message_type = function(buffer, offse
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.trade_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.trade_message_type, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.trade_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3236,7 +3236,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, parent)
   if show.equity_and_index_last_sale_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_last_sale_message, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3346,7 +3346,7 @@ siac_opra_recipient_obi_v6_2_dissect.payload = function(buffer, offset, packet, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_opra_recipient_obi_v6_2_display.payload(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v6_2.fields.payload, range, display)
+  local element = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.payload, range, display)
 
   return siac_opra_recipient_obi_v6_2_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
@@ -3391,7 +3391,7 @@ siac_opra_recipient_obi_v6_2_dissect.message_category = function(buffer, offset,
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.message_category, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -3423,7 +3423,7 @@ siac_opra_recipient_obi_v6_2_dissect.message_fields = function(buffer, offset, p
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(siac_opra_recipient_obi_v6_2.fields.message_index, message_index)
+    local iteration = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -3446,7 +3446,7 @@ siac_opra_recipient_obi_v6_2_dissect.message = function(buffer, offset, packet, 
     local length = siac_opra_recipient_obi_v6_2_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = siac_opra_recipient_obi_v6_2_display.message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.message, range, display)
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message, range, display)
   end
 
   return siac_opra_recipient_obi_v6_2_dissect.message_fields(buffer, offset, packet, parent)
@@ -3467,7 +3467,7 @@ siac_opra_recipient_obi_v6_2_dissect.block_checksum = function(buffer, offset, p
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.block_checksum(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.block_checksum, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.block_checksum, range, value, display)
 
   return offset + length, value
 end
@@ -3487,7 +3487,7 @@ siac_opra_recipient_obi_v6_2_dissect.nanoseconds = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.nanoseconds, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -3507,7 +3507,7 @@ siac_opra_recipient_obi_v6_2_dissect.seconds = function(buffer, offset, packet, 
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.seconds, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -3555,7 +3555,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.block_timestamp = function(buffer, offset, packet, parent)
   if show.block_timestamp then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.block_timestamp, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.block_timestamp, buffer(offset, 0))
     local index, value = siac_opra_recipient_obi_v6_2_dissect.block_timestamp_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3584,7 +3584,7 @@ siac_opra_recipient_obi_v6_2_dissect.messages_in_block = function(buffer, offset
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.messages_in_block(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.messages_in_block, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.messages_in_block, range, value, display)
 
   return offset + length, value
 end
@@ -3604,7 +3604,7 @@ siac_opra_recipient_obi_v6_2_dissect.block_sequence_number = function(buffer, of
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.block_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.block_sequence_number, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.block_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3631,7 +3631,7 @@ siac_opra_recipient_obi_v6_2_dissect.session_indicator = function(buffer, offset
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.session_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.session_indicator, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.session_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3651,7 +3651,7 @@ siac_opra_recipient_obi_v6_2_dissect.retransmission_indicator = function(buffer,
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.retransmission_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.retransmission_indicator, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.retransmission_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3671,7 +3671,7 @@ siac_opra_recipient_obi_v6_2_dissect.data_feed_indicator = function(buffer, offs
   local value = range:string()
   local display = siac_opra_recipient_obi_v6_2_display.data_feed_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.data_feed_indicator, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.data_feed_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3691,7 +3691,7 @@ siac_opra_recipient_obi_v6_2_dissect.block_size = function(buffer, offset, packe
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.block_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.block_size, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.block_size, range, value, display)
 
   return offset + length, value
 end
@@ -3711,7 +3711,7 @@ siac_opra_recipient_obi_v6_2_dissect.version = function(buffer, offset, packet, 
   local value = range:uint()
   local display = siac_opra_recipient_obi_v6_2_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v6_2.fields.version, range, value, display)
+  parent:add(omi_siac_opra_recipient_obi_v6_2.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -3784,7 +3784,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_opra_recipient_obi_v6_2.fields.block_header, buffer(offset, 0))
+    parent = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.block_header, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_2_dissect.block_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3830,23 +3830,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function siac_opra_recipient_obi_v6_2.init()
+function omi_siac_opra_recipient_obi_v6_2.init()
 end
 
 -- Dissector for Siac Opra Recipient Obi 6.2
-function siac_opra_recipient_obi_v6_2.dissector(buffer, packet, parent)
+function omi_siac_opra_recipient_obi_v6_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = siac_opra_recipient_obi_v6_2.name
+  packet.cols.protocol = omi_siac_opra_recipient_obi_v6_2.name
 
   -- Dissect protocol
-  local protocol = parent:add(siac_opra_recipient_obi_v6_2, buffer(), siac_opra_recipient_obi_v6_2.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_siac_opra_recipient_obi_v6_2, buffer(), omi_siac_opra_recipient_obi_v6_2.description, "("..buffer:len().." Bytes)")
   return siac_opra_recipient_obi_v6_2_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, siac_opra_recipient_obi_v6_2)
+udp_table:add(65333, omi_siac_opra_recipient_obi_v6_2)
 
 
 -----------------------------------------------------------------------
@@ -3854,7 +3854,7 @@ udp_table:add(65333, siac_opra_recipient_obi_v6_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.siac_opra_recipient_obi_v6_2_packet_size = function(buffer)
+verify.omi_siac_opra_recipient_obi_v6_2_packet_size = function(buffer)
 
   return true
 end
@@ -3872,22 +3872,22 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Siac Opra Recipient Obi 6.2
-local function siac_opra_recipient_obi_v6_2_heuristic(buffer, packet, parent)
+local function omi_siac_opra_recipient_obi_v6_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.siac_opra_recipient_obi_v6_2_packet_size(buffer) then return false end
+  if not verify.omi_siac_opra_recipient_obi_v6_2_packet_size(buffer) then return false end
 
   -- Verify Version
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = siac_opra_recipient_obi_v6_2
-  siac_opra_recipient_obi_v6_2.dissector(buffer, packet, parent)
+  packet.conversation = omi_siac_opra_recipient_obi_v6_2
+  omi_siac_opra_recipient_obi_v6_2.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Siac Opra Recipient Obi 6.2
-siac_opra_recipient_obi_v6_2:register_heuristic("udp", siac_opra_recipient_obi_v6_2_heuristic)
+omi_siac_opra_recipient_obi_v6_2:register_heuristic("udp", omi_siac_opra_recipient_obi_v6_2_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

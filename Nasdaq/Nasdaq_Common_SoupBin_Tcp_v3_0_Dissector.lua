@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq Common SoupBin Tcp 3.0 Protocol
-local nasdaq_common_soupbin_tcp_v3_0 = Proto("Nasdaq.Common.SoupBin.Tcp.v3.0.Lua", "Nasdaq Common SoupBin Tcp 3.0")
+local omi_nasdaq_common_soupbin_tcp_v3_0 = Proto("Nasdaq.Common.SoupBin.Tcp.v3.0.Lua", "Nasdaq Common SoupBin Tcp 3.0")
 
 -- Component Tables
 local show = {}
@@ -20,30 +20,30 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Common SoupBin Tcp 3.0 Fields
-nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbin.tcp.v3.0.loginacceptedpacket", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrejectedpacket", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrequestpacket", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.packet", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.packetheader", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.common.soupbin.tcp.v3.0.packetlength", ftypes.UINT16)
-nasdaq_common_soupbin_tcp_v3_0.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.common.soupbin.tcp.v3.0.packettype", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.password = ProtoField.new("Password", "nasdaq.common.soupbin.tcp.v3.0.password", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.payload = ProtoField.new("Payload", "nasdaq.common.soupbin.tcp.v3.0.payload", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.common.soupbin.tcp.v3.0.rejectreasoncode", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.requestedsequencenumber", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.common.soupbin.tcp.v3.0.requestedsession", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.sequencenumber", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacket", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.common.soupbin.tcp.v3.0.sequencedmessage", ftypes.BYTES)
-nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.sequencedmessagetype", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.session = ProtoField.new("Session", "nasdaq.common.soupbin.tcp.v3.0.session", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.soupbintcppacket", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.text = ProtoField.new("Text", "nasdaq.common.soupbin.tcp.v3.0.text", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.unsequenceddatapacket", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessage", ftypes.BYTES)
-nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessagetype", ftypes.STRING)
-nasdaq_common_soupbin_tcp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbin.tcp.v3.0.username", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbin.tcp.v3.0.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.packet", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.packetheader", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.common.soupbin.tcp.v3.0.packetlength", ftypes.UINT16)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.common.soupbin.tcp.v3.0.packettype", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.password = ProtoField.new("Password", "nasdaq.common.soupbin.tcp.v3.0.password", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.payload = ProtoField.new("Payload", "nasdaq.common.soupbin.tcp.v3.0.payload", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.common.soupbin.tcp.v3.0.rejectreasoncode", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.requestedsequencenumber", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.common.soupbin.tcp.v3.0.requestedsession", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.sequencenumber", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.common.soupbin.tcp.v3.0.sequencedmessage", ftypes.BYTES)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.sequencedmessagetype", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.session = ProtoField.new("Session", "nasdaq.common.soupbin.tcp.v3.0.session", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.soupbintcppacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.text = ProtoField.new("Text", "nasdaq.common.soupbin.tcp.v3.0.text", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.unsequenceddatapacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessage", ftypes.BYTES)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessagetype", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbin.tcp.v3.0.username", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -62,60 +62,60 @@ show.unsequenced_data_packet = true
 show.payload = false
 
 -- Register Nasdaq Common SoupBin Tcp 3.0 Show Options
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
+function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.debug_packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet then
-    show.debug_packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet
+  if show.debug_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet then
+    show.debug_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet
     changed = true
   end
-  if show.login_accepted_packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet
+  if show.login_accepted_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet then
+    show.login_accepted_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet
     changed = true
   end
-  if show.login_rejected_packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet
+  if show.login_rejected_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet then
+    show.login_rejected_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet
     changed = true
   end
-  if show.login_request_packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet then
-    show.login_request_packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet
+  if show.login_request_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet then
+    show.login_request_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet
     changed = true
   end
-  if show.packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet then
-    show.packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet
+  if show.packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet then
+    show.packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header then
-    show.packet_header = nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header
     changed = true
   end
-  if show.sequenced_data_packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet
+  if show.sequenced_data_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet then
+    show.sequenced_data_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.soup_bin_tcp_packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet
+  if show.soup_bin_tcp_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet then
+    show.soup_bin_tcp_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet
     changed = true
   end
-  if show.unsequenced_data_packet ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet
+  if show.unsequenced_data_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet then
+    show.unsequenced_data_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload then
-    show.payload = nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload
+  if show.payload ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload then
+    show.payload = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_payload
     changed = true
   end
 
@@ -141,7 +141,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.unsequenced_message = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_common_soupbin_tcp_v3_0_display.unsequenced_message(value, buffer, offset, packet, parent, size)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message, range, value, display)
 
   return offset + size
 end
@@ -161,7 +161,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.unsequenced_message_type = function(buffe
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.unsequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -209,7 +209,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.unsequenced_data_packet = function(buffer
   if show.unsequenced_data_packet then
     local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.unsequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet, range, display)
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet, range, display)
   end
 
   nasdaq_common_soupbin_tcp_v3_0_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
@@ -232,7 +232,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.requested_sequence_number = function(buff
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -252,7 +252,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.requested_session = function(buffer, offs
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.requested_session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.requested_session, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -272,7 +272,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.password = function(buffer, offset, packe
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.password, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -292,7 +292,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.username = function(buffer, offset, packe
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.username, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -340,7 +340,7 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -365,7 +365,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.sequenced_message = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_common_soupbin_tcp_v3_0_display.sequenced_message(value, buffer, offset, packet, parent, size)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message, range, value, display)
 
   return offset + size
 end
@@ -385,7 +385,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.sequenced_message_type = function(buffer,
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.sequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message_type, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -433,7 +433,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.sequenced_data_packet = function(buffer, 
   if show.sequenced_data_packet then
     local range = buffer(offset, size_of_sequenced_data_packet)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.sequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet, range, display)
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet, range, display)
   end
 
   nasdaq_common_soupbin_tcp_v3_0_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
@@ -456,7 +456,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.reject_reason_code = function(buffer, off
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.reject_reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -489,7 +489,7 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -518,7 +518,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.sequence_number = function(buffer, offset
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -538,7 +538,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.session = function(buffer, offset, packet
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.session, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -576,7 +576,7 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -605,7 +605,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.text = function(buffer, offset, packet, p
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.text, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -638,7 +638,7 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -732,7 +732,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.payload = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_common_soupbin_tcp_v3_0_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.payload, range, display)
 
   return nasdaq_common_soupbin_tcp_v3_0_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -783,7 +783,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.packet_type = function(buffer, offset, pa
   local value = range:string()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.packet_type, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -803,7 +803,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.packet_length = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_common_soupbin_tcp_v3_0_display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.packet_length, range, value, display)
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -841,7 +841,7 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -882,7 +882,7 @@ nasdaq_common_soupbin_tcp_v3_0_dissect.soup_bin_tcp_packet = function(buffer, of
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = nasdaq_common_soupbin_tcp_v3_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.soup_bin_tcp_packet(buffer, packet, parent)
@@ -951,23 +951,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_common_soupbin_tcp_v3_0.init()
+function omi_nasdaq_common_soupbin_tcp_v3_0.init()
 end
 
 -- Dissector for Nasdaq Common SoupBin Tcp 3.0
-function nasdaq_common_soupbin_tcp_v3_0.dissector(buffer, packet, parent)
+function omi_nasdaq_common_soupbin_tcp_v3_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_common_soupbin_tcp_v3_0.name
+  packet.cols.protocol = omi_nasdaq_common_soupbin_tcp_v3_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_common_soupbin_tcp_v3_0, buffer(), nasdaq_common_soupbin_tcp_v3_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0, buffer(), omi_nasdaq_common_soupbin_tcp_v3_0.description, "("..buffer:len().." Bytes)")
   return nasdaq_common_soupbin_tcp_v3_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, nasdaq_common_soupbin_tcp_v3_0)
+tcp_table:add(65333, omi_nasdaq_common_soupbin_tcp_v3_0)
 
 
 -----------------------------------------------------------------------
@@ -975,25 +975,25 @@ tcp_table:add(65333, nasdaq_common_soupbin_tcp_v3_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_common_soupbin_tcp_v3_0_packet_size = function(buffer)
+verify.omi_nasdaq_common_soupbin_tcp_v3_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq Common SoupBin Tcp 3.0
-local function nasdaq_common_soupbin_tcp_v3_0_heuristic(buffer, packet, parent)
+local function omi_nasdaq_common_soupbin_tcp_v3_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_common_soupbin_tcp_v3_0_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_common_soupbin_tcp_v3_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_common_soupbin_tcp_v3_0
-  nasdaq_common_soupbin_tcp_v3_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_common_soupbin_tcp_v3_0
+  omi_nasdaq_common_soupbin_tcp_v3_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq Common SoupBin Tcp 3.0
-nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", nasdaq_common_soupbin_tcp_v3_0_heuristic)
+omi_nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", omi_nasdaq_common_soupbin_tcp_v3_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

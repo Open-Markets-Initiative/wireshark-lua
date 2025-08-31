@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Jnx Equities Pts Ouch 1.11 Protocol
-local jnx_equities_pts_ouch_v1_11 = Proto("Jnx.Equities.Pts.Ouch.v1.11.Lua", "Jnx Equities Pts Ouch 1.11")
+local omi_jnx_equities_pts_ouch_v1_11 = Proto("Jnx.Equities.Pts.Ouch.v1.11.Lua", "Jnx Equities Pts Ouch 1.11")
 
 -- Component Tables
 local show = {}
@@ -21,71 +21,71 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Jnx Equities Pts Ouch 1.11 Fields
-jnx_equities_pts_ouch_v1_11.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.equities.pts.ouch.v1.11.buysellindicator", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.capacity = ProtoField.new("Capacity", "jnx.equities.pts.ouch.v1.11.capacity", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "jnx.equities.pts.ouch.v1.11.cashmargintype", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.client_reference = ProtoField.new("Client Reference", "jnx.equities.pts.ouch.v1.11.clientreference", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.equities.pts.ouch.v1.11.debugpacket", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "jnx.equities.pts.ouch.v1.11.decrementquantity", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.display = ProtoField.new("Display", "jnx.equities.pts.ouch.v1.11.display", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.equities.pts.ouch.v1.11.executedquantity", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.execution_price = ProtoField.new("Execution Price", "jnx.equities.pts.ouch.v1.11.executionprice", ftypes.DOUBLE)
-jnx_equities_pts_ouch_v1_11.fields.existing_order_token = ProtoField.new("Existing Order Token", "jnx.equities.pts.ouch.v1.11.existingordertoken", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.firm_id = ProtoField.new("Firm Id", "jnx.equities.pts.ouch.v1.11.firmid", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.group = ProtoField.new("Group", "jnx.equities.pts.ouch.v1.11.group", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "jnx.equities.pts.ouch.v1.11.liquidityindicator", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.equities.pts.ouch.v1.11.loginacceptedpacket", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.equities.pts.ouch.v1.11.loginrejectedpacket", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.equities.pts.ouch.v1.11.loginrequestpacket", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.match_number = ProtoField.new("Match Number", "jnx.equities.pts.ouch.v1.11.matchnumber", ftypes.UINT64)
-jnx_equities_pts_ouch_v1_11.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "jnx.equities.pts.ouch.v1.11.minimumquantity", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.order_canceled_reason = ProtoField.new("Order Canceled Reason", "jnx.equities.pts.ouch.v1.11.ordercanceledreason", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_classification = ProtoField.new("Order Classification", "jnx.equities.pts.ouch.v1.11.orderclassification", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_number = ProtoField.new("Order Number", "jnx.equities.pts.ouch.v1.11.ordernumber", ftypes.UINT64)
-jnx_equities_pts_ouch_v1_11.fields.order_rejected_reason = ProtoField.new("Order Rejected Reason", "jnx.equities.pts.ouch.v1.11.orderrejectedreason", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_state = ProtoField.new("Order State", "jnx.equities.pts.ouch.v1.11.orderstate", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_token = ProtoField.new("Order Token", "jnx.equities.pts.ouch.v1.11.ordertoken", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.equities.pts.ouch.v1.11.orderbookid", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.packet = ProtoField.new("Packet", "jnx.equities.pts.ouch.v1.11.packet", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "jnx.equities.pts.ouch.v1.11.packetheader", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.packet_length = ProtoField.new("Packet Length", "jnx.equities.pts.ouch.v1.11.packetlength", ftypes.UINT16)
-jnx_equities_pts_ouch_v1_11.fields.packet_type = ProtoField.new("Packet Type", "jnx.equities.pts.ouch.v1.11.packettype", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.password = ProtoField.new("Password", "jnx.equities.pts.ouch.v1.11.password", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.payload = ProtoField.new("Payload", "jnx.equities.pts.ouch.v1.11.payload", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.previous_order_token = ProtoField.new("Previous Order Token", "jnx.equities.pts.ouch.v1.11.previousordertoken", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.price = ProtoField.new("Price", "jnx.equities.pts.ouch.v1.11.price", ftypes.DOUBLE)
-jnx_equities_pts_ouch_v1_11.fields.quantity = ProtoField.new("Quantity", "jnx.equities.pts.ouch.v1.11.quantity", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.equities.pts.ouch.v1.11.quantitypreventedfromtrading", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.equities.pts.ouch.v1.11.rejectreasoncode", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jnx.equities.pts.ouch.v1.11.replacementordertoken", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.equities.pts.ouch.v1.11.requestedsequencenumber", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.requested_session = ProtoField.new("Requested Session", "jnx.equities.pts.ouch.v1.11.requestedsession", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.equities.pts.ouch.v1.11.sequencenumber", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.equities.pts.ouch.v1.11.sequenceddatapacket", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.sequenced_message = ProtoField.new("Sequenced Message", "jnx.equities.pts.ouch.v1.11.sequencedmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.equities.pts.ouch.v1.11.sequencedmessagetype", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.session = ProtoField.new("Session", "jnx.equities.pts.ouch.v1.11.session", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.equities.pts.ouch.v1.11.soupbintcppacket", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.system_event = ProtoField.new("System Event", "jnx.equities.pts.ouch.v1.11.systemevent", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.text = ProtoField.new("Text", "jnx.equities.pts.ouch.v1.11.text", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.time_in_force = ProtoField.new("Time In Force", "jnx.equities.pts.ouch.v1.11.timeinforce", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_11.fields.timestamp = ProtoField.new("Timestamp", "jnx.equities.pts.ouch.v1.11.timestamp", ftypes.UINT64)
-jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.equities.pts.ouch.v1.11.unsequenceddatapacket", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.equities.pts.ouch.v1.11.unsequencedmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.equities.pts.ouch.v1.11.unsequencedmessagetype", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.username = ProtoField.new("Username", "jnx.equities.pts.ouch.v1.11.username", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.equities.pts.ouch.v1.11.buysellindicator", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.capacity = ProtoField.new("Capacity", "jnx.equities.pts.ouch.v1.11.capacity", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "jnx.equities.pts.ouch.v1.11.cashmargintype", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.client_reference = ProtoField.new("Client Reference", "jnx.equities.pts.ouch.v1.11.clientreference", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.equities.pts.ouch.v1.11.debugpacket", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "jnx.equities.pts.ouch.v1.11.decrementquantity", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.display = ProtoField.new("Display", "jnx.equities.pts.ouch.v1.11.display", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.equities.pts.ouch.v1.11.executedquantity", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.execution_price = ProtoField.new("Execution Price", "jnx.equities.pts.ouch.v1.11.executionprice", ftypes.DOUBLE)
+omi_jnx_equities_pts_ouch_v1_11.fields.existing_order_token = ProtoField.new("Existing Order Token", "jnx.equities.pts.ouch.v1.11.existingordertoken", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.firm_id = ProtoField.new("Firm Id", "jnx.equities.pts.ouch.v1.11.firmid", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.group = ProtoField.new("Group", "jnx.equities.pts.ouch.v1.11.group", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "jnx.equities.pts.ouch.v1.11.liquidityindicator", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.equities.pts.ouch.v1.11.loginacceptedpacket", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.equities.pts.ouch.v1.11.loginrejectedpacket", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.equities.pts.ouch.v1.11.loginrequestpacket", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.match_number = ProtoField.new("Match Number", "jnx.equities.pts.ouch.v1.11.matchnumber", ftypes.UINT64)
+omi_jnx_equities_pts_ouch_v1_11.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "jnx.equities.pts.ouch.v1.11.minimumquantity", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_canceled_reason = ProtoField.new("Order Canceled Reason", "jnx.equities.pts.ouch.v1.11.ordercanceledreason", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_classification = ProtoField.new("Order Classification", "jnx.equities.pts.ouch.v1.11.orderclassification", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_number = ProtoField.new("Order Number", "jnx.equities.pts.ouch.v1.11.ordernumber", ftypes.UINT64)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_rejected_reason = ProtoField.new("Order Rejected Reason", "jnx.equities.pts.ouch.v1.11.orderrejectedreason", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_state = ProtoField.new("Order State", "jnx.equities.pts.ouch.v1.11.orderstate", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_token = ProtoField.new("Order Token", "jnx.equities.pts.ouch.v1.11.ordertoken", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.equities.pts.ouch.v1.11.orderbookid", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.packet = ProtoField.new("Packet", "jnx.equities.pts.ouch.v1.11.packet", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "jnx.equities.pts.ouch.v1.11.packetheader", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.packet_length = ProtoField.new("Packet Length", "jnx.equities.pts.ouch.v1.11.packetlength", ftypes.UINT16)
+omi_jnx_equities_pts_ouch_v1_11.fields.packet_type = ProtoField.new("Packet Type", "jnx.equities.pts.ouch.v1.11.packettype", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.password = ProtoField.new("Password", "jnx.equities.pts.ouch.v1.11.password", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.payload = ProtoField.new("Payload", "jnx.equities.pts.ouch.v1.11.payload", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.previous_order_token = ProtoField.new("Previous Order Token", "jnx.equities.pts.ouch.v1.11.previousordertoken", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.price = ProtoField.new("Price", "jnx.equities.pts.ouch.v1.11.price", ftypes.DOUBLE)
+omi_jnx_equities_pts_ouch_v1_11.fields.quantity = ProtoField.new("Quantity", "jnx.equities.pts.ouch.v1.11.quantity", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.equities.pts.ouch.v1.11.quantitypreventedfromtrading", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.equities.pts.ouch.v1.11.rejectreasoncode", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jnx.equities.pts.ouch.v1.11.replacementordertoken", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.equities.pts.ouch.v1.11.requestedsequencenumber", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.requested_session = ProtoField.new("Requested Session", "jnx.equities.pts.ouch.v1.11.requestedsession", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.equities.pts.ouch.v1.11.sequencenumber", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.equities.pts.ouch.v1.11.sequenceddatapacket", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_message = ProtoField.new("Sequenced Message", "jnx.equities.pts.ouch.v1.11.sequencedmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.equities.pts.ouch.v1.11.sequencedmessagetype", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.session = ProtoField.new("Session", "jnx.equities.pts.ouch.v1.11.session", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.equities.pts.ouch.v1.11.soupbintcppacket", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.system_event = ProtoField.new("System Event", "jnx.equities.pts.ouch.v1.11.systemevent", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.text = ProtoField.new("Text", "jnx.equities.pts.ouch.v1.11.text", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.time_in_force = ProtoField.new("Time In Force", "jnx.equities.pts.ouch.v1.11.timeinforce", ftypes.UINT32)
+omi_jnx_equities_pts_ouch_v1_11.fields.timestamp = ProtoField.new("Timestamp", "jnx.equities.pts.ouch.v1.11.timestamp", ftypes.UINT64)
+omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.equities.pts.ouch.v1.11.unsequenceddatapacket", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.equities.pts.ouch.v1.11.unsequencedmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.equities.pts.ouch.v1.11.unsequencedmessagetype", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.username = ProtoField.new("Username", "jnx.equities.pts.ouch.v1.11.username", ftypes.STRING)
 
 -- Jnx Equities Pts Ouch 1.11 messages
-jnx_equities_pts_ouch_v1_11.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.equities.pts.ouch.v1.11.cancelordermessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.equities.pts.ouch.v1.11.enterordermessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.equities.pts.ouch.v1.11.orderacceptedmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_aiq_canceled_message = ProtoField.new("Order Aiq Canceled Message", "jnx.equities.pts.ouch.v1.11.orderaiqcanceledmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "jnx.equities.pts.ouch.v1.11.ordercanceledmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_executed_message = ProtoField.new("Order Executed Message", "jnx.equities.pts.ouch.v1.11.orderexecutedmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "jnx.equities.pts.ouch.v1.11.orderrejectedmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.equities.pts.ouch.v1.11.orderreplacedmessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.equities.pts.ouch.v1.11.replaceordermessage", ftypes.STRING)
-jnx_equities_pts_ouch_v1_11.fields.system_event_message = ProtoField.new("System Event Message", "jnx.equities.pts.ouch.v1.11.systemeventmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.equities.pts.ouch.v1.11.cancelordermessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.equities.pts.ouch.v1.11.enterordermessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.equities.pts.ouch.v1.11.orderacceptedmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_aiq_canceled_message = ProtoField.new("Order Aiq Canceled Message", "jnx.equities.pts.ouch.v1.11.orderaiqcanceledmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "jnx.equities.pts.ouch.v1.11.ordercanceledmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_executed_message = ProtoField.new("Order Executed Message", "jnx.equities.pts.ouch.v1.11.orderexecutedmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "jnx.equities.pts.ouch.v1.11.orderrejectedmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.equities.pts.ouch.v1.11.orderreplacedmessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.equities.pts.ouch.v1.11.replaceordermessage", ftypes.STRING)
+omi_jnx_equities_pts_ouch_v1_11.fields.system_event_message = ProtoField.new("System Event Message", "jnx.equities.pts.ouch.v1.11.systemeventmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -116,120 +116,120 @@ show.sequenced_message = false
 show.unsequenced_message = false
 
 -- Register Jnx Equities Pts Ouch 1.11 Show Options
-jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message = Pref.bool("Show Order Aiq Canceled Message", show.order_aiq_canceled_message, "Parse and add Order Aiq Canceled Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message = Pref.bool("Show Order Aiq Canceled Message", show.order_aiq_canceled_message, "Parse and add Order Aiq Canceled Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
-function jnx_equities_pts_ouch_v1_11.prefs_changed()
+function omi_jnx_equities_pts_ouch_v1_11.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message then
-    show.cancel_order_message = jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message then
+    show.cancel_order_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message
     changed = true
   end
-  if show.debug_packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet then
-    show.debug_packet = jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet
+  if show.debug_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet then
+    show.debug_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet
     changed = true
   end
-  if show.enter_order_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message then
-    show.enter_order_message = jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message
+  if show.enter_order_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message then
+    show.enter_order_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message
     changed = true
   end
-  if show.login_accepted_packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet
+  if show.login_accepted_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet then
+    show.login_accepted_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet
     changed = true
   end
-  if show.login_rejected_packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet
+  if show.login_rejected_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet then
+    show.login_rejected_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet
     changed = true
   end
-  if show.login_request_packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet then
-    show.login_request_packet = jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet
+  if show.login_request_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet then
+    show.login_request_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet
     changed = true
   end
-  if show.order_accepted_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message then
-    show.order_accepted_message = jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message
+  if show.order_accepted_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message then
+    show.order_accepted_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message
     changed = true
   end
-  if show.order_aiq_canceled_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message then
-    show.order_aiq_canceled_message = jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message
+  if show.order_aiq_canceled_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message then
+    show.order_aiq_canceled_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message
     changed = true
   end
-  if show.order_canceled_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message then
-    show.order_canceled_message = jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message
+  if show.order_canceled_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message then
+    show.order_canceled_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message
     changed = true
   end
-  if show.order_executed_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message then
-    show.order_executed_message = jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message then
+    show.order_executed_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_rejected_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message then
-    show.order_rejected_message = jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message
+  if show.order_rejected_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message then
+    show.order_rejected_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message
     changed = true
   end
-  if show.order_replaced_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message then
-    show.order_replaced_message = jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message
+  if show.order_replaced_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message then
+    show.order_replaced_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message
     changed = true
   end
-  if show.packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_packet then
-    show.packet = jnx_equities_pts_ouch_v1_11.prefs.show_packet
+  if show.packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet then
+    show.packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= jnx_equities_pts_ouch_v1_11.prefs.show_packet_header then
-    show.packet_header = jnx_equities_pts_ouch_v1_11.prefs.show_packet_header
+  if show.packet_header ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet_header then
+    show.packet_header = omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet_header
     changed = true
   end
-  if show.replace_order_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message then
-    show.replace_order_message = jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message
+  if show.replace_order_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message then
+    show.replace_order_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message
     changed = true
   end
-  if show.sequenced_data_packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet
+  if show.sequenced_data_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet then
+    show.sequenced_data_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.soup_bin_tcp_packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet
+  if show.soup_bin_tcp_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet then
+    show.soup_bin_tcp_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet
     changed = true
   end
-  if show.system_event_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message then
-    show.system_event_message = jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message
+  if show.system_event_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message then
+    show.system_event_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message
     changed = true
   end
-  if show.unsequenced_data_packet ~= jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet
+  if show.unsequenced_data_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet then
+    show.unsequenced_data_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= jnx_equities_pts_ouch_v1_11.prefs.show_payload then
-    show.payload = jnx_equities_pts_ouch_v1_11.prefs.show_payload
+  if show.payload ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_payload then
+    show.payload = omi_jnx_equities_pts_ouch_v1_11.prefs.show_payload
     changed = true
   end
-  if show.sequenced_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_message then
-    show.sequenced_message = jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_message then
+    show.sequenced_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_message
     changed = true
   end
-  if show.unsequenced_message ~= jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_message then
-    show.unsequenced_message = jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -277,7 +277,7 @@ jnx_equities_pts_ouch_v1_11_dissect.quantity = function(buffer, offset, packet, 
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.quantity, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -297,7 +297,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_token = function(buffer, offset, packe
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.order_token, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_token, range, value, display)
 
   return offset + length, value
 end
@@ -335,7 +335,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.cancel_order_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -364,7 +364,7 @@ jnx_equities_pts_ouch_v1_11_dissect.minimum_quantity = function(buffer, offset, 
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.minimum_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.minimum_quantity, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.minimum_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -391,7 +391,7 @@ jnx_equities_pts_ouch_v1_11_dissect.display = function(buffer, offset, packet, p
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.display(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.display, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.display, range, value, display)
 
   return offset + length, value
 end
@@ -418,7 +418,7 @@ jnx_equities_pts_ouch_v1_11_dissect.time_in_force = function(buffer, offset, pac
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.time_in_force, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -444,7 +444,7 @@ jnx_equities_pts_ouch_v1_11_dissect.price = function(buffer, offset, packet, par
   local value = translate.price(raw)
   local display = jnx_equities_pts_ouch_v1_11_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.price, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -464,7 +464,7 @@ jnx_equities_pts_ouch_v1_11_dissect.replacement_order_token = function(buffer, o
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.replacement_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.replacement_order_token, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.replacement_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -484,7 +484,7 @@ jnx_equities_pts_ouch_v1_11_dissect.existing_order_token = function(buffer, offs
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.existing_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.existing_order_token, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.existing_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -547,7 +547,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.replace_order_message = function(buffer, offset, packet, parent)
   if show.replace_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.replace_order_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.replace_order_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.replace_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -592,7 +592,7 @@ jnx_equities_pts_ouch_v1_11_dissect.cash_margin_type = function(buffer, offset, 
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.cash_margin_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.cash_margin_type, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.cash_margin_type, range, value, display)
 
   return offset + length, value
 end
@@ -628,7 +628,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_classification = function(buffer, offs
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.order_classification(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.order_classification, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_classification, range, value, display)
 
   return offset + length, value
 end
@@ -655,7 +655,7 @@ jnx_equities_pts_ouch_v1_11_dissect.capacity = function(buffer, offset, packet, 
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.capacity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.capacity, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.capacity, range, value, display)
 
   return offset + length, value
 end
@@ -675,7 +675,7 @@ jnx_equities_pts_ouch_v1_11_dissect.firm_id = function(buffer, offset, packet, p
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.firm_id(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.firm_id, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.firm_id, range, value, display)
 
   return offset + length, value
 end
@@ -708,7 +708,7 @@ jnx_equities_pts_ouch_v1_11_dissect.group = function(buffer, offset, packet, par
   local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_ouch_v1_11_display.group(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.group, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.group, range, value, display)
 
   return offset + length, value
 end
@@ -728,7 +728,7 @@ jnx_equities_pts_ouch_v1_11_dissect.orderbook_id = function(buffer, offset, pack
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.orderbook_id(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.orderbook_id, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.orderbook_id, range, value, display)
 
   return offset + length, value
 end
@@ -761,7 +761,7 @@ jnx_equities_pts_ouch_v1_11_dissect.buy_sell_indicator = function(buffer, offset
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.buy_sell_indicator, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.buy_sell_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -781,7 +781,7 @@ jnx_equities_pts_ouch_v1_11_dissect.client_reference = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_ouch_v1_11_display.client_reference(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.client_reference, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.client_reference, range, value, display)
 
   return offset + length, value
 end
@@ -879,7 +879,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.enter_order_message = function(buffer, offset, packet, parent)
   if show.enter_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.enter_order_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.enter_order_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.enter_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -949,7 +949,7 @@ jnx_equities_pts_ouch_v1_11_dissect.unsequenced_message = function(buffer, offse
   -- Dissect Element
   local range = buffer(offset, size)
   local display = jnx_equities_pts_ouch_v1_11_display.unsequenced_message(buffer, packet, parent)
-  local element = parent:add(jnx_equities_pts_ouch_v1_11.fields.unsequenced_message, range, display)
+  local element = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_message, range, display)
 
   return jnx_equities_pts_ouch_v1_11_dissect.unsequenced_message_branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -979,7 +979,7 @@ jnx_equities_pts_ouch_v1_11_dissect.unsequenced_message_type = function(buffer, 
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.unsequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.unsequenced_message_type, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1021,7 +1021,7 @@ jnx_equities_pts_ouch_v1_11_dissect.unsequenced_data_packet = function(buffer, o
   if show.unsequenced_data_packet then
     local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = jnx_equities_pts_ouch_v1_11_display.unsequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet, range, display)
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet, range, display)
   end
 
   jnx_equities_pts_ouch_v1_11_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
@@ -1044,7 +1044,7 @@ jnx_equities_pts_ouch_v1_11_dissect.requested_sequence_number = function(buffer,
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.requested_sequence_number, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1064,7 +1064,7 @@ jnx_equities_pts_ouch_v1_11_dissect.requested_session = function(buffer, offset,
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.requested_session(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.requested_session, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -1084,7 +1084,7 @@ jnx_equities_pts_ouch_v1_11_dissect.password = function(buffer, offset, packet, 
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.password, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -1104,7 +1104,7 @@ jnx_equities_pts_ouch_v1_11_dissect.username = function(buffer, offset, packet, 
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.username, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -1152,7 +1152,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_request_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.login_request_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1227,7 +1227,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_rejected_reason = function(buffer, off
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.order_rejected_reason(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.order_rejected_reason, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_rejected_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1247,7 +1247,7 @@ jnx_equities_pts_ouch_v1_11_dissect.timestamp = function(buffer, offset, packet,
   local value = range:uint64()
   local display = jnx_equities_pts_ouch_v1_11_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.timestamp, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1290,7 +1290,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.order_rejected_message = function(buffer, offset, packet, parent)
   if show.order_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_rejected_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1319,7 +1319,7 @@ jnx_equities_pts_ouch_v1_11_dissect.match_number = function(buffer, offset, pack
   local value = range:uint64()
   local display = jnx_equities_pts_ouch_v1_11_display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.match_number, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.match_number, range, value, display)
 
   return offset + length, value
 end
@@ -1346,7 +1346,7 @@ jnx_equities_pts_ouch_v1_11_dissect.liquidity_indicator = function(buffer, offse
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.liquidity_indicator, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1372,7 +1372,7 @@ jnx_equities_pts_ouch_v1_11_dissect.execution_price = function(buffer, offset, p
   local value = translate.execution_price(raw)
   local display = jnx_equities_pts_ouch_v1_11_display.execution_price(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.execution_price, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.execution_price, range, value, display)
 
   return offset + length, value
 end
@@ -1392,7 +1392,7 @@ jnx_equities_pts_ouch_v1_11_dissect.executed_quantity = function(buffer, offset,
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.executed_quantity, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1450,7 +1450,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_executed_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1479,7 +1479,7 @@ jnx_equities_pts_ouch_v1_11_dissect.quantity_prevented_from_trading = function(b
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.quantity_prevented_from_trading(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.quantity_prevented_from_trading, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.quantity_prevented_from_trading, range, value, display)
 
   return offset + length, value
 end
@@ -1548,7 +1548,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_canceled_reason = function(buffer, off
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.order_canceled_reason(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.order_canceled_reason, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_canceled_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1568,7 +1568,7 @@ jnx_equities_pts_ouch_v1_11_dissect.decrement_quantity = function(buffer, offset
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.decrement_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.decrement_quantity, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.decrement_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1631,7 +1631,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.order_aiq_canceled_message = function(buffer, offset, packet, parent)
   if show.order_aiq_canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_aiq_canceled_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_aiq_canceled_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.order_aiq_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1688,7 +1688,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.order_canceled_message = function(buffer, offset, packet, parent)
   if show.order_canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_canceled_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_canceled_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1717,7 +1717,7 @@ jnx_equities_pts_ouch_v1_11_dissect.previous_order_token = function(buffer, offs
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.previous_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.previous_order_token, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.previous_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -1744,7 +1744,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_state = function(buffer, offset, packe
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.order_state(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.order_state, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_state, range, value, display)
 
   return offset + length, value
 end
@@ -1764,7 +1764,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_number = function(buffer, offset, pack
   local value = range:uint64()
   local display = jnx_equities_pts_ouch_v1_11_display.order_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.order_number, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_number, range, value, display)
 
   return offset + length, value
 end
@@ -1857,7 +1857,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.order_replaced_message = function(buffer, offset, packet, parent)
   if show.order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_replaced_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_replaced_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1979,7 +1979,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.order_accepted_message = function(buffer, offset, packet, parent)
   if show.order_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_accepted_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_accepted_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2015,7 +2015,7 @@ jnx_equities_pts_ouch_v1_11_dissect.system_event = function(buffer, offset, pack
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.system_event(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.system_event, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.system_event, range, value, display)
 
   return offset + length, value
 end
@@ -2053,7 +2053,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.system_event_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2155,7 +2155,7 @@ jnx_equities_pts_ouch_v1_11_dissect.sequenced_message = function(buffer, offset,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = jnx_equities_pts_ouch_v1_11_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(jnx_equities_pts_ouch_v1_11.fields.sequenced_message, range, display)
+  local element = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_message, range, display)
 
   return jnx_equities_pts_ouch_v1_11_dissect.sequenced_message_branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -2197,7 +2197,7 @@ jnx_equities_pts_ouch_v1_11_dissect.sequenced_message_type = function(buffer, of
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.sequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.sequenced_message_type, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2239,7 +2239,7 @@ jnx_equities_pts_ouch_v1_11_dissect.sequenced_data_packet = function(buffer, off
   if show.sequenced_data_packet then
     local range = buffer(offset, size_of_sequenced_data_packet)
     local display = jnx_equities_pts_ouch_v1_11_display.sequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet, range, display)
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet, range, display)
   end
 
   jnx_equities_pts_ouch_v1_11_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
@@ -2262,7 +2262,7 @@ jnx_equities_pts_ouch_v1_11_dissect.reject_reason_code = function(buffer, offset
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.reject_reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.reject_reason_code, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -2295,7 +2295,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_rejected_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.login_rejected_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2324,7 +2324,7 @@ jnx_equities_pts_ouch_v1_11_dissect.sequence_number = function(buffer, offset, p
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.sequence_number, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2344,7 +2344,7 @@ jnx_equities_pts_ouch_v1_11_dissect.session = function(buffer, offset, packet, p
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.session, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2382,7 +2382,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_accepted_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.login_accepted_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2411,7 +2411,7 @@ jnx_equities_pts_ouch_v1_11_dissect.text = function(buffer, offset, packet, pare
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.text, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2444,7 +2444,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.debug_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.debug_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2538,7 +2538,7 @@ jnx_equities_pts_ouch_v1_11_dissect.payload = function(buffer, offset, packet, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = jnx_equities_pts_ouch_v1_11_display.payload(buffer, packet, parent)
-  local element = parent:add(jnx_equities_pts_ouch_v1_11.fields.payload, range, display)
+  local element = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.payload, range, display)
 
   return jnx_equities_pts_ouch_v1_11_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -2589,7 +2589,7 @@ jnx_equities_pts_ouch_v1_11_dissect.packet_type = function(buffer, offset, packe
   local value = range:string()
   local display = jnx_equities_pts_ouch_v1_11_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.packet_type, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2609,7 +2609,7 @@ jnx_equities_pts_ouch_v1_11_dissect.packet_length = function(buffer, offset, pac
   local value = range:uint()
   local display = jnx_equities_pts_ouch_v1_11_display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_equities_pts_ouch_v1_11.fields.packet_length, range, value, display)
+  parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -2647,7 +2647,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.packet_header, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2688,7 +2688,7 @@ jnx_equities_pts_ouch_v1_11_dissect.soup_bin_tcp_packet = function(buffer, offse
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = jnx_equities_pts_ouch_v1_11_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)
     local display = jnx_equities_pts_ouch_v1_11_display.soup_bin_tcp_packet(buffer, packet, parent)
@@ -2757,23 +2757,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function jnx_equities_pts_ouch_v1_11.init()
+function omi_jnx_equities_pts_ouch_v1_11.init()
 end
 
 -- Dissector for Jnx Equities Pts Ouch 1.11
-function jnx_equities_pts_ouch_v1_11.dissector(buffer, packet, parent)
+function omi_jnx_equities_pts_ouch_v1_11.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = jnx_equities_pts_ouch_v1_11.name
+  packet.cols.protocol = omi_jnx_equities_pts_ouch_v1_11.name
 
   -- Dissect protocol
-  local protocol = parent:add(jnx_equities_pts_ouch_v1_11, buffer(), jnx_equities_pts_ouch_v1_11.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_jnx_equities_pts_ouch_v1_11, buffer(), omi_jnx_equities_pts_ouch_v1_11.description, "("..buffer:len().." Bytes)")
   return jnx_equities_pts_ouch_v1_11_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, jnx_equities_pts_ouch_v1_11)
+tcp_table:add(65333, omi_jnx_equities_pts_ouch_v1_11)
 
 
 -----------------------------------------------------------------------
@@ -2781,25 +2781,25 @@ tcp_table:add(65333, jnx_equities_pts_ouch_v1_11)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.jnx_equities_pts_ouch_v1_11_packet_size = function(buffer)
+verify.omi_jnx_equities_pts_ouch_v1_11_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Jnx Equities Pts Ouch 1.11
-local function jnx_equities_pts_ouch_v1_11_heuristic(buffer, packet, parent)
+local function omi_jnx_equities_pts_ouch_v1_11_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.jnx_equities_pts_ouch_v1_11_packet_size(buffer) then return false end
+  if not verify.omi_jnx_equities_pts_ouch_v1_11_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = jnx_equities_pts_ouch_v1_11
-  jnx_equities_pts_ouch_v1_11.dissector(buffer, packet, parent)
+  packet.conversation = omi_jnx_equities_pts_ouch_v1_11
+  omi_jnx_equities_pts_ouch_v1_11.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Jnx Equities Pts Ouch 1.11
-jnx_equities_pts_ouch_v1_11:register_heuristic("tcp", jnx_equities_pts_ouch_v1_11_heuristic)
+omi_jnx_equities_pts_ouch_v1_11:register_heuristic("tcp", omi_jnx_equities_pts_ouch_v1_11_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

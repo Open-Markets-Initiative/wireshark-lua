@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Finra Otc Bbds Dfi 2018.1A Protocol
-local finra_otc_bbds_dfi_v2018_1a = Proto("Finra.Otc.Bbds.Dfi.v2018.1A.Lua", "Finra Otc Bbds Dfi 2018.1A")
+local omi_finra_otc_bbds_dfi_v2018_1a = Proto("Finra.Otc.Bbds.Dfi.v2018.1A.Lua", "Finra Otc Bbds Dfi 2018.1A")
 
 -- Component Tables
 local show = {}
@@ -20,76 +20,76 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Finra Otc Bbds Dfi 2018.1A Fields
-finra_otc_bbds_dfi_v2018_1a.fields.action = ProtoField.new("Action", "finra.otc.bbds.dfi.v2018.1a.action", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.action_datetime = ProtoField.new("Action Datetime", "finra.otc.bbds.dfi.v2018.1a.actiondatetime", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.administrative = ProtoField.new("Administrative", "finra.otc.bbds.dfi.v2018.1a.administrative", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.otc.bbds.dfi.v2018.1a.administrativemessagetype", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.administrative_payload = ProtoField.new("Administrative Payload", "finra.otc.bbds.dfi.v2018.1a.administrativepayload", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.ask_price = ProtoField.new("Ask Price", "finra.otc.bbds.dfi.v2018.1a.askprice", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.ask_price_denominator = ProtoField.new("Ask Price Denominator", "finra.otc.bbds.dfi.v2018.1a.askpricedenominator", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.ask_size = ProtoField.new("Ask Size", "finra.otc.bbds.dfi.v2018.1a.asksize", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.bid_price = ProtoField.new("Bid Price", "finra.otc.bbds.dfi.v2018.1a.bidprice", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.bid_price_denominator = ProtoField.new("Bid Price Denominator", "finra.otc.bbds.dfi.v2018.1a.bidpricedenominator", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "finra.otc.bbds.dfi.v2018.1a.bidsize", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.block_soh = ProtoField.new("Block Soh", "finra.otc.bbds.dfi.v2018.1a.blocksoh", ftypes.UINT8)
-finra_otc_bbds_dfi_v2018_1a.fields.control = ProtoField.new("Control", "finra.otc.bbds.dfi.v2018.1a.control", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.control_message_type = ProtoField.new("Control Message Type", "finra.otc.bbds.dfi.v2018.1a.controlmessagetype", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.control_payload = ProtoField.new("Control Payload", "finra.otc.bbds.dfi.v2018.1a.controlpayload", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.currency = ProtoField.new("Currency", "finra.otc.bbds.dfi.v2018.1a.currency", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.datetime = ProtoField.new("Datetime", "finra.otc.bbds.dfi.v2018.1a.datetime", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.day = ProtoField.new("Day", "finra.otc.bbds.dfi.v2018.1a.day", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.hour = ProtoField.new("Hour", "finra.otc.bbds.dfi.v2018.1a.hour", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage = ProtoField.new("Inside Appendage", "finra.otc.bbds.dfi.v2018.1a.insideappendage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator = ProtoField.new("Inside Appendage Indicator", "finra.otc.bbds.dfi.v2018.1a.insideappendageindicator", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price = ProtoField.new("Inside Ask Price", "finra.otc.bbds.dfi.v2018.1a.insideaskprice", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price_denominator = ProtoField.new("Inside Ask Price Denominator", "finra.otc.bbds.dfi.v2018.1a.insideaskpricedenominator", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_size = ProtoField.new("Inside Ask Size", "finra.otc.bbds.dfi.v2018.1a.insideasksize", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price = ProtoField.new("Inside Bid Price", "finra.otc.bbds.dfi.v2018.1a.insidebidprice", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price_denominator = ProtoField.new("Inside Bid Price Denominator", "finra.otc.bbds.dfi.v2018.1a.insidebidpricedenominator", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_size = ProtoField.new("Inside Bid Size", "finra.otc.bbds.dfi.v2018.1a.insidebidsize", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.inside_quote_condition = ProtoField.new("Inside Quote Condition", "finra.otc.bbds.dfi.v2018.1a.insidequotecondition", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.otc.bbds.dfi.v2018.1a.marketcenteroriginatorid", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_participant_identifier = ProtoField.new("Market Participant Identifier", "finra.otc.bbds.dfi.v2018.1a.marketparticipantidentifier", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_participant_location_id = ProtoField.new("Market Participant Location Id", "finra.otc.bbds.dfi.v2018.1a.marketparticipantlocationid", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_condition = ProtoField.new("Market Participant Quote Condition", "finra.otc.bbds.dfi.v2018.1a.marketparticipantquotecondition", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_participant_status = ProtoField.new("Market Participant Status", "finra.otc.bbds.dfi.v2018.1a.marketparticipantstatus", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.otc.bbds.dfi.v2018.1a.message", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.message_category = ProtoField.new("Message Category", "finra.otc.bbds.dfi.v2018.1a.messagecategory", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.message_header = ProtoField.new("Message Header", "finra.otc.bbds.dfi.v2018.1a.messageheader", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.message_separator = ProtoField.new("Message Separator", "finra.otc.bbds.dfi.v2018.1a.messageseparator", ftypes.UINT8)
-finra_otc_bbds_dfi_v2018_1a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "finra.otc.bbds.dfi.v2018.1a.messagesequencenumber", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.minute = ProtoField.new("Minute", "finra.otc.bbds.dfi.v2018.1a.minute", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.otc.bbds.dfi.v2018.1a.month", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.otcbb_symbol = ProtoField.new("Otcbb Symbol", "finra.otc.bbds.dfi.v2018.1a.otcbbsymbol", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.otcbb_type = ProtoField.new("Otcbb Type", "finra.otc.bbds.dfi.v2018.1a.otcbbtype", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.otc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.payload = ProtoField.new("Payload", "finra.otc.bbds.dfi.v2018.1a.payload", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.quotation = ProtoField.new("Quotation", "finra.otc.bbds.dfi.v2018.1a.quotation", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.quotation_message_type = ProtoField.new("Quotation Message Type", "finra.otc.bbds.dfi.v2018.1a.quotationmessagetype", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.quotation_payload = ProtoField.new("Quotation Payload", "finra.otc.bbds.dfi.v2018.1a.quotationpayload", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.reason_code = ProtoField.new("Reason Code", "finra.otc.bbds.dfi.v2018.1a.reasoncode", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.reserved = ProtoField.new("Reserved", "finra.otc.bbds.dfi.v2018.1a.reserved", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.otc.bbds.dfi.v2018.1a.retransmissionrequester", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.second = ProtoField.new("Second", "finra.otc.bbds.dfi.v2018.1a.second", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.session_identifier = ProtoField.new("Session Identifier", "finra.otc.bbds.dfi.v2018.1a.sessionidentifier", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.text = ProtoField.new("Text", "finra.otc.bbds.dfi.v2018.1a.text", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.unsolicited_indicator = ProtoField.new("Unsolicited Indicator", "finra.otc.bbds.dfi.v2018.1a.unsolicitedindicator", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.wanted_indicator = ProtoField.new("Wanted Indicator", "finra.otc.bbds.dfi.v2018.1a.wantedindicator", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.year = ProtoField.new("Year", "finra.otc.bbds.dfi.v2018.1a.year", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.action = ProtoField.new("Action", "finra.otc.bbds.dfi.v2018.1a.action", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.action_datetime = ProtoField.new("Action Datetime", "finra.otc.bbds.dfi.v2018.1a.actiondatetime", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative = ProtoField.new("Administrative", "finra.otc.bbds.dfi.v2018.1a.administrative", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.otc.bbds.dfi.v2018.1a.administrativemessagetype", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_payload = ProtoField.new("Administrative Payload", "finra.otc.bbds.dfi.v2018.1a.administrativepayload", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price = ProtoField.new("Ask Price", "finra.otc.bbds.dfi.v2018.1a.askprice", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price_denominator = ProtoField.new("Ask Price Denominator", "finra.otc.bbds.dfi.v2018.1a.askpricedenominator", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_size = ProtoField.new("Ask Size", "finra.otc.bbds.dfi.v2018.1a.asksize", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price = ProtoField.new("Bid Price", "finra.otc.bbds.dfi.v2018.1a.bidprice", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price_denominator = ProtoField.new("Bid Price Denominator", "finra.otc.bbds.dfi.v2018.1a.bidpricedenominator", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "finra.otc.bbds.dfi.v2018.1a.bidsize", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.block_soh = ProtoField.new("Block Soh", "finra.otc.bbds.dfi.v2018.1a.blocksoh", ftypes.UINT8)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.control = ProtoField.new("Control", "finra.otc.bbds.dfi.v2018.1a.control", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.control_message_type = ProtoField.new("Control Message Type", "finra.otc.bbds.dfi.v2018.1a.controlmessagetype", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.control_payload = ProtoField.new("Control Payload", "finra.otc.bbds.dfi.v2018.1a.controlpayload", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.currency = ProtoField.new("Currency", "finra.otc.bbds.dfi.v2018.1a.currency", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.datetime = ProtoField.new("Datetime", "finra.otc.bbds.dfi.v2018.1a.datetime", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.day = ProtoField.new("Day", "finra.otc.bbds.dfi.v2018.1a.day", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.hour = ProtoField.new("Hour", "finra.otc.bbds.dfi.v2018.1a.hour", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage = ProtoField.new("Inside Appendage", "finra.otc.bbds.dfi.v2018.1a.insideappendage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator = ProtoField.new("Inside Appendage Indicator", "finra.otc.bbds.dfi.v2018.1a.insideappendageindicator", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price = ProtoField.new("Inside Ask Price", "finra.otc.bbds.dfi.v2018.1a.insideaskprice", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price_denominator = ProtoField.new("Inside Ask Price Denominator", "finra.otc.bbds.dfi.v2018.1a.insideaskpricedenominator", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_size = ProtoField.new("Inside Ask Size", "finra.otc.bbds.dfi.v2018.1a.insideasksize", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price = ProtoField.new("Inside Bid Price", "finra.otc.bbds.dfi.v2018.1a.insidebidprice", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price_denominator = ProtoField.new("Inside Bid Price Denominator", "finra.otc.bbds.dfi.v2018.1a.insidebidpricedenominator", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_size = ProtoField.new("Inside Bid Size", "finra.otc.bbds.dfi.v2018.1a.insidebidsize", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_quote_condition = ProtoField.new("Inside Quote Condition", "finra.otc.bbds.dfi.v2018.1a.insidequotecondition", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.otc.bbds.dfi.v2018.1a.marketcenteroriginatorid", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_identifier = ProtoField.new("Market Participant Identifier", "finra.otc.bbds.dfi.v2018.1a.marketparticipantidentifier", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_location_id = ProtoField.new("Market Participant Location Id", "finra.otc.bbds.dfi.v2018.1a.marketparticipantlocationid", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_condition = ProtoField.new("Market Participant Quote Condition", "finra.otc.bbds.dfi.v2018.1a.marketparticipantquotecondition", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_status = ProtoField.new("Market Participant Status", "finra.otc.bbds.dfi.v2018.1a.marketparticipantstatus", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.otc.bbds.dfi.v2018.1a.message", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.message_category = ProtoField.new("Message Category", "finra.otc.bbds.dfi.v2018.1a.messagecategory", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.message_header = ProtoField.new("Message Header", "finra.otc.bbds.dfi.v2018.1a.messageheader", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.message_separator = ProtoField.new("Message Separator", "finra.otc.bbds.dfi.v2018.1a.messageseparator", ftypes.UINT8)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "finra.otc.bbds.dfi.v2018.1a.messagesequencenumber", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.minute = ProtoField.new("Minute", "finra.otc.bbds.dfi.v2018.1a.minute", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.otc.bbds.dfi.v2018.1a.month", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_symbol = ProtoField.new("Otcbb Symbol", "finra.otc.bbds.dfi.v2018.1a.otcbbsymbol", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_type = ProtoField.new("Otcbb Type", "finra.otc.bbds.dfi.v2018.1a.otcbbtype", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.otc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.payload = ProtoField.new("Payload", "finra.otc.bbds.dfi.v2018.1a.payload", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation = ProtoField.new("Quotation", "finra.otc.bbds.dfi.v2018.1a.quotation", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_message_type = ProtoField.new("Quotation Message Type", "finra.otc.bbds.dfi.v2018.1a.quotationmessagetype", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_payload = ProtoField.new("Quotation Payload", "finra.otc.bbds.dfi.v2018.1a.quotationpayload", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.reason_code = ProtoField.new("Reason Code", "finra.otc.bbds.dfi.v2018.1a.reasoncode", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.reserved = ProtoField.new("Reserved", "finra.otc.bbds.dfi.v2018.1a.reserved", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.otc.bbds.dfi.v2018.1a.retransmissionrequester", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.second = ProtoField.new("Second", "finra.otc.bbds.dfi.v2018.1a.second", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.session_identifier = ProtoField.new("Session Identifier", "finra.otc.bbds.dfi.v2018.1a.sessionidentifier", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.text = ProtoField.new("Text", "finra.otc.bbds.dfi.v2018.1a.text", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.unsolicited_indicator = ProtoField.new("Unsolicited Indicator", "finra.otc.bbds.dfi.v2018.1a.unsolicitedindicator", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.wanted_indicator = ProtoField.new("Wanted Indicator", "finra.otc.bbds.dfi.v2018.1a.wantedindicator", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.year = ProtoField.new("Year", "finra.otc.bbds.dfi.v2018.1a.year", ftypes.STRING)
 
 -- Finra Otc Bbds Dfi 2018.1A messages
-finra_otc_bbds_dfi_v2018_1a.fields.end_of_day_message = ProtoField.new("End Of Day Message", "finra.otc.bbds.dfi.v2018.1a.endofdaymessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.end_of_retransmission_requests_message = ProtoField.new("End Of Retransmission Requests Message", "finra.otc.bbds.dfi.v2018.1a.endofretransmissionrequestsmessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "finra.otc.bbds.dfi.v2018.1a.endoftradereportingmessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.end_of_transmissions_message = ProtoField.new("End Of Transmissions Message", "finra.otc.bbds.dfi.v2018.1a.endoftransmissionsmessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.general_administrative_message = ProtoField.new("General Administrative Message", "finra.otc.bbds.dfi.v2018.1a.generaladministrativemessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "finra.otc.bbds.dfi.v2018.1a.lineintegritymessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_update_message = ProtoField.new("Market Participant Quote Update Message", "finra.otc.bbds.dfi.v2018.1a.marketparticipantquoteupdatemessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "finra.otc.bbds.dfi.v2018.1a.marketsessionclosemessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "finra.otc.bbds.dfi.v2018.1a.marketsessionopenmessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "finra.otc.bbds.dfi.v2018.1a.sequencenumberresetmessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "finra.otc.bbds.dfi.v2018.1a.startofdaymessage", ftypes.STRING)
-finra_otc_bbds_dfi_v2018_1a.fields.trading_action_message = ProtoField.new("Trading Action Message", "finra.otc.bbds.dfi.v2018.1a.tradingactionmessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_day_message = ProtoField.new("End Of Day Message", "finra.otc.bbds.dfi.v2018.1a.endofdaymessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_retransmission_requests_message = ProtoField.new("End Of Retransmission Requests Message", "finra.otc.bbds.dfi.v2018.1a.endofretransmissionrequestsmessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "finra.otc.bbds.dfi.v2018.1a.endoftradereportingmessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_transmissions_message = ProtoField.new("End Of Transmissions Message", "finra.otc.bbds.dfi.v2018.1a.endoftransmissionsmessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.general_administrative_message = ProtoField.new("General Administrative Message", "finra.otc.bbds.dfi.v2018.1a.generaladministrativemessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "finra.otc.bbds.dfi.v2018.1a.lineintegritymessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_update_message = ProtoField.new("Market Participant Quote Update Message", "finra.otc.bbds.dfi.v2018.1a.marketparticipantquoteupdatemessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "finra.otc.bbds.dfi.v2018.1a.marketsessionclosemessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "finra.otc.bbds.dfi.v2018.1a.marketsessionopenmessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "finra.otc.bbds.dfi.v2018.1a.sequencenumberresetmessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "finra.otc.bbds.dfi.v2018.1a.startofdaymessage", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.trading_action_message = ProtoField.new("Trading Action Message", "finra.otc.bbds.dfi.v2018.1a.tradingactionmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -123,135 +123,135 @@ show.payload = false
 show.quotation_payload = false
 
 -- Register Finra Otc Bbds Dfi 2018.1A Show Options
-finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message = Pref.bool("Show End Of Retransmission Requests Message", show.end_of_retransmission_requests_message, "Parse and add End Of Retransmission Requests Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage = Pref.bool("Show Inside Appendage", show.inside_appendage, "Parse and add Inside Appendage to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message = Pref.bool("Show Market Participant Quote Update Message", show.market_participant_quote_update_message, "Parse and add Market Participant Quote Update Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quotation", show.quotation, "Parse and add Quotation to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload = Pref.bool("Show Quotation Payload", show.quotation_payload, "Parse and add Quotation Payload to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message = Pref.bool("Show End Of Retransmission Requests Message", show.end_of_retransmission_requests_message, "Parse and add End Of Retransmission Requests Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage = Pref.bool("Show Inside Appendage", show.inside_appendage, "Parse and add Inside Appendage to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message = Pref.bool("Show Market Participant Quote Update Message", show.market_participant_quote_update_message, "Parse and add Market Participant Quote Update Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quotation", show.quotation, "Parse and add Quotation to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload = Pref.bool("Show Quotation Payload", show.quotation_payload, "Parse and add Quotation Payload to protocol tree")
 
 -- Handle changed preferences
-function finra_otc_bbds_dfi_v2018_1a.prefs_changed()
+function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.action_datetime ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime then
-    show.action_datetime = finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime
+  if show.action_datetime ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime then
+    show.action_datetime = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime
     changed = true
   end
-  if show.administrative ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative then
-    show.administrative = finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative
+  if show.administrative ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative then
+    show.administrative = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative
     changed = true
   end
-  if show.control ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_control then
-    show.control = finra_otc_bbds_dfi_v2018_1a.prefs.show_control
+  if show.control ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control then
+    show.control = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control
     changed = true
   end
-  if show.datetime ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime then
-    show.datetime = finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime
+  if show.datetime ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime then
+    show.datetime = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime
     changed = true
   end
-  if show.end_of_day_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message then
-    show.end_of_day_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message
+  if show.end_of_day_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message then
+    show.end_of_day_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message
     changed = true
   end
-  if show.end_of_retransmission_requests_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message then
-    show.end_of_retransmission_requests_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message
+  if show.end_of_retransmission_requests_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message then
+    show.end_of_retransmission_requests_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message
     changed = true
   end
-  if show.end_of_trade_reporting_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message then
-    show.end_of_trade_reporting_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message
+  if show.end_of_trade_reporting_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message then
+    show.end_of_trade_reporting_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message
     changed = true
   end
-  if show.end_of_transmissions_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message then
-    show.end_of_transmissions_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message
+  if show.end_of_transmissions_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message then
+    show.end_of_transmissions_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message
     changed = true
   end
-  if show.general_administrative_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message then
-    show.general_administrative_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message
+  if show.general_administrative_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message then
+    show.general_administrative_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message
     changed = true
   end
-  if show.inside_appendage ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage then
-    show.inside_appendage = finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage
+  if show.inside_appendage ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage then
+    show.inside_appendage = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage
     changed = true
   end
-  if show.line_integrity_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message then
-    show.line_integrity_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message
+  if show.line_integrity_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message then
+    show.line_integrity_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message
     changed = true
   end
-  if show.market_participant_quote_update_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message then
-    show.market_participant_quote_update_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message
+  if show.market_participant_quote_update_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message then
+    show.market_participant_quote_update_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message
     changed = true
   end
-  if show.market_session_close_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message then
-    show.market_session_close_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message
+  if show.market_session_close_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message then
+    show.market_session_close_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message
     changed = true
   end
-  if show.market_session_open_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message then
-    show.market_session_open_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message
+  if show.market_session_open_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message then
+    show.market_session_open_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message
     changed = true
   end
-  if show.message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_message then
-    show.message = finra_otc_bbds_dfi_v2018_1a.prefs.show_message
+  if show.message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message then
+    show.message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message
     changed = true
   end
-  if show.message_header ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header then
-    show.message_header = finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header
+  if show.message_header ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header then
+    show.message_header = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_packet then
-    show.packet = finra_otc_bbds_dfi_v2018_1a.prefs.show_packet
+  if show.packet ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_packet then
+    show.packet = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_packet
     changed = true
   end
-  if show.quotation ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation then
-    show.quotation = finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation
+  if show.quotation ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation then
+    show.quotation = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation
     changed = true
   end
-  if show.sequence_number_reset_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.start_of_day_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message then
-    show.start_of_day_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message
+  if show.start_of_day_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message then
+    show.start_of_day_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message
     changed = true
   end
-  if show.trading_action_message ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message then
-    show.trading_action_message = finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message
+  if show.trading_action_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message then
+    show.trading_action_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message
     changed = true
   end
-  if show.administrative_payload ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload then
-    show.administrative_payload = finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload
+  if show.administrative_payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload then
+    show.administrative_payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative_payload
     changed = true
   end
-  if show.control_payload ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload then
-    show.control_payload = finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload
+  if show.control_payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload then
+    show.control_payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control_payload
     changed = true
   end
-  if show.payload ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_payload then
-    show.payload = finra_otc_bbds_dfi_v2018_1a.prefs.show_payload
+  if show.payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_payload then
+    show.payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_payload
     changed = true
   end
-  if show.quotation_payload ~= finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload then
-    show.quotation_payload = finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload
+  if show.quotation_payload ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload then
+    show.quotation_payload = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation_payload
     changed = true
   end
 
@@ -281,7 +281,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.message_separator = function(buffer, offset,
   local value = range:uint()
   local display = finra_otc_bbds_dfi_v2018_1a_display.message_separator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.message_separator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_separator, range, value, display)
 
   return offset + length, value
 end
@@ -301,7 +301,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.reserved = function(buffer, offset, packet, 
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.reserved, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -321,7 +321,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.second = function(buffer, offset, packet, pa
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.second(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.second, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.second, range, value, display)
 
   return offset + length, value
 end
@@ -341,7 +341,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.minute = function(buffer, offset, packet, pa
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.minute(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.minute, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.minute, range, value, display)
 
   return offset + length, value
 end
@@ -361,7 +361,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.hour = function(buffer, offset, packet, pare
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.hour(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.hour, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.hour, range, value, display)
 
   return offset + length, value
 end
@@ -381,7 +381,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.day = function(buffer, offset, packet, paren
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.day(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.day, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.day, range, value, display)
 
   return offset + length, value
 end
@@ -401,7 +401,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.month = function(buffer, offset, packet, par
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.month(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.month, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.month, range, value, display)
 
   return offset + length, value
 end
@@ -421,7 +421,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.year = function(buffer, offset, packet, pare
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.year(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.year, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.year, range, value, display)
 
   return offset + length, value
 end
@@ -479,7 +479,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.datetime = function(buffer, offset, packet, parent)
   if show.datetime then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.datetime, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.datetime, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -521,7 +521,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.market_center_originator_id = function(buffe
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.market_center_originator_id(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_center_originator_id, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_center_originator_id, range, value, display)
 
   return offset + length, value
 end
@@ -546,7 +546,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.message_sequence_number = function(buffer, o
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.message_sequence_number, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -566,7 +566,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.retransmission_requester = function(buffer, 
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.retransmission_requester(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester, range, value, display)
 
   return offset + length, value
 end
@@ -593,7 +593,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.session_identifier = function(buffer, offset
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.session_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.session_identifier, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.session_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -651,7 +651,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_header, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -693,7 +693,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.end_of_trade_reporting_message = function(buffer, offset, packet, parent)
   if show.end_of_trade_reporting_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.end_of_trade_reporting_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_trade_reporting_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -735,7 +735,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -777,7 +777,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.line_integrity_message = function(buffer, offset, packet, parent)
   if show.line_integrity_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.line_integrity_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.line_integrity_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -819,7 +819,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
   if show.end_of_transmissions_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.end_of_transmissions_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_transmissions_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -861,7 +861,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.end_of_retransmission_requests_message = function(buffer, offset, packet, parent)
   if show.end_of_retransmission_requests_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.end_of_retransmission_requests_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_retransmission_requests_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -903,7 +903,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.market_session_close_message = function(buffer, offset, packet, parent)
   if show.market_session_close_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_session_close_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_session_close_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -945,7 +945,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.market_session_open_message = function(buffer, offset, packet, parent)
   if show.market_session_open_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_session_open_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_session_open_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -987,7 +987,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.end_of_day_message = function(buffer, offset, packet, parent)
   if show.end_of_day_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.end_of_day_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_day_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1029,7 +1029,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.start_of_day_message = function(buffer, offset, packet, parent)
   if show.start_of_day_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.start_of_day_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.start_of_day_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1147,7 +1147,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.control_payload = function(buffer, offset, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_otc_bbds_dfi_v2018_1a_display.control_payload(buffer, packet, parent)
-  local element = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.control_payload, range, display)
+  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control_payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -1195,7 +1195,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.control_message_type = function(buffer, offs
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.control_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.control_message_type, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1239,7 +1239,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.control = function(buffer, offset, packet, p
     local length = finra_otc_bbds_dfi_v2018_1a_size_of.control(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_otc_bbds_dfi_v2018_1a_display.control(buffer, packet, parent)
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.control, range, display)
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control, range, display)
   end
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.control_fields(buffer, offset, packet, parent)
@@ -1260,7 +1260,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.reason_code = function(buffer, offset, packe
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.reason_code, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -1318,7 +1318,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.action_datetime = function(buffer, offset, packet, parent)
   if show.action_datetime then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.action_datetime, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.action_datetime, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.action_datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1357,7 +1357,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.action = function(buffer, offset, packet, pa
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.action(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.action, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.action, range, value, display)
 
   return offset + length, value
 end
@@ -1410,7 +1410,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.trading_action_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1439,7 +1439,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.text = function(buffer, offset, packet, pare
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.text, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -1477,7 +1477,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.general_administrative_message = function(buffer, offset, packet, parent)
   if show.general_administrative_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.general_administrative_message, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.general_administrative_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1539,7 +1539,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.administrative_payload = function(buffer, of
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_otc_bbds_dfi_v2018_1a_display.administrative_payload(buffer, packet, parent)
-  local element = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.administrative_payload, range, display)
+  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -1566,7 +1566,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.administrative_message_type = function(buffe
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.administrative_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.administrative_message_type, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1610,7 +1610,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.administrative = function(buffer, offset, pa
     local length = finra_otc_bbds_dfi_v2018_1a_size_of.administrative(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_otc_bbds_dfi_v2018_1a_display.administrative(buffer, packet, parent)
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.administrative, range, display)
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative, range, display)
   end
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.administrative_fields(buffer, offset, packet, parent)
@@ -1636,7 +1636,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_ask_size = function(buffer, offset, p
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -1661,7 +1661,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_ask_price = function(buffer, offset, 
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -1681,7 +1681,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_ask_price_denominator = function(buff
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_ask_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price_denominator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -1706,7 +1706,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_bid_size = function(buffer, offset, p
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1731,7 +1731,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_bid_price = function(buffer, offset, 
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1751,7 +1751,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_bid_price_denominator = function(buff
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_bid_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price_denominator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -1778,7 +1778,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_quote_condition = function(buffer, of
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_quote_condition, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1841,7 +1841,7 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.inside_appendage = function(buffer, offset, packet, parent)
   if show.inside_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage, buffer(offset, 0))
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a_dissect.inside_appendage_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1885,7 +1885,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.inside_appendage_indicator = function(buffer
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_appendage_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1905,7 +1905,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.currency = function(buffer, offset, packet, 
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.currency, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -1930,7 +1930,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.ask_size = function(buffer, offset, packet, 
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.ask_size, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -1955,7 +1955,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.ask_price = function(buffer, offset, packet,
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.ask_price, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -1975,7 +1975,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.ask_price_denominator = function(buffer, off
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.ask_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.ask_price_denominator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -2000,7 +2000,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.bid_size = function(buffer, offset, packet, 
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.bid_size, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -2025,7 +2025,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.bid_price = function(buffer, offset, packet,
 
   local display = finra_otc_bbds_dfi_v2018_1a_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.bid_price, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -2045,7 +2045,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.bid_price_denominator = function(buffer, off
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.bid_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.bid_price_denominator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -2078,7 +2078,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.unsolicited_indicator = function(buffer, off
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.unsolicited_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.unsolicited_indicator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.unsolicited_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2098,7 +2098,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.wanted_indicator = function(buffer, offset, 
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.wanted_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.wanted_indicator, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.wanted_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2146,7 +2146,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.market_participant_quote_condition = functio
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.market_participant_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_condition, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -2182,7 +2182,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.market_participant_status = function(buffer,
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.market_participant_status(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_participant_status, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_status, range, value, display)
 
   return offset + length, value
 end
@@ -2202,7 +2202,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.market_participant_location_id = function(bu
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.market_participant_location_id(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_participant_location_id, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_location_id, range, value, display)
 
   return offset + length, value
 end
@@ -2222,7 +2222,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.market_participant_identifier = function(buf
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.market_participant_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_participant_identifier, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -2242,7 +2242,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.otcbb_type = function(buffer, offset, packet
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.otcbb_type(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.otcbb_type, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_type, range, value, display)
 
   return offset + length, value
 end
@@ -2262,7 +2262,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.otcbb_symbol = function(buffer, offset, pack
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.otcbb_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.otcbb_symbol, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2393,7 +2393,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.market_participant_quote_update_message = fu
     local length = finra_otc_bbds_dfi_v2018_1a_size_of.market_participant_quote_update_message(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_otc_bbds_dfi_v2018_1a_display.market_participant_quote_update_message(buffer, packet, parent)
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_update_message, range, display)
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_update_message, range, display)
   end
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.market_participant_quote_update_message_fields(buffer, offset, packet, parent)
@@ -2439,7 +2439,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.quotation_payload = function(buffer, offset,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_otc_bbds_dfi_v2018_1a_display.quotation_payload(buffer, packet, parent)
-  local element = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.quotation_payload, range, display)
+  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.quotation_payload_branches(buffer, offset, packet, parent, quotation_message_type)
 end
@@ -2463,7 +2463,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.quotation_message_type = function(buffer, of
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.quotation_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.quotation_message_type, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2507,7 +2507,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.quotation = function(buffer, offset, packet,
     local length = finra_otc_bbds_dfi_v2018_1a_size_of.quotation(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_otc_bbds_dfi_v2018_1a_display.quotation(buffer, packet, parent)
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.quotation, range, display)
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation, range, display)
   end
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.quotation_fields(buffer, offset, packet, parent)
@@ -2569,7 +2569,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.payload = function(buffer, offset, packet, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = finra_otc_bbds_dfi_v2018_1a_display.payload(buffer, packet, parent)
-  local element = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.payload, range, display)
+  local element = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.payload, range, display)
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
@@ -2599,7 +2599,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.message_category = function(buffer, offset, 
   local value = range:string()
   local display = finra_otc_bbds_dfi_v2018_1a_display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.message_category, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -2648,7 +2648,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.message = function(buffer, offset, packet, p
     local length = finra_otc_bbds_dfi_v2018_1a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = finra_otc_bbds_dfi_v2018_1a_display.message(buffer, packet, parent)
-    parent = parent:add(finra_otc_bbds_dfi_v2018_1a.fields.message, range, display)
+    parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message, range, display)
   end
 
   return finra_otc_bbds_dfi_v2018_1a_dissect.message_fields(buffer, offset, packet, parent)
@@ -2669,7 +2669,7 @@ finra_otc_bbds_dfi_v2018_1a_dissect.block_soh = function(buffer, offset, packet,
   local value = range:uint()
   local display = finra_otc_bbds_dfi_v2018_1a_display.block_soh(value, buffer, offset, packet, parent)
 
-  parent:add(finra_otc_bbds_dfi_v2018_1a.fields.block_soh, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.block_soh, range, value, display)
 
   return offset + length, value
 end
@@ -2698,23 +2698,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function finra_otc_bbds_dfi_v2018_1a.init()
+function omi_finra_otc_bbds_dfi_v2018_1a.init()
 end
 
 -- Dissector for Finra Otc Bbds Dfi 2018.1A
-function finra_otc_bbds_dfi_v2018_1a.dissector(buffer, packet, parent)
+function omi_finra_otc_bbds_dfi_v2018_1a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = finra_otc_bbds_dfi_v2018_1a.name
+  packet.cols.protocol = omi_finra_otc_bbds_dfi_v2018_1a.name
 
   -- Dissect protocol
-  local protocol = parent:add(finra_otc_bbds_dfi_v2018_1a, buffer(), finra_otc_bbds_dfi_v2018_1a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_finra_otc_bbds_dfi_v2018_1a, buffer(), omi_finra_otc_bbds_dfi_v2018_1a.description, "("..buffer:len().." Bytes)")
   return finra_otc_bbds_dfi_v2018_1a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, finra_otc_bbds_dfi_v2018_1a)
+udp_table:add(65333, omi_finra_otc_bbds_dfi_v2018_1a)
 
 
 -----------------------------------------------------------------------
@@ -2722,25 +2722,25 @@ udp_table:add(65333, finra_otc_bbds_dfi_v2018_1a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.finra_otc_bbds_dfi_v2018_1a_packet_size = function(buffer)
+verify.omi_finra_otc_bbds_dfi_v2018_1a_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Finra Otc Bbds Dfi 2018.1A
-local function finra_otc_bbds_dfi_v2018_1a_heuristic(buffer, packet, parent)
+local function omi_finra_otc_bbds_dfi_v2018_1a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.finra_otc_bbds_dfi_v2018_1a_packet_size(buffer) then return false end
+  if not verify.omi_finra_otc_bbds_dfi_v2018_1a_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = finra_otc_bbds_dfi_v2018_1a
-  finra_otc_bbds_dfi_v2018_1a.dissector(buffer, packet, parent)
+  packet.conversation = omi_finra_otc_bbds_dfi_v2018_1a
+  omi_finra_otc_bbds_dfi_v2018_1a.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Finra Otc Bbds Dfi 2018.1A
-finra_otc_bbds_dfi_v2018_1a:register_heuristic("udp", finra_otc_bbds_dfi_v2018_1a_heuristic)
+omi_finra_otc_bbds_dfi_v2018_1a:register_heuristic("udp", omi_finra_otc_bbds_dfi_v2018_1a_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

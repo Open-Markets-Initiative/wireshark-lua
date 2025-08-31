@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Arca Options BinaryGateway Pillar 3.15 Protocol
-local nyse_arca_options_binarygateway_pillar_v3_15 = Proto("Nyse.Arca.Options.BinaryGateway.Pillar.v3.15.Lua", "Nyse Arca Options BinaryGateway Pillar 3.15")
+local omi_nyse_arca_options_binarygateway_pillar_v3_15 = Proto("Nyse.Arca.Options.BinaryGateway.Pillar.v3.15.Lua", "Nyse Arca Options BinaryGateway Pillar 3.15")
 
 -- Component Tables
 local show = {}
@@ -21,227 +21,227 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nyse Arca Options BinaryGateway Pillar 3.15 Fields
-nyse_arca_options_binarygateway_pillar_v3_15.fields.access = ProtoField.new("Access", "nyse.arca.options.binarygateway.pillar.v3.15.access", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_status = ProtoField.new("Ack Status", "nyse.arca.options.binarygateway.pillar.v3.15.ackstatus", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_type = ProtoField.new("Ack Type", "nyse.arca.options.binarygateway.pillar.v3.15.acktype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.allocation_pct = ProtoField.new("Allocation Pct", "nyse.arca.options.binarygateway.pillar.v3.15.allocationpct", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.appointment_status = ProtoField.new("Appointment Status", "nyse.arca.options.binarygateway.pillar.v3.15.appointmentstatus", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.attributed_quote = ProtoField.new("Attributed Quote", "nyse.arca.options.binarygateway.pillar.v3.15.attributedquote", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.auction_id = ProtoField.new("Auction Id", "nyse.arca.options.binarygateway.pillar.v3.15.auctionid", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.bit_field_quote_inst = ProtoField.new("Bit Field Quote Inst", "nyse.arca.options.binarygateway.pillar.v3.15.bitfieldquoteinst", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.blockedbybreachindicator", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_kill_switch_indicator = ProtoField.new("Blocked By Kill Switch Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.blockedbykillswitchindicator", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.bold_designation = ProtoField.new("Bold Designation", "nyse.arca.options.binarygateway.pillar.v3.15.bolddesignation", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_request = ProtoField.new("Breach Action Request", "nyse.arca.options.binarygateway.pillar.v3.15.breachactionrequest", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.arca.options.binarygateway.pillar.v3.15.breachactionresponse", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_action = ProtoField.new("Bulk Action", "nyse.arca.options.binarygateway.pillar.v3.15.bulkaction", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote = ProtoField.new("Bulk Quote", "nyse.arca.options.binarygateway.pillar.v3.15.bulkquote", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.bust_correct_indicator = ProtoField.new("Bust Correct Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.bustcorrectindicator", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.arca.options.binarygateway.pillar.v3.15.cancelinsteadofreprice", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.arca.options.binarygateway.pillar.v3.15.cancelondisconnect", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_scope = ProtoField.new("Cancel Scope", "nyse.arca.options.binarygateway.pillar.v3.15.cancelscope", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.capacity = ProtoField.new("Capacity", "nyse.arca.options.binarygateway.pillar.v3.15.capacity", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.channel_id = ProtoField.new("Channel Id", "nyse.arca.options.binarygateway.pillar.v3.15.channelid", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.arca.options.binarygateway.pillar.v3.15.clordid", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account = ProtoField.new("Clearing Account", "nyse.arca.options.binarygateway.pillar.v3.15.clearingaccount", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_covered = ProtoField.new("Clearing Account Covered", "nyse.arca.options.binarygateway.pillar.v3.15.clearingaccountcovered", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_exposed = ProtoField.new("Clearing Account Exposed", "nyse.arca.options.binarygateway.pillar.v3.15.clearingaccountexposed", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm = ProtoField.new("Clearing Firm", "nyse.arca.options.binarygateway.pillar.v3.15.clearingfirm", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_covered = ProtoField.new("Clearing Firm Covered", "nyse.arca.options.binarygateway.pillar.v3.15.clearingfirmcovered", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_exposed = ProtoField.new("Clearing Firm Exposed", "nyse.arca.options.binarygateway.pillar.v3.15.clearingfirmexposed", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.arca.options.binarygateway.pillar.v3.15.clearingnumber", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.close = ProtoField.new("Close", "nyse.arca.options.binarygateway.pillar.v3.15.close", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response = ProtoField.new("Close Response", "nyse.arca.options.binarygateway.pillar.v3.15.closeresponse", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_leg = ProtoField.new("Complex Leg", "nyse.arca.options.binarygateway.pillar.v3.15.complexleg", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_account = ProtoField.new("Contra Clearing Account", "nyse.arca.options.binarygateway.pillar.v3.15.contraclearingaccount", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_firm = ProtoField.new("Contra Clearing Firm", "nyse.arca.options.binarygateway.pillar.v3.15.contraclearingfirm", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_covered_or_uncovered = ProtoField.new("Contra Covered Or Uncovered", "nyse.arca.options.binarygateway.pillar.v3.15.contracoveredoruncovered", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_cross_type = ProtoField.new("Contra Cross Type", "nyse.arca.options.binarygateway.pillar.v3.15.contracrosstype", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_customer_or_firm = ProtoField.new("Contra Customer Or Firm", "nyse.arca.options.binarygateway.pillar.v3.15.contracustomerorfirm", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_market_maker = ProtoField.new("Contra Market Maker", "nyse.arca.options.binarygateway.pillar.v3.15.contramarketmaker", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_mpid = ProtoField.new("Contra Mpid", "nyse.arca.options.binarygateway.pillar.v3.15.contrampid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_open_close = ProtoField.new("Contra Open Close", "nyse.arca.options.binarygateway.pillar.v3.15.contraopenclose", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.count_calculation = ProtoField.new("Count Calculation", "nyse.arca.options.binarygateway.pillar.v3.15.countcalculation", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.count_limit = ProtoField.new("Count Limit", "nyse.arca.options.binarygateway.pillar.v3.15.countlimit", ftypes.INT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.covered = ProtoField.new("Covered", "nyse.arca.options.binarygateway.pillar.v3.15.covered", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.covered_or_uncovered = ProtoField.new("Covered Or Uncovered", "nyse.arca.options.binarygateway.pillar.v3.15.coveredoruncovered", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.cross_id = ProtoField.new("Cross Id", "nyse.arca.options.binarygateway.pillar.v3.15.crossid", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.cum_qty = ProtoField.new("Cum Qty", "nyse.arca.options.binarygateway.pillar.v3.15.cumqty", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.deal_id = ProtoField.new("Deal Id", "nyse.arca.options.binarygateway.pillar.v3.15.dealid", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp Id", "nyse.arca.options.binarygateway.pillar.v3.15.delivertocompid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.end_seq = ProtoField.new("End Seq", "nyse.arca.options.binarygateway.pillar.v3.15.endseq", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.arca.options.binarygateway.pillar.v3.15.execinst", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.exposed = ProtoField.new("Exposed", "nyse.arca.options.binarygateway.pillar.v3.15.exposed", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.arca.options.binarygateway.pillar.v3.15.extendedexecinst", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.floor_broker_firm_crd = ProtoField.new("Floor Broker Firm Crd", "nyse.arca.options.binarygateway.pillar.v3.15.floorbrokerfirmcrd", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.group_id = ProtoField.new("Group Id", "nyse.arca.options.binarygateway.pillar.v3.15.groupid", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arca.options.binarygateway.pillar.v3.15.heartbeat", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.interest_type = ProtoField.new("Interest Type", "nyse.arca.options.binarygateway.pillar.v3.15.interesttype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.arca.options.binarygateway.pillar.v3.15.iocattribution", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.last_px = ProtoField.new("Last Px", "nyse.arca.options.binarygateway.pillar.v3.15.lastpx", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.last_qty = ProtoField.new("Last Qty", "nyse.arca.options.binarygateway.pillar.v3.15.lastqty", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.leaves_qty = ProtoField.new("Leaves Qty", "nyse.arca.options.binarygateway.pillar.v3.15.leavesqty", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_open_close = ProtoField.new("Leg Open Close", "nyse.arca.options.binarygateway.pillar.v3.15.legopenclose", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.arca.options.binarygateway.pillar.v3.15.legratioqty", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_side = ProtoField.new("Leg Side", "nyse.arca.options.binarygateway.pillar.v3.15.legside", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_symbol_id = ProtoField.new("Leg Symbol Id", "nyse.arca.options.binarygateway.pillar.v3.15.legsymbolid", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.legal_width_multiplier = ProtoField.new("Legal Width Multiplier", "nyse.arca.options.binarygateway.pillar.v3.15.legalwidthmultiplier", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.liquidityindicator", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.listed_mic = ProtoField.new("Listed Mic", "nyse.arca.options.binarygateway.pillar.v3.15.listedmic", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.arca.options.binarygateway.pillar.v3.15.locatereqd", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message = ProtoField.new("Login Message", "nyse.arca.options.binarygateway.pillar.v3.15.loginmessage", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response = ProtoField.new("Login Response", "nyse.arca.options.binarygateway.pillar.v3.15.loginresponse", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.arca.options.binarygateway.pillar.v3.15.luldmpv", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.market_maker = ProtoField.new("Market Maker", "nyse.arca.options.binarygateway.pillar.v3.15.marketmaker", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.max_floor = ProtoField.new("Max Floor", "nyse.arca.options.binarygateway.pillar.v3.15.maxfloor", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_price = ProtoField.new("Max Order Price", "nyse.arca.options.binarygateway.pillar.v3.15.maxorderprice", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.arca.options.binarygateway.pillar.v3.15.maxorderquantity", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mic = ProtoField.new("Mic", "nyse.arca.options.binarygateway.pillar.v3.15.mic", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.min_qty = ProtoField.new("Min Qty", "nyse.arca.options.binarygateway.pillar.v3.15.minqty", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.arca.options.binarygateway.pillar.v3.15.mmsenttime", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_type = ProtoField.new("Mm Type", "nyse.arca.options.binarygateway.pillar.v3.15.mmtype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mode = ProtoField.new("Mode", "nyse.arca.options.binarygateway.pillar.v3.15.mode", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.arca.options.binarygateway.pillar.v3.15.mpsubid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid = ProtoField.new("Mpid", "nyse.arca.options.binarygateway.pillar.v3.15.mpid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_status = ProtoField.new("Mpid Status", "nyse.arca.options.binarygateway.pillar.v3.15.mpidstatus", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_id = ProtoField.new("Mpv Class Id", "nyse.arca.options.binarygateway.pillar.v3.15.mpvclassid", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_name = ProtoField.new("Mpv Class Name", "nyse.arca.options.binarygateway.pillar.v3.15.mpvclassname", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_definition = ProtoField.new("Mpv Level Definition", "nyse.arca.options.binarygateway.pillar.v3.15.mpvleveldefinition", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_name = ProtoField.new("Mpv Level Name", "nyse.arca.options.binarygateway.pillar.v3.15.mpvlevelname", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_header = ProtoField.new("Msg Header", "nyse.arca.options.binarygateway.pillar.v3.15.msgheader", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_length = ProtoField.new("Msg Length", "nyse.arca.options.binarygateway.pillar.v3.15.msglength", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_type = ProtoField.new("Msg Type", "nyse.arca.options.binarygateway.pillar.v3.15.msgtype", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "nyse.arca.options.binarygateway.pillar.v3.15.multilegreportingtype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.next_seq = ProtoField.new("Next Seq", "nyse.arca.options.binarygateway.pillar.v3.15.nextseq", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.nyse_symbol = ProtoField.new("Nyse Symbol", "nyse.arca.options.binarygateway.pillar.v3.15.nysesymbol", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.open = ProtoField.new("Open", "nyse.arca.options.binarygateway.pillar.v3.15.open", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close = ProtoField.new("Open Close", "nyse.arca.options.binarygateway.pillar.v3.15.openclose", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response = ProtoField.new("Open Response", "nyse.arca.options.binarygateway.pillar.v3.15.openresponse", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_data = ProtoField.new("Optional Data", "nyse.arca.options.binarygateway.pillar.v3.15.optionaldata", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.arca.options.binarygateway.pillar.v3.15.optionalorderaddon", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.ord_type = ProtoField.new("Ord Type", "nyse.arca.options.binarygateway.pillar.v3.15.ordtype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.arca.options.binarygateway.pillar.v3.15.ordercapacity", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_id = ProtoField.new("Order Id", "nyse.arca.options.binarygateway.pillar.v3.15.orderid", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_instructions = ProtoField.new("Order Instructions", "nyse.arca.options.binarygateway.pillar.v3.15.orderinstructions", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.arca.options.binarygateway.pillar.v3.15.orderpriorityupdateacksubscription", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_qty = ProtoField.new("Order Qty", "nyse.arca.options.binarygateway.pillar.v3.15.orderqty", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "nyse.arca.options.binarygateway.pillar.v3.15.origclordid", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.participant_type = ProtoField.new("Participant Type", "nyse.arca.options.binarygateway.pillar.v3.15.participanttype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.password = ProtoField.new("Password", "nyse.arca.options.binarygateway.pillar.v3.15.password", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.arca.options.binarygateway.pillar.v3.15.percentagelimit", ftypes.INT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.arca.options.binarygateway.pillar.v3.15.pillarstreammessage", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.preliquidityindicator", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.price_price_8 = ProtoField.new("Price Price 8", "nyse.arca.options.binarygateway.pillar.v3.15.priceprice8", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.price_u_price_8 = ProtoField.new("Price U Price 8", "nyse.arca.options.binarygateway.pillar.v3.15.priceuprice8", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.arca.options.binarygateway.pillar.v3.15.proactiveiflocked", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.quantity = ProtoField.new("Quantity", "nyse.arca.options.binarygateway.pillar.v3.15.quantity", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.quote_ack = ProtoField.new("Quote Ack", "nyse.arca.options.binarygateway.pillar.v3.15.quoteack", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.arca.options.binarygateway.pillar.v3.15.quotingmpv", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reason_code = ProtoField.new("Reason Code", "nyse.arca.options.binarygateway.pillar.v3.15.reasoncode", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.arca.options.binarygateway.pillar.v3.15.refclordid", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.refseqmsgid = ProtoField.new("Refseqmsgid", "nyse.arca.options.binarygateway.pillar.v3.15.refseqmsgid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_other = ProtoField.new("Reinstatement Requiredby Other", "nyse.arca.options.binarygateway.pillar.v3.15.reinstatementrequiredbyother", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_self = ProtoField.new("Reinstatement Requiredby Self", "nyse.arca.options.binarygateway.pillar.v3.15.reinstatementrequiredbyself", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reject_type = ProtoField.new("Reject Type", "nyse.arca.options.binarygateway.pillar.v3.15.rejecttype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.repeating_groups = ProtoField.new("Repeating Groups", "nyse.arca.options.binarygateway.pillar.v3.15.repeatinggroups", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arca.options.binarygateway.pillar.v3.15.reserved1", ftypes.BYTES)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_16 = ProtoField.new("Reserved 16", "nyse.arca.options.binarygateway.pillar.v3.15.reserved16", ftypes.BYTES)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arca.options.binarygateway.pillar.v3.15.reserved2", ftypes.BYTES)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.arca.options.binarygateway.pillar.v3.15.reserved200", ftypes.BYTES)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arca.options.binarygateway.pillar.v3.15.reserved4", ftypes.BYTES)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.arca.options.binarygateway.pillar.v3.15.reserved49", ftypes.BYTES)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.arca.options.binarygateway.pillar.v3.15.reserved50", ftypes.BYTES)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_bits_34 = ProtoField.new("Reserved Bits 34", "nyse.arca.options.binarygateway.pillar.v3.15.reservedbits34", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.retail_indicator = ProtoField.new("Retail Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.retailindicator", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskacktype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskactiontype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_activation = ProtoField.new("Risk Control Activation", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolactivation", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_type = ProtoField.new("Risk Control Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontroltype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.arca.options.binarygateway.pillar.v3.15.riskusercrd", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskusertype", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.arca.options.binarygateway.pillar.v3.15.routinginst", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.arca.options.binarygateway.pillar.v3.15.rpimpv", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.security_type = ProtoField.new("Security Type", "nyse.arca.options.binarygateway.pillar.v3.15.securitytype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.arca.options.binarygateway.pillar.v3.15.selftradeprevention", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.arca.options.binarygateway.pillar.v3.15.selftradetype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.seq = ProtoField.new("Seq", "nyse.arca.options.binarygateway.pillar.v3.15.seq", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsg", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsgheader", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsglength", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsgtype", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsgid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.arca.options.binarygateway.pillar.v3.15.sequencedmessage", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.series_index = ProtoField.new("Series Index", "nyse.arca.options.binarygateway.pillar.v3.15.seriesindex", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.sess = ProtoField.new("Sess", "nyse.arca.options.binarygateway.pillar.v3.15.sess", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.side_bit_5 = ProtoField.new("Side Bit 5", "nyse.arca.options.binarygateway.pillar.v3.15.sidebit5", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.arca.options.binarygateway.pillar.v3.15.sideu81", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.arca.options.binarygateway.pillar.v3.15.specialordtype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.start_seq = ProtoField.new("Start Seq", "nyse.arca.options.binarygateway.pillar.v3.15.startseq", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.status = ProtoField.new("Status", "nyse.arca.options.binarygateway.pillar.v3.15.status", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.stop_px = ProtoField.new("Stop Px", "nyse.arca.options.binarygateway.pillar.v3.15.stoppx", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.arca.options.binarygateway.pillar.v3.15.streamavail", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_id = ProtoField.new("Stream Id", "nyse.arca.options.binarygateway.pillar.v3.15.streamid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id = ProtoField.new("Sub Id", "nyse.arca.options.binarygateway.pillar.v3.15.subid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.subidindicator", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.arca.options.binarygateway.pillar.v3.15.submsgheader", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_eligibility = ProtoField.new("Symbol Eligibility", "nyse.arca.options.binarygateway.pillar.v3.15.symboleligibility", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_id = ProtoField.new("Symbol Id", "nyse.arca.options.binarygateway.pillar.v3.15.symbolid", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_mpid = ProtoField.new("Target Cancel Mpid", "nyse.arca.options.binarygateway.pillar.v3.15.targetcancelmpid", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_username = ProtoField.new("Target Cancel Username", "nyse.arca.options.binarygateway.pillar.v3.15.targetcancelusername", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.test_symbol_indicator = ProtoField.new("Test Symbol Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.testsymbolindicator", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.threshold_breach_level = ProtoField.new("Threshold Breach Level", "nyse.arca.options.binarygateway.pillar.v3.15.thresholdbreachlevel", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.arca.options.binarygateway.pillar.v3.15.throttlepreference", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.arca.options.binarygateway.pillar.v3.15.throttlethreshold", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.arca.options.binarygateway.pillar.v3.15.throttlewindow", ftypes.UINT16)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.time_in_force = ProtoField.new("Time In Force", "nyse.arca.options.binarygateway.pillar.v3.15.timeinforce", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.time_limit = ProtoField.new("Time Limit", "nyse.arca.options.binarygateway.pillar.v3.15.timelimit", ftypes.INT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.timestamp = ProtoField.new("Timestamp", "nyse.arca.options.binarygateway.pillar.v3.15.timestamp", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.arca.options.binarygateway.pillar.v3.15.tradingmpv", ftypes.DOUBLE)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.arca.options.binarygateway.pillar.v3.15.tradingsessionid", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.transact_time = ProtoField.new("Transact Time", "nyse.arca.options.binarygateway.pillar.v3.15.transacttime", ftypes.UINT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.arca.options.binarygateway.pillar.v3.15.underlyingtype", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation1", ftypes.INT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_2 = ProtoField.new("Usd Calculation 2", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation2", ftypes.INT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation3", ftypes.INT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_4 = ProtoField.new("Usd Calculation 4", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation4", ftypes.INT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_limit = ProtoField.new("Usd Limit", "nyse.arca.options.binarygateway.pillar.v3.15.usdlimit", ftypes.INT64)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.user = ProtoField.new("User", "nyse.arca.options.binarygateway.pillar.v3.15.user", ftypes.UINT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.user_data = ProtoField.new("User Data", "nyse.arca.options.binarygateway.pillar.v3.15.userdata", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_status = ProtoField.new("User Session Status", "nyse.arca.options.binarygateway.pillar.v3.15.usersessionstatus", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_type = ProtoField.new("User Session Type", "nyse.arca.options.binarygateway.pillar.v3.15.usersessiontype", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.username = ProtoField.new("Username", "nyse.arca.options.binarygateway.pillar.v3.15.username", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.version = ProtoField.new("Version", "nyse.arca.options.binarygateway.pillar.v3.15.version", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.arca.options.binarygateway.pillar.v3.15.workingawayfromdisplay", ftypes.UINT8)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.working_price = ProtoField.new("Working Price", "nyse.arca.options.binarygateway.pillar.v3.15.workingprice", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.access = ProtoField.new("Access", "nyse.arca.options.binarygateway.pillar.v3.15.access", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_status = ProtoField.new("Ack Status", "nyse.arca.options.binarygateway.pillar.v3.15.ackstatus", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_type = ProtoField.new("Ack Type", "nyse.arca.options.binarygateway.pillar.v3.15.acktype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.allocation_pct = ProtoField.new("Allocation Pct", "nyse.arca.options.binarygateway.pillar.v3.15.allocationpct", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.appointment_status = ProtoField.new("Appointment Status", "nyse.arca.options.binarygateway.pillar.v3.15.appointmentstatus", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.attributed_quote = ProtoField.new("Attributed Quote", "nyse.arca.options.binarygateway.pillar.v3.15.attributedquote", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.auction_id = ProtoField.new("Auction Id", "nyse.arca.options.binarygateway.pillar.v3.15.auctionid", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bit_field_quote_inst = ProtoField.new("Bit Field Quote Inst", "nyse.arca.options.binarygateway.pillar.v3.15.bitfieldquoteinst", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.blockedbybreachindicator", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_kill_switch_indicator = ProtoField.new("Blocked By Kill Switch Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.blockedbykillswitchindicator", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bold_designation = ProtoField.new("Bold Designation", "nyse.arca.options.binarygateway.pillar.v3.15.bolddesignation", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_request = ProtoField.new("Breach Action Request", "nyse.arca.options.binarygateway.pillar.v3.15.breachactionrequest", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.arca.options.binarygateway.pillar.v3.15.breachactionresponse", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_action = ProtoField.new("Bulk Action", "nyse.arca.options.binarygateway.pillar.v3.15.bulkaction", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote = ProtoField.new("Bulk Quote", "nyse.arca.options.binarygateway.pillar.v3.15.bulkquote", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bust_correct_indicator = ProtoField.new("Bust Correct Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.bustcorrectindicator", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.arca.options.binarygateway.pillar.v3.15.cancelinsteadofreprice", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.arca.options.binarygateway.pillar.v3.15.cancelondisconnect", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_scope = ProtoField.new("Cancel Scope", "nyse.arca.options.binarygateway.pillar.v3.15.cancelscope", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.capacity = ProtoField.new("Capacity", "nyse.arca.options.binarygateway.pillar.v3.15.capacity", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.channel_id = ProtoField.new("Channel Id", "nyse.arca.options.binarygateway.pillar.v3.15.channelid", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.arca.options.binarygateway.pillar.v3.15.clordid", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account = ProtoField.new("Clearing Account", "nyse.arca.options.binarygateway.pillar.v3.15.clearingaccount", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_covered = ProtoField.new("Clearing Account Covered", "nyse.arca.options.binarygateway.pillar.v3.15.clearingaccountcovered", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_exposed = ProtoField.new("Clearing Account Exposed", "nyse.arca.options.binarygateway.pillar.v3.15.clearingaccountexposed", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm = ProtoField.new("Clearing Firm", "nyse.arca.options.binarygateway.pillar.v3.15.clearingfirm", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_covered = ProtoField.new("Clearing Firm Covered", "nyse.arca.options.binarygateway.pillar.v3.15.clearingfirmcovered", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_exposed = ProtoField.new("Clearing Firm Exposed", "nyse.arca.options.binarygateway.pillar.v3.15.clearingfirmexposed", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.arca.options.binarygateway.pillar.v3.15.clearingnumber", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close = ProtoField.new("Close", "nyse.arca.options.binarygateway.pillar.v3.15.close", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response = ProtoField.new("Close Response", "nyse.arca.options.binarygateway.pillar.v3.15.closeresponse", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_leg = ProtoField.new("Complex Leg", "nyse.arca.options.binarygateway.pillar.v3.15.complexleg", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_account = ProtoField.new("Contra Clearing Account", "nyse.arca.options.binarygateway.pillar.v3.15.contraclearingaccount", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_firm = ProtoField.new("Contra Clearing Firm", "nyse.arca.options.binarygateway.pillar.v3.15.contraclearingfirm", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_covered_or_uncovered = ProtoField.new("Contra Covered Or Uncovered", "nyse.arca.options.binarygateway.pillar.v3.15.contracoveredoruncovered", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_cross_type = ProtoField.new("Contra Cross Type", "nyse.arca.options.binarygateway.pillar.v3.15.contracrosstype", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_customer_or_firm = ProtoField.new("Contra Customer Or Firm", "nyse.arca.options.binarygateway.pillar.v3.15.contracustomerorfirm", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_market_maker = ProtoField.new("Contra Market Maker", "nyse.arca.options.binarygateway.pillar.v3.15.contramarketmaker", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_mpid = ProtoField.new("Contra Mpid", "nyse.arca.options.binarygateway.pillar.v3.15.contrampid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_open_close = ProtoField.new("Contra Open Close", "nyse.arca.options.binarygateway.pillar.v3.15.contraopenclose", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.count_calculation = ProtoField.new("Count Calculation", "nyse.arca.options.binarygateway.pillar.v3.15.countcalculation", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.count_limit = ProtoField.new("Count Limit", "nyse.arca.options.binarygateway.pillar.v3.15.countlimit", ftypes.INT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.covered = ProtoField.new("Covered", "nyse.arca.options.binarygateway.pillar.v3.15.covered", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.covered_or_uncovered = ProtoField.new("Covered Or Uncovered", "nyse.arca.options.binarygateway.pillar.v3.15.coveredoruncovered", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cross_id = ProtoField.new("Cross Id", "nyse.arca.options.binarygateway.pillar.v3.15.crossid", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cum_qty = ProtoField.new("Cum Qty", "nyse.arca.options.binarygateway.pillar.v3.15.cumqty", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.deal_id = ProtoField.new("Deal Id", "nyse.arca.options.binarygateway.pillar.v3.15.dealid", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp Id", "nyse.arca.options.binarygateway.pillar.v3.15.delivertocompid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.end_seq = ProtoField.new("End Seq", "nyse.arca.options.binarygateway.pillar.v3.15.endseq", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.arca.options.binarygateway.pillar.v3.15.execinst", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.exposed = ProtoField.new("Exposed", "nyse.arca.options.binarygateway.pillar.v3.15.exposed", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.arca.options.binarygateway.pillar.v3.15.extendedexecinst", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.floor_broker_firm_crd = ProtoField.new("Floor Broker Firm Crd", "nyse.arca.options.binarygateway.pillar.v3.15.floorbrokerfirmcrd", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.group_id = ProtoField.new("Group Id", "nyse.arca.options.binarygateway.pillar.v3.15.groupid", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arca.options.binarygateway.pillar.v3.15.heartbeat", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.interest_type = ProtoField.new("Interest Type", "nyse.arca.options.binarygateway.pillar.v3.15.interesttype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.arca.options.binarygateway.pillar.v3.15.iocattribution", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.last_px = ProtoField.new("Last Px", "nyse.arca.options.binarygateway.pillar.v3.15.lastpx", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.last_qty = ProtoField.new("Last Qty", "nyse.arca.options.binarygateway.pillar.v3.15.lastqty", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leaves_qty = ProtoField.new("Leaves Qty", "nyse.arca.options.binarygateway.pillar.v3.15.leavesqty", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_open_close = ProtoField.new("Leg Open Close", "nyse.arca.options.binarygateway.pillar.v3.15.legopenclose", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.arca.options.binarygateway.pillar.v3.15.legratioqty", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_side = ProtoField.new("Leg Side", "nyse.arca.options.binarygateway.pillar.v3.15.legside", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_symbol_id = ProtoField.new("Leg Symbol Id", "nyse.arca.options.binarygateway.pillar.v3.15.legsymbolid", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.legal_width_multiplier = ProtoField.new("Legal Width Multiplier", "nyse.arca.options.binarygateway.pillar.v3.15.legalwidthmultiplier", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.liquidityindicator", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.listed_mic = ProtoField.new("Listed Mic", "nyse.arca.options.binarygateway.pillar.v3.15.listedmic", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.arca.options.binarygateway.pillar.v3.15.locatereqd", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message = ProtoField.new("Login Message", "nyse.arca.options.binarygateway.pillar.v3.15.loginmessage", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response = ProtoField.new("Login Response", "nyse.arca.options.binarygateway.pillar.v3.15.loginresponse", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.arca.options.binarygateway.pillar.v3.15.luldmpv", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.market_maker = ProtoField.new("Market Maker", "nyse.arca.options.binarygateway.pillar.v3.15.marketmaker", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.max_floor = ProtoField.new("Max Floor", "nyse.arca.options.binarygateway.pillar.v3.15.maxfloor", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_price = ProtoField.new("Max Order Price", "nyse.arca.options.binarygateway.pillar.v3.15.maxorderprice", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.arca.options.binarygateway.pillar.v3.15.maxorderquantity", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mic = ProtoField.new("Mic", "nyse.arca.options.binarygateway.pillar.v3.15.mic", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.min_qty = ProtoField.new("Min Qty", "nyse.arca.options.binarygateway.pillar.v3.15.minqty", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.arca.options.binarygateway.pillar.v3.15.mmsenttime", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_type = ProtoField.new("Mm Type", "nyse.arca.options.binarygateway.pillar.v3.15.mmtype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mode = ProtoField.new("Mode", "nyse.arca.options.binarygateway.pillar.v3.15.mode", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.arca.options.binarygateway.pillar.v3.15.mpsubid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid = ProtoField.new("Mpid", "nyse.arca.options.binarygateway.pillar.v3.15.mpid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_status = ProtoField.new("Mpid Status", "nyse.arca.options.binarygateway.pillar.v3.15.mpidstatus", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_id = ProtoField.new("Mpv Class Id", "nyse.arca.options.binarygateway.pillar.v3.15.mpvclassid", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_name = ProtoField.new("Mpv Class Name", "nyse.arca.options.binarygateway.pillar.v3.15.mpvclassname", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_definition = ProtoField.new("Mpv Level Definition", "nyse.arca.options.binarygateway.pillar.v3.15.mpvleveldefinition", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_name = ProtoField.new("Mpv Level Name", "nyse.arca.options.binarygateway.pillar.v3.15.mpvlevelname", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_header = ProtoField.new("Msg Header", "nyse.arca.options.binarygateway.pillar.v3.15.msgheader", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_length = ProtoField.new("Msg Length", "nyse.arca.options.binarygateway.pillar.v3.15.msglength", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_type = ProtoField.new("Msg Type", "nyse.arca.options.binarygateway.pillar.v3.15.msgtype", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "nyse.arca.options.binarygateway.pillar.v3.15.multilegreportingtype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.next_seq = ProtoField.new("Next Seq", "nyse.arca.options.binarygateway.pillar.v3.15.nextseq", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.nyse_symbol = ProtoField.new("Nyse Symbol", "nyse.arca.options.binarygateway.pillar.v3.15.nysesymbol", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open = ProtoField.new("Open", "nyse.arca.options.binarygateway.pillar.v3.15.open", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close = ProtoField.new("Open Close", "nyse.arca.options.binarygateway.pillar.v3.15.openclose", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response = ProtoField.new("Open Response", "nyse.arca.options.binarygateway.pillar.v3.15.openresponse", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_data = ProtoField.new("Optional Data", "nyse.arca.options.binarygateway.pillar.v3.15.optionaldata", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.arca.options.binarygateway.pillar.v3.15.optionalorderaddon", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ord_type = ProtoField.new("Ord Type", "nyse.arca.options.binarygateway.pillar.v3.15.ordtype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.arca.options.binarygateway.pillar.v3.15.ordercapacity", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_id = ProtoField.new("Order Id", "nyse.arca.options.binarygateway.pillar.v3.15.orderid", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_instructions = ProtoField.new("Order Instructions", "nyse.arca.options.binarygateway.pillar.v3.15.orderinstructions", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.arca.options.binarygateway.pillar.v3.15.orderpriorityupdateacksubscription", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_qty = ProtoField.new("Order Qty", "nyse.arca.options.binarygateway.pillar.v3.15.orderqty", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "nyse.arca.options.binarygateway.pillar.v3.15.origclordid", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.participant_type = ProtoField.new("Participant Type", "nyse.arca.options.binarygateway.pillar.v3.15.participanttype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.password = ProtoField.new("Password", "nyse.arca.options.binarygateway.pillar.v3.15.password", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.arca.options.binarygateway.pillar.v3.15.percentagelimit", ftypes.INT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.arca.options.binarygateway.pillar.v3.15.pillarstreammessage", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.preliquidityindicator", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.price_price_8 = ProtoField.new("Price Price 8", "nyse.arca.options.binarygateway.pillar.v3.15.priceprice8", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.price_u_price_8 = ProtoField.new("Price U Price 8", "nyse.arca.options.binarygateway.pillar.v3.15.priceuprice8", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.arca.options.binarygateway.pillar.v3.15.proactiveiflocked", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quantity = ProtoField.new("Quantity", "nyse.arca.options.binarygateway.pillar.v3.15.quantity", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quote_ack = ProtoField.new("Quote Ack", "nyse.arca.options.binarygateway.pillar.v3.15.quoteack", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.arca.options.binarygateway.pillar.v3.15.quotingmpv", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reason_code = ProtoField.new("Reason Code", "nyse.arca.options.binarygateway.pillar.v3.15.reasoncode", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.arca.options.binarygateway.pillar.v3.15.refclordid", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.refseqmsgid = ProtoField.new("Refseqmsgid", "nyse.arca.options.binarygateway.pillar.v3.15.refseqmsgid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_other = ProtoField.new("Reinstatement Requiredby Other", "nyse.arca.options.binarygateway.pillar.v3.15.reinstatementrequiredbyother", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_self = ProtoField.new("Reinstatement Requiredby Self", "nyse.arca.options.binarygateway.pillar.v3.15.reinstatementrequiredbyself", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reject_type = ProtoField.new("Reject Type", "nyse.arca.options.binarygateway.pillar.v3.15.rejecttype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.repeating_groups = ProtoField.new("Repeating Groups", "nyse.arca.options.binarygateway.pillar.v3.15.repeatinggroups", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arca.options.binarygateway.pillar.v3.15.reserved1", ftypes.BYTES)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_16 = ProtoField.new("Reserved 16", "nyse.arca.options.binarygateway.pillar.v3.15.reserved16", ftypes.BYTES)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arca.options.binarygateway.pillar.v3.15.reserved2", ftypes.BYTES)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.arca.options.binarygateway.pillar.v3.15.reserved200", ftypes.BYTES)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arca.options.binarygateway.pillar.v3.15.reserved4", ftypes.BYTES)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.arca.options.binarygateway.pillar.v3.15.reserved49", ftypes.BYTES)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.arca.options.binarygateway.pillar.v3.15.reserved50", ftypes.BYTES)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_bits_34 = ProtoField.new("Reserved Bits 34", "nyse.arca.options.binarygateway.pillar.v3.15.reservedbits34", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.retail_indicator = ProtoField.new("Retail Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.retailindicator", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskacktype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskactiontype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_activation = ProtoField.new("Risk Control Activation", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolactivation", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_type = ProtoField.new("Risk Control Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontroltype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.arca.options.binarygateway.pillar.v3.15.riskusercrd", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.arca.options.binarygateway.pillar.v3.15.riskusertype", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.arca.options.binarygateway.pillar.v3.15.routinginst", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.arca.options.binarygateway.pillar.v3.15.rpimpv", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.security_type = ProtoField.new("Security Type", "nyse.arca.options.binarygateway.pillar.v3.15.securitytype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.arca.options.binarygateway.pillar.v3.15.selftradeprevention", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.arca.options.binarygateway.pillar.v3.15.selftradetype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq = ProtoField.new("Seq", "nyse.arca.options.binarygateway.pillar.v3.15.seq", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsg", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsgheader", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsglength", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsgtype", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.arca.options.binarygateway.pillar.v3.15.seqmsgid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.arca.options.binarygateway.pillar.v3.15.sequencedmessage", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.series_index = ProtoField.new("Series Index", "nyse.arca.options.binarygateway.pillar.v3.15.seriesindex", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sess = ProtoField.new("Sess", "nyse.arca.options.binarygateway.pillar.v3.15.sess", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.side_bit_5 = ProtoField.new("Side Bit 5", "nyse.arca.options.binarygateway.pillar.v3.15.sidebit5", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.arca.options.binarygateway.pillar.v3.15.sideu81", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.arca.options.binarygateway.pillar.v3.15.specialordtype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.start_seq = ProtoField.new("Start Seq", "nyse.arca.options.binarygateway.pillar.v3.15.startseq", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.status = ProtoField.new("Status", "nyse.arca.options.binarygateway.pillar.v3.15.status", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stop_px = ProtoField.new("Stop Px", "nyse.arca.options.binarygateway.pillar.v3.15.stoppx", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.arca.options.binarygateway.pillar.v3.15.streamavail", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_id = ProtoField.new("Stream Id", "nyse.arca.options.binarygateway.pillar.v3.15.streamid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id = ProtoField.new("Sub Id", "nyse.arca.options.binarygateway.pillar.v3.15.subid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.subidindicator", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.arca.options.binarygateway.pillar.v3.15.submsgheader", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_eligibility = ProtoField.new("Symbol Eligibility", "nyse.arca.options.binarygateway.pillar.v3.15.symboleligibility", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_id = ProtoField.new("Symbol Id", "nyse.arca.options.binarygateway.pillar.v3.15.symbolid", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_mpid = ProtoField.new("Target Cancel Mpid", "nyse.arca.options.binarygateway.pillar.v3.15.targetcancelmpid", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_username = ProtoField.new("Target Cancel Username", "nyse.arca.options.binarygateway.pillar.v3.15.targetcancelusername", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.test_symbol_indicator = ProtoField.new("Test Symbol Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.testsymbolindicator", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.threshold_breach_level = ProtoField.new("Threshold Breach Level", "nyse.arca.options.binarygateway.pillar.v3.15.thresholdbreachlevel", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.arca.options.binarygateway.pillar.v3.15.throttlepreference", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.arca.options.binarygateway.pillar.v3.15.throttlethreshold", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.arca.options.binarygateway.pillar.v3.15.throttlewindow", ftypes.UINT16)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.time_in_force = ProtoField.new("Time In Force", "nyse.arca.options.binarygateway.pillar.v3.15.timeinforce", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.time_limit = ProtoField.new("Time Limit", "nyse.arca.options.binarygateway.pillar.v3.15.timelimit", ftypes.INT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.timestamp = ProtoField.new("Timestamp", "nyse.arca.options.binarygateway.pillar.v3.15.timestamp", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.arca.options.binarygateway.pillar.v3.15.tradingmpv", ftypes.DOUBLE)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.arca.options.binarygateway.pillar.v3.15.tradingsessionid", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.transact_time = ProtoField.new("Transact Time", "nyse.arca.options.binarygateway.pillar.v3.15.transacttime", ftypes.UINT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.arca.options.binarygateway.pillar.v3.15.underlyingtype", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation1", ftypes.INT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_2 = ProtoField.new("Usd Calculation 2", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation2", ftypes.INT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation3", ftypes.INT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_4 = ProtoField.new("Usd Calculation 4", "nyse.arca.options.binarygateway.pillar.v3.15.usdcalculation4", ftypes.INT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_limit = ProtoField.new("Usd Limit", "nyse.arca.options.binarygateway.pillar.v3.15.usdlimit", ftypes.INT64)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user = ProtoField.new("User", "nyse.arca.options.binarygateway.pillar.v3.15.user", ftypes.UINT32)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user_data = ProtoField.new("User Data", "nyse.arca.options.binarygateway.pillar.v3.15.userdata", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_status = ProtoField.new("User Session Status", "nyse.arca.options.binarygateway.pillar.v3.15.usersessionstatus", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_type = ProtoField.new("User Session Type", "nyse.arca.options.binarygateway.pillar.v3.15.usersessiontype", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.username = ProtoField.new("Username", "nyse.arca.options.binarygateway.pillar.v3.15.username", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.version = ProtoField.new("Version", "nyse.arca.options.binarygateway.pillar.v3.15.version", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.arca.options.binarygateway.pillar.v3.15.workingawayfromdisplay", ftypes.UINT8)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.working_price = ProtoField.new("Working Price", "nyse.arca.options.binarygateway.pillar.v3.15.workingprice", ftypes.DOUBLE)
 
 -- Nyse Arca Options BinaryGateway Pillar 3.15 messages
-nyse_arca_options_binarygateway_pillar_v3_15.fields.application_layer_reject = ProtoField.new("Application Layer Reject", "nyse.arca.options.binarygateway.pillar.v3.15.applicationlayerreject", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_cancel_request = ProtoField.new("Bulk Cancel Request", "nyse.arca.options.binarygateway.pillar.v3.15.bulkcancelrequest", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment = ProtoField.new("Bulk Quote Acknowledgment", "nyse.arca.options.binarygateway.pillar.v3.15.bulkquoteacknowledgment", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement = ProtoField.new("Complex Series Request Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.complexseriesrequestacknowledgement", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report = ProtoField.new("Execution Report", "nyse.arca.options.binarygateway.pillar.v3.15.executionreport", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_class_reference_data = ProtoField.new("Minimum Price Variant Class Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.minimumpricevariantclassreferencedata", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data = ProtoField.new("Minimum Price Variant Level Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.minimumpricevariantlevelreferencedata", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_configuration = ProtoField.new("Mpid Configuration", "nyse.arca.options.binarygateway.pillar.v3.15.mpidconfiguration", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote = ProtoField.new("New Bulk Quote", "nyse.arca.options.binarygateway.pillar.v3.15.newbulkquote", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request = ProtoField.new("New Complex Series Request", "nyse.arca.options.binarygateway.pillar.v3.15.newcomplexseriesrequest", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross = ProtoField.new("New Order Cross", "nyse.arca.options.binarygateway.pillar.v3.15.newordercross", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.options_market_maker_symbol_appointment_reference_data = ProtoField.new("Options Market Maker Symbol Appointment Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.optionsmarketmakersymbolappointmentreferencedata", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.orderacknowledgement", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_cancel_request = ProtoField.new("Order Cancel Request", "nyse.arca.options.binarygateway.pillar.v3.15.ordercancelrequest", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_modify_request = ProtoField.new("Order Modify Request", "nyse.arca.options.binarygateway.pillar.v3.15.ordermodifyrequest", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_acknowledgment = ProtoField.new("Order Priority Update Acknowledgment", "nyse.arca.options.binarygateway.pillar.v3.15.orderpriorityupdateacknowledgment", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request = ProtoField.new("Order Request", "nyse.arca.options.binarygateway.pillar.v3.15.orderrequest", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request_acknowledgment = ProtoField.new("Order Request Acknowledgment", "nyse.arca.options.binarygateway.pillar.v3.15.orderrequestacknowledgment", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_request = ProtoField.new("Risk Action Request", "nyse.arca.options.binarygateway.pillar.v3.15.riskactionrequest", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_acknowledgement = ProtoField.new("Risk Control Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolacknowledgement", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_alert = ProtoField.new("Risk Control Alert", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolalert", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_limit_update_request = ProtoField.new("Risk Limit Update Request", "nyse.arca.options.binarygateway.pillar.v3.15.risklimitupdaterequest", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_filler = ProtoField.new("Sequenced Filler", "nyse.arca.options.binarygateway.pillar.v3.15.sequencedfiller", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_acknowledgement = ProtoField.new("Session Configuration Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.sessionconfigurationacknowledgement", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.arca.options.binarygateway.pillar.v3.15.sessionconfigurationrequestmessage", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.trade_bust_or_correct = ProtoField.new("Trade Bust Or Correct", "nyse.arca.options.binarygateway.pillar.v3.15.tradebustorcorrect", ftypes.STRING)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data = ProtoField.new("Underlying Symbol Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.underlyingsymbolreferencedata", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.application_layer_reject = ProtoField.new("Application Layer Reject", "nyse.arca.options.binarygateway.pillar.v3.15.applicationlayerreject", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_cancel_request = ProtoField.new("Bulk Cancel Request", "nyse.arca.options.binarygateway.pillar.v3.15.bulkcancelrequest", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment = ProtoField.new("Bulk Quote Acknowledgment", "nyse.arca.options.binarygateway.pillar.v3.15.bulkquoteacknowledgment", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement = ProtoField.new("Complex Series Request Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.complexseriesrequestacknowledgement", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report = ProtoField.new("Execution Report", "nyse.arca.options.binarygateway.pillar.v3.15.executionreport", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_class_reference_data = ProtoField.new("Minimum Price Variant Class Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.minimumpricevariantclassreferencedata", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data = ProtoField.new("Minimum Price Variant Level Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.minimumpricevariantlevelreferencedata", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_configuration = ProtoField.new("Mpid Configuration", "nyse.arca.options.binarygateway.pillar.v3.15.mpidconfiguration", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote = ProtoField.new("New Bulk Quote", "nyse.arca.options.binarygateway.pillar.v3.15.newbulkquote", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request = ProtoField.new("New Complex Series Request", "nyse.arca.options.binarygateway.pillar.v3.15.newcomplexseriesrequest", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross = ProtoField.new("New Order Cross", "nyse.arca.options.binarygateway.pillar.v3.15.newordercross", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.options_market_maker_symbol_appointment_reference_data = ProtoField.new("Options Market Maker Symbol Appointment Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.optionsmarketmakersymbolappointmentreferencedata", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.orderacknowledgement", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_cancel_request = ProtoField.new("Order Cancel Request", "nyse.arca.options.binarygateway.pillar.v3.15.ordercancelrequest", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_modify_request = ProtoField.new("Order Modify Request", "nyse.arca.options.binarygateway.pillar.v3.15.ordermodifyrequest", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_acknowledgment = ProtoField.new("Order Priority Update Acknowledgment", "nyse.arca.options.binarygateway.pillar.v3.15.orderpriorityupdateacknowledgment", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request = ProtoField.new("Order Request", "nyse.arca.options.binarygateway.pillar.v3.15.orderrequest", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request_acknowledgment = ProtoField.new("Order Request Acknowledgment", "nyse.arca.options.binarygateway.pillar.v3.15.orderrequestacknowledgment", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_request = ProtoField.new("Risk Action Request", "nyse.arca.options.binarygateway.pillar.v3.15.riskactionrequest", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_acknowledgement = ProtoField.new("Risk Control Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolacknowledgement", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_alert = ProtoField.new("Risk Control Alert", "nyse.arca.options.binarygateway.pillar.v3.15.riskcontrolalert", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_limit_update_request = ProtoField.new("Risk Limit Update Request", "nyse.arca.options.binarygateway.pillar.v3.15.risklimitupdaterequest", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_filler = ProtoField.new("Sequenced Filler", "nyse.arca.options.binarygateway.pillar.v3.15.sequencedfiller", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_acknowledgement = ProtoField.new("Session Configuration Acknowledgement", "nyse.arca.options.binarygateway.pillar.v3.15.sessionconfigurationacknowledgement", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.arca.options.binarygateway.pillar.v3.15.sessionconfigurationrequestmessage", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trade_bust_or_correct = ProtoField.new("Trade Bust Or Correct", "nyse.arca.options.binarygateway.pillar.v3.15.tradebustorcorrect", ftypes.STRING)
+omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data = ProtoField.new("Underlying Symbol Reference Data", "nyse.arca.options.binarygateway.pillar.v3.15.underlyingsymbolreferencedata", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -302,270 +302,270 @@ show.pillar_stream_message = false
 show.sequenced_message = false
 
 -- Register Nyse Arca Options BinaryGateway Pillar 3.15 Show Options
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject = Pref.bool("Show Application Layer Reject", show.application_layer_reject, "Parse and add Application Layer Reject to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request = Pref.bool("Show Bulk Cancel Request", show.bulk_cancel_request, "Parse and add Bulk Cancel Request to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote = Pref.bool("Show Bulk Quote", show.bulk_quote, "Parse and add Bulk Quote to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment = Pref.bool("Show Bulk Quote Acknowledgment", show.bulk_quote_acknowledgment, "Parse and add Bulk Quote Acknowledgment to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement = Pref.bool("Show Complex Series Request Acknowledgement", show.complex_series_request_acknowledgement, "Parse and add Complex Series Request Acknowledgement to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered = Pref.bool("Show Covered", show.covered, "Parse and add Covered to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report = Pref.bool("Show Execution Report", show.execution_report, "Parse and add Execution Report to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed = Pref.bool("Show Exposed", show.exposed, "Parse and add Exposed to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data = Pref.bool("Show Minimum Price Variant Class Reference Data", show.minimum_price_variant_class_reference_data, "Parse and add Minimum Price Variant Class Reference Data to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data = Pref.bool("Show Minimum Price Variant Level Reference Data", show.minimum_price_variant_level_reference_data, "Parse and add Minimum Price Variant Level Reference Data to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration = Pref.bool("Show Mpid Configuration", show.mpid_configuration, "Parse and add Mpid Configuration to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote = Pref.bool("Show New Bulk Quote", show.new_bulk_quote, "Parse and add New Bulk Quote to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request = Pref.bool("Show New Complex Series Request", show.new_complex_series_request, "Parse and add New Complex Series Request to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross = Pref.bool("Show New Order Cross", show.new_order_cross, "Parse and add New Order Cross to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data = Pref.bool("Show Options Market Maker Symbol Appointment Reference Data", show.options_market_maker_symbol_appointment_reference_data, "Parse and add Options Market Maker Symbol Appointment Reference Data to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement = Pref.bool("Show Order Acknowledgement", show.order_acknowledgement, "Parse and add Order Acknowledgement to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request = Pref.bool("Show Order Cancel Request", show.order_cancel_request, "Parse and add Order Cancel Request to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request = Pref.bool("Show Order Modify Request", show.order_modify_request, "Parse and add Order Modify Request to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment = Pref.bool("Show Order Priority Update Acknowledgment", show.order_priority_update_acknowledgment, "Parse and add Order Priority Update Acknowledgment to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request = Pref.bool("Show Order Request", show.order_request, "Parse and add Order Request to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment = Pref.bool("Show Order Request Acknowledgment", show.order_request_acknowledgment, "Parse and add Order Request Acknowledgment to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack = Pref.bool("Show Quote Ack", show.quote_ack, "Parse and add Quote Ack to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_refseqmsgid = Pref.bool("Show Refseqmsgid", show.refseqmsgid, "Parse and add Refseqmsgid to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request = Pref.bool("Show Risk Action Request", show.risk_action_request, "Parse and add Risk Action Request to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement = Pref.bool("Show Risk Control Acknowledgement", show.risk_control_acknowledgement, "Parse and add Risk Control Acknowledgement to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert = Pref.bool("Show Risk Control Alert", show.risk_control_alert, "Parse and add Risk Control Alert to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request = Pref.bool("Show Risk Limit Update Request", show.risk_limit_update_request, "Parse and add Risk Limit Update Request to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seqmsgid = Pref.bool("Show Seqmsgid", show.seqmsgid, "Parse and add Seqmsgid to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler = Pref.bool("Show Sequenced Filler", show.sequenced_filler, "Parse and add Sequenced Filler to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement = Pref.bool("Show Session Configuration Acknowledgement", show.session_configuration_acknowledgement, "Parse and add Session Configuration Acknowledgement to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct = Pref.bool("Show Trade Bust Or Correct", show.trade_bust_or_correct, "Parse and add Trade Bust Or Correct to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data = Pref.bool("Show Underlying Symbol Reference Data", show.underlying_symbol_reference_data, "Parse and add Underlying Symbol Reference Data to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject = Pref.bool("Show Application Layer Reject", show.application_layer_reject, "Parse and add Application Layer Reject to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request = Pref.bool("Show Bulk Cancel Request", show.bulk_cancel_request, "Parse and add Bulk Cancel Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote = Pref.bool("Show Bulk Quote", show.bulk_quote, "Parse and add Bulk Quote to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment = Pref.bool("Show Bulk Quote Acknowledgment", show.bulk_quote_acknowledgment, "Parse and add Bulk Quote Acknowledgment to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement = Pref.bool("Show Complex Series Request Acknowledgement", show.complex_series_request_acknowledgement, "Parse and add Complex Series Request Acknowledgement to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered = Pref.bool("Show Covered", show.covered, "Parse and add Covered to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report = Pref.bool("Show Execution Report", show.execution_report, "Parse and add Execution Report to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed = Pref.bool("Show Exposed", show.exposed, "Parse and add Exposed to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data = Pref.bool("Show Minimum Price Variant Class Reference Data", show.minimum_price_variant_class_reference_data, "Parse and add Minimum Price Variant Class Reference Data to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data = Pref.bool("Show Minimum Price Variant Level Reference Data", show.minimum_price_variant_level_reference_data, "Parse and add Minimum Price Variant Level Reference Data to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration = Pref.bool("Show Mpid Configuration", show.mpid_configuration, "Parse and add Mpid Configuration to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote = Pref.bool("Show New Bulk Quote", show.new_bulk_quote, "Parse and add New Bulk Quote to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request = Pref.bool("Show New Complex Series Request", show.new_complex_series_request, "Parse and add New Complex Series Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross = Pref.bool("Show New Order Cross", show.new_order_cross, "Parse and add New Order Cross to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data = Pref.bool("Show Options Market Maker Symbol Appointment Reference Data", show.options_market_maker_symbol_appointment_reference_data, "Parse and add Options Market Maker Symbol Appointment Reference Data to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement = Pref.bool("Show Order Acknowledgement", show.order_acknowledgement, "Parse and add Order Acknowledgement to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request = Pref.bool("Show Order Cancel Request", show.order_cancel_request, "Parse and add Order Cancel Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request = Pref.bool("Show Order Modify Request", show.order_modify_request, "Parse and add Order Modify Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment = Pref.bool("Show Order Priority Update Acknowledgment", show.order_priority_update_acknowledgment, "Parse and add Order Priority Update Acknowledgment to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request = Pref.bool("Show Order Request", show.order_request, "Parse and add Order Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment = Pref.bool("Show Order Request Acknowledgment", show.order_request_acknowledgment, "Parse and add Order Request Acknowledgment to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack = Pref.bool("Show Quote Ack", show.quote_ack, "Parse and add Quote Ack to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_refseqmsgid = Pref.bool("Show Refseqmsgid", show.refseqmsgid, "Parse and add Refseqmsgid to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request = Pref.bool("Show Risk Action Request", show.risk_action_request, "Parse and add Risk Action Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement = Pref.bool("Show Risk Control Acknowledgement", show.risk_control_acknowledgement, "Parse and add Risk Control Acknowledgement to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert = Pref.bool("Show Risk Control Alert", show.risk_control_alert, "Parse and add Risk Control Alert to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request = Pref.bool("Show Risk Limit Update Request", show.risk_limit_update_request, "Parse and add Risk Limit Update Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seqmsgid = Pref.bool("Show Seqmsgid", show.seqmsgid, "Parse and add Seqmsgid to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler = Pref.bool("Show Sequenced Filler", show.sequenced_filler, "Parse and add Sequenced Filler to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement = Pref.bool("Show Session Configuration Acknowledgement", show.session_configuration_acknowledgement, "Parse and add Session Configuration Acknowledgement to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct = Pref.bool("Show Trade Bust Or Correct", show.trade_bust_or_correct, "Parse and add Trade Bust Or Correct to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data = Pref.bool("Show Underlying Symbol Reference Data", show.underlying_symbol_reference_data, "Parse and add Underlying Symbol Reference Data to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 
 -- Handle changed preferences
-function nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
+function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_layer_reject ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject then
-    show.application_layer_reject = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject
+  if show.application_layer_reject ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject then
+    show.application_layer_reject = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject
     changed = true
   end
-  if show.bulk_cancel_request ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request then
-    show.bulk_cancel_request = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request
+  if show.bulk_cancel_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request then
+    show.bulk_cancel_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request
     changed = true
   end
-  if show.bulk_quote ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote then
-    show.bulk_quote = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote
+  if show.bulk_quote ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote then
+    show.bulk_quote = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote
     changed = true
   end
-  if show.bulk_quote_acknowledgment ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment then
-    show.bulk_quote_acknowledgment = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment
+  if show.bulk_quote_acknowledgment ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment then
+    show.bulk_quote_acknowledgment = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment
     changed = true
   end
-  if show.close ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close then
-    show.close = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close
+  if show.close ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close then
+    show.close = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close
     changed = true
   end
-  if show.close_response ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response then
-    show.close_response = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response
+  if show.close_response ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response then
+    show.close_response = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response
     changed = true
   end
-  if show.complex_leg ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg then
-    show.complex_leg = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg
+  if show.complex_leg ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg then
+    show.complex_leg = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg
     changed = true
   end
-  if show.complex_series_request_acknowledgement ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement then
-    show.complex_series_request_acknowledgement = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement
+  if show.complex_series_request_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement then
+    show.complex_series_request_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement
     changed = true
   end
-  if show.covered ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered then
-    show.covered = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered
+  if show.covered ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered then
+    show.covered = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered
     changed = true
   end
-  if show.execution_report ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report then
-    show.execution_report = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report
+  if show.execution_report ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report then
+    show.execution_report = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report
     changed = true
   end
-  if show.exposed ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed then
-    show.exposed = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed
+  if show.exposed ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed then
+    show.exposed = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed
     changed = true
   end
-  if show.heartbeat ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat then
-    show.heartbeat = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat
+  if show.heartbeat ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat then
+    show.heartbeat = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat
     changed = true
   end
-  if show.login_message ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message then
-    show.login_message = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message
+  if show.login_message ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message then
+    show.login_message = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message
     changed = true
   end
-  if show.login_response ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response then
-    show.login_response = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response
+  if show.login_response ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response then
+    show.login_response = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response
     changed = true
   end
-  if show.minimum_price_variant_class_reference_data ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data then
-    show.minimum_price_variant_class_reference_data = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data
+  if show.minimum_price_variant_class_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data then
+    show.minimum_price_variant_class_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data
     changed = true
   end
-  if show.minimum_price_variant_level_reference_data ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data then
-    show.minimum_price_variant_level_reference_data = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data
+  if show.minimum_price_variant_level_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data then
+    show.minimum_price_variant_level_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data
     changed = true
   end
-  if show.mpid_configuration ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration then
-    show.mpid_configuration = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration
+  if show.mpid_configuration ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration then
+    show.mpid_configuration = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration
     changed = true
   end
-  if show.mpv_level_definition ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition then
-    show.mpv_level_definition = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition
+  if show.mpv_level_definition ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition then
+    show.mpv_level_definition = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition
     changed = true
   end
-  if show.msg_header ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header then
-    show.msg_header = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header
+  if show.msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header then
+    show.msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header
     changed = true
   end
-  if show.new_bulk_quote ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote then
-    show.new_bulk_quote = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote
+  if show.new_bulk_quote ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote then
+    show.new_bulk_quote = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote
     changed = true
   end
-  if show.new_complex_series_request ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request then
-    show.new_complex_series_request = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request
+  if show.new_complex_series_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request then
+    show.new_complex_series_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request
     changed = true
   end
-  if show.new_order_cross ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross then
-    show.new_order_cross = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross
+  if show.new_order_cross ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross then
+    show.new_order_cross = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross
     changed = true
   end
-  if show.open ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open then
-    show.open = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open
+  if show.open ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open then
+    show.open = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open
     changed = true
   end
-  if show.open_response ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response then
-    show.open_response = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response
+  if show.open_response ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response then
+    show.open_response = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response
     changed = true
   end
-  if show.optional_order_add_on ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on then
-    show.optional_order_add_on = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on
+  if show.optional_order_add_on ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on then
+    show.optional_order_add_on = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on
     changed = true
   end
-  if show.options_market_maker_symbol_appointment_reference_data ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data then
-    show.options_market_maker_symbol_appointment_reference_data = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data
+  if show.options_market_maker_symbol_appointment_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data then
+    show.options_market_maker_symbol_appointment_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data
     changed = true
   end
-  if show.order_acknowledgement ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement then
-    show.order_acknowledgement = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement
+  if show.order_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement then
+    show.order_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement
     changed = true
   end
-  if show.order_cancel_request ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request then
-    show.order_cancel_request = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request
+  if show.order_cancel_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request then
+    show.order_cancel_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request
     changed = true
   end
-  if show.order_instructions ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions then
-    show.order_instructions = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions
+  if show.order_instructions ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions then
+    show.order_instructions = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions
     changed = true
   end
-  if show.order_modify_request ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request then
-    show.order_modify_request = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request
+  if show.order_modify_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request then
+    show.order_modify_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request
     changed = true
   end
-  if show.order_priority_update_acknowledgment ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment then
-    show.order_priority_update_acknowledgment = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment
+  if show.order_priority_update_acknowledgment ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment then
+    show.order_priority_update_acknowledgment = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment
     changed = true
   end
-  if show.order_request ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request then
-    show.order_request = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request
+  if show.order_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request then
+    show.order_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request
     changed = true
   end
-  if show.order_request_acknowledgment ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment then
-    show.order_request_acknowledgment = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment
+  if show.order_request_acknowledgment ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment then
+    show.order_request_acknowledgment = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment
     changed = true
   end
-  if show.quote_ack ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack then
-    show.quote_ack = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack
+  if show.quote_ack ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack then
+    show.quote_ack = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack
     changed = true
   end
-  if show.refseqmsgid ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_refseqmsgid then
-    show.refseqmsgid = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_refseqmsgid
+  if show.refseqmsgid ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_refseqmsgid then
+    show.refseqmsgid = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_refseqmsgid
     changed = true
   end
-  if show.risk_action_request ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request then
-    show.risk_action_request = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request
+  if show.risk_action_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request then
+    show.risk_action_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request
     changed = true
   end
-  if show.risk_control_acknowledgement ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement then
-    show.risk_control_acknowledgement = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement
+  if show.risk_control_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement then
+    show.risk_control_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement
     changed = true
   end
-  if show.risk_control_alert ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert then
-    show.risk_control_alert = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert
+  if show.risk_control_alert ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert then
+    show.risk_control_alert = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert
     changed = true
   end
-  if show.risk_limit_update_request ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request then
-    show.risk_limit_update_request = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request
+  if show.risk_limit_update_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request then
+    show.risk_limit_update_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request
     changed = true
   end
-  if show.seq_msg ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg then
-    show.seq_msg = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg
+  if show.seq_msg ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg then
+    show.seq_msg = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg
     changed = true
   end
-  if show.seq_msg_header ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header then
-    show.seq_msg_header = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header
+  if show.seq_msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header then
+    show.seq_msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header
     changed = true
   end
-  if show.seqmsgid ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seqmsgid then
-    show.seqmsgid = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seqmsgid
+  if show.seqmsgid ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seqmsgid then
+    show.seqmsgid = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seqmsgid
     changed = true
   end
-  if show.sequenced_filler ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler then
-    show.sequenced_filler = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler
+  if show.sequenced_filler ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler then
+    show.sequenced_filler = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler
     changed = true
   end
-  if show.session_configuration_acknowledgement ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement then
-    show.session_configuration_acknowledgement = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement
+  if show.session_configuration_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement then
+    show.session_configuration_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement
     changed = true
   end
-  if show.session_configuration_request_message ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message then
-    show.session_configuration_request_message = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message
+  if show.session_configuration_request_message ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message then
+    show.session_configuration_request_message = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message
     changed = true
   end
-  if show.stream_avail ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail then
-    show.stream_avail = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail
+  if show.stream_avail ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail then
+    show.stream_avail = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail
     changed = true
   end
-  if show.stream_id ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id then
-    show.stream_id = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id
+  if show.stream_id ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id then
+    show.stream_id = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id
     changed = true
   end
-  if show.sub_msg_header ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header then
-    show.sub_msg_header = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header
+  if show.sub_msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header then
+    show.sub_msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header
     changed = true
   end
-  if show.trade_bust_or_correct ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct then
-    show.trade_bust_or_correct = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct
+  if show.trade_bust_or_correct ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct then
+    show.trade_bust_or_correct = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct
     changed = true
   end
-  if show.underlying_symbol_reference_data ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data then
-    show.underlying_symbol_reference_data = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data
+  if show.underlying_symbol_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data then
+    show.underlying_symbol_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data
     changed = true
   end
-  if show.pillar_stream_message ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message then
-    show.pillar_stream_message = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message
+  if show.pillar_stream_message ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message then
+    show.pillar_stream_message = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message
     changed = true
   end
-  if show.sequenced_message ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message then
-    show.sequenced_message = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message then
+    show.sequenced_message = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message
     changed = true
   end
 
@@ -613,7 +613,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.repeating_groups = function
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.repeating_groups(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.repeating_groups, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.repeating_groups, range, value, display)
 
   return offset + length, value
 end
@@ -633,7 +633,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.side_u_81 = function(buffer
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.side_u_81(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.side_u_81, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.side_u_81, range, value, display)
 
   return offset + length, value
 end
@@ -653,7 +653,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.symbol_id = function(buffer
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.symbol_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_id, range, value, display)
 
   return offset + length, value
 end
@@ -1673,7 +1673,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reason_code = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reason_code, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -1693,7 +1693,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.cl_ord_id = function(buffer
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.cl_ord_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -1713,7 +1713,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.transact_time = function(bu
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.transact_time, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -1733,7 +1733,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.seq_msg_length = function(b
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.seq_msg_length(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_length, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_length, range, value, display)
 
   return offset + length, value
 end
@@ -1838,7 +1838,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.seq_msg_type = function(buf
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.seq_msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -1876,7 +1876,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.seq_msg_header = function(buffer, offset, packet, parent)
   if show.seq_msg_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1953,7 +1953,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.complex_series_request_acknowledgement = function(buffer, offset, packet, parent)
   if show.complex_series_request_acknowledgement then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.complex_series_request_acknowledgement_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1982,7 +1982,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reserved_200 = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reserved_200(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_200, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_200, range, value, display)
 
   return offset + length, value
 end
@@ -2009,7 +2009,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reinstatement_requiredby_ot
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reinstatement_requiredby_other(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_other, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_other, range, value, display)
 
   return offset + length, value
 end
@@ -2036,7 +2036,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reinstatement_requiredby_se
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reinstatement_requiredby_self(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_self, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reinstatement_requiredby_self, range, value, display)
 
   return offset + length, value
 end
@@ -2063,7 +2063,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.blocked_by_kill_switch_indi
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.blocked_by_kill_switch_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_kill_switch_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_kill_switch_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2096,7 +2096,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.blocked_by_breach_indicator
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.blocked_by_breach_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_breach_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.blocked_by_breach_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2132,7 +2132,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.threshold_breach_level = fu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.threshold_breach_level(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.threshold_breach_level, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.threshold_breach_level, range, value, display)
 
   return offset + length, value
 end
@@ -2180,7 +2180,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_action_type = function
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.risk_action_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_type, range, value, display)
 
   return offset + length, value
 end
@@ -2200,7 +2200,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.count_calculation = functio
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.count_calculation(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.count_calculation, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.count_calculation, range, value, display)
 
   return offset + length, value
 end
@@ -2220,7 +2220,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.usd_calculation_4 = functio
   local value = range:le_int64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.usd_calculation_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_4, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_4, range, value, display)
 
   return offset + length, value
 end
@@ -2240,7 +2240,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.usd_calculation_3 = functio
   local value = range:le_int64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.usd_calculation_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_3, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_3, range, value, display)
 
   return offset + length, value
 end
@@ -2260,7 +2260,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.usd_calculation_2 = functio
   local value = range:le_int64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.usd_calculation_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_2, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_2, range, value, display)
 
   return offset + length, value
 end
@@ -2280,7 +2280,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.usd_calculation_1 = functio
   local value = range:le_int64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.usd_calculation_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_1, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_calculation_1, range, value, display)
 
   return offset + length, value
 end
@@ -2310,7 +2310,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.ioc_attribution = function(
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.ioc_attribution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.ioc_attribution, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ioc_attribution, range, value, display)
 
   return offset + length, value
 end
@@ -2343,7 +2343,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.breach_action_response = fu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.breach_action_response(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_response, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_response, range, value, display)
 
   return offset + length, value
 end
@@ -2363,7 +2363,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.count_limit = function(buff
   local value = range:le_int()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.count_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.count_limit, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.count_limit, range, value, display)
 
   return offset + length, value
 end
@@ -2383,7 +2383,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.percentage_limit = function
   local value = range:le_int()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.percentage_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.percentage_limit, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.percentage_limit, range, value, display)
 
   return offset + length, value
 end
@@ -2403,7 +2403,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.time_limit = function(buffe
   local value = range:le_int()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.time_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.time_limit, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.time_limit, range, value, display)
 
   return offset + length, value
 end
@@ -2423,7 +2423,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.usd_limit = function(buffer
   local value = range:le_int64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.usd_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_limit, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.usd_limit, range, value, display)
 
   return offset + length, value
 end
@@ -2468,7 +2468,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_control_type = functio
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.risk_control_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_type, range, value, display)
 
   return offset + length, value
 end
@@ -2501,7 +2501,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_user_type = function(b
   local value = range:string()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.risk_user_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_type, range, value, display)
 
   return offset + length, value
 end
@@ -2521,7 +2521,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_user_crd = function(bu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.risk_user_crd(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_crd, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_user_crd, range, value, display)
 
   return offset + length, value
 end
@@ -2557,7 +2557,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.clearing_number = function(
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.clearing_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_number, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_number, range, value, display)
 
   return offset + length, value
 end
@@ -2577,7 +2577,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.floor_broker_firm_crd = fun
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.floor_broker_firm_crd(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.floor_broker_firm_crd, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.floor_broker_firm_crd, range, value, display)
 
   return offset + length, value
 end
@@ -2613,7 +2613,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mp_sub_id = function(buffer
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mp_sub_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mp_sub_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mp_sub_id, range, value, display)
 
   return offset + length, value
 end
@@ -2649,7 +2649,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.market_maker = function(buf
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.market_maker(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.market_maker, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.market_maker, range, value, display)
 
   return offset + length, value
 end
@@ -2685,7 +2685,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpid = function(buffer, off
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mpid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid, range, value, display)
 
   return offset + length, value
 end
@@ -2853,7 +2853,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_control_alert = function(buffer, offset, packet, parent)
   if show.risk_control_alert then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_alert, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_alert, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_control_alert_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2889,7 +2889,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_control_activation = f
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.risk_control_activation(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_activation, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_activation, range, value, display)
 
   return offset + length, value
 end
@@ -2916,7 +2916,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_ack_type = function(bu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.risk_ack_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_ack_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_ack_type, range, value, display)
 
   return offset + length, value
 end
@@ -3094,7 +3094,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_control_acknowledgement = function(buffer, offset, packet, parent)
   if show.risk_control_acknowledgement then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_acknowledgement, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_acknowledgement, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3123,7 +3123,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reserved_4 = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -3159,7 +3159,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.user_data = function(buffer
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.user_data(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.user_data, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user_data, range, value, display)
 
   return offset + length, value
 end
@@ -3213,7 +3213,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reject_type = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reject_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reject_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reject_type, range, value, display)
 
   return offset + length, value
 end
@@ -3286,7 +3286,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.application_layer_reject = function(buffer, offset, packet, parent)
   if show.application_layer_reject then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.application_layer_reject, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.application_layer_reject, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.application_layer_reject_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3322,7 +3322,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.bust_correct_indicator = fu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.bust_correct_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.bust_correct_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bust_correct_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3342,7 +3342,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.last_qty = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.last_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3368,7 +3368,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.last_px = function(buffer, 
   local value = translate.last_px(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.last_px(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.last_px, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -3388,7 +3388,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.deal_id = function(buffer, 
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.deal_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.deal_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.deal_id, range, value, display)
 
   return offset + length, value
 end
@@ -3408,7 +3408,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.seq = function(buffer, offs
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.seq, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq, range, value, display)
 
   return offset + length, value
 end
@@ -3428,7 +3428,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.user = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.user(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.user, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user, range, value, display)
 
   return offset + length, value
 end
@@ -3448,7 +3448,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.sess = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.sess(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.sess, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sess, range, value, display)
 
   return offset + length, value
 end
@@ -3486,7 +3486,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.stream_id = function(buffer, offset, packet, parent)
   if show.stream_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_id, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_id, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.stream_id_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3533,7 +3533,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.refseqmsgid = function(buffer, offset, packet, parent)
   if show.refseqmsgid then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.refseqmsgid, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.refseqmsgid, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.refseqmsgid_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3562,7 +3562,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_id = function(buffer,
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3655,7 +3655,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.trade_bust_or_correct = function(buffer, offset, packet, parent)
   if show.trade_bust_or_correct then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.trade_bust_or_correct, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trade_bust_or_correct, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.trade_bust_or_correct_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3700,7 +3700,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.clearing_account = function
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.clearing_account(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account, range, value, display)
 
   return offset + length, value
 end
@@ -3736,7 +3736,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.optional_data = function(bu
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.optional_data(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_data, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_data, range, value, display)
 
   return offset + length, value
 end
@@ -3772,7 +3772,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.clearing_firm = function(bu
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.clearing_firm(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm, range, value, display)
 
   return offset + length, value
 end
@@ -3808,7 +3808,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.deliver_to_comp_id = functi
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.deliver_to_comp_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.deliver_to_comp_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.deliver_to_comp_id, range, value, display)
 
   return offset + length, value
 end
@@ -3828,7 +3828,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.max_floor = function(buffer
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.max_floor(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.max_floor, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.max_floor, range, value, display)
 
   return offset + length, value
 end
@@ -3854,7 +3854,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.stop_px = function(buffer, 
   local value = translate.stop_px(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.stop_px(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.stop_px, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stop_px, range, value, display)
 
   return offset + length, value
 end
@@ -3892,7 +3892,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.sub_msg_header = function(buffer, offset, packet, parent)
   if show.sub_msg_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.sub_msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3964,7 +3964,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on = function(buffer, offset, packet, parent)
   if show.optional_order_add_on then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_order_add_on, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.optional_order_add_on, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4003,7 +4003,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.open_close = function(buffe
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.open_close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close, range, value, display)
 
   return offset + length, value
 end
@@ -4023,7 +4023,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.cross_id = function(buffer,
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.cross_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -4053,7 +4053,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.covered_or_uncovered = func
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.covered_or_uncovered(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.covered_or_uncovered, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.covered_or_uncovered, range, value, display)
 
   return offset + length, value
 end
@@ -4083,7 +4083,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_covered_or_uncovered
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_covered_or_uncovered(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_covered_or_uncovered, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_covered_or_uncovered, range, value, display)
 
   return offset + length, value
 end
@@ -4113,7 +4113,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_cross_type = functio
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_cross_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -4149,7 +4149,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_clearing_account = f
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_clearing_account(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_account, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_account, range, value, display)
 
   return offset + length, value
 end
@@ -4191,7 +4191,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_customer_or_firm = f
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_customer_or_firm(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_customer_or_firm, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_customer_or_firm, range, value, display)
 
   return offset + length, value
 end
@@ -4221,7 +4221,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_open_close = functio
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_open_close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_open_close, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_open_close, range, value, display)
 
   return offset + length, value
 end
@@ -4257,7 +4257,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_mpid = function(buff
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_mpid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_mpid, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_mpid, range, value, display)
 
   return offset + length, value
 end
@@ -4293,7 +4293,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_clearing_firm = func
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_clearing_firm(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_firm, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_clearing_firm, range, value, display)
 
   return offset + length, value
 end
@@ -4329,7 +4329,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.contra_market_maker = funct
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.contra_market_maker(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_market_maker, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.contra_market_maker, range, value, display)
 
   return offset + length, value
 end
@@ -4368,7 +4368,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.participant_type = function
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.participant_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.participant_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.participant_type, range, value, display)
 
   return offset + length, value
 end
@@ -4395,7 +4395,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.locate_reqd = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.locate_reqd(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd, range, value, display)
 
   return offset + length, value
 end
@@ -4415,7 +4415,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reserved_2 = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -4435,7 +4435,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reserved_1 = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -4468,7 +4468,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.multileg_reporting_type = f
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.multileg_reporting_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.multileg_reporting_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.multileg_reporting_type, range, value, display)
 
   return offset + length, value
 end
@@ -4504,7 +4504,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.liquidity_indicator = funct
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.liquidity_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4524,7 +4524,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.cum_qty = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.cum_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.cum_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4544,7 +4544,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.leaves_qty = function(buffe
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.leaves_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4753,7 +4753,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.execution_report = function
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.execution_report(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.execution_report(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.execution_report_fields(buffer, offset, packet, parent)
@@ -4829,7 +4829,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.ack_type = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.ack_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_type, range, value, display)
 
   return offset + length, value
 end
@@ -4873,7 +4873,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.pre_liquidity_indicator = f
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.pre_liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.pre_liquidity_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.pre_liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4893,7 +4893,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.working_away_from_display =
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.working_away_from_display(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.working_away_from_display, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.working_away_from_display, range, value, display)
 
   return offset + length, value
 end
@@ -4913,7 +4913,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_qty = function(buffer
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.order_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4939,7 +4939,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.working_price = function(bu
   local value = translate.working_price(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.working_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.working_price, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.working_price, range, value, display)
 
   return offset + length, value
 end
@@ -5027,7 +5027,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_priority_update_acknowledgment = function(buffer, offset, packet, parent)
   if show.order_priority_update_acknowledgment then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_acknowledgment, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_acknowledgment, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5066,7 +5066,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.cancel_scope = function(buf
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.cancel_scope(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_scope, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_scope, range, value, display)
 
   return offset + length, value
 end
@@ -5105,7 +5105,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.bulk_action = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.bulk_action(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_action, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_action, range, value, display)
 
   return offset + length, value
 end
@@ -5141,7 +5141,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.target_cancel_mpid = functi
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.target_cancel_mpid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_mpid, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_mpid, range, value, display)
 
   return offset + length, value
 end
@@ -5161,7 +5161,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.target_cancel_username = fu
   local value = trim_right_spaces(range:string())
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.target_cancel_username(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_username, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.target_cancel_username, range, value, display)
 
   return offset + length, value
 end
@@ -5181,7 +5181,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.group_id = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.group_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.group_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.group_id, range, value, display)
 
   return offset + length, value
 end
@@ -5207,7 +5207,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.price_price_8 = function(bu
   local value = translate.price_price_8(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.price_price_8(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.price_price_8, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.price_price_8, range, value, display)
 
   return offset + length, value
 end
@@ -5227,7 +5227,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.orig_cl_ord_id = function(b
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.orig_cl_ord_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.orig_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -5247,7 +5247,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.ref_cl_ord_id = function(bu
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.ref_cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.ref_cl_ord_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ref_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -5385,7 +5385,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_request_acknowledgment = function(buffer, offset, packet, parent)
   if show.order_request_acknowledgment then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request_acknowledgment, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request_acknowledgment, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_request_acknowledgment_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5414,7 +5414,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.quantity = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.quantity, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -5434,7 +5434,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.series_index = function(buf
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.series_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.series_index, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.series_index, range, value, display)
 
   return offset + length, value
 end
@@ -5501,7 +5501,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.quote_ack = function(buffer
     local range = buffer(offset, length)
     local value = range:le_uint()
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.quote_ack(buffer, offset, value, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.quote_ack, range, value, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quote_ack, range, value, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.quote_ack_fields(buffer, offset, packet, parent)
@@ -5541,7 +5541,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.self_trade_type = function(
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.self_trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type, range, value, display)
 
   return offset + length, value
 end
@@ -5577,7 +5577,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.sub_id = function(buffer, o
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.sub_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id, range, value, display)
 
   return offset + length, value
 end
@@ -5649,7 +5649,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.bulk_quote_acknowledgment =
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.bulk_quote_acknowledgment(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.bulk_quote_acknowledgment(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.bulk_quote_acknowledgment_fields(buffer, offset, packet, parent)
@@ -5670,7 +5670,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.auction_id = function(buffe
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.auction_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -5715,7 +5715,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.leg_open_close = function(b
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.leg_open_close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_open_close, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_open_close, range, value, display)
 
   return offset + length, value
 end
@@ -5735,7 +5735,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.min_qty = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.min_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.min_qty, range, value, display)
 
   return offset + length, value
 end
@@ -5755,67 +5755,67 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_instructions_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Bits 34: 34 Bit
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_bits_34, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_bits_34, buffer(offset, 17))
 
   -- Security Type: 5 Bit Enum with 3 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.security_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.security_type, buffer(offset, 17))
 
   -- Capacity: 5 Bit
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.capacity, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.capacity, buffer(offset, 17))
 
   -- Open Close: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_close, buffer(offset, 17))
 
   -- Sub Id Indicator: 5 Bit
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id_indicator, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sub_id_indicator, buffer(offset, 17))
 
   -- Special Ord Type: 5 Bit Enum with 10 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.special_ord_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.special_ord_type, buffer(offset, 17))
 
   -- Locate Reqd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.locate_reqd, buffer(offset, 17))
 
   -- Retail Indicator: 5 Bit Enum with 2 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.retail_indicator, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.retail_indicator, buffer(offset, 17))
 
   -- Attributed Quote: 5 Bit Enum with 9 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.attributed_quote, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.attributed_quote, buffer(offset, 17))
 
   -- Order Capacity: 5 Bit Enum with 5 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_capacity, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_capacity, buffer(offset, 17))
 
   -- Interest Type: 5 Bit Enum with 5 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.interest_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.interest_type, buffer(offset, 17))
 
   -- Trading Session Id: 5 Bit Enum with 6 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_session_id, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_session_id, buffer(offset, 17))
 
   -- Time In Force: 5 Bit Enum with 7 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.time_in_force, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.time_in_force, buffer(offset, 17))
 
   -- Proactive If Locked: 5 Bit Enum with 3 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.proactive_if_locked, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.proactive_if_locked, buffer(offset, 17))
 
   -- Self Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_type, buffer(offset, 17))
 
   -- Cancel Instead Of Reprice: 5 Bit Enum with 7 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice, buffer(offset, 17))
 
   -- Routing Inst: 5 Bit Enum with 3 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.routing_inst, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.routing_inst, buffer(offset, 17))
 
   -- Extended Exec Inst: 5 Bit Enum with 16 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.extended_exec_inst, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.extended_exec_inst, buffer(offset, 17))
 
   -- Exec Inst: 5 Bit Enum with 10 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.exec_inst, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.exec_inst, buffer(offset, 17))
 
   -- Ord Type: 5 Bit Enum with 7 values
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.ord_type, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ord_type, buffer(offset, 17))
 
   -- Side Bit 5: 5 Bit
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.side_bit_5, buffer(offset, 17))
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.side_bit_5, buffer(offset, 17))
 end
 
 -- Dissect: Order Instructions
@@ -5823,7 +5823,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_instructions = functi
   local size = 17
   local range = buffer(offset, size)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.order_instructions(range, packet, parent)
-  local element = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_instructions, range, display)
+  local element = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_instructions, range, display)
 
   if show.order_instructions then
     nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_instructions_bits(buffer, offset, packet, element)
@@ -5991,7 +5991,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_acknowledgement = fun
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.order_acknowledgement(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.order_acknowledgement(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_acknowledgement_fields(buffer, offset, packet, parent)
@@ -6012,7 +6012,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reserved_49 = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reserved_49(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_49, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_49, range, value, display)
 
   return offset + length, value
 end
@@ -6032,7 +6032,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.bold_designation = function
   local value = range:string()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.bold_designation(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.bold_designation, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bold_designation, range, value, display)
 
   return offset + length, value
 end
@@ -6052,7 +6052,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.ack_status = function(buffe
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.ack_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_status, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.ack_status, range, value, display)
 
   return offset + length, value
 end
@@ -6079,7 +6079,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_priority_update_ack_s
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.order_priority_update_ack_subscription(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_ack_subscription, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_ack_subscription, range, value, display)
 
   return offset + length, value
 end
@@ -6115,7 +6115,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.self_trade_prevention = fun
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.self_trade_prevention(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_prevention, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.self_trade_prevention, range, value, display)
 
   return offset + length, value
 end
@@ -6135,7 +6135,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.max_order_quantity = functi
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.max_order_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_quantity, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -6155,7 +6155,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.symbol_eligibility = functi
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.symbol_eligibility(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_eligibility, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.symbol_eligibility, range, value, display)
 
   return offset + length, value
 end
@@ -6175,7 +6175,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.throttle_threshold = functi
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.throttle_threshold(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_threshold, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_threshold, range, value, display)
 
   return offset + length, value
 end
@@ -6195,7 +6195,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.throttle_window = function(
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.throttle_window(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_window, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_window, range, value, display)
 
   return offset + length, value
 end
@@ -6222,7 +6222,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.throttle_preference = funct
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.throttle_preference(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_preference, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.throttle_preference, range, value, display)
 
   return offset + length, value
 end
@@ -6249,7 +6249,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.cancel_on_disconnect = func
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.cancel_on_disconnect(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_on_disconnect, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.cancel_on_disconnect, range, value, display)
 
   return offset + length, value
 end
@@ -6288,7 +6288,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mic = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mic(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mic, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mic, range, value, display)
 
   return offset + length, value
 end
@@ -6308,7 +6308,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.username = function(buffer,
   local value = trim_right_spaces(range:string())
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.username, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -6338,7 +6338,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.user_session_status = funct
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.user_session_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_status, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_status, range, value, display)
 
   return offset + length, value
 end
@@ -6383,7 +6383,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.user_session_type = functio
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.user_session_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.user_session_type, range, value, display)
 
   return offset + length, value
 end
@@ -6496,7 +6496,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.session_configuration_acknowledgement = function(buffer, offset, packet, parent)
   if show.session_configuration_acknowledgement then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_acknowledgement, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_acknowledgement, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.session_configuration_acknowledgement_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6525,7 +6525,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reserved_50 = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reserved_50(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_50, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_50, range, value, display)
 
   return offset + length, value
 end
@@ -6552,7 +6552,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.appointment_status = functi
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.appointment_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.appointment_status, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.appointment_status, range, value, display)
 
   return offset + length, value
 end
@@ -6591,7 +6591,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mm_type = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mm_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_type, range, value, display)
 
   return offset + length, value
 end
@@ -6611,7 +6611,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.nyse_symbol = function(buff
   local value = trim_right_spaces(range:string())
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.nyse_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.nyse_symbol, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.nyse_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -6684,7 +6684,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.options_market_maker_symbol_appointment_reference_data = function(buffer, offset, packet, parent)
   if show.options_market_maker_symbol_appointment_reference_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.options_market_maker_symbol_appointment_reference_data, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.options_market_maker_symbol_appointment_reference_data, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.options_market_maker_symbol_appointment_reference_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6723,7 +6723,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpid_status = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mpid_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_status, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_status, range, value, display)
 
   return offset + length, value
 end
@@ -6781,7 +6781,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpid_configuration = function(buffer, offset, packet, parent)
   if show.mpid_configuration then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_configuration, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_configuration, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpid_configuration_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6810,7 +6810,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpv_class_id = function(buf
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mpv_class_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_id, range, value, display)
 
   return offset + length, value
 end
@@ -6836,7 +6836,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.trading_mpv = function(buff
   local value = translate.trading_mpv(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.trading_mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_mpv, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trading_mpv, range, value, display)
 
   return offset + length, value
 end
@@ -6862,7 +6862,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.quoting_mpv = function(buff
   local value = translate.quoting_mpv(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.quoting_mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.quoting_mpv, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.quoting_mpv, range, value, display)
 
   return offset + length, value
 end
@@ -6888,7 +6888,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.price_u_price_8 = function(
   local value = translate.price_u_price_8(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.price_u_price_8(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.price_u_price_8, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.price_u_price_8, range, value, display)
 
   return offset + length, value
 end
@@ -6908,7 +6908,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpv_level_name = function(b
   local value = trim_right_spaces(range:string())
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mpv_level_name(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_name, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_name, range, value, display)
 
   return offset + length, value
 end
@@ -6961,7 +6961,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpv_level_definition = function(buffer, offset, packet, parent)
   if show.mpv_level_definition then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_definition, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_level_definition, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpv_level_definition_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7018,7 +7018,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.minimum_price_variant_level
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.minimum_price_variant_level_reference_data(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.minimum_price_variant_level_reference_data(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.minimum_price_variant_level_reference_data_fields(buffer, offset, packet, parent)
@@ -7045,7 +7045,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.luldmpv = function(buffer, 
   local value = translate.luldmpv(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.luldmpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.luldmpv, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.luldmpv, range, value, display)
 
   return offset + length, value
 end
@@ -7071,7 +7071,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.rpimpv = function(buffer, o
   local value = translate.rpimpv(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.rpimpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.rpimpv, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.rpimpv, range, value, display)
 
   return offset + length, value
 end
@@ -7091,7 +7091,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mpv_class_name = function(b
   local value = trim_right_spaces(range:string())
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mpv_class_name(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_name, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpv_class_name, range, value, display)
 
   return offset + length, value
 end
@@ -7149,7 +7149,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.minimum_price_variant_class_reference_data = function(buffer, offset, packet, parent)
   if show.minimum_price_variant_class_reference_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_class_reference_data, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_class_reference_data, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.minimum_price_variant_class_reference_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7191,7 +7191,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.sequenced_filler = function(buffer, offset, packet, parent)
   if show.sequenced_filler then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_filler, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_filler, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.sequenced_filler_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7220,7 +7220,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.legal_width_multiplier = fu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.legal_width_multiplier(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.legal_width_multiplier, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.legal_width_multiplier, range, value, display)
 
   return offset + length, value
 end
@@ -7240,7 +7240,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.channel_id = function(buffe
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.channel_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -7267,7 +7267,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.test_symbol_indicator = fun
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.test_symbol_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.test_symbol_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.test_symbol_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -7293,7 +7293,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.max_order_price = function(
   local value = translate.max_order_price(raw)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.max_order_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_price, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.max_order_price, range, value, display)
 
   return offset + length, value
 end
@@ -7371,7 +7371,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.underlying_type = function(
   local value = range:string()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.underlying_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_type, range, value, display)
 
   return offset + length, value
 end
@@ -7407,7 +7407,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.listed_mic = function(buffe
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.listed_mic(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.listed_mic, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.listed_mic, range, value, display)
 
   return offset + length, value
 end
@@ -7490,7 +7490,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.underlying_symbol_reference_data = function(buffer, offset, packet, parent)
   if show.underlying_symbol_reference_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.underlying_symbol_reference_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7526,7 +7526,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.leg_side = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_side, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -7546,7 +7546,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.leg_ratio_qty = function(bu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_ratio_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -7566,7 +7566,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.leg_symbol_id = function(bu
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.leg_symbol_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_symbol_id, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.leg_symbol_id, range, value, display)
 
   return offset + length, value
 end
@@ -7609,7 +7609,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.complex_leg = function(buffer, offset, packet, parent)
   if show.complex_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_leg, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_leg, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.complex_leg_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7669,7 +7669,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.new_complex_series_request 
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.new_complex_series_request(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.new_complex_series_request(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.new_complex_series_request_fields(buffer, offset, packet, parent)
@@ -7763,7 +7763,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_action_request = function(buffer, offset, packet, parent)
   if show.risk_action_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_request, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_action_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7805,7 +7805,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.breach_action_request = fun
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.breach_action_request(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_request, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.breach_action_request, range, value, display)
 
   return offset + length, value
 end
@@ -7928,7 +7928,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_limit_update_request = function(buffer, offset, packet, parent)
   if show.risk_limit_update_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_limit_update_request, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_limit_update_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.risk_limit_update_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7961,7 +7961,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mm_sent_time = function(buf
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mm_sent_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_sent_time, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mm_sent_time, range, value, display)
 
   return offset + length, value
 end
@@ -8049,7 +8049,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.bulk_cancel_request = function(buffer, offset, packet, parent)
   if show.bulk_cancel_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_cancel_request, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_cancel_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.bulk_cancel_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8177,7 +8177,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.covered = function(buffer, 
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.covered(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.covered(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.covered, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.covered, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.covered_fields(buffer, offset, packet, parent)
@@ -8276,7 +8276,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.exposed = function(buffer, offset, packet, parent)
   if show.exposed then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.exposed, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.exposed, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.exposed_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8305,7 +8305,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.reserved_16 = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.reserved_16(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_16, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.reserved_16, range, value, display)
 
   return offset + length, value
 end
@@ -8341,7 +8341,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.clearing_account_covered = 
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.clearing_account_covered(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_covered, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_covered, range, value, display)
 
   return offset + length, value
 end
@@ -8377,7 +8377,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.clearing_firm_covered = fun
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.clearing_firm_covered(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_covered, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_covered, range, value, display)
 
   return offset + length, value
 end
@@ -8413,7 +8413,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.clearing_account_exposed = 
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.clearing_account_exposed(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_exposed, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_account_exposed, range, value, display)
 
   return offset + length, value
 end
@@ -8449,7 +8449,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.clearing_firm_exposed = fun
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.clearing_firm_exposed(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_exposed, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.clearing_firm_exposed, range, value, display)
 
   return offset + length, value
 end
@@ -8469,7 +8469,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.allocation_pct = function(b
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.allocation_pct(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.allocation_pct, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.allocation_pct, range, value, display)
 
   return offset + length, value
 end
@@ -8550,7 +8550,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.new_order_cross = function(
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.new_order_cross(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.new_order_cross(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.new_order_cross_fields(buffer, offset, packet, parent)
@@ -8571,7 +8571,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.bit_field_quote_inst = func
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.bit_field_quote_inst(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.bit_field_quote_inst, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bit_field_quote_inst, range, value, display)
 
   return offset + length, value
 end
@@ -8619,7 +8619,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.bulk_quote = function(buffer, offset, packet, parent)
   if show.bulk_quote then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.bulk_quote_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8694,7 +8694,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.new_bulk_quote = function(b
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.new_bulk_quote(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.new_bulk_quote(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.new_bulk_quote_fields(buffer, offset, packet, parent)
@@ -8763,7 +8763,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_modify_request = function(buffer, offset, packet, parent)
   if show.order_modify_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_modify_request, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_modify_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_modify_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8825,7 +8825,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_cancel_request = function(buffer, offset, packet, parent)
   if show.order_cancel_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_cancel_request, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_cancel_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_cancel_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8953,7 +8953,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_request = function(bu
     local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.order_request(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.order_request(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request, range, display)
   end
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.order_request_fields(buffer, offset, packet, parent)
@@ -9022,7 +9022,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.session_configuration_request_message = function(buffer, offset, packet, parent)
   if show.session_configuration_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_request_message, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.session_configuration_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -9292,7 +9292,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.sequenced_message = functio
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_message, range, display)
+  local element = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_message, range, display)
 
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.sequenced_message_branches(buffer, offset, packet, parent, seq_msg_type)
 end
@@ -9312,7 +9312,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.timestamp = function(buffer
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -9350,7 +9350,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.seqmsgid = function(buffer, offset, packet, parent)
   if show.seqmsgid then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.seqmsgid, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seqmsgid, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.seqmsgid_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -9379,7 +9379,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.msg_length = function(buffe
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.msg_length(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_length, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_length, range, value, display)
 
   return offset + length, value
 end
@@ -9427,7 +9427,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.msg_type = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_type, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -9465,7 +9465,7 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.msg_header = function(buffer, offset, packet, parent)
   if show.msg_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.msg_header, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15_dissect.msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -9528,7 +9528,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.seq_msg = function(buffer, 
   if show.seq_msg then
     local range = buffer(offset, size_of_seq_msg)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.seq_msg(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.seq_msg_fields(buffer, offset, packet, parent, size_of_seq_msg)
@@ -9558,7 +9558,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.status = function(buffer, o
   local value = range:uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.status, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -9603,7 +9603,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.close_response = function(b
   if show.close_response then
     local range = buffer(offset, size_of_close_response)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.close_response(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.close_response_fields(buffer, offset, packet, parent, size_of_close_response)
@@ -9648,7 +9648,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.close = function(buffer, of
   if show.close then
     local range = buffer(offset, size_of_close)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.close(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.close, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.close_fields(buffer, offset, packet, parent, size_of_close)
@@ -9671,7 +9671,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.access = function(buffer, o
   local value = range:uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.access(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.access, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.access, range, value, display)
 
   return offset + length, value
 end
@@ -9719,7 +9719,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.open_response = function(bu
   if show.open_response then
     local range = buffer(offset, size_of_open_response)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.open_response(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.open_response_fields(buffer, offset, packet, parent, size_of_open_response)
@@ -9742,7 +9742,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.mode = function(buffer, off
   local value = range:uint()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.mode(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.mode, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mode, range, value, display)
 
   return offset + length, value
 end
@@ -9762,7 +9762,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.end_seq = function(buffer, 
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.end_seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.end_seq, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.end_seq, range, value, display)
 
   return offset + length, value
 end
@@ -9782,7 +9782,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.start_seq = function(buffer
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.start_seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.start_seq, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.start_seq, range, value, display)
 
   return offset + length, value
 end
@@ -9836,7 +9836,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.open = function(buffer, off
   if show.open then
     local range = buffer(offset, size_of_open)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.open(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.open, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.open_fields(buffer, offset, packet, parent, size_of_open)
@@ -9878,7 +9878,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.heartbeat = function(buffer
   if show.heartbeat then
     local range = buffer(offset, size_of_heartbeat)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.heartbeat(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.heartbeat_fields(buffer, offset, packet, parent, size_of_heartbeat)
@@ -9901,7 +9901,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.next_seq = function(buffer,
   local value = range:le_uint64()
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.next_seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.next_seq, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.next_seq, range, value, display)
 
   return offset + length, value
 end
@@ -9949,7 +9949,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.stream_avail = function(buf
   if show.stream_avail then
     local range = buffer(offset, size_of_stream_avail)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.stream_avail(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.stream_avail_fields(buffer, offset, packet, parent, size_of_stream_avail)
@@ -9997,7 +9997,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.login_response = function(b
   if show.login_response then
     local range = buffer(offset, size_of_login_response)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.login_response(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.login_response_fields(buffer, offset, packet, parent, size_of_login_response)
@@ -10036,7 +10036,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.version = function(buffer, 
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.version, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -10072,7 +10072,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.password = function(buffer,
 
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.password, range, value, display)
+  parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -10123,7 +10123,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.login_message = function(bu
   if show.login_message then
     local range = buffer(offset, size_of_login_message)
     local display = nyse_arca_options_binarygateway_pillar_v3_15_display.login_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message, range, display)
+    parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message, range, display)
   end
 
   nyse_arca_options_binarygateway_pillar_v3_15_dissect.login_message_fields(buffer, offset, packet, parent, size_of_login_message)
@@ -10184,23 +10184,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_arca_options_binarygateway_pillar_v3_15.init()
+function omi_nyse_arca_options_binarygateway_pillar_v3_15.init()
 end
 
 -- Dissector for Nyse Arca Options BinaryGateway Pillar 3.15
-function nyse_arca_options_binarygateway_pillar_v3_15.dissector(buffer, packet, parent)
+function omi_nyse_arca_options_binarygateway_pillar_v3_15.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_arca_options_binarygateway_pillar_v3_15.name
+  packet.cols.protocol = omi_nyse_arca_options_binarygateway_pillar_v3_15.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_arca_options_binarygateway_pillar_v3_15, buffer(), nyse_arca_options_binarygateway_pillar_v3_15.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15, buffer(), omi_nyse_arca_options_binarygateway_pillar_v3_15.description, "("..buffer:len().." Bytes)")
   return nyse_arca_options_binarygateway_pillar_v3_15_dissect.pillar_stream_message(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, nyse_arca_options_binarygateway_pillar_v3_15)
+tcp_table:add(65333, omi_nyse_arca_options_binarygateway_pillar_v3_15)
 
 
 -----------------------------------------------------------------------
@@ -10208,25 +10208,25 @@ tcp_table:add(65333, nyse_arca_options_binarygateway_pillar_v3_15)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_arca_options_binarygateway_pillar_v3_15_packet_size = function(buffer)
+verify.omi_nyse_arca_options_binarygateway_pillar_v3_15_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nyse Arca Options BinaryGateway Pillar 3.15
-local function nyse_arca_options_binarygateway_pillar_v3_15_heuristic(buffer, packet, parent)
+local function omi_nyse_arca_options_binarygateway_pillar_v3_15_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_arca_options_binarygateway_pillar_v3_15_packet_size(buffer) then return false end
+  if not verify.omi_nyse_arca_options_binarygateway_pillar_v3_15_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_arca_options_binarygateway_pillar_v3_15
-  nyse_arca_options_binarygateway_pillar_v3_15.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_arca_options_binarygateway_pillar_v3_15
+  omi_nyse_arca_options_binarygateway_pillar_v3_15.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Arca Options BinaryGateway Pillar 3.15
-nyse_arca_options_binarygateway_pillar_v3_15:register_heuristic("tcp", nyse_arca_options_binarygateway_pillar_v3_15_heuristic)
+omi_nyse_arca_options_binarygateway_pillar_v3_15:register_heuristic("tcp", omi_nyse_arca_options_binarygateway_pillar_v3_15_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

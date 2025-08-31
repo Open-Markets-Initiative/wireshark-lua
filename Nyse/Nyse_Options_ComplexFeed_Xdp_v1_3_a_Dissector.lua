@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Options ComplexFeed Xdp 1.3.a Protocol
-local nyse_options_complexfeed_xdp_v1_3_a = Proto("Nyse.Options.ComplexFeed.Xdp.v1.3.a.Lua", "Nyse Options ComplexFeed Xdp 1.3.a")
+local omi_nyse_options_complexfeed_xdp_v1_3_a = Proto("Nyse.Options.ComplexFeed.Xdp.v1.3.a.Lua", "Nyse Options ComplexFeed Xdp 1.3.a")
 
 -- Component Tables
 local show = {}
@@ -20,67 +20,67 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nyse Options ComplexFeed Xdp 1.3.a Fields
-nyse_options_complexfeed_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.options.complexfeed.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.options.complexfeed.xdp.v1.3.a.askprice", ftypes.INT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.options.complexfeed.xdp.v1.3.a.askvolume", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.bid_customer_volume = ProtoField.new("Bid Customer Volume", "nyse.options.complexfeed.xdp.v1.3.a.bidcustomervolume", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.options.complexfeed.xdp.v1.3.a.bidprice", ftypes.INT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.options.complexfeed.xdp.v1.3.a.bidvolume", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.options.complexfeed.xdp.v1.3.a.channelid", ftypes.UINT8)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message = ProtoField.new("Complex Crossing Rfq Message", "nyse.options.complexfeed.xdp.v1.3.a.complexcrossingrfqmessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message = ProtoField.new("Complex Cube Rfq Message", "nyse.options.complexfeed.xdp.v1.3.a.complexcuberfqmessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_index = ProtoField.new("Complex Index", "nyse.options.complexfeed.xdp.v1.3.a.complexindex", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message = ProtoField.new("Complex Quote Message", "nyse.options.complexfeed.xdp.v1.3.a.complexquotemessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message = ProtoField.new("Complex Status Message", "nyse.options.complexfeed.xdp.v1.3.a.complexstatusmessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol = ProtoField.new("Complex Symbol", "nyse.options.complexfeed.xdp.v1.3.a.complexsymbol", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message = ProtoField.new("Complex Symbol Definition Message", "nyse.options.complexfeed.xdp.v1.3.a.complexsymboldefinitionmessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message = ProtoField.new("Complex Trade Message", "nyse.options.complexfeed.xdp.v1.3.a.complextrademessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.options.complexfeed.xdp.v1.3.a.deliveryflag", ftypes.UINT8)
-nyse_options_complexfeed_xdp_v1_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.options.complexfeed.xdp.v1.3.a.haltcondition", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition = ProtoField.new("Leg Definition", "nyse.options.complexfeed.xdp.v1.3.a.legdefinition", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.options.complexfeed.xdp.v1.3.a.legratioqty", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.leg_security_type = ProtoField.new("Leg Security Type", "nyse.options.complexfeed.xdp.v1.3.a.legsecuritytype", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.options.complexfeed.xdp.v1.3.a.marketid", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.options.complexfeed.xdp.v1.3.a.message", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.options.complexfeed.xdp.v1.3.a.messagecount", ftypes.UINT8)
-nyse_options_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.options.complexfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.options.complexfeed.xdp.v1.3.a.messagesize", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.options.complexfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.options.complexfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs = ProtoField.new("No Of Legs", "nyse.options.complexfeed.xdp.v1.3.a.nooflegs", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.options.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.options.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.options.complexfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.payload = ProtoField.new("Payload", "nyse.options.complexfeed.xdp.v1.3.a.payload", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.options.complexfeed.xdp.v1.3.a.price", ftypes.INT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.options.complexfeed.xdp.v1.3.a.productid", ftypes.UINT8)
-nyse_options_complexfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.options.complexfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message = ProtoField.new("Refresh Complex Quote Message", "nyse.options.complexfeed.xdp.v1.3.a.refreshcomplexquotemessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.options.complexfeed.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.options.complexfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
-nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.options.complexfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
-nyse_options_complexfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.options.complexfeed.xdp.v1.3.a.securitystatus", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.options.complexfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.options.complexfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.options.complexfeed.xdp.v1.3.a.side", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.options.complexfeed.xdp.v1.3.a.sourcens", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.options.complexfeed.xdp.v1.3.a.sourcetime", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.options.complexfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.options.complexfeed.xdp.v1.3.a.streamid", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.options.complexfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.options.complexfeed.xdp.v1.3.a.symbolindex", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.options.complexfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.options.complexfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
-nyse_options_complexfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.options.complexfeed.xdp.v1.3.a.timestamp", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.options.complexfeed.xdp.v1.3.a.tradecond1", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.options.complexfeed.xdp.v1.3.a.tradecond2", ftypes.STRING)
-nyse_options_complexfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.options.complexfeed.xdp.v1.3.a.tradeid", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2 = ProtoField.new("Volume 2", "nyse.options.complexfeed.xdp.v1.3.a.volume2", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4 = ProtoField.new("Volume 4", "nyse.options.complexfeed.xdp.v1.3.a.volume4", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.options.complexfeed.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.options.complexfeed.xdp.v1.3.a.askprice", ftypes.INT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.options.complexfeed.xdp.v1.3.a.askvolume", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.bid_customer_volume = ProtoField.new("Bid Customer Volume", "nyse.options.complexfeed.xdp.v1.3.a.bidcustomervolume", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.options.complexfeed.xdp.v1.3.a.bidprice", ftypes.INT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.options.complexfeed.xdp.v1.3.a.bidvolume", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.options.complexfeed.xdp.v1.3.a.channelid", ftypes.UINT8)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message = ProtoField.new("Complex Crossing Rfq Message", "nyse.options.complexfeed.xdp.v1.3.a.complexcrossingrfqmessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message = ProtoField.new("Complex Cube Rfq Message", "nyse.options.complexfeed.xdp.v1.3.a.complexcuberfqmessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_index = ProtoField.new("Complex Index", "nyse.options.complexfeed.xdp.v1.3.a.complexindex", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message = ProtoField.new("Complex Quote Message", "nyse.options.complexfeed.xdp.v1.3.a.complexquotemessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message = ProtoField.new("Complex Status Message", "nyse.options.complexfeed.xdp.v1.3.a.complexstatusmessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol = ProtoField.new("Complex Symbol", "nyse.options.complexfeed.xdp.v1.3.a.complexsymbol", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message = ProtoField.new("Complex Symbol Definition Message", "nyse.options.complexfeed.xdp.v1.3.a.complexsymboldefinitionmessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message = ProtoField.new("Complex Trade Message", "nyse.options.complexfeed.xdp.v1.3.a.complextrademessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.options.complexfeed.xdp.v1.3.a.deliveryflag", ftypes.UINT8)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.options.complexfeed.xdp.v1.3.a.haltcondition", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition = ProtoField.new("Leg Definition", "nyse.options.complexfeed.xdp.v1.3.a.legdefinition", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.options.complexfeed.xdp.v1.3.a.legratioqty", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_security_type = ProtoField.new("Leg Security Type", "nyse.options.complexfeed.xdp.v1.3.a.legsecuritytype", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.options.complexfeed.xdp.v1.3.a.marketid", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.options.complexfeed.xdp.v1.3.a.message", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.options.complexfeed.xdp.v1.3.a.messagecount", ftypes.UINT8)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.options.complexfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.options.complexfeed.xdp.v1.3.a.messagesize", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.options.complexfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.options.complexfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs = ProtoField.new("No Of Legs", "nyse.options.complexfeed.xdp.v1.3.a.nooflegs", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.options.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.options.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.options.complexfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.payload = ProtoField.new("Payload", "nyse.options.complexfeed.xdp.v1.3.a.payload", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.options.complexfeed.xdp.v1.3.a.price", ftypes.INT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.options.complexfeed.xdp.v1.3.a.productid", ftypes.UINT8)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.options.complexfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message = ProtoField.new("Refresh Complex Quote Message", "nyse.options.complexfeed.xdp.v1.3.a.refreshcomplexquotemessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.options.complexfeed.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.options.complexfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.options.complexfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.options.complexfeed.xdp.v1.3.a.securitystatus", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.options.complexfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.options.complexfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.options.complexfeed.xdp.v1.3.a.side", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.options.complexfeed.xdp.v1.3.a.sourcens", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.options.complexfeed.xdp.v1.3.a.sourcetime", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.options.complexfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.options.complexfeed.xdp.v1.3.a.streamid", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.options.complexfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.options.complexfeed.xdp.v1.3.a.symbolindex", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.options.complexfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.options.complexfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.options.complexfeed.xdp.v1.3.a.timestamp", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.options.complexfeed.xdp.v1.3.a.tradecond1", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.options.complexfeed.xdp.v1.3.a.tradecond2", ftypes.STRING)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.options.complexfeed.xdp.v1.3.a.tradeid", ftypes.UINT32)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2 = ProtoField.new("Volume 2", "nyse.options.complexfeed.xdp.v1.3.a.volume2", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4 = ProtoField.new("Volume 4", "nyse.options.complexfeed.xdp.v1.3.a.volume4", ftypes.UINT32)
 
 -- Nyse Options ComplexFeed Xdp 1.3.a generated fields
-nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.options.complexfeed.xdp.v1.3.a.legdefinitionindex", ftypes.UINT16)
-nyse_options_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.options.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.options.complexfeed.xdp.v1.3.a.legdefinitionindex", ftypes.UINT16)
+omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.options.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -105,90 +105,90 @@ show.stream_id_message = true
 show.payload = false
 
 -- Register Nyse Options ComplexFeed Xdp 1.3.a Show Options
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message = Pref.bool("Show Complex Cube Rfq Message", show.complex_cube_rfq_message, "Parse and add Complex Cube Rfq Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message = Pref.bool("Show Complex Quote Message", show.complex_quote_message, "Parse and add Complex Quote Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message = Pref.bool("Show Complex Status Message", show.complex_status_message, "Parse and add Complex Status Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message = Pref.bool("Show Complex Symbol Definition Message", show.complex_symbol_definition_message, "Parse and add Complex Symbol Definition Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message = Pref.bool("Show Complex Trade Message", show.complex_trade_message, "Parse and add Complex Trade Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message = Pref.bool("Show Refresh Complex Quote Message", show.refresh_complex_quote_message, "Parse and add Refresh Complex Quote Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
-nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message = Pref.bool("Show Complex Cube Rfq Message", show.complex_cube_rfq_message, "Parse and add Complex Cube Rfq Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message = Pref.bool("Show Complex Quote Message", show.complex_quote_message, "Parse and add Complex Quote Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message = Pref.bool("Show Complex Status Message", show.complex_status_message, "Parse and add Complex Status Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message = Pref.bool("Show Complex Symbol Definition Message", show.complex_symbol_definition_message, "Parse and add Complex Symbol Definition Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message = Pref.bool("Show Complex Trade Message", show.complex_trade_message, "Parse and add Complex Trade Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message = Pref.bool("Show Refresh Complex Quote Message", show.refresh_complex_quote_message, "Parse and add Refresh Complex Quote Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_options_complexfeed_xdp_v1_3_a.prefs_changed()
+function omi_nyse_options_complexfeed_xdp_v1_3_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.complex_crossing_rfq_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
-    show.complex_crossing_rfq_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
+  if show.complex_crossing_rfq_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
+    show.complex_crossing_rfq_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
     changed = true
   end
-  if show.complex_cube_rfq_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message then
-    show.complex_cube_rfq_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message
+  if show.complex_cube_rfq_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message then
+    show.complex_cube_rfq_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message
     changed = true
   end
-  if show.complex_quote_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message then
-    show.complex_quote_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message
+  if show.complex_quote_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message then
+    show.complex_quote_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message
     changed = true
   end
-  if show.complex_status_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message then
-    show.complex_status_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message
+  if show.complex_status_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message then
+    show.complex_status_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message
     changed = true
   end
-  if show.complex_symbol_definition_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message then
-    show.complex_symbol_definition_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message
+  if show.complex_symbol_definition_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message then
+    show.complex_symbol_definition_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message
     changed = true
   end
-  if show.complex_trade_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message then
-    show.complex_trade_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message
+  if show.complex_trade_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message then
+    show.complex_trade_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message
     changed = true
   end
-  if show.leg_definition ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition then
-    show.leg_definition = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition
+  if show.leg_definition ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition then
+    show.leg_definition = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition
     changed = true
   end
-  if show.message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message then
-    show.message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message
+  if show.message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message then
+    show.message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header then
-    show.message_header = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header
+  if show.message_header ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header then
+    show.message_header = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet then
-    show.packet = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet
+  if show.packet ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet then
+    show.packet = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header then
-    show.packet_header = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header
+  if show.packet_header ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header then
+    show.packet_header = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_complex_quote_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message then
-    show.refresh_complex_quote_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
+  if show.refresh_complex_quote_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message then
+    show.refresh_complex_quote_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
     changed = true
   end
-  if show.refresh_complex_trade_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message then
-    show.refresh_complex_trade_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message
+  if show.refresh_complex_trade_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message then
+    show.refresh_complex_trade_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message
     changed = true
   end
-  if show.sequence_number_reset_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.stream_id_message ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message then
-    show.stream_id_message = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message
+  if show.stream_id_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message then
+    show.stream_id_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message
     changed = true
   end
-  if show.payload ~= nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload then
-    show.payload = nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload
+  if show.payload ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload then
+    show.payload = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_payload
     changed = true
   end
 
@@ -218,7 +218,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.channel_id = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -238,7 +238,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.product_id = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.product_id, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -258,7 +258,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns = function(buffer, of
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
 
   return offset + length, value
 end
@@ -278,7 +278,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_time, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -326,7 +326,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -355,7 +355,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2 = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -375,7 +375,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.stream_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
 
   return offset + length, value
 end
@@ -413,7 +413,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message = function(buffer, offset, packet, parent)
   if show.stream_id_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -449,7 +449,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_security_type = function(buffer,
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_security_type, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_security_type, range, value, display)
 
   return offset + length, value
 end
@@ -476,7 +476,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.side = function(buffer, offset, pack
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.side, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -496,7 +496,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_ratio_qty = function(buffer, off
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_ratio_qty, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -516,7 +516,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_index = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
@@ -547,7 +547,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields = function(buf
 
   -- Implicit Leg Definition Index
   if leg_definition_index ~= nil then
-    local iteration = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
+    local iteration = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
 
@@ -570,7 +570,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition = function(buffer, offset, packet, parent, leg_definition_index)
   if show.leg_definition then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, parent, leg_definition_index)
     local length = index - offset
     parent:set_len(length)
@@ -599,7 +599,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.no_of_legs = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.no_of_legs(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
 
   return offset + length, value
 end
@@ -619,7 +619,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_1 = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -639,7 +639,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.system_id = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.system_id, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.system_id, range, value, display)
 
   return offset + length, value
 end
@@ -687,7 +687,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.market_id = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.market_id, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.market_id, range, value, display)
 
   return offset + length, value
 end
@@ -707,7 +707,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol = function(buffer, of
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -727,7 +727,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index = function(buffer, off
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_index, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_index, range, value, display)
 
   return offset + length, value
 end
@@ -812,7 +812,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message = 
     local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol_definition_message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol_definition_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, range, display)
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, range, display)
   end
 
   return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message_fields(buffer, offset, packet, parent)
@@ -840,7 +840,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_2 = function(buffer, offs
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.trade_cond_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
 
   return offset + length, value
 end
@@ -873,7 +873,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_1 = function(buffer, offs
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.trade_cond_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
 
   return offset + length, value
 end
@@ -893,7 +893,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_4 = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.volume_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4, range, value, display)
 
   return offset + length, value
 end
@@ -913,7 +913,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.price = function(buffer, offset, pac
   local value = range:le_int()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.price, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -933,7 +933,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_id = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_id, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -953,7 +953,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num = function(buffer, of
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1031,7 +1031,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
   if show.refresh_complex_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1076,7 +1076,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.quote_condition = function(buffer, o
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1096,7 +1096,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_customer_volume = function(buffe
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.bid_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1116,7 +1116,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_customer_volume = function(buffe
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.ask_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1136,7 +1136,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_volume = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.bid_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_volume, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.bid_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1156,7 +1156,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_volume = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.ask_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_volume, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.ask_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1176,7 +1176,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_price = function(buffer, offset,
   local value = range:le_int()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_price, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1196,7 +1196,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_price = function(buffer, offset,
   local value = range:le_int()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_price, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -1289,7 +1289,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
   if show.refresh_complex_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1318,7 +1318,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.halt_condition = function(buffer, of
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1363,7 +1363,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.security_status = function(buffer, o
   local value = range:string()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.security_status, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -1426,7 +1426,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message = function(buffer, offset, packet, parent)
   if show.complex_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1455,7 +1455,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_2 = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.volume_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
 
   return offset + length, value
 end
@@ -1475,7 +1475,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.source_ns = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.source_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
 
   return offset + length, value
 end
@@ -1543,7 +1543,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
   if show.complex_cube_rfq_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1620,7 +1620,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
   if show.complex_crossing_rfq_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1707,7 +1707,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message = function(buffer, offset, packet, parent)
   if show.complex_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1809,7 +1809,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message = function(buffer, offset, packet, parent)
   if show.complex_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1935,7 +1935,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.payload = function(buffer, offset, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.payload, range, display)
+  local element = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.payload, range, display)
 
   return nyse_options_complexfeed_xdp_v1_3_a_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1986,7 +1986,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.message_type = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_type, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2006,7 +2006,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.message_size = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_size, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -2044,7 +2044,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2083,7 +2083,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, of
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_index, message_index)
+    local iteration = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2106,7 +2106,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.message = function(buffer, offset, p
     local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message, range, display)
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message, range, display)
   end
 
   return nyse_options_complexfeed_xdp_v1_3_a_dissect.message_fields(buffer, offset, packet, parent)
@@ -2127,7 +2127,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.nanoseconds = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -2147,7 +2147,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.timestamp = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2167,7 +2167,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number = function(buffer, o
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2187,7 +2187,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.message_count = function(buffer, off
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_count, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2241,7 +2241,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.delivery_flag = function(buffer, off
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
@@ -2261,7 +2261,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_size = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_options_complexfeed_xdp_v1_3_a_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -2319,7 +2319,7 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2357,23 +2357,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_options_complexfeed_xdp_v1_3_a.init()
+function omi_nyse_options_complexfeed_xdp_v1_3_a.init()
 end
 
 -- Dissector for Nyse Options ComplexFeed Xdp 1.3.a
-function nyse_options_complexfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
+function omi_nyse_options_complexfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_options_complexfeed_xdp_v1_3_a.name
+  packet.cols.protocol = omi_nyse_options_complexfeed_xdp_v1_3_a.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_options_complexfeed_xdp_v1_3_a, buffer(), nyse_options_complexfeed_xdp_v1_3_a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a, buffer(), omi_nyse_options_complexfeed_xdp_v1_3_a.description, "("..buffer:len().." Bytes)")
   return nyse_options_complexfeed_xdp_v1_3_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_options_complexfeed_xdp_v1_3_a)
+udp_table:add(65333, omi_nyse_options_complexfeed_xdp_v1_3_a)
 
 
 -----------------------------------------------------------------------
@@ -2381,25 +2381,25 @@ udp_table:add(65333, nyse_options_complexfeed_xdp_v1_3_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_options_complexfeed_xdp_v1_3_a_packet_size = function(buffer)
+verify.omi_nyse_options_complexfeed_xdp_v1_3_a_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nyse Options ComplexFeed Xdp 1.3.a
-local function nyse_options_complexfeed_xdp_v1_3_a_heuristic(buffer, packet, parent)
+local function omi_nyse_options_complexfeed_xdp_v1_3_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_options_complexfeed_xdp_v1_3_a_packet_size(buffer) then return false end
+  if not verify.omi_nyse_options_complexfeed_xdp_v1_3_a_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_options_complexfeed_xdp_v1_3_a
-  nyse_options_complexfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_options_complexfeed_xdp_v1_3_a
+  omi_nyse_options_complexfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Options ComplexFeed Xdp 1.3.a
-nyse_options_complexfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_complexfeed_xdp_v1_3_a_heuristic)
+omi_nyse_options_complexfeed_xdp_v1_3_a:register_heuristic("udp", omi_nyse_options_complexfeed_xdp_v1_3_a_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Tmx QuantumFeed XmtHeader Udp 1.1 Protocol
-local tmx_quantumfeed_xmtheader_udp_v1_1 = Proto("Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Lua", "Tmx QuantumFeed XmtHeader Udp 1.1")
+local omi_tmx_quantumfeed_xmtheader_udp_v1_1 = Proto("Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Lua", "Tmx QuantumFeed XmtHeader Udp 1.1")
 
 -- Component Tables
 local show = {}
@@ -20,30 +20,30 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Tmx QuantumFeed XmtHeader Udp 1.1 Fields
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.xmtheader.udp.v1.1.ackrequiredpossdup", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.body = ProtoField.new("Body", "tmx.quantumfeed.xmtheader.udp.v1.1.body", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.xmtheader.udp.v1.1.bodyheader", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.xmtheader.udp.v1.1.bodymessage", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.xmtheader.udp.v1.1.businessheader", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_message = ProtoField.new("Business Message", "tmx.quantumfeed.xmtheader.udp.v1.1.businessmessage", ftypes.BYTES)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.xmtheader.udp.v1.1.frameheader", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "tmx.quantumfeed.xmtheader.udp.v1.1.messagelength", ftypes.UINT16)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_length = ProtoField.new("Msg Length", "tmx.quantumfeed.xmtheader.udp.v1.1.msglength", ftypes.UINT16)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.xmtheader.udp.v1.1.msgtype", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_version = ProtoField.new("Msg Version", "tmx.quantumfeed.xmtheader.udp.v1.1.msgversion", ftypes.UINT8)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.num_body = ProtoField.new("Num Body", "tmx.quantumfeed.xmtheader.udp.v1.1.numbody", ftypes.UINT8)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.xmtheader.udp.v1.1.packet", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.xmtheader.udp.v1.1.protocolname", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.quantumfeed.xmtheader.udp.v1.1.protocolversion", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_0 = ProtoField.new("Sequence 0", "tmx.quantumfeed.xmtheader.udp.v1.1.sequence0", ftypes.UINT8)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_1 = ProtoField.new("Sequence 1", "tmx.quantumfeed.xmtheader.udp.v1.1.sequence1", ftypes.UINT32)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "tmx.quantumfeed.xmtheader.udp.v1.1.sessionid", ftypes.UINT32)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.source_id = ProtoField.new("Source Id", "tmx.quantumfeed.xmtheader.udp.v1.1.sourceid", ftypes.STRING)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.quantumfeed.xmtheader.udp.v1.1.startofframe", ftypes.INT8)
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.stream_id = ProtoField.new("Stream Id", "tmx.quantumfeed.xmtheader.udp.v1.1.streamid", ftypes.UINT16)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.xmtheader.udp.v1.1.ackrequiredpossdup", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body = ProtoField.new("Body", "tmx.quantumfeed.xmtheader.udp.v1.1.body", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.xmtheader.udp.v1.1.bodyheader", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.xmtheader.udp.v1.1.bodymessage", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.xmtheader.udp.v1.1.businessheader", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_message = ProtoField.new("Business Message", "tmx.quantumfeed.xmtheader.udp.v1.1.businessmessage", ftypes.BYTES)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.xmtheader.udp.v1.1.frameheader", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "tmx.quantumfeed.xmtheader.udp.v1.1.messagelength", ftypes.UINT16)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_length = ProtoField.new("Msg Length", "tmx.quantumfeed.xmtheader.udp.v1.1.msglength", ftypes.UINT16)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.xmtheader.udp.v1.1.msgtype", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_version = ProtoField.new("Msg Version", "tmx.quantumfeed.xmtheader.udp.v1.1.msgversion", ftypes.UINT8)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.num_body = ProtoField.new("Num Body", "tmx.quantumfeed.xmtheader.udp.v1.1.numbody", ftypes.UINT8)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.xmtheader.udp.v1.1.packet", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.xmtheader.udp.v1.1.protocolname", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.quantumfeed.xmtheader.udp.v1.1.protocolversion", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_0 = ProtoField.new("Sequence 0", "tmx.quantumfeed.xmtheader.udp.v1.1.sequence0", ftypes.UINT8)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_1 = ProtoField.new("Sequence 1", "tmx.quantumfeed.xmtheader.udp.v1.1.sequence1", ftypes.UINT32)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "tmx.quantumfeed.xmtheader.udp.v1.1.sessionid", ftypes.UINT32)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.source_id = ProtoField.new("Source Id", "tmx.quantumfeed.xmtheader.udp.v1.1.sourceid", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.quantumfeed.xmtheader.udp.v1.1.startofframe", ftypes.INT8)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.stream_id = ProtoField.new("Stream Id", "tmx.quantumfeed.xmtheader.udp.v1.1.streamid", ftypes.UINT16)
 
 -- Tmx QuantumFeed XmtHeader Udp 1.1 generated fields
-tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index = ProtoField.new("Body Index", "tmx.quantumfeed.xmtheader.udp.v1.1.bodyindex", ftypes.UINT16)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index = ProtoField.new("Body Index", "tmx.quantumfeed.xmtheader.udp.v1.1.bodyindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -58,40 +58,40 @@ show.frame_header = true
 show.packet = true
 
 -- Register Tmx QuantumFeed XmtHeader Udp 1.1 Show Options
-tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
-tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_header = Pref.bool("Show Body Header", show.body_header, "Parse and add Body Header to protocol tree")
-tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
-tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
-tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
-tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_header = Pref.bool("Show Body Header", show.body_header, "Parse and add Body Header to protocol tree")
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
 -- Handle changed preferences
-function tmx_quantumfeed_xmtheader_udp_v1_1.prefs_changed()
+function omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.body ~= tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body then
-    show.body = tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body
+  if show.body ~= omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body then
+    show.body = omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body
     changed = true
   end
-  if show.body_header ~= tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_header then
-    show.body_header = tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_header
+  if show.body_header ~= omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_header then
+    show.body_header = omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_header
     changed = true
   end
-  if show.body_message ~= tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_message then
-    show.body_message = tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_message
+  if show.body_message ~= omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_message then
+    show.body_message = omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_message
     changed = true
   end
-  if show.business_header ~= tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_business_header then
-    show.business_header = tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_business_header
+  if show.business_header ~= omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_business_header then
+    show.business_header = omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_business_header
     changed = true
   end
-  if show.frame_header ~= tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_frame_header then
-    show.frame_header = tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_frame_header
+  if show.frame_header ~= omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_frame_header then
+    show.frame_header = omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_frame_header
     changed = true
   end
-  if show.packet ~= tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_packet then
-    show.packet = tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_packet
+  if show.packet ~= omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_packet then
+    show.packet = omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_packet
     changed = true
   end
 
@@ -117,7 +117,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.business_message = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.business_message(value, buffer, offset, packet, parent, size)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_message, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_message, range, value, display)
 
   return offset + size
 end
@@ -137,7 +137,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.sequence_1 = function(buffer, offset,
   local value = range:le_uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.sequence_1(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_1, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_1, range, value, display)
 
   return offset + length, value
 end
@@ -157,7 +157,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.sequence_0 = function(buffer, offset,
   local value = range:le_uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.sequence_0(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_0, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_0, range, value, display)
 
   return offset + length, value
 end
@@ -177,7 +177,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.stream_id = function(buffer, offset, 
   local value = range:le_uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.stream_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.stream_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.stream_id, range, value, display)
 
   return offset + length, value
 end
@@ -197,7 +197,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.source_id = function(buffer, offset, 
   local value = range:string()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.source_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.source_id, range, value, display)
 
   return offset + length, value
 end
@@ -217,7 +217,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.msg_version = function(buffer, offset
   local value = range:uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.msg_version(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_version, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_version, range, value, display)
 
   return offset + length, value
 end
@@ -270,7 +270,7 @@ end
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.business_header = function(buffer, offset, packet, parent)
   if show.business_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_header, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_header, buffer(offset, 0))
     local index = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.business_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -314,7 +314,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_message = function(buffer, offse
 
   -- Optionally add group/struct element to protocol tree
   if show.body_message then
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_message, buffer(offset, 0))
     local current = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_message_fields(buffer, offset, packet, parent, size_of_body_message)
     parent:set_len(size_of_body_message)
     local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body_message(buffer, packet, parent)
@@ -344,7 +344,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.msg_type = function(buffer, offset, p
   local value = range:string()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_type, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -364,7 +364,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.msg_length = function(buffer, offset,
   local value = range:le_uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.msg_length(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_length, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_length, range, value, display)
 
   return offset + length, value
 end
@@ -402,7 +402,7 @@ end
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_header = function(buffer, offset, packet, parent)
   if show.body_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_header, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_header, buffer(offset, 0))
     local index = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -427,7 +427,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields = function(buffer, offset
 
   -- Implicit Body Index
   if body_index ~= nil then
-    local iteration = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index, body_index)
+    local iteration = parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index, body_index)
     iteration:set_generated()
   end
 
@@ -452,7 +452,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body = function(buffer, offset, packe
 
   -- Optionally add group/struct element to protocol tree
   if show.body then
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body, buffer(offset, 0))
     local current = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields(buffer, offset, packet, parent, size_of_body, body_index)
     parent:set_len(size_of_body)
     local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body(buffer, packet, parent)
@@ -482,7 +482,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.num_body = function(buffer, offset, p
   local value = range:uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.num_body(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.num_body, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.num_body, range, value, display)
 
   return offset + length, value
 end
@@ -506,7 +506,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.ack_required_poss_dup = function(buff
   local value = range:string()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.ack_required_poss_dup(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.ack_required_poss_dup, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.ack_required_poss_dup, range, value, display)
 
   return offset + length, value
 end
@@ -526,7 +526,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.session_id = function(buffer, offset,
   local value = range:le_uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.session_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -546,7 +546,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.message_length = function(buffer, off
   local value = range:le_uint()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.message_length, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -566,7 +566,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.protocol_version = function(buffer, o
   local value = range:string()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.protocol_version(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_version, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_version, range, value, display)
 
   return offset + length, value
 end
@@ -590,7 +590,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.protocol_name = function(buffer, offs
   local value = range:string()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.protocol_name(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_name, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_name, range, value, display)
 
   return offset + length, value
 end
@@ -614,7 +614,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.start_of_frame = function(buffer, off
   local value = range:int()
   local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.start_of_frame(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.start_of_frame, range, value, display)
+  parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.start_of_frame, range, value, display)
 
   return offset + length, value
 end
@@ -677,7 +677,7 @@ end
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header = function(buffer, offset, packet, parent)
   if show.frame_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.frame_header, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.frame_header, buffer(offset, 0))
     local index = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -726,23 +726,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function tmx_quantumfeed_xmtheader_udp_v1_1.init()
+function omi_tmx_quantumfeed_xmtheader_udp_v1_1.init()
 end
 
 -- Dissector for Tmx QuantumFeed XmtHeader Udp 1.1
-function tmx_quantumfeed_xmtheader_udp_v1_1.dissector(buffer, packet, parent)
+function omi_tmx_quantumfeed_xmtheader_udp_v1_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = tmx_quantumfeed_xmtheader_udp_v1_1.name
+  packet.cols.protocol = omi_tmx_quantumfeed_xmtheader_udp_v1_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1, buffer(), tmx_quantumfeed_xmtheader_udp_v1_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1, buffer(), omi_tmx_quantumfeed_xmtheader_udp_v1_1.description, "("..buffer:len().." Bytes)")
   return tmx_quantumfeed_xmtheader_udp_v1_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, tmx_quantumfeed_xmtheader_udp_v1_1)
+udp_table:add(65333, omi_tmx_quantumfeed_xmtheader_udp_v1_1)
 
 
 -----------------------------------------------------------------------
@@ -750,25 +750,25 @@ udp_table:add(65333, tmx_quantumfeed_xmtheader_udp_v1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.tmx_quantumfeed_xmtheader_udp_v1_1_packet_size = function(buffer)
+verify.omi_tmx_quantumfeed_xmtheader_udp_v1_1_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Tmx QuantumFeed XmtHeader Udp 1.1
-local function tmx_quantumfeed_xmtheader_udp_v1_1_heuristic(buffer, packet, parent)
+local function omi_tmx_quantumfeed_xmtheader_udp_v1_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.tmx_quantumfeed_xmtheader_udp_v1_1_packet_size(buffer) then return false end
+  if not verify.omi_tmx_quantumfeed_xmtheader_udp_v1_1_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = tmx_quantumfeed_xmtheader_udp_v1_1
-  tmx_quantumfeed_xmtheader_udp_v1_1.dissector(buffer, packet, parent)
+  packet.conversation = omi_tmx_quantumfeed_xmtheader_udp_v1_1
+  omi_tmx_quantumfeed_xmtheader_udp_v1_1.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Tmx QuantumFeed XmtHeader Udp 1.1
-tmx_quantumfeed_xmtheader_udp_v1_1:register_heuristic("udp", tmx_quantumfeed_xmtheader_udp_v1_1_heuristic)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1:register_heuristic("udp", omi_tmx_quantumfeed_xmtheader_udp_v1_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

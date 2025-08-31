@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme Futures Settlements Sbe 7.0 Protocol
-local cme_futures_settlements_sbe_v7_0 = Proto("Cme.Futures.Settlements.Sbe.v7.0.Lua", "Cme Futures Settlements Sbe 7.0")
+local omi_cme_futures_settlements_sbe_v7_0 = Proto("Cme.Futures.Settlements.Sbe.v7.0.Lua", "Cme Futures Settlements Sbe 7.0")
 
 -- Component Tables
 local show = {}
@@ -21,79 +21,79 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Cme Futures Settlements Sbe 7.0 Fields
-cme_futures_settlements_sbe_v7_0.fields.actual = ProtoField.new("Actual", "cme.futures.settlements.sbe.v7.0.actual", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-cme_futures_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.block_length = ProtoField.new("Block Length", "cme.futures.settlements.sbe.v7.0.blocklength", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.cabinet = ProtoField.new("Cabinet", "cme.futures.settlements.sbe.v7.0.cabinet", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
-cme_futures_settlements_sbe_v7_0.fields.cleared_volume = ProtoField.new("Cleared Volume", "cme.futures.settlements.sbe.v7.0.clearedvolume", ftypes.UINT32)
-cme_futures_settlements_sbe_v7_0.fields.clearing_product_code = ProtoField.new("Clearing Product Code", "cme.futures.settlements.sbe.v7.0.clearingproductcode", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.day = ProtoField.new("Day", "cme.futures.settlements.sbe.v7.0.day", ftypes.UINT8)
-cme_futures_settlements_sbe_v7_0.fields.exponent = ProtoField.new("Exponent", "cme.futures.settlements.sbe.v7.0.exponent", ftypes.INT8)
-cme_futures_settlements_sbe_v7_0.fields.final_daily = ProtoField.new("Final Daily", "cme.futures.settlements.sbe.v7.0.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-cme_futures_settlements_sbe_v7_0.fields.formatted_last_px = ProtoField.new("Formatted Last Px", "cme.futures.settlements.sbe.v7.0.formattedlastpx", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.settlements.sbe.v7.0.groupsize", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.high_px = ProtoField.new("High Px", "cme.futures.settlements.sbe.v7.0.highpx", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.high_px_ind = ProtoField.new("High Px Ind", "cme.futures.settlements.sbe.v7.0.highpxind", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.settlements.sbe.v7.0.instrumentguid", ftypes.UINT64)
-cme_futures_settlements_sbe_v7_0.fields.intraday = ProtoField.new("Intraday", "cme.futures.settlements.sbe.v7.0.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-cme_futures_settlements_sbe_v7_0.fields.low_px = ProtoField.new("Low Px", "cme.futures.settlements.sbe.v7.0.lowpx", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.low_px_ind = ProtoField.new("Low Px Ind", "cme.futures.settlements.sbe.v7.0.lowpxind", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group = ProtoField.new("M D Incremental Refresh High Low Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroup", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups = ProtoField.new("M D Incremental Refresh High Low Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroups", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group = ProtoField.new("M D Incremental Refresh Settle Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroup", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_groups = ProtoField.new("M D Incremental Refresh Settle Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroups", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group = ProtoField.new("M D Incremental Refresh Voi Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroup", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_groups = ProtoField.new("M D Incremental Refresh Voi Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroups", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.mantissa = ProtoField.new("Mantissa", "cme.futures.settlements.sbe.v7.0.mantissa", ftypes.INT64)
-cme_futures_settlements_sbe_v7_0.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.settlements.sbe.v7.0.maturitymonthyear", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.settlements.sbe.v7.0.mdentrypx", ftypes.DOUBLE)
-cme_futures_settlements_sbe_v7_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.settlements.sbe.v7.0.mdentrytype", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc = ProtoField.new("Md Statistic Desc", "cme.futures.settlements.sbe.v7.0.mdstatisticdesc", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.settlements.sbe.v7.0.mdupdateaction", ftypes.UINT8)
-cme_futures_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.futures.settlements.sbe.v7.0.message", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.futures.settlements.sbe.v7.0.messageheader", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.settlements.sbe.v7.0.messagesequencenumber", ftypes.UINT32)
-cme_futures_settlements_sbe_v7_0.fields.message_size = ProtoField.new("Message Size", "cme.futures.settlements.sbe.v7.0.messagesize", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.month = ProtoField.new("Month", "cme.futures.settlements.sbe.v7.0.month", ftypes.UINT8)
-cme_futures_settlements_sbe_v7_0.fields.null_value = ProtoField.new("Null Value", "cme.futures.settlements.sbe.v7.0.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.futures.settlements.sbe.v7.0.numingroupuint8", ftypes.UINT8)
-cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.settlements.sbe.v7.0.openclosesettlflag", ftypes.UINT8)
-cme_futures_settlements_sbe_v7_0.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.settlements.sbe.v7.0.openinterestqty", ftypes.UINT32)
-cme_futures_settlements_sbe_v7_0.fields.packet = ProtoField.new("Packet", "cme.futures.settlements.sbe.v7.0.packet", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.payload = ProtoField.new("Payload", "cme.futures.settlements.sbe.v7.0.payload", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.product_guid = ProtoField.new("Product Guid", "cme.futures.settlements.sbe.v7.0.productguid", ftypes.UINT64)
-cme_futures_settlements_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.settlements.sbe.v7.0.putorcall", ftypes.UINT8)
-cme_futures_settlements_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.settlements.sbe.v7.0.reservedbits", ftypes.UINT8, nil, base.DEC, 0x60)
-cme_futures_settlements_sbe_v7_0.fields.rounded = ProtoField.new("Rounded", "cme.futures.settlements.sbe.v7.0.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-cme_futures_settlements_sbe_v7_0.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.settlements.sbe.v7.0.schemaid", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.settlements.sbe.v7.0.securityexchange", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.security_id = ProtoField.new("Security Id", "cme.futures.settlements.sbe.v7.0.securityid", ftypes.UINT32)
-cme_futures_settlements_sbe_v7_0.fields.security_type = ProtoField.new("Security Type", "cme.futures.settlements.sbe.v7.0.securitytype", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.settlements.sbe.v7.0.sendingtime", ftypes.UINT64)
-cme_futures_settlements_sbe_v7_0.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.settlements.sbe.v7.0.settlpricetype", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.settlements.sbe.v7.0.strikeprice", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "cme.futures.settlements.sbe.v7.0.symbol", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "cme.futures.settlements.sbe.v7.0.templateid", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.settlements.sbe.v7.0.tradingreferencedate", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.settlements.sbe.v7.0.transacttime", ftypes.UINT64)
-cme_futures_settlements_sbe_v7_0.fields.underlying_clearing_product_code = ProtoField.new("Underlying Clearing Product Code", "cme.futures.settlements.sbe.v7.0.underlyingclearingproductcode", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.futures.settlements.sbe.v7.0.underlyingmaturitymonthyear", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.futures.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
-cme_futures_settlements_sbe_v7_0.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.futures.settlements.sbe.v7.0.underlyingsecurityexchange", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.underlying_security_type = ProtoField.new("Underlying Security Type", "cme.futures.settlements.sbe.v7.0.underlyingsecuritytype", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "cme.futures.settlements.sbe.v7.0.version", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.futures.settlements.sbe.v7.0.week", ftypes.UINT8)
-cme_futures_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.futures.settlements.sbe.v7.0.year", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.actual = ProtoField.new("Actual", "cme.futures.settlements.sbe.v7.0.actual", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_cme_futures_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.block_length = ProtoField.new("Block Length", "cme.futures.settlements.sbe.v7.0.blocklength", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.cabinet = ProtoField.new("Cabinet", "cme.futures.settlements.sbe.v7.0.cabinet", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
+omi_cme_futures_settlements_sbe_v7_0.fields.cleared_volume = ProtoField.new("Cleared Volume", "cme.futures.settlements.sbe.v7.0.clearedvolume", ftypes.UINT32)
+omi_cme_futures_settlements_sbe_v7_0.fields.clearing_product_code = ProtoField.new("Clearing Product Code", "cme.futures.settlements.sbe.v7.0.clearingproductcode", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.day = ProtoField.new("Day", "cme.futures.settlements.sbe.v7.0.day", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.exponent = ProtoField.new("Exponent", "cme.futures.settlements.sbe.v7.0.exponent", ftypes.INT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.final_daily = ProtoField.new("Final Daily", "cme.futures.settlements.sbe.v7.0.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px = ProtoField.new("Formatted Last Px", "cme.futures.settlements.sbe.v7.0.formattedlastpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.settlements.sbe.v7.0.groupsize", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.high_px = ProtoField.new("High Px", "cme.futures.settlements.sbe.v7.0.highpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.high_px_ind = ProtoField.new("High Px Ind", "cme.futures.settlements.sbe.v7.0.highpxind", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.settlements.sbe.v7.0.instrumentguid", ftypes.UINT64)
+omi_cme_futures_settlements_sbe_v7_0.fields.intraday = ProtoField.new("Intraday", "cme.futures.settlements.sbe.v7.0.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_cme_futures_settlements_sbe_v7_0.fields.low_px = ProtoField.new("Low Px", "cme.futures.settlements.sbe.v7.0.lowpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.low_px_ind = ProtoField.new("Low Px Ind", "cme.futures.settlements.sbe.v7.0.lowpxind", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group = ProtoField.new("M D Incremental Refresh High Low Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroup", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups = ProtoField.new("M D Incremental Refresh High Low Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroups", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group = ProtoField.new("M D Incremental Refresh Settle Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroup", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_groups = ProtoField.new("M D Incremental Refresh Settle Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroups", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group = ProtoField.new("M D Incremental Refresh Voi Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroup", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_groups = ProtoField.new("M D Incremental Refresh Voi Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroups", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.mantissa = ProtoField.new("Mantissa", "cme.futures.settlements.sbe.v7.0.mantissa", ftypes.INT64)
+omi_cme_futures_settlements_sbe_v7_0.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.settlements.sbe.v7.0.maturitymonthyear", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.settlements.sbe.v7.0.mdentrypx", ftypes.DOUBLE)
+omi_cme_futures_settlements_sbe_v7_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.settlements.sbe.v7.0.mdentrytype", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc = ProtoField.new("Md Statistic Desc", "cme.futures.settlements.sbe.v7.0.mdstatisticdesc", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.settlements.sbe.v7.0.mdupdateaction", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.futures.settlements.sbe.v7.0.message", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.futures.settlements.sbe.v7.0.messageheader", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.settlements.sbe.v7.0.messagesequencenumber", ftypes.UINT32)
+omi_cme_futures_settlements_sbe_v7_0.fields.message_size = ProtoField.new("Message Size", "cme.futures.settlements.sbe.v7.0.messagesize", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.month = ProtoField.new("Month", "cme.futures.settlements.sbe.v7.0.month", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.null_value = ProtoField.new("Null Value", "cme.futures.settlements.sbe.v7.0.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.futures.settlements.sbe.v7.0.numingroupuint8", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.settlements.sbe.v7.0.openclosesettlflag", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.settlements.sbe.v7.0.openinterestqty", ftypes.UINT32)
+omi_cme_futures_settlements_sbe_v7_0.fields.packet = ProtoField.new("Packet", "cme.futures.settlements.sbe.v7.0.packet", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.payload = ProtoField.new("Payload", "cme.futures.settlements.sbe.v7.0.payload", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.product_guid = ProtoField.new("Product Guid", "cme.futures.settlements.sbe.v7.0.productguid", ftypes.UINT64)
+omi_cme_futures_settlements_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.settlements.sbe.v7.0.putorcall", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.settlements.sbe.v7.0.reservedbits", ftypes.UINT8, nil, base.DEC, 0x60)
+omi_cme_futures_settlements_sbe_v7_0.fields.rounded = ProtoField.new("Rounded", "cme.futures.settlements.sbe.v7.0.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_cme_futures_settlements_sbe_v7_0.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.settlements.sbe.v7.0.schemaid", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.settlements.sbe.v7.0.securityexchange", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.security_id = ProtoField.new("Security Id", "cme.futures.settlements.sbe.v7.0.securityid", ftypes.UINT32)
+omi_cme_futures_settlements_sbe_v7_0.fields.security_type = ProtoField.new("Security Type", "cme.futures.settlements.sbe.v7.0.securitytype", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.settlements.sbe.v7.0.sendingtime", ftypes.UINT64)
+omi_cme_futures_settlements_sbe_v7_0.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.settlements.sbe.v7.0.settlpricetype", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.settlements.sbe.v7.0.strikeprice", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "cme.futures.settlements.sbe.v7.0.symbol", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "cme.futures.settlements.sbe.v7.0.templateid", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.settlements.sbe.v7.0.tradingreferencedate", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.settlements.sbe.v7.0.transacttime", ftypes.UINT64)
+omi_cme_futures_settlements_sbe_v7_0.fields.underlying_clearing_product_code = ProtoField.new("Underlying Clearing Product Code", "cme.futures.settlements.sbe.v7.0.underlyingclearingproductcode", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.futures.settlements.sbe.v7.0.underlyingmaturitymonthyear", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.futures.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
+omi_cme_futures_settlements_sbe_v7_0.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.futures.settlements.sbe.v7.0.underlyingsecurityexchange", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.underlying_security_type = ProtoField.new("Underlying Security Type", "cme.futures.settlements.sbe.v7.0.underlyingsecuritytype", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "cme.futures.settlements.sbe.v7.0.version", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.futures.settlements.sbe.v7.0.week", ftypes.UINT8)
+omi_cme_futures_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.futures.settlements.sbe.v7.0.year", ftypes.UINT16)
 
 -- Cme Futures Settlements Sbe 7.0 messages
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
 
 -- Cme Futures Settlements Sbe 7.0 generated fields
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index = ProtoField.new("M D Incremental Refresh High Low Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroupindex", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index = ProtoField.new("M D Incremental Refresh Settle Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroupindex", ftypes.UINT16)
-cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index = ProtoField.new("M D Incremental Refresh Voi Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroupindex", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index = ProtoField.new("M D Incremental Refresh High Low Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroupindex", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index = ProtoField.new("M D Incremental Refresh Settle Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroupindex", ftypes.UINT16)
+omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index = ProtoField.new("M D Incremental Refresh Voi Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -124,120 +124,120 @@ show.underlying_maturity_month_year = true
 show.payload = false
 
 -- Register Cme Futures Settlements Sbe 7.0 Show Options
-cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px = Pref.bool("Show Formatted Last Px", show.formatted_last_px, "Parse and add Formatted Last Px to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_high_px = Pref.bool("Show High Px", show.high_px, "Parse and add High Px to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_low_px = Pref.bool("Show Low Px", show.low_px, "Parse and add Low Px to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group = Pref.bool("Show M D Incremental Refresh High Low Group", show.m_d_incremental_refresh_high_low_group, "Parse and add M D Incremental Refresh High Low Group to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups = Pref.bool("Show M D Incremental Refresh High Low Groups", show.m_d_incremental_refresh_high_low_groups, "Parse and add M D Incremental Refresh High Low Groups to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group = Pref.bool("Show M D Incremental Refresh Settle Group", show.m_d_incremental_refresh_settle_group, "Parse and add M D Incremental Refresh Settle Group to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups = Pref.bool("Show M D Incremental Refresh Settle Groups", show.m_d_incremental_refresh_settle_groups, "Parse and add M D Incremental Refresh Settle Groups to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group = Pref.bool("Show M D Incremental Refresh Voi Group", show.m_d_incremental_refresh_voi_group, "Parse and add M D Incremental Refresh Voi Group to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups = Pref.bool("Show M D Incremental Refresh Voi Groups", show.m_d_incremental_refresh_voi_groups, "Parse and add M D Incremental Refresh Voi Groups to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low = Pref.bool("Show Md Incremental Refresh High Low", show.md_incremental_refresh_high_low, "Parse and add Md Incremental Refresh High Low to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle = Pref.bool("Show Md Incremental Refresh Settle", show.md_incremental_refresh_settle, "Parse and add Md Incremental Refresh Settle to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi = Pref.bool("Show Md Incremental Refresh Voi", show.md_incremental_refresh_voi, "Parse and add Md Incremental Refresh Voi to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year = Pref.bool("Show Underlying Maturity Month Year", show.underlying_maturity_month_year, "Parse and add Underlying Maturity Month Year to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px = Pref.bool("Show Formatted Last Px", show.formatted_last_px, "Parse and add Formatted Last Px to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_high_px = Pref.bool("Show High Px", show.high_px, "Parse and add High Px to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px = Pref.bool("Show Low Px", show.low_px, "Parse and add Low Px to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group = Pref.bool("Show M D Incremental Refresh High Low Group", show.m_d_incremental_refresh_high_low_group, "Parse and add M D Incremental Refresh High Low Group to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups = Pref.bool("Show M D Incremental Refresh High Low Groups", show.m_d_incremental_refresh_high_low_groups, "Parse and add M D Incremental Refresh High Low Groups to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group = Pref.bool("Show M D Incremental Refresh Settle Group", show.m_d_incremental_refresh_settle_group, "Parse and add M D Incremental Refresh Settle Group to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups = Pref.bool("Show M D Incremental Refresh Settle Groups", show.m_d_incremental_refresh_settle_groups, "Parse and add M D Incremental Refresh Settle Groups to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group = Pref.bool("Show M D Incremental Refresh Voi Group", show.m_d_incremental_refresh_voi_group, "Parse and add M D Incremental Refresh Voi Group to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups = Pref.bool("Show M D Incremental Refresh Voi Groups", show.m_d_incremental_refresh_voi_groups, "Parse and add M D Incremental Refresh Voi Groups to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low = Pref.bool("Show Md Incremental Refresh High Low", show.md_incremental_refresh_high_low, "Parse and add Md Incremental Refresh High Low to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle = Pref.bool("Show Md Incremental Refresh Settle", show.md_incremental_refresh_settle, "Parse and add Md Incremental Refresh Settle to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi = Pref.bool("Show Md Incremental Refresh Voi", show.md_incremental_refresh_voi, "Parse and add Md Incremental Refresh Voi to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year = Pref.bool("Show Underlying Maturity Month Year", show.underlying_maturity_month_year, "Parse and add Underlying Maturity Month Year to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function cme_futures_settlements_sbe_v7_0.prefs_changed()
+function omi_cme_futures_settlements_sbe_v7_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.binary_packet_header ~= cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header then
-    show.binary_packet_header = cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header
+  if show.binary_packet_header ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header then
+    show.binary_packet_header = omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header
     changed = true
   end
-  if show.formatted_last_px ~= cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px then
-    show.formatted_last_px = cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px
+  if show.formatted_last_px ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px then
+    show.formatted_last_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px
     changed = true
   end
-  if show.group_size ~= cme_futures_settlements_sbe_v7_0.prefs.show_group_size then
-    show.group_size = cme_futures_settlements_sbe_v7_0.prefs.show_group_size
+  if show.group_size ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_group_size then
+    show.group_size = omi_cme_futures_settlements_sbe_v7_0.prefs.show_group_size
     changed = true
   end
-  if show.high_px ~= cme_futures_settlements_sbe_v7_0.prefs.show_high_px then
-    show.high_px = cme_futures_settlements_sbe_v7_0.prefs.show_high_px
+  if show.high_px ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_high_px then
+    show.high_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_high_px
     changed = true
   end
-  if show.low_px ~= cme_futures_settlements_sbe_v7_0.prefs.show_low_px then
-    show.low_px = cme_futures_settlements_sbe_v7_0.prefs.show_low_px
+  if show.low_px ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px then
+    show.low_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px
     changed = true
   end
-  if show.m_d_incremental_refresh_high_low_group ~= cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group then
-    show.m_d_incremental_refresh_high_low_group = cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group
+  if show.m_d_incremental_refresh_high_low_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group then
+    show.m_d_incremental_refresh_high_low_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_group
     changed = true
   end
-  if show.m_d_incremental_refresh_high_low_groups ~= cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups then
-    show.m_d_incremental_refresh_high_low_groups = cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups
+  if show.m_d_incremental_refresh_high_low_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups then
+    show.m_d_incremental_refresh_high_low_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_high_low_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_settle_group ~= cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group then
-    show.m_d_incremental_refresh_settle_group = cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group
+  if show.m_d_incremental_refresh_settle_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group then
+    show.m_d_incremental_refresh_settle_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group
     changed = true
   end
-  if show.m_d_incremental_refresh_settle_groups ~= cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups then
-    show.m_d_incremental_refresh_settle_groups = cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups
+  if show.m_d_incremental_refresh_settle_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups then
+    show.m_d_incremental_refresh_settle_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_voi_group ~= cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group then
-    show.m_d_incremental_refresh_voi_group = cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group
+  if show.m_d_incremental_refresh_voi_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group then
+    show.m_d_incremental_refresh_voi_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group
     changed = true
   end
-  if show.m_d_incremental_refresh_voi_groups ~= cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups then
-    show.m_d_incremental_refresh_voi_groups = cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups
+  if show.m_d_incremental_refresh_voi_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups then
+    show.m_d_incremental_refresh_voi_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups
     changed = true
   end
-  if show.maturity_month_year ~= cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year then
-    show.maturity_month_year = cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year
+  if show.maturity_month_year ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year then
+    show.maturity_month_year = omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year
     changed = true
   end
-  if show.md_incremental_refresh_high_low ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low then
-    show.md_incremental_refresh_high_low = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low
+  if show.md_incremental_refresh_high_low ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low then
+    show.md_incremental_refresh_high_low = omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low
     changed = true
   end
-  if show.md_incremental_refresh_settle ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle then
-    show.md_incremental_refresh_settle = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle
+  if show.md_incremental_refresh_settle ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle then
+    show.md_incremental_refresh_settle = omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle
     changed = true
   end
-  if show.md_incremental_refresh_voi ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi then
-    show.md_incremental_refresh_voi = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi
+  if show.md_incremental_refresh_voi ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi then
+    show.md_incremental_refresh_voi = omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi
     changed = true
   end
-  if show.message ~= cme_futures_settlements_sbe_v7_0.prefs.show_message then
-    show.message = cme_futures_settlements_sbe_v7_0.prefs.show_message
+  if show.message ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_message then
+    show.message = omi_cme_futures_settlements_sbe_v7_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cme_futures_settlements_sbe_v7_0.prefs.show_message_header then
-    show.message_header = cme_futures_settlements_sbe_v7_0.prefs.show_message_header
+  if show.message_header ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_message_header then
+    show.message_header = omi_cme_futures_settlements_sbe_v7_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= cme_futures_settlements_sbe_v7_0.prefs.show_packet then
-    show.packet = cme_futures_settlements_sbe_v7_0.prefs.show_packet
+  if show.packet ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet then
+    show.packet = omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet
     changed = true
   end
-  if show.settl_price_type ~= cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type then
-    show.settl_price_type = cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type
+  if show.settl_price_type ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type then
+    show.settl_price_type = omi_cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type
     changed = true
   end
-  if show.strike_price ~= cme_futures_settlements_sbe_v7_0.prefs.show_strike_price then
-    show.strike_price = cme_futures_settlements_sbe_v7_0.prefs.show_strike_price
+  if show.strike_price ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_strike_price then
+    show.strike_price = omi_cme_futures_settlements_sbe_v7_0.prefs.show_strike_price
     changed = true
   end
-  if show.underlying_maturity_month_year ~= cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year then
-    show.underlying_maturity_month_year = cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year
+  if show.underlying_maturity_month_year ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year then
+    show.underlying_maturity_month_year = omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year
     changed = true
   end
-  if show.payload ~= cme_futures_settlements_sbe_v7_0.prefs.show_payload then
-    show.payload = cme_futures_settlements_sbe_v7_0.prefs.show_payload
+  if show.payload ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_payload then
+    show.payload = omi_cme_futures_settlements_sbe_v7_0.prefs.show_payload
     changed = true
   end
 
@@ -272,7 +272,7 @@ cme_futures_settlements_sbe_v7_0_dissect.trading_reference_date = function(buffe
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.trading_reference_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.trading_reference_date, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.trading_reference_date, range, value, display)
 
   return offset + length, value
 end
@@ -315,7 +315,7 @@ cme_futures_settlements_sbe_v7_0_dissect.high_px_ind = function(buffer, offset, 
 
   local display = cme_futures_settlements_sbe_v7_0_display.high_px_ind(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.high_px_ind, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.high_px_ind, range, value, display)
 
   return offset + length, value
 end
@@ -340,7 +340,7 @@ cme_futures_settlements_sbe_v7_0_dissect.exponent = function(buffer, offset, pac
   local value = range:le_int()
   local display = cme_futures_settlements_sbe_v7_0_display.exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.exponent, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.exponent, range, value, display)
 
   return offset + length, value
 end
@@ -365,7 +365,7 @@ cme_futures_settlements_sbe_v7_0_dissect.mantissa = function(buffer, offset, pac
   local value = range:le_int64()
   local display = cme_futures_settlements_sbe_v7_0_display.mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.mantissa, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.mantissa, range, value, display)
 
   return offset + length, value
 end
@@ -403,7 +403,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.high_px = function(buffer, offset, packet, parent)
   if show.high_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.high_px, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.high_px, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.high_px_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -455,7 +455,7 @@ cme_futures_settlements_sbe_v7_0_dissect.low_px_ind = function(buffer, offset, p
 
   local display = cme_futures_settlements_sbe_v7_0_display.low_px_ind(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.low_px_ind, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.low_px_ind, range, value, display)
 
   return offset + length, value
 end
@@ -493,7 +493,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.low_px = function(buffer, offset, packet, parent)
   if show.low_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.low_px, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.low_px, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.low_px_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -527,7 +527,7 @@ cme_futures_settlements_sbe_v7_0_dissect.security_id = function(buffer, offset, 
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.security_id, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -552,7 +552,7 @@ cme_futures_settlements_sbe_v7_0_dissect.instrument_guid = function(buffer, offs
   local value = range:le_uint64()
   local display = cme_futures_settlements_sbe_v7_0_display.instrument_guid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.instrument_guid, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.instrument_guid, range, value, display)
 
   return offset + length, value
 end
@@ -588,7 +588,7 @@ cme_futures_settlements_sbe_v7_0_dissect.symbol = function(buffer, offset, packe
 
   local display = cme_futures_settlements_sbe_v7_0_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.symbol, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -613,7 +613,7 @@ cme_futures_settlements_sbe_v7_0_dissect.week = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.week(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.week, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.week, range, value, display)
 
   return offset + length, value
 end
@@ -638,7 +638,7 @@ cme_futures_settlements_sbe_v7_0_dissect.day = function(buffer, offset, packet, 
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.day(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.day, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.day, range, value, display)
 
   return offset + length, value
 end
@@ -663,7 +663,7 @@ cme_futures_settlements_sbe_v7_0_dissect.month = function(buffer, offset, packet
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.month(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.month, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.month, range, value, display)
 
   return offset + length, value
 end
@@ -688,7 +688,7 @@ cme_futures_settlements_sbe_v7_0_dissect.year = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.year(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.year, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.year, range, value, display)
 
   return offset + length, value
 end
@@ -736,7 +736,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.underlying_maturity_month_year = function(buffer, offset, packet, parent)
   if show.underlying_maturity_month_year then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_maturity_month_year, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.underlying_maturity_month_year, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.underlying_maturity_month_year_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -781,7 +781,7 @@ cme_futures_settlements_sbe_v7_0_dissect.underlying_security_exchange = function
 
   local display = cme_futures_settlements_sbe_v7_0_display.underlying_security_exchange(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_security_exchange, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.underlying_security_exchange, range, value, display)
 
   return offset + length, value
 end
@@ -817,7 +817,7 @@ cme_futures_settlements_sbe_v7_0_dissect.underlying_security_type = function(buf
 
   local display = cme_futures_settlements_sbe_v7_0_display.underlying_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_security_type, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.underlying_security_type, range, value, display)
 
   return offset + length, value
 end
@@ -853,7 +853,7 @@ cme_futures_settlements_sbe_v7_0_dissect.underlying_clearing_product_code = func
 
   local display = cme_futures_settlements_sbe_v7_0_display.underlying_clearing_product_code(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_clearing_product_code, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.underlying_clearing_product_code, range, value, display)
 
   return offset + length, value
 end
@@ -878,7 +878,7 @@ cme_futures_settlements_sbe_v7_0_dissect.underlying_product_guid = function(buff
   local value = range:le_uint64()
   local display = cme_futures_settlements_sbe_v7_0_display.underlying_product_guid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_product_guid, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.underlying_product_guid, range, value, display)
 
   return offset + length, value
 end
@@ -916,7 +916,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.strike_price = function(buffer, offset, packet, parent)
   if show.strike_price then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.strike_price, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.strike_price, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.strike_price_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -955,7 +955,7 @@ cme_futures_settlements_sbe_v7_0_dissect.put_or_call = function(buffer, offset, 
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.put_or_call, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.put_or_call, range, value, display)
 
   return offset + length, value
 end
@@ -1003,7 +1003,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.maturity_month_year = function(buffer, offset, packet, parent)
   if show.maturity_month_year then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.maturity_month_year, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.maturity_month_year, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1048,7 +1048,7 @@ cme_futures_settlements_sbe_v7_0_dissect.security_exchange = function(buffer, of
 
   local display = cme_futures_settlements_sbe_v7_0_display.security_exchange(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.security_exchange, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.security_exchange, range, value, display)
 
   return offset + length, value
 end
@@ -1084,7 +1084,7 @@ cme_futures_settlements_sbe_v7_0_dissect.security_type = function(buffer, offset
 
   local display = cme_futures_settlements_sbe_v7_0_display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.security_type, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -1120,7 +1120,7 @@ cme_futures_settlements_sbe_v7_0_dissect.clearing_product_code = function(buffer
 
   local display = cme_futures_settlements_sbe_v7_0_display.clearing_product_code(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.clearing_product_code, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.clearing_product_code, range, value, display)
 
   return offset + length, value
 end
@@ -1145,7 +1145,7 @@ cme_futures_settlements_sbe_v7_0_dissect.product_guid = function(buffer, offset,
   local value = range:le_uint64()
   local display = cme_futures_settlements_sbe_v7_0_display.product_guid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.product_guid, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.product_guid, range, value, display)
 
   return offset + length, value
 end
@@ -1208,7 +1208,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_
 
   -- Implicit M D Incremental Refresh High Low Group Index
   if m_d_incremental_refresh_high_low_group_index ~= nil then
-    local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index, m_d_incremental_refresh_high_low_group_index)
+    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index, m_d_incremental_refresh_high_low_group_index)
     iteration:set_generated()
   end
 
@@ -1279,7 +1279,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group = function(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
   if show.m_d_incremental_refresh_high_low_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1308,7 +1308,7 @@ cme_futures_settlements_sbe_v7_0_dissect.num_in_group_uint_8 = function(buffer, 
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.num_in_group_uint_8(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8, range, value, display)
 
   return offset + length, value
 end
@@ -1328,7 +1328,7 @@ cme_futures_settlements_sbe_v7_0_dissect.block_length = function(buffer, offset,
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.block_length, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -1366,7 +1366,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.group_size = function(buffer, offset, packet, parent)
   if show.group_size then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.group_size, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.group_size, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.group_size_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1423,7 +1423,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_groups
     local length = cme_futures_settlements_sbe_v7_0_size_of.m_d_incremental_refresh_high_low_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_high_low_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups, range, display)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups, range, display)
   end
 
   return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_groups_fields(buffer, offset, packet, parent)
@@ -1448,7 +1448,7 @@ cme_futures_settlements_sbe_v7_0_dissect.transact_time = function(buffer, offset
   local value = range:le_uint64()
   local display = cme_futures_settlements_sbe_v7_0_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.transact_time, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -1489,7 +1489,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_incremental_refresh_high_low = funct
     local length = cme_futures_settlements_sbe_v7_0_size_of.md_incremental_refresh_high_low(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_settlements_sbe_v7_0_display.md_incremental_refresh_high_low(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low, range, display)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low, range, display)
   end
 
   return cme_futures_settlements_sbe_v7_0_dissect.md_incremental_refresh_high_low_fields(buffer, offset, packet, parent)
@@ -1517,7 +1517,7 @@ cme_futures_settlements_sbe_v7_0_dissect.open_close_settl_flag = function(buffer
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.open_close_settl_flag(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1542,7 +1542,7 @@ cme_futures_settlements_sbe_v7_0_dissect.open_interest_qty = function(buffer, of
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.open_interest_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.open_interest_qty, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.open_interest_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1567,7 +1567,7 @@ cme_futures_settlements_sbe_v7_0_dissect.cleared_volume = function(buffer, offse
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.cleared_volume(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.cleared_volume, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.cleared_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1628,7 +1628,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_field
 
   -- Implicit M D Incremental Refresh Voi Group Index
   if m_d_incremental_refresh_voi_group_index ~= nil then
-    local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index, m_d_incremental_refresh_voi_group_index)
+    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index, m_d_incremental_refresh_voi_group_index)
     iteration:set_generated()
   end
 
@@ -1696,7 +1696,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group = function(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
   if show.m_d_incremental_refresh_voi_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1753,7 +1753,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_groups = fu
     local length = cme_futures_settlements_sbe_v7_0_size_of.m_d_incremental_refresh_voi_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_voi_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_groups, range, display)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_groups, range, display)
   end
 
   return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_groups_fields(buffer, offset, packet, parent)
@@ -1795,7 +1795,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_incremental_refresh_voi = function(b
     local length = cme_futures_settlements_sbe_v7_0_size_of.md_incremental_refresh_voi(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_settlements_sbe_v7_0_display.md_incremental_refresh_voi(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi, range, display)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi, range, display)
   end
 
   return cme_futures_settlements_sbe_v7_0_dissect.md_incremental_refresh_voi_fields(buffer, offset, packet, parent)
@@ -1832,7 +1832,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_statistic_desc = function(buffer, of
 
   local display = cme_futures_settlements_sbe_v7_0_display.md_statistic_desc(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc, range, value, display)
 
   return offset + length, value
 end
@@ -1876,25 +1876,25 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.settl_price_type_bits = function(buffer, offset, packet, parent)
 
   -- Null Value: 1 Bit
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.null_value, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.null_value, buffer(offset, 1))
 
   -- Reserved Bits: 2 Bit
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.reserved_bits, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.reserved_bits, buffer(offset, 1))
 
   -- Cabinet: 1 Bit
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.cabinet, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.cabinet, buffer(offset, 1))
 
   -- Intraday: 1 Bit
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.intraday, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.intraday, buffer(offset, 1))
 
   -- Rounded: 1 Bit
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.rounded, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.rounded, buffer(offset, 1))
 
   -- Actual: 1 Bit
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.actual, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.actual, buffer(offset, 1))
 
   -- Final Daily: 1 Bit
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.final_daily, buffer(offset, 1))
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.final_daily, buffer(offset, 1))
 end
 
 -- Dissect: Settl Price Type
@@ -1902,7 +1902,7 @@ cme_futures_settlements_sbe_v7_0_dissect.settl_price_type = function(buffer, off
   local size = 1
   local range = buffer(offset, size)
   local display = cme_futures_settlements_sbe_v7_0_display.settl_price_type(range, packet, parent)
-  local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.settl_price_type, range, display)
+  local element = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.settl_price_type, range, display)
 
   if show.settl_price_type then
     cme_futures_settlements_sbe_v7_0_dissect.settl_price_type_bits(buffer, offset, packet, element)
@@ -1942,7 +1942,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_entry_px = function(buffer, offset, 
   local value = translate.md_entry_px(raw)
   local display = cme_futures_settlements_sbe_v7_0_display.md_entry_px(raw, value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.md_entry_px, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_entry_px, range, value, display)
 
   return offset + length, value
 end
@@ -1980,7 +1980,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px = function(buffer, offset, packet, parent)
   if show.formatted_last_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2022,7 +2022,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_entry_type = function(buffer, offset
 
   local display = cme_futures_settlements_sbe_v7_0_display.md_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.md_entry_type, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -2052,7 +2052,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_update_action = function(buffer, off
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.md_update_action(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.md_update_action, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_update_action, range, value, display)
 
   return offset + length, value
 end
@@ -2119,7 +2119,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fi
 
   -- Implicit M D Incremental Refresh Settle Group Index
   if m_d_incremental_refresh_settle_group_index ~= nil then
-    local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index, m_d_incremental_refresh_settle_group_index)
+    local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index, m_d_incremental_refresh_settle_group_index)
     iteration:set_generated()
   end
 
@@ -2196,7 +2196,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group = function(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
   if show.m_d_incremental_refresh_settle_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -2253,7 +2253,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_groups =
     local length = cme_futures_settlements_sbe_v7_0_size_of.m_d_incremental_refresh_settle_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_settle_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_groups, range, display)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_groups, range, display)
   end
 
   return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_groups_fields(buffer, offset, packet, parent)
@@ -2295,7 +2295,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_incremental_refresh_settle = functio
     local length = cme_futures_settlements_sbe_v7_0_size_of.md_incremental_refresh_settle(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_settlements_sbe_v7_0_display.md_incremental_refresh_settle(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle, range, display)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle, range, display)
   end
 
   return cme_futures_settlements_sbe_v7_0_dissect.md_incremental_refresh_settle_fields(buffer, offset, packet, parent)
@@ -2364,7 +2364,7 @@ cme_futures_settlements_sbe_v7_0_dissect.payload = function(buffer, offset, pack
   -- Dissect Element
   local range = buffer(offset, size)
   local display = cme_futures_settlements_sbe_v7_0_display.payload(buffer, packet, parent)
-  local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.payload, range, display)
+  local element = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.payload, range, display)
 
   return cme_futures_settlements_sbe_v7_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -2384,7 +2384,7 @@ cme_futures_settlements_sbe_v7_0_dissect.version = function(buffer, offset, pack
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.version, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -2404,7 +2404,7 @@ cme_futures_settlements_sbe_v7_0_dissect.schema_id = function(buffer, offset, pa
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.schema_id, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -2437,7 +2437,7 @@ cme_futures_settlements_sbe_v7_0_dissect.template_id = function(buffer, offset, 
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.template_id, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -2485,7 +2485,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.message_header, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2514,7 +2514,7 @@ cme_futures_settlements_sbe_v7_0_dissect.message_size = function(buffer, offset,
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.message_size, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -2566,7 +2566,7 @@ cme_futures_settlements_sbe_v7_0_dissect.message = function(buffer, offset, pack
     local length = cme_futures_settlements_sbe_v7_0_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_settlements_sbe_v7_0_display.message(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.message, range, display)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.message, range, display)
   end
 
   return cme_futures_settlements_sbe_v7_0_dissect.message_fields(buffer, offset, packet, parent)
@@ -2591,7 +2591,7 @@ cme_futures_settlements_sbe_v7_0_dissect.sending_time = function(buffer, offset,
   local value = range:le_uint64()
   local display = cme_futures_settlements_sbe_v7_0_display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.sending_time, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -2611,7 +2611,7 @@ cme_futures_settlements_sbe_v7_0_dissect.message_sequence_number = function(buff
   local value = range:le_uint()
   local display = cme_futures_settlements_sbe_v7_0_display.message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2649,7 +2649,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.binary_packet_header = function(buffer, offset, packet, parent)
   if show.binary_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.binary_packet_header, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2687,23 +2687,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cme_futures_settlements_sbe_v7_0.init()
+function omi_cme_futures_settlements_sbe_v7_0.init()
 end
 
 -- Dissector for Cme Futures Settlements Sbe 7.0
-function cme_futures_settlements_sbe_v7_0.dissector(buffer, packet, parent)
+function omi_cme_futures_settlements_sbe_v7_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cme_futures_settlements_sbe_v7_0.name
+  packet.cols.protocol = omi_cme_futures_settlements_sbe_v7_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(cme_futures_settlements_sbe_v7_0, buffer(), cme_futures_settlements_sbe_v7_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_cme_futures_settlements_sbe_v7_0, buffer(), omi_cme_futures_settlements_sbe_v7_0.description, "("..buffer:len().." Bytes)")
   return cme_futures_settlements_sbe_v7_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cme_futures_settlements_sbe_v7_0)
+udp_table:add(65333, omi_cme_futures_settlements_sbe_v7_0)
 
 
 -----------------------------------------------------------------------
@@ -2711,7 +2711,7 @@ udp_table:add(65333, cme_futures_settlements_sbe_v7_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cme_futures_settlements_sbe_v7_0_packet_size = function(buffer)
+verify.omi_cme_futures_settlements_sbe_v7_0_packet_size = function(buffer)
 
   return true
 end
@@ -2741,9 +2741,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Cme Futures Settlements Sbe 7.0
-local function cme_futures_settlements_sbe_v7_0_heuristic(buffer, packet, parent)
+local function omi_cme_futures_settlements_sbe_v7_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cme_futures_settlements_sbe_v7_0_packet_size(buffer) then return false end
+  if not verify.omi_cme_futures_settlements_sbe_v7_0_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -2752,14 +2752,14 @@ local function cme_futures_settlements_sbe_v7_0_heuristic(buffer, packet, parent
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cme_futures_settlements_sbe_v7_0
-  cme_futures_settlements_sbe_v7_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_cme_futures_settlements_sbe_v7_0
+  omi_cme_futures_settlements_sbe_v7_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Cme Futures Settlements Sbe 7.0
-cme_futures_settlements_sbe_v7_0:register_heuristic("udp", cme_futures_settlements_sbe_v7_0_heuristic)
+omi_cme_futures_settlements_sbe_v7_0:register_heuristic("udp", omi_cme_futures_settlements_sbe_v7_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

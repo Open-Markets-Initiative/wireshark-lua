@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq BxOptions DepthOfMarket Itch 1.3 Protocol
-local nasdaq_bxoptions_depthofmarket_itch_v1_3 = Proto("Nasdaq.BxOptions.DepthOfMarket.Itch.v1.3.Lua", "Nasdaq BxOptions DepthOfMarket Itch 1.3")
+local omi_nasdaq_bxoptions_depthofmarket_itch_v1_3 = Proto("Nasdaq.BxOptions.DepthOfMarket.Itch.v1.3.Lua", "Nasdaq BxOptions DepthOfMarket Itch 1.3")
 
 -- Component Tables
 local show = {}
@@ -21,106 +21,106 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq BxOptions DepthOfMarket Itch 1.3 Fields
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask = ProtoField.new("Ask", "nasdaq.bxoptions.depthofmarket.itch.v1.3.ask", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askprice", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askpricelong", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_delta_number = ProtoField.new("Ask Reference Delta Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askreferencedeltanumber", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askreferencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.bxoptions.depthofmarket.itch.v1.3.asksize", ftypes.UINT16)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.asksizelong", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.bxoptions.depthofmarket.itch.v1.3.auctionid", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.auctiontype", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_number = ProtoField.new("Base Reference Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.basereferencenumber", ftypes.UINT64)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid = ProtoField.new("Bid", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bid", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidprice", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidpricelong", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidreferencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidsize", ftypes.UINT16)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidsizelong", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.bxoptions.depthofmarket.itch.v1.3.buysellindicator", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.bxoptions.depthofmarket.itch.v1.3.cancelledcontracts", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.change_reason = ProtoField.new("Change Reason", "nasdaq.bxoptions.depthofmarket.itch.v1.3.changereason", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_number = ProtoField.new("Cross Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.crossnumber", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.crosstype", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.bxoptions.depthofmarket.itch.v1.3.currenttradingstate", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.bxoptions.depthofmarket.itch.v1.3.customerfirmindicator", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.event_code = ProtoField.new("Event Code", "nasdaq.bxoptions.depthofmarket.itch.v1.3.eventcode", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.executed_contracts = ProtoField.new("Executed Contracts", "nasdaq.bxoptions.depthofmarket.itch.v1.3.executedcontracts", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.bxoptions.depthofmarket.itch.v1.3.expirationdate", ftypes.UINT8)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.bxoptions.depthofmarket.itch.v1.3.expirationmonth", ftypes.UINT8)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.bxoptions.depthofmarket.itch.v1.3.expirationyear", ftypes.UINT8)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.explicitstrikeprice", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalancedirection", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalanceprice", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalancevolume", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.market_side = ProtoField.new("Market Side", "nasdaq.bxoptions.depthofmarket.itch.v1.3.marketside", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.match_number = ProtoField.new("Match Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.matchnumber", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message = ProtoField.new("Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.message", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagecount", ftypes.UINT16)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messageheader", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagelength", ftypes.UINT16)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagetype", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.bxoptions.depthofmarket.itch.v1.3.mpv", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.new_reference_number_delta = ProtoField.new("New Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.newreferencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.open_state = ProtoField.new("Open State", "nasdaq.bxoptions.depthofmarket.itch.v1.3.openstate", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_id = ProtoField.new("Option Id", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionid", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_type = ProtoField.new("Option Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optiontype", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_closing_type = ProtoField.new("Options Closing Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionsclosingtype", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_reference_number_delta = ProtoField.new("Order Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.orderreferencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_ask_reference_number_delta = ProtoField.new("Original Ask Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.originalaskreferencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_bid_reference_number_delta = ProtoField.new("Original Bid Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.originalbidreferencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_reference_number_delta = ProtoField.new("Original Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.originalreferencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet = ProtoField.new("Packet", "nasdaq.bxoptions.depthofmarket.itch.v1.3.packet", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.bxoptions.depthofmarket.itch.v1.3.packetheader", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.bxoptions.depthofmarket.itch.v1.3.pairedcontracts", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.payload = ProtoField.new("Payload", "nasdaq.bxoptions.depthofmarket.itch.v1.3.payload", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price = ProtoField.new("Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.price", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long = ProtoField.new("Price Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.pricelong", ftypes.DOUBLE)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.printable = ProtoField.new("Printable", "nasdaq.bxoptions.depthofmarket.itch.v1.3.printable", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.referencenumberdelta", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan = ProtoField.new("Reference Number Deltan", "nasdaq.bxoptions.depthofmarket.itch.v1.3.referencenumberdeltan", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved = ProtoField.new("Reserved", "nasdaq.bxoptions.depthofmarket.itch.v1.3.reserved", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second = ProtoField.new("Second", "nasdaq.bxoptions.depthofmarket.itch.v1.3.second", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.bxoptions.depthofmarket.itch.v1.3.securitysymbol", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.sequencenumber", ftypes.UINT64)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.session = ProtoField.new("Session", "nasdaq.bxoptions.depthofmarket.itch.v1.3.session", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.source = ProtoField.new("Source", "nasdaq.bxoptions.depthofmarket.itch.v1.3.source", ftypes.UINT8)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.bxoptions.depthofmarket.itch.v1.3.timestamp", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.total_number_of_reference_number_deltas = ProtoField.new("Total Number Of Reference Number Deltas", "nasdaq.bxoptions.depthofmarket.itch.v1.3.totalnumberofreferencenumberdeltas", ftypes.UINT16)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.tradable = ProtoField.new("Tradable", "nasdaq.bxoptions.depthofmarket.itch.v1.3.tradable", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.bxoptions.depthofmarket.itch.v1.3.underlyingsymbol", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume = ProtoField.new("Volume", "nasdaq.bxoptions.depthofmarket.itch.v1.3.volume", ftypes.UINT16)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.volumelong", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask = ProtoField.new("Ask", "nasdaq.bxoptions.depthofmarket.itch.v1.3.ask", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askpricelong", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_delta_number = ProtoField.new("Ask Reference Delta Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askreferencedeltanumber", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.askreferencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.bxoptions.depthofmarket.itch.v1.3.asksize", ftypes.UINT16)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.asksizelong", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.bxoptions.depthofmarket.itch.v1.3.auctionid", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.auctiontype", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_number = ProtoField.new("Base Reference Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.basereferencenumber", ftypes.UINT64)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid = ProtoField.new("Bid", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bid", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidpricelong", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidreferencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidsize", ftypes.UINT16)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.bidsizelong", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.bxoptions.depthofmarket.itch.v1.3.buysellindicator", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.bxoptions.depthofmarket.itch.v1.3.cancelledcontracts", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.change_reason = ProtoField.new("Change Reason", "nasdaq.bxoptions.depthofmarket.itch.v1.3.changereason", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_number = ProtoField.new("Cross Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.crossnumber", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.crosstype", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.bxoptions.depthofmarket.itch.v1.3.currenttradingstate", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.bxoptions.depthofmarket.itch.v1.3.customerfirmindicator", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.event_code = ProtoField.new("Event Code", "nasdaq.bxoptions.depthofmarket.itch.v1.3.eventcode", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.executed_contracts = ProtoField.new("Executed Contracts", "nasdaq.bxoptions.depthofmarket.itch.v1.3.executedcontracts", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.bxoptions.depthofmarket.itch.v1.3.expirationdate", ftypes.UINT8)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.bxoptions.depthofmarket.itch.v1.3.expirationmonth", ftypes.UINT8)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.bxoptions.depthofmarket.itch.v1.3.expirationyear", ftypes.UINT8)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.explicitstrikeprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalancedirection", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalanceprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalancevolume", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.market_side = ProtoField.new("Market Side", "nasdaq.bxoptions.depthofmarket.itch.v1.3.marketside", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.match_number = ProtoField.new("Match Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.matchnumber", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message = ProtoField.new("Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.message", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagecount", ftypes.UINT16)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messageheader", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagelength", ftypes.UINT16)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagetype", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.bxoptions.depthofmarket.itch.v1.3.mpv", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.new_reference_number_delta = ProtoField.new("New Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.newreferencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.open_state = ProtoField.new("Open State", "nasdaq.bxoptions.depthofmarket.itch.v1.3.openstate", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_id = ProtoField.new("Option Id", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionid", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_type = ProtoField.new("Option Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optiontype", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_closing_type = ProtoField.new("Options Closing Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionsclosingtype", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_reference_number_delta = ProtoField.new("Order Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.orderreferencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_ask_reference_number_delta = ProtoField.new("Original Ask Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.originalaskreferencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_bid_reference_number_delta = ProtoField.new("Original Bid Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.originalbidreferencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_reference_number_delta = ProtoField.new("Original Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.originalreferencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet = ProtoField.new("Packet", "nasdaq.bxoptions.depthofmarket.itch.v1.3.packet", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.bxoptions.depthofmarket.itch.v1.3.packetheader", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.bxoptions.depthofmarket.itch.v1.3.pairedcontracts", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.payload = ProtoField.new("Payload", "nasdaq.bxoptions.depthofmarket.itch.v1.3.payload", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price = ProtoField.new("Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.price", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long = ProtoField.new("Price Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.pricelong", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.printable = ProtoField.new("Printable", "nasdaq.bxoptions.depthofmarket.itch.v1.3.printable", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.referencenumberdelta", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan = ProtoField.new("Reference Number Deltan", "nasdaq.bxoptions.depthofmarket.itch.v1.3.referencenumberdeltan", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved = ProtoField.new("Reserved", "nasdaq.bxoptions.depthofmarket.itch.v1.3.reserved", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second = ProtoField.new("Second", "nasdaq.bxoptions.depthofmarket.itch.v1.3.second", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.bxoptions.depthofmarket.itch.v1.3.securitysymbol", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.sequencenumber", ftypes.UINT64)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.session = ProtoField.new("Session", "nasdaq.bxoptions.depthofmarket.itch.v1.3.session", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.source = ProtoField.new("Source", "nasdaq.bxoptions.depthofmarket.itch.v1.3.source", ftypes.UINT8)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.bxoptions.depthofmarket.itch.v1.3.timestamp", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.total_number_of_reference_number_deltas = ProtoField.new("Total Number Of Reference Number Deltas", "nasdaq.bxoptions.depthofmarket.itch.v1.3.totalnumberofreferencenumberdeltas", ftypes.UINT16)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.tradable = ProtoField.new("Tradable", "nasdaq.bxoptions.depthofmarket.itch.v1.3.tradable", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.bxoptions.depthofmarket.itch.v1.3.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume = ProtoField.new("Volume", "nasdaq.bxoptions.depthofmarket.itch.v1.3.volume", ftypes.UINT16)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.bxoptions.depthofmarket.itch.v1.3.volumelong", ftypes.UINT32)
 
 -- Nasdaq BxOptions DepthOfMarket Itch 1.3 messages
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form = ProtoField.new("Add Order Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addordermessagelongform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_short_form = ProtoField.new("Add Order Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addordermessageshortform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_long_form = ProtoField.new("Add Quote Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addquotemessagelongform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_short_form = ProtoField.new("Add Quote Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addquotemessageshortform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_message = ProtoField.new("Base Reference Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.basereferencemessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.block_delete_message = ProtoField.new("Block Delete Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.blockdeletemessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.broken_trade_or_order_execution_message = ProtoField.new("Broken Trade Or Order Execution Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.brokentradeororderexecutionmessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.netorderimbalanceindicatormessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.non_auction_options_trade_message = ProtoField.new("Non Auction Options Trade Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.nonauctionoptionstrademessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optiondirectorymessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_open_message = ProtoField.new("Option Open Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionopenmessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionscrosstrademessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.ordercancelmessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.quotedeletemessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_long_form = ProtoField.new("Quote Replace Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.quotereplacemessagelongform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_short_form = ProtoField.new("Quote Replace Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.quotereplacemessageshortform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.seconds_message = ProtoField.new("Seconds Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.secondsmessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesidedeletemessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_executed_message = ProtoField.new("Single Side Executed Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesideexecutedmessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_order_executed_with_price_message = ProtoField.new("Single Side Order Executed With Price Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesideorderexecutedwithpricemessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_long_form = ProtoField.new("Single Side Replace Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesidereplacemessagelongform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_short_form = ProtoField.new("Single Side Replace Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesidereplacemessageshortform", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message = ProtoField.new("Single Side Update Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesideupdatemessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.systemeventmessage", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.tradingactionmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form = ProtoField.new("Add Order Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addordermessagelongform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_short_form = ProtoField.new("Add Order Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addordermessageshortform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_long_form = ProtoField.new("Add Quote Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addquotemessagelongform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_short_form = ProtoField.new("Add Quote Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.addquotemessageshortform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_message = ProtoField.new("Base Reference Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.basereferencemessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.block_delete_message = ProtoField.new("Block Delete Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.blockdeletemessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.broken_trade_or_order_execution_message = ProtoField.new("Broken Trade Or Order Execution Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.brokentradeororderexecutionmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.netorderimbalanceindicatormessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.non_auction_options_trade_message = ProtoField.new("Non Auction Options Trade Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.nonauctionoptionstrademessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optiondirectorymessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_open_message = ProtoField.new("Option Open Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionopenmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.optionscrosstrademessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.ordercancelmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.quotedeletemessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_long_form = ProtoField.new("Quote Replace Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.quotereplacemessagelongform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_short_form = ProtoField.new("Quote Replace Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.quotereplacemessageshortform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.seconds_message = ProtoField.new("Seconds Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.secondsmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesidedeletemessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_executed_message = ProtoField.new("Single Side Executed Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesideexecutedmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_order_executed_with_price_message = ProtoField.new("Single Side Order Executed With Price Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesideorderexecutedwithpricemessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_long_form = ProtoField.new("Single Side Replace Message Long Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesidereplacemessagelongform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_short_form = ProtoField.new("Single Side Replace Message Short Form", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesidereplacemessageshortform", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message = ProtoField.new("Single Side Update Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.singlesideupdatemessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.systemeventmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq BxOptions DepthOfMarket Itch 1.3 generated fields
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messageindex", ftypes.UINT16)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -159,160 +159,160 @@ show.trading_action_message = true
 show.payload = false
 
 -- Register Nasdaq BxOptions DepthOfMarket Itch 1.3 Show Options
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_long_form = Pref.bool("Show Add Order Message Long Form", show.add_order_message_long_form, "Parse and add Add Order Message Long Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_short_form = Pref.bool("Show Add Order Message Short Form", show.add_order_message_short_form, "Parse and add Add Order Message Short Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_long_form = Pref.bool("Show Add Quote Message Long Form", show.add_quote_message_long_form, "Parse and add Add Quote Message Long Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_short_form = Pref.bool("Show Add Quote Message Short Form", show.add_quote_message_short_form, "Parse and add Add Quote Message Short Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_base_reference_message = Pref.bool("Show Base Reference Message", show.base_reference_message, "Parse and add Base Reference Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_block_delete_message = Pref.bool("Show Block Delete Message", show.block_delete_message, "Parse and add Block Delete Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_broken_trade_or_order_execution_message = Pref.bool("Show Broken Trade Or Order Execution Message", show.broken_trade_or_order_execution_message, "Parse and add Broken Trade Or Order Execution Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_non_auction_options_trade_message = Pref.bool("Show Non Auction Options Trade Message", show.non_auction_options_trade_message, "Parse and add Non Auction Options Trade Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_directory_message = Pref.bool("Show Option Directory Message", show.option_directory_message, "Parse and add Option Directory Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_open_message = Pref.bool("Show Option Open Message", show.option_open_message, "Parse and add Option Open Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_delete_message = Pref.bool("Show Quote Delete Message", show.quote_delete_message, "Parse and add Quote Delete Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_long_form = Pref.bool("Show Quote Replace Message Long Form", show.quote_replace_message_long_form, "Parse and add Quote Replace Message Long Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_short_form = Pref.bool("Show Quote Replace Message Short Form", show.quote_replace_message_short_form, "Parse and add Quote Replace Message Short Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_delete_message = Pref.bool("Show Single Side Delete Message", show.single_side_delete_message, "Parse and add Single Side Delete Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_executed_message = Pref.bool("Show Single Side Executed Message", show.single_side_executed_message, "Parse and add Single Side Executed Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_order_executed_with_price_message = Pref.bool("Show Single Side Order Executed With Price Message", show.single_side_order_executed_with_price_message, "Parse and add Single Side Order Executed With Price Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_long_form = Pref.bool("Show Single Side Replace Message Long Form", show.single_side_replace_message_long_form, "Parse and add Single Side Replace Message Long Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_short_form = Pref.bool("Show Single Side Replace Message Short Form", show.single_side_replace_message_short_form, "Parse and add Single Side Replace Message Short Form to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_update_message = Pref.bool("Show Single Side Update Message", show.single_side_update_message, "Parse and add Single Side Update Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_long_form = Pref.bool("Show Add Order Message Long Form", show.add_order_message_long_form, "Parse and add Add Order Message Long Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_short_form = Pref.bool("Show Add Order Message Short Form", show.add_order_message_short_form, "Parse and add Add Order Message Short Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_long_form = Pref.bool("Show Add Quote Message Long Form", show.add_quote_message_long_form, "Parse and add Add Quote Message Long Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_short_form = Pref.bool("Show Add Quote Message Short Form", show.add_quote_message_short_form, "Parse and add Add Quote Message Short Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_base_reference_message = Pref.bool("Show Base Reference Message", show.base_reference_message, "Parse and add Base Reference Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_block_delete_message = Pref.bool("Show Block Delete Message", show.block_delete_message, "Parse and add Block Delete Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_broken_trade_or_order_execution_message = Pref.bool("Show Broken Trade Or Order Execution Message", show.broken_trade_or_order_execution_message, "Parse and add Broken Trade Or Order Execution Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_non_auction_options_trade_message = Pref.bool("Show Non Auction Options Trade Message", show.non_auction_options_trade_message, "Parse and add Non Auction Options Trade Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_directory_message = Pref.bool("Show Option Directory Message", show.option_directory_message, "Parse and add Option Directory Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_open_message = Pref.bool("Show Option Open Message", show.option_open_message, "Parse and add Option Open Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_delete_message = Pref.bool("Show Quote Delete Message", show.quote_delete_message, "Parse and add Quote Delete Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_long_form = Pref.bool("Show Quote Replace Message Long Form", show.quote_replace_message_long_form, "Parse and add Quote Replace Message Long Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_short_form = Pref.bool("Show Quote Replace Message Short Form", show.quote_replace_message_short_form, "Parse and add Quote Replace Message Short Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_delete_message = Pref.bool("Show Single Side Delete Message", show.single_side_delete_message, "Parse and add Single Side Delete Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_executed_message = Pref.bool("Show Single Side Executed Message", show.single_side_executed_message, "Parse and add Single Side Executed Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_order_executed_with_price_message = Pref.bool("Show Single Side Order Executed With Price Message", show.single_side_order_executed_with_price_message, "Parse and add Single Side Order Executed With Price Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_long_form = Pref.bool("Show Single Side Replace Message Long Form", show.single_side_replace_message_long_form, "Parse and add Single Side Replace Message Long Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_short_form = Pref.bool("Show Single Side Replace Message Short Form", show.single_side_replace_message_short_form, "Parse and add Single Side Replace Message Short Form to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_update_message = Pref.bool("Show Single Side Update Message", show.single_side_update_message, "Parse and add Single Side Update Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs_changed()
+function omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message_long_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_long_form then
-    show.add_order_message_long_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_long_form
+  if show.add_order_message_long_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_long_form then
+    show.add_order_message_long_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_long_form
     changed = true
   end
-  if show.add_order_message_short_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_short_form then
-    show.add_order_message_short_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_short_form
+  if show.add_order_message_short_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_short_form then
+    show.add_order_message_short_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_order_message_short_form
     changed = true
   end
-  if show.add_quote_message_long_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_long_form then
-    show.add_quote_message_long_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_long_form
+  if show.add_quote_message_long_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_long_form then
+    show.add_quote_message_long_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_long_form
     changed = true
   end
-  if show.add_quote_message_short_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_short_form then
-    show.add_quote_message_short_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_short_form
+  if show.add_quote_message_short_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_short_form then
+    show.add_quote_message_short_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_add_quote_message_short_form
     changed = true
   end
-  if show.base_reference_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_base_reference_message then
-    show.base_reference_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_base_reference_message
+  if show.base_reference_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_base_reference_message then
+    show.base_reference_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_base_reference_message
     changed = true
   end
-  if show.block_delete_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_block_delete_message then
-    show.block_delete_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_block_delete_message
+  if show.block_delete_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_block_delete_message then
+    show.block_delete_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_block_delete_message
     changed = true
   end
-  if show.broken_trade_or_order_execution_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_broken_trade_or_order_execution_message then
-    show.broken_trade_or_order_execution_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_broken_trade_or_order_execution_message
+  if show.broken_trade_or_order_execution_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_broken_trade_or_order_execution_message then
+    show.broken_trade_or_order_execution_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_broken_trade_or_order_execution_message
     changed = true
   end
-  if show.message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message then
-    show.message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message
+  if show.message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message then
+    show.message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message_header then
-    show.message_header = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message_header then
+    show.message_header = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_message_header
     changed = true
   end
-  if show.net_order_imbalance_indicator_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_net_order_imbalance_indicator_message then
-    show.net_order_imbalance_indicator_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_net_order_imbalance_indicator_message
+  if show.net_order_imbalance_indicator_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_net_order_imbalance_indicator_message then
+    show.net_order_imbalance_indicator_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_net_order_imbalance_indicator_message
     changed = true
   end
-  if show.non_auction_options_trade_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_non_auction_options_trade_message then
-    show.non_auction_options_trade_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_non_auction_options_trade_message
+  if show.non_auction_options_trade_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_non_auction_options_trade_message then
+    show.non_auction_options_trade_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_non_auction_options_trade_message
     changed = true
   end
-  if show.option_directory_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_directory_message then
-    show.option_directory_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_directory_message
+  if show.option_directory_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_directory_message then
+    show.option_directory_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_directory_message
     changed = true
   end
-  if show.option_open_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_open_message then
-    show.option_open_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_open_message
+  if show.option_open_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_open_message then
+    show.option_open_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_option_open_message
     changed = true
   end
-  if show.options_cross_trade_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_options_cross_trade_message then
-    show.options_cross_trade_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_options_cross_trade_message
+  if show.options_cross_trade_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_options_cross_trade_message then
+    show.options_cross_trade_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_options_cross_trade_message
     changed = true
   end
-  if show.order_cancel_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_order_cancel_message then
-    show.order_cancel_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_order_cancel_message
+  if show.order_cancel_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_order_cancel_message then
+    show.order_cancel_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_order_cancel_message
     changed = true
   end
-  if show.packet ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet then
-    show.packet = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet
+  if show.packet ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet then
+    show.packet = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet_header then
-    show.packet_header = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_packet_header
     changed = true
   end
-  if show.quote_delete_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_delete_message then
-    show.quote_delete_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_delete_message
+  if show.quote_delete_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_delete_message then
+    show.quote_delete_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_delete_message
     changed = true
   end
-  if show.quote_replace_message_long_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_long_form then
-    show.quote_replace_message_long_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_long_form
+  if show.quote_replace_message_long_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_long_form then
+    show.quote_replace_message_long_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_long_form
     changed = true
   end
-  if show.quote_replace_message_short_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_short_form then
-    show.quote_replace_message_short_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_short_form
+  if show.quote_replace_message_short_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_short_form then
+    show.quote_replace_message_short_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_quote_replace_message_short_form
     changed = true
   end
-  if show.seconds_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_seconds_message then
-    show.seconds_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_seconds_message
+  if show.seconds_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_seconds_message then
+    show.seconds_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_seconds_message
     changed = true
   end
-  if show.single_side_delete_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_delete_message then
-    show.single_side_delete_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_delete_message
+  if show.single_side_delete_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_delete_message then
+    show.single_side_delete_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_delete_message
     changed = true
   end
-  if show.single_side_executed_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_executed_message then
-    show.single_side_executed_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_executed_message
+  if show.single_side_executed_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_executed_message then
+    show.single_side_executed_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_executed_message
     changed = true
   end
-  if show.single_side_order_executed_with_price_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_order_executed_with_price_message then
-    show.single_side_order_executed_with_price_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_order_executed_with_price_message
+  if show.single_side_order_executed_with_price_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_order_executed_with_price_message then
+    show.single_side_order_executed_with_price_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_order_executed_with_price_message
     changed = true
   end
-  if show.single_side_replace_message_long_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_long_form then
-    show.single_side_replace_message_long_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_long_form
+  if show.single_side_replace_message_long_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_long_form then
+    show.single_side_replace_message_long_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_long_form
     changed = true
   end
-  if show.single_side_replace_message_short_form ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_short_form then
-    show.single_side_replace_message_short_form = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_short_form
+  if show.single_side_replace_message_short_form ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_short_form then
+    show.single_side_replace_message_short_form = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_replace_message_short_form
     changed = true
   end
-  if show.single_side_update_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_update_message then
-    show.single_side_update_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_update_message
+  if show.single_side_update_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_update_message then
+    show.single_side_update_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_single_side_update_message
     changed = true
   end
-  if show.system_event_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_system_event_message
+  if show.system_event_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_system_event_message then
+    show.system_event_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_system_event_message
     changed = true
   end
-  if show.trading_action_message ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_trading_action_message then
-    show.trading_action_message = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_trading_action_message
+  if show.trading_action_message ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_trading_action_message then
+    show.trading_action_message = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_trading_action_message
     changed = true
   end
-  if show.payload ~= nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_payload then
-    show.payload = nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_payload
+  if show.payload ~= omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_payload then
+    show.payload = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.prefs.show_payload
     changed = true
   end
 
@@ -360,7 +360,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.reserved = function(buffer, off
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -396,7 +396,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.customer_firm_indicator = funct
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.customer_firm_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.customer_firm_indicator, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.customer_firm_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -416,7 +416,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.imbalance_volume = function(buf
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
 end
@@ -442,7 +442,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.imbalance_price = function(buff
   local value = translate.imbalance_price(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.imbalance_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price, range, value, display)
 
   return offset + length, value
 end
@@ -462,7 +462,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_id = function(buffer, of
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.option_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_id, range, value, display)
 
   return offset + length, value
 end
@@ -489,7 +489,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.imbalance_direction = function(
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.imbalance_direction(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_direction, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_direction, range, value, display)
 
   return offset + length, value
 end
@@ -509,7 +509,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.paired_contracts = function(buf
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.paired_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.paired_contracts, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.paired_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -542,7 +542,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.auction_type = function(buffer,
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -562,7 +562,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.auction_id = function(buffer, o
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -582,7 +582,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.timestamp = function(buffer, of
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.timestamp, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -660,7 +660,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet, parent)
   if show.net_order_imbalance_indicator_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -689,7 +689,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.match_number = function(buffer,
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.match_number, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.match_number, range, value, display)
 
   return offset + length, value
 end
@@ -709,7 +709,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.cross_number = function(buffer,
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.cross_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_number, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_number, range, value, display)
 
   return offset + length, value
 end
@@ -752,7 +752,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.broken_trade_or_order_execution_message = function(buffer, offset, packet, parent)
   if show.broken_trade_or_order_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.broken_trade_or_order_execution_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.broken_trade_or_order_execution_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.broken_trade_or_order_execution_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -781,7 +781,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.volume_long = function(buffer, 
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.volume_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume_long, range, value, display)
 
   return offset + length, value
 end
@@ -807,7 +807,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.price_long = function(buffer, o
   local value = translate.price_long(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long, range, value, display)
 
   return offset + length, value
 end
@@ -834,7 +834,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.cross_type = function(buffer, o
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -897,7 +897,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
   if show.options_cross_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_cross_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_cross_trade_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -933,7 +933,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.buy_sell_indicator = function(b
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.buy_sell_indicator, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.buy_sell_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -996,7 +996,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.non_auction_options_trade_message = function(buffer, offset, packet, parent)
   if show.non_auction_options_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.non_auction_options_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.non_auction_options_trade_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1025,7 +1025,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.reference_number_deltan = funct
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.reference_number_deltan(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan, range, value, display)
 
   return offset + length, value
 end
@@ -1045,7 +1045,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.total_number_of_reference_numbe
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.total_number_of_reference_number_deltas(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.total_number_of_reference_number_deltas, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.total_number_of_reference_number_deltas, range, value, display)
 
   return offset + length, value
 end
@@ -1088,7 +1088,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.block_delete_message = function(buffer, offset, packet, parent)
   if show.block_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.block_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.block_delete_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.block_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1117,7 +1117,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.ask_reference_number_delta = fu
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.ask_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -1137,7 +1137,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.bid_reference_number_delta = fu
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.bid_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -1180,7 +1180,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_delete_message = function(buffer, offset, packet, parent)
   if show.quote_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_delete_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1209,7 +1209,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.ask_size_long = function(buffer
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.ask_size_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size_long, range, value, display)
 
   return offset + length, value
 end
@@ -1235,7 +1235,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.ask_price_long = function(buffe
   local value = translate.ask_price_long(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.ask_price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price_long, range, value, display)
 
   return offset + length, value
 end
@@ -1255,7 +1255,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.bid_size_long = function(buffer
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.bid_size_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size_long, range, value, display)
 
   return offset + length, value
 end
@@ -1281,7 +1281,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.bid_price_long = function(buffe
   local value = translate.bid_price_long(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.bid_price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
@@ -1301,7 +1301,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.ask_reference_delta_number = fu
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.ask_reference_delta_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_delta_number, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_delta_number, range, value, display)
 
   return offset + length, value
 end
@@ -1321,7 +1321,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.original_ask_reference_number_d
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.original_ask_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_ask_reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_ask_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -1341,7 +1341,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.original_bid_reference_number_d
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.original_bid_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_bid_reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_bid_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -1414,7 +1414,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_long_form = function(buffer, offset, packet, parent)
   if show.quote_replace_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_long_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_long_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1443,7 +1443,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.ask_size = function(buffer, off
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -1469,7 +1469,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.ask_price = function(buffer, of
   local value = translate.ask_price(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -1489,7 +1489,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.bid_size = function(buffer, off
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1515,7 +1515,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.bid_price = function(buffer, of
   local value = translate.bid_price(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1588,7 +1588,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_short_form = function(buffer, offset, packet, parent)
   if show.quote_replace_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_short_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_short_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1627,7 +1627,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.change_reason = function(buffer
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.change_reason, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1647,7 +1647,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.reference_number_delta = functi
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -1700,7 +1700,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_update_message = function(buffer, offset, packet, parent)
   if show.single_side_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1747,7 +1747,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_delete_message = function(buffer, offset, packet, parent)
   if show.single_side_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_delete_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1776,7 +1776,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.new_reference_number_delta = fu
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.new_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.new_reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.new_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -1796,7 +1796,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.original_reference_number_delta
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.original_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -1849,7 +1849,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_long_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_long_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1878,7 +1878,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.volume = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -1904,7 +1904,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.price = function(buffer, offset
   local value = translate.price(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1957,7 +1957,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_short_form = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_short_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_short_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1986,7 +1986,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.cancelled_contracts = function(
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.cancelled_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cancelled_contracts, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cancelled_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -2006,7 +2006,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_reference_number_delta = 
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.order_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_reference_number_delta, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
@@ -2049,7 +2049,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_cancel_message = function(buffer, offset, packet, parent)
   if show.order_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_cancel_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2085,7 +2085,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.printable = function(buffer, of
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.printable, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.printable, range, value, display)
 
   return offset + length, value
 end
@@ -2148,7 +2148,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_order_executed_with_price_message = function(buffer, offset, packet, parent)
   if show.single_side_order_executed_with_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_order_executed_with_price_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_order_executed_with_price_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_order_executed_with_price_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2177,7 +2177,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.executed_contracts = function(b
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.executed_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.executed_contracts, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.executed_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -2230,7 +2230,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_executed_message = function(buffer, offset, packet, parent)
   if show.single_side_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_executed_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2259,7 +2259,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.ask = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.ask(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask, range, value, display)
 
   return offset + length, value
 end
@@ -2279,7 +2279,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.bid = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.bid(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid, range, value, display)
 
   return offset + length, value
 end
@@ -2347,7 +2347,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_long_form = function(buffer, offset, packet, parent)
   if show.add_quote_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_long_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_long_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2424,7 +2424,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_short_form = function(buffer, offset, packet, parent)
   if show.add_quote_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_short_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_short_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2460,7 +2460,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.market_side = function(buffer, 
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.market_side(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.market_side, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.market_side, range, value, display)
 
   return offset + length, value
 end
@@ -2518,7 +2518,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_long_form = function(buffer, offset, packet, parent)
   if show.add_order_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2585,7 +2585,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_short_form = function(buffer, offset, packet, parent)
   if show.add_order_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_short_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_short_form, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2614,7 +2614,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.open_state = function(buffer, o
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.open_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.open_state, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.open_state, range, value, display)
 
   return offset + length, value
 end
@@ -2657,7 +2657,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_open_message = function(buffer, offset, packet, parent)
   if show.option_open_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_open_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_open_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2705,7 +2705,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.current_trading_state = functio
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.current_trading_state, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -2748,7 +2748,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2787,7 +2787,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.mpv = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.mpv, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -2814,7 +2814,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.tradable = function(buffer, off
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.tradable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.tradable, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.tradable, range, value, display)
 
   return offset + length, value
 end
@@ -2841,7 +2841,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_closing_type = function
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.options_closing_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_closing_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_closing_type, range, value, display)
 
   return offset + length, value
 end
@@ -2861,7 +2861,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.underlying_symbol = function(bu
   local value = trim_right_spaces(range:string())
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2881,7 +2881,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.source = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.source(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.source, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.source, range, value, display)
 
   return offset + length, value
 end
@@ -2908,7 +2908,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_type = function(buffer, 
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -2934,7 +2934,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.explicit_strike_price = functio
   local value = translate.explicit_strike_price(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2954,7 +2954,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.expiration_date = function(buff
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.expiration_date(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_date, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_date, range, value, display)
 
   return offset + length, value
 end
@@ -2974,7 +2974,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.expiration_month = function(buf
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_month, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -2994,7 +2994,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.expiration_year = function(buff
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_year, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -3014,7 +3014,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.security_symbol = function(buff
   local value = trim_right_spaces(range:string())
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3107,7 +3107,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_directory_message = function(buffer, offset, packet, parent)
   if show.option_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_directory_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3136,7 +3136,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_number = functio
   local value = range:uint64()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.base_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_number, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -3174,7 +3174,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_message = function(buffer, offset, packet, parent)
   if show.base_reference_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3222,7 +3222,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.event_code = function(buffer, o
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.event_code, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -3260,7 +3260,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3289,7 +3289,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.second = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.second(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second, range, value, display)
 
   return offset + length, value
 end
@@ -3322,7 +3322,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.seconds_message = function(buffer, offset, packet, parent)
   if show.seconds_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.seconds_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.seconds_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.seconds_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3568,7 +3568,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.payload = function(buffer, offs
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.payload, range, display)
 
   return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -3664,7 +3664,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_type = function(buffer,
   local value = range:string()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3684,7 +3684,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_length = function(buffe
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -3722,7 +3722,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_header, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3747,7 +3747,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_fields = function(buffe
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -3769,7 +3769,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message = function(buffer, offs
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message, buffer(offset, 0))
     local current = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message(buffer, packet, parent)
@@ -3799,7 +3799,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_count = function(buffer
   local value = range:uint()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3819,7 +3819,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.sequence_number = function(buff
   local value = range:uint64()
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3855,7 +3855,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.session = function(buffer, offs
 
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.session, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -3898,7 +3898,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3944,23 +3944,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_bxoptions_depthofmarket_itch_v1_3.init()
+function omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.init()
 end
 
 -- Dissector for Nasdaq BxOptions DepthOfMarket Itch 1.3
-function nasdaq_bxoptions_depthofmarket_itch_v1_3.dissector(buffer, packet, parent)
+function omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_bxoptions_depthofmarket_itch_v1_3.name
+  packet.cols.protocol = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3, buffer(), nasdaq_bxoptions_depthofmarket_itch_v1_3.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3, buffer(), omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.description, "("..buffer:len().." Bytes)")
   return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_bxoptions_depthofmarket_itch_v1_3)
+udp_table:add(65333, omi_nasdaq_bxoptions_depthofmarket_itch_v1_3)
 
 
 -----------------------------------------------------------------------
@@ -3968,25 +3968,25 @@ udp_table:add(65333, nasdaq_bxoptions_depthofmarket_itch_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_bxoptions_depthofmarket_itch_v1_3_packet_size = function(buffer)
+verify.omi_nasdaq_bxoptions_depthofmarket_itch_v1_3_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq BxOptions DepthOfMarket Itch 1.3
-local function nasdaq_bxoptions_depthofmarket_itch_v1_3_heuristic(buffer, packet, parent)
+local function omi_nasdaq_bxoptions_depthofmarket_itch_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_bxoptions_depthofmarket_itch_v1_3_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_bxoptions_depthofmarket_itch_v1_3_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_bxoptions_depthofmarket_itch_v1_3
-  nasdaq_bxoptions_depthofmarket_itch_v1_3.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3
+  omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq BxOptions DepthOfMarket Itch 1.3
-nasdaq_bxoptions_depthofmarket_itch_v1_3:register_heuristic("udp", nasdaq_bxoptions_depthofmarket_itch_v1_3_heuristic)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3:register_heuristic("udp", omi_nasdaq_bxoptions_depthofmarket_itch_v1_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

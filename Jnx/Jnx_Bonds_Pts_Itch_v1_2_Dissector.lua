@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Jnx Bonds Pts Itch 1.2 Protocol
-local jnx_bonds_pts_itch_v1_2 = Proto("Jnx.Bonds.Pts.Itch.v1.2.Lua", "Jnx Bonds Pts Itch 1.2")
+local omi_jnx_bonds_pts_itch_v1_2 = Proto("Jnx.Bonds.Pts.Itch.v1.2.Lua", "Jnx Bonds Pts Itch 1.2")
 
 -- Component Tables
 local show = {}
@@ -21,52 +21,52 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Jnx Bonds Pts Itch 1.2 Fields
-jnx_bonds_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.bonds.pts.itch.v1.2.buysellindicator", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.itch.v1.2.executedquantity", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.group = ProtoField.new("Group", "jnx.bonds.pts.itch.v1.2.group", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.bonds.pts.itch.v1.2.lowerpricelimit", ftypes.DOUBLE)
-jnx_bonds_pts_itch_v1_2.fields.match_number = ProtoField.new("Match Number", "jnx.bonds.pts.itch.v1.2.matchnumber", ftypes.UINT64)
-jnx_bonds_pts_itch_v1_2.fields.message = ProtoField.new("Message", "jnx.bonds.pts.itch.v1.2.message", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.message_count = ProtoField.new("Message Count", "jnx.bonds.pts.itch.v1.2.messagecount", ftypes.UINT16)
-jnx_bonds_pts_itch_v1_2.fields.message_header = ProtoField.new("Message Header", "jnx.bonds.pts.itch.v1.2.messageheader", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.message_length = ProtoField.new("Message Length", "jnx.bonds.pts.itch.v1.2.messagelength", ftypes.UINT16)
-jnx_bonds_pts_itch_v1_2.fields.message_type = ProtoField.new("Message Type", "jnx.bonds.pts.itch.v1.2.messagetype", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.new_order_number = ProtoField.new("New Order Number", "jnx.bonds.pts.itch.v1.2.newordernumber", ftypes.UINT64)
-jnx_bonds_pts_itch_v1_2.fields.order_number = ProtoField.new("Order Number", "jnx.bonds.pts.itch.v1.2.ordernumber", ftypes.UINT64)
-jnx_bonds_pts_itch_v1_2.fields.orderbook_code = ProtoField.new("Orderbook Code", "jnx.bonds.pts.itch.v1.2.orderbookcode", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.bonds.pts.itch.v1.2.orderbookid", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.bonds.pts.itch.v1.2.originalordernumber", ftypes.UINT64)
-jnx_bonds_pts_itch_v1_2.fields.packet = ProtoField.new("Packet", "jnx.bonds.pts.itch.v1.2.packet", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "jnx.bonds.pts.itch.v1.2.packetheader", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.payload = ProtoField.new("Payload", "jnx.bonds.pts.itch.v1.2.payload", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.price = ProtoField.new("Price", "jnx.bonds.pts.itch.v1.2.price", ftypes.DOUBLE)
-jnx_bonds_pts_itch_v1_2.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.bonds.pts.itch.v1.2.pricedecimals", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.price_start = ProtoField.new("Price Start", "jnx.bonds.pts.itch.v1.2.pricestart", ftypes.DOUBLE)
-jnx_bonds_pts_itch_v1_2.fields.price_tick_size = ProtoField.new("Price Tick Size", "jnx.bonds.pts.itch.v1.2.priceticksize", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.bonds.pts.itch.v1.2.priceticksizetableid", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.itch.v1.2.quantity", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.bonds.pts.itch.v1.2.roundlotsize", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.bonds.pts.itch.v1.2.sequencenumber", ftypes.UINT64)
-jnx_bonds_pts_itch_v1_2.fields.session = ProtoField.new("Session", "jnx.bonds.pts.itch.v1.2.session", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.system_event = ProtoField.new("System Event", "jnx.bonds.pts.itch.v1.2.systemevent", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jnx.bonds.pts.itch.v1.2.timestampnanoseconds", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "jnx.bonds.pts.itch.v1.2.timestampseconds", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.trading_state = ProtoField.new("Trading State", "jnx.bonds.pts.itch.v1.2.tradingstate", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.bonds.pts.itch.v1.2.upperpricelimit", ftypes.DOUBLE)
+omi_jnx_bonds_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.bonds.pts.itch.v1.2.buysellindicator", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.itch.v1.2.executedquantity", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.group = ProtoField.new("Group", "jnx.bonds.pts.itch.v1.2.group", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.bonds.pts.itch.v1.2.lowerpricelimit", ftypes.DOUBLE)
+omi_jnx_bonds_pts_itch_v1_2.fields.match_number = ProtoField.new("Match Number", "jnx.bonds.pts.itch.v1.2.matchnumber", ftypes.UINT64)
+omi_jnx_bonds_pts_itch_v1_2.fields.message = ProtoField.new("Message", "jnx.bonds.pts.itch.v1.2.message", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.message_count = ProtoField.new("Message Count", "jnx.bonds.pts.itch.v1.2.messagecount", ftypes.UINT16)
+omi_jnx_bonds_pts_itch_v1_2.fields.message_header = ProtoField.new("Message Header", "jnx.bonds.pts.itch.v1.2.messageheader", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.message_length = ProtoField.new("Message Length", "jnx.bonds.pts.itch.v1.2.messagelength", ftypes.UINT16)
+omi_jnx_bonds_pts_itch_v1_2.fields.message_type = ProtoField.new("Message Type", "jnx.bonds.pts.itch.v1.2.messagetype", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.new_order_number = ProtoField.new("New Order Number", "jnx.bonds.pts.itch.v1.2.newordernumber", ftypes.UINT64)
+omi_jnx_bonds_pts_itch_v1_2.fields.order_number = ProtoField.new("Order Number", "jnx.bonds.pts.itch.v1.2.ordernumber", ftypes.UINT64)
+omi_jnx_bonds_pts_itch_v1_2.fields.orderbook_code = ProtoField.new("Orderbook Code", "jnx.bonds.pts.itch.v1.2.orderbookcode", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.bonds.pts.itch.v1.2.orderbookid", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.bonds.pts.itch.v1.2.originalordernumber", ftypes.UINT64)
+omi_jnx_bonds_pts_itch_v1_2.fields.packet = ProtoField.new("Packet", "jnx.bonds.pts.itch.v1.2.packet", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "jnx.bonds.pts.itch.v1.2.packetheader", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.payload = ProtoField.new("Payload", "jnx.bonds.pts.itch.v1.2.payload", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.price = ProtoField.new("Price", "jnx.bonds.pts.itch.v1.2.price", ftypes.DOUBLE)
+omi_jnx_bonds_pts_itch_v1_2.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.bonds.pts.itch.v1.2.pricedecimals", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.price_start = ProtoField.new("Price Start", "jnx.bonds.pts.itch.v1.2.pricestart", ftypes.DOUBLE)
+omi_jnx_bonds_pts_itch_v1_2.fields.price_tick_size = ProtoField.new("Price Tick Size", "jnx.bonds.pts.itch.v1.2.priceticksize", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.bonds.pts.itch.v1.2.priceticksizetableid", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.itch.v1.2.quantity", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.bonds.pts.itch.v1.2.roundlotsize", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.bonds.pts.itch.v1.2.sequencenumber", ftypes.UINT64)
+omi_jnx_bonds_pts_itch_v1_2.fields.session = ProtoField.new("Session", "jnx.bonds.pts.itch.v1.2.session", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.system_event = ProtoField.new("System Event", "jnx.bonds.pts.itch.v1.2.systemevent", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jnx.bonds.pts.itch.v1.2.timestampnanoseconds", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "jnx.bonds.pts.itch.v1.2.timestampseconds", ftypes.UINT32)
+omi_jnx_bonds_pts_itch_v1_2.fields.trading_state = ProtoField.new("Trading State", "jnx.bonds.pts.itch.v1.2.tradingstate", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.bonds.pts.itch.v1.2.upperpricelimit", ftypes.DOUBLE)
 
 -- Jnx Bonds Pts Itch 1.2 messages
-jnx_bonds_pts_itch_v1_2.fields.order_added_message = ProtoField.new("Order Added Message", "jnx.bonds.pts.itch.v1.2.orderaddedmessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "jnx.bonds.pts.itch.v1.2.orderdeletedmessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.order_executed_message = ProtoField.new("Order Executed Message", "jnx.bonds.pts.itch.v1.2.orderexecutedmessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.bonds.pts.itch.v1.2.orderreplacedmessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.orderbook_directory_message = ProtoField.new("Orderbook Directory Message", "jnx.bonds.pts.itch.v1.2.orderbookdirectorymessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.price_tick_size_message = ProtoField.new("Price Tick Size Message", "jnx.bonds.pts.itch.v1.2.priceticksizemessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.system_event_message = ProtoField.new("System Event Message", "jnx.bonds.pts.itch.v1.2.systemeventmessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds_message = ProtoField.new("Timestamp Seconds Message", "jnx.bonds.pts.itch.v1.2.timestampsecondsmessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.bonds.pts.itch.v1.2.tradingstatemessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.order_added_message = ProtoField.new("Order Added Message", "jnx.bonds.pts.itch.v1.2.orderaddedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "jnx.bonds.pts.itch.v1.2.orderdeletedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.order_executed_message = ProtoField.new("Order Executed Message", "jnx.bonds.pts.itch.v1.2.orderexecutedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.bonds.pts.itch.v1.2.orderreplacedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.orderbook_directory_message = ProtoField.new("Orderbook Directory Message", "jnx.bonds.pts.itch.v1.2.orderbookdirectorymessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.price_tick_size_message = ProtoField.new("Price Tick Size Message", "jnx.bonds.pts.itch.v1.2.priceticksizemessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.system_event_message = ProtoField.new("System Event Message", "jnx.bonds.pts.itch.v1.2.systemeventmessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds_message = ProtoField.new("Timestamp Seconds Message", "jnx.bonds.pts.itch.v1.2.timestampsecondsmessage", ftypes.STRING)
+omi_jnx_bonds_pts_itch_v1_2.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.bonds.pts.itch.v1.2.tradingstatemessage", ftypes.STRING)
 
 -- Jnx Bonds Pts Itch 1.2 generated fields
-jnx_bonds_pts_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "jnx.bonds.pts.itch.v1.2.messageindex", ftypes.UINT16)
+omi_jnx_bonds_pts_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "jnx.bonds.pts.itch.v1.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -89,80 +89,80 @@ show.trading_state_message = true
 show.payload = false
 
 -- Register Jnx Bonds Pts Itch 1.2 Show Options
-jnx_bonds_pts_itch_v1_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_order_added_message = Pref.bool("Show Order Added Message", show.order_added_message, "Parse and add Order Added Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_orderbook_directory_message = Pref.bool("Show Orderbook Directory Message", show.orderbook_directory_message, "Parse and add Orderbook Directory Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_price_tick_size_message = Pref.bool("Show Price Tick Size Message", show.price_tick_size_message, "Parse and add Price Tick Size Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_timestamp_seconds_message = Pref.bool("Show Timestamp Seconds Message", show.timestamp_seconds_message, "Parse and add Timestamp Seconds Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_trading_state_message = Pref.bool("Show Trading State Message", show.trading_state_message, "Parse and add Trading State Message to protocol tree")
-jnx_bonds_pts_itch_v1_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_added_message = Pref.bool("Show Order Added Message", show.order_added_message, "Parse and add Order Added Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_orderbook_directory_message = Pref.bool("Show Orderbook Directory Message", show.orderbook_directory_message, "Parse and add Orderbook Directory Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_price_tick_size_message = Pref.bool("Show Price Tick Size Message", show.price_tick_size_message, "Parse and add Price Tick Size Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_timestamp_seconds_message = Pref.bool("Show Timestamp Seconds Message", show.timestamp_seconds_message, "Parse and add Timestamp Seconds Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_trading_state_message = Pref.bool("Show Trading State Message", show.trading_state_message, "Parse and add Trading State Message to protocol tree")
+omi_jnx_bonds_pts_itch_v1_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function jnx_bonds_pts_itch_v1_2.prefs_changed()
+function omi_jnx_bonds_pts_itch_v1_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.message ~= jnx_bonds_pts_itch_v1_2.prefs.show_message then
-    show.message = jnx_bonds_pts_itch_v1_2.prefs.show_message
+  if show.message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_message then
+    show.message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_message
     changed = true
   end
-  if show.message_header ~= jnx_bonds_pts_itch_v1_2.prefs.show_message_header then
-    show.message_header = jnx_bonds_pts_itch_v1_2.prefs.show_message_header
+  if show.message_header ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_message_header then
+    show.message_header = omi_jnx_bonds_pts_itch_v1_2.prefs.show_message_header
     changed = true
   end
-  if show.order_added_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_order_added_message then
-    show.order_added_message = jnx_bonds_pts_itch_v1_2.prefs.show_order_added_message
+  if show.order_added_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_added_message then
+    show.order_added_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_added_message
     changed = true
   end
-  if show.order_deleted_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_order_deleted_message then
-    show.order_deleted_message = jnx_bonds_pts_itch_v1_2.prefs.show_order_deleted_message
+  if show.order_deleted_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_deleted_message then
+    show.order_deleted_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_deleted_message
     changed = true
   end
-  if show.order_executed_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_order_executed_message then
-    show.order_executed_message = jnx_bonds_pts_itch_v1_2.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_executed_message then
+    show.order_executed_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_replaced_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_order_replaced_message then
-    show.order_replaced_message = jnx_bonds_pts_itch_v1_2.prefs.show_order_replaced_message
+  if show.order_replaced_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_replaced_message then
+    show.order_replaced_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_order_replaced_message
     changed = true
   end
-  if show.orderbook_directory_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_orderbook_directory_message then
-    show.orderbook_directory_message = jnx_bonds_pts_itch_v1_2.prefs.show_orderbook_directory_message
+  if show.orderbook_directory_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_orderbook_directory_message then
+    show.orderbook_directory_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_orderbook_directory_message
     changed = true
   end
-  if show.packet ~= jnx_bonds_pts_itch_v1_2.prefs.show_packet then
-    show.packet = jnx_bonds_pts_itch_v1_2.prefs.show_packet
+  if show.packet ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet then
+    show.packet = omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= jnx_bonds_pts_itch_v1_2.prefs.show_packet_header then
-    show.packet_header = jnx_bonds_pts_itch_v1_2.prefs.show_packet_header
+  if show.packet_header ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet_header then
+    show.packet_header = omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet_header
     changed = true
   end
-  if show.price_tick_size_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_price_tick_size_message then
-    show.price_tick_size_message = jnx_bonds_pts_itch_v1_2.prefs.show_price_tick_size_message
+  if show.price_tick_size_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_price_tick_size_message then
+    show.price_tick_size_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_price_tick_size_message
     changed = true
   end
-  if show.system_event_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_system_event_message then
-    show.system_event_message = jnx_bonds_pts_itch_v1_2.prefs.show_system_event_message
+  if show.system_event_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_system_event_message then
+    show.system_event_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_system_event_message
     changed = true
   end
-  if show.timestamp_seconds_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_timestamp_seconds_message then
-    show.timestamp_seconds_message = jnx_bonds_pts_itch_v1_2.prefs.show_timestamp_seconds_message
+  if show.timestamp_seconds_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_timestamp_seconds_message then
+    show.timestamp_seconds_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_timestamp_seconds_message
     changed = true
   end
-  if show.trading_state_message ~= jnx_bonds_pts_itch_v1_2.prefs.show_trading_state_message then
-    show.trading_state_message = jnx_bonds_pts_itch_v1_2.prefs.show_trading_state_message
+  if show.trading_state_message ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_trading_state_message then
+    show.trading_state_message = omi_jnx_bonds_pts_itch_v1_2.prefs.show_trading_state_message
     changed = true
   end
-  if show.payload ~= jnx_bonds_pts_itch_v1_2.prefs.show_payload then
-    show.payload = jnx_bonds_pts_itch_v1_2.prefs.show_payload
+  if show.payload ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_payload then
+    show.payload = omi_jnx_bonds_pts_itch_v1_2.prefs.show_payload
     changed = true
   end
 
@@ -216,7 +216,7 @@ jnx_bonds_pts_itch_v1_2_dissect.price = function(buffer, offset, packet, parent)
   local value = translate.price(raw)
   local display = jnx_bonds_pts_itch_v1_2_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.price, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -236,7 +236,7 @@ jnx_bonds_pts_itch_v1_2_dissect.quantity = function(buffer, offset, packet, pare
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.quantity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -256,7 +256,7 @@ jnx_bonds_pts_itch_v1_2_dissect.new_order_number = function(buffer, offset, pack
   local value = range:uint64()
   local display = jnx_bonds_pts_itch_v1_2_display.new_order_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.new_order_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.new_order_number, range, value, display)
 
   return offset + length, value
 end
@@ -276,7 +276,7 @@ jnx_bonds_pts_itch_v1_2_dissect.original_order_number = function(buffer, offset,
   local value = range:uint64()
   local display = jnx_bonds_pts_itch_v1_2_display.original_order_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.original_order_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.original_order_number, range, value, display)
 
   return offset + length, value
 end
@@ -296,7 +296,7 @@ jnx_bonds_pts_itch_v1_2_dissect.timestamp_nanoseconds = function(buffer, offset,
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.timestamp_nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.timestamp_nanoseconds, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -349,7 +349,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_replaced_message = function(buffer, offset, packet, parent)
   if show.order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_replaced_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.order_replaced_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -378,7 +378,7 @@ jnx_bonds_pts_itch_v1_2_dissect.order_number = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = jnx_bonds_pts_itch_v1_2_display.order_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.order_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.order_number, range, value, display)
 
   return offset + length, value
 end
@@ -416,7 +416,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_deleted_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.order_deleted_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -445,7 +445,7 @@ jnx_bonds_pts_itch_v1_2_dissect.match_number = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = jnx_bonds_pts_itch_v1_2_display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.match_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.match_number, range, value, display)
 
   return offset + length, value
 end
@@ -465,7 +465,7 @@ jnx_bonds_pts_itch_v1_2_dissect.executed_quantity = function(buffer, offset, pac
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.executed_quantity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -513,7 +513,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.order_executed_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -546,7 +546,7 @@ jnx_bonds_pts_itch_v1_2_dissect.group = function(buffer, offset, packet, parent)
   local value = trim_right_spaces(range:string())
   local display = jnx_bonds_pts_itch_v1_2_display.group(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.group, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.group, range, value, display)
 
   return offset + length, value
 end
@@ -566,7 +566,7 @@ jnx_bonds_pts_itch_v1_2_dissect.orderbook_id = function(buffer, offset, packet, 
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.orderbook_id(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.orderbook_id, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.orderbook_id, range, value, display)
 
   return offset + length, value
 end
@@ -593,7 +593,7 @@ jnx_bonds_pts_itch_v1_2_dissect.buy_sell_indicator = function(buffer, offset, pa
   local value = range:string()
   local display = jnx_bonds_pts_itch_v1_2_display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.buy_sell_indicator, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.buy_sell_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -656,7 +656,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_added_message = function(buffer, offset, packet, parent)
   if show.order_added_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_added_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.order_added_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.order_added_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -692,7 +692,7 @@ jnx_bonds_pts_itch_v1_2_dissect.trading_state = function(buffer, offset, packet,
   local value = range:string()
   local display = jnx_bonds_pts_itch_v1_2_display.trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.trading_state, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -740,7 +740,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.trading_state_message = function(buffer, offset, packet, parent)
   if show.trading_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.trading_state_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.trading_state_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.trading_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -775,7 +775,7 @@ jnx_bonds_pts_itch_v1_2_dissect.lower_price_limit = function(buffer, offset, pac
   local value = translate.lower_price_limit(raw)
   local display = jnx_bonds_pts_itch_v1_2_display.lower_price_limit(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.lower_price_limit, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.lower_price_limit, range, value, display)
 
   return offset + length, value
 end
@@ -801,7 +801,7 @@ jnx_bonds_pts_itch_v1_2_dissect.upper_price_limit = function(buffer, offset, pac
   local value = translate.upper_price_limit(raw)
   local display = jnx_bonds_pts_itch_v1_2_display.upper_price_limit(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.upper_price_limit, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.upper_price_limit, range, value, display)
 
   return offset + length, value
 end
@@ -821,7 +821,7 @@ jnx_bonds_pts_itch_v1_2_dissect.price_decimals = function(buffer, offset, packet
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.price_decimals(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.price_decimals, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price_decimals, range, value, display)
 
   return offset + length, value
 end
@@ -841,7 +841,7 @@ jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_table_id = function(buffer, offs
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.price_tick_size_table_id(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id, range, value, display)
 
   return offset + length, value
 end
@@ -861,7 +861,7 @@ jnx_bonds_pts_itch_v1_2_dissect.round_lot_size = function(buffer, offset, packet
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.round_lot_size, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -881,7 +881,7 @@ jnx_bonds_pts_itch_v1_2_dissect.orderbook_code = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = jnx_bonds_pts_itch_v1_2_display.orderbook_code(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.orderbook_code, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.orderbook_code, range, value, display)
 
   return offset + length, value
 end
@@ -954,7 +954,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.orderbook_directory_message = function(buffer, offset, packet, parent)
   if show.orderbook_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.orderbook_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.orderbook_directory_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.orderbook_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -989,7 +989,7 @@ jnx_bonds_pts_itch_v1_2_dissect.price_start = function(buffer, offset, packet, p
   local value = translate.price_start(raw)
   local display = jnx_bonds_pts_itch_v1_2_display.price_start(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.price_start, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price_start, range, value, display)
 
   return offset + length, value
 end
@@ -1009,7 +1009,7 @@ jnx_bonds_pts_itch_v1_2_dissect.price_tick_size = function(buffer, offset, packe
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.price_tick_size(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.price_tick_size, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price_tick_size, range, value, display)
 
   return offset + length, value
 end
@@ -1057,7 +1057,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_message = function(buffer, offset, packet, parent)
   if show.price_tick_size_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.price_tick_size_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price_tick_size_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1086,7 +1086,7 @@ jnx_bonds_pts_itch_v1_2_dissect.system_event = function(buffer, offset, packet, 
   local value = range:string()
   local display = jnx_bonds_pts_itch_v1_2_display.system_event(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.system_event, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.system_event, range, value, display)
 
   return offset + length, value
 end
@@ -1129,7 +1129,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.system_event_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1158,7 +1158,7 @@ jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds = function(buffer, offset, pac
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.timestamp_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -1191,7 +1191,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds_message = function(buffer, offset, packet, parent)
   if show.timestamp_seconds_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds_message, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1309,7 +1309,7 @@ jnx_bonds_pts_itch_v1_2_dissect.payload = function(buffer, offset, packet, paren
   -- Dissect Element
   local range = buffer(offset, size)
   local display = jnx_bonds_pts_itch_v1_2_display.payload(buffer, packet, parent)
-  local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.payload, range, display)
+  local element = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.payload, range, display)
 
   return jnx_bonds_pts_itch_v1_2_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1357,7 +1357,7 @@ jnx_bonds_pts_itch_v1_2_dissect.message_type = function(buffer, offset, packet, 
   local value = range:string()
   local display = jnx_bonds_pts_itch_v1_2_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.message_type, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1377,7 +1377,7 @@ jnx_bonds_pts_itch_v1_2_dissect.message_length = function(buffer, offset, packet
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.message_length, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1415,7 +1415,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.message_header, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1440,7 +1440,7 @@ jnx_bonds_pts_itch_v1_2_dissect.message_fields = function(buffer, offset, packet
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(jnx_bonds_pts_itch_v1_2.fields.message_index, message_index)
+    local iteration = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -1462,7 +1462,7 @@ jnx_bonds_pts_itch_v1_2_dissect.message = function(buffer, offset, packet, paren
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.message, buffer(offset, 0))
     local current = jnx_bonds_pts_itch_v1_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = jnx_bonds_pts_itch_v1_2_display.message(buffer, packet, parent)
@@ -1492,7 +1492,7 @@ jnx_bonds_pts_itch_v1_2_dissect.message_count = function(buffer, offset, packet,
   local value = range:uint()
   local display = jnx_bonds_pts_itch_v1_2_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.message_count, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1512,7 +1512,7 @@ jnx_bonds_pts_itch_v1_2_dissect.sequence_number = function(buffer, offset, packe
   local value = range:uint64()
   local display = jnx_bonds_pts_itch_v1_2_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.sequence_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1548,7 +1548,7 @@ jnx_bonds_pts_itch_v1_2_dissect.session = function(buffer, offset, packet, paren
 
   local display = jnx_bonds_pts_itch_v1_2_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.session, range, value, display)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -1591,7 +1591,7 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.packet_header, buffer(offset, 0))
     local index = jnx_bonds_pts_itch_v1_2_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1637,23 +1637,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function jnx_bonds_pts_itch_v1_2.init()
+function omi_jnx_bonds_pts_itch_v1_2.init()
 end
 
 -- Dissector for Jnx Bonds Pts Itch 1.2
-function jnx_bonds_pts_itch_v1_2.dissector(buffer, packet, parent)
+function omi_jnx_bonds_pts_itch_v1_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = jnx_bonds_pts_itch_v1_2.name
+  packet.cols.protocol = omi_jnx_bonds_pts_itch_v1_2.name
 
   -- Dissect protocol
-  local protocol = parent:add(jnx_bonds_pts_itch_v1_2, buffer(), jnx_bonds_pts_itch_v1_2.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_jnx_bonds_pts_itch_v1_2, buffer(), omi_jnx_bonds_pts_itch_v1_2.description, "("..buffer:len().." Bytes)")
   return jnx_bonds_pts_itch_v1_2_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, jnx_bonds_pts_itch_v1_2)
+udp_table:add(65333, omi_jnx_bonds_pts_itch_v1_2)
 
 
 -----------------------------------------------------------------------
@@ -1661,25 +1661,25 @@ udp_table:add(65333, jnx_bonds_pts_itch_v1_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.jnx_bonds_pts_itch_v1_2_packet_size = function(buffer)
+verify.omi_jnx_bonds_pts_itch_v1_2_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Jnx Bonds Pts Itch 1.2
-local function jnx_bonds_pts_itch_v1_2_heuristic(buffer, packet, parent)
+local function omi_jnx_bonds_pts_itch_v1_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.jnx_bonds_pts_itch_v1_2_packet_size(buffer) then return false end
+  if not verify.omi_jnx_bonds_pts_itch_v1_2_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = jnx_bonds_pts_itch_v1_2
-  jnx_bonds_pts_itch_v1_2.dissector(buffer, packet, parent)
+  packet.conversation = omi_jnx_bonds_pts_itch_v1_2
+  omi_jnx_bonds_pts_itch_v1_2.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Jnx Bonds Pts Itch 1.2
-jnx_bonds_pts_itch_v1_2:register_heuristic("udp", jnx_bonds_pts_itch_v1_2_heuristic)
+omi_jnx_bonds_pts_itch_v1_2:register_heuristic("udp", omi_jnx_bonds_pts_itch_v1_2_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

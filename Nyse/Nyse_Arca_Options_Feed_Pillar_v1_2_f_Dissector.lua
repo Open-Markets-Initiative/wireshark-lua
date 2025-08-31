@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Arca Options Feed Pillar 1.2.f Protocol
-local nyse_arca_options_feed_pillar_v1_2_f = Proto("Nyse.Arca.Options.Feed.Pillar.v1.2.f.Lua", "Nyse Arca Options Feed Pillar 1.2.f")
+local omi_nyse_arca_options_feed_pillar_v1_2_f = Proto("Nyse.Arca.Options.Feed.Pillar.v1.2.f.Lua", "Nyse Arca Options Feed Pillar 1.2.f")
 
 -- Component Tables
 local show = {}
@@ -20,141 +20,141 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nyse Arca Options Feed Pillar 1.2.f Fields
-nyse_arca_options_feed_pillar_v1_2_f.fields.auction_id = ProtoField.new("Auction Id", "nyse.arca.options.feed.pillar.v1.2.f.auctionid", ftypes.UINT64)
-nyse_arca_options_feed_pillar_v1_2_f.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.arca.options.feed.pillar.v1.2.f.auctioninterestclearingprice", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.auction_status = ProtoField.new("Auction Status", "nyse.arca.options.feed.pillar.v1.2.f.auctionstatus", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.auction_type = ProtoField.new("Auction Type", "nyse.arca.options.feed.pillar.v1.2.f.auctiontype", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.beginseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.capacity = ProtoField.new("Capacity", "nyse.arca.options.feed.pillar.v1.2.f.capacity", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.channel_id = ProtoField.new("Channel Id", "nyse.arca.options.feed.pillar.v1.2.f.channelid", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.close = ProtoField.new("Close", "nyse.arca.options.feed.pillar.v1.2.f.close", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.closing_only_indicator = ProtoField.new("Closing Only Indicator", "nyse.arca.options.feed.pillar.v1.2.f.closingonlyindicator", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arca.options.feed.pillar.v1.2.f.continuousbookclearingprice", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.arca.options.feed.pillar.v1.2.f.contractmultiplier", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.cross_id = ProtoField.new("Cross Id", "nyse.arca.options.feed.pillar.v1.2.f.crossid", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.cross_type = ProtoField.new("Cross Type", "nyse.arca.options.feed.pillar.v1.2.f.crosstype", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.arca.options.feed.pillar.v1.2.f.currentrefreshpkt", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.cust_indicator = ProtoField.new("Cust Indicator", "nyse.arca.options.feed.pillar.v1.2.f.custindicator", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arca.options.feed.pillar.v1.2.f.deliveryflag", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.endseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.arca.options.feed.pillar.v1.2.f.exchangecode", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.firm_id = ProtoField.new("Firm Id", "nyse.arca.options.feed.pillar.v1.2.f.firmid", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arca.options.feed.pillar.v1.2.f.haltcondition", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.high_price = ProtoField.new("High Price", "nyse.arca.options.feed.pillar.v1.2.f.highprice", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.id = ProtoField.new("Id", "nyse.arca.options.feed.pillar.v1.2.f.id", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arca.options.feed.pillar.v1.2.f.imbalanceside", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arca.options.feed.pillar.v1.2.f.indicativematchprice", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.lastseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.lastsymbolseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.lot_size = ProtoField.new("Lot Size", "nyse.arca.options.feed.pillar.v1.2.f.lotsize", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.low_price = ProtoField.new("Low Price", "nyse.arca.options.feed.pillar.v1.2.f.lowprice", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.arca.options.feed.pillar.v1.2.f.lowercollar", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.market_id = ProtoField.new("Market Id", "nyse.arca.options.feed.pillar.v1.2.f.marketid", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arca.options.feed.pillar.v1.2.f.marketimbalanceqty", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.market_state = ProtoField.new("Market State", "nyse.arca.options.feed.pillar.v1.2.f.marketstate", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arca.options.feed.pillar.v1.2.f.maturitydate", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.message = ProtoField.new("Message", "nyse.arca.options.feed.pillar.v1.2.f.message", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.message_count = ProtoField.new("Message Count", "nyse.arca.options.feed.pillar.v1.2.f.messagecount", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.message_header = ProtoField.new("Message Header", "nyse.arca.options.feed.pillar.v1.2.f.messageheader", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.message_size = ProtoField.new("Message Size", "nyse.arca.options.feed.pillar.v1.2.f.messagesize", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.message_type = ProtoField.new("Message Type", "nyse.arca.options.feed.pillar.v1.2.f.messagetype", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arca.options.feed.pillar.v1.2.f.nanoseconds", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.new_order_id = ProtoField.new("New Order Id", "nyse.arca.options.feed.pillar.v1.2.f.neworderid", ftypes.UINT64)
-nyse_arca_options_feed_pillar_v1_2_f.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.nextsourceseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.open = ProtoField.new("Open", "nyse.arca.options.feed.pillar.v1.2.f.open", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.arca.options.feed.pillar.v1.2.f.optionsymbolroot", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.order_id = ProtoField.new("Order Id", "nyse.arca.options.feed.pillar.v1.2.f.orderid", ftypes.UINT64)
-nyse_arca_options_feed_pillar_v1_2_f.fields.packet = ProtoField.new("Packet", "nyse.arca.options.feed.pillar.v1.2.f.packet", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.arca.options.feed.pillar.v1.2.f.packetheader", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.packet_size = ProtoField.new("Packet Size", "nyse.arca.options.feed.pillar.v1.2.f.packetsize", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arca.options.feed.pillar.v1.2.f.pairedqty", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.participant = ProtoField.new("Participant", "nyse.arca.options.feed.pillar.v1.2.f.participant", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.payload = ProtoField.new("Payload", "nyse.arca.options.feed.pillar.v1.2.f.payload", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.position_change = ProtoField.new("Position Change", "nyse.arca.options.feed.pillar.v1.2.f.positionchange", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arca.options.feed.pillar.v1.2.f.prevcloseprice", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arca.options.feed.pillar.v1.2.f.prevclosevolume", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.price = ProtoField.new("Price", "nyse.arca.options.feed.pillar.v1.2.f.price", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.price_1 = ProtoField.new("Price 1", "nyse.arca.options.feed.pillar.v1.2.f.price1", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.price_2 = ProtoField.new("Price 2", "nyse.arca.options.feed.pillar.v1.2.f.price2", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arca.options.feed.pillar.v1.2.f.priceresolution", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arca.options.feed.pillar.v1.2.f.pricescalecode", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.price_type = ProtoField.new("Price Type", "nyse.arca.options.feed.pillar.v1.2.f.pricetype", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.arca.options.feed.pillar.v1.2.f.printableflag", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.product_id = ProtoField.new("Product Id", "nyse.arca.options.feed.pillar.v1.2.f.productid", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.arca.options.feed.pillar.v1.2.f.putorcall", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.requestseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arca.options.feed.pillar.v1.2.f.reserved1", ftypes.BYTES)
-nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arca.options.feed.pillar.v1.2.f.reserved2", ftypes.BYTES)
-nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_3 = ProtoField.new("Reserved 3", "nyse.arca.options.feed.pillar.v1.2.f.reserved3", ftypes.BYTES)
-nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arca.options.feed.pillar.v1.2.f.reserved4", ftypes.BYTES)
-nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_6 = ProtoField.new("Reserved 6", "nyse.arca.options.feed.pillar.v1.2.f.reserved6", ftypes.BYTES)
-nyse_arca_options_feed_pillar_v1_2_f.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arca.options.feed.pillar.v1.2.f.retransmitmethod", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.rfq_status = ProtoField.new("Rfq Status", "nyse.arca.options.feed.pillar.v1.2.f.rfqstatus", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.round_lot = ProtoField.new("Round Lot", "nyse.arca.options.feed.pillar.v1.2.f.roundlot", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.security_status = ProtoField.new("Security Status", "nyse.arca.options.feed.pillar.v1.2.f.securitystatus", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.security_type = ProtoField.new("Security Type", "nyse.arca.options.feed.pillar.v1.2.f.securitytype", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arca.options.feed.pillar.v1.2.f.sequencenumber", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.series_index = ProtoField.new("Series Index", "nyse.arca.options.feed.pillar.v1.2.f.seriesindex", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.series_seq_num = ProtoField.new("Series Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.seriesseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.series_type = ProtoField.new("Series Type", "nyse.arca.options.feed.pillar.v1.2.f.seriestype", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.session_state = ProtoField.new("Session State", "nyse.arca.options.feed.pillar.v1.2.f.sessionstate", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.side = ProtoField.new("Side", "nyse.arca.options.feed.pillar.v1.2.f.side", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.source_id = ProtoField.new("Source Id", "nyse.arca.options.feed.pillar.v1.2.f.sourceid", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.source_time = ProtoField.new("Source Time", "nyse.arca.options.feed.pillar.v1.2.f.sourcetime", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arca.options.feed.pillar.v1.2.f.sourcetimens", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arca.options.feed.pillar.v1.2.f.ssrstate", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arca.options.feed.pillar.v1.2.f.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.arca.options.feed.pillar.v1.2.f.ssrtriggeringvolume", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.status = ProtoField.new("Status", "nyse.arca.options.feed.pillar.v1.2.f.status", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.strike_price = ProtoField.new("Strike Price", "nyse.arca.options.feed.pillar.v1.2.f.strikeprice", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.symbol = ProtoField.new("Symbol", "nyse.arca.options.feed.pillar.v1.2.f.symbol", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arca.options.feed.pillar.v1.2.f.symbolindex", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.symbolseqnum", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.system_id = ProtoField.new("System Id", "nyse.arca.options.feed.pillar.v1.2.f.systemid", ftypes.UINT8)
-nyse_arca_options_feed_pillar_v1_2_f.fields.time = ProtoField.new("Time", "nyse.arca.options.feed.pillar.v1.2.f.time", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.timestamp = ProtoField.new("Timestamp", "nyse.arca.options.feed.pillar.v1.2.f.timestamp", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.arca.options.feed.pillar.v1.2.f.totalimbalanceqty", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.total_quantity = ProtoField.new("Total Quantity", "nyse.arca.options.feed.pillar.v1.2.f.totalquantity", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.arca.options.feed.pillar.v1.2.f.totalrefreshpkts", ftypes.UINT16)
-nyse_arca_options_feed_pillar_v1_2_f.fields.total_volume = ProtoField.new("Total Volume", "nyse.arca.options.feed.pillar.v1.2.f.totalvolume", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.arca.options.feed.pillar.v1.2.f.tradecond1", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.trade_id = ProtoField.new("Trade Id", "nyse.arca.options.feed.pillar.v1.2.f.tradeid", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.type = ProtoField.new("Type", "nyse.arca.options.feed.pillar.v1.2.f.type", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.arca.options.feed.pillar.v1.2.f.underlyingindex", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.arca.options.feed.pillar.v1.2.f.underlyingsymbol", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.arca.options.feed.pillar.v1.2.f.uppercollar", ftypes.INT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.volume = ProtoField.new("Volume", "nyse.arca.options.feed.pillar.v1.2.f.volume", ftypes.UINT32)
-nyse_arca_options_feed_pillar_v1_2_f.fields.working_price = ProtoField.new("Working Price", "nyse.arca.options.feed.pillar.v1.2.f.workingprice", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_id = ProtoField.new("Auction Id", "nyse.arca.options.feed.pillar.v1.2.f.auctionid", ftypes.UINT64)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.arca.options.feed.pillar.v1.2.f.auctioninterestclearingprice", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_status = ProtoField.new("Auction Status", "nyse.arca.options.feed.pillar.v1.2.f.auctionstatus", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_type = ProtoField.new("Auction Type", "nyse.arca.options.feed.pillar.v1.2.f.auctiontype", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.beginseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.capacity = ProtoField.new("Capacity", "nyse.arca.options.feed.pillar.v1.2.f.capacity", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.channel_id = ProtoField.new("Channel Id", "nyse.arca.options.feed.pillar.v1.2.f.channelid", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.close = ProtoField.new("Close", "nyse.arca.options.feed.pillar.v1.2.f.close", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.closing_only_indicator = ProtoField.new("Closing Only Indicator", "nyse.arca.options.feed.pillar.v1.2.f.closingonlyindicator", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arca.options.feed.pillar.v1.2.f.continuousbookclearingprice", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.arca.options.feed.pillar.v1.2.f.contractmultiplier", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_id = ProtoField.new("Cross Id", "nyse.arca.options.feed.pillar.v1.2.f.crossid", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_type = ProtoField.new("Cross Type", "nyse.arca.options.feed.pillar.v1.2.f.crosstype", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.arca.options.feed.pillar.v1.2.f.currentrefreshpkt", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cust_indicator = ProtoField.new("Cust Indicator", "nyse.arca.options.feed.pillar.v1.2.f.custindicator", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arca.options.feed.pillar.v1.2.f.deliveryflag", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.endseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.arca.options.feed.pillar.v1.2.f.exchangecode", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.firm_id = ProtoField.new("Firm Id", "nyse.arca.options.feed.pillar.v1.2.f.firmid", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arca.options.feed.pillar.v1.2.f.haltcondition", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.high_price = ProtoField.new("High Price", "nyse.arca.options.feed.pillar.v1.2.f.highprice", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.id = ProtoField.new("Id", "nyse.arca.options.feed.pillar.v1.2.f.id", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arca.options.feed.pillar.v1.2.f.imbalanceside", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arca.options.feed.pillar.v1.2.f.indicativematchprice", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.lastseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.lastsymbolseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lot_size = ProtoField.new("Lot Size", "nyse.arca.options.feed.pillar.v1.2.f.lotsize", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.low_price = ProtoField.new("Low Price", "nyse.arca.options.feed.pillar.v1.2.f.lowprice", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.arca.options.feed.pillar.v1.2.f.lowercollar", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_id = ProtoField.new("Market Id", "nyse.arca.options.feed.pillar.v1.2.f.marketid", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arca.options.feed.pillar.v1.2.f.marketimbalanceqty", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_state = ProtoField.new("Market State", "nyse.arca.options.feed.pillar.v1.2.f.marketstate", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arca.options.feed.pillar.v1.2.f.maturitydate", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message = ProtoField.new("Message", "nyse.arca.options.feed.pillar.v1.2.f.message", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_count = ProtoField.new("Message Count", "nyse.arca.options.feed.pillar.v1.2.f.messagecount", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_header = ProtoField.new("Message Header", "nyse.arca.options.feed.pillar.v1.2.f.messageheader", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_size = ProtoField.new("Message Size", "nyse.arca.options.feed.pillar.v1.2.f.messagesize", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_type = ProtoField.new("Message Type", "nyse.arca.options.feed.pillar.v1.2.f.messagetype", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arca.options.feed.pillar.v1.2.f.nanoseconds", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.new_order_id = ProtoField.new("New Order Id", "nyse.arca.options.feed.pillar.v1.2.f.neworderid", ftypes.UINT64)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.nextsourceseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.open = ProtoField.new("Open", "nyse.arca.options.feed.pillar.v1.2.f.open", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.arca.options.feed.pillar.v1.2.f.optionsymbolroot", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.order_id = ProtoField.new("Order Id", "nyse.arca.options.feed.pillar.v1.2.f.orderid", ftypes.UINT64)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.packet = ProtoField.new("Packet", "nyse.arca.options.feed.pillar.v1.2.f.packet", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.arca.options.feed.pillar.v1.2.f.packetheader", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.packet_size = ProtoField.new("Packet Size", "nyse.arca.options.feed.pillar.v1.2.f.packetsize", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arca.options.feed.pillar.v1.2.f.pairedqty", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.participant = ProtoField.new("Participant", "nyse.arca.options.feed.pillar.v1.2.f.participant", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.payload = ProtoField.new("Payload", "nyse.arca.options.feed.pillar.v1.2.f.payload", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.position_change = ProtoField.new("Position Change", "nyse.arca.options.feed.pillar.v1.2.f.positionchange", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arca.options.feed.pillar.v1.2.f.prevcloseprice", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arca.options.feed.pillar.v1.2.f.prevclosevolume", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price = ProtoField.new("Price", "nyse.arca.options.feed.pillar.v1.2.f.price", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_1 = ProtoField.new("Price 1", "nyse.arca.options.feed.pillar.v1.2.f.price1", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_2 = ProtoField.new("Price 2", "nyse.arca.options.feed.pillar.v1.2.f.price2", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arca.options.feed.pillar.v1.2.f.priceresolution", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arca.options.feed.pillar.v1.2.f.pricescalecode", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_type = ProtoField.new("Price Type", "nyse.arca.options.feed.pillar.v1.2.f.pricetype", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.arca.options.feed.pillar.v1.2.f.printableflag", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.product_id = ProtoField.new("Product Id", "nyse.arca.options.feed.pillar.v1.2.f.productid", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.arca.options.feed.pillar.v1.2.f.putorcall", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.requestseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arca.options.feed.pillar.v1.2.f.reserved1", ftypes.BYTES)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arca.options.feed.pillar.v1.2.f.reserved2", ftypes.BYTES)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_3 = ProtoField.new("Reserved 3", "nyse.arca.options.feed.pillar.v1.2.f.reserved3", ftypes.BYTES)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arca.options.feed.pillar.v1.2.f.reserved4", ftypes.BYTES)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_6 = ProtoField.new("Reserved 6", "nyse.arca.options.feed.pillar.v1.2.f.reserved6", ftypes.BYTES)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arca.options.feed.pillar.v1.2.f.retransmitmethod", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.rfq_status = ProtoField.new("Rfq Status", "nyse.arca.options.feed.pillar.v1.2.f.rfqstatus", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.round_lot = ProtoField.new("Round Lot", "nyse.arca.options.feed.pillar.v1.2.f.roundlot", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_status = ProtoField.new("Security Status", "nyse.arca.options.feed.pillar.v1.2.f.securitystatus", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_type = ProtoField.new("Security Type", "nyse.arca.options.feed.pillar.v1.2.f.securitytype", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arca.options.feed.pillar.v1.2.f.sequencenumber", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_index = ProtoField.new("Series Index", "nyse.arca.options.feed.pillar.v1.2.f.seriesindex", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_seq_num = ProtoField.new("Series Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.seriesseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_type = ProtoField.new("Series Type", "nyse.arca.options.feed.pillar.v1.2.f.seriestype", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.session_state = ProtoField.new("Session State", "nyse.arca.options.feed.pillar.v1.2.f.sessionstate", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.side = ProtoField.new("Side", "nyse.arca.options.feed.pillar.v1.2.f.side", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_id = ProtoField.new("Source Id", "nyse.arca.options.feed.pillar.v1.2.f.sourceid", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_time = ProtoField.new("Source Time", "nyse.arca.options.feed.pillar.v1.2.f.sourcetime", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arca.options.feed.pillar.v1.2.f.sourcetimens", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arca.options.feed.pillar.v1.2.f.ssrstate", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arca.options.feed.pillar.v1.2.f.ssrtriggeringexchangeid", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.arca.options.feed.pillar.v1.2.f.ssrtriggeringvolume", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.status = ProtoField.new("Status", "nyse.arca.options.feed.pillar.v1.2.f.status", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.strike_price = ProtoField.new("Strike Price", "nyse.arca.options.feed.pillar.v1.2.f.strikeprice", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol = ProtoField.new("Symbol", "nyse.arca.options.feed.pillar.v1.2.f.symbol", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arca.options.feed.pillar.v1.2.f.symbolindex", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arca.options.feed.pillar.v1.2.f.symbolseqnum", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.system_id = ProtoField.new("System Id", "nyse.arca.options.feed.pillar.v1.2.f.systemid", ftypes.UINT8)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.time = ProtoField.new("Time", "nyse.arca.options.feed.pillar.v1.2.f.time", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.timestamp = ProtoField.new("Timestamp", "nyse.arca.options.feed.pillar.v1.2.f.timestamp", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.arca.options.feed.pillar.v1.2.f.totalimbalanceqty", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_quantity = ProtoField.new("Total Quantity", "nyse.arca.options.feed.pillar.v1.2.f.totalquantity", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.arca.options.feed.pillar.v1.2.f.totalrefreshpkts", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_volume = ProtoField.new("Total Volume", "nyse.arca.options.feed.pillar.v1.2.f.totalvolume", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.arca.options.feed.pillar.v1.2.f.tradecond1", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_id = ProtoField.new("Trade Id", "nyse.arca.options.feed.pillar.v1.2.f.tradeid", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.type = ProtoField.new("Type", "nyse.arca.options.feed.pillar.v1.2.f.type", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.arca.options.feed.pillar.v1.2.f.underlyingindex", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.arca.options.feed.pillar.v1.2.f.underlyingsymbol", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.arca.options.feed.pillar.v1.2.f.uppercollar", ftypes.INT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.volume = ProtoField.new("Volume", "nyse.arca.options.feed.pillar.v1.2.f.volume", ftypes.UINT32)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.working_price = ProtoField.new("Working Price", "nyse.arca.options.feed.pillar.v1.2.f.workingprice", ftypes.INT32)
 
 -- Nyse Arca Options Feed Pillar 1.2.f messages
-nyse_arca_options_feed_pillar_v1_2_f.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arca.options.feed.pillar.v1.2.f.heartbeatresponsemessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arca.options.feed.pillar.v1.2.f.messageunavailablemessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_message = ProtoField.new("Options Add Order Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsaddordermessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_refresh_message = ProtoField.new("Options Add Order Refresh Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsaddorderrefreshmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nyse.arca.options.feed.pillar.v1.2.f.optionscrosstrademessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_delete_order_message_message = ProtoField.new("Options Delete Order Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsdeleteordermessagemessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_imbalance_message_message = ProtoField.new("Options Imbalance Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsimbalancemessagemessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_modify_order_message = ProtoField.new("Options Modify Order Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsmodifyordermessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_non_displayed_trade_message = ProtoField.new("Options Non Displayed Trade Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsnondisplayedtrademessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_order_execution_message_message = ProtoField.new("Options Order Execution Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsorderexecutionmessagemessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_outright_series_summary_message = ProtoField.new("Options Outright Series Summary Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsoutrightseriessummarymessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_replace_order_message_message = ProtoField.new("Options Replace Order Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsreplaceordermessagemessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_series_rfq_message = ProtoField.new("Options Series Rfq Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsseriesrfqmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.options_trade_cancel_message = ProtoField.new("Options Trade Cancel Message", "nyse.arca.options.feed.pillar.v1.2.f.optionstradecancelmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.outright_series_index_mapping = ProtoField.new("Outright Series Index Mapping", "nyse.arca.options.feed.pillar.v1.2.f.outrightseriesindexmapping", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arca.options.feed.pillar.v1.2.f.refreshheadermessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arca.options.feed.pillar.v1.2.f.refreshrequestmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arca.options.feed.pillar.v1.2.f.requestresponsemessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arca.options.feed.pillar.v1.2.f.retransmissionrequestmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.arca.options.feed.pillar.v1.2.f.securitystatusmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arca.options.feed.pillar.v1.2.f.sequencenumberresetmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.arca.options.feed.pillar.v1.2.f.symbolclearmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arca.options.feed.pillar.v1.2.f.symbolindexmappingmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arca.options.feed.pillar.v1.2.f.symbolindexmappingrequestmessage", ftypes.STRING)
-nyse_arca_options_feed_pillar_v1_2_f.fields.time_reference_message = ProtoField.new("Time Reference Message", "nyse.arca.options.feed.pillar.v1.2.f.timereferencemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arca.options.feed.pillar.v1.2.f.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arca.options.feed.pillar.v1.2.f.messageunavailablemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_message = ProtoField.new("Options Add Order Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsaddordermessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_refresh_message = ProtoField.new("Options Add Order Refresh Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsaddorderrefreshmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nyse.arca.options.feed.pillar.v1.2.f.optionscrosstrademessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_delete_order_message_message = ProtoField.new("Options Delete Order Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsdeleteordermessagemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_imbalance_message_message = ProtoField.new("Options Imbalance Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsimbalancemessagemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_modify_order_message = ProtoField.new("Options Modify Order Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsmodifyordermessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_non_displayed_trade_message = ProtoField.new("Options Non Displayed Trade Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsnondisplayedtrademessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_order_execution_message_message = ProtoField.new("Options Order Execution Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsorderexecutionmessagemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_outright_series_summary_message = ProtoField.new("Options Outright Series Summary Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsoutrightseriessummarymessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_replace_order_message_message = ProtoField.new("Options Replace Order Message Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsreplaceordermessagemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_series_rfq_message = ProtoField.new("Options Series Rfq Message", "nyse.arca.options.feed.pillar.v1.2.f.optionsseriesrfqmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_trade_cancel_message = ProtoField.new("Options Trade Cancel Message", "nyse.arca.options.feed.pillar.v1.2.f.optionstradecancelmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.outright_series_index_mapping = ProtoField.new("Outright Series Index Mapping", "nyse.arca.options.feed.pillar.v1.2.f.outrightseriesindexmapping", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arca.options.feed.pillar.v1.2.f.refreshheadermessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arca.options.feed.pillar.v1.2.f.refreshrequestmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arca.options.feed.pillar.v1.2.f.requestresponsemessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arca.options.feed.pillar.v1.2.f.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.arca.options.feed.pillar.v1.2.f.securitystatusmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arca.options.feed.pillar.v1.2.f.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.arca.options.feed.pillar.v1.2.f.symbolclearmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arca.options.feed.pillar.v1.2.f.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arca.options.feed.pillar.v1.2.f.symbolindexmappingrequestmessage", ftypes.STRING)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.time_reference_message = ProtoField.new("Time Reference Message", "nyse.arca.options.feed.pillar.v1.2.f.timereferencemessage", ftypes.STRING)
 
 -- Nyse Arca Options Feed Pillar 1.2.f generated fields
-nyse_arca_options_feed_pillar_v1_2_f.fields.message_index = ProtoField.new("Message Index", "nyse.arca.options.feed.pillar.v1.2.f.messageindex", ftypes.UINT16)
+omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_index = ProtoField.new("Message Index", "nyse.arca.options.feed.pillar.v1.2.f.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -193,160 +193,160 @@ show.time_reference_message = true
 show.payload = false
 
 -- Register Nyse Arca Options Feed Pillar 1.2.f Show Options
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message = Pref.bool("Show Options Add Order Message", show.options_add_order_message, "Parse and add Options Add Order Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message = Pref.bool("Show Options Add Order Refresh Message", show.options_add_order_refresh_message, "Parse and add Options Add Order Refresh Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message = Pref.bool("Show Options Delete Order Message Message", show.options_delete_order_message_message, "Parse and add Options Delete Order Message Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message = Pref.bool("Show Options Imbalance Message Message", show.options_imbalance_message_message, "Parse and add Options Imbalance Message Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message = Pref.bool("Show Options Modify Order Message", show.options_modify_order_message, "Parse and add Options Modify Order Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message = Pref.bool("Show Options Non Displayed Trade Message", show.options_non_displayed_trade_message, "Parse and add Options Non Displayed Trade Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message = Pref.bool("Show Options Order Execution Message Message", show.options_order_execution_message_message, "Parse and add Options Order Execution Message Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message = Pref.bool("Show Options Outright Series Summary Message", show.options_outright_series_summary_message, "Parse and add Options Outright Series Summary Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message = Pref.bool("Show Options Replace Order Message Message", show.options_replace_order_message_message, "Parse and add Options Replace Order Message Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message = Pref.bool("Show Options Series Rfq Message", show.options_series_rfq_message, "Parse and add Options Series Rfq Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message = Pref.bool("Show Options Trade Cancel Message", show.options_trade_cancel_message, "Parse and add Options Trade Cancel Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping = Pref.bool("Show Outright Series Index Mapping", show.outright_series_index_mapping, "Parse and add Outright Series Index Mapping to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message = Pref.bool("Show Time Reference Message", show.time_reference_message, "Parse and add Time Reference Message to protocol tree")
-nyse_arca_options_feed_pillar_v1_2_f.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message = Pref.bool("Show Options Add Order Message", show.options_add_order_message, "Parse and add Options Add Order Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message = Pref.bool("Show Options Add Order Refresh Message", show.options_add_order_refresh_message, "Parse and add Options Add Order Refresh Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message = Pref.bool("Show Options Delete Order Message Message", show.options_delete_order_message_message, "Parse and add Options Delete Order Message Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message = Pref.bool("Show Options Imbalance Message Message", show.options_imbalance_message_message, "Parse and add Options Imbalance Message Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message = Pref.bool("Show Options Modify Order Message", show.options_modify_order_message, "Parse and add Options Modify Order Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message = Pref.bool("Show Options Non Displayed Trade Message", show.options_non_displayed_trade_message, "Parse and add Options Non Displayed Trade Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message = Pref.bool("Show Options Order Execution Message Message", show.options_order_execution_message_message, "Parse and add Options Order Execution Message Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message = Pref.bool("Show Options Outright Series Summary Message", show.options_outright_series_summary_message, "Parse and add Options Outright Series Summary Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message = Pref.bool("Show Options Replace Order Message Message", show.options_replace_order_message_message, "Parse and add Options Replace Order Message Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message = Pref.bool("Show Options Series Rfq Message", show.options_series_rfq_message, "Parse and add Options Series Rfq Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message = Pref.bool("Show Options Trade Cancel Message", show.options_trade_cancel_message, "Parse and add Options Trade Cancel Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping = Pref.bool("Show Outright Series Index Mapping", show.outright_series_index_mapping, "Parse and add Outright Series Index Mapping to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message = Pref.bool("Show Time Reference Message", show.time_reference_message, "Parse and add Time Reference Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_arca_options_feed_pillar_v1_2_f.prefs_changed()
+function omi_nyse_arca_options_feed_pillar_v1_2_f.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.heartbeat_response_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message
+  if show.heartbeat_response_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message
     changed = true
   end
-  if show.message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message then
-    show.message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message
+  if show.message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message then
+    show.message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header then
-    show.message_header = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header
+  if show.message_header ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header then
+    show.message_header = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message
+  if show.message_unavailable_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message
     changed = true
   end
-  if show.options_add_order_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message then
-    show.options_add_order_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message
+  if show.options_add_order_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message then
+    show.options_add_order_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message
     changed = true
   end
-  if show.options_add_order_refresh_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message then
-    show.options_add_order_refresh_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message
+  if show.options_add_order_refresh_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message then
+    show.options_add_order_refresh_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message
     changed = true
   end
-  if show.options_cross_trade_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message then
-    show.options_cross_trade_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message
+  if show.options_cross_trade_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message then
+    show.options_cross_trade_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message
     changed = true
   end
-  if show.options_delete_order_message_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message then
-    show.options_delete_order_message_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message
+  if show.options_delete_order_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message then
+    show.options_delete_order_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message
     changed = true
   end
-  if show.options_imbalance_message_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message then
-    show.options_imbalance_message_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message
+  if show.options_imbalance_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message then
+    show.options_imbalance_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message
     changed = true
   end
-  if show.options_modify_order_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message then
-    show.options_modify_order_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message
+  if show.options_modify_order_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message then
+    show.options_modify_order_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message
     changed = true
   end
-  if show.options_non_displayed_trade_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message then
-    show.options_non_displayed_trade_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message
+  if show.options_non_displayed_trade_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message then
+    show.options_non_displayed_trade_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message
     changed = true
   end
-  if show.options_order_execution_message_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message then
-    show.options_order_execution_message_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message
+  if show.options_order_execution_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message then
+    show.options_order_execution_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message
     changed = true
   end
-  if show.options_outright_series_summary_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message then
-    show.options_outright_series_summary_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message
+  if show.options_outright_series_summary_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message then
+    show.options_outright_series_summary_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message
     changed = true
   end
-  if show.options_replace_order_message_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message then
-    show.options_replace_order_message_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message
+  if show.options_replace_order_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message then
+    show.options_replace_order_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message
     changed = true
   end
-  if show.options_series_rfq_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message then
-    show.options_series_rfq_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message
+  if show.options_series_rfq_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message then
+    show.options_series_rfq_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message
     changed = true
   end
-  if show.options_trade_cancel_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message then
-    show.options_trade_cancel_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message
+  if show.options_trade_cancel_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message then
+    show.options_trade_cancel_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message
     changed = true
   end
-  if show.outright_series_index_mapping ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping then
-    show.outright_series_index_mapping = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping
+  if show.outright_series_index_mapping ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping then
+    show.outright_series_index_mapping = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping
     changed = true
   end
-  if show.packet ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet then
-    show.packet = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet
+  if show.packet ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet then
+    show.packet = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header then
-    show.packet_header = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header
+  if show.packet_header ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header then
+    show.packet_header = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_header_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message then
-    show.refresh_header_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message
+  if show.refresh_header_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message then
+    show.refresh_header_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message
     changed = true
   end
-  if show.refresh_request_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message then
-    show.refresh_request_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message
+  if show.refresh_request_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message then
+    show.refresh_request_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message
     changed = true
   end
-  if show.request_response_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message then
-    show.request_response_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message
+  if show.request_response_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message then
+    show.request_response_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message
     changed = true
   end
-  if show.retransmission_request_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message
+  if show.retransmission_request_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message
     changed = true
   end
-  if show.security_status_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message then
-    show.security_status_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message
+  if show.security_status_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message then
+    show.security_status_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message
     changed = true
   end
-  if show.sequence_number_reset_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.symbol_clear_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message
+  if show.symbol_clear_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message then
+    show.symbol_clear_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message
     changed = true
   end
-  if show.symbol_index_mapping_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message
+  if show.symbol_index_mapping_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message
     changed = true
   end
-  if show.symbol_index_mapping_request_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message
+  if show.symbol_index_mapping_request_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message
     changed = true
   end
-  if show.time_reference_message ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message then
-    show.time_reference_message = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message
+  if show.time_reference_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message then
+    show.time_reference_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message
     changed = true
   end
-  if show.payload ~= nyse_arca_options_feed_pillar_v1_2_f.prefs.show_payload then
-    show.payload = nyse_arca_options_feed_pillar_v1_2_f.prefs.show_payload
+  if show.payload ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_payload then
+    show.payload = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_payload
     changed = true
   end
 
@@ -376,7 +376,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.total_volume = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.total_volume, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -396,7 +396,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.close = function(buffer, offset, pa
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.close, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.close, range, value, display)
 
   return offset + length, value
 end
@@ -416,7 +416,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.open = function(buffer, offset, pac
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.open(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.open, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.open, range, value, display)
 
   return offset + length, value
 end
@@ -436,7 +436,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.low_price = function(buffer, offset
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.low_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -456,7 +456,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.high_price = function(buffer, offse
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.high_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -476,7 +476,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.series_index = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.series_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.series_index, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_index, range, value, display)
 
   return offset + length, value
 end
@@ -496,7 +496,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.source_time_ns = function(buffer, o
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.source_time_ns, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_time_ns, range, value, display)
 
   return offset + length, value
 end
@@ -559,7 +559,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_outright_series_summary_message = function(buffer, offset, packet, parent)
   if show.options_outright_series_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_outright_series_summary_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_outright_series_summary_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_outright_series_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -588,7 +588,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.trade_id = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.trade_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -608,7 +608,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.series_seq_num = function(buffer, o
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.series_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.series_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -656,7 +656,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_trade_cancel_message = function(buffer, offset, packet, parent)
   if show.options_trade_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_trade_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_trade_cancel_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_trade_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -692,7 +692,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.cross_type = function(buffer, offse
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.cross_type, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -712,7 +712,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.volume = function(buffer, offset, p
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.volume, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -732,7 +732,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.price = function(buffer, offset, pa
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -752,7 +752,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.cross_id = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.cross_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -815,7 +815,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
   if show.options_cross_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_cross_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_cross_trade_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -851,7 +851,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.price_type = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.price_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.price_type, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_type, range, value, display)
 
   return offset + length, value
 end
@@ -871,7 +871,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.reserved_3 = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.reserved_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_3, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_3, range, value, display)
 
   return offset + length, value
 end
@@ -891,7 +891,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.trade_cond_1 = function(buffer, off
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.trade_cond_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.trade_cond_1, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_cond_1, range, value, display)
 
   return offset + length, value
 end
@@ -918,7 +918,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.printable_flag = function(buffer, o
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.printable_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.printable_flag, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.printable_flag, range, value, display)
 
   return offset + length, value
 end
@@ -996,7 +996,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_non_displayed_trade_message = function(buffer, offset, packet, parent)
   if show.options_non_displayed_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_non_displayed_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_non_displayed_trade_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_non_displayed_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1032,7 +1032,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.rfq_status = function(buffer, offse
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.rfq_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.rfq_status, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.rfq_status, range, value, display)
 
   return offset + length, value
 end
@@ -1052,7 +1052,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.auction_id = function(buffer, offse
   local value = range:le_uint64()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.auction_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -1072,7 +1072,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.participant = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.participant(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.participant, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.participant, range, value, display)
 
   return offset + length, value
 end
@@ -1092,7 +1092,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.working_price = function(buffer, of
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.working_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.working_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.working_price, range, value, display)
 
   return offset + length, value
 end
@@ -1112,7 +1112,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.total_quantity = function(buffer, o
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.total_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.total_quantity, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1151,7 +1151,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.capacity = function(buffer, offset,
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.capacity(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.capacity, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.capacity, range, value, display)
 
   return offset + length, value
 end
@@ -1187,7 +1187,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.type = function(buffer, offset, pac
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.type, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.type, range, value, display)
 
   return offset + length, value
 end
@@ -1214,7 +1214,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.side = function(buffer, offset, pac
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.side, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1297,7 +1297,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_series_rfq_message = function(buffer, offset, packet, parent)
   if show.options_series_rfq_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_series_rfq_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_series_rfq_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_series_rfq_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1336,7 +1336,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.cust_indicator = function(buffer, o
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.cust_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.cust_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cust_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1356,7 +1356,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.reserved_1 = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1376,7 +1376,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.firm_id = function(buffer, offset, 
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.firm_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.firm_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.firm_id, range, value, display)
 
   return offset + length, value
 end
@@ -1396,7 +1396,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.order_id = function(buffer, offset,
   local value = range:le_uint64()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.order_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1474,7 +1474,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_add_order_refresh_message = function(buffer, offset, packet, parent)
   if show.options_add_order_refresh_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_refresh_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_refresh_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_add_order_refresh_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1513,7 +1513,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.auction_status = function(buffer, o
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.auction_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.auction_status, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_status, range, value, display)
 
   return offset + length, value
 end
@@ -1533,7 +1533,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.lower_collar = function(buffer, off
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.lower_collar(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.lower_collar, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lower_collar, range, value, display)
 
   return offset + length, value
 end
@@ -1553,7 +1553,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.upper_collar = function(buffer, off
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.upper_collar(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.upper_collar, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.upper_collar, range, value, display)
 
   return offset + length, value
 end
@@ -1573,7 +1573,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.indicative_match_price = function(b
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.indicative_match_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.indicative_match_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.indicative_match_price, range, value, display)
 
   return offset + length, value
 end
@@ -1593,7 +1593,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.reserved_4 = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -1613,7 +1613,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.auction_interest_clearing_price = f
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.auction_interest_clearing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.auction_interest_clearing_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_interest_clearing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1633,7 +1633,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.continuous_book_clearing_price = fu
   local value = range:le_int()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.continuous_book_clearing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.continuous_book_clearing_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.continuous_book_clearing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1663,7 +1663,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.imbalance_side = function(buffer, o
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.imbalance_side, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.imbalance_side, range, value, display)
 
   return offset + length, value
 end
@@ -1690,7 +1690,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.auction_type = function(buffer, off
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.auction_type, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -1710,7 +1710,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.reserved_2 = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -1730,7 +1730,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.market_imbalance_qty = function(buf
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.market_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.market_imbalance_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_imbalance_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1750,7 +1750,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.total_imbalance_qty = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.total_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.total_imbalance_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_imbalance_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1770,7 +1770,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.paired_qty = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.paired_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.paired_qty, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.paired_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1883,7 +1883,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_imbalance_message_message = function(buffer, offset, packet, parent)
   if show.options_imbalance_message_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_imbalance_message_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_imbalance_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_imbalance_message_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1912,7 +1912,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.new_order_id = function(buffer, off
   local value = range:le_uint64()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.new_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.new_order_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.new_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1990,7 +1990,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_replace_order_message_message = function(buffer, offset, packet, parent)
   if show.options_replace_order_message_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_replace_order_message_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_replace_order_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_replace_order_message_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2047,7 +2047,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_order_execution_message_message = function(buffer, offset, packet, parent)
   if show.options_order_execution_message_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_order_execution_message_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_order_execution_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_order_execution_message_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2109,7 +2109,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_delete_order_message_message = function(buffer, offset, packet, parent)
   if show.options_delete_order_message_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_delete_order_message_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_delete_order_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_delete_order_message_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2138,7 +2138,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.position_change = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.position_change(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.position_change, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.position_change, range, value, display)
 
   return offset + length, value
 end
@@ -2211,7 +2211,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_modify_order_message = function(buffer, offset, packet, parent)
   if show.options_modify_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_modify_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_modify_order_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_modify_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2298,7 +2298,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.options_add_order_message = function(buffer, offset, packet, parent)
   if show.options_add_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.options_add_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2334,7 +2334,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.closing_only_indicator = function(b
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.closing_only_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.closing_only_indicator, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.closing_only_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2354,7 +2354,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.strike_price = function(buffer, off
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.strike_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2381,7 +2381,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.put_or_call = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.put_or_call, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.put_or_call, range, value, display)
 
   return offset + length, value
 end
@@ -2401,7 +2401,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.maturity_date = function(buffer, of
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.maturity_date(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.maturity_date, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -2421,7 +2421,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.contract_multiplier = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.contract_multiplier(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.contract_multiplier, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.contract_multiplier, range, value, display)
 
   return offset + length, value
 end
@@ -2451,7 +2451,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.price_scale_code = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.price_scale_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.price_scale_code, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_scale_code, range, value, display)
 
   return offset + length, value
 end
@@ -2471,7 +2471,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.underlying_index = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.underlying_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_index, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_index, range, value, display)
 
   return offset + length, value
 end
@@ -2491,7 +2491,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.underlying_symbol = function(buffer
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_symbol, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2511,7 +2511,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.option_symbol_root = function(buffe
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.option_symbol_root(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.option_symbol_root, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.option_symbol_root, range, value, display)
 
   return offset + length, value
 end
@@ -2531,7 +2531,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.system_id = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.system_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.system_id, range, value, display)
 
   return offset + length, value
 end
@@ -2551,7 +2551,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.market_id = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.market_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_id, range, value, display)
 
   return offset + length, value
 end
@@ -2581,7 +2581,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.series_type = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.series_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.series_type, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_type, range, value, display)
 
   return offset + length, value
 end
@@ -2679,7 +2679,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.outright_series_index_mapping = function(buffer, offset, packet, parent)
   if show.outright_series_index_mapping then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.outright_series_index_mapping, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.outright_series_index_mapping, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.outright_series_index_mapping_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2708,7 +2708,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.last_symbol_seq_num = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.last_symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.last_symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2728,7 +2728,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.last_seq_num = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.last_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.last_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2748,7 +2748,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.total_refresh_pkts = function(buffe
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.total_refresh_pkts(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.total_refresh_pkts, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_refresh_pkts, range, value, display)
 
   return offset + length, value
 end
@@ -2768,7 +2768,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.current_refresh_pkt = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.current_refresh_pkt(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.current_refresh_pkt, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.current_refresh_pkt, range, value, display)
 
   return offset + length, value
 end
@@ -2816,7 +2816,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_header_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2845,7 +2845,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.session_state = function(buffer, of
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.session_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.session_state, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.session_state, range, value, display)
 
   return offset + length, value
 end
@@ -2881,7 +2881,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.market_state = function(buffer, off
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.market_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.market_state, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_state, range, value, display)
 
   return offset + length, value
 end
@@ -2908,7 +2908,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.ssr_state = function(buffer, offset
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.ssr_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_state, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_state, range, value, display)
 
   return offset + length, value
 end
@@ -2928,7 +2928,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.time = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.time, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -2948,7 +2948,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.ssr_triggering_volume = function(bu
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_volume, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3032,7 +3032,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.ssr_triggering_exchange_id = functi
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_exchange_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_exchange_id, range, value, display)
 
   return offset + length, value
 end
@@ -3052,7 +3052,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.price_2 = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.price_2, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_2, range, value, display)
 
   return offset + length, value
 end
@@ -3072,7 +3072,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.price_1 = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.price_1, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_1, range, value, display)
 
   return offset + length, value
 end
@@ -3141,7 +3141,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.halt_condition = function(buffer, o
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.halt_condition, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
@@ -3204,7 +3204,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.security_status = function(buffer, 
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.security_status, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -3224,7 +3224,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_seq_num = function(buffer, o
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3244,7 +3244,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_index = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
@@ -3264,7 +3264,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.source_time = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.source_time, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -3367,7 +3367,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.security_status_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_status_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.security_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3396,7 +3396,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.next_source_seq_num = function(buff
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.next_source_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.next_source_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.next_source_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3444,7 +3444,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_clear_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3473,7 +3473,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.channel_id = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.channel_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -3493,7 +3493,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.product_id = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.product_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -3513,7 +3513,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.end_seq_num = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.end_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.end_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.end_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3533,7 +3533,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.begin_seq_num = function(buffer, of
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.begin_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.begin_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.begin_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3581,7 +3581,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message_unavailable_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3610,7 +3610,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.source_id = function(buffer, offset
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.source_id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_id, range, value, display)
 
   return offset + length, value
 end
@@ -3658,7 +3658,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3687,7 +3687,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.retransmit_method = function(buffer
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.retransmit_method(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.retransmit_method, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.retransmit_method, range, value, display)
 
   return offset + length, value
 end
@@ -3740,7 +3740,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3782,7 +3782,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.heartbeat_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3842,7 +3842,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.status = function(buffer, offset, p
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.status, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -3862,7 +3862,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.request_seq_num = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.request_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.request_seq_num, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.request_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3925,7 +3925,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.request_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.request_response_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.request_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3987,7 +3987,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.retransmission_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4016,7 +4016,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.reserved_6 = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.reserved_6(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_6, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_6, range, value, display)
 
   return offset + length, value
 end
@@ -4043,7 +4043,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.round_lot = function(buffer, offset
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.round_lot, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
@@ -4073,7 +4073,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.price_resolution = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.price_resolution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.price_resolution, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_resolution, range, value, display)
 
   return offset + length, value
 end
@@ -4093,7 +4093,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.prev_close_volume = function(buffer
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.prev_close_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_volume, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_volume, range, value, display)
 
   return offset + length, value
 end
@@ -4113,7 +4113,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.prev_close_price = function(buffer,
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.prev_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_price, range, value, display)
 
   return offset + length, value
 end
@@ -4133,7 +4133,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.lot_size = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.lot_size, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -4202,7 +4202,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.security_type = function(buffer, of
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.security_type, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -4247,7 +4247,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.exchange_code = function(buffer, of
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.exchange_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.exchange_code, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.exchange_code, range, value, display)
 
   return offset + length, value
 end
@@ -4267,7 +4267,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol = function(buffer, offset, p
   local value = range:string()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.symbol, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -4365,7 +4365,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4394,7 +4394,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.id = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.id, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.id, range, value, display)
 
   return offset + length, value
 end
@@ -4437,7 +4437,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.time_reference_message = function(buffer, offset, packet, parent)
   if show.time_reference_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.time_reference_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.time_reference_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.time_reference_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4494,7 +4494,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4748,7 +4748,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.payload = function(buffer, offset, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.payload, range, display)
+  local element = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.payload, range, display)
 
   return nyse_arca_options_feed_pillar_v1_2_f_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -4847,7 +4847,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.message_type = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message_type, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -4867,7 +4867,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.message_size = function(buffer, off
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message_size, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -4905,7 +4905,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_header, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4930,7 +4930,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.message_fields = function(buffer, o
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message_index, message_index)
+    local iteration = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -4952,7 +4952,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.message = function(buffer, offset, 
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message, buffer(offset, 0))
     local current = nyse_arca_options_feed_pillar_v1_2_f_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nyse_arca_options_feed_pillar_v1_2_f_display.message(buffer, packet, parent)
@@ -4982,7 +4982,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.nanoseconds = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.nanoseconds, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -5002,7 +5002,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.timestamp = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -5022,7 +5022,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.sequence_number = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -5042,7 +5042,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.message_count = function(buffer, of
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message_count, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -5096,7 +5096,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.delivery_flag = function(buffer, of
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.delivery_flag, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
@@ -5116,7 +5116,7 @@ nyse_arca_options_feed_pillar_v1_2_f_dissect.packet_size = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_arca_options_feed_pillar_v1_2_f_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -5174,7 +5174,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.packet_header, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5217,23 +5217,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_arca_options_feed_pillar_v1_2_f.init()
+function omi_nyse_arca_options_feed_pillar_v1_2_f.init()
 end
 
 -- Dissector for Nyse Arca Options Feed Pillar 1.2.f
-function nyse_arca_options_feed_pillar_v1_2_f.dissector(buffer, packet, parent)
+function omi_nyse_arca_options_feed_pillar_v1_2_f.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_arca_options_feed_pillar_v1_2_f.name
+  packet.cols.protocol = omi_nyse_arca_options_feed_pillar_v1_2_f.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_arca_options_feed_pillar_v1_2_f, buffer(), nyse_arca_options_feed_pillar_v1_2_f.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f, buffer(), omi_nyse_arca_options_feed_pillar_v1_2_f.description, "("..buffer:len().." Bytes)")
   return nyse_arca_options_feed_pillar_v1_2_f_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_arca_options_feed_pillar_v1_2_f)
+udp_table:add(65333, omi_nyse_arca_options_feed_pillar_v1_2_f)
 
 
 -----------------------------------------------------------------------
@@ -5241,25 +5241,25 @@ udp_table:add(65333, nyse_arca_options_feed_pillar_v1_2_f)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_arca_options_feed_pillar_v1_2_f_packet_size = function(buffer)
+verify.omi_nyse_arca_options_feed_pillar_v1_2_f_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nyse Arca Options Feed Pillar 1.2.f
-local function nyse_arca_options_feed_pillar_v1_2_f_heuristic(buffer, packet, parent)
+local function omi_nyse_arca_options_feed_pillar_v1_2_f_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_arca_options_feed_pillar_v1_2_f_packet_size(buffer) then return false end
+  if not verify.omi_nyse_arca_options_feed_pillar_v1_2_f_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_arca_options_feed_pillar_v1_2_f
-  nyse_arca_options_feed_pillar_v1_2_f.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_arca_options_feed_pillar_v1_2_f
+  omi_nyse_arca_options_feed_pillar_v1_2_f.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Arca Options Feed Pillar 1.2.f
-nyse_arca_options_feed_pillar_v1_2_f:register_heuristic("udp", nyse_arca_options_feed_pillar_v1_2_f_heuristic)
+omi_nyse_arca_options_feed_pillar_v1_2_f:register_heuristic("udp", omi_nyse_arca_options_feed_pillar_v1_2_f_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

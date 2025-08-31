@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Jnx Bonds Pts Ouch 1.4 Protocol
-local jnx_bonds_pts_ouch_v1_4 = Proto("Jnx.Bonds.Pts.Ouch.v1.4.Lua", "Jnx Bonds Pts Ouch 1.4")
+local omi_jnx_bonds_pts_ouch_v1_4 = Proto("Jnx.Bonds.Pts.Ouch.v1.4.Lua", "Jnx Bonds Pts Ouch 1.4")
 
 -- Component Tables
 local show = {}
@@ -21,72 +21,72 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Jnx Bonds Pts Ouch 1.4 Fields
-jnx_bonds_pts_ouch_v1_4.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.bonds.pts.ouch.v1.4.buysellindicator", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.capacity = ProtoField.new("Capacity", "jnx.bonds.pts.ouch.v1.4.capacity", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "jnx.bonds.pts.ouch.v1.4.cashmargintype", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.client_reference = ProtoField.new("Client Reference", "jnx.bonds.pts.ouch.v1.4.clientreference", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.counter_party = ProtoField.new("Counter Party", "jnx.bonds.pts.ouch.v1.4.counterparty", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.bonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "jnx.bonds.pts.ouch.v1.4.decrementquantity", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.display = ProtoField.new("Display", "jnx.bonds.pts.ouch.v1.4.display", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.ouch.v1.4.executedquantity", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.execution_price = ProtoField.new("Execution Price", "jnx.bonds.pts.ouch.v1.4.executionprice", ftypes.DOUBLE)
-jnx_bonds_pts_ouch_v1_4.fields.existing_order_token = ProtoField.new("Existing Order Token", "jnx.bonds.pts.ouch.v1.4.existingordertoken", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.firm_id = ProtoField.new("Firm Id", "jnx.bonds.pts.ouch.v1.4.firmid", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.group = ProtoField.new("Group", "jnx.bonds.pts.ouch.v1.4.group", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "jnx.bonds.pts.ouch.v1.4.liquidityindicator", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.bonds.pts.ouch.v1.4.loginacceptedpacket", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.bonds.pts.ouch.v1.4.loginrejectedpacket", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.bonds.pts.ouch.v1.4.loginrequestpacket", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.match_number = ProtoField.new("Match Number", "jnx.bonds.pts.ouch.v1.4.matchnumber", ftypes.UINT64)
-jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "jnx.bonds.pts.ouch.v1.4.minimumquantity", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason = ProtoField.new("Order Canceled Reason", "jnx.bonds.pts.ouch.v1.4.ordercanceledreason", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_classification = ProtoField.new("Order Classification", "jnx.bonds.pts.ouch.v1.4.orderclassification", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_number = ProtoField.new("Order Number", "jnx.bonds.pts.ouch.v1.4.ordernumber", ftypes.UINT64)
-jnx_bonds_pts_ouch_v1_4.fields.order_rejected_reason = ProtoField.new("Order Rejected Reason", "jnx.bonds.pts.ouch.v1.4.orderrejectedreason", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_state = ProtoField.new("Order State", "jnx.bonds.pts.ouch.v1.4.orderstate", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_token = ProtoField.new("Order Token", "jnx.bonds.pts.ouch.v1.4.ordertoken", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.bonds.pts.ouch.v1.4.orderbookid", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.packet = ProtoField.new("Packet", "jnx.bonds.pts.ouch.v1.4.packet", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.packet_header = ProtoField.new("Packet Header", "jnx.bonds.pts.ouch.v1.4.packetheader", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.packet_length = ProtoField.new("Packet Length", "jnx.bonds.pts.ouch.v1.4.packetlength", ftypes.UINT16)
-jnx_bonds_pts_ouch_v1_4.fields.packet_type = ProtoField.new("Packet Type", "jnx.bonds.pts.ouch.v1.4.packettype", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.password = ProtoField.new("Password", "jnx.bonds.pts.ouch.v1.4.password", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.payload = ProtoField.new("Payload", "jnx.bonds.pts.ouch.v1.4.payload", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.previous_order_token = ProtoField.new("Previous Order Token", "jnx.bonds.pts.ouch.v1.4.previousordertoken", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.price = ProtoField.new("Price", "jnx.bonds.pts.ouch.v1.4.price", ftypes.DOUBLE)
-jnx_bonds_pts_ouch_v1_4.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.ouch.v1.4.quantity", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.bonds.pts.ouch.v1.4.quantitypreventedfromtrading", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.bonds.pts.ouch.v1.4.rejectreasoncode", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jnx.bonds.pts.ouch.v1.4.replacementordertoken", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.bonds.pts.ouch.v1.4.requestedsequencenumber", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.requested_session = ProtoField.new("Requested Session", "jnx.bonds.pts.ouch.v1.4.requestedsession", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.bonds.pts.ouch.v1.4.sequencenumber", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.sequenceddatapacket", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.sequenced_message = ProtoField.new("Sequenced Message", "jnx.bonds.pts.ouch.v1.4.sequencedmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.bonds.pts.ouch.v1.4.sequencedmessagetype", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.session = ProtoField.new("Session", "jnx.bonds.pts.ouch.v1.4.session", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.bonds.pts.ouch.v1.4.soupbintcppacket", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.system_event = ProtoField.new("System Event", "jnx.bonds.pts.ouch.v1.4.systemevent", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.text = ProtoField.new("Text", "jnx.bonds.pts.ouch.v1.4.text", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.time_in_force = ProtoField.new("Time In Force", "jnx.bonds.pts.ouch.v1.4.timeinforce", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.timestamp = ProtoField.new("Timestamp", "jnx.bonds.pts.ouch.v1.4.timestamp", ftypes.UINT64)
-jnx_bonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.unsequenceddatapacket", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.bonds.pts.ouch.v1.4.unsequencedmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.bonds.pts.ouch.v1.4.unsequencedmessagetype", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.username = ProtoField.new("Username", "jnx.bonds.pts.ouch.v1.4.username", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.bonds.pts.ouch.v1.4.buysellindicator", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.capacity = ProtoField.new("Capacity", "jnx.bonds.pts.ouch.v1.4.capacity", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "jnx.bonds.pts.ouch.v1.4.cashmargintype", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.client_reference = ProtoField.new("Client Reference", "jnx.bonds.pts.ouch.v1.4.clientreference", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.counter_party = ProtoField.new("Counter Party", "jnx.bonds.pts.ouch.v1.4.counterparty", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.bonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "jnx.bonds.pts.ouch.v1.4.decrementquantity", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.display = ProtoField.new("Display", "jnx.bonds.pts.ouch.v1.4.display", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.ouch.v1.4.executedquantity", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.execution_price = ProtoField.new("Execution Price", "jnx.bonds.pts.ouch.v1.4.executionprice", ftypes.DOUBLE)
+omi_jnx_bonds_pts_ouch_v1_4.fields.existing_order_token = ProtoField.new("Existing Order Token", "jnx.bonds.pts.ouch.v1.4.existingordertoken", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.firm_id = ProtoField.new("Firm Id", "jnx.bonds.pts.ouch.v1.4.firmid", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.group = ProtoField.new("Group", "jnx.bonds.pts.ouch.v1.4.group", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "jnx.bonds.pts.ouch.v1.4.liquidityindicator", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.bonds.pts.ouch.v1.4.loginacceptedpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.bonds.pts.ouch.v1.4.loginrejectedpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.bonds.pts.ouch.v1.4.loginrequestpacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.match_number = ProtoField.new("Match Number", "jnx.bonds.pts.ouch.v1.4.matchnumber", ftypes.UINT64)
+omi_jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "jnx.bonds.pts.ouch.v1.4.minimumquantity", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason = ProtoField.new("Order Canceled Reason", "jnx.bonds.pts.ouch.v1.4.ordercanceledreason", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_classification = ProtoField.new("Order Classification", "jnx.bonds.pts.ouch.v1.4.orderclassification", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_number = ProtoField.new("Order Number", "jnx.bonds.pts.ouch.v1.4.ordernumber", ftypes.UINT64)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_rejected_reason = ProtoField.new("Order Rejected Reason", "jnx.bonds.pts.ouch.v1.4.orderrejectedreason", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_state = ProtoField.new("Order State", "jnx.bonds.pts.ouch.v1.4.orderstate", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_token = ProtoField.new("Order Token", "jnx.bonds.pts.ouch.v1.4.ordertoken", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.bonds.pts.ouch.v1.4.orderbookid", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.packet = ProtoField.new("Packet", "jnx.bonds.pts.ouch.v1.4.packet", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.packet_header = ProtoField.new("Packet Header", "jnx.bonds.pts.ouch.v1.4.packetheader", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.packet_length = ProtoField.new("Packet Length", "jnx.bonds.pts.ouch.v1.4.packetlength", ftypes.UINT16)
+omi_jnx_bonds_pts_ouch_v1_4.fields.packet_type = ProtoField.new("Packet Type", "jnx.bonds.pts.ouch.v1.4.packettype", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.password = ProtoField.new("Password", "jnx.bonds.pts.ouch.v1.4.password", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.payload = ProtoField.new("Payload", "jnx.bonds.pts.ouch.v1.4.payload", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.previous_order_token = ProtoField.new("Previous Order Token", "jnx.bonds.pts.ouch.v1.4.previousordertoken", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.price = ProtoField.new("Price", "jnx.bonds.pts.ouch.v1.4.price", ftypes.DOUBLE)
+omi_jnx_bonds_pts_ouch_v1_4.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.ouch.v1.4.quantity", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.bonds.pts.ouch.v1.4.quantitypreventedfromtrading", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.bonds.pts.ouch.v1.4.rejectreasoncode", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jnx.bonds.pts.ouch.v1.4.replacementordertoken", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.bonds.pts.ouch.v1.4.requestedsequencenumber", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.requested_session = ProtoField.new("Requested Session", "jnx.bonds.pts.ouch.v1.4.requestedsession", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.bonds.pts.ouch.v1.4.sequencenumber", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.sequenceddatapacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message = ProtoField.new("Sequenced Message", "jnx.bonds.pts.ouch.v1.4.sequencedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.bonds.pts.ouch.v1.4.sequencedmessagetype", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.session = ProtoField.new("Session", "jnx.bonds.pts.ouch.v1.4.session", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.bonds.pts.ouch.v1.4.soupbintcppacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.system_event = ProtoField.new("System Event", "jnx.bonds.pts.ouch.v1.4.systemevent", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.text = ProtoField.new("Text", "jnx.bonds.pts.ouch.v1.4.text", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.time_in_force = ProtoField.new("Time In Force", "jnx.bonds.pts.ouch.v1.4.timeinforce", ftypes.UINT32)
+omi_jnx_bonds_pts_ouch_v1_4.fields.timestamp = ProtoField.new("Timestamp", "jnx.bonds.pts.ouch.v1.4.timestamp", ftypes.UINT64)
+omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.bonds.pts.ouch.v1.4.unsequenceddatapacket", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.bonds.pts.ouch.v1.4.unsequencedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.bonds.pts.ouch.v1.4.unsequencedmessagetype", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.username = ProtoField.new("Username", "jnx.bonds.pts.ouch.v1.4.username", ftypes.STRING)
 
 -- Jnx Bonds Pts Ouch 1.4 messages
-jnx_bonds_pts_ouch_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.bonds.pts.ouch.v1.4.cancelordermessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.bonds.pts.ouch.v1.4.enterordermessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.bonds.pts.ouch.v1.4.orderacceptedmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_aiq_canceled_message = ProtoField.new("Order Aiq Canceled Message", "jnx.bonds.pts.ouch.v1.4.orderaiqcanceledmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "jnx.bonds.pts.ouch.v1.4.ordercanceledmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_executed_with_counter_party_message = ProtoField.new("Order Executed With Counter Party Message", "jnx.bonds.pts.ouch.v1.4.orderexecutedwithcounterpartymessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "jnx.bonds.pts.ouch.v1.4.orderrejectedmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.bonds.pts.ouch.v1.4.orderreplacedmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.bonds.pts.ouch.v1.4.replaceordermessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.bonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.bonds.pts.ouch.v1.4.cancelordermessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.bonds.pts.ouch.v1.4.enterordermessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.bonds.pts.ouch.v1.4.orderacceptedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_aiq_canceled_message = ProtoField.new("Order Aiq Canceled Message", "jnx.bonds.pts.ouch.v1.4.orderaiqcanceledmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "jnx.bonds.pts.ouch.v1.4.ordercanceledmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_executed_with_counter_party_message = ProtoField.new("Order Executed With Counter Party Message", "jnx.bonds.pts.ouch.v1.4.orderexecutedwithcounterpartymessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "jnx.bonds.pts.ouch.v1.4.orderrejectedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.bonds.pts.ouch.v1.4.orderreplacedmessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.bonds.pts.ouch.v1.4.replaceordermessage", ftypes.STRING)
+omi_jnx_bonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.bonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -117,120 +117,120 @@ show.sequenced_message = false
 show.unsequenced_message = false
 
 -- Register Jnx Bonds Pts Ouch 1.4 Show Options
-jnx_bonds_pts_ouch_v1_4.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_order_aiq_canceled_message = Pref.bool("Show Order Aiq Canceled Message", show.order_aiq_canceled_message, "Parse and add Order Aiq Canceled Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_order_executed_with_counter_party_message = Pref.bool("Show Order Executed With Counter Party Message", show.order_executed_with_counter_party_message, "Parse and add Order Executed With Counter Party Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_aiq_canceled_message = Pref.bool("Show Order Aiq Canceled Message", show.order_aiq_canceled_message, "Parse and add Order Aiq Canceled Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_executed_with_counter_party_message = Pref.bool("Show Order Executed With Counter Party Message", show.order_executed_with_counter_party_message, "Parse and add Order Executed With Counter Party Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
-function jnx_bonds_pts_ouch_v1_4.prefs_changed()
+function omi_jnx_bonds_pts_ouch_v1_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_cancel_order_message then
-    show.cancel_order_message = jnx_bonds_pts_ouch_v1_4.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_cancel_order_message then
+    show.cancel_order_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_cancel_order_message
     changed = true
   end
-  if show.debug_packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_debug_packet then
-    show.debug_packet = jnx_bonds_pts_ouch_v1_4.prefs.show_debug_packet
+  if show.debug_packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_debug_packet then
+    show.debug_packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_debug_packet
     changed = true
   end
-  if show.enter_order_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_enter_order_message then
-    show.enter_order_message = jnx_bonds_pts_ouch_v1_4.prefs.show_enter_order_message
+  if show.enter_order_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_enter_order_message then
+    show.enter_order_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_enter_order_message
     changed = true
   end
-  if show.login_accepted_packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = jnx_bonds_pts_ouch_v1_4.prefs.show_login_accepted_packet
+  if show.login_accepted_packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_accepted_packet then
+    show.login_accepted_packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_accepted_packet
     changed = true
   end
-  if show.login_rejected_packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = jnx_bonds_pts_ouch_v1_4.prefs.show_login_rejected_packet
+  if show.login_rejected_packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_rejected_packet then
+    show.login_rejected_packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_rejected_packet
     changed = true
   end
-  if show.login_request_packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_login_request_packet then
-    show.login_request_packet = jnx_bonds_pts_ouch_v1_4.prefs.show_login_request_packet
+  if show.login_request_packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_request_packet then
+    show.login_request_packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_login_request_packet
     changed = true
   end
-  if show.order_accepted_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_order_accepted_message then
-    show.order_accepted_message = jnx_bonds_pts_ouch_v1_4.prefs.show_order_accepted_message
+  if show.order_accepted_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_accepted_message then
+    show.order_accepted_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_accepted_message
     changed = true
   end
-  if show.order_aiq_canceled_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_order_aiq_canceled_message then
-    show.order_aiq_canceled_message = jnx_bonds_pts_ouch_v1_4.prefs.show_order_aiq_canceled_message
+  if show.order_aiq_canceled_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_aiq_canceled_message then
+    show.order_aiq_canceled_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_aiq_canceled_message
     changed = true
   end
-  if show.order_canceled_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_order_canceled_message then
-    show.order_canceled_message = jnx_bonds_pts_ouch_v1_4.prefs.show_order_canceled_message
+  if show.order_canceled_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_canceled_message then
+    show.order_canceled_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_canceled_message
     changed = true
   end
-  if show.order_executed_with_counter_party_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_order_executed_with_counter_party_message then
-    show.order_executed_with_counter_party_message = jnx_bonds_pts_ouch_v1_4.prefs.show_order_executed_with_counter_party_message
+  if show.order_executed_with_counter_party_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_executed_with_counter_party_message then
+    show.order_executed_with_counter_party_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_executed_with_counter_party_message
     changed = true
   end
-  if show.order_rejected_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_order_rejected_message then
-    show.order_rejected_message = jnx_bonds_pts_ouch_v1_4.prefs.show_order_rejected_message
+  if show.order_rejected_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_rejected_message then
+    show.order_rejected_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_rejected_message
     changed = true
   end
-  if show.order_replaced_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_order_replaced_message then
-    show.order_replaced_message = jnx_bonds_pts_ouch_v1_4.prefs.show_order_replaced_message
+  if show.order_replaced_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_replaced_message then
+    show.order_replaced_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_order_replaced_message
     changed = true
   end
-  if show.packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_packet then
-    show.packet = jnx_bonds_pts_ouch_v1_4.prefs.show_packet
+  if show.packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_packet then
+    show.packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= jnx_bonds_pts_ouch_v1_4.prefs.show_packet_header then
-    show.packet_header = jnx_bonds_pts_ouch_v1_4.prefs.show_packet_header
+  if show.packet_header ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_packet_header then
+    show.packet_header = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_packet_header
     changed = true
   end
-  if show.replace_order_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_replace_order_message then
-    show.replace_order_message = jnx_bonds_pts_ouch_v1_4.prefs.show_replace_order_message
+  if show.replace_order_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_replace_order_message then
+    show.replace_order_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_replace_order_message
     changed = true
   end
-  if show.sequenced_data_packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_data_packet
+  if show.sequenced_data_packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_data_packet then
+    show.sequenced_data_packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.soup_bin_tcp_packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = jnx_bonds_pts_ouch_v1_4.prefs.show_soup_bin_tcp_packet
+  if show.soup_bin_tcp_packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_soup_bin_tcp_packet then
+    show.soup_bin_tcp_packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_soup_bin_tcp_packet
     changed = true
   end
-  if show.system_event_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_system_event_message then
-    show.system_event_message = jnx_bonds_pts_ouch_v1_4.prefs.show_system_event_message
+  if show.system_event_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_system_event_message then
+    show.system_event_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_system_event_message
     changed = true
   end
-  if show.unsequenced_data_packet ~= jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_data_packet
+  if show.unsequenced_data_packet ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_data_packet then
+    show.unsequenced_data_packet = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= jnx_bonds_pts_ouch_v1_4.prefs.show_payload then
-    show.payload = jnx_bonds_pts_ouch_v1_4.prefs.show_payload
+  if show.payload ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_payload then
+    show.payload = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_payload
     changed = true
   end
-  if show.sequenced_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_message then
-    show.sequenced_message = jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_message then
+    show.sequenced_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_sequenced_message
     changed = true
   end
-  if show.unsequenced_message ~= jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_message then
-    show.unsequenced_message = jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_jnx_bonds_pts_ouch_v1_4.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -278,7 +278,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.quantity = function(buffer, offset, packet, pare
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.quantity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -298,7 +298,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.order_token = function(buffer, offset, packet, p
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_token, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_token, range, value, display)
 
   return offset + length, value
 end
@@ -336,7 +336,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.cancel_order_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -365,7 +365,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.minimum_quantity = function(buffer, offset, pack
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.minimum_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -389,7 +389,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.display = function(buffer, offset, packet, paren
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.display(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.display, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.display, range, value, display)
 
   return offset + length, value
 end
@@ -416,7 +416,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.time_in_force = function(buffer, offset, packet,
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.time_in_force, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -442,7 +442,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.price = function(buffer, offset, packet, parent)
   local value = translate.price(raw)
   local display = jnx_bonds_pts_ouch_v1_4_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.price, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -462,7 +462,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.replacement_order_token = function(buffer, offse
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.replacement_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -482,7 +482,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.existing_order_token = function(buffer, offset, 
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.existing_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.existing_order_token, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.existing_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -545,7 +545,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.replace_order_message = function(buffer, offset, packet, parent)
   if show.replace_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.replace_order_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.replace_order_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.replace_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -578,7 +578,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.cash_margin_type = function(buffer, offset, pack
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.cash_margin_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type, range, value, display)
 
   return offset + length, value
 end
@@ -614,7 +614,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.order_classification = function(buffer, offset, 
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.order_classification(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_classification, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_classification, range, value, display)
 
   return offset + length, value
 end
@@ -641,7 +641,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.capacity = function(buffer, offset, packet, pare
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.capacity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.capacity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.capacity, range, value, display)
 
   return offset + length, value
 end
@@ -661,7 +661,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.firm_id = function(buffer, offset, packet, paren
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.firm_id(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.firm_id, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.firm_id, range, value, display)
 
   return offset + length, value
 end
@@ -685,7 +685,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.group = function(buffer, offset, packet, parent)
   local value = trim_right_spaces(range:string())
   local display = jnx_bonds_pts_ouch_v1_4_display.group(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.group, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.group, range, value, display)
 
   return offset + length, value
 end
@@ -705,7 +705,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.orderbook_id = function(buffer, offset, packet, 
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.orderbook_id(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.orderbook_id, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.orderbook_id, range, value, display)
 
   return offset + length, value
 end
@@ -738,7 +738,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.buy_sell_indicator = function(buffer, offset, pa
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.buy_sell_indicator, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.buy_sell_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -758,7 +758,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.client_reference = function(buffer, offset, pack
   local value = trim_right_spaces(range:string())
   local display = jnx_bonds_pts_ouch_v1_4_display.client_reference(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.client_reference, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.client_reference, range, value, display)
 
   return offset + length, value
 end
@@ -856,7 +856,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.enter_order_message = function(buffer, offset, packet, parent)
   if show.enter_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.enter_order_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.enter_order_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.enter_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -926,7 +926,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.unsequenced_message = function(buffer, offset, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = jnx_bonds_pts_ouch_v1_4_display.unsequenced_message(buffer, packet, parent)
-  local element = parent:add(jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message, range, display)
+  local element = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message, range, display)
 
   return jnx_bonds_pts_ouch_v1_4_dissect.unsequenced_message_branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -956,7 +956,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.unsequenced_message_type = function(buffer, offs
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.unsequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -998,7 +998,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.unsequenced_data_packet = function(buffer, offse
   if show.unsequenced_data_packet then
     local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = jnx_bonds_pts_ouch_v1_4_display.unsequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.unsequenced_data_packet, range, display)
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_data_packet, range, display)
   end
 
   jnx_bonds_pts_ouch_v1_4_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
@@ -1021,7 +1021,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.requested_sequence_number = function(buffer, off
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1041,7 +1041,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.requested_session = function(buffer, offset, pac
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.requested_session(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.requested_session, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -1061,7 +1061,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.password = function(buffer, offset, packet, pare
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.password, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -1081,7 +1081,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.username = function(buffer, offset, packet, pare
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.username, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -1129,7 +1129,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.login_request_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.login_request_packet, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1198,7 +1198,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.order_rejected_reason = function(buffer, offset,
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.order_rejected_reason(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_rejected_reason, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_rejected_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1218,7 +1218,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.timestamp = function(buffer, offset, packet, par
   local value = range:uint64()
   local display = jnx_bonds_pts_ouch_v1_4_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.timestamp, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1261,7 +1261,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.order_rejected_message = function(buffer, offset, packet, parent)
   if show.order_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_rejected_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1290,7 +1290,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.match_number = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = jnx_bonds_pts_ouch_v1_4_display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.match_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.match_number, range, value, display)
 
   return offset + length, value
 end
@@ -1310,7 +1310,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.counter_party = function(buffer, offset, packet,
   local value = trim_right_spaces(range:string())
   local display = jnx_bonds_pts_ouch_v1_4_display.counter_party(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.counter_party, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.counter_party, range, value, display)
 
   return offset + length, value
 end
@@ -1337,7 +1337,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.liquidity_indicator = function(buffer, offset, p
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.liquidity_indicator, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1363,7 +1363,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.execution_price = function(buffer, offset, packe
   local value = translate.execution_price(raw)
   local display = jnx_bonds_pts_ouch_v1_4_display.execution_price(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.execution_price, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.execution_price, range, value, display)
 
   return offset + length, value
 end
@@ -1383,7 +1383,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.executed_quantity = function(buffer, offset, pac
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.executed_quantity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1446,7 +1446,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.order_executed_with_counter_party_message = function(buffer, offset, packet, parent)
   if show.order_executed_with_counter_party_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_executed_with_counter_party_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_executed_with_counter_party_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.order_executed_with_counter_party_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1475,7 +1475,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.quantity_prevented_from_trading = function(buffe
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.quantity_prevented_from_trading(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading, range, value, display)
 
   return offset + length, value
 end
@@ -1538,7 +1538,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.order_canceled_reason = function(buffer, offset,
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.order_canceled_reason(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1558,7 +1558,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.decrement_quantity = function(buffer, offset, pa
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.decrement_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1621,7 +1621,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.order_aiq_canceled_message = function(buffer, offset, packet, parent)
   if show.order_aiq_canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_aiq_canceled_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_aiq_canceled_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.order_aiq_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1678,7 +1678,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.order_canceled_message = function(buffer, offset, packet, parent)
   if show.order_canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_canceled_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_canceled_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1707,7 +1707,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.previous_order_token = function(buffer, offset, 
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.previous_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.previous_order_token, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.previous_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -1734,7 +1734,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.order_state = function(buffer, offset, packet, p
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.order_state(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_state, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_state, range, value, display)
 
   return offset + length, value
 end
@@ -1754,7 +1754,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.order_number = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = jnx_bonds_pts_ouch_v1_4_display.order_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_number, range, value, display)
 
   return offset + length, value
 end
@@ -1847,7 +1847,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.order_replaced_message = function(buffer, offset, packet, parent)
   if show.order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_replaced_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_replaced_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1969,7 +1969,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.order_accepted_message = function(buffer, offset, packet, parent)
   if show.order_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.order_accepted_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_accepted_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2005,7 +2005,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.system_event = function(buffer, offset, packet, 
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.system_event(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.system_event, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.system_event, range, value, display)
 
   return offset + length, value
 end
@@ -2043,7 +2043,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.system_event_message, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2145,7 +2145,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.sequenced_message = function(buffer, offset, pac
   -- Dissect Element
   local range = buffer(offset, size)
   local display = jnx_bonds_pts_ouch_v1_4_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(jnx_bonds_pts_ouch_v1_4.fields.sequenced_message, range, display)
+  local element = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message, range, display)
 
   return jnx_bonds_pts_ouch_v1_4_dissect.sequenced_message_branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -2187,7 +2187,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.sequenced_message_type = function(buffer, offset
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.sequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2229,7 +2229,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.sequenced_data_packet = function(buffer, offset,
   if show.sequenced_data_packet then
     local range = buffer(offset, size_of_sequenced_data_packet)
     local display = jnx_bonds_pts_ouch_v1_4_display.sequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.sequenced_data_packet, range, display)
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_data_packet, range, display)
   end
 
   jnx_bonds_pts_ouch_v1_4_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
@@ -2252,7 +2252,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.reject_reason_code = function(buffer, offset, pa
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.reject_reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -2285,7 +2285,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.login_rejected_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.login_rejected_packet, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2314,7 +2314,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.sequence_number = function(buffer, offset, packe
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.sequence_number, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2334,7 +2334,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.session = function(buffer, offset, packet, paren
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.session, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2372,7 +2372,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.login_accepted_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.login_accepted_packet, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2401,7 +2401,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.text = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.text, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2434,7 +2434,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.debug_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.debug_packet, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2528,7 +2528,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.payload = function(buffer, offset, packet, paren
   -- Dissect Element
   local range = buffer(offset, size)
   local display = jnx_bonds_pts_ouch_v1_4_display.payload(buffer, packet, parent)
-  local element = parent:add(jnx_bonds_pts_ouch_v1_4.fields.payload, range, display)
+  local element = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.payload, range, display)
 
   return jnx_bonds_pts_ouch_v1_4_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -2579,7 +2579,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.packet_type = function(buffer, offset, packet, p
   local value = range:string()
   local display = jnx_bonds_pts_ouch_v1_4_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.packet_type, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2599,7 +2599,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.packet_length = function(buffer, offset, packet,
   local value = range:uint()
   local display = jnx_bonds_pts_ouch_v1_4_display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_ouch_v1_4.fields.packet_length, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -2637,7 +2637,7 @@ end
 jnx_bonds_pts_ouch_v1_4_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.packet_header, buffer(offset, 0))
     local index = jnx_bonds_pts_ouch_v1_4_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2678,7 +2678,7 @@ jnx_bonds_pts_ouch_v1_4_dissect.soup_bin_tcp_packet = function(buffer, offset, p
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    parent = parent:add(jnx_bonds_pts_ouch_v1_4.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    parent = parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = jnx_bonds_pts_ouch_v1_4_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)
     local display = jnx_bonds_pts_ouch_v1_4_display.soup_bin_tcp_packet(buffer, packet, parent)
@@ -2747,23 +2747,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function jnx_bonds_pts_ouch_v1_4.init()
+function omi_jnx_bonds_pts_ouch_v1_4.init()
 end
 
 -- Dissector for Jnx Bonds Pts Ouch 1.4
-function jnx_bonds_pts_ouch_v1_4.dissector(buffer, packet, parent)
+function omi_jnx_bonds_pts_ouch_v1_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = jnx_bonds_pts_ouch_v1_4.name
+  packet.cols.protocol = omi_jnx_bonds_pts_ouch_v1_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(jnx_bonds_pts_ouch_v1_4, buffer(), jnx_bonds_pts_ouch_v1_4.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_jnx_bonds_pts_ouch_v1_4, buffer(), omi_jnx_bonds_pts_ouch_v1_4.description, "("..buffer:len().." Bytes)")
   return jnx_bonds_pts_ouch_v1_4_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, jnx_bonds_pts_ouch_v1_4)
+tcp_table:add(65333, omi_jnx_bonds_pts_ouch_v1_4)
 
 
 -----------------------------------------------------------------------
@@ -2771,25 +2771,25 @@ tcp_table:add(65333, jnx_bonds_pts_ouch_v1_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.jnx_bonds_pts_ouch_v1_4_packet_size = function(buffer)
+verify.omi_jnx_bonds_pts_ouch_v1_4_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Jnx Bonds Pts Ouch 1.4
-local function jnx_bonds_pts_ouch_v1_4_heuristic(buffer, packet, parent)
+local function omi_jnx_bonds_pts_ouch_v1_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.jnx_bonds_pts_ouch_v1_4_packet_size(buffer) then return false end
+  if not verify.omi_jnx_bonds_pts_ouch_v1_4_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = jnx_bonds_pts_ouch_v1_4
-  jnx_bonds_pts_ouch_v1_4.dissector(buffer, packet, parent)
+  packet.conversation = omi_jnx_bonds_pts_ouch_v1_4
+  omi_jnx_bonds_pts_ouch_v1_4.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Jnx Bonds Pts Ouch 1.4
-jnx_bonds_pts_ouch_v1_4:register_heuristic("tcp", jnx_bonds_pts_ouch_v1_4_heuristic)
+omi_jnx_bonds_pts_ouch_v1_4:register_heuristic("tcp", omi_jnx_bonds_pts_ouch_v1_4_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

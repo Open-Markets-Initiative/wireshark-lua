@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq BxOptions TopOfMarket Itch 1.2 Protocol
-local nasdaq_bxoptions_topofmarket_itch_v1_2 = Proto("Nasdaq.BxOptions.TopOfMarket.Itch.v1.2.Lua", "Nasdaq BxOptions TopOfMarket Itch 1.2")
+local omi_nasdaq_bxoptions_topofmarket_itch_v1_2 = Proto("Nasdaq.BxOptions.TopOfMarket.Itch.v1.2.Lua", "Nasdaq BxOptions TopOfMarket Itch 1.2")
 
 -- Component Tables
 local show = {}
@@ -21,72 +21,72 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq BxOptions TopOfMarket Itch 1.2 Fields
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.askprice", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.askpricelong", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.bxoptions.topofmarket.itch.v1.2.asksize", ftypes.UINT16)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.asksizelong", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidprice", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidpricelong", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidsize", ftypes.UINT16)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidsizelong", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.bxoptions.topofmarket.itch.v1.2.crossid", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.bxoptions.topofmarket.itch.v1.2.currenttradingstate", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.bxoptions.topofmarket.itch.v1.2.eventcode", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.bxoptions.topofmarket.itch.v1.2.expirationday", ftypes.UINT8)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.bxoptions.topofmarket.itch.v1.2.expirationmonth", ftypes.UINT8)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.bxoptions.topofmarket.itch.v1.2.expirationyear", ftypes.UINT8)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message = ProtoField.new("Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.message", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.bxoptions.topofmarket.itch.v1.2.messagecount", ftypes.UINT16)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.bxoptions.topofmarket.itch.v1.2.messageheader", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.bxoptions.topofmarket.itch.v1.2.messagelength", ftypes.UINT16)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.bxoptions.topofmarket.itch.v1.2.messagetype", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.minimum_price_variation = ProtoField.new("Minimum Price Variation", "nasdaq.bxoptions.topofmarket.itch.v1.2.minimumpricevariation", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.bxoptions.topofmarket.itch.v1.2.nanoseconds", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.open_state = ProtoField.new("Open State", "nasdaq.bxoptions.topofmarket.itch.v1.2.openstate", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.bxoptions.topofmarket.itch.v1.2.optionclosingtype", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_id = ProtoField.new("Option Id", "nasdaq.bxoptions.topofmarket.itch.v1.2.optionid", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_type = ProtoField.new("Option Type", "nasdaq.bxoptions.topofmarket.itch.v1.2.optiontype", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.bxoptions.topofmarket.itch.v1.2.originalcrossid", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_price = ProtoField.new("Original Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.originalprice", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.bxoptions.topofmarket.itch.v1.2.originalvolume", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.packet = ProtoField.new("Packet", "nasdaq.bxoptions.topofmarket.itch.v1.2.packet", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.bxoptions.topofmarket.itch.v1.2.packetheader", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.payload = ProtoField.new("Payload", "nasdaq.bxoptions.topofmarket.itch.v1.2.payload", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price = ProtoField.new("Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.price", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price_long = ProtoField.new("Price Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.pricelong", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.bxoptions.topofmarket.itch.v1.2.quotecondition", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.seconds = ProtoField.new("Seconds", "nasdaq.bxoptions.topofmarket.itch.v1.2.seconds", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.bxoptions.topofmarket.itch.v1.2.securitysymbol", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxoptions.topofmarket.itch.v1.2.sequencenumber", ftypes.UINT64)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.session = ProtoField.new("Session", "nasdaq.bxoptions.topofmarket.itch.v1.2.session", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size = ProtoField.new("Size", "nasdaq.bxoptions.topofmarket.itch.v1.2.size", ftypes.UINT16)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size_long = ProtoField.new("Size Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.sizelong", ftypes.UINT32)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.source = ProtoField.new("Source", "nasdaq.bxoptions.topofmarket.itch.v1.2.source", ftypes.UINT8)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.strikeprice", ftypes.DOUBLE)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.subversion = ProtoField.new("Subversion", "nasdaq.bxoptions.topofmarket.itch.v1.2.subversion", ftypes.UINT8)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.tradable = ProtoField.new("Tradable", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradable", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradecondition", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.bxoptions.topofmarket.itch.v1.2.underlyingsymbol", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.version = ProtoField.new("Version", "nasdaq.bxoptions.topofmarket.itch.v1.2.version", ftypes.UINT8)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.volume = ProtoField.new("Volume", "nasdaq.bxoptions.topofmarket.itch.v1.2.volume", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.askprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.askpricelong", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.bxoptions.topofmarket.itch.v1.2.asksize", ftypes.UINT16)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.asksizelong", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidpricelong", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidsize", ftypes.UINT16)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.bidsizelong", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.bxoptions.topofmarket.itch.v1.2.crossid", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.bxoptions.topofmarket.itch.v1.2.currenttradingstate", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.bxoptions.topofmarket.itch.v1.2.eventcode", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.bxoptions.topofmarket.itch.v1.2.expirationday", ftypes.UINT8)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.bxoptions.topofmarket.itch.v1.2.expirationmonth", ftypes.UINT8)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.bxoptions.topofmarket.itch.v1.2.expirationyear", ftypes.UINT8)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message = ProtoField.new("Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.message", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.bxoptions.topofmarket.itch.v1.2.messagecount", ftypes.UINT16)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.bxoptions.topofmarket.itch.v1.2.messageheader", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.bxoptions.topofmarket.itch.v1.2.messagelength", ftypes.UINT16)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.bxoptions.topofmarket.itch.v1.2.messagetype", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.minimum_price_variation = ProtoField.new("Minimum Price Variation", "nasdaq.bxoptions.topofmarket.itch.v1.2.minimumpricevariation", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.bxoptions.topofmarket.itch.v1.2.nanoseconds", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.open_state = ProtoField.new("Open State", "nasdaq.bxoptions.topofmarket.itch.v1.2.openstate", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.bxoptions.topofmarket.itch.v1.2.optionclosingtype", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_id = ProtoField.new("Option Id", "nasdaq.bxoptions.topofmarket.itch.v1.2.optionid", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_type = ProtoField.new("Option Type", "nasdaq.bxoptions.topofmarket.itch.v1.2.optiontype", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.bxoptions.topofmarket.itch.v1.2.originalcrossid", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_price = ProtoField.new("Original Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.originalprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.bxoptions.topofmarket.itch.v1.2.originalvolume", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.packet = ProtoField.new("Packet", "nasdaq.bxoptions.topofmarket.itch.v1.2.packet", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.bxoptions.topofmarket.itch.v1.2.packetheader", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.payload = ProtoField.new("Payload", "nasdaq.bxoptions.topofmarket.itch.v1.2.payload", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price = ProtoField.new("Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.price", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price_long = ProtoField.new("Price Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.pricelong", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.bxoptions.topofmarket.itch.v1.2.quotecondition", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.seconds = ProtoField.new("Seconds", "nasdaq.bxoptions.topofmarket.itch.v1.2.seconds", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.bxoptions.topofmarket.itch.v1.2.securitysymbol", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxoptions.topofmarket.itch.v1.2.sequencenumber", ftypes.UINT64)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.session = ProtoField.new("Session", "nasdaq.bxoptions.topofmarket.itch.v1.2.session", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size = ProtoField.new("Size", "nasdaq.bxoptions.topofmarket.itch.v1.2.size", ftypes.UINT16)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size_long = ProtoField.new("Size Long", "nasdaq.bxoptions.topofmarket.itch.v1.2.sizelong", ftypes.UINT32)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.source = ProtoField.new("Source", "nasdaq.bxoptions.topofmarket.itch.v1.2.source", ftypes.UINT8)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.bxoptions.topofmarket.itch.v1.2.strikeprice", ftypes.DOUBLE)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.subversion = ProtoField.new("Subversion", "nasdaq.bxoptions.topofmarket.itch.v1.2.subversion", ftypes.UINT8)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.tradable = ProtoField.new("Tradable", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradable", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradecondition", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.bxoptions.topofmarket.itch.v1.2.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.version = ProtoField.new("Version", "nasdaq.bxoptions.topofmarket.itch.v1.2.version", ftypes.UINT8)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.volume = ProtoField.new("Volume", "nasdaq.bxoptions.topofmarket.itch.v1.2.volume", ftypes.UINT32)
 
 -- Nasdaq BxOptions TopOfMarket Itch 1.2 messages
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_long_form_message = ProtoField.new("Best Ask Update Long Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestaskupdatelongformmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_short_form_message = ProtoField.new("Best Ask Update Short Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestaskupdateshortformmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_long_form_message = ProtoField.new("Best Bid And Ask Update Long Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidandaskupdatelongformmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_short_form_message = ProtoField.new("Best Bid And Ask Update Short Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidandaskupdateshortformmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_long_form_message = ProtoField.new("Best Bid Update Long Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidupdatelongformmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_short_form_message = ProtoField.new("Best Bid Update Short Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidupdateshortformmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.brokentradereportmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.optionsdirectorymessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_open_message = ProtoField.new("Security Open Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.securityopenmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.systemeventmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.timestampmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradereportmessage", ftypes.STRING)
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradingactionmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_long_form_message = ProtoField.new("Best Ask Update Long Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestaskupdatelongformmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_short_form_message = ProtoField.new("Best Ask Update Short Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestaskupdateshortformmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_long_form_message = ProtoField.new("Best Bid And Ask Update Long Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidandaskupdatelongformmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_short_form_message = ProtoField.new("Best Bid And Ask Update Short Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidandaskupdateshortformmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_long_form_message = ProtoField.new("Best Bid Update Long Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidupdatelongformmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_short_form_message = ProtoField.new("Best Bid Update Short Form Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.bestbidupdateshortformmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.brokentradereportmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.optionsdirectorymessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_open_message = ProtoField.new("Security Open Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.securityopenmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.systemeventmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.timestampmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradereportmessage", ftypes.STRING)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.bxoptions.topofmarket.itch.v1.2.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq BxOptions TopOfMarket Itch 1.2 generated fields
-nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.bxoptions.topofmarket.itch.v1.2.messageindex", ftypes.UINT16)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.bxoptions.topofmarket.itch.v1.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -113,100 +113,100 @@ show.trading_action_message = true
 show.payload = false
 
 -- Register Nasdaq BxOptions TopOfMarket Itch 1.2 Show Options
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_long_form_message = Pref.bool("Show Best Ask Update Long Form Message", show.best_ask_update_long_form_message, "Parse and add Best Ask Update Long Form Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_short_form_message = Pref.bool("Show Best Ask Update Short Form Message", show.best_ask_update_short_form_message, "Parse and add Best Ask Update Short Form Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_long_form_message = Pref.bool("Show Best Bid And Ask Update Long Form Message", show.best_bid_and_ask_update_long_form_message, "Parse and add Best Bid And Ask Update Long Form Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_short_form_message = Pref.bool("Show Best Bid And Ask Update Short Form Message", show.best_bid_and_ask_update_short_form_message, "Parse and add Best Bid And Ask Update Short Form Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_long_form_message = Pref.bool("Show Best Bid Update Long Form Message", show.best_bid_update_long_form_message, "Parse and add Best Bid Update Long Form Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_short_form_message = Pref.bool("Show Best Bid Update Short Form Message", show.best_bid_update_short_form_message, "Parse and add Best Bid Update Short Form Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_broken_trade_report_message = Pref.bool("Show Broken Trade Report Message", show.broken_trade_report_message, "Parse and add Broken Trade Report Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_security_open_message = Pref.bool("Show Security Open Message", show.security_open_message, "Parse and add Security Open Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_timestamp_message = Pref.bool("Show Timestamp Message", show.timestamp_message, "Parse and add Timestamp Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_long_form_message = Pref.bool("Show Best Ask Update Long Form Message", show.best_ask_update_long_form_message, "Parse and add Best Ask Update Long Form Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_short_form_message = Pref.bool("Show Best Ask Update Short Form Message", show.best_ask_update_short_form_message, "Parse and add Best Ask Update Short Form Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_long_form_message = Pref.bool("Show Best Bid And Ask Update Long Form Message", show.best_bid_and_ask_update_long_form_message, "Parse and add Best Bid And Ask Update Long Form Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_short_form_message = Pref.bool("Show Best Bid And Ask Update Short Form Message", show.best_bid_and_ask_update_short_form_message, "Parse and add Best Bid And Ask Update Short Form Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_long_form_message = Pref.bool("Show Best Bid Update Long Form Message", show.best_bid_update_long_form_message, "Parse and add Best Bid Update Long Form Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_short_form_message = Pref.bool("Show Best Bid Update Short Form Message", show.best_bid_update_short_form_message, "Parse and add Best Bid Update Short Form Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_broken_trade_report_message = Pref.bool("Show Broken Trade Report Message", show.broken_trade_report_message, "Parse and add Broken Trade Report Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_security_open_message = Pref.bool("Show Security Open Message", show.security_open_message, "Parse and add Security Open Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_timestamp_message = Pref.bool("Show Timestamp Message", show.timestamp_message, "Parse and add Timestamp Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_bxoptions_topofmarket_itch_v1_2.prefs_changed()
+function omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.best_ask_update_long_form_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_long_form_message then
-    show.best_ask_update_long_form_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_long_form_message
+  if show.best_ask_update_long_form_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_long_form_message then
+    show.best_ask_update_long_form_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_long_form_message
     changed = true
   end
-  if show.best_ask_update_short_form_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_short_form_message then
-    show.best_ask_update_short_form_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_short_form_message
+  if show.best_ask_update_short_form_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_short_form_message then
+    show.best_ask_update_short_form_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_ask_update_short_form_message
     changed = true
   end
-  if show.best_bid_and_ask_update_long_form_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_long_form_message then
-    show.best_bid_and_ask_update_long_form_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_long_form_message
+  if show.best_bid_and_ask_update_long_form_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_long_form_message then
+    show.best_bid_and_ask_update_long_form_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_long_form_message
     changed = true
   end
-  if show.best_bid_and_ask_update_short_form_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_short_form_message then
-    show.best_bid_and_ask_update_short_form_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_short_form_message
+  if show.best_bid_and_ask_update_short_form_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_short_form_message then
+    show.best_bid_and_ask_update_short_form_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_and_ask_update_short_form_message
     changed = true
   end
-  if show.best_bid_update_long_form_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_long_form_message then
-    show.best_bid_update_long_form_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_long_form_message
+  if show.best_bid_update_long_form_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_long_form_message then
+    show.best_bid_update_long_form_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_long_form_message
     changed = true
   end
-  if show.best_bid_update_short_form_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_short_form_message then
-    show.best_bid_update_short_form_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_short_form_message
+  if show.best_bid_update_short_form_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_short_form_message then
+    show.best_bid_update_short_form_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_best_bid_update_short_form_message
     changed = true
   end
-  if show.broken_trade_report_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_broken_trade_report_message then
-    show.broken_trade_report_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_broken_trade_report_message
+  if show.broken_trade_report_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_broken_trade_report_message then
+    show.broken_trade_report_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_broken_trade_report_message
     changed = true
   end
-  if show.message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message then
-    show.message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message
+  if show.message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message then
+    show.message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message_header then
-    show.message_header = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message_header then
+    show.message_header = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_message_header
     changed = true
   end
-  if show.options_directory_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_options_directory_message then
-    show.options_directory_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_options_directory_message
+  if show.options_directory_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_options_directory_message then
+    show.options_directory_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_options_directory_message
     changed = true
   end
-  if show.packet ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet then
-    show.packet = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet
+  if show.packet ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet then
+    show.packet = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet_header then
-    show.packet_header = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_packet_header
     changed = true
   end
-  if show.security_open_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_security_open_message then
-    show.security_open_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_security_open_message
+  if show.security_open_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_security_open_message then
+    show.security_open_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_security_open_message
     changed = true
   end
-  if show.system_event_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_system_event_message
+  if show.system_event_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_system_event_message then
+    show.system_event_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_system_event_message
     changed = true
   end
-  if show.timestamp_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_timestamp_message then
-    show.timestamp_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_timestamp_message
+  if show.timestamp_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_timestamp_message then
+    show.timestamp_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_timestamp_message
     changed = true
   end
-  if show.trade_report_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trade_report_message then
-    show.trade_report_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trade_report_message
+  if show.trade_report_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trade_report_message then
+    show.trade_report_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trade_report_message
     changed = true
   end
-  if show.trading_action_message ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trading_action_message then
-    show.trading_action_message = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trading_action_message
+  if show.trading_action_message ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trading_action_message then
+    show.trading_action_message = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_trading_action_message
     changed = true
   end
-  if show.payload ~= nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_payload then
-    show.payload = nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_payload
+  if show.payload ~= omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_payload then
+    show.payload = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.prefs.show_payload
     changed = true
   end
 
@@ -254,7 +254,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.original_volume = function(buffer
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.original_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_volume, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_volume, range, value, display)
 
   return offset + length, value
 end
@@ -280,7 +280,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.original_price = function(buffer,
   local value = translate.original_price(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.original_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_price, range, value, display)
 
   return offset + length, value
 end
@@ -300,7 +300,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.original_cross_id = function(buff
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.original_cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_cross_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -320,7 +320,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.option_id = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.option_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_id, range, value, display)
 
   return offset + length, value
 end
@@ -340,7 +340,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.nanoseconds = function(buffer, of
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.nanoseconds, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -393,7 +393,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.broken_trade_report_message = function(buffer, offset, packet, parent)
   if show.broken_trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.broken_trade_report_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.broken_trade_report_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -422,7 +422,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.volume = function(buffer, offset,
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.volume, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -448,7 +448,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.price_long = function(buffer, off
   local value = translate.price_long(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price_long, range, value, display)
 
   return offset + length, value
 end
@@ -468,7 +468,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.trade_condition = function(buffer
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.trade_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_condition, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_condition, range, value, display)
 
   return offset + length, value
 end
@@ -488,7 +488,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.cross_id = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.cross_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -546,7 +546,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_report_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_report_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -575,7 +575,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.size_long = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.size_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size_long, range, value, display)
 
   return offset + length, value
 end
@@ -611,7 +611,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.quote_condition = function(buffer
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.quote_condition, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -664,7 +664,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_ask_update_long_form_message = function(buffer, offset, packet, parent)
   if show.best_ask_update_long_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_long_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_long_form_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_ask_update_long_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -726,7 +726,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_update_long_form_message = function(buffer, offset, packet, parent)
   if show.best_bid_update_long_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_long_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_long_form_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_update_long_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -755,7 +755,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.size = function(buffer, offset, p
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -781,7 +781,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.price = function(buffer, offset, 
   local value = translate.price(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -834,7 +834,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_ask_update_short_form_message = function(buffer, offset, packet, parent)
   if show.best_ask_update_short_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_short_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_ask_update_short_form_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_ask_update_short_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -896,7 +896,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_update_short_form_message = function(buffer, offset, packet, parent)
   if show.best_bid_update_short_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_short_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_update_short_form_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_update_short_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -925,7 +925,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.ask_size_long = function(buffer, 
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.ask_size_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size_long, range, value, display)
 
   return offset + length, value
 end
@@ -951,7 +951,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.ask_price_long = function(buffer,
   local value = translate.ask_price_long(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.ask_price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price_long, range, value, display)
 
   return offset + length, value
 end
@@ -971,7 +971,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.bid_size_long = function(buffer, 
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.bid_size_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size_long, range, value, display)
 
   return offset + length, value
 end
@@ -997,7 +997,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.bid_price_long = function(buffer,
   local value = translate.bid_price_long(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.bid_price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price_long, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
@@ -1060,7 +1060,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_and_ask_update_long_form_message = function(buffer, offset, packet, parent)
   if show.best_bid_and_ask_update_long_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_long_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_long_form_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_and_ask_update_long_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1089,7 +1089,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.ask_size = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -1115,7 +1115,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.ask_price = function(buffer, offs
   local value = translate.ask_price(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -1135,7 +1135,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.bid_size = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1161,7 +1161,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.bid_price = function(buffer, offs
   local value = translate.bid_price(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1224,7 +1224,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_and_ask_update_short_form_message = function(buffer, offset, packet, parent)
   if show.best_bid_and_ask_update_short_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_short_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_short_form_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.best_bid_and_ask_update_short_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1260,7 +1260,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.open_state = function(buffer, off
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.open_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.open_state, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.open_state, range, value, display)
 
   return offset + length, value
 end
@@ -1303,7 +1303,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.security_open_message = function(buffer, offset, packet, parent)
   if show.security_open_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_open_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_open_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.security_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1339,7 +1339,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.current_trading_state = function(
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.current_trading_state, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -1382,7 +1382,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1421,7 +1421,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.minimum_price_variation = functio
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.minimum_price_variation(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.minimum_price_variation, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.minimum_price_variation, range, value, display)
 
   return offset + length, value
 end
@@ -1448,7 +1448,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.tradable = function(buffer, offse
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.tradable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.tradable, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.tradable, range, value, display)
 
   return offset + length, value
 end
@@ -1468,7 +1468,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.option_closing_type = function(bu
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.option_closing_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_closing_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_closing_type, range, value, display)
 
   return offset + length, value
 end
@@ -1488,7 +1488,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.underlying_symbol = function(buff
   local value = trim_right_spaces(range:string())
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.underlying_symbol, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1508,7 +1508,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.source = function(buffer, offset,
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.source(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.source, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.source, range, value, display)
 
   return offset + length, value
 end
@@ -1535,7 +1535,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.option_type = function(buffer, of
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -1561,7 +1561,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.strike_price = function(buffer, o
   local value = translate.strike_price(raw)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.strike_price, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -1581,7 +1581,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.expiration_day = function(buffer,
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.expiration_day(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_day, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_day, range, value, display)
 
   return offset + length, value
 end
@@ -1601,7 +1601,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.expiration_month = function(buffe
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_month, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -1621,7 +1621,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.expiration_year = function(buffer
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_year, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -1641,7 +1641,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.security_symbol = function(buffer
   local value = trim_right_spaces(range:string())
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_symbol, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1734,7 +1734,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.options_directory_message = function(buffer, offset, packet, parent)
   if show.options_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.options_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.options_directory_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.options_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1763,7 +1763,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.subversion = function(buffer, off
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.subversion(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.subversion, range, value, display)
 
   return offset + length, value
 end
@@ -1783,7 +1783,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.version = function(buffer, offset
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.version, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1822,7 +1822,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.event_code = function(buffer, off
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.event_code, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -1870,7 +1870,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1899,7 +1899,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.seconds = function(buffer, offset
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.seconds, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -1932,7 +1932,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.timestamp_message = function(buffer, offset, packet, parent)
   if show.timestamp_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.timestamp_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.timestamp_message, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.timestamp_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2082,7 +2082,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.payload = function(buffer, offset
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.payload, range, display)
 
   return nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2142,7 +2142,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_type = function(buffer, o
   local value = range:string()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2162,7 +2162,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_length = function(buffer,
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2200,7 +2200,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_header, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2225,7 +2225,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields = function(buffer,
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2247,7 +2247,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message = function(buffer, offset
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message, buffer(offset, 0))
     local current = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.message(buffer, packet, parent)
@@ -2277,7 +2277,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_count = function(buffer, 
   local value = range:uint()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_count, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2297,7 +2297,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.sequence_number = function(buffer
   local value = range:uint64()
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2333,7 +2333,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.session = function(buffer, offset
 
   local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.session, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2376,7 +2376,7 @@ end
 nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2422,23 +2422,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_bxoptions_topofmarket_itch_v1_2.init()
+function omi_nasdaq_bxoptions_topofmarket_itch_v1_2.init()
 end
 
 -- Dissector for Nasdaq BxOptions TopOfMarket Itch 1.2
-function nasdaq_bxoptions_topofmarket_itch_v1_2.dissector(buffer, packet, parent)
+function omi_nasdaq_bxoptions_topofmarket_itch_v1_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_bxoptions_topofmarket_itch_v1_2.name
+  packet.cols.protocol = omi_nasdaq_bxoptions_topofmarket_itch_v1_2.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2, buffer(), nasdaq_bxoptions_topofmarket_itch_v1_2.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2, buffer(), omi_nasdaq_bxoptions_topofmarket_itch_v1_2.description, "("..buffer:len().." Bytes)")
   return nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_bxoptions_topofmarket_itch_v1_2)
+udp_table:add(65333, omi_nasdaq_bxoptions_topofmarket_itch_v1_2)
 
 
 -----------------------------------------------------------------------
@@ -2446,25 +2446,25 @@ udp_table:add(65333, nasdaq_bxoptions_topofmarket_itch_v1_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_bxoptions_topofmarket_itch_v1_2_packet_size = function(buffer)
+verify.omi_nasdaq_bxoptions_topofmarket_itch_v1_2_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq BxOptions TopOfMarket Itch 1.2
-local function nasdaq_bxoptions_topofmarket_itch_v1_2_heuristic(buffer, packet, parent)
+local function omi_nasdaq_bxoptions_topofmarket_itch_v1_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_bxoptions_topofmarket_itch_v1_2_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_bxoptions_topofmarket_itch_v1_2_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_bxoptions_topofmarket_itch_v1_2
-  nasdaq_bxoptions_topofmarket_itch_v1_2.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_bxoptions_topofmarket_itch_v1_2
+  omi_nasdaq_bxoptions_topofmarket_itch_v1_2.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq BxOptions TopOfMarket Itch 1.2
-nasdaq_bxoptions_topofmarket_itch_v1_2:register_heuristic("udp", nasdaq_bxoptions_topofmarket_itch_v1_2_heuristic)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2:register_heuristic("udp", omi_nasdaq_bxoptions_topofmarket_itch_v1_2_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

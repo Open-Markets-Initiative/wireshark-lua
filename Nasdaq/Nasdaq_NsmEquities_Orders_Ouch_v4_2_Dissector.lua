@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Orders Ouch 4.2 Protocol
-local nasdaq_nsmequities_orders_ouch_v4_2 = Proto("Nasdaq.NsmEquities.Orders.Ouch.v4.2.Lua", "Nasdaq NsmEquities Orders Ouch 4.2")
+local omi_nasdaq_nsmequities_orders_ouch_v4_2 = Proto("Nasdaq.NsmEquities.Orders.Ouch.v4.2.Lua", "Nasdaq NsmEquities Orders Ouch 4.2")
 
 -- Component Tables
 local show = {}
@@ -21,85 +21,85 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Orders Ouch 4.2 Fields
-nasdaq_nsmequities_orders_ouch_v4_2.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.nsmequities.orders.ouch.v4.2.bboweightindicator", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.nsmequities.orders.ouch.v4.2.brokentradereason", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nsmequities.orders.ouch.v4.2.buysellindicator", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_reason = ProtoField.new("Cancel Order Reason", "nasdaq.nsmequities.orders.ouch.v4.2.cancelorderreason", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity = ProtoField.new("Capacity", "nasdaq.nsmequities.orders.ouch.v4.2.capacity", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.orders.ouch.v4.2.crosstype", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type = ProtoField.new("Customer Type", "nasdaq.nsmequities.orders.ouch.v4.2.customertype", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v4.2.debugpacket", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares = ProtoField.new("Decrement Shares", "nasdaq.nsmequities.orders.ouch.v4.2.decrementshares", ftypes.UINT32)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.orders.ouch.v4.2.display", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.orders.ouch.v4.2.eventcode", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.orders.ouch.v4.2.executedshares", ftypes.UINT32)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.nsmequities.orders.ouch.v4.2.executionprice", ftypes.UINT32)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token = ProtoField.new("Existing Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.existingordertoken", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.firm = ProtoField.new("Firm", "nasdaq.nsmequities.orders.ouch.v4.2.firm", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility = ProtoField.new("Intermarket Sweep Eligibility", "nasdaq.nsmequities.orders.ouch.v4.2.intermarketsweepeligibility", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "nasdaq.nsmequities.orders.ouch.v4.2.liquidityflag", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginacceptedpacket", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrejectedpacket", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrequestpacket", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.orders.ouch.v4.2.matchnumber", ftypes.UINT64)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "nasdaq.nsmequities.orders.ouch.v4.2.minimumquantity", ftypes.UINT32)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.orders.ouch.v4.2.orderreferencenumber", ftypes.UINT64)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.order_state = ProtoField.new("Order State", "nasdaq.nsmequities.orders.ouch.v4.2.orderstate", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.order_token = ProtoField.new("Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.ordertoken", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.orders.ouch.v4.2.packet", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.orders.ouch.v4.2.packetheader", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.nsmequities.orders.ouch.v4.2.packetlength", ftypes.UINT16)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v4.2.packettype", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.orders.ouch.v4.2.password", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.payload = ProtoField.new("Payload", "nasdaq.nsmequities.orders.ouch.v4.2.payload", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.previous_order_token = ProtoField.new("Previous Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.previousordertoken", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.orders.ouch.v4.2.price", ftypes.DOUBLE)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "nasdaq.nsmequities.orders.ouch.v4.2.quantitypreventedfromtrading", ftypes.UINT32)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.orders.ouch.v4.2.reason", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.nsmequities.orders.ouch.v4.2.referenceprice", ftypes.DOUBLE)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price_type = ProtoField.new("Reference Price Type", "nasdaq.nsmequities.orders.ouch.v4.2.referencepricetype", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.orders.ouch.v4.2.rejectreasoncode", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_reason = ProtoField.new("Rejected Order Reason", "nasdaq.nsmequities.orders.ouch.v4.2.rejectedorderreason", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_alphanumeric_14 = ProtoField.new("Replacement Order Token Alphanumeric 14", "nasdaq.nsmequities.orders.ouch.v4.2.replacementordertokenalphanumeric14", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_token_14 = ProtoField.new("Replacement Order Token Token 14", "nasdaq.nsmequities.orders.ouch.v4.2.replacementordertokentoken14", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.requestedsequencenumber", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.orders.ouch.v4.2.requestedsession", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.sequencenumber", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.sequenceddatapacket", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.nsmequities.orders.ouch.v4.2.sequencedmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.sequencedmessagetype", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.orders.ouch.v4.2.session", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.orders.ouch.v4.2.shares", ftypes.UINT32)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nsmequities.orders.ouch.v4.2.soupbintcppacket", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.orders.ouch.v4.2.stock", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.orders.ouch.v4.2.text", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.orders.ouch.v4.2.timeinforce", ftypes.UINT32)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.orders.ouch.v4.2.timestamp", ftypes.UINT64)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.unsequenceddatapacket", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.orders.ouch.v4.2.unsequencedmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.orders.ouch.v4.2.username", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.nsmequities.orders.ouch.v4.2.bboweightindicator", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.nsmequities.orders.ouch.v4.2.brokentradereason", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nsmequities.orders.ouch.v4.2.buysellindicator", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_reason = ProtoField.new("Cancel Order Reason", "nasdaq.nsmequities.orders.ouch.v4.2.cancelorderreason", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity = ProtoField.new("Capacity", "nasdaq.nsmequities.orders.ouch.v4.2.capacity", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.orders.ouch.v4.2.crosstype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type = ProtoField.new("Customer Type", "nasdaq.nsmequities.orders.ouch.v4.2.customertype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v4.2.debugpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares = ProtoField.new("Decrement Shares", "nasdaq.nsmequities.orders.ouch.v4.2.decrementshares", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.orders.ouch.v4.2.display", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.orders.ouch.v4.2.eventcode", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.orders.ouch.v4.2.executedshares", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.nsmequities.orders.ouch.v4.2.executionprice", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token = ProtoField.new("Existing Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.existingordertoken", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.firm = ProtoField.new("Firm", "nasdaq.nsmequities.orders.ouch.v4.2.firm", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility = ProtoField.new("Intermarket Sweep Eligibility", "nasdaq.nsmequities.orders.ouch.v4.2.intermarketsweepeligibility", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "nasdaq.nsmequities.orders.ouch.v4.2.liquidityflag", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.orders.ouch.v4.2.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.orders.ouch.v4.2.matchnumber", ftypes.UINT64)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "nasdaq.nsmequities.orders.ouch.v4.2.minimumquantity", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.orders.ouch.v4.2.orderreferencenumber", ftypes.UINT64)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_state = ProtoField.new("Order State", "nasdaq.nsmequities.orders.ouch.v4.2.orderstate", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_token = ProtoField.new("Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.ordertoken", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.orders.ouch.v4.2.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.orders.ouch.v4.2.packetheader", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.nsmequities.orders.ouch.v4.2.packetlength", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v4.2.packettype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.orders.ouch.v4.2.password", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.payload = ProtoField.new("Payload", "nasdaq.nsmequities.orders.ouch.v4.2.payload", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.previous_order_token = ProtoField.new("Previous Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.previousordertoken", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.orders.ouch.v4.2.price", ftypes.DOUBLE)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "nasdaq.nsmequities.orders.ouch.v4.2.quantitypreventedfromtrading", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.orders.ouch.v4.2.reason", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.nsmequities.orders.ouch.v4.2.referenceprice", ftypes.DOUBLE)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price_type = ProtoField.new("Reference Price Type", "nasdaq.nsmequities.orders.ouch.v4.2.referencepricetype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.orders.ouch.v4.2.rejectreasoncode", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_reason = ProtoField.new("Rejected Order Reason", "nasdaq.nsmequities.orders.ouch.v4.2.rejectedorderreason", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_alphanumeric_14 = ProtoField.new("Replacement Order Token Alphanumeric 14", "nasdaq.nsmequities.orders.ouch.v4.2.replacementordertokenalphanumeric14", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_token_14 = ProtoField.new("Replacement Order Token Token 14", "nasdaq.nsmequities.orders.ouch.v4.2.replacementordertokentoken14", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.requestedsequencenumber", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.orders.ouch.v4.2.requestedsession", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.sequencenumber", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.nsmequities.orders.ouch.v4.2.sequencedmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.sequencedmessagetype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.orders.ouch.v4.2.session", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.orders.ouch.v4.2.shares", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nsmequities.orders.ouch.v4.2.soupbintcppacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.orders.ouch.v4.2.stock", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.orders.ouch.v4.2.text", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.orders.ouch.v4.2.timeinforce", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.orders.ouch.v4.2.timestamp", ftypes.UINT64)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v4.2.unsequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.orders.ouch.v4.2.unsequencedmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.orders.ouch.v4.2.username", ftypes.STRING)
 
 -- Nasdaq NsmEquities Orders Ouch 4.2 messages
-nasdaq_nsmequities_orders_ouch_v4_2.fields.accepted_message = ProtoField.new("Accepted Message", "nasdaq.nsmequities.orders.ouch.v4.2.acceptedmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.aiq_cancelled_message = ProtoField.new("Aiq Cancelled Message", "nasdaq.nsmequities.orders.ouch.v4.2.aiqcancelledmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.orders.ouch.v4.2.brokentrademessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.cancelordermessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_pending_message = ProtoField.new("Cancel Pending Message", "nasdaq.nsmequities.orders.ouch.v4.2.cancelpendingmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_reject_message = ProtoField.new("Cancel Reject Message", "nasdaq.nsmequities.orders.ouch.v4.2.cancelrejectmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.canceled_message = ProtoField.new("Canceled Message", "nasdaq.nsmequities.orders.ouch.v4.2.canceledmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.enter_order_message = ProtoField.new("Enter Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.enterordermessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_message = ProtoField.new("Executed Message", "nasdaq.nsmequities.orders.ouch.v4.2.executedmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_with_reference_price_message = ProtoField.new("Executed With Reference Price Message", "nasdaq.nsmequities.orders.ouch.v4.2.executedwithreferencepricemessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.modify_order_message = ProtoField.new("Modify Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.modifyordermessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.order_modified_message = ProtoField.new("Order Modified Message", "nasdaq.nsmequities.orders.ouch.v4.2.ordermodifiedmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.order_priority_update_message = ProtoField.new("Order Priority Update Message", "nasdaq.nsmequities.orders.ouch.v4.2.orderpriorityupdatemessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_message = ProtoField.new("Rejected Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.rejectedordermessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.replace_order_message = ProtoField.new("Replace Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.replaceordermessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message = ProtoField.new("Replaced Message", "nasdaq.nsmequities.orders.ouch.v4.2.replacedmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.orders.ouch.v4.2.systemeventmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradecorrectionmessage", ftypes.STRING)
-nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message = ProtoField.new("Trade Now Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradenowmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.accepted_message = ProtoField.new("Accepted Message", "nasdaq.nsmequities.orders.ouch.v4.2.acceptedmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.aiq_cancelled_message = ProtoField.new("Aiq Cancelled Message", "nasdaq.nsmequities.orders.ouch.v4.2.aiqcancelledmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.orders.ouch.v4.2.brokentrademessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.cancelordermessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_pending_message = ProtoField.new("Cancel Pending Message", "nasdaq.nsmequities.orders.ouch.v4.2.cancelpendingmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_reject_message = ProtoField.new("Cancel Reject Message", "nasdaq.nsmequities.orders.ouch.v4.2.cancelrejectmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.canceled_message = ProtoField.new("Canceled Message", "nasdaq.nsmequities.orders.ouch.v4.2.canceledmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.enter_order_message = ProtoField.new("Enter Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.enterordermessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_message = ProtoField.new("Executed Message", "nasdaq.nsmequities.orders.ouch.v4.2.executedmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_with_reference_price_message = ProtoField.new("Executed With Reference Price Message", "nasdaq.nsmequities.orders.ouch.v4.2.executedwithreferencepricemessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.modify_order_message = ProtoField.new("Modify Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.modifyordermessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_modified_message = ProtoField.new("Order Modified Message", "nasdaq.nsmequities.orders.ouch.v4.2.ordermodifiedmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_priority_update_message = ProtoField.new("Order Priority Update Message", "nasdaq.nsmequities.orders.ouch.v4.2.orderpriorityupdatemessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_message = ProtoField.new("Rejected Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.rejectedordermessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replace_order_message = ProtoField.new("Replace Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.replaceordermessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message = ProtoField.new("Replaced Message", "nasdaq.nsmequities.orders.ouch.v4.2.replacedmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.orders.ouch.v4.2.systemeventmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradecorrectionmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message = ProtoField.new("Trade Now Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradenowmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -139,165 +139,165 @@ show.sequenced_message = false
 show.unsequenced_message = false
 
 -- Register Nasdaq NsmEquities Orders Ouch 4.2 Show Options
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_accepted_message = Pref.bool("Show Accepted Message", show.accepted_message, "Parse and add Accepted Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_aiq_cancelled_message = Pref.bool("Show Aiq Cancelled Message", show.aiq_cancelled_message, "Parse and add Aiq Cancelled Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_pending_message = Pref.bool("Show Cancel Pending Message", show.cancel_pending_message, "Parse and add Cancel Pending Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_reject_message = Pref.bool("Show Cancel Reject Message", show.cancel_reject_message, "Parse and add Cancel Reject Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_canceled_message = Pref.bool("Show Canceled Message", show.canceled_message, "Parse and add Canceled Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_message = Pref.bool("Show Executed Message", show.executed_message, "Parse and add Executed Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_with_reference_price_message = Pref.bool("Show Executed With Reference Price Message", show.executed_with_reference_price_message, "Parse and add Executed With Reference Price Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_priority_update_message = Pref.bool("Show Order Priority Update Message", show.order_priority_update_message, "Parse and add Order Priority Update Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_rejected_order_message = Pref.bool("Show Rejected Order Message", show.rejected_order_message, "Parse and add Rejected Order Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replaced_message = Pref.bool("Show Replaced Message", show.replaced_message, "Parse and add Replaced Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_now_message = Pref.bool("Show Trade Now Message", show.trade_now_message, "Parse and add Trade Now Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_accepted_message = Pref.bool("Show Accepted Message", show.accepted_message, "Parse and add Accepted Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_aiq_cancelled_message = Pref.bool("Show Aiq Cancelled Message", show.aiq_cancelled_message, "Parse and add Aiq Cancelled Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_pending_message = Pref.bool("Show Cancel Pending Message", show.cancel_pending_message, "Parse and add Cancel Pending Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_reject_message = Pref.bool("Show Cancel Reject Message", show.cancel_reject_message, "Parse and add Cancel Reject Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_canceled_message = Pref.bool("Show Canceled Message", show.canceled_message, "Parse and add Canceled Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_message = Pref.bool("Show Executed Message", show.executed_message, "Parse and add Executed Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_with_reference_price_message = Pref.bool("Show Executed With Reference Price Message", show.executed_with_reference_price_message, "Parse and add Executed With Reference Price Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_priority_update_message = Pref.bool("Show Order Priority Update Message", show.order_priority_update_message, "Parse and add Order Priority Update Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_rejected_order_message = Pref.bool("Show Rejected Order Message", show.rejected_order_message, "Parse and add Rejected Order Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replaced_message = Pref.bool("Show Replaced Message", show.replaced_message, "Parse and add Replaced Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_now_message = Pref.bool("Show Trade Now Message", show.trade_now_message, "Parse and add Trade Now Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_nsmequities_orders_ouch_v4_2.prefs_changed()
+function omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.accepted_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_accepted_message then
-    show.accepted_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_accepted_message
+  if show.accepted_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_accepted_message then
+    show.accepted_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_accepted_message
     changed = true
   end
-  if show.aiq_cancelled_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_aiq_cancelled_message then
-    show.aiq_cancelled_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_aiq_cancelled_message
+  if show.aiq_cancelled_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_aiq_cancelled_message then
+    show.aiq_cancelled_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_aiq_cancelled_message
     changed = true
   end
-  if show.broken_trade_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_broken_trade_message then
-    show.broken_trade_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_broken_trade_message
+  if show.broken_trade_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_broken_trade_message then
+    show.broken_trade_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_broken_trade_message
     changed = true
   end
-  if show.cancel_order_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_order_message then
-    show.cancel_order_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_order_message then
+    show.cancel_order_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_order_message
     changed = true
   end
-  if show.cancel_pending_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_pending_message then
-    show.cancel_pending_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_pending_message
+  if show.cancel_pending_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_pending_message then
+    show.cancel_pending_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_pending_message
     changed = true
   end
-  if show.cancel_reject_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_reject_message then
-    show.cancel_reject_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_reject_message
+  if show.cancel_reject_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_reject_message then
+    show.cancel_reject_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_cancel_reject_message
     changed = true
   end
-  if show.canceled_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_canceled_message then
-    show.canceled_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_canceled_message
+  if show.canceled_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_canceled_message then
+    show.canceled_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_canceled_message
     changed = true
   end
-  if show.debug_packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_debug_packet then
-    show.debug_packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_debug_packet
+  if show.debug_packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_debug_packet then
+    show.debug_packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_debug_packet
     changed = true
   end
-  if show.enter_order_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_enter_order_message then
-    show.enter_order_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_enter_order_message
+  if show.enter_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_enter_order_message then
+    show.enter_order_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_enter_order_message
     changed = true
   end
-  if show.executed_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_message then
-    show.executed_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_message
+  if show.executed_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_message then
+    show.executed_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_message
     changed = true
   end
-  if show.executed_with_reference_price_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_with_reference_price_message then
-    show.executed_with_reference_price_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_with_reference_price_message
+  if show.executed_with_reference_price_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_with_reference_price_message then
+    show.executed_with_reference_price_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_executed_with_reference_price_message
     changed = true
   end
-  if show.login_accepted_packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_accepted_packet
+  if show.login_accepted_packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_accepted_packet then
+    show.login_accepted_packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_accepted_packet
     changed = true
   end
-  if show.login_rejected_packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_rejected_packet
+  if show.login_rejected_packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_rejected_packet then
+    show.login_rejected_packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_rejected_packet
     changed = true
   end
-  if show.login_request_packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_request_packet then
-    show.login_request_packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_request_packet
+  if show.login_request_packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_request_packet then
+    show.login_request_packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_login_request_packet
     changed = true
   end
-  if show.modify_order_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_modify_order_message then
-    show.modify_order_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_modify_order_message
+  if show.modify_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_modify_order_message then
+    show.modify_order_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_modify_order_message
     changed = true
   end
-  if show.order_modified_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_modified_message then
-    show.order_modified_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_modified_message
+  if show.order_modified_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_modified_message then
+    show.order_modified_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_modified_message
     changed = true
   end
-  if show.order_priority_update_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_priority_update_message then
-    show.order_priority_update_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_priority_update_message
+  if show.order_priority_update_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_priority_update_message then
+    show.order_priority_update_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_order_priority_update_message
     changed = true
   end
-  if show.packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet then
-    show.packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet
+  if show.packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet then
+    show.packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet_header then
-    show.packet_header = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_packet_header
     changed = true
   end
-  if show.rejected_order_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_rejected_order_message then
-    show.rejected_order_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_rejected_order_message
+  if show.rejected_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_rejected_order_message then
+    show.rejected_order_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_rejected_order_message
     changed = true
   end
-  if show.replace_order_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replace_order_message then
-    show.replace_order_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replace_order_message
+  if show.replace_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replace_order_message then
+    show.replace_order_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replace_order_message
     changed = true
   end
-  if show.replaced_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replaced_message then
-    show.replaced_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replaced_message
+  if show.replaced_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replaced_message then
+    show.replaced_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_replaced_message
     changed = true
   end
-  if show.sequenced_data_packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet
+  if show.sequenced_data_packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet then
+    show.sequenced_data_packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.soup_bin_tcp_packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet
+  if show.soup_bin_tcp_packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet then
+    show.soup_bin_tcp_packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet
     changed = true
   end
-  if show.system_event_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_system_event_message
+  if show.system_event_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_system_event_message then
+    show.system_event_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_system_event_message
     changed = true
   end
-  if show.trade_correction_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_correction_message then
-    show.trade_correction_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_correction_message
+  if show.trade_correction_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_correction_message then
+    show.trade_correction_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_correction_message
     changed = true
   end
-  if show.trade_now_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_now_message then
-    show.trade_now_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_now_message
+  if show.trade_now_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_now_message then
+    show.trade_now_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_trade_now_message
     changed = true
   end
-  if show.unsequenced_data_packet ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet
+  if show.unsequenced_data_packet ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet then
+    show.unsequenced_data_packet = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_payload then
-    show.payload = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_payload
+  if show.payload ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_payload then
+    show.payload = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_payload
     changed = true
   end
-  if show.sequenced_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_message then
-    show.sequenced_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_message then
+    show.sequenced_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_sequenced_message
     changed = true
   end
-  if show.unsequenced_message ~= nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_message then
-    show.unsequenced_message = nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_nasdaq_nsmequities_orders_ouch_v4_2.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -345,7 +345,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_token = function(buffer, offse
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.order_token(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_token, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_token, range, value, display)
 
   return offset + length, value
 end
@@ -378,7 +378,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_now_message = function(buffer, offset, packet, parent)
   if show.trade_now_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_now_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -407,7 +407,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.shares = function(buffer, offset, pa
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.shares, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.shares, range, value, display)
 
   return offset + length, value
 end
@@ -440,7 +440,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.buy_sell_indicator = function(buffer
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.buy_sell_indicator, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.buy_sell_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -483,7 +483,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.modify_order_message = function(buffer, offset, packet, parent)
   if show.modify_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.modify_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.modify_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.modify_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -530,7 +530,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -559,7 +559,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.minimum_quantity = function(buffer, 
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.minimum_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.minimum_quantity, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.minimum_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -589,7 +589,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.intermarket_sweep_eligibility = func
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.intermarket_sweep_eligibility(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility, range, value, display)
 
   return offset + length, value
 end
@@ -649,7 +649,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.display = function(buffer, offset, p
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.display(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.display, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.display, range, value, display)
 
   return offset + length, value
 end
@@ -669,7 +669,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.time_in_force = function(buffer, off
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -695,7 +695,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.price = function(buffer, offset, pac
   local value = translate.price(raw)
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.price, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -715,7 +715,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.replacement_order_token_token_14 = f
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.replacement_order_token_token_14(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_token_14, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_token_14, range, value, display)
 
   return offset + length, value
 end
@@ -735,7 +735,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.existing_order_token = function(buff
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.existing_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -803,7 +803,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.replace_order_message = function(buffer, offset, packet, parent)
   if show.replace_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replace_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replace_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.replace_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -842,7 +842,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.customer_type = function(buffer, off
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.customer_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type, range, value, display)
 
   return offset + length, value
 end
@@ -884,7 +884,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.cross_type = function(buffer, offset
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -917,7 +917,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.capacity = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.capacity(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity, range, value, display)
 
   return offset + length, value
 end
@@ -937,7 +937,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.firm = function(buffer, offset, pack
   local value = trim_right_spaces(range:string())
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.firm(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.firm, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.firm, range, value, display)
 
   return offset + length, value
 end
@@ -957,7 +957,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.stock = function(buffer, offset, pac
   local value = trim_right_spaces(range:string())
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.stock(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.stock, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.stock, range, value, display)
 
   return offset + length, value
 end
@@ -1050,7 +1050,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.enter_order_message = function(buffer, offset, packet, parent)
   if show.enter_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.enter_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.enter_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.enter_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1136,7 +1136,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.unsequenced_message = function(buffe
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.unsequenced_message(buffer, packet, parent)
-  local element = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message, range, display)
+  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v4_2_dissect.unsequenced_message_branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -1172,7 +1172,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.unsequenced_message_type = function(
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.unsequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1214,7 +1214,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.unsequenced_data_packet = function(b
   if show.unsequenced_data_packet then
     local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = nasdaq_nsmequities_orders_ouch_v4_2_display.unsequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_data_packet, range, display)
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_data_packet, range, display)
   end
 
   nasdaq_nsmequities_orders_ouch_v4_2_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
@@ -1237,7 +1237,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.requested_sequence_number = function
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_sequence_number, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1257,7 +1257,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.requested_session = function(buffer,
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.requested_session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_session, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -1277,7 +1277,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.password = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.password, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -1297,7 +1297,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.username = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.username, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -1345,7 +1345,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1374,7 +1374,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.timestamp = function(buffer, offset,
   local value = range:uint64()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1422,7 +1422,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_modified_message = function(buffer, offset, packet, parent)
   if show.order_modified_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_modified_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_modified_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_modified_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1451,7 +1451,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_reference_number = function(bu
   local value = range:uint64()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.order_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1504,7 +1504,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_priority_update_message = function(buffer, offset, packet, parent)
   if show.order_priority_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_priority_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_priority_update_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_priority_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1551,7 +1551,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_reject_message = function(buffer, offset, packet, parent)
   if show.cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_reject_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1598,7 +1598,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_pending_message = function(buffer, offset, packet, parent)
   if show.cancel_pending_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_pending_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_pending_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_pending_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1627,7 +1627,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.rejected_order_reason = function(buf
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.rejected_order_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_reason, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1670,7 +1670,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.rejected_order_message = function(buffer, offset, packet, parent)
   if show.rejected_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.rejected_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1699,7 +1699,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.reason = function(buffer, offset, pa
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.reason, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -1719,7 +1719,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.match_number = function(buffer, offs
   local value = range:uint64()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.match_number, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.match_number, range, value, display)
 
   return offset + length, value
 end
@@ -1818,7 +1818,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.liquidity_flag = function(buffer, of
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.liquidity_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.liquidity_flag, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.liquidity_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1838,7 +1838,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.execution_price = function(buffer, o
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.execution_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price, range, value, display)
 
   return offset + length, value
 end
@@ -1858,7 +1858,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_shares = function(buffer, o
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.executed_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_shares, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_shares, range, value, display)
 
   return offset + length, value
 end
@@ -1921,7 +1921,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   if show.trade_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1950,7 +1950,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.reference_price_type = function(buff
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.reference_price_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price_type, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price_type, range, value, display)
 
   return offset + length, value
 end
@@ -1976,7 +1976,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.reference_price = function(buffer, o
   local value = translate.reference_price(raw)
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -2044,7 +2044,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_with_reference_price_message = function(buffer, offset, packet, parent)
   if show.executed_with_reference_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_with_reference_price_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_with_reference_price_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_with_reference_price_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2073,7 +2073,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.broken_trade_reason = function(buffe
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.broken_trade_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_reason, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2121,7 +2121,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.broken_trade_message = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2188,7 +2188,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_message = function(buffer, offset, packet, parent)
   if show.executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2217,7 +2217,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.quantity_prevented_from_trading = fu
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.quantity_prevented_from_trading(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.quantity_prevented_from_trading, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.quantity_prevented_from_trading, range, value, display)
 
   return offset + length, value
 end
@@ -2280,7 +2280,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_order_reason = function(buffe
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_order_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_reason, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2300,7 +2300,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.decrement_shares = function(buffer, 
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.decrement_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares, range, value, display)
 
   return offset + length, value
 end
@@ -2363,7 +2363,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.aiq_cancelled_message = function(buffer, offset, packet, parent)
   if show.aiq_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.aiq_cancelled_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.aiq_cancelled_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.aiq_cancelled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2420,7 +2420,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.canceled_message = function(buffer, offset, packet, parent)
   if show.canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.canceled_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.canceled_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2468,7 +2468,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.bbo_weight_indicator = function(buff
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.bbo_weight_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.bbo_weight_indicator, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.bbo_weight_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2488,7 +2488,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.previous_order_token = function(buff
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.previous_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.previous_order_token, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.previous_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -2515,7 +2515,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_state = function(buffer, offse
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.order_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_state, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_state, range, value, display)
 
   return offset + length, value
 end
@@ -2535,7 +2535,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.replacement_order_token_alphanumeric
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.replacement_order_token_alphanumeric_14(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_alphanumeric_14, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_alphanumeric_14, range, value, display)
 
   return offset + length, value
 end
@@ -2648,7 +2648,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.replaced_message = function(buffer, offset, packet, parent)
   if show.replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2765,7 +2765,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.accepted_message = function(buffer, offset, packet, parent)
   if show.accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.accepted_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.accepted_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2801,7 +2801,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.event_code = function(buffer, offset
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -2839,7 +2839,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3005,7 +3005,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.sequenced_message = function(buffer,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message, range, display)
+  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v4_2_dissect.sequenced_message_branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -3071,7 +3071,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.sequenced_message_type = function(bu
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.sequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3113,7 +3113,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.sequenced_data_packet = function(buf
   if show.sequenced_data_packet then
     local range = buffer(offset, size_of_sequenced_data_packet)
     local display = nasdaq_nsmequities_orders_ouch_v4_2_display.sequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_data_packet, range, display)
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_data_packet, range, display)
   end
 
   nasdaq_nsmequities_orders_ouch_v4_2_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
@@ -3136,7 +3136,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.reject_reason_code = function(buffer
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.reject_reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.reject_reason_code, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -3169,7 +3169,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3198,7 +3198,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.sequence_number = function(buffer, o
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3218,7 +3218,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.session = function(buffer, offset, p
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.session, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -3256,7 +3256,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3285,7 +3285,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.text = function(buffer, offset, pack
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.text, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -3318,7 +3318,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3412,7 +3412,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.payload = function(buffer, offset, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.payload, range, display)
 
   return nasdaq_nsmequities_orders_ouch_v4_2_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -3463,7 +3463,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_type = function(buffer, offse
   local value = range:string()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_type, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -3483,7 +3483,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_length = function(buffer, off
   local value = range:uint()
   local display = nasdaq_nsmequities_orders_ouch_v4_2_display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_length, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -3521,7 +3521,7 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3562,7 +3562,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_dissect.soup_bin_tcp_packet = function(buffe
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v4_2_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)
     local display = nasdaq_nsmequities_orders_ouch_v4_2_display.soup_bin_tcp_packet(buffer, packet, parent)
@@ -3631,23 +3631,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_nsmequities_orders_ouch_v4_2.init()
+function omi_nasdaq_nsmequities_orders_ouch_v4_2.init()
 end
 
 -- Dissector for Nasdaq NsmEquities Orders Ouch 4.2
-function nasdaq_nsmequities_orders_ouch_v4_2.dissector(buffer, packet, parent)
+function omi_nasdaq_nsmequities_orders_ouch_v4_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_nsmequities_orders_ouch_v4_2.name
+  packet.cols.protocol = omi_nasdaq_nsmequities_orders_ouch_v4_2.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_nsmequities_orders_ouch_v4_2, buffer(), nasdaq_nsmequities_orders_ouch_v4_2.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2, buffer(), omi_nasdaq_nsmequities_orders_ouch_v4_2.description, "("..buffer:len().." Bytes)")
   return nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, nasdaq_nsmequities_orders_ouch_v4_2)
+tcp_table:add(65333, omi_nasdaq_nsmequities_orders_ouch_v4_2)
 
 
 -----------------------------------------------------------------------
@@ -3655,25 +3655,25 @@ tcp_table:add(65333, nasdaq_nsmequities_orders_ouch_v4_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_nsmequities_orders_ouch_v4_2_packet_size = function(buffer)
+verify.omi_nasdaq_nsmequities_orders_ouch_v4_2_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq NsmEquities Orders Ouch 4.2
-local function nasdaq_nsmequities_orders_ouch_v4_2_heuristic(buffer, packet, parent)
+local function omi_nasdaq_nsmequities_orders_ouch_v4_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_nsmequities_orders_ouch_v4_2_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_nsmequities_orders_ouch_v4_2_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_nsmequities_orders_ouch_v4_2
-  nasdaq_nsmequities_orders_ouch_v4_2.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_nsmequities_orders_ouch_v4_2
+  omi_nasdaq_nsmequities_orders_ouch_v4_2.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq NsmEquities Orders Ouch 4.2
-nasdaq_nsmequities_orders_ouch_v4_2:register_heuristic("tcp", nasdaq_nsmequities_orders_ouch_v4_2_heuristic)
+omi_nasdaq_nsmequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_nsmequities_orders_ouch_v4_2_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

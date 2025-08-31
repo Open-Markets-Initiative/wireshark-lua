@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Imperative IntelligentCross Mdf 1.11 Protocol
-local imperative_intelligentcross_mdf_v1_11 = Proto("Imperative.IntelligentCross.Mdf.v1.11.Lua", "Imperative IntelligentCross Mdf 1.11")
+local omi_imperative_intelligentcross_mdf_v1_11 = Proto("Imperative.IntelligentCross.Mdf.v1.11.Lua", "Imperative IntelligentCross Mdf 1.11")
 
 -- Component Tables
 local show = {}
@@ -21,50 +21,50 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Imperative IntelligentCross Mdf 1.11 Fields
-imperative_intelligentcross_mdf_v1_11.fields.count = ProtoField.new("Count", "imperative.intelligentcross.mdf.v1.11.count", ftypes.UINT16)
-imperative_intelligentcross_mdf_v1_11.fields.event = ProtoField.new("Event", "imperative.intelligentcross.mdf.v1.11.event", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.execution_id = ProtoField.new("Execution Id", "imperative.intelligentcross.mdf.v1.11.executionid", ftypes.UINT64)
-imperative_intelligentcross_mdf_v1_11.fields.feed_identifier = ProtoField.new("Feed Identifier", "imperative.intelligentcross.mdf.v1.11.feedidentifier", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.info = ProtoField.new("Info", "imperative.intelligentcross.mdf.v1.11.info", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.length = ProtoField.new("Length", "imperative.intelligentcross.mdf.v1.11.length", ftypes.UINT16)
-imperative_intelligentcross_mdf_v1_11.fields.listing_market = ProtoField.new("Listing Market", "imperative.intelligentcross.mdf.v1.11.listingmarket", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "imperative.intelligentcross.mdf.v1.11.marketdayidentifier", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.message = ProtoField.new("Message", "imperative.intelligentcross.mdf.v1.11.message", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.message_header = ProtoField.new("Message Header", "imperative.intelligentcross.mdf.v1.11.messageheader", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.message_type = ProtoField.new("Message Type", "imperative.intelligentcross.mdf.v1.11.messagetype", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.order_id = ProtoField.new("Order Id", "imperative.intelligentcross.mdf.v1.11.orderid", ftypes.UINT64)
-imperative_intelligentcross_mdf_v1_11.fields.packet = ProtoField.new("Packet", "imperative.intelligentcross.mdf.v1.11.packet", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.packet_header = ProtoField.new("Packet Header", "imperative.intelligentcross.mdf.v1.11.packetheader", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.payload = ProtoField.new("Payload", "imperative.intelligentcross.mdf.v1.11.payload", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.price = ProtoField.new("Price", "imperative.intelligentcross.mdf.v1.11.price", ftypes.DOUBLE)
-imperative_intelligentcross_mdf_v1_11.fields.reserved_1 = ProtoField.new("Reserved 1", "imperative.intelligentcross.mdf.v1.11.reserved1", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.reserved_2 = ProtoField.new("Reserved 2", "imperative.intelligentcross.mdf.v1.11.reserved2", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.reserved_4 = ProtoField.new("Reserved 4", "imperative.intelligentcross.mdf.v1.11.reserved4", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.reserved_8 = ProtoField.new("Reserved 8", "imperative.intelligentcross.mdf.v1.11.reserved8", ftypes.UINT64)
-imperative_intelligentcross_mdf_v1_11.fields.round_lot_size = ProtoField.new("Round Lot Size", "imperative.intelligentcross.mdf.v1.11.roundlotsize", ftypes.UINT32)
-imperative_intelligentcross_mdf_v1_11.fields.sequence = ProtoField.new("Sequence", "imperative.intelligentcross.mdf.v1.11.sequence", ftypes.UINT64)
-imperative_intelligentcross_mdf_v1_11.fields.shares = ProtoField.new("Shares", "imperative.intelligentcross.mdf.v1.11.shares", ftypes.UINT32)
-imperative_intelligentcross_mdf_v1_11.fields.shares_canceled = ProtoField.new("Shares Canceled", "imperative.intelligentcross.mdf.v1.11.sharescanceled", ftypes.UINT32)
-imperative_intelligentcross_mdf_v1_11.fields.side = ProtoField.new("Side", "imperative.intelligentcross.mdf.v1.11.side", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.state = ProtoField.new("State", "imperative.intelligentcross.mdf.v1.11.state", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.symbol = ProtoField.new("Symbol", "imperative.intelligentcross.mdf.v1.11.symbol", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.symbol_id = ProtoField.new("Symbol Id", "imperative.intelligentcross.mdf.v1.11.symbolid", ftypes.UINT16)
-imperative_intelligentcross_mdf_v1_11.fields.timestamp = ProtoField.new("Timestamp", "imperative.intelligentcross.mdf.v1.11.timestamp", ftypes.UINT64)
+omi_imperative_intelligentcross_mdf_v1_11.fields.count = ProtoField.new("Count", "imperative.intelligentcross.mdf.v1.11.count", ftypes.UINT16)
+omi_imperative_intelligentcross_mdf_v1_11.fields.event = ProtoField.new("Event", "imperative.intelligentcross.mdf.v1.11.event", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.execution_id = ProtoField.new("Execution Id", "imperative.intelligentcross.mdf.v1.11.executionid", ftypes.UINT64)
+omi_imperative_intelligentcross_mdf_v1_11.fields.feed_identifier = ProtoField.new("Feed Identifier", "imperative.intelligentcross.mdf.v1.11.feedidentifier", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.info = ProtoField.new("Info", "imperative.intelligentcross.mdf.v1.11.info", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.length = ProtoField.new("Length", "imperative.intelligentcross.mdf.v1.11.length", ftypes.UINT16)
+omi_imperative_intelligentcross_mdf_v1_11.fields.listing_market = ProtoField.new("Listing Market", "imperative.intelligentcross.mdf.v1.11.listingmarket", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "imperative.intelligentcross.mdf.v1.11.marketdayidentifier", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.message = ProtoField.new("Message", "imperative.intelligentcross.mdf.v1.11.message", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.message_header = ProtoField.new("Message Header", "imperative.intelligentcross.mdf.v1.11.messageheader", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.message_type = ProtoField.new("Message Type", "imperative.intelligentcross.mdf.v1.11.messagetype", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.order_id = ProtoField.new("Order Id", "imperative.intelligentcross.mdf.v1.11.orderid", ftypes.UINT64)
+omi_imperative_intelligentcross_mdf_v1_11.fields.packet = ProtoField.new("Packet", "imperative.intelligentcross.mdf.v1.11.packet", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.packet_header = ProtoField.new("Packet Header", "imperative.intelligentcross.mdf.v1.11.packetheader", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.payload = ProtoField.new("Payload", "imperative.intelligentcross.mdf.v1.11.payload", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.price = ProtoField.new("Price", "imperative.intelligentcross.mdf.v1.11.price", ftypes.DOUBLE)
+omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_1 = ProtoField.new("Reserved 1", "imperative.intelligentcross.mdf.v1.11.reserved1", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_2 = ProtoField.new("Reserved 2", "imperative.intelligentcross.mdf.v1.11.reserved2", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_4 = ProtoField.new("Reserved 4", "imperative.intelligentcross.mdf.v1.11.reserved4", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_8 = ProtoField.new("Reserved 8", "imperative.intelligentcross.mdf.v1.11.reserved8", ftypes.UINT64)
+omi_imperative_intelligentcross_mdf_v1_11.fields.round_lot_size = ProtoField.new("Round Lot Size", "imperative.intelligentcross.mdf.v1.11.roundlotsize", ftypes.UINT32)
+omi_imperative_intelligentcross_mdf_v1_11.fields.sequence = ProtoField.new("Sequence", "imperative.intelligentcross.mdf.v1.11.sequence", ftypes.UINT64)
+omi_imperative_intelligentcross_mdf_v1_11.fields.shares = ProtoField.new("Shares", "imperative.intelligentcross.mdf.v1.11.shares", ftypes.UINT32)
+omi_imperative_intelligentcross_mdf_v1_11.fields.shares_canceled = ProtoField.new("Shares Canceled", "imperative.intelligentcross.mdf.v1.11.sharescanceled", ftypes.UINT32)
+omi_imperative_intelligentcross_mdf_v1_11.fields.side = ProtoField.new("Side", "imperative.intelligentcross.mdf.v1.11.side", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.state = ProtoField.new("State", "imperative.intelligentcross.mdf.v1.11.state", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.symbol = ProtoField.new("Symbol", "imperative.intelligentcross.mdf.v1.11.symbol", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_id = ProtoField.new("Symbol Id", "imperative.intelligentcross.mdf.v1.11.symbolid", ftypes.UINT16)
+omi_imperative_intelligentcross_mdf_v1_11.fields.timestamp = ProtoField.new("Timestamp", "imperative.intelligentcross.mdf.v1.11.timestamp", ftypes.UINT64)
 
 -- Imperative IntelligentCross Mdf 1.11 messages
-imperative_intelligentcross_mdf_v1_11.fields.market_event_message = ProtoField.new("Market Event Message", "imperative.intelligentcross.mdf.v1.11.marketeventmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message = ProtoField.new("New Order Add Message", "imperative.intelligentcross.mdf.v1.11.neworderaddmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message = ProtoField.new("Order Cancel All Message", "imperative.intelligentcross.mdf.v1.11.ordercancelallmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.order_executed_message = ProtoField.new("Order Executed Message", "imperative.intelligentcross.mdf.v1.11.orderexecutedmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message = ProtoField.new("Order Partial Cancel Message", "imperative.intelligentcross.mdf.v1.11.orderpartialcancelmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.order_updated_message = ProtoField.new("Order Updated Message", "imperative.intelligentcross.mdf.v1.11.orderupdatedmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message = ProtoField.new("Symbol Information Message", "imperative.intelligentcross.mdf.v1.11.symbolinformationmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message = ProtoField.new("Symbol State Message", "imperative.intelligentcross.mdf.v1.11.symbolstatemessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.trade_break_message = ProtoField.new("Trade Break Message", "imperative.intelligentcross.mdf.v1.11.tradebreakmessage", ftypes.STRING)
-imperative_intelligentcross_mdf_v1_11.fields.trade_message = ProtoField.new("Trade Message", "imperative.intelligentcross.mdf.v1.11.trademessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.market_event_message = ProtoField.new("Market Event Message", "imperative.intelligentcross.mdf.v1.11.marketeventmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message = ProtoField.new("New Order Add Message", "imperative.intelligentcross.mdf.v1.11.neworderaddmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message = ProtoField.new("Order Cancel All Message", "imperative.intelligentcross.mdf.v1.11.ordercancelallmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.order_executed_message = ProtoField.new("Order Executed Message", "imperative.intelligentcross.mdf.v1.11.orderexecutedmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message = ProtoField.new("Order Partial Cancel Message", "imperative.intelligentcross.mdf.v1.11.orderpartialcancelmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.order_updated_message = ProtoField.new("Order Updated Message", "imperative.intelligentcross.mdf.v1.11.orderupdatedmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message = ProtoField.new("Symbol Information Message", "imperative.intelligentcross.mdf.v1.11.symbolinformationmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message = ProtoField.new("Symbol State Message", "imperative.intelligentcross.mdf.v1.11.symbolstatemessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.trade_break_message = ProtoField.new("Trade Break Message", "imperative.intelligentcross.mdf.v1.11.tradebreakmessage", ftypes.STRING)
+omi_imperative_intelligentcross_mdf_v1_11.fields.trade_message = ProtoField.new("Trade Message", "imperative.intelligentcross.mdf.v1.11.trademessage", ftypes.STRING)
 
 -- Imperative IntelligentCross Mdf 1.11 generated fields
-imperative_intelligentcross_mdf_v1_11.fields.message_index = ProtoField.new("Message Index", "imperative.intelligentcross.mdf.v1.11.messageindex", ftypes.UINT16)
+omi_imperative_intelligentcross_mdf_v1_11.fields.message_index = ProtoField.new("Message Index", "imperative.intelligentcross.mdf.v1.11.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -88,85 +88,85 @@ show.trade_message = true
 show.payload = false
 
 -- Register Imperative IntelligentCross Mdf 1.11 Show Options
-imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message = Pref.bool("Show Market Event Message", show.market_event_message, "Parse and add Market Event Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message = Pref.bool("Show New Order Add Message", show.new_order_add_message, "Parse and add New Order Add Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message = Pref.bool("Show Order Cancel All Message", show.order_cancel_all_message, "Parse and add Order Cancel All Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message = Pref.bool("Show Order Partial Cancel Message", show.order_partial_cancel_message, "Parse and add Order Partial Cancel Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message = Pref.bool("Show Order Updated Message", show.order_updated_message, "Parse and add Order Updated Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message = Pref.bool("Show Symbol Information Message", show.symbol_information_message, "Parse and add Symbol Information Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message = Pref.bool("Show Symbol State Message", show.symbol_state_message, "Parse and add Symbol State Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-imperative_intelligentcross_mdf_v1_11.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message = Pref.bool("Show Market Event Message", show.market_event_message, "Parse and add Market Event Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message = Pref.bool("Show New Order Add Message", show.new_order_add_message, "Parse and add New Order Add Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message = Pref.bool("Show Order Cancel All Message", show.order_cancel_all_message, "Parse and add Order Cancel All Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message = Pref.bool("Show Order Partial Cancel Message", show.order_partial_cancel_message, "Parse and add Order Partial Cancel Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message = Pref.bool("Show Order Updated Message", show.order_updated_message, "Parse and add Order Updated Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message = Pref.bool("Show Symbol Information Message", show.symbol_information_message, "Parse and add Symbol Information Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message = Pref.bool("Show Symbol State Message", show.symbol_state_message, "Parse and add Symbol State Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function imperative_intelligentcross_mdf_v1_11.prefs_changed()
+function omi_imperative_intelligentcross_mdf_v1_11.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.market_event_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message then
-    show.market_event_message = imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message
+  if show.market_event_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message then
+    show.market_event_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message
     changed = true
   end
-  if show.message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_message then
-    show.message = imperative_intelligentcross_mdf_v1_11.prefs.show_message
+  if show.message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message then
+    show.message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message
     changed = true
   end
-  if show.message_header ~= imperative_intelligentcross_mdf_v1_11.prefs.show_message_header then
-    show.message_header = imperative_intelligentcross_mdf_v1_11.prefs.show_message_header
+  if show.message_header ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message_header then
+    show.message_header = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message_header
     changed = true
   end
-  if show.new_order_add_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message then
-    show.new_order_add_message = imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message
+  if show.new_order_add_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message then
+    show.new_order_add_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message
     changed = true
   end
-  if show.order_cancel_all_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message then
-    show.order_cancel_all_message = imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message
+  if show.order_cancel_all_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message then
+    show.order_cancel_all_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message
     changed = true
   end
-  if show.order_executed_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message then
-    show.order_executed_message = imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message then
+    show.order_executed_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_partial_cancel_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message then
-    show.order_partial_cancel_message = imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message
+  if show.order_partial_cancel_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message then
+    show.order_partial_cancel_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message
     changed = true
   end
-  if show.order_updated_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message then
-    show.order_updated_message = imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message
+  if show.order_updated_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message then
+    show.order_updated_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message
     changed = true
   end
-  if show.packet ~= imperative_intelligentcross_mdf_v1_11.prefs.show_packet then
-    show.packet = imperative_intelligentcross_mdf_v1_11.prefs.show_packet
+  if show.packet ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet then
+    show.packet = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header then
-    show.packet_header = imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header
+  if show.packet_header ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header then
+    show.packet_header = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header
     changed = true
   end
-  if show.symbol_information_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message then
-    show.symbol_information_message = imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message
+  if show.symbol_information_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message then
+    show.symbol_information_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message
     changed = true
   end
-  if show.symbol_state_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message then
-    show.symbol_state_message = imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message
+  if show.symbol_state_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message then
+    show.symbol_state_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message
     changed = true
   end
-  if show.trade_break_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message then
-    show.trade_break_message = imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message
+  if show.trade_break_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message then
+    show.trade_break_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message
     changed = true
   end
-  if show.trade_message ~= imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message then
-    show.trade_message = imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message
+  if show.trade_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message then
+    show.trade_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message
     changed = true
   end
-  if show.payload ~= imperative_intelligentcross_mdf_v1_11.prefs.show_payload then
-    show.payload = imperative_intelligentcross_mdf_v1_11.prefs.show_payload
+  if show.payload ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_payload then
+    show.payload = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_payload
     changed = true
   end
 
@@ -214,7 +214,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.execution_id = function(buffer, of
   local value = range:le_uint64()
   local display = imperative_intelligentcross_mdf_v1_11_display.execution_id(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.execution_id, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
@@ -238,7 +238,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.timestamp = function(buffer, offse
   local value = range:le_uint64()
   local display = imperative_intelligentcross_mdf_v1_11_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.timestamp, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -258,7 +258,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.symbol_id = function(buffer, offse
   local value = range:le_uint()
   local display = imperative_intelligentcross_mdf_v1_11_display.symbol_id(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol_id, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_id, range, value, display)
 
   return offset + length, value
 end
@@ -301,7 +301,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.trade_break_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.trade_break_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -336,7 +336,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.price = function(buffer, offset, p
   local value = translate.price(raw)
   local display = imperative_intelligentcross_mdf_v1_11_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.price, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -356,7 +356,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.symbol = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = imperative_intelligentcross_mdf_v1_11_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -376,7 +376,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.shares = function(buffer, offset, 
   local value = range:le_uint()
   local display = imperative_intelligentcross_mdf_v1_11_display.shares(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.shares, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.shares, range, value, display)
 
   return offset + length, value
 end
@@ -396,7 +396,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.reserved_1 = function(buffer, offs
   local value = range:string()
   local display = imperative_intelligentcross_mdf_v1_11_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.reserved_1, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -416,7 +416,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.reserved_8 = function(buffer, offs
   local value = range:le_uint64()
   local display = imperative_intelligentcross_mdf_v1_11_display.reserved_8(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.reserved_8, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -484,7 +484,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.trade_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -513,7 +513,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.order_id = function(buffer, offset
   local value = range:le_uint64()
   local display = imperative_intelligentcross_mdf_v1_11_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_id, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -576,7 +576,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_executed_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -638,7 +638,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message = function(buffer, offset, packet, parent)
   if show.order_updated_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_updated_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_updated_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -690,7 +690,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message = function(buffer, offset, packet, parent)
   if show.order_cancel_all_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -719,7 +719,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.shares_canceled = function(buffer,
   local value = range:le_uint()
   local display = imperative_intelligentcross_mdf_v1_11_display.shares_canceled(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.shares_canceled, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.shares_canceled, range, value, display)
 
   return offset + length, value
 end
@@ -767,7 +767,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message = function(buffer, offset, packet, parent)
   if show.order_partial_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -796,7 +796,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.reserved_4 = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = imperative_intelligentcross_mdf_v1_11_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.reserved_4, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -826,7 +826,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.side = function(buffer, offset, pa
   local value = range:string()
   local display = imperative_intelligentcross_mdf_v1_11_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.side, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -894,7 +894,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message = function(buffer, offset, packet, parent)
   if show.new_order_add_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -923,7 +923,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.info = function(buffer, offset, pa
   local value = trim_right_spaces(range:string())
   local display = imperative_intelligentcross_mdf_v1_11_display.info(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.info, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.info, range, value, display)
 
   return offset + length, value
 end
@@ -956,7 +956,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.state = function(buffer, offset, p
   local value = range:string()
   local display = imperative_intelligentcross_mdf_v1_11_display.state(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.state, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.state, range, value, display)
 
   return offset + length, value
 end
@@ -1014,7 +1014,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message = function(buffer, offset, packet, parent)
   if show.symbol_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1043,7 +1043,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.round_lot_size = function(buffer, 
   local value = range:le_uint()
   local display = imperative_intelligentcross_mdf_v1_11_display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.round_lot_size, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -1082,7 +1082,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.listing_market = function(buffer, 
   local value = range:string()
   local display = imperative_intelligentcross_mdf_v1_11_display.listing_market(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.listing_market, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.listing_market, range, value, display)
 
   return offset + length, value
 end
@@ -1140,7 +1140,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message = function(buffer, offset, packet, parent)
   if show.symbol_information_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1185,7 +1185,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.event = function(buffer, offset, p
   local value = range:string()
   local display = imperative_intelligentcross_mdf_v1_11_display.event(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.event, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.event, range, value, display)
 
   return offset + length, value
 end
@@ -1205,7 +1205,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.reserved_2 = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = imperative_intelligentcross_mdf_v1_11_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.reserved_2, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -1248,7 +1248,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.market_event_message = function(buffer, offset, packet, parent)
   if show.market_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.market_event_message, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.market_event_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1374,7 +1374,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.payload = function(buffer, offset,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = imperative_intelligentcross_mdf_v1_11_display.payload(buffer, packet, parent)
-  local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.payload, range, display)
+  local element = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.payload, range, display)
 
   return imperative_intelligentcross_mdf_v1_11_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1425,7 +1425,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.message_type = function(buffer, of
   local value = range:string()
   local display = imperative_intelligentcross_mdf_v1_11_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.message_type, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1445,7 +1445,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.length = function(buffer, offset, 
   local value = range:le_uint()
   local display = imperative_intelligentcross_mdf_v1_11_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.length, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -1483,7 +1483,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message_header, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1522,7 +1522,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.message_fields = function(buffer, 
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(imperative_intelligentcross_mdf_v1_11.fields.message_index, message_index)
+    local iteration = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -1545,7 +1545,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.message = function(buffer, offset,
     local length = imperative_intelligentcross_mdf_v1_11_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = imperative_intelligentcross_mdf_v1_11_display.message(buffer, packet, parent)
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.message, range, display)
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message, range, display)
   end
 
   return imperative_intelligentcross_mdf_v1_11_dissect.message_fields(buffer, offset, packet, parent)
@@ -1566,7 +1566,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.count = function(buffer, offset, p
   local value = range:le_uint()
   local display = imperative_intelligentcross_mdf_v1_11_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.count, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -1586,7 +1586,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.sequence = function(buffer, offset
   local value = range:le_uint64()
   local display = imperative_intelligentcross_mdf_v1_11_display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.sequence, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.sequence, range, value, display)
 
   return offset + length, value
 end
@@ -1606,7 +1606,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.feed_identifier = function(buffer,
   local value = range:string()
   local display = imperative_intelligentcross_mdf_v1_11_display.feed_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.feed_identifier, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.feed_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -1631,7 +1631,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.market_day_identifier = function(b
 
   local display = imperative_intelligentcross_mdf_v1_11_display.market_day_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(imperative_intelligentcross_mdf_v1_11.fields.market_day_identifier, range, value, display)
+  parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.market_day_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -1679,7 +1679,7 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.packet_header, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1717,23 +1717,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function imperative_intelligentcross_mdf_v1_11.init()
+function omi_imperative_intelligentcross_mdf_v1_11.init()
 end
 
 -- Dissector for Imperative IntelligentCross Mdf 1.11
-function imperative_intelligentcross_mdf_v1_11.dissector(buffer, packet, parent)
+function omi_imperative_intelligentcross_mdf_v1_11.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = imperative_intelligentcross_mdf_v1_11.name
+  packet.cols.protocol = omi_imperative_intelligentcross_mdf_v1_11.name
 
   -- Dissect protocol
-  local protocol = parent:add(imperative_intelligentcross_mdf_v1_11, buffer(), imperative_intelligentcross_mdf_v1_11.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_imperative_intelligentcross_mdf_v1_11, buffer(), omi_imperative_intelligentcross_mdf_v1_11.description, "("..buffer:len().." Bytes)")
   return imperative_intelligentcross_mdf_v1_11_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, imperative_intelligentcross_mdf_v1_11)
+udp_table:add(65333, omi_imperative_intelligentcross_mdf_v1_11)
 
 
 -----------------------------------------------------------------------
@@ -1741,25 +1741,25 @@ udp_table:add(65333, imperative_intelligentcross_mdf_v1_11)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.imperative_intelligentcross_mdf_v1_11_packet_size = function(buffer)
+verify.omi_imperative_intelligentcross_mdf_v1_11_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Imperative IntelligentCross Mdf 1.11
-local function imperative_intelligentcross_mdf_v1_11_heuristic(buffer, packet, parent)
+local function omi_imperative_intelligentcross_mdf_v1_11_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.imperative_intelligentcross_mdf_v1_11_packet_size(buffer) then return false end
+  if not verify.omi_imperative_intelligentcross_mdf_v1_11_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = imperative_intelligentcross_mdf_v1_11
-  imperative_intelligentcross_mdf_v1_11.dissector(buffer, packet, parent)
+  packet.conversation = omi_imperative_intelligentcross_mdf_v1_11
+  omi_imperative_intelligentcross_mdf_v1_11.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Imperative IntelligentCross Mdf 1.11
-imperative_intelligentcross_mdf_v1_11:register_heuristic("udp", imperative_intelligentcross_mdf_v1_11_heuristic)
+omi_imperative_intelligentcross_mdf_v1_11:register_heuristic("udp", omi_imperative_intelligentcross_mdf_v1_11_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

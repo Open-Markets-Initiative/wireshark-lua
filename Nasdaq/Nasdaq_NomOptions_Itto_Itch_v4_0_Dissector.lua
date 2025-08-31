@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NomOptions Itto Itch 4.0 Protocol
-local nasdaq_nomoptions_itto_itch_v4_0 = Proto("Nasdaq.NomOptions.Itto.Itch.v4.0.Lua", "Nasdaq NomOptions Itto Itch 4.0")
+local omi_nasdaq_nomoptions_itto_itch_v4_0 = Proto("Nasdaq.NomOptions.Itto.Itch.v4.0.Lua", "Nasdaq NomOptions Itto Itch 4.0")
 
 -- Component Tables
 local show = {}
@@ -21,99 +21,99 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NomOptions Itto Itch 4.0 Fields
-nasdaq_nomoptions_itto_itch_v4_0.fields.ask = ProtoField.new("Ask", "nasdaq.nomoptions.itto.itch.v4.0.ask", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.nomoptions.itto.itch.v4.0.askprice", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nomoptions.itto.itch.v4.0.askpricelong", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.ask_reference_number = ProtoField.new("Ask Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.askreferencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.nomoptions.itto.itch.v4.0.asksize", ftypes.UINT16)
-nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.nomoptions.itto.itch.v4.0.asksizelong", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.nomoptions.itto.itch.v4.0.auctionid", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.nomoptions.itto.itch.v4.0.auctiontype", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.bid = ProtoField.new("Bid", "nasdaq.nomoptions.itto.itch.v4.0.bid", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.nomoptions.itto.itch.v4.0.bidprice", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.nomoptions.itto.itch.v4.0.bidpricelong", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.bid_reference_number = ProtoField.new("Bid Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.bidreferencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.nomoptions.itto.itch.v4.0.bidsize", ftypes.UINT16)
-nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.nomoptions.itto.itch.v4.0.bidsizelong", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nomoptions.itto.itch.v4.0.buysellindicator", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.nomoptions.itto.itch.v4.0.cancelledcontracts", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.change_reason = ProtoField.new("Change Reason", "nasdaq.nomoptions.itto.itch.v4.0.changereason", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.cross_number = ProtoField.new("Cross Number", "nasdaq.nomoptions.itto.itch.v4.0.crossnumber", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nomoptions.itto.itch.v4.0.crosstype", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nomoptions.itto.itch.v4.0.currenttradingstate", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.nomoptions.itto.itch.v4.0.customerfirmindicator", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.nomoptions.itto.itch.v4.0.eventcode", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.executed_contracts = ProtoField.new("Executed Contracts", "nasdaq.nomoptions.itto.itch.v4.0.executedcontracts", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.nomoptions.itto.itch.v4.0.expirationdate", ftypes.UINT8)
-nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.nomoptions.itto.itch.v4.0.expirationmonth", ftypes.UINT8)
-nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.nomoptions.itto.itch.v4.0.expirationyear", ftypes.UINT8)
-nasdaq_nomoptions_itto_itch_v4_0.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.nomoptions.itto.itch.v4.0.explicitstrikeprice", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nomoptions.itto.itch.v4.0.imbalancedirection", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.nomoptions.itto.itch.v4.0.imbalanceprice", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.nomoptions.itto.itch.v4.0.imbalancevolume", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.market_side = ProtoField.new("Market Side", "nasdaq.nomoptions.itto.itch.v4.0.marketside", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nomoptions.itto.itch.v4.0.matchnumber", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.message = ProtoField.new("Message", "nasdaq.nomoptions.itto.itch.v4.0.message", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nomoptions.itto.itch.v4.0.messagecount", ftypes.UINT16)
-nasdaq_nomoptions_itto_itch_v4_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nomoptions.itto.itch.v4.0.messageheader", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nomoptions.itto.itch.v4.0.messagelength", ftypes.UINT16)
-nasdaq_nomoptions_itto_itch_v4_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nomoptions.itto.itch.v4.0.messagetype", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.mpv = ProtoField.new("Mpv", "nasdaq.nomoptions.itto.itch.v4.0.mpv", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.new_reference_number = ProtoField.new("New Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.newreferencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.open_state = ProtoField.new("Open State", "nasdaq.nomoptions.itto.itch.v4.0.openstate", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.option_id = ProtoField.new("Option Id", "nasdaq.nomoptions.itto.itch.v4.0.optionid", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.option_type = ProtoField.new("Option Type", "nasdaq.nomoptions.itto.itch.v4.0.optiontype", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.options_closing_type = ProtoField.new("Options Closing Type", "nasdaq.nomoptions.itto.itch.v4.0.optionsclosingtype", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.orderreferencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.original_ask_reference_number = ProtoField.new("Original Ask Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.originalaskreferencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.original_bid_reference_number = ProtoField.new("Original Bid Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.originalbidreferencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.original_reference_number = ProtoField.new("Original Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.originalreferencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nomoptions.itto.itch.v4.0.packet", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.packetheader", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.nomoptions.itto.itch.v4.0.pairedcontracts", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.payload = ProtoField.new("Payload", "nasdaq.nomoptions.itto.itch.v4.0.payload", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.price = ProtoField.new("Price", "nasdaq.nomoptions.itto.itch.v4.0.price", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.price_long = ProtoField.new("Price Long", "nasdaq.nomoptions.itto.itch.v4.0.pricelong", ftypes.DOUBLE)
-nasdaq_nomoptions_itto_itch_v4_0.fields.printable = ProtoField.new("Printable", "nasdaq.nomoptions.itto.itch.v4.0.printable", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.reference_number = ProtoField.new("Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.referencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nomoptions.itto.itch.v4.0.reserved", ftypes.UINT32)
-nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.nomoptions.itto.itch.v4.0.securitysymbol", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.sequencenumber", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.session = ProtoField.new("Session", "nasdaq.nomoptions.itto.itch.v4.0.session", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.source = ProtoField.new("Source", "nasdaq.nomoptions.itto.itch.v4.0.source", ftypes.UINT8)
-nasdaq_nomoptions_itto_itch_v4_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nomoptions.itto.itch.v4.0.timestamp", ftypes.UINT64)
-nasdaq_nomoptions_itto_itch_v4_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nomoptions.itto.itch.v4.0.trackingnumber", ftypes.UINT16)
-nasdaq_nomoptions_itto_itch_v4_0.fields.tradable = ProtoField.new("Tradable", "nasdaq.nomoptions.itto.itch.v4.0.tradable", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.nomoptions.itto.itch.v4.0.underlyingsymbol", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.volume = ProtoField.new("Volume", "nasdaq.nomoptions.itto.itch.v4.0.volume", ftypes.UINT16)
-nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.nomoptions.itto.itch.v4.0.volumelong", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask = ProtoField.new("Ask", "nasdaq.nomoptions.itto.itch.v4.0.ask", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.nomoptions.itto.itch.v4.0.askprice", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nomoptions.itto.itch.v4.0.askpricelong", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_reference_number = ProtoField.new("Ask Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.askreferencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.nomoptions.itto.itch.v4.0.asksize", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.nomoptions.itto.itch.v4.0.asksizelong", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.nomoptions.itto.itch.v4.0.auctionid", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.nomoptions.itto.itch.v4.0.auctiontype", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid = ProtoField.new("Bid", "nasdaq.nomoptions.itto.itch.v4.0.bid", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.nomoptions.itto.itch.v4.0.bidprice", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.nomoptions.itto.itch.v4.0.bidpricelong", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_reference_number = ProtoField.new("Bid Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.bidreferencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.nomoptions.itto.itch.v4.0.bidsize", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.nomoptions.itto.itch.v4.0.bidsizelong", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nomoptions.itto.itch.v4.0.buysellindicator", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.nomoptions.itto.itch.v4.0.cancelledcontracts", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.change_reason = ProtoField.new("Change Reason", "nasdaq.nomoptions.itto.itch.v4.0.changereason", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cross_number = ProtoField.new("Cross Number", "nasdaq.nomoptions.itto.itch.v4.0.crossnumber", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nomoptions.itto.itch.v4.0.crosstype", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nomoptions.itto.itch.v4.0.currenttradingstate", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.nomoptions.itto.itch.v4.0.customerfirmindicator", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.nomoptions.itto.itch.v4.0.eventcode", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.executed_contracts = ProtoField.new("Executed Contracts", "nasdaq.nomoptions.itto.itch.v4.0.executedcontracts", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.nomoptions.itto.itch.v4.0.expirationdate", ftypes.UINT8)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.nomoptions.itto.itch.v4.0.expirationmonth", ftypes.UINT8)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.nomoptions.itto.itch.v4.0.expirationyear", ftypes.UINT8)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.nomoptions.itto.itch.v4.0.explicitstrikeprice", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nomoptions.itto.itch.v4.0.imbalancedirection", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.nomoptions.itto.itch.v4.0.imbalanceprice", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.nomoptions.itto.itch.v4.0.imbalancevolume", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.market_side = ProtoField.new("Market Side", "nasdaq.nomoptions.itto.itch.v4.0.marketside", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nomoptions.itto.itch.v4.0.matchnumber", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message = ProtoField.new("Message", "nasdaq.nomoptions.itto.itch.v4.0.message", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nomoptions.itto.itch.v4.0.messagecount", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nomoptions.itto.itch.v4.0.messageheader", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nomoptions.itto.itch.v4.0.messagelength", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nomoptions.itto.itch.v4.0.messagetype", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.mpv = ProtoField.new("Mpv", "nasdaq.nomoptions.itto.itch.v4.0.mpv", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.new_reference_number = ProtoField.new("New Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.newreferencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.open_state = ProtoField.new("Open State", "nasdaq.nomoptions.itto.itch.v4.0.openstate", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.option_id = ProtoField.new("Option Id", "nasdaq.nomoptions.itto.itch.v4.0.optionid", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.option_type = ProtoField.new("Option Type", "nasdaq.nomoptions.itto.itch.v4.0.optiontype", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_closing_type = ProtoField.new("Options Closing Type", "nasdaq.nomoptions.itto.itch.v4.0.optionsclosingtype", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.orderreferencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.original_ask_reference_number = ProtoField.new("Original Ask Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.originalaskreferencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.original_bid_reference_number = ProtoField.new("Original Bid Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.originalbidreferencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.original_reference_number = ProtoField.new("Original Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.originalreferencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nomoptions.itto.itch.v4.0.packet", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.packetheader", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.nomoptions.itto.itch.v4.0.pairedcontracts", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.payload = ProtoField.new("Payload", "nasdaq.nomoptions.itto.itch.v4.0.payload", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price = ProtoField.new("Price", "nasdaq.nomoptions.itto.itch.v4.0.price", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price_long = ProtoField.new("Price Long", "nasdaq.nomoptions.itto.itch.v4.0.pricelong", ftypes.DOUBLE)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.printable = ProtoField.new("Printable", "nasdaq.nomoptions.itto.itch.v4.0.printable", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reference_number = ProtoField.new("Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.referencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nomoptions.itto.itch.v4.0.reserved", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.nomoptions.itto.itch.v4.0.securitysymbol", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.sequencenumber", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.session = ProtoField.new("Session", "nasdaq.nomoptions.itto.itch.v4.0.session", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.source = ProtoField.new("Source", "nasdaq.nomoptions.itto.itch.v4.0.source", ftypes.UINT8)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nomoptions.itto.itch.v4.0.timestamp", ftypes.UINT64)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nomoptions.itto.itch.v4.0.trackingnumber", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.tradable = ProtoField.new("Tradable", "nasdaq.nomoptions.itto.itch.v4.0.tradable", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.nomoptions.itto.itch.v4.0.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume = ProtoField.new("Volume", "nasdaq.nomoptions.itto.itch.v4.0.volume", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.nomoptions.itto.itch.v4.0.volumelong", ftypes.UINT32)
 
 -- Nasdaq NomOptions Itto Itch 4.0 messages
-nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message = ProtoField.new("Add Order Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addordermessagelongformmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form = ProtoField.new("Add Order Message Short Message Form", "nasdaq.nomoptions.itto.itch.v4.0.addordermessageshortmessageform", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message = ProtoField.new("Add Quote Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addquotemessagelongformmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_short_form_message = ProtoField.new("Add Quote Message Short Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addquotemessageshortformmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.broken_trade_order_executed_message = ProtoField.new("Broken Trade Order Executed Message", "nasdaq.nomoptions.itto.itch.v4.0.brokentradeorderexecutedmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.nomoptions.itto.itch.v4.0.noiimessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nasdaq.nomoptions.itto.itch.v4.0.optionscrosstrademessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.nomoptions.itto.itch.v4.0.optionsdirectorymessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.options_trade_messages_non_auction = ProtoField.new("Options Trade Messages Non Auction", "nasdaq.nomoptions.itto.itch.v4.0.optionstrademessagesnonauction", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.nomoptions.itto.itch.v4.0.ordercancelmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.nomoptions.itto.itch.v4.0.quotedeletemessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_long_form = ProtoField.new("Quote Replace Message Long Form", "nasdaq.nomoptions.itto.itch.v4.0.quotereplacemessagelongform", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_short_form = ProtoField.new("Quote Replace Message Short Form", "nasdaq.nomoptions.itto.itch.v4.0.quotereplacemessageshortform", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.security_open_message = ProtoField.new("Security Open Message", "nasdaq.nomoptions.itto.itch.v4.0.securityopenmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_change_message = ProtoField.new("Single Side Change Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesidechangemessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesidedeletemessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_message = ProtoField.new("Single Side Executed Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesideexecutedmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_with_price_message = ProtoField.new("Single Side Executed With Price Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesideexecutedwithpricemessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_long_form = ProtoField.new("Single Side Replace Message Long Form", "nasdaq.nomoptions.itto.itch.v4.0.singlesidereplacemessagelongform", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_form = ProtoField.new("Single Side Replace Message Short Form", "nasdaq.nomoptions.itto.itch.v4.0.singlesidereplacemessageshortform", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nomoptions.itto.itch.v4.0.systemeventmessage", ftypes.STRING)
-nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nomoptions.itto.itch.v4.0.tradingactionmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message = ProtoField.new("Add Order Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addordermessagelongformmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form = ProtoField.new("Add Order Message Short Message Form", "nasdaq.nomoptions.itto.itch.v4.0.addordermessageshortmessageform", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message = ProtoField.new("Add Quote Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addquotemessagelongformmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_short_form_message = ProtoField.new("Add Quote Message Short Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addquotemessageshortformmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.broken_trade_order_executed_message = ProtoField.new("Broken Trade Order Executed Message", "nasdaq.nomoptions.itto.itch.v4.0.brokentradeorderexecutedmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.nomoptions.itto.itch.v4.0.noiimessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nasdaq.nomoptions.itto.itch.v4.0.optionscrosstrademessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.nomoptions.itto.itch.v4.0.optionsdirectorymessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_trade_messages_non_auction = ProtoField.new("Options Trade Messages Non Auction", "nasdaq.nomoptions.itto.itch.v4.0.optionstrademessagesnonauction", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.nomoptions.itto.itch.v4.0.ordercancelmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.nomoptions.itto.itch.v4.0.quotedeletemessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_long_form = ProtoField.new("Quote Replace Message Long Form", "nasdaq.nomoptions.itto.itch.v4.0.quotereplacemessagelongform", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_short_form = ProtoField.new("Quote Replace Message Short Form", "nasdaq.nomoptions.itto.itch.v4.0.quotereplacemessageshortform", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_open_message = ProtoField.new("Security Open Message", "nasdaq.nomoptions.itto.itch.v4.0.securityopenmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_change_message = ProtoField.new("Single Side Change Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesidechangemessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesidedeletemessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_message = ProtoField.new("Single Side Executed Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesideexecutedmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_with_price_message = ProtoField.new("Single Side Executed With Price Message", "nasdaq.nomoptions.itto.itch.v4.0.singlesideexecutedwithpricemessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_long_form = ProtoField.new("Single Side Replace Message Long Form", "nasdaq.nomoptions.itto.itch.v4.0.singlesidereplacemessagelongform", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_form = ProtoField.new("Single Side Replace Message Short Form", "nasdaq.nomoptions.itto.itch.v4.0.singlesidereplacemessageshortform", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nomoptions.itto.itch.v4.0.systemeventmessage", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nomoptions.itto.itch.v4.0.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq NomOptions Itto Itch 4.0 generated fields
-nasdaq_nomoptions_itto_itch_v4_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nomoptions.itto.itch.v4.0.messageindex", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nomoptions.itto.itch.v4.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -149,145 +149,145 @@ show.trading_action_message = true
 show.payload = false
 
 -- Register Nasdaq NomOptions Itto Itch 4.0 Show Options
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message = Pref.bool("Show Add Order Message Long Form Message", show.add_order_message_long_form_message, "Parse and add Add Order Message Long Form Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form = Pref.bool("Show Add Order Message Short Message Form", show.add_order_message_short_message_form, "Parse and add Add Order Message Short Message Form to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message = Pref.bool("Show Add Quote Message Long Form Message", show.add_quote_message_long_form_message, "Parse and add Add Quote Message Long Form Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message = Pref.bool("Show Add Quote Message Short Form Message", show.add_quote_message_short_form_message, "Parse and add Add Quote Message Short Form Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message = Pref.bool("Show Broken Trade Order Executed Message", show.broken_trade_order_executed_message, "Parse and add Broken Trade Order Executed Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message = Pref.bool("Show Noii Message", show.noii_message, "Parse and add Noii Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction = Pref.bool("Show Options Trade Messages Non Auction", show.options_trade_messages_non_auction, "Parse and add Options Trade Messages Non Auction to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message = Pref.bool("Show Quote Delete Message", show.quote_delete_message, "Parse and add Quote Delete Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form = Pref.bool("Show Quote Replace Message Long Form", show.quote_replace_message_long_form, "Parse and add Quote Replace Message Long Form to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form = Pref.bool("Show Quote Replace Message Short Form", show.quote_replace_message_short_form, "Parse and add Quote Replace Message Short Form to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message = Pref.bool("Show Security Open Message", show.security_open_message, "Parse and add Security Open Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message = Pref.bool("Show Single Side Change Message", show.single_side_change_message, "Parse and add Single Side Change Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message = Pref.bool("Show Single Side Delete Message", show.single_side_delete_message, "Parse and add Single Side Delete Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message = Pref.bool("Show Single Side Executed Message", show.single_side_executed_message, "Parse and add Single Side Executed Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message = Pref.bool("Show Single Side Executed With Price Message", show.single_side_executed_with_price_message, "Parse and add Single Side Executed With Price Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form = Pref.bool("Show Single Side Replace Message Long Form", show.single_side_replace_message_long_form, "Parse and add Single Side Replace Message Long Form to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form = Pref.bool("Show Single Side Replace Message Short Form", show.single_side_replace_message_short_form, "Parse and add Single Side Replace Message Short Form to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-nasdaq_nomoptions_itto_itch_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message = Pref.bool("Show Add Order Message Long Form Message", show.add_order_message_long_form_message, "Parse and add Add Order Message Long Form Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form = Pref.bool("Show Add Order Message Short Message Form", show.add_order_message_short_message_form, "Parse and add Add Order Message Short Message Form to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message = Pref.bool("Show Add Quote Message Long Form Message", show.add_quote_message_long_form_message, "Parse and add Add Quote Message Long Form Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message = Pref.bool("Show Add Quote Message Short Form Message", show.add_quote_message_short_form_message, "Parse and add Add Quote Message Short Form Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message = Pref.bool("Show Broken Trade Order Executed Message", show.broken_trade_order_executed_message, "Parse and add Broken Trade Order Executed Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message = Pref.bool("Show Noii Message", show.noii_message, "Parse and add Noii Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction = Pref.bool("Show Options Trade Messages Non Auction", show.options_trade_messages_non_auction, "Parse and add Options Trade Messages Non Auction to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message = Pref.bool("Show Quote Delete Message", show.quote_delete_message, "Parse and add Quote Delete Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form = Pref.bool("Show Quote Replace Message Long Form", show.quote_replace_message_long_form, "Parse and add Quote Replace Message Long Form to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form = Pref.bool("Show Quote Replace Message Short Form", show.quote_replace_message_short_form, "Parse and add Quote Replace Message Short Form to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message = Pref.bool("Show Security Open Message", show.security_open_message, "Parse and add Security Open Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message = Pref.bool("Show Single Side Change Message", show.single_side_change_message, "Parse and add Single Side Change Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message = Pref.bool("Show Single Side Delete Message", show.single_side_delete_message, "Parse and add Single Side Delete Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message = Pref.bool("Show Single Side Executed Message", show.single_side_executed_message, "Parse and add Single Side Executed Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message = Pref.bool("Show Single Side Executed With Price Message", show.single_side_executed_with_price_message, "Parse and add Single Side Executed With Price Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form = Pref.bool("Show Single Side Replace Message Long Form", show.single_side_replace_message_long_form, "Parse and add Single Side Replace Message Long Form to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form = Pref.bool("Show Single Side Replace Message Short Form", show.single_side_replace_message_short_form, "Parse and add Single Side Replace Message Short Form to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_nomoptions_itto_itch_v4_0.prefs_changed()
+function omi_nasdaq_nomoptions_itto_itch_v4_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message_long_form_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message then
-    show.add_order_message_long_form_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message
+  if show.add_order_message_long_form_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message then
+    show.add_order_message_long_form_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message
     changed = true
   end
-  if show.add_order_message_short_message_form ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form then
-    show.add_order_message_short_message_form = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form
+  if show.add_order_message_short_message_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form then
+    show.add_order_message_short_message_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form
     changed = true
   end
-  if show.add_quote_message_long_form_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message then
-    show.add_quote_message_long_form_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message
+  if show.add_quote_message_long_form_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message then
+    show.add_quote_message_long_form_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message
     changed = true
   end
-  if show.add_quote_message_short_form_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message then
-    show.add_quote_message_short_form_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message
+  if show.add_quote_message_short_form_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message then
+    show.add_quote_message_short_form_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message
     changed = true
   end
-  if show.broken_trade_order_executed_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message then
-    show.broken_trade_order_executed_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message
+  if show.broken_trade_order_executed_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message then
+    show.broken_trade_order_executed_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message
     changed = true
   end
-  if show.message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message then
-    show.message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message
+  if show.message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message then
+    show.message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header then
-    show.message_header = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header then
+    show.message_header = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header
     changed = true
   end
-  if show.noii_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message then
-    show.noii_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message
+  if show.noii_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message then
+    show.noii_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message
     changed = true
   end
-  if show.options_cross_trade_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message then
-    show.options_cross_trade_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message
+  if show.options_cross_trade_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message then
+    show.options_cross_trade_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message
     changed = true
   end
-  if show.options_directory_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message then
-    show.options_directory_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message
+  if show.options_directory_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message then
+    show.options_directory_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message
     changed = true
   end
-  if show.options_trade_messages_non_auction ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction then
-    show.options_trade_messages_non_auction = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction
+  if show.options_trade_messages_non_auction ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction then
+    show.options_trade_messages_non_auction = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction
     changed = true
   end
-  if show.order_cancel_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message then
-    show.order_cancel_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message
+  if show.order_cancel_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message then
+    show.order_cancel_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message
     changed = true
   end
-  if show.packet ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet then
-    show.packet = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet
+  if show.packet ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet then
+    show.packet = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header then
-    show.packet_header = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header
     changed = true
   end
-  if show.quote_delete_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message then
-    show.quote_delete_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message
+  if show.quote_delete_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message then
+    show.quote_delete_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message
     changed = true
   end
-  if show.quote_replace_message_long_form ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form then
-    show.quote_replace_message_long_form = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form
+  if show.quote_replace_message_long_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form then
+    show.quote_replace_message_long_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form
     changed = true
   end
-  if show.quote_replace_message_short_form ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form then
-    show.quote_replace_message_short_form = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form
+  if show.quote_replace_message_short_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form then
+    show.quote_replace_message_short_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form
     changed = true
   end
-  if show.security_open_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message then
-    show.security_open_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message
+  if show.security_open_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message then
+    show.security_open_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message
     changed = true
   end
-  if show.single_side_change_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message then
-    show.single_side_change_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message
+  if show.single_side_change_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message then
+    show.single_side_change_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message
     changed = true
   end
-  if show.single_side_delete_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message then
-    show.single_side_delete_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message
+  if show.single_side_delete_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message then
+    show.single_side_delete_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message
     changed = true
   end
-  if show.single_side_executed_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message then
-    show.single_side_executed_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message
+  if show.single_side_executed_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message then
+    show.single_side_executed_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message
     changed = true
   end
-  if show.single_side_executed_with_price_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message then
-    show.single_side_executed_with_price_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message
+  if show.single_side_executed_with_price_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message then
+    show.single_side_executed_with_price_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message
     changed = true
   end
-  if show.single_side_replace_message_long_form ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form then
-    show.single_side_replace_message_long_form = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form
+  if show.single_side_replace_message_long_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form then
+    show.single_side_replace_message_long_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form
     changed = true
   end
-  if show.single_side_replace_message_short_form ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form then
-    show.single_side_replace_message_short_form = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form
+  if show.single_side_replace_message_short_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form then
+    show.single_side_replace_message_short_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form
     changed = true
   end
-  if show.system_event_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message
+  if show.system_event_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message then
+    show.system_event_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message
     changed = true
   end
-  if show.trading_action_message ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message then
-    show.trading_action_message = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message
+  if show.trading_action_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message then
+    show.trading_action_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message
     changed = true
   end
-  if show.payload ~= nasdaq_nomoptions_itto_itch_v4_0.prefs.show_payload then
-    show.payload = nasdaq_nomoptions_itto_itch_v4_0.prefs.show_payload
+  if show.payload ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_payload then
+    show.payload = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_payload
     changed = true
   end
 
@@ -335,7 +335,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.reserved = function(buffer, offset, pac
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -371,7 +371,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.customer_firm_indicator = function(buff
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.customer_firm_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.customer_firm_indicator, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.customer_firm_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -391,7 +391,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.imbalance_volume = function(buffer, off
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_volume, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
 end
@@ -417,7 +417,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.imbalance_price = function(buffer, offs
   local value = translate.imbalance_price(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.imbalance_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_price, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_price, range, value, display)
 
   return offset + length, value
 end
@@ -437,7 +437,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.option_id = function(buffer, offset, pa
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.option_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.option_id, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.option_id, range, value, display)
 
   return offset + length, value
 end
@@ -464,7 +464,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.imbalance_direction = function(buffer, 
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.imbalance_direction(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_direction, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_direction, range, value, display)
 
   return offset + length, value
 end
@@ -484,7 +484,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.paired_contracts = function(buffer, off
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.paired_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.paired_contracts, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.paired_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -517,7 +517,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.auction_type = function(buffer, offset,
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.auction_type, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -537,7 +537,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.auction_id = function(buffer, offset, p
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.auction_id, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -557,7 +557,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.timestamp = function(buffer, offset, pa
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.timestamp, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -577,7 +577,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.tracking_number = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.tracking_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.tracking_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.tracking_number, range, value, display)
 
   return offset + length, value
 end
@@ -660,7 +660,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.noii_message = function(buffer, offset, packet, parent)
   if show.noii_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.noii_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.noii_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.noii_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -689,7 +689,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.match_number = function(buffer, offset,
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.match_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.match_number, range, value, display)
 
   return offset + length, value
 end
@@ -709,7 +709,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.cross_number = function(buffer, offset,
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.cross_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.cross_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cross_number, range, value, display)
 
   return offset + length, value
 end
@@ -757,7 +757,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.broken_trade_order_executed_message = function(buffer, offset, packet, parent)
   if show.broken_trade_order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.broken_trade_order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.broken_trade_order_executed_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.broken_trade_order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -786,7 +786,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.volume_long = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.volume_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long, range, value, display)
 
   return offset + length, value
 end
@@ -812,7 +812,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.price_long = function(buffer, offset, p
   local value = translate.price_long(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.price_long, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price_long, range, value, display)
 
   return offset + length, value
 end
@@ -839,7 +839,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.cross_type = function(buffer, offset, p
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.cross_type, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -907,7 +907,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
   if show.options_cross_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_cross_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_cross_trade_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -943,7 +943,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.buy_sell_indicator = function(buffer, o
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.buy_sell_indicator, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.buy_sell_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1011,7 +1011,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.options_trade_messages_non_auction = function(buffer, offset, packet, parent)
   if show.options_trade_messages_non_auction then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_trade_messages_non_auction, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_trade_messages_non_auction, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.options_trade_messages_non_auction_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1040,7 +1040,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.ask_reference_number = function(buffer,
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.ask_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.ask_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1060,7 +1060,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.bid_reference_number = function(buffer,
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.bid_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.bid_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1108,7 +1108,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_delete_message = function(buffer, offset, packet, parent)
   if show.quote_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_delete_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1137,7 +1137,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.ask_size_long = function(buffer, offset
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.ask_size_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_long, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_long, range, value, display)
 
   return offset + length, value
 end
@@ -1163,7 +1163,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.ask_price_long = function(buffer, offse
   local value = translate.ask_price_long(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.ask_price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_long, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_long, range, value, display)
 
   return offset + length, value
 end
@@ -1183,7 +1183,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.bid_size_long = function(buffer, offset
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.bid_size_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_long, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_long, range, value, display)
 
   return offset + length, value
 end
@@ -1209,7 +1209,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.bid_price_long = function(buffer, offse
   local value = translate.bid_price_long(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.bid_price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price_long, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
@@ -1229,7 +1229,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.original_ask_reference_number = functio
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.original_ask_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.original_ask_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.original_ask_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1249,7 +1249,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.original_bid_reference_number = functio
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.original_bid_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.original_bid_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.original_bid_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1327,7 +1327,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_long_form = function(buffer, offset, packet, parent)
   if show.quote_replace_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_long_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_long_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1356,7 +1356,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.ask_size = function(buffer, offset, pac
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -1382,7 +1382,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.ask_price = function(buffer, offset, pa
   local value = translate.ask_price(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -1402,7 +1402,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.bid_size = function(buffer, offset, pac
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1428,7 +1428,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.bid_price = function(buffer, offset, pa
   local value = translate.bid_price(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1506,7 +1506,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_short_form = function(buffer, offset, packet, parent)
   if show.quote_replace_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_short_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_short_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1545,7 +1545,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.change_reason = function(buffer, offset
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.change_reason, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1565,7 +1565,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.reference_number = function(buffer, off
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1623,7 +1623,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_change_message = function(buffer, offset, packet, parent)
   if show.single_side_change_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_change_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_change_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_change_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1675,7 +1675,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_delete_message = function(buffer, offset, packet, parent)
   if show.single_side_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_delete_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1704,7 +1704,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.new_reference_number = function(buffer,
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.new_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.new_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.new_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1724,7 +1724,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.original_reference_number = function(bu
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.original_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.original_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.original_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1782,7 +1782,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_long_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_long_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1811,7 +1811,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.volume = function(buffer, offset, packe
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.volume, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -1837,7 +1837,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.price = function(buffer, offset, packet
   local value = translate.price(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.price, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1895,7 +1895,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_short_form = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1924,7 +1924,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.cancelled_contracts = function(buffer, 
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.cancelled_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.cancelled_contracts, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cancelled_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -1944,7 +1944,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.order_reference_number = function(buffe
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.order_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.order_reference_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.order_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1992,7 +1992,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.order_cancel_message = function(buffer, offset, packet, parent)
   if show.order_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.order_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.order_cancel_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2028,7 +2028,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.printable = function(buffer, offset, pa
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.printable, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.printable, range, value, display)
 
   return offset + length, value
 end
@@ -2096,7 +2096,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_with_price_message = function(buffer, offset, packet, parent)
   if show.single_side_executed_with_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_with_price_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_with_price_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2125,7 +2125,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.executed_contracts = function(buffer, o
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.executed_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.executed_contracts, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.executed_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -2183,7 +2183,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_message = function(buffer, offset, packet, parent)
   if show.single_side_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2212,7 +2212,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.ask = function(buffer, offset, packet, 
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.ask(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.ask, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask, range, value, display)
 
   return offset + length, value
 end
@@ -2232,7 +2232,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.bid = function(buffer, offset, packet, 
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.bid(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.bid, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid, range, value, display)
 
   return offset + length, value
 end
@@ -2305,7 +2305,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_long_form_message = function(buffer, offset, packet, parent)
   if show.add_quote_message_long_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_long_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2387,7 +2387,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_short_form_message = function(buffer, offset, packet, parent)
   if show.add_quote_message_short_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_short_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_short_form_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_short_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2423,7 +2423,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.market_side = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.market_side(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.market_side, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.market_side, range, value, display)
 
   return offset + length, value
 end
@@ -2486,7 +2486,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_long_form_message = function(buffer, offset, packet, parent)
   if show.add_order_message_long_form_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_long_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2558,7 +2558,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_short_message_form = function(buffer, offset, packet, parent)
   if show.add_order_message_short_message_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_short_message_form_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2594,7 +2594,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.open_state = function(buffer, offset, p
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.open_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.open_state, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.open_state, range, value, display)
 
   return offset + length, value
 end
@@ -2642,7 +2642,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.security_open_message = function(buffer, offset, packet, parent)
   if show.security_open_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.security_open_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_open_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.security_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2684,7 +2684,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.current_trading_state = function(buffer
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.current_trading_state, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -2732,7 +2732,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2771,7 +2771,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.mpv = function(buffer, offset, packet, 
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.mpv, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -2798,7 +2798,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.tradable = function(buffer, offset, pac
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.tradable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.tradable, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.tradable, range, value, display)
 
   return offset + length, value
 end
@@ -2825,7 +2825,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.options_closing_type = function(buffer,
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.options_closing_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_closing_type, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_closing_type, range, value, display)
 
   return offset + length, value
 end
@@ -2845,7 +2845,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.underlying_symbol = function(buffer, of
   local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.underlying_symbol, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2865,7 +2865,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.source = function(buffer, offset, packe
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.source(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.source, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.source, range, value, display)
 
   return offset + length, value
 end
@@ -2892,7 +2892,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.option_type = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.option_type, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -2918,7 +2918,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.explicit_strike_price = function(buffer
   local value = translate.explicit_strike_price(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.explicit_strike_price, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.explicit_strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2938,7 +2938,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.expiration_date = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.expiration_date(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_date, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_date, range, value, display)
 
   return offset + length, value
 end
@@ -2958,7 +2958,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.expiration_month = function(buffer, off
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_month, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -2978,7 +2978,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.expiration_year = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_year, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -2998,7 +2998,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.security_symbol = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3096,7 +3096,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.options_directory_message = function(buffer, offset, packet, parent)
   if show.options_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_directory_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.options_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3147,7 +3147,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.event_code = function(buffer, offset, p
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.event_code, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -3190,7 +3190,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3412,7 +3412,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.payload = function(buffer, offset, pack
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.payload, range, display)
 
   return nasdaq_nomoptions_itto_itch_v4_0_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -3499,7 +3499,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.message_type = function(buffer, offset,
   local value = range:string()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3519,7 +3519,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.message_length = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -3557,7 +3557,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_header, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3582,7 +3582,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.message_fields = function(buffer, offse
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -3604,7 +3604,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.message = function(buffer, offset, pack
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message, buffer(offset, 0))
     local current = nasdaq_nomoptions_itto_itch_v4_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_nomoptions_itto_itch_v4_0_display.message(buffer, packet, parent)
@@ -3634,7 +3634,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.message_count = function(buffer, offset
   local value = range:uint()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_count, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3654,7 +3654,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.sequence_number = function(buffer, offs
   local value = range:uint64()
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3690,7 +3690,7 @@ nasdaq_nomoptions_itto_itch_v4_0_dissect.session = function(buffer, offset, pack
 
   local display = nasdaq_nomoptions_itto_itch_v4_0_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.session, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -3733,7 +3733,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3779,23 +3779,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_nomoptions_itto_itch_v4_0.init()
+function omi_nasdaq_nomoptions_itto_itch_v4_0.init()
 end
 
 -- Dissector for Nasdaq NomOptions Itto Itch 4.0
-function nasdaq_nomoptions_itto_itch_v4_0.dissector(buffer, packet, parent)
+function omi_nasdaq_nomoptions_itto_itch_v4_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_nomoptions_itto_itch_v4_0.name
+  packet.cols.protocol = omi_nasdaq_nomoptions_itto_itch_v4_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_nomoptions_itto_itch_v4_0, buffer(), nasdaq_nomoptions_itto_itch_v4_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0, buffer(), omi_nasdaq_nomoptions_itto_itch_v4_0.description, "("..buffer:len().." Bytes)")
   return nasdaq_nomoptions_itto_itch_v4_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_nomoptions_itto_itch_v4_0)
+udp_table:add(65333, omi_nasdaq_nomoptions_itto_itch_v4_0)
 
 
 -----------------------------------------------------------------------
@@ -3803,25 +3803,25 @@ udp_table:add(65333, nasdaq_nomoptions_itto_itch_v4_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_nomoptions_itto_itch_v4_0_packet_size = function(buffer)
+verify.omi_nasdaq_nomoptions_itto_itch_v4_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq NomOptions Itto Itch 4.0
-local function nasdaq_nomoptions_itto_itch_v4_0_heuristic(buffer, packet, parent)
+local function omi_nasdaq_nomoptions_itto_itch_v4_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_nomoptions_itto_itch_v4_0_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_nomoptions_itto_itch_v4_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_nomoptions_itto_itch_v4_0
-  nasdaq_nomoptions_itto_itch_v4_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_nomoptions_itto_itch_v4_0
+  omi_nasdaq_nomoptions_itto_itch_v4_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq NomOptions Itto Itch 4.0
-nasdaq_nomoptions_itto_itch_v4_0:register_heuristic("udp", nasdaq_nomoptions_itto_itch_v4_0_heuristic)
+omi_nasdaq_nomoptions_itto_itch_v4_0:register_heuristic("udp", omi_nasdaq_nomoptions_itto_itch_v4_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

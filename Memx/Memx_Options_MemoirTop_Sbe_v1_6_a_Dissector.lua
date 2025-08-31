@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx Options MemoirTop Sbe 1.6.a Protocol
-local memx_options_memoirtop_sbe_v1_6_a = Proto("Memx.Options.MemoirTop.Sbe.v1.6.a.Lua", "Memx Options MemoirTop Sbe 1.6.a")
+local omi_memx_options_memoirtop_sbe_v1_6_a = Proto("Memx.Options.MemoirTop.Sbe.v1.6.a.Lua", "Memx Options MemoirTop Sbe 1.6.a")
 
 -- Component Tables
 local show = {}
@@ -21,77 +21,77 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Memx Options MemoirTop Sbe 1.6.a Fields
-memx_options_memoirtop_sbe_v1_6_a.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.options.memoirtop.sbe.v1.6.a.asofsequencenumber", ftypes.UINT64)
-memx_options_memoirtop_sbe_v1_6_a.fields.bid_price = ProtoField.new("Bid Price", "memx.options.memoirtop.sbe.v1.6.a.bidprice", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.bid_price_short = ProtoField.new("Bid Price Short", "memx.options.memoirtop.sbe.v1.6.a.bidpriceshort", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.options.memoirtop.sbe.v1.6.a.blocklength", ftypes.UINT16)
-memx_options_memoirtop_sbe_v1_6_a.fields.capacity = ProtoField.new("Capacity", "memx.options.memoirtop.sbe.v1.6.a.capacity", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.closing_only = ProtoField.new("Closing Only", "memx.options.memoirtop.sbe.v1.6.a.closingonly", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.closing_time = ProtoField.new("Closing Time", "memx.options.memoirtop.sbe.v1.6.a.closingtime", ftypes.UINT64)
-memx_options_memoirtop_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.options.memoirtop.sbe.v1.6.a.commonheader", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.corrected_price = ProtoField.new("Corrected Price", "memx.options.memoirtop.sbe.v1.6.a.correctedprice", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.options.memoirtop.sbe.v1.6.a.correctedquantity", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size = ProtoField.new("Cust Bid Size", "memx.options.memoirtop.sbe.v1.6.a.custbidsize", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size_short = ProtoField.new("Cust Bid Size Short", "memx.options.memoirtop.sbe.v1.6.a.custbidsizeshort", ftypes.UINT16)
-memx_options_memoirtop_sbe_v1_6_a.fields.cust_offer_size = ProtoField.new("Cust Offer Size", "memx.options.memoirtop.sbe.v1.6.a.custoffersize", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.cust_quantity = ProtoField.new("Cust Quantity", "memx.options.memoirtop.sbe.v1.6.a.custquantity", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.header_length = ProtoField.new("Header Length", "memx.options.memoirtop.sbe.v1.6.a.headerlength", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status = ProtoField.new("Instrument Trading Status", "memx.options.memoirtop.sbe.v1.6.a.instrumenttradingstatus", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status_reason = ProtoField.new("Instrument Trading Status Reason", "memx.options.memoirtop.sbe.v1.6.a.instrumenttradingstatusreason", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.options.memoirtop.sbe.v1.6.a.intermarketsweep", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-memx_options_memoirtop_sbe_v1_6_a.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.options.memoirtop.sbe.v1.6.a.istestsymbol", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.maturity_date = ProtoField.new("Maturity Date", "memx.options.memoirtop.sbe.v1.6.a.maturitydate", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.message = ProtoField.new("Message", "memx.options.memoirtop.sbe.v1.6.a.message", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.message_count = ProtoField.new("Message Count", "memx.options.memoirtop.sbe.v1.6.a.messagecount", ftypes.UINT16)
-memx_options_memoirtop_sbe_v1_6_a.fields.message_length = ProtoField.new("Message Length", "memx.options.memoirtop.sbe.v1.6.a.messagelength", ftypes.UINT16)
-memx_options_memoirtop_sbe_v1_6_a.fields.message_type = ProtoField.new("Message Type", "memx.options.memoirtop.sbe.v1.6.a.messagetype", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.offer_price = ProtoField.new("Offer Price", "memx.options.memoirtop.sbe.v1.6.a.offerprice", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.offer_price_short = ProtoField.new("Offer Price Short", "memx.options.memoirtop.sbe.v1.6.a.offerpriceshort", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.options_product_type = ProtoField.new("Options Product Type", "memx.options.memoirtop.sbe.v1.6.a.optionsproducttype", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.original_price = ProtoField.new("Original Price", "memx.options.memoirtop.sbe.v1.6.a.originalprice", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.original_quantity = ProtoField.new("Original Quantity", "memx.options.memoirtop.sbe.v1.6.a.originalquantity", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.osi_root = ProtoField.new("Osi Root", "memx.options.memoirtop.sbe.v1.6.a.osiroot", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.options.memoirtop.sbe.v1.6.a.packet", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.payload = ProtoField.new("Payload", "memx.options.memoirtop.sbe.v1.6.a.payload", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.price = ProtoField.new("Price", "memx.options.memoirtop.sbe.v1.6.a.price", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.quantity = ProtoField.new("Quantity", "memx.options.memoirtop.sbe.v1.6.a.quantity", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.options.memoirtop.sbe.v1.6.a.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
-memx_options_memoirtop_sbe_v1_6_a.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.memoirtop.sbe.v1.6.a.sbeheader", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.memoirtop.sbe.v1.6.a.sbemessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema Id", "memx.options.memoirtop.sbe.v1.6.a.schemaid", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.sequence_number = ProtoField.new("Sequence Number", "memx.options.memoirtop.sbe.v1.6.a.sequencenumber", ftypes.UINT64)
-memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.memoirtop.sbe.v1.6.a.sequencedmessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "memx.options.memoirtop.sbe.v1.6.a.sequencedmessages", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.session_id = ProtoField.new("Session Id", "memx.options.memoirtop.sbe.v1.6.a.sessionid", ftypes.UINT64)
-memx_options_memoirtop_sbe_v1_6_a.fields.side = ProtoField.new("Side", "memx.options.memoirtop.sbe.v1.6.a.side", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.strike_price = ProtoField.new("Strike Price", "memx.options.memoirtop.sbe.v1.6.a.strikeprice", ftypes.DOUBLE)
-memx_options_memoirtop_sbe_v1_6_a.fields.strike_put_or_call = ProtoField.new("Strike Put Or Call", "memx.options.memoirtop.sbe.v1.6.a.strikeputorcall", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.symbol = ProtoField.new("Symbol", "memx.options.memoirtop.sbe.v1.6.a.symbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.template_id = ProtoField.new("Template Id", "memx.options.memoirtop.sbe.v1.6.a.templateid", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_6_a.fields.timestamp = ProtoField.new("Timestamp", "memx.options.memoirtop.sbe.v1.6.a.timestamp", ftypes.UINT64)
-memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size = ProtoField.new("Total Bid Size", "memx.options.memoirtop.sbe.v1.6.a.totalbidsize", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size_short = ProtoField.new("Total Bid Size Short", "memx.options.memoirtop.sbe.v1.6.a.totalbidsizeshort", ftypes.UINT16)
-memx_options_memoirtop_sbe_v1_6_a.fields.total_offer_size = ProtoField.new("Total Offer Size", "memx.options.memoirtop.sbe.v1.6.a.totaloffersize", ftypes.UINT32)
-memx_options_memoirtop_sbe_v1_6_a.fields.trade_conditions = ProtoField.new("Trade Conditions", "memx.options.memoirtop.sbe.v1.6.a.tradeconditions", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.trade_id = ProtoField.new("Trade Id", "memx.options.memoirtop.sbe.v1.6.a.tradeid", ftypes.UINT64)
-memx_options_memoirtop_sbe_v1_6_a.fields.trading_session = ProtoField.new("Trading Session", "memx.options.memoirtop.sbe.v1.6.a.tradingsession", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.underlier = ProtoField.new("Underlier", "memx.options.memoirtop.sbe.v1.6.a.underlier", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.options.memoirtop.sbe.v1.6.a.version", ftypes.UINT16)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.options.memoirtop.sbe.v1.6.a.asofsequencenumber", ftypes.UINT64)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.bid_price = ProtoField.new("Bid Price", "memx.options.memoirtop.sbe.v1.6.a.bidprice", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.bid_price_short = ProtoField.new("Bid Price Short", "memx.options.memoirtop.sbe.v1.6.a.bidpriceshort", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.options.memoirtop.sbe.v1.6.a.blocklength", ftypes.UINT16)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.capacity = ProtoField.new("Capacity", "memx.options.memoirtop.sbe.v1.6.a.capacity", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.closing_only = ProtoField.new("Closing Only", "memx.options.memoirtop.sbe.v1.6.a.closingonly", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.closing_time = ProtoField.new("Closing Time", "memx.options.memoirtop.sbe.v1.6.a.closingtime", ftypes.UINT64)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.options.memoirtop.sbe.v1.6.a.commonheader", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_price = ProtoField.new("Corrected Price", "memx.options.memoirtop.sbe.v1.6.a.correctedprice", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.options.memoirtop.sbe.v1.6.a.correctedquantity", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size = ProtoField.new("Cust Bid Size", "memx.options.memoirtop.sbe.v1.6.a.custbidsize", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size_short = ProtoField.new("Cust Bid Size Short", "memx.options.memoirtop.sbe.v1.6.a.custbidsizeshort", ftypes.UINT16)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_offer_size = ProtoField.new("Cust Offer Size", "memx.options.memoirtop.sbe.v1.6.a.custoffersize", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_quantity = ProtoField.new("Cust Quantity", "memx.options.memoirtop.sbe.v1.6.a.custquantity", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.header_length = ProtoField.new("Header Length", "memx.options.memoirtop.sbe.v1.6.a.headerlength", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status = ProtoField.new("Instrument Trading Status", "memx.options.memoirtop.sbe.v1.6.a.instrumenttradingstatus", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status_reason = ProtoField.new("Instrument Trading Status Reason", "memx.options.memoirtop.sbe.v1.6.a.instrumenttradingstatusreason", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.options.memoirtop.sbe.v1.6.a.intermarketsweep", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.options.memoirtop.sbe.v1.6.a.istestsymbol", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.maturity_date = ProtoField.new("Maturity Date", "memx.options.memoirtop.sbe.v1.6.a.maturitydate", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.message = ProtoField.new("Message", "memx.options.memoirtop.sbe.v1.6.a.message", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.message_count = ProtoField.new("Message Count", "memx.options.memoirtop.sbe.v1.6.a.messagecount", ftypes.UINT16)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.message_length = ProtoField.new("Message Length", "memx.options.memoirtop.sbe.v1.6.a.messagelength", ftypes.UINT16)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.message_type = ProtoField.new("Message Type", "memx.options.memoirtop.sbe.v1.6.a.messagetype", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.offer_price = ProtoField.new("Offer Price", "memx.options.memoirtop.sbe.v1.6.a.offerprice", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.offer_price_short = ProtoField.new("Offer Price Short", "memx.options.memoirtop.sbe.v1.6.a.offerpriceshort", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.options_product_type = ProtoField.new("Options Product Type", "memx.options.memoirtop.sbe.v1.6.a.optionsproducttype", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.original_price = ProtoField.new("Original Price", "memx.options.memoirtop.sbe.v1.6.a.originalprice", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.original_quantity = ProtoField.new("Original Quantity", "memx.options.memoirtop.sbe.v1.6.a.originalquantity", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.osi_root = ProtoField.new("Osi Root", "memx.options.memoirtop.sbe.v1.6.a.osiroot", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.options.memoirtop.sbe.v1.6.a.packet", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.payload = ProtoField.new("Payload", "memx.options.memoirtop.sbe.v1.6.a.payload", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.price = ProtoField.new("Price", "memx.options.memoirtop.sbe.v1.6.a.price", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.quantity = ProtoField.new("Quantity", "memx.options.memoirtop.sbe.v1.6.a.quantity", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.options.memoirtop.sbe.v1.6.a.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.memoirtop.sbe.v1.6.a.sbeheader", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.memoirtop.sbe.v1.6.a.sbemessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema Id", "memx.options.memoirtop.sbe.v1.6.a.schemaid", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequence_number = ProtoField.new("Sequence Number", "memx.options.memoirtop.sbe.v1.6.a.sequencenumber", ftypes.UINT64)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.memoirtop.sbe.v1.6.a.sequencedmessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "memx.options.memoirtop.sbe.v1.6.a.sequencedmessages", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.session_id = ProtoField.new("Session Id", "memx.options.memoirtop.sbe.v1.6.a.sessionid", ftypes.UINT64)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.side = ProtoField.new("Side", "memx.options.memoirtop.sbe.v1.6.a.side", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.strike_price = ProtoField.new("Strike Price", "memx.options.memoirtop.sbe.v1.6.a.strikeprice", ftypes.DOUBLE)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.strike_put_or_call = ProtoField.new("Strike Put Or Call", "memx.options.memoirtop.sbe.v1.6.a.strikeputorcall", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.symbol = ProtoField.new("Symbol", "memx.options.memoirtop.sbe.v1.6.a.symbol", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.template_id = ProtoField.new("Template Id", "memx.options.memoirtop.sbe.v1.6.a.templateid", ftypes.UINT8)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.timestamp = ProtoField.new("Timestamp", "memx.options.memoirtop.sbe.v1.6.a.timestamp", ftypes.UINT64)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size = ProtoField.new("Total Bid Size", "memx.options.memoirtop.sbe.v1.6.a.totalbidsize", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size_short = ProtoField.new("Total Bid Size Short", "memx.options.memoirtop.sbe.v1.6.a.totalbidsizeshort", ftypes.UINT16)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.total_offer_size = ProtoField.new("Total Offer Size", "memx.options.memoirtop.sbe.v1.6.a.totaloffersize", ftypes.UINT32)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.trade_conditions = ProtoField.new("Trade Conditions", "memx.options.memoirtop.sbe.v1.6.a.tradeconditions", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.trade_id = ProtoField.new("Trade Id", "memx.options.memoirtop.sbe.v1.6.a.tradeid", ftypes.UINT64)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.trading_session = ProtoField.new("Trading Session", "memx.options.memoirtop.sbe.v1.6.a.tradingsession", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.underlier = ProtoField.new("Underlier", "memx.options.memoirtop.sbe.v1.6.a.underlier", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.options.memoirtop.sbe.v1.6.a.version", ftypes.UINT16)
 
 -- Memx Options MemoirTop Sbe 1.6.a messages
-memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_message = ProtoField.new("Best Bid Message", "memx.options.memoirtop.sbe.v1.6.a.bestbidmessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "memx.options.memoirtop.sbe.v1.6.a.bestbidoffermessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "memx.options.memoirtop.sbe.v1.6.a.bestbidshortmessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_message = ProtoField.new("Best Offer Message", "memx.options.memoirtop.sbe.v1.6.a.bestoffermessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_short_message = ProtoField.new("Best Offer Short Message", "memx.options.memoirtop.sbe.v1.6.a.bestoffershortmessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.options.memoirtop.sbe.v1.6.a.brokentrademessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.options.memoirtop.sbe.v1.6.a.clearbookmessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.options.memoirtop.sbe.v1.6.a.correctedtrademessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.options.memoirtop.sbe.v1.6.a.instrumentdirectorymessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.options_instrument_status_message = ProtoField.new("Options Instrument Status Message", "memx.options.memoirtop.sbe.v1.6.a.optionsinstrumentstatusmessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.options.memoirtop.sbe.v1.6.a.snapshotcompletemessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.trade_message = ProtoField.new("Trade Message", "memx.options.memoirtop.sbe.v1.6.a.trademessage", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_6_a.fields.underlier_instrument_status_message = ProtoField.new("Underlier Instrument Status Message", "memx.options.memoirtop.sbe.v1.6.a.underlierinstrumentstatusmessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_message = ProtoField.new("Best Bid Message", "memx.options.memoirtop.sbe.v1.6.a.bestbidmessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "memx.options.memoirtop.sbe.v1.6.a.bestbidoffermessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "memx.options.memoirtop.sbe.v1.6.a.bestbidshortmessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_message = ProtoField.new("Best Offer Message", "memx.options.memoirtop.sbe.v1.6.a.bestoffermessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_short_message = ProtoField.new("Best Offer Short Message", "memx.options.memoirtop.sbe.v1.6.a.bestoffershortmessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.options.memoirtop.sbe.v1.6.a.brokentrademessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.options.memoirtop.sbe.v1.6.a.clearbookmessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.options.memoirtop.sbe.v1.6.a.correctedtrademessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.options.memoirtop.sbe.v1.6.a.instrumentdirectorymessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.options_instrument_status_message = ProtoField.new("Options Instrument Status Message", "memx.options.memoirtop.sbe.v1.6.a.optionsinstrumentstatusmessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.options.memoirtop.sbe.v1.6.a.snapshotcompletemessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.trade_message = ProtoField.new("Trade Message", "memx.options.memoirtop.sbe.v1.6.a.trademessage", ftypes.STRING)
+omi_memx_options_memoirtop_sbe_v1_6_a.fields.underlier_instrument_status_message = ProtoField.new("Underlier Instrument Status Message", "memx.options.memoirtop.sbe.v1.6.a.underlierinstrumentstatusmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -122,120 +122,120 @@ show.payload = false
 show.sequenced_messages = false
 
 -- Register Memx Options MemoirTop Sbe 1.6.a Show Options
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message = Pref.bool("Show Best Bid Offer Message", show.best_bid_offer_message, "Parse and add Best Bid Offer Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message = Pref.bool("Show Best Bid Short Message", show.best_bid_short_message, "Parse and add Best Bid Short Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message = Pref.bool("Show Best Offer Message", show.best_offer_message, "Parse and add Best Offer Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message = Pref.bool("Show Best Offer Short Message", show.best_offer_short_message, "Parse and add Best Offer Short Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message = Pref.bool("Show Corrected Trade Message", show.corrected_trade_message, "Parse and add Corrected Trade Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message = Pref.bool("Show Options Instrument Status Message", show.options_instrument_status_message, "Parse and add Options Instrument Status Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message = Pref.bool("Show Underlier Instrument Status Message", show.underlier_instrument_status_message, "Parse and add Underlier Instrument Status Message to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message = Pref.bool("Show Best Bid Offer Message", show.best_bid_offer_message, "Parse and add Best Bid Offer Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message = Pref.bool("Show Best Bid Short Message", show.best_bid_short_message, "Parse and add Best Bid Short Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message = Pref.bool("Show Best Offer Message", show.best_offer_message, "Parse and add Best Offer Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message = Pref.bool("Show Best Offer Short Message", show.best_offer_short_message, "Parse and add Best Offer Short Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message = Pref.bool("Show Corrected Trade Message", show.corrected_trade_message, "Parse and add Corrected Trade Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message = Pref.bool("Show Options Instrument Status Message", show.options_instrument_status_message, "Parse and add Options Instrument Status Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message = Pref.bool("Show Underlier Instrument Status Message", show.underlier_instrument_status_message, "Parse and add Underlier Instrument Status Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
 
 -- Handle changed preferences
-function memx_options_memoirtop_sbe_v1_6_a.prefs_changed()
+function omi_memx_options_memoirtop_sbe_v1_6_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.best_bid_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message then
-    show.best_bid_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message
+  if show.best_bid_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message then
+    show.best_bid_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message
     changed = true
   end
-  if show.best_bid_offer_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message then
-    show.best_bid_offer_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message
+  if show.best_bid_offer_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message then
+    show.best_bid_offer_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message
     changed = true
   end
-  if show.best_bid_short_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message then
-    show.best_bid_short_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message
+  if show.best_bid_short_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message then
+    show.best_bid_short_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message
     changed = true
   end
-  if show.best_offer_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message then
-    show.best_offer_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message
+  if show.best_offer_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message then
+    show.best_offer_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message
     changed = true
   end
-  if show.best_offer_short_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message then
-    show.best_offer_short_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message
+  if show.best_offer_short_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message then
+    show.best_offer_short_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message
     changed = true
   end
-  if show.broken_trade_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message then
-    show.broken_trade_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message
+  if show.broken_trade_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message then
+    show.broken_trade_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message
     changed = true
   end
-  if show.clear_book_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message then
-    show.clear_book_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message
+  if show.clear_book_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message then
+    show.clear_book_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message
     changed = true
   end
-  if show.common_header ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header then
-    show.common_header = memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header
+  if show.common_header ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header then
+    show.common_header = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header
     changed = true
   end
-  if show.corrected_trade_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message then
-    show.corrected_trade_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message
+  if show.corrected_trade_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message then
+    show.corrected_trade_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message
     changed = true
   end
-  if show.instrument_directory_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message
+  if show.instrument_directory_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message then
+    show.instrument_directory_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message
     changed = true
   end
-  if show.message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_message then
-    show.message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_message
+  if show.message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_message then
+    show.message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_message
     changed = true
   end
-  if show.options_instrument_status_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message then
-    show.options_instrument_status_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message
+  if show.options_instrument_status_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message then
+    show.options_instrument_status_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message
     changed = true
   end
-  if show.packet ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet then
-    show.packet = memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet
+  if show.packet ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet then
+    show.packet = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet
     changed = true
   end
-  if show.sbe_header ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_header then
-    show.sbe_header = memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_header
+  if show.sbe_header ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_header then
+    show.sbe_header = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_header
     changed = true
   end
-  if show.sbe_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_message then
-    show.sbe_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_message
+  if show.sbe_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_message then
+    show.sbe_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_message
     changed = true
   end
-  if show.sequenced_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message then
-    show.sequenced_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message then
+    show.sequenced_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message
     changed = true
   end
-  if show.snapshot_complete_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message then
-    show.snapshot_complete_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message
+  if show.snapshot_complete_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message then
+    show.snapshot_complete_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message
     changed = true
   end
-  if show.trade_conditions ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions then
-    show.trade_conditions = memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions
+  if show.trade_conditions ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions then
+    show.trade_conditions = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions
     changed = true
   end
-  if show.trade_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message then
-    show.trade_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message
+  if show.trade_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message then
+    show.trade_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message
     changed = true
   end
-  if show.underlier_instrument_status_message ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message then
-    show.underlier_instrument_status_message = memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message
+  if show.underlier_instrument_status_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message then
+    show.underlier_instrument_status_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message
     changed = true
   end
-  if show.payload ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload then
-    show.payload = memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload
+  if show.payload ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload then
+    show.payload = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_payload
     changed = true
   end
-  if show.sequenced_messages ~= memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages then
-    show.sequenced_messages = memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages
+  if show.sequenced_messages ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages then
+    show.sequenced_messages = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_messages
     changed = true
   end
 
@@ -281,7 +281,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.symbol = function(buffer, offset, pack
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.symbol, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -305,7 +305,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.timestamp = function(buffer, offset, p
   local value = range:uint64()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.timestamp, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -343,7 +343,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.clear_book_message = function(buffer, offset, packet, parent)
   if show.clear_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.clear_book_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.clear_book_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.clear_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -392,7 +392,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.capacity = function(buffer, offset, pa
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.capacity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.capacity, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.capacity, range, value, display)
 
   return offset + length, value
 end
@@ -412,7 +412,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.cust_quantity = function(buffer, offse
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.cust_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.cust_quantity, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -438,7 +438,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.price = function(buffer, offset, packe
   local value = translate.price(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.price, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -458,7 +458,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.quantity = function(buffer, offset, pa
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.quantity, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -498,7 +498,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.side = function(buffer, offset, packet
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.side, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -522,10 +522,10 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.trade_conditions_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 7: 7 Bit
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.reserved_7, buffer(offset, 1))
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.reserved_7, buffer(offset, 1))
 
   -- Intermarket Sweep: 1 Bit
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.intermarket_sweep, buffer(offset, 1))
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.intermarket_sweep, buffer(offset, 1))
 end
 
 -- Dissect: Trade Conditions
@@ -533,7 +533,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.trade_conditions = function(buffer, of
   local size = 1
   local range = buffer(offset, size)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.trade_conditions(range, packet, parent)
-  local element = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.trade_conditions, range, display)
+  local element = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.trade_conditions, range, display)
 
   if show.trade_conditions then
     memx_options_memoirtop_sbe_v1_6_a_dissect.trade_conditions_bits(buffer, offset, packet, element)
@@ -557,7 +557,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.trade_id = function(buffer, offset, pa
   local value = range:uint64()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.trade_id, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -630,7 +630,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.trade_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -665,7 +665,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.offer_price_short = function(buffer, o
   local value = translate.offer_price_short(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.offer_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.offer_price_short, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.offer_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -685,7 +685,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.cust_bid_size_short = function(buffer,
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.cust_bid_size_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size_short, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -738,7 +738,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.best_offer_short_message = function(buffer, offset, packet, parent)
   if show.best_offer_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_short_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_short_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.best_offer_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -773,7 +773,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.bid_price_short = function(buffer, off
   local value = translate.bid_price_short(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.bid_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.bid_price_short, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -793,7 +793,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.total_bid_size_short = function(buffer
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.total_bid_size_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size_short, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -846,7 +846,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_short_message = function(buffer, offset, packet, parent)
   if show.best_bid_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_short_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_short_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -881,7 +881,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.offer_price = function(buffer, offset,
   local value = translate.offer_price(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.offer_price, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -901,7 +901,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.cust_offer_size = function(buffer, off
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.cust_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.cust_offer_size, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -921,7 +921,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.total_offer_size = function(buffer, of
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.total_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.total_offer_size, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.total_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -974,7 +974,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.best_offer_message = function(buffer, offset, packet, parent)
   if show.best_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.best_offer_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1009,7 +1009,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.bid_price = function(buffer, offset, p
   local value = translate.bid_price(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.bid_price, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1029,7 +1029,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.cust_bid_size = function(buffer, offse
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.cust_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.cust_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1049,7 +1049,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.total_bid_size = function(buffer, offs
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.total_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.total_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1102,7 +1102,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_message = function(buffer, offset, packet, parent)
   if show.best_bid_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1179,7 +1179,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_offer_message = function(buffer, offset, packet, parent)
   if show.best_bid_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_offer_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_offer_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_offer_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1208,7 +1208,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.as_of_sequence_number = function(buffe
   local value = range:uint64()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.as_of_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.as_of_sequence_number, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.as_of_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1246,7 +1246,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.snapshot_complete_message = function(buffer, offset, packet, parent)
   if show.snapshot_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.snapshot_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.snapshot_complete_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1281,7 +1281,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.corrected_price = function(buffer, off
   local value = translate.corrected_price(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.corrected_price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.corrected_price, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_price, range, value, display)
 
   return offset + length, value
 end
@@ -1301,7 +1301,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.corrected_quantity = function(buffer, 
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.corrected_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.corrected_quantity, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1327,7 +1327,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.original_price = function(buffer, offs
   local value = translate.original_price(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.original_price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.original_price, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.original_price, range, value, display)
 
   return offset + length, value
 end
@@ -1347,7 +1347,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.original_quantity = function(buffer, o
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.original_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.original_quantity, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.original_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1410,7 +1410,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.corrected_trade_message = function(buffer, offset, packet, parent)
   if show.corrected_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.corrected_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_trade_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1472,7 +1472,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.broken_trade_message = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.broken_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.broken_trade_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1517,7 +1517,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.underlier = function(buffer, offset, p
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.underlier(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.underlier, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.underlier, range, value, display)
 
   return offset + length, value
 end
@@ -1557,7 +1557,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.trading_session = function(buffer, off
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.trading_session(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.trading_session, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.trading_session, range, value, display)
 
   return offset + length, value
 end
@@ -1600,7 +1600,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.underlier_instrument_status_message = function(buffer, offset, packet, parent)
   if show.underlier_instrument_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.underlier_instrument_status_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.underlier_instrument_status_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.underlier_instrument_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1649,7 +1649,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.instrument_trading_status_reason = fun
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.instrument_trading_status_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status_reason, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1689,7 +1689,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.instrument_trading_status = function(b
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.instrument_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.instrument_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1742,7 +1742,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.options_instrument_status_message = function(buffer, offset, packet, parent)
   if show.options_instrument_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.options_instrument_status_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.options_instrument_status_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.options_instrument_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1778,7 +1778,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.is_test_symbol = function(buffer, offs
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.is_test_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.is_test_symbol, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.is_test_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1798,7 +1798,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.closing_time = function(buffer, offset
   local value = range:uint64()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.closing_time(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.closing_time, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.closing_time, range, value, display)
 
   return offset + length, value
 end
@@ -1825,7 +1825,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.closing_only = function(buffer, offset
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.closing_only(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.closing_only, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.closing_only, range, value, display)
 
   return offset + length, value
 end
@@ -1851,7 +1851,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.strike_price = function(buffer, offset
   local value = translate.strike_price(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.strike_price, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -1878,7 +1878,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.strike_put_or_call = function(buffer, 
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.strike_put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.strike_put_or_call, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.strike_put_or_call, range, value, display)
 
   return offset + length, value
 end
@@ -1914,7 +1914,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.maturity_date = function(buffer, offse
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.maturity_date(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.maturity_date, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -1950,7 +1950,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.osi_root = function(buffer, offset, pa
 
   local display = memx_options_memoirtop_sbe_v1_6_a_display.osi_root(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.osi_root, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.osi_root, range, value, display)
 
   return offset + length, value
 end
@@ -1977,7 +1977,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.options_product_type = function(buffer
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.options_product_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.options_product_type, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.options_product_type, range, value, display)
 
   return offset + length, value
 end
@@ -2060,7 +2060,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.instrument_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.instrument_directory_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2210,7 +2210,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.payload = function(buffer, offset, pac
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.payload(buffer, packet, parent)
-  local element = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.payload, range, display)
+  local element = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.payload, range, display)
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -2230,7 +2230,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.version = function(buffer, offset, pac
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.version, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -2250,7 +2250,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.schema_id = function(buffer, offset, p
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.schema_id, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -2310,7 +2310,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.template_id = function(buffer, offset,
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.template_id, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -2330,7 +2330,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.block_length = function(buffer, offset
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.block_length, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -2378,7 +2378,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2434,7 +2434,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.sbe_message = function(buffer, offset,
     local length = memx_options_memoirtop_sbe_v1_6_a_size_of.sbe_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memoirtop_sbe_v1_6_a_display.sbe_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.sbe_message, range, display)
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.sbe_message, range, display)
   end
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.sbe_message_fields(buffer, offset, packet, parent)
@@ -2455,7 +2455,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.message_length = function(buffer, offs
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.message_length, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2496,7 +2496,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.message = function(buffer, offset, pac
     local length = memx_options_memoirtop_sbe_v1_6_a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memoirtop_sbe_v1_6_a_display.message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.message, range, display)
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.message, range, display)
   end
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.message_fields(buffer, offset, packet, parent)
@@ -2517,7 +2517,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.message_count = function(buffer, offse
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.message_count, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2559,7 +2559,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.sequenced_message = function(buffer, o
     local length = memx_options_memoirtop_sbe_v1_6_a_size_of.sequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_memoirtop_sbe_v1_6_a_display.sequenced_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_message, range, display)
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_message, range, display)
   end
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.sequenced_message_fields(buffer, offset, packet, parent)
@@ -2605,7 +2605,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.sequenced_messages = function(buffer, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_options_memoirtop_sbe_v1_6_a_display.sequenced_messages(buffer, packet, parent)
-  local element = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_messages, range, display)
+  local element = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequenced_messages, range, display)
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.sequenced_messages_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2625,7 +2625,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.sequence_number = function(buffer, off
   local value = range:uint64()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.sequence_number, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2645,7 +2645,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.session_id = function(buffer, offset, 
   local value = range:uint64()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.session_id, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -2665,7 +2665,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.header_length = function(buffer, offse
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.header_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.header_length, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.header_length, range, value, display)
 
   return offset + length, value
 end
@@ -2695,7 +2695,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.message_type = function(buffer, offset
   local value = range:uint()
   local display = memx_options_memoirtop_sbe_v1_6_a_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.message_type, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2743,7 +2743,7 @@ end
 memx_options_memoirtop_sbe_v1_6_a_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2779,23 +2779,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function memx_options_memoirtop_sbe_v1_6_a.init()
+function omi_memx_options_memoirtop_sbe_v1_6_a.init()
 end
 
 -- Dissector for Memx Options MemoirTop Sbe 1.6.a
-function memx_options_memoirtop_sbe_v1_6_a.dissector(buffer, packet, parent)
+function omi_memx_options_memoirtop_sbe_v1_6_a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = memx_options_memoirtop_sbe_v1_6_a.name
+  packet.cols.protocol = omi_memx_options_memoirtop_sbe_v1_6_a.name
 
   -- Dissect protocol
-  local protocol = parent:add(memx_options_memoirtop_sbe_v1_6_a, buffer(), memx_options_memoirtop_sbe_v1_6_a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a, buffer(), omi_memx_options_memoirtop_sbe_v1_6_a.description, "("..buffer:len().." Bytes)")
   return memx_options_memoirtop_sbe_v1_6_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, memx_options_memoirtop_sbe_v1_6_a)
+udp_table:add(65333, omi_memx_options_memoirtop_sbe_v1_6_a)
 
 
 -----------------------------------------------------------------------
@@ -2803,7 +2803,7 @@ udp_table:add(65333, memx_options_memoirtop_sbe_v1_6_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.memx_options_memoirtop_sbe_v1_6_a_packet_size = function(buffer)
+verify.omi_memx_options_memoirtop_sbe_v1_6_a_packet_size = function(buffer)
 
   return true
 end
@@ -2833,9 +2833,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Memx Options MemoirTop Sbe 1.6.a
-local function memx_options_memoirtop_sbe_v1_6_a_heuristic(buffer, packet, parent)
+local function omi_memx_options_memoirtop_sbe_v1_6_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.memx_options_memoirtop_sbe_v1_6_a_packet_size(buffer) then return false end
+  if not verify.omi_memx_options_memoirtop_sbe_v1_6_a_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -2844,14 +2844,14 @@ local function memx_options_memoirtop_sbe_v1_6_a_heuristic(buffer, packet, paren
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = memx_options_memoirtop_sbe_v1_6_a
-  memx_options_memoirtop_sbe_v1_6_a.dissector(buffer, packet, parent)
+  packet.conversation = omi_memx_options_memoirtop_sbe_v1_6_a
+  omi_memx_options_memoirtop_sbe_v1_6_a.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Memx Options MemoirTop Sbe 1.6.a
-memx_options_memoirtop_sbe_v1_6_a:register_heuristic("udp", memx_options_memoirtop_sbe_v1_6_a_heuristic)
+omi_memx_options_memoirtop_sbe_v1_6_a:register_heuristic("udp", omi_memx_options_memoirtop_sbe_v1_6_a_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

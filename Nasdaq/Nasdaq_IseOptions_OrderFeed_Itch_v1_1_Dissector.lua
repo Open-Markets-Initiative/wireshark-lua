@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 Protocol
-local nasdaq_iseoptions_orderfeed_itch_v1_1 = Proto("Nasdaq.IseOptions.OrderFeed.Itch.v1.1.Lua", "Nasdaq IseOptions OrderFeed Itch 1.1")
+local omi_nasdaq_iseoptions_orderfeed_itch_v1_1 = Proto("Nasdaq.IseOptions.OrderFeed.Itch.v1.1.Lua", "Nasdaq IseOptions OrderFeed Itch 1.1")
 
 -- Component Tables
 local show = {}
@@ -21,72 +21,72 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 Fields
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_event = ProtoField.new("Auction Event", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionevent", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionid", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response = ProtoField.new("Auction Response", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionresponse", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.closing_only = ProtoField.new("Closing Only", "nasdaq.iseoptions.orderfeed.itch.v1.1.closingonly", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.cmta = ProtoField.new("Cmta", "nasdaq.iseoptions.orderfeed.itch.v1.1.cmta", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.contract_size = ProtoField.new("Contract Size", "nasdaq.iseoptions.orderfeed.itch.v1.1.contractsize", ftypes.UINT16)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_day = ProtoField.new("Current Day", "nasdaq.iseoptions.orderfeed.itch.v1.1.currentday", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_month = ProtoField.new("Current Month", "nasdaq.iseoptions.orderfeed.itch.v1.1.currentmonth", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.iseoptions.orderfeed.itch.v1.1.currenttradingstate", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_year = ProtoField.new("Current Year", "nasdaq.iseoptions.orderfeed.itch.v1.1.currentyear", ftypes.UINT16)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.iseoptions.orderfeed.itch.v1.1.eventcode", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.iseoptions.orderfeed.itch.v1.1.execflag", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.iseoptions.orderfeed.itch.v1.1.expirationday", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.iseoptions.orderfeed.itch.v1.1.expirationmonth", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.iseoptions.orderfeed.itch.v1.1.expirationyear", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.giveup = ProtoField.new("Giveup", "nasdaq.iseoptions.orderfeed.itch.v1.1.giveup", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalancedirection", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalanceprice", ftypes.DOUBLE)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalancevolume", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.message", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagecount", ftypes.UINT16)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageheader", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagelength", ftypes.UINT16)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagetype", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv = ProtoField.new("Mpv", "nasdaq.iseoptions.orderfeed.itch.v1.1.mpv", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.number_of_responses = ProtoField.new("Number Of Responses", "nasdaq.iseoptions.orderfeed.itch.v1.1.numberofresponses", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.open_state = ProtoField.new("Open State", "nasdaq.iseoptions.orderfeed.itch.v1.1.openstate", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.optionclosingtype", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_id = ProtoField.new("Option Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.optionid", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiontype", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_capacity = ProtoField.new("Order Capacity", "nasdaq.iseoptions.orderfeed.itch.v1.1.ordercapacity", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_type = ProtoField.new("Order Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.ordertype", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.owner_id = ProtoField.new("Owner Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.ownerid", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.orderfeed.itch.v1.1.packet", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.orderfeed.itch.v1.1.packetheader", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.iseoptions.orderfeed.itch.v1.1.pairedcontracts", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.payload = ProtoField.new("Payload", "nasdaq.iseoptions.orderfeed.itch.v1.1.payload", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.price", ftypes.DOUBLE)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.responseprice", ftypes.DOUBLE)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.iseoptions.orderfeed.itch.v1.1.responsesize", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.securitysymbol", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.orderfeed.itch.v1.1.sequencenumber", ftypes.UINT64)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.orderfeed.itch.v1.1.session", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.side = ProtoField.new("Side", "nasdaq.iseoptions.orderfeed.itch.v1.1.side", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size = ProtoField.new("Size", "nasdaq.iseoptions.orderfeed.itch.v1.1.size", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source = ProtoField.new("Source", "nasdaq.iseoptions.orderfeed.itch.v1.1.source", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.strikeprice", ftypes.DOUBLE)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.orderfeed.itch.v1.1.subversion", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.orderfeed.itch.v1.1.timestamp", ftypes.UINT64)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradable", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type = ProtoField.new("Trading Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingtype", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.orderfeed.itch.v1.1.version", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_event = ProtoField.new("Auction Event", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionevent", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionid", ftypes.UINT32)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response = ProtoField.new("Auction Response", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionresponse", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.closing_only = ProtoField.new("Closing Only", "nasdaq.iseoptions.orderfeed.itch.v1.1.closingonly", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.cmta = ProtoField.new("Cmta", "nasdaq.iseoptions.orderfeed.itch.v1.1.cmta", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.contract_size = ProtoField.new("Contract Size", "nasdaq.iseoptions.orderfeed.itch.v1.1.contractsize", ftypes.UINT16)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_day = ProtoField.new("Current Day", "nasdaq.iseoptions.orderfeed.itch.v1.1.currentday", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_month = ProtoField.new("Current Month", "nasdaq.iseoptions.orderfeed.itch.v1.1.currentmonth", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.iseoptions.orderfeed.itch.v1.1.currenttradingstate", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_year = ProtoField.new("Current Year", "nasdaq.iseoptions.orderfeed.itch.v1.1.currentyear", ftypes.UINT16)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.iseoptions.orderfeed.itch.v1.1.eventcode", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.iseoptions.orderfeed.itch.v1.1.execflag", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.iseoptions.orderfeed.itch.v1.1.expirationday", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.iseoptions.orderfeed.itch.v1.1.expirationmonth", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.iseoptions.orderfeed.itch.v1.1.expirationyear", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.giveup = ProtoField.new("Giveup", "nasdaq.iseoptions.orderfeed.itch.v1.1.giveup", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalancedirection", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalanceprice", ftypes.DOUBLE)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalancevolume", ftypes.UINT32)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.message", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagecount", ftypes.UINT16)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageheader", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagelength", ftypes.UINT16)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagetype", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv = ProtoField.new("Mpv", "nasdaq.iseoptions.orderfeed.itch.v1.1.mpv", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.number_of_responses = ProtoField.new("Number Of Responses", "nasdaq.iseoptions.orderfeed.itch.v1.1.numberofresponses", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.open_state = ProtoField.new("Open State", "nasdaq.iseoptions.orderfeed.itch.v1.1.openstate", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.optionclosingtype", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_id = ProtoField.new("Option Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.optionid", ftypes.UINT32)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiontype", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_capacity = ProtoField.new("Order Capacity", "nasdaq.iseoptions.orderfeed.itch.v1.1.ordercapacity", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_type = ProtoField.new("Order Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.ordertype", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.owner_id = ProtoField.new("Owner Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.ownerid", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.orderfeed.itch.v1.1.packet", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.orderfeed.itch.v1.1.packetheader", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.iseoptions.orderfeed.itch.v1.1.pairedcontracts", ftypes.UINT32)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.payload = ProtoField.new("Payload", "nasdaq.iseoptions.orderfeed.itch.v1.1.payload", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.price", ftypes.DOUBLE)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.responseprice", ftypes.DOUBLE)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.iseoptions.orderfeed.itch.v1.1.responsesize", ftypes.UINT32)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.securitysymbol", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.orderfeed.itch.v1.1.sequencenumber", ftypes.UINT64)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.orderfeed.itch.v1.1.session", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.side = ProtoField.new("Side", "nasdaq.iseoptions.orderfeed.itch.v1.1.side", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size = ProtoField.new("Size", "nasdaq.iseoptions.orderfeed.itch.v1.1.size", ftypes.UINT32)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source = ProtoField.new("Source", "nasdaq.iseoptions.orderfeed.itch.v1.1.source", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.strikeprice", ftypes.DOUBLE)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.orderfeed.itch.v1.1.subversion", ftypes.UINT8)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.orderfeed.itch.v1.1.timestamp", ftypes.UINT64)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradable", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type = ProtoField.new("Trading Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingtype", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.orderfeed.itch.v1.1.version", ftypes.UINT8)
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 messages
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message = ProtoField.new("Auction Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionmessage", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message = ProtoField.new("Opening Imbalance Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.openingimbalancemessage", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiondirectorymessage", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message = ProtoField.new("Order On Book Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.orderonbookmessage", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.securityopenclosedmessage", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.systemeventmessage", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingactionmessage", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message = ProtoField.new("Auction Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionmessage", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message = ProtoField.new("Opening Imbalance Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.openingimbalancemessage", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiondirectorymessage", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message = ProtoField.new("Order On Book Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.orderonbookmessage", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.securityopenclosedmessage", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.systemeventmessage", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 generated fields
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index = ProtoField.new("Auction Response Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionresponseindex", ftypes.UINT16)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageindex", ftypes.UINT16)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index = ProtoField.new("Auction Response Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionresponseindex", ftypes.UINT16)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -108,75 +108,75 @@ show.trading_action_message = true
 show.payload = false
 
 -- Register Nasdaq IseOptions OrderFeed Itch 1.1 Show Options
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message = Pref.bool("Show Auction Message", show.auction_message, "Parse and add Auction Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response = Pref.bool("Show Auction Response", show.auction_response, "Parse and add Auction Response to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message = Pref.bool("Show Opening Imbalance Message", show.opening_imbalance_message, "Parse and add Opening Imbalance Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message = Pref.bool("Show Option Directory Message", show.option_directory_message, "Parse and add Option Directory Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message = Pref.bool("Show Order On Book Message", show.order_on_book_message, "Parse and add Order On Book Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message = Pref.bool("Show Auction Message", show.auction_message, "Parse and add Auction Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response = Pref.bool("Show Auction Response", show.auction_response, "Parse and add Auction Response to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message = Pref.bool("Show Opening Imbalance Message", show.opening_imbalance_message, "Parse and add Opening Imbalance Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message = Pref.bool("Show Option Directory Message", show.option_directory_message, "Parse and add Option Directory Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message = Pref.bool("Show Order On Book Message", show.order_on_book_message, "Parse and add Order On Book Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_iseoptions_orderfeed_itch_v1_1.prefs_changed()
+function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message then
-    show.auction_message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message
+  if show.auction_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message then
+    show.auction_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message
     changed = true
   end
-  if show.auction_response ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response then
-    show.auction_response = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response
+  if show.auction_response ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response then
+    show.auction_response = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response
     changed = true
   end
-  if show.message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message then
-    show.message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message
+  if show.message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message then
+    show.message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header then
-    show.message_header = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header then
+    show.message_header = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header
     changed = true
   end
-  if show.opening_imbalance_message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message then
-    show.opening_imbalance_message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message
+  if show.opening_imbalance_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message then
+    show.opening_imbalance_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message
     changed = true
   end
-  if show.option_directory_message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message then
-    show.option_directory_message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message
+  if show.option_directory_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message then
+    show.option_directory_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message
     changed = true
   end
-  if show.order_on_book_message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message then
-    show.order_on_book_message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message
+  if show.order_on_book_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message then
+    show.order_on_book_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message
     changed = true
   end
-  if show.packet ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet then
-    show.packet = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet
+  if show.packet ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet then
+    show.packet = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header then
-    show.packet_header = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header
     changed = true
   end
-  if show.security_open_closed_message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message then
-    show.security_open_closed_message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message
+  if show.security_open_closed_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message then
+    show.security_open_closed_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message
     changed = true
   end
-  if show.system_event_message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message
+  if show.system_event_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message then
+    show.system_event_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message
     changed = true
   end
-  if show.trading_action_message ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message then
-    show.trading_action_message = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message
+  if show.trading_action_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message then
+    show.trading_action_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message
     changed = true
   end
-  if show.payload ~= nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_payload then
-    show.payload = nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_payload
+  if show.payload ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_payload then
+    show.payload = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_payload
     changed = true
   end
 
@@ -224,7 +224,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.response_size = function(buffer, o
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.response_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_size, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_size, range, value, display)
 
   return offset + length, value
 end
@@ -250,7 +250,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.response_price = function(buffer, 
   local value = translate.response_price(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.response_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price, range, value, display)
 
   return offset + length, value
 end
@@ -277,7 +277,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response_fields = function
 
   -- Implicit Auction Response Index
   if auction_response_index ~= nil then
-    local iteration = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index, auction_response_index)
+    local iteration = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index, auction_response_index)
     iteration:set_generated()
   end
 
@@ -294,7 +294,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response = function(buffer, offset, packet, parent, auction_response_index)
   if show.auction_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, parent, auction_response_index)
     local length = index - offset
     parent:set_len(length)
@@ -323,7 +323,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.number_of_responses = function(buf
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.number_of_responses(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.number_of_responses, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.number_of_responses, range, value, display)
 
   return offset + length, value
 end
@@ -353,7 +353,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_event = function(buffer, o
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.auction_event(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_event, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_event, range, value, display)
 
   return offset + length, value
 end
@@ -373,7 +373,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.cmta = function(buffer, offset, pa
   local value = trim_right_spaces(range:string())
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.cmta(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.cmta, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.cmta, range, value, display)
 
   return offset + length, value
 end
@@ -393,7 +393,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.giveup = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.giveup(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.giveup, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.giveup, range, value, display)
 
   return offset + length, value
 end
@@ -413,7 +413,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.owner_id = function(buffer, offset
   local value = trim_right_spaces(range:string())
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.owner_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.owner_id, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.owner_id, range, value, display)
 
   return offset + length, value
 end
@@ -458,7 +458,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_capacity = function(buffer, 
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.order_capacity(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_capacity, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -488,7 +488,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.exec_flag = function(buffer, offse
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.exec_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.exec_flag, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.exec_flag, range, value, display)
 
   return offset + length, value
 end
@@ -508,7 +508,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.size = function(buffer, offset, pa
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -534,7 +534,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.price = function(buffer, offset, p
   local value = translate.price(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.price, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -564,7 +564,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.side = function(buffer, offset, pa
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.side, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -591,7 +591,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_type = function(buffer, offs
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.order_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_type, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_type, range, value, display)
 
   return offset + length, value
 end
@@ -611,7 +611,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_id = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_id, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -631,7 +631,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_id = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.option_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_id, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_id, range, value, display)
 
   return offset + length, value
 end
@@ -651,7 +651,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.timestamp = function(buffer, offse
   local value = range:uint64()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -761,7 +761,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_message = function(buffer,
     local length = nasdaq_iseoptions_orderfeed_itch_v1_1_size_of.auction_message(buffer, offset)
     local range = buffer(offset, length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.auction_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message, range, display)
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message, range, display)
   end
 
   return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_message_fields(buffer, offset, packet, parent)
@@ -845,7 +845,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_on_book_message = function(buffer, offset, packet, parent)
   if show.order_on_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_on_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -874,7 +874,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.imbalance_volume = function(buffer
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_volume, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
 end
@@ -900,7 +900,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.imbalance_price = function(buffer,
   local value = translate.imbalance_price(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.imbalance_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price, range, value, display)
 
   return offset + length, value
 end
@@ -927,7 +927,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.imbalance_direction = function(buf
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.imbalance_direction(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_direction, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_direction, range, value, display)
 
   return offset + length, value
 end
@@ -947,7 +947,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.paired_contracts = function(buffer
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.paired_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.paired_contracts, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.paired_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -1005,7 +1005,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.opening_imbalance_message = function(buffer, offset, packet, parent)
   if show.opening_imbalance_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.opening_imbalance_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1041,7 +1041,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.open_state = function(buffer, offs
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.open_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.open_state, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.open_state, range, value, display)
 
   return offset + length, value
 end
@@ -1084,7 +1084,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   if show.security_open_closed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1120,7 +1120,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.current_trading_state = function(b
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_trading_state, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -1163,7 +1163,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1199,7 +1199,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.closing_only = function(buffer, of
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.closing_only(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.closing_only, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.closing_only, range, value, display)
 
   return offset + length, value
 end
@@ -1229,7 +1229,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.mpv = function(buffer, offset, pac
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -1256,7 +1256,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.tradable = function(buffer, offset
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.tradable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable, range, value, display)
 
   return offset + length, value
 end
@@ -1283,7 +1283,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_closing_type = function(buf
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.option_closing_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_closing_type, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_closing_type, range, value, display)
 
   return offset + length, value
 end
@@ -1303,7 +1303,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.contract_size = function(buffer, o
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.contract_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.contract_size, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.contract_size, range, value, display)
 
   return offset + length, value
 end
@@ -1336,7 +1336,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_type = function(buffer, of
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.trading_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type, range, value, display)
 
   return offset + length, value
 end
@@ -1356,7 +1356,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.underlying_symbol = function(buffe
   local value = trim_right_spaces(range:string())
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1376,7 +1376,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.source = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.source(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source, range, value, display)
 
   return offset + length, value
 end
@@ -1403,7 +1403,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_type = function(buffer, off
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_type, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -1429,7 +1429,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.strike_price = function(buffer, of
   local value = translate.strike_price(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -1449,7 +1449,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.expiration_day = function(buffer, 
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.expiration_day(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_day, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_day, range, value, display)
 
   return offset + length, value
 end
@@ -1469,7 +1469,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.expiration_month = function(buffer
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_month, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -1489,7 +1489,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.expiration_year = function(buffer,
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_year, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -1509,7 +1509,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_symbol = function(buffer,
   local value = trim_right_spaces(range:string())
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_symbol, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1617,7 +1617,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_directory_message = function(buffer, offset, packet, parent)
   if show.option_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1646,7 +1646,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.subversion = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.subversion(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion, range, value, display)
 
   return offset + length, value
 end
@@ -1666,7 +1666,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.version = function(buffer, offset,
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1686,7 +1686,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.current_day = function(buffer, off
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.current_day(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_day, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_day, range, value, display)
 
   return offset + length, value
 end
@@ -1706,7 +1706,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.current_month = function(buffer, o
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.current_month(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_month, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_month, range, value, display)
 
   return offset + length, value
 end
@@ -1726,7 +1726,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.current_year = function(buffer, of
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.current_year(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_year, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_year, range, value, display)
 
   return offset + length, value
 end
@@ -1771,7 +1771,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.event_code = function(buffer, offs
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.event_code, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -1834,7 +1834,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1936,7 +1936,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.payload = function(buffer, offset,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.payload, range, display)
 
   return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1978,7 +1978,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_type = function(buffer, of
   local value = range:string()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1998,7 +1998,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_length = function(buffer, 
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2036,7 +2036,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2061,7 +2061,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_fields = function(buffer, 
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2083,7 +2083,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message = function(buffer, offset,
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message, buffer(offset, 0))
     local current = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.message(buffer, packet, parent)
@@ -2113,7 +2113,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_count = function(buffer, o
   local value = range:uint()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_count, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2133,7 +2133,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.sequence_number = function(buffer,
   local value = range:uint64()
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2169,7 +2169,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.session = function(buffer, offset,
 
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.session, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2212,7 +2212,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2258,23 +2258,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_iseoptions_orderfeed_itch_v1_1.init()
+function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.init()
 end
 
 -- Dissector for Nasdaq IseOptions OrderFeed Itch 1.1
-function nasdaq_iseoptions_orderfeed_itch_v1_1.dissector(buffer, packet, parent)
+function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_iseoptions_orderfeed_itch_v1_1.name
+  packet.cols.protocol = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1, buffer(), nasdaq_iseoptions_orderfeed_itch_v1_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1, buffer(), omi_nasdaq_iseoptions_orderfeed_itch_v1_1.description, "("..buffer:len().." Bytes)")
   return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_iseoptions_orderfeed_itch_v1_1)
+udp_table:add(65333, omi_nasdaq_iseoptions_orderfeed_itch_v1_1)
 
 
 -----------------------------------------------------------------------
@@ -2282,25 +2282,25 @@ udp_table:add(65333, nasdaq_iseoptions_orderfeed_itch_v1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_iseoptions_orderfeed_itch_v1_1_packet_size = function(buffer)
+verify.omi_nasdaq_iseoptions_orderfeed_itch_v1_1_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq IseOptions OrderFeed Itch 1.1
-local function nasdaq_iseoptions_orderfeed_itch_v1_1_heuristic(buffer, packet, parent)
+local function omi_nasdaq_iseoptions_orderfeed_itch_v1_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_iseoptions_orderfeed_itch_v1_1_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_iseoptions_orderfeed_itch_v1_1_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_iseoptions_orderfeed_itch_v1_1
-  nasdaq_iseoptions_orderfeed_itch_v1_1.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_iseoptions_orderfeed_itch_v1_1
+  omi_nasdaq_iseoptions_orderfeed_itch_v1_1.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq IseOptions OrderFeed Itch 1.1
-nasdaq_iseoptions_orderfeed_itch_v1_1:register_heuristic("udp", nasdaq_iseoptions_orderfeed_itch_v1_1_heuristic)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1:register_heuristic("udp", omi_nasdaq_iseoptions_orderfeed_itch_v1_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

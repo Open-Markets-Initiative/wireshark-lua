@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq Utdf Output Utp 1.5 Protocol
-local nasdaq_utdf_output_utp_v1_5 = Proto("Nasdaq.Utdf.Output.Utp.v1.5.Lua", "Nasdaq Utdf Output Utp 1.5")
+local omi_nasdaq_utdf_output_utp_v1_5 = Proto("Nasdaq.Utdf.Output.Utp.v1.5.Lua", "Nasdaq Utdf Output Utp 1.5")
 
 -- Component Tables
 local show = {}
@@ -21,142 +21,142 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Utdf Output Utp 1.5 Fields
-nasdaq_utdf_output_utp_v1_5.fields.action_timestamp = ProtoField.new("Action Timestamp", "nasdaq.utdf.output.utp.v1.5.actiontimestamp", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrative", "nasdaq.utdf.output.utp.v1.5.administrative", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.utdf.output.utp.v1.5.administrativemessagetype", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.administrative_payload = ProtoField.new("Administrative Payload", "nasdaq.utdf.output.utp.v1.5.administrativepayload", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.as_of_action = ProtoField.new("As Of Action", "nasdaq.utdf.output.utp.v1.5.asofaction", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.utdf.output.utp.v1.5.authenticity", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.utdf.output.utp.v1.5.collardownprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.collar_extension_indicator = ProtoField.new("Collar Extension Indicator", "nasdaq.utdf.output.utp.v1.5.collarextensionindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.utdf.output.utp.v1.5.collarreferenceprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.utdf.output.utp.v1.5.collarupprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.consolidatedhighprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price = ProtoField.new("Consolidated Last Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlastprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlowprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator = ProtoField.new("Consolidated Price Change Indicator", "nasdaq.utdf.output.utp.v1.5.consolidatedpricechangeindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume = ProtoField.new("Consolidated Volume", "nasdaq.utdf.output.utp.v1.5.consolidatedvolume", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.control = ProtoField.new("Control", "nasdaq.utdf.output.utp.v1.5.control", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.utdf.output.utp.v1.5.controlmessagetype", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.control_payload = ProtoField.new("Control Payload", "nasdaq.utdf.output.utp.v1.5.controlpayload", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.correctedsellerssaledays", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id = ProtoField.new("Corrected Trade Id", "nasdaq.utdf.output.utp.v1.5.correctedtradeid", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.utdf.output.utp.v1.5.correctedtradeprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_through_exempt_flag = ProtoField.new("Corrected Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.correctedtradethroughexemptflag", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.corrected_volume = ProtoField.new("Corrected Volume", "nasdaq.utdf.output.utp.v1.5.correctedvolume", ftypes.UINT32)
-nasdaq_utdf_output_utp_v1_5.fields.count = ProtoField.new("Count", "nasdaq.utdf.output.utp.v1.5.count", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.current_market_center_volume = ProtoField.new("Current Market Center Volume", "nasdaq.utdf.output.utp.v1.5.currentmarketcentervolume", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price = ProtoField.new("Daily Consolidated Closing Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedclosingprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price = ProtoField.new("Daily Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedhighprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price = ProtoField.new("Daily Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedlowprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.utdf.output.utp.v1.5.financialstatusindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp = ProtoField.new("Finra Timestamp", "nasdaq.utdf.output.utp.v1.5.finratimestamp", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.issue_name = ProtoField.new("Issue Name", "nasdaq.utdf.output.utp.v1.5.issuename", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.utdf.output.utp.v1.5.issuesubtype", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.issue_type = ProtoField.new("Issue Type", "nasdaq.utdf.output.utp.v1.5.issuetype", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.level_1 = ProtoField.new("Level 1", "nasdaq.utdf.output.utp.v1.5.level1", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.level_2 = ProtoField.new("Level 2", "nasdaq.utdf.output.utp.v1.5.level2", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.level_3 = ProtoField.new("Level 3", "nasdaq.utdf.output.utp.v1.5.level3", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.level_4 = ProtoField.new("Level 4", "nasdaq.utdf.output.utp.v1.5.level4", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.limit_down_price = ProtoField.new("Limit Down Price", "nasdaq.utdf.output.utp.v1.5.limitdownprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.utdf.output.utp.v1.5.limitupprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.utdf.output.utp.v1.5.luldpricebandindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp = ProtoField.new("Luld Timestamp", "nasdaq.utdf.output.utp.v1.5.luldtimestamp", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_close_indicator = ProtoField.new("Market Center Close Indicator", "nasdaq.utdf.output.utp.v1.5.marketcentercloseindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price = ProtoField.new("Market Center Closing Price", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary = ProtoField.new("Market Center Closing Price And Volume Summary", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingpriceandvolumesummary", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.utdf.output.utp.v1.5.marketcenteridentifier", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "nasdaq.utdf.output.utp.v1.5.marketcenteroriginatorid", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_volume = ProtoField.new("Market Center Volume", "nasdaq.utdf.output.utp.v1.5.marketcentervolume", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment = ProtoField.new("Market Center Volume Attachment", "nasdaq.utdf.output.utp.v1.5.marketcentervolumeattachment", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price = ProtoField.new("Market Participant High Price", "nasdaq.utdf.output.utp.v1.5.marketparticipanthighprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price = ProtoField.new("Market Participant Last Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlastprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price = ProtoField.new("Market Participant Low Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlowprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume = ProtoField.new("Market Participant Volume", "nasdaq.utdf.output.utp.v1.5.marketparticipantvolume", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.utdf.output.utp.v1.5.markettier", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v1.5.message", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.message_category = ProtoField.new("Message Category", "nasdaq.utdf.output.utp.v1.5.messagecategory", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v1.5.messageheader", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.message_info = ProtoField.new("Message Info", "nasdaq.utdf.output.utp.v1.5.messageinfo", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.message_length = ProtoField.new("Message Length", "nasdaq.utdf.output.utp.v1.5.messagelength", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.utdf.output.utp.v1.5.mwcblevel1", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.utdf.output.utp.v1.5.mwcblevel2", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "nasdaq.utdf.output.utp.v1.5.mwcblevel3", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries = ProtoField.new("Number Of Market Center Summaries", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentersummaries", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes = ProtoField.new("Number Of Market Center Volumes", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentervolumes", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.utdf.output.utp.v1.5.oldsymbol", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days = ProtoField.new("Original Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.originalsellerssaledays", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.original_trade_id = ProtoField.new("Original Trade Id", "nasdaq.utdf.output.utp.v1.5.originaltradeid", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.utdf.output.utp.v1.5.originaltradeprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag = ProtoField.new("Original Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.originaltradethroughexemptflag", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.utdf.output.utp.v1.5.originalvolume", ftypes.UINT32)
-nasdaq_utdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.utdf.output.utp.v1.5.packet", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.utdf.output.utp.v1.5.packetheader", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator = ProtoField.new("Participant Price Change Indicator", "nasdaq.utdf.output.utp.v1.5.participantpricechangeindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "nasdaq.utdf.output.utp.v1.5.participanttimestamp", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.utdf.output.utp.v1.5.participanttoken", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.payload = ProtoField.new("Payload", "nasdaq.utdf.output.utp.v1.5.payload", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.utdf.output.utp.v1.5.regshoaction", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.utdf.output.utp.v1.5.roundlotsize", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.sale_condition = ProtoField.new("Sale Condition", "nasdaq.utdf.output.utp.v1.5.salecondition", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.sellerssaledays", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.sequence = ProtoField.new("Sequence", "nasdaq.utdf.output.utp.v1.5.sequence", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.session = ProtoField.new("Session", "nasdaq.utdf.output.utp.v1.5.session", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.utdf.output.utp.v1.5.shortsalethresholdindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utdf.output.utp.v1.5.siptimestamp", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.utdf.output.utp.v1.5.submarketcenterid", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.symbol = ProtoField.new("Symbol", "nasdaq.utdf.output.utp.v1.5.symbol", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.text = ProtoField.new("Text", "nasdaq.utdf.output.utp.v1.5.text", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.text_length = ProtoField.new("Text Length", "nasdaq.utdf.output.utp.v1.5.textlength", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade = ProtoField.new("Timestamp Of Trade", "nasdaq.utdf.output.utp.v1.5.timestampoftrade", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_volume = ProtoField.new("Total Consolidated Volume", "nasdaq.utdf.output.utp.v1.5.totalconsolidatedvolume", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.trade = ProtoField.new("Trade", "nasdaq.utdf.output.utp.v1.5.trade", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_cancellation_type = ProtoField.new("Trade Cancellation Type", "nasdaq.utdf.output.utp.v1.5.tradecancellationtype", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_id = ProtoField.new("Trade Id", "nasdaq.utdf.output.utp.v1.5.tradeid", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.trade_message_type = ProtoField.new("Trade Message Type", "nasdaq.utdf.output.utp.v1.5.trademessagetype", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_payload = ProtoField.new("Trade Payload", "nasdaq.utdf.output.utp.v1.5.tradepayload", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.utdf.output.utp.v1.5.tradeprice", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.trade_price_short = ProtoField.new("Trade Price Short", "nasdaq.utdf.output.utp.v1.5.tradepriceshort", ftypes.DOUBLE)
-nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag = ProtoField.new("Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.tradethroughexemptflag", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_volume = ProtoField.new("Trade Volume", "nasdaq.utdf.output.utp.v1.5.tradevolume", ftypes.UINT32)
-nasdaq_utdf_output_utp_v1_5.fields.trade_volume_short = ProtoField.new("Trade Volume Short", "nasdaq.utdf.output.utp.v1.5.tradevolumeshort", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.trading_action_code = ProtoField.new("Trading Action Code", "nasdaq.utdf.output.utp.v1.5.tradingactioncode", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trading_action_indicator = ProtoField.new("Trading Action Indicator", "nasdaq.utdf.output.utp.v1.5.tradingactionindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.utdf.output.utp.v1.5.tradingactionreason", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.utdf.output.utp.v1.5.tradingactionsequencenumber", ftypes.UINT32)
-nasdaq_utdf_output_utp_v1_5.fields.version = ProtoField.new("Version", "nasdaq.utdf.output.utp.v1.5.version", ftypes.UINT8)
-nasdaq_utdf_output_utp_v1_5.fields.volume = ProtoField.new("Volume", "nasdaq.utdf.output.utp.v1.5.volume", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.volume_message_type = ProtoField.new("Volume Message Type", "nasdaq.utdf.output.utp.v1.5.volumemessagetype", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.volume_payload = ProtoField.new("Volume Payload", "nasdaq.utdf.output.utp.v1.5.volumepayload", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp = ProtoField.new("Action Timestamp", "nasdaq.utdf.output.utp.v1.5.actiontimestamp", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrative", "nasdaq.utdf.output.utp.v1.5.administrative", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.utdf.output.utp.v1.5.administrativemessagetype", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_payload = ProtoField.new("Administrative Payload", "nasdaq.utdf.output.utp.v1.5.administrativepayload", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.as_of_action = ProtoField.new("As Of Action", "nasdaq.utdf.output.utp.v1.5.asofaction", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.utdf.output.utp.v1.5.authenticity", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.utdf.output.utp.v1.5.collardownprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.collar_extension_indicator = ProtoField.new("Collar Extension Indicator", "nasdaq.utdf.output.utp.v1.5.collarextensionindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.utdf.output.utp.v1.5.collarreferenceprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.utdf.output.utp.v1.5.collarupprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.consolidatedhighprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price = ProtoField.new("Consolidated Last Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlastprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlowprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator = ProtoField.new("Consolidated Price Change Indicator", "nasdaq.utdf.output.utp.v1.5.consolidatedpricechangeindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume = ProtoField.new("Consolidated Volume", "nasdaq.utdf.output.utp.v1.5.consolidatedvolume", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.control = ProtoField.new("Control", "nasdaq.utdf.output.utp.v1.5.control", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.utdf.output.utp.v1.5.controlmessagetype", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.control_payload = ProtoField.new("Control Payload", "nasdaq.utdf.output.utp.v1.5.controlpayload", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.correctedsellerssaledays", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id = ProtoField.new("Corrected Trade Id", "nasdaq.utdf.output.utp.v1.5.correctedtradeid", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.utdf.output.utp.v1.5.correctedtradeprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_through_exempt_flag = ProtoField.new("Corrected Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.correctedtradethroughexemptflag", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_volume = ProtoField.new("Corrected Volume", "nasdaq.utdf.output.utp.v1.5.correctedvolume", ftypes.UINT32)
+omi_nasdaq_utdf_output_utp_v1_5.fields.count = ProtoField.new("Count", "nasdaq.utdf.output.utp.v1.5.count", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.current_market_center_volume = ProtoField.new("Current Market Center Volume", "nasdaq.utdf.output.utp.v1.5.currentmarketcentervolume", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price = ProtoField.new("Daily Consolidated Closing Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedclosingprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price = ProtoField.new("Daily Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedhighprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price = ProtoField.new("Daily Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedlowprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.utdf.output.utp.v1.5.financialstatusindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp = ProtoField.new("Finra Timestamp", "nasdaq.utdf.output.utp.v1.5.finratimestamp", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.issue_name = ProtoField.new("Issue Name", "nasdaq.utdf.output.utp.v1.5.issuename", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.utdf.output.utp.v1.5.issuesubtype", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.issue_type = ProtoField.new("Issue Type", "nasdaq.utdf.output.utp.v1.5.issuetype", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.level_1 = ProtoField.new("Level 1", "nasdaq.utdf.output.utp.v1.5.level1", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.level_2 = ProtoField.new("Level 2", "nasdaq.utdf.output.utp.v1.5.level2", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.level_3 = ProtoField.new("Level 3", "nasdaq.utdf.output.utp.v1.5.level3", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.level_4 = ProtoField.new("Level 4", "nasdaq.utdf.output.utp.v1.5.level4", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.limit_down_price = ProtoField.new("Limit Down Price", "nasdaq.utdf.output.utp.v1.5.limitdownprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.utdf.output.utp.v1.5.limitupprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.utdf.output.utp.v1.5.luldpricebandindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp = ProtoField.new("Luld Timestamp", "nasdaq.utdf.output.utp.v1.5.luldtimestamp", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_close_indicator = ProtoField.new("Market Center Close Indicator", "nasdaq.utdf.output.utp.v1.5.marketcentercloseindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price = ProtoField.new("Market Center Closing Price", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary = ProtoField.new("Market Center Closing Price And Volume Summary", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingpriceandvolumesummary", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.utdf.output.utp.v1.5.marketcenteridentifier", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "nasdaq.utdf.output.utp.v1.5.marketcenteroriginatorid", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume = ProtoField.new("Market Center Volume", "nasdaq.utdf.output.utp.v1.5.marketcentervolume", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment = ProtoField.new("Market Center Volume Attachment", "nasdaq.utdf.output.utp.v1.5.marketcentervolumeattachment", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price = ProtoField.new("Market Participant High Price", "nasdaq.utdf.output.utp.v1.5.marketparticipanthighprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price = ProtoField.new("Market Participant Last Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlastprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price = ProtoField.new("Market Participant Low Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlowprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume = ProtoField.new("Market Participant Volume", "nasdaq.utdf.output.utp.v1.5.marketparticipantvolume", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.utdf.output.utp.v1.5.markettier", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v1.5.message", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message_category = ProtoField.new("Message Category", "nasdaq.utdf.output.utp.v1.5.messagecategory", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v1.5.messageheader", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message_info = ProtoField.new("Message Info", "nasdaq.utdf.output.utp.v1.5.messageinfo", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message_length = ProtoField.new("Message Length", "nasdaq.utdf.output.utp.v1.5.messagelength", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.utdf.output.utp.v1.5.mwcblevel1", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.utdf.output.utp.v1.5.mwcblevel2", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "nasdaq.utdf.output.utp.v1.5.mwcblevel3", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries = ProtoField.new("Number Of Market Center Summaries", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentersummaries", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes = ProtoField.new("Number Of Market Center Volumes", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentervolumes", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.utdf.output.utp.v1.5.oldsymbol", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days = ProtoField.new("Original Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.originalsellerssaledays", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_id = ProtoField.new("Original Trade Id", "nasdaq.utdf.output.utp.v1.5.originaltradeid", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.utdf.output.utp.v1.5.originaltradeprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag = ProtoField.new("Original Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.originaltradethroughexemptflag", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.utdf.output.utp.v1.5.originalvolume", ftypes.UINT32)
+omi_nasdaq_utdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.utdf.output.utp.v1.5.packet", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.utdf.output.utp.v1.5.packetheader", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator = ProtoField.new("Participant Price Change Indicator", "nasdaq.utdf.output.utp.v1.5.participantpricechangeindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "nasdaq.utdf.output.utp.v1.5.participanttimestamp", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.utdf.output.utp.v1.5.participanttoken", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.payload = ProtoField.new("Payload", "nasdaq.utdf.output.utp.v1.5.payload", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.utdf.output.utp.v1.5.regshoaction", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.utdf.output.utp.v1.5.roundlotsize", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.sale_condition = ProtoField.new("Sale Condition", "nasdaq.utdf.output.utp.v1.5.salecondition", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.sellerssaledays", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.sequence = ProtoField.new("Sequence", "nasdaq.utdf.output.utp.v1.5.sequence", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.session = ProtoField.new("Session", "nasdaq.utdf.output.utp.v1.5.session", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.utdf.output.utp.v1.5.shortsalethresholdindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utdf.output.utp.v1.5.siptimestamp", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.utdf.output.utp.v1.5.submarketcenterid", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.symbol = ProtoField.new("Symbol", "nasdaq.utdf.output.utp.v1.5.symbol", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.text = ProtoField.new("Text", "nasdaq.utdf.output.utp.v1.5.text", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.text_length = ProtoField.new("Text Length", "nasdaq.utdf.output.utp.v1.5.textlength", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade = ProtoField.new("Timestamp Of Trade", "nasdaq.utdf.output.utp.v1.5.timestampoftrade", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_volume = ProtoField.new("Total Consolidated Volume", "nasdaq.utdf.output.utp.v1.5.totalconsolidatedvolume", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade = ProtoField.new("Trade", "nasdaq.utdf.output.utp.v1.5.trade", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancellation_type = ProtoField.new("Trade Cancellation Type", "nasdaq.utdf.output.utp.v1.5.tradecancellationtype", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_id = ProtoField.new("Trade Id", "nasdaq.utdf.output.utp.v1.5.tradeid", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_message_type = ProtoField.new("Trade Message Type", "nasdaq.utdf.output.utp.v1.5.trademessagetype", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_payload = ProtoField.new("Trade Payload", "nasdaq.utdf.output.utp.v1.5.tradepayload", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.utdf.output.utp.v1.5.tradeprice", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price_short = ProtoField.new("Trade Price Short", "nasdaq.utdf.output.utp.v1.5.tradepriceshort", ftypes.DOUBLE)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag = ProtoField.new("Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.tradethroughexemptflag", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume = ProtoField.new("Trade Volume", "nasdaq.utdf.output.utp.v1.5.tradevolume", ftypes.UINT32)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume_short = ProtoField.new("Trade Volume Short", "nasdaq.utdf.output.utp.v1.5.tradevolumeshort", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_code = ProtoField.new("Trading Action Code", "nasdaq.utdf.output.utp.v1.5.tradingactioncode", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_indicator = ProtoField.new("Trading Action Indicator", "nasdaq.utdf.output.utp.v1.5.tradingactionindicator", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.utdf.output.utp.v1.5.tradingactionreason", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.utdf.output.utp.v1.5.tradingactionsequencenumber", ftypes.UINT32)
+omi_nasdaq_utdf_output_utp_v1_5.fields.version = ProtoField.new("Version", "nasdaq.utdf.output.utp.v1.5.version", ftypes.UINT8)
+omi_nasdaq_utdf_output_utp_v1_5.fields.volume = ProtoField.new("Volume", "nasdaq.utdf.output.utp.v1.5.volume", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.volume_message_type = ProtoField.new("Volume Message Type", "nasdaq.utdf.output.utp.v1.5.volumemessagetype", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.volume_payload = ProtoField.new("Volume Payload", "nasdaq.utdf.output.utp.v1.5.volumepayload", ftypes.STRING)
 
 -- Nasdaq Utdf Output Utp 1.5 messages
-nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utdf.output.utp.v1.5.auctioncollarmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "nasdaq.utdf.output.utp.v1.5.closingtradesummaryreportmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.cross_sro_trading_action_message = ProtoField.new("Cross Sro Trading Action Message", "nasdaq.utdf.output.utp.v1.5.crosssrotradingactionmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.end_of_consolidated_last_sale_eligibility = ProtoField.new("End Of Consolidated Last Sale Eligibility", "nasdaq.utdf.output.utp.v1.5.endofconsolidatedlastsaleeligibility", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.end_of_day_message = ProtoField.new("End Of Day Message", "nasdaq.utdf.output.utp.v1.5.endofdaymessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "nasdaq.utdf.output.utp.v1.5.endoftradereportingmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.end_of_transmissions_message = ProtoField.new("End Of Transmissions Message", "nasdaq.utdf.output.utp.v1.5.endoftransmissionsmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.general_administrative_message = ProtoField.new("General Administrative Message", "nasdaq.utdf.output.utp.v1.5.generaladministrativemessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.issue_symbol_directory_message = ProtoField.new("Issue Symbol Directory Message", "nasdaq.utdf.output.utp.v1.5.issuesymboldirectorymessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message = ProtoField.new("Limit Up Limit Down Price Band Message", "nasdaq.utdf.output.utp.v1.5.limituplimitdownpricebandmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_trading_action_message = ProtoField.new("Market Center Trading Action Message", "nasdaq.utdf.output.utp.v1.5.marketcentertradingactionmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "nasdaq.utdf.output.utp.v1.5.marketsessionclosemessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "nasdaq.utdf.output.utp.v1.5.marketsessionopenmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_decline_level_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Message", "nasdaq.utdf.output.utp.v1.5.marketwidecircuitbreakerdeclinelevelmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.prior_day_as_of_trade_message = ProtoField.new("Prior Day As Of Trade Message", "nasdaq.utdf.output.utp.v1.5.priordayasoftrademessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Regulation Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.utdf.output.utp.v1.5.regulationshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "nasdaq.utdf.output.utp.v1.5.startofdaymessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_and_market_center_volume_message = ProtoField.new("Total Consolidated And Market Center Volume Message", "nasdaq.utdf.output.utp.v1.5.totalconsolidatedandmarketcentervolumemessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "nasdaq.utdf.output.utp.v1.5.tradecancelerrormessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.utdf.output.utp.v1.5.tradecorrectionmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_long_form_message = ProtoField.new("Trade Report Message Long Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessagelongformmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_short_form_message = ProtoField.new("Trade Report Message Short Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessageshortformmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utdf.output.utp.v1.5.auctioncollarmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "nasdaq.utdf.output.utp.v1.5.closingtradesummaryreportmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.cross_sro_trading_action_message = ProtoField.new("Cross Sro Trading Action Message", "nasdaq.utdf.output.utp.v1.5.crosssrotradingactionmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_consolidated_last_sale_eligibility = ProtoField.new("End Of Consolidated Last Sale Eligibility", "nasdaq.utdf.output.utp.v1.5.endofconsolidatedlastsaleeligibility", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_day_message = ProtoField.new("End Of Day Message", "nasdaq.utdf.output.utp.v1.5.endofdaymessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "nasdaq.utdf.output.utp.v1.5.endoftradereportingmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_transmissions_message = ProtoField.new("End Of Transmissions Message", "nasdaq.utdf.output.utp.v1.5.endoftransmissionsmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.general_administrative_message = ProtoField.new("General Administrative Message", "nasdaq.utdf.output.utp.v1.5.generaladministrativemessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.issue_symbol_directory_message = ProtoField.new("Issue Symbol Directory Message", "nasdaq.utdf.output.utp.v1.5.issuesymboldirectorymessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message = ProtoField.new("Limit Up Limit Down Price Band Message", "nasdaq.utdf.output.utp.v1.5.limituplimitdownpricebandmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_trading_action_message = ProtoField.new("Market Center Trading Action Message", "nasdaq.utdf.output.utp.v1.5.marketcentertradingactionmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "nasdaq.utdf.output.utp.v1.5.marketsessionclosemessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "nasdaq.utdf.output.utp.v1.5.marketsessionopenmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_decline_level_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Message", "nasdaq.utdf.output.utp.v1.5.marketwidecircuitbreakerdeclinelevelmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.prior_day_as_of_trade_message = ProtoField.new("Prior Day As Of Trade Message", "nasdaq.utdf.output.utp.v1.5.priordayasoftrademessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Regulation Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.utdf.output.utp.v1.5.regulationshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "nasdaq.utdf.output.utp.v1.5.startofdaymessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_and_market_center_volume_message = ProtoField.new("Total Consolidated And Market Center Volume Message", "nasdaq.utdf.output.utp.v1.5.totalconsolidatedandmarketcentervolumemessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "nasdaq.utdf.output.utp.v1.5.tradecancelerrormessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.utdf.output.utp.v1.5.tradecorrectionmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_long_form_message = ProtoField.new("Trade Report Message Long Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessagelongformmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_short_form_message = ProtoField.new("Trade Report Message Short Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessageshortformmessage", ftypes.STRING)
 
 -- Nasdaq Utdf Output Utp 1.5 generated fields
-nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary_index = ProtoField.new("Market Center Closing Price And Volume Summary Index", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingpriceandvolumesummaryindex", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment_index = ProtoField.new("Market Center Volume Attachment Index", "nasdaq.utdf.output.utp.v1.5.marketcentervolumeattachmentindex", ftypes.UINT16)
-nasdaq_utdf_output_utp_v1_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.utdf.output.utp.v1.5.messageindex", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary_index = ProtoField.new("Market Center Closing Price And Volume Summary Index", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingpriceandvolumesummaryindex", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment_index = ProtoField.new("Market Center Volume Attachment Index", "nasdaq.utdf.output.utp.v1.5.marketcentervolumeattachmentindex", ftypes.UINT16)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.utdf.output.utp.v1.5.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -204,205 +204,205 @@ show.trade_payload = false
 show.volume_payload = false
 
 -- Register Nasdaq Utdf Output Utp 1.5 Show Options
-nasdaq_utdf_output_utp_v1_5.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message = Pref.bool("Show Auction Collar Message", show.auction_collar_message, "Parse and add Auction Collar Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message = Pref.bool("Show Closing Trade Summary Report Message", show.closing_trade_summary_report_message, "Parse and add Closing Trade Summary Report Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message = Pref.bool("Show Cross Sro Trading Action Message", show.cross_sro_trading_action_message, "Parse and add Cross Sro Trading Action Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility = Pref.bool("Show End Of Consolidated Last Sale Eligibility", show.end_of_consolidated_last_sale_eligibility, "Parse and add End Of Consolidated Last Sale Eligibility to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message = Pref.bool("Show Issue Symbol Directory Message", show.issue_symbol_directory_message, "Parse and add Issue Symbol Directory Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message = Pref.bool("Show Limit Up Limit Down Price Band Message", show.limit_up_limit_down_price_band_message, "Parse and add Limit Up Limit Down Price Band Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary = Pref.bool("Show Market Center Closing Price And Volume Summary", show.market_center_closing_price_and_volume_summary, "Parse and add Market Center Closing Price And Volume Summary to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message = Pref.bool("Show Market Center Trading Action Message", show.market_center_trading_action_message, "Parse and add Market Center Trading Action Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment = Pref.bool("Show Market Center Volume Attachment", show.market_center_volume_attachment, "Parse and add Market Center Volume Attachment to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Message", show.market_wide_circuit_breaker_decline_level_message, "Parse and add Market Wide Circuit Breaker Decline Level Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_message_info = Pref.bool("Show Message Info", show.message_info, "Parse and add Message Info to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message = Pref.bool("Show Prior Day As Of Trade Message", show.prior_day_as_of_trade_message, "Parse and add Prior Day As Of Trade Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Regulation Sho Short Sale Price Test Restricted Indicator Message", show.regulation_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Regulation Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition = Pref.bool("Show Sale Condition", show.sale_condition, "Parse and add Sale Condition to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message = Pref.bool("Show Total Consolidated And Market Center Volume Message", show.total_consolidated_and_market_center_volume_message, "Parse and add Total Consolidated And Market Center Volume Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message = Pref.bool("Show Trade Report Message Long Form Message", show.trade_report_message_long_form_message, "Parse and add Trade Report Message Long Form Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message = Pref.bool("Show Trade Report Message Short Form Message", show.trade_report_message_short_form_message, "Parse and add Trade Report Message Short Form Message to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_volume = Pref.bool("Show Volume", show.volume, "Parse and add Volume to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
-nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload = Pref.bool("Show Volume Payload", show.volume_payload, "Parse and add Volume Payload to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message = Pref.bool("Show Auction Collar Message", show.auction_collar_message, "Parse and add Auction Collar Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message = Pref.bool("Show Closing Trade Summary Report Message", show.closing_trade_summary_report_message, "Parse and add Closing Trade Summary Report Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message = Pref.bool("Show Cross Sro Trading Action Message", show.cross_sro_trading_action_message, "Parse and add Cross Sro Trading Action Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility = Pref.bool("Show End Of Consolidated Last Sale Eligibility", show.end_of_consolidated_last_sale_eligibility, "Parse and add End Of Consolidated Last Sale Eligibility to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message = Pref.bool("Show Issue Symbol Directory Message", show.issue_symbol_directory_message, "Parse and add Issue Symbol Directory Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message = Pref.bool("Show Limit Up Limit Down Price Band Message", show.limit_up_limit_down_price_band_message, "Parse and add Limit Up Limit Down Price Band Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary = Pref.bool("Show Market Center Closing Price And Volume Summary", show.market_center_closing_price_and_volume_summary, "Parse and add Market Center Closing Price And Volume Summary to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message = Pref.bool("Show Market Center Trading Action Message", show.market_center_trading_action_message, "Parse and add Market Center Trading Action Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment = Pref.bool("Show Market Center Volume Attachment", show.market_center_volume_attachment, "Parse and add Market Center Volume Attachment to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Message", show.market_wide_circuit_breaker_decline_level_message, "Parse and add Market Wide Circuit Breaker Decline Level Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info = Pref.bool("Show Message Info", show.message_info, "Parse and add Message Info to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message = Pref.bool("Show Prior Day As Of Trade Message", show.prior_day_as_of_trade_message, "Parse and add Prior Day As Of Trade Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Regulation Sho Short Sale Price Test Restricted Indicator Message", show.regulation_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Regulation Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition = Pref.bool("Show Sale Condition", show.sale_condition, "Parse and add Sale Condition to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message = Pref.bool("Show Total Consolidated And Market Center Volume Message", show.total_consolidated_and_market_center_volume_message, "Parse and add Total Consolidated And Market Center Volume Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message = Pref.bool("Show Trade Report Message Long Form Message", show.trade_report_message_long_form_message, "Parse and add Trade Report Message Long Form Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message = Pref.bool("Show Trade Report Message Short Form Message", show.trade_report_message_short_form_message, "Parse and add Trade Report Message Short Form Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume = Pref.bool("Show Volume", show.volume, "Parse and add Volume to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload = Pref.bool("Show Volume Payload", show.volume_payload, "Parse and add Volume Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_utdf_output_utp_v1_5.prefs_changed()
+function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.administrative ~= nasdaq_utdf_output_utp_v1_5.prefs.show_administrative then
-    show.administrative = nasdaq_utdf_output_utp_v1_5.prefs.show_administrative
+  if show.administrative ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative then
+    show.administrative = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative
     changed = true
   end
-  if show.auction_collar_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message then
-    show.auction_collar_message = nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message
+  if show.auction_collar_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message then
+    show.auction_collar_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message
     changed = true
   end
-  if show.closing_trade_summary_report_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message then
-    show.closing_trade_summary_report_message = nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message
+  if show.closing_trade_summary_report_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message then
+    show.closing_trade_summary_report_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message
     changed = true
   end
-  if show.control ~= nasdaq_utdf_output_utp_v1_5.prefs.show_control then
-    show.control = nasdaq_utdf_output_utp_v1_5.prefs.show_control
+  if show.control ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control then
+    show.control = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control
     changed = true
   end
-  if show.cross_sro_trading_action_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message then
-    show.cross_sro_trading_action_message = nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message
+  if show.cross_sro_trading_action_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message then
+    show.cross_sro_trading_action_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message
     changed = true
   end
-  if show.end_of_consolidated_last_sale_eligibility ~= nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility then
-    show.end_of_consolidated_last_sale_eligibility = nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility
+  if show.end_of_consolidated_last_sale_eligibility ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility then
+    show.end_of_consolidated_last_sale_eligibility = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility
     changed = true
   end
-  if show.end_of_day_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message then
-    show.end_of_day_message = nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message
+  if show.end_of_day_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message then
+    show.end_of_day_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message
     changed = true
   end
-  if show.end_of_trade_reporting_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message then
-    show.end_of_trade_reporting_message = nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message
+  if show.end_of_trade_reporting_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message then
+    show.end_of_trade_reporting_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message
     changed = true
   end
-  if show.end_of_transmissions_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message then
-    show.end_of_transmissions_message = nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message
+  if show.end_of_transmissions_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message then
+    show.end_of_transmissions_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message
     changed = true
   end
-  if show.general_administrative_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message then
-    show.general_administrative_message = nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message
+  if show.general_administrative_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message then
+    show.general_administrative_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message
     changed = true
   end
-  if show.issue_symbol_directory_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message then
-    show.issue_symbol_directory_message = nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message
+  if show.issue_symbol_directory_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message then
+    show.issue_symbol_directory_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message
     changed = true
   end
-  if show.limit_up_limit_down_price_band_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message then
-    show.limit_up_limit_down_price_band_message = nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message
+  if show.limit_up_limit_down_price_band_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message then
+    show.limit_up_limit_down_price_band_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message
     changed = true
   end
-  if show.market_center_closing_price_and_volume_summary ~= nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary then
-    show.market_center_closing_price_and_volume_summary = nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary
+  if show.market_center_closing_price_and_volume_summary ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary then
+    show.market_center_closing_price_and_volume_summary = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary
     changed = true
   end
-  if show.market_center_trading_action_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message then
-    show.market_center_trading_action_message = nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message
+  if show.market_center_trading_action_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message then
+    show.market_center_trading_action_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message
     changed = true
   end
-  if show.market_center_volume_attachment ~= nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment then
-    show.market_center_volume_attachment = nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment
+  if show.market_center_volume_attachment ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment then
+    show.market_center_volume_attachment = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment
     changed = true
   end
-  if show.market_session_close_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message then
-    show.market_session_close_message = nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message
+  if show.market_session_close_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message then
+    show.market_session_close_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message
     changed = true
   end
-  if show.market_session_open_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message then
-    show.market_session_open_message = nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message
+  if show.market_session_open_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message then
+    show.market_session_open_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message
     changed = true
   end
-  if show.market_wide_circuit_breaker_decline_level_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message then
-    show.market_wide_circuit_breaker_decline_level_message = nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message
+  if show.market_wide_circuit_breaker_decline_level_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message then
+    show.market_wide_circuit_breaker_decline_level_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message
     changed = true
   end
-  if show.message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_message then
-    show.message = nasdaq_utdf_output_utp_v1_5.prefs.show_message
+  if show.message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message then
+    show.message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_utdf_output_utp_v1_5.prefs.show_message_header then
-    show.message_header = nasdaq_utdf_output_utp_v1_5.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_header then
+    show.message_header = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_header
     changed = true
   end
-  if show.message_info ~= nasdaq_utdf_output_utp_v1_5.prefs.show_message_info then
-    show.message_info = nasdaq_utdf_output_utp_v1_5.prefs.show_message_info
+  if show.message_info ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info then
+    show.message_info = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info
     changed = true
   end
-  if show.packet ~= nasdaq_utdf_output_utp_v1_5.prefs.show_packet then
-    show.packet = nasdaq_utdf_output_utp_v1_5.prefs.show_packet
+  if show.packet ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet then
+    show.packet = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header then
-    show.packet_header = nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header
     changed = true
   end
-  if show.prior_day_as_of_trade_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message then
-    show.prior_day_as_of_trade_message = nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message
+  if show.prior_day_as_of_trade_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message then
+    show.prior_day_as_of_trade_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message
     changed = true
   end
-  if show.regulation_sho_short_sale_price_test_restricted_indicator_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message then
-    show.regulation_sho_short_sale_price_test_restricted_indicator_message = nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message
+  if show.regulation_sho_short_sale_price_test_restricted_indicator_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message then
+    show.regulation_sho_short_sale_price_test_restricted_indicator_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message
     changed = true
   end
-  if show.sale_condition ~= nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition then
-    show.sale_condition = nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition
+  if show.sale_condition ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition then
+    show.sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition
     changed = true
   end
-  if show.start_of_day_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message then
-    show.start_of_day_message = nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message
+  if show.start_of_day_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message then
+    show.start_of_day_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message
     changed = true
   end
-  if show.total_consolidated_and_market_center_volume_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message then
-    show.total_consolidated_and_market_center_volume_message = nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message
+  if show.total_consolidated_and_market_center_volume_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message then
+    show.total_consolidated_and_market_center_volume_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message
     changed = true
   end
-  if show.trade ~= nasdaq_utdf_output_utp_v1_5.prefs.show_trade then
-    show.trade = nasdaq_utdf_output_utp_v1_5.prefs.show_trade
+  if show.trade ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade then
+    show.trade = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade
     changed = true
   end
-  if show.trade_cancel_error_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message then
-    show.trade_cancel_error_message = nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message
+  if show.trade_cancel_error_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message then
+    show.trade_cancel_error_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message
     changed = true
   end
-  if show.trade_correction_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message then
-    show.trade_correction_message = nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message
+  if show.trade_correction_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message then
+    show.trade_correction_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message
     changed = true
   end
-  if show.trade_report_message_long_form_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message then
-    show.trade_report_message_long_form_message = nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message
+  if show.trade_report_message_long_form_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message then
+    show.trade_report_message_long_form_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message
     changed = true
   end
-  if show.trade_report_message_short_form_message ~= nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message then
-    show.trade_report_message_short_form_message = nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message
+  if show.trade_report_message_short_form_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message then
+    show.trade_report_message_short_form_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message
     changed = true
   end
-  if show.volume ~= nasdaq_utdf_output_utp_v1_5.prefs.show_volume then
-    show.volume = nasdaq_utdf_output_utp_v1_5.prefs.show_volume
+  if show.volume ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume then
+    show.volume = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume
     changed = true
   end
-  if show.administrative_payload ~= nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload then
-    show.administrative_payload = nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload
+  if show.administrative_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload then
+    show.administrative_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative_payload
     changed = true
   end
-  if show.control_payload ~= nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload then
-    show.control_payload = nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload
+  if show.control_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload then
+    show.control_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control_payload
     changed = true
   end
-  if show.payload ~= nasdaq_utdf_output_utp_v1_5.prefs.show_payload then
-    show.payload = nasdaq_utdf_output_utp_v1_5.prefs.show_payload
+  if show.payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_payload then
+    show.payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_payload
     changed = true
   end
-  if show.trade_payload ~= nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload then
-    show.trade_payload = nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload
+  if show.trade_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload then
+    show.trade_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_payload
     changed = true
   end
-  if show.volume_payload ~= nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload then
-    show.volume_payload = nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload
+  if show.volume_payload ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload then
+    show.volume_payload = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume_payload
     changed = true
   end
 
@@ -432,7 +432,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.participant_token = function(buffer, offset,
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.participant_token(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.participant_token, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_token, range, value, display)
 
   return offset + length, value
 end
@@ -452,7 +452,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.participant_timestamp = function(buffer, off
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.participant_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -472,7 +472,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.sip_timestamp = function(buffer, offset, pac
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.sip_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -505,7 +505,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.sub_market_center_id = function(buffer, offs
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.sub_market_center_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.sub_market_center_id, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sub_market_center_id, range, value, display)
 
   return offset + length, value
 end
@@ -586,7 +586,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_originator_id = function(buffe
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.market_center_originator_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_originator_id, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_originator_id, range, value, display)
 
   return offset + length, value
 end
@@ -639,7 +639,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.message_info = function(buffer, offset, packet, parent)
   if show.message_info then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.message_info, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_info, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v1_5_dissect.message_info_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -687,7 +687,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.end_of_consolidated_last_sale_eligibility = 
   if show.end_of_consolidated_last_sale_eligibility then
     local range = buffer(offset, size_of_end_of_consolidated_last_sale_eligibility)
     local display = nasdaq_utdf_output_utp_v1_5_display.end_of_consolidated_last_sale_eligibility(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.end_of_consolidated_last_sale_eligibility, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_consolidated_last_sale_eligibility, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.end_of_consolidated_last_sale_eligibility_fields(buffer, offset, packet, parent, size_of_end_of_consolidated_last_sale_eligibility)
@@ -729,7 +729,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.end_of_trade_reporting_message = function(bu
   if show.end_of_trade_reporting_message then
     local range = buffer(offset, size_of_end_of_trade_reporting_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.end_of_trade_reporting_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.end_of_trade_reporting_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_trade_reporting_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent, size_of_end_of_trade_reporting_message)
@@ -771,7 +771,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.end_of_transmissions_message = function(buff
   if show.end_of_transmissions_message then
     local range = buffer(offset, size_of_end_of_transmissions_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.end_of_transmissions_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.end_of_transmissions_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_transmissions_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent, size_of_end_of_transmissions_message)
@@ -813,7 +813,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_session_close_message = function(buff
   if show.market_session_close_message then
     local range = buffer(offset, size_of_market_session_close_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.market_session_close_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_session_close_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_close_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.market_session_close_message_fields(buffer, offset, packet, parent, size_of_market_session_close_message)
@@ -855,7 +855,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_session_open_message = function(buffe
   if show.market_session_open_message then
     local range = buffer(offset, size_of_market_session_open_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.market_session_open_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_session_open_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_open_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.market_session_open_message_fields(buffer, offset, packet, parent, size_of_market_session_open_message)
@@ -897,7 +897,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.end_of_day_message = function(buffer, offset
   if show.end_of_day_message then
     local range = buffer(offset, size_of_end_of_day_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.end_of_day_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.end_of_day_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_day_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
@@ -939,7 +939,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.start_of_day_message = function(buffer, offs
   if show.start_of_day_message then
     local range = buffer(offset, size_of_start_of_day_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.start_of_day_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.start_of_day_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.start_of_day_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_day_message)
@@ -1035,7 +1035,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.control_payload = function(buffer, offset, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_utdf_output_utp_v1_5_display.control_payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_utdf_output_utp_v1_5.fields.control_payload, range, display)
+  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.control_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -1077,7 +1077,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.control_message_type = function(buffer, offs
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.control_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.control_message_type, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1119,7 +1119,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.control = function(buffer, offset, packet, p
   if show.control then
     local range = buffer(offset, size_of_control)
     local display = nasdaq_utdf_output_utp_v1_5_display.control(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.control, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.control, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.control_fields(buffer, offset, packet, parent, size_of_control)
@@ -1142,7 +1142,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.current_market_center_volume = function(buff
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.current_market_center_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.current_market_center_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.current_market_center_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1162,7 +1162,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_identifier = function(buffer, 
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.market_center_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_identifier, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -1189,7 +1189,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_volume_attachment_fields = fun
 
   -- Implicit Market Center Volume Attachment Index
   if market_center_volume_attachment_index ~= nil then
-    local iteration = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment_index, market_center_volume_attachment_index)
+    local iteration = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment_index, market_center_volume_attachment_index)
     iteration:set_generated()
   end
 
@@ -1206,7 +1206,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.market_center_volume_attachment = function(buffer, offset, packet, parent, market_center_volume_attachment_index)
   if show.market_center_volume_attachment then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v1_5_dissect.market_center_volume_attachment_fields(buffer, offset, packet, parent, market_center_volume_attachment_index)
     local length = index - offset
     parent:set_len(length)
@@ -1235,7 +1235,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.number_of_market_center_volumes = function(b
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.number_of_market_center_volumes(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes, range, value, display)
 
   return offset + length, value
 end
@@ -1255,7 +1255,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.total_consolidated_volume = function(buffer,
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.total_consolidated_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1305,7 +1305,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.total_consolidated_and_market_center_volume_
   if show.total_consolidated_and_market_center_volume_message then
     local range = buffer(offset, size_of_total_consolidated_and_market_center_volume_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.total_consolidated_and_market_center_volume_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_and_market_center_volume_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_and_market_center_volume_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.total_consolidated_and_market_center_volume_message_fields(buffer, offset, packet, parent, size_of_total_consolidated_and_market_center_volume_message)
@@ -1353,7 +1353,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.volume_payload = function(buffer, offset, pa
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_utdf_output_utp_v1_5_display.volume_payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_utdf_output_utp_v1_5.fields.volume_payload, range, display)
+  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.volume_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5_dissect.volume_payload_branches(buffer, offset, packet, parent, volume_message_type)
 end
@@ -1377,7 +1377,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.volume_message_type = function(buffer, offse
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.volume_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.volume_message_type, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.volume_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1419,7 +1419,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.volume = function(buffer, offset, packet, pa
   if show.volume then
     local range = buffer(offset, size_of_volume)
     local display = nasdaq_utdf_output_utp_v1_5_display.volume(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.volume, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.volume, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.volume_fields(buffer, offset, packet, parent, size_of_volume)
@@ -1448,7 +1448,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_participant_low_price = function(buff
   local value = translate.market_participant_low_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.market_participant_low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price, range, value, display)
 
   return offset + length, value
 end
@@ -1474,7 +1474,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_participant_high_price = function(buf
   local value = translate.market_participant_high_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.market_participant_high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price, range, value, display)
 
   return offset + length, value
 end
@@ -1501,7 +1501,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_close_indicator = function(buf
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.market_center_close_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_close_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_close_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1521,7 +1521,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_volume = function(buffer, offs
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.market_center_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1547,7 +1547,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_closing_price = function(buffe
   local value = translate.market_center_closing_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.market_center_closing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1582,7 +1582,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_closing_price_and_volume_summa
 
   -- Implicit Market Center Closing Price And Volume Summary Index
   if market_center_closing_price_and_volume_summary_index ~= nil then
-    local iteration = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary_index, market_center_closing_price_and_volume_summary_index)
+    local iteration = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary_index, market_center_closing_price_and_volume_summary_index)
     iteration:set_generated()
   end
 
@@ -1611,7 +1611,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.market_center_closing_price_and_volume_summary = function(buffer, offset, packet, parent, market_center_closing_price_and_volume_summary_index)
   if show.market_center_closing_price_and_volume_summary then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v1_5_dissect.market_center_closing_price_and_volume_summary_fields(buffer, offset, packet, parent, market_center_closing_price_and_volume_summary_index)
     local length = index - offset
     parent:set_len(length)
@@ -1640,7 +1640,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.number_of_market_center_summaries = function
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.number_of_market_center_summaries(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries, range, value, display)
 
   return offset + length, value
 end
@@ -1667,7 +1667,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trading_action_indicator = function(buffer, 
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.trading_action_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trading_action_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1687,7 +1687,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.consolidated_volume = function(buffer, offse
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.consolidated_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1713,7 +1713,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.daily_consolidated_closing_price = function(
   local value = translate.daily_consolidated_closing_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.daily_consolidated_closing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1739,7 +1739,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.daily_consolidated_low_price = function(buff
   local value = translate.daily_consolidated_low_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.daily_consolidated_low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price, range, value, display)
 
   return offset + length, value
 end
@@ -1765,7 +1765,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.daily_consolidated_high_price = function(buf
   local value = translate.daily_consolidated_high_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.daily_consolidated_high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price, range, value, display)
 
   return offset + length, value
 end
@@ -1785,7 +1785,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.symbol = function(buffer, offset, packet, pa
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.symbol, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1853,7 +1853,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.closing_trade_summary_report_message = funct
   if show.closing_trade_summary_report_message then
     local range = buffer(offset, size_of_closing_trade_summary_report_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.closing_trade_summary_report_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.closing_trade_summary_report_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.closing_trade_summary_report_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent, size_of_closing_trade_summary_report_message)
@@ -1876,7 +1876,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.collar_extension_indicator = function(buffer
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.collar_extension_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.collar_extension_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_extension_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1902,7 +1902,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.collar_down_price = function(buffer, offset,
   local value = translate.collar_down_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.collar_down_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
 
   return offset + length, value
 end
@@ -1928,7 +1928,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.collar_up_price = function(buffer, offset, p
   local value = translate.collar_up_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.collar_up_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
 
   return offset + length, value
 end
@@ -1954,7 +1954,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.collar_reference_price = function(buffer, of
   local value = translate.collar_reference_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.collar_reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -1974,7 +1974,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trading_action_sequence_number = function(bu
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.trading_action_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trading_action_sequence_number, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2031,7 +2031,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.auction_collar_message = function(buffer, of
   if show.auction_collar_message then
     local range = buffer(offset, size_of_auction_collar_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.auction_collar_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.auction_collar_message_fields(buffer, offset, packet, parent, size_of_auction_collar_message)
@@ -2054,7 +2054,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.mwcb_level_3 = function(buffer, offset, pack
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.mwcb_level_3(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3, range, value, display)
 
   return offset + length, value
 end
@@ -2074,7 +2074,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.mwcb_level_2 = function(buffer, offset, pack
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.mwcb_level_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_2, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_2, range, value, display)
 
   return offset + length, value
 end
@@ -2094,7 +2094,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.mwcb_level_1 = function(buffer, offset, pack
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.mwcb_level_1(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1, range, value, display)
 
   return offset + length, value
 end
@@ -2142,7 +2142,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_wide_circuit_breaker_decline_level_me
   if show.market_wide_circuit_breaker_decline_level_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_decline_level_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.market_wide_circuit_breaker_decline_level_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_decline_level_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_decline_level_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.market_wide_circuit_breaker_decline_level_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_message)
@@ -2171,7 +2171,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.limit_up_price = function(buffer, offset, pa
   local value = translate.limit_up_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.limit_up_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
 
   return offset + length, value
 end
@@ -2197,7 +2197,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.limit_down_price = function(buffer, offset, 
   local value = translate.limit_down_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.limit_down_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
 
   return offset + length, value
 end
@@ -2217,7 +2217,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.luld_timestamp = function(buffer, offset, pa
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.luld_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2259,7 +2259,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.luld_price_band_indicator = function(buffer,
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.luld_price_band_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.luld_price_band_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.luld_price_band_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2313,7 +2313,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.limit_up_limit_down_price_band_message = fun
   if show.limit_up_limit_down_price_band_message then
     local range = buffer(offset, size_of_limit_up_limit_down_price_band_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.limit_up_limit_down_price_band_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.limit_up_limit_down_price_band_message_fields(buffer, offset, packet, parent, size_of_limit_up_limit_down_price_band_message)
@@ -2346,7 +2346,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.reg_sho_action = function(buffer, offset, pa
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.reg_sho_action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.reg_sho_action, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.reg_sho_action, range, value, display)
 
   return offset + length, value
 end
@@ -2391,7 +2391,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.regulation_sho_short_sale_price_test_restric
   if show.regulation_sho_short_sale_price_test_restricted_indicator_message then
     local range = buffer(offset, size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.regulation_sho_short_sale_price_test_restricted_indicator_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restricted_indicator_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restricted_indicator_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.regulation_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent, size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
@@ -2442,7 +2442,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.financial_status_indicator = function(buffer
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.financial_status_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.financial_status_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.financial_status_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2462,7 +2462,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.round_lot_size = function(buffer, offset, pa
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.round_lot_size, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -2492,7 +2492,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.short_sale_threshold_indicator = function(bu
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.short_sale_threshold_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.short_sale_threshold_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.short_sale_threshold_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2525,7 +2525,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.authenticity = function(buffer, offset, pack
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.authenticity(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.authenticity, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.authenticity, range, value, display)
 
   return offset + length, value
 end
@@ -2555,7 +2555,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_tier = function(buffer, offset, packe
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.market_tier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_tier, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_tier, range, value, display)
 
   return offset + length, value
 end
@@ -2575,7 +2575,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.issue_subtype = function(buffer, offset, pac
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.issue_subtype(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.issue_subtype, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_subtype, range, value, display)
 
   return offset + length, value
 end
@@ -2644,7 +2644,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.issue_type = function(buffer, offset, packet
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.issue_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.issue_type, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_type, range, value, display)
 
   return offset + length, value
 end
@@ -2664,7 +2664,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.issue_name = function(buffer, offset, packet
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.issue_name(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.issue_name, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_name, range, value, display)
 
   return offset + length, value
 end
@@ -2684,7 +2684,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.old_symbol = function(buffer, offset, packet
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.old_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.old_symbol, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.old_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2753,7 +2753,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.issue_symbol_directory_message = function(bu
   if show.issue_symbol_directory_message then
     local range = buffer(offset, size_of_issue_symbol_directory_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.issue_symbol_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.issue_symbol_directory_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_symbol_directory_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.issue_symbol_directory_message_fields(buffer, offset, packet, parent, size_of_issue_symbol_directory_message)
@@ -2776,7 +2776,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.action_timestamp = function(buffer, offset, 
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.action_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.action_timestamp, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2809,7 +2809,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trading_action_code = function(buffer, offse
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.trading_action_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trading_action_code, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_code, range, value, display)
 
   return offset + length, value
 end
@@ -2860,7 +2860,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_center_trading_action_message = funct
   if show.market_center_trading_action_message then
     local range = buffer(offset, size_of_market_center_trading_action_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.market_center_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_trading_action_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_trading_action_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.market_center_trading_action_message_fields(buffer, offset, packet, parent, size_of_market_center_trading_action_message)
@@ -2883,7 +2883,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trading_action_reason = function(buffer, off
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.trading_action_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trading_action_reason, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2937,7 +2937,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.cross_sro_trading_action_message = function(
   if show.cross_sro_trading_action_message then
     local range = buffer(offset, size_of_cross_sro_trading_action_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.cross_sro_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.cross_sro_trading_action_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.cross_sro_trading_action_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.cross_sro_trading_action_message_fields(buffer, offset, packet, parent, size_of_cross_sro_trading_action_message)
@@ -2956,7 +2956,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.text = function(buffer, offset, packet, pare
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.text(value, buffer, offset, packet, parent, size)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.text, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.text, range, value, display)
 
   return offset + size
 end
@@ -2976,7 +2976,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.text_length = function(buffer, offset, packe
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.text_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.text_length, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.text_length, range, value, display)
 
   return offset + length, value
 end
@@ -3021,7 +3021,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.general_administrative_message = function(bu
   if show.general_administrative_message then
     local range = buffer(offset, size_of_general_administrative_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.general_administrative_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.general_administrative_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.general_administrative_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.general_administrative_message_fields(buffer, offset, packet, parent, size_of_general_administrative_message)
@@ -3141,7 +3141,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.administrative_payload = function(buffer, of
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_utdf_output_utp_v1_5_display.administrative_payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_utdf_output_utp_v1_5.fields.administrative_payload, range, display)
+  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -3192,7 +3192,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.administrative_message_type = function(buffe
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.administrative_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.administrative_message_type, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3234,7 +3234,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.administrative = function(buffer, offset, pa
   if show.administrative then
     local range = buffer(offset, size_of_administrative)
     local display = nasdaq_utdf_output_utp_v1_5_display.administrative(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.administrative, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.administrative, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.administrative_fields(buffer, offset, packet, parent, size_of_administrative)
@@ -3257,7 +3257,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.timestamp_of_trade = function(buffer, offset
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.timestamp_of_trade(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade, range, value, display)
 
   return offset + length, value
 end
@@ -3284,7 +3284,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.as_of_action = function(buffer, offset, pack
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.as_of_action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.as_of_action, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.as_of_action, range, value, display)
 
   return offset + length, value
 end
@@ -3304,7 +3304,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.sellers_sale_days = function(buffer, offset,
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.sellers_sale_days(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.sellers_sale_days, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sellers_sale_days, range, value, display)
 
   return offset + length, value
 end
@@ -3324,7 +3324,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_through_exempt_flag = function(buffer,
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_through_exempt_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -3344,7 +3344,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.level_4 = function(buffer, offset, packet, p
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.level_4(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.level_4, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_4, range, value, display)
 
   return offset + length, value
 end
@@ -3428,7 +3428,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.level_3 = function(buffer, offset, packet, p
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.level_3(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.level_3, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_3, range, value, display)
 
   return offset + length, value
 end
@@ -3476,7 +3476,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.level_2 = function(buffer, offset, packet, p
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.level_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.level_2, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_2, range, value, display)
 
   return offset + length, value
 end
@@ -3515,7 +3515,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.level_1 = function(buffer, offset, packet, p
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.level_1(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.level_1, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_1, range, value, display)
 
   return offset + length, value
 end
@@ -3563,7 +3563,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.sale_condition = function(buffer, offset, packet, parent)
   if show.sale_condition then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.sale_condition, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sale_condition, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v1_5_dissect.sale_condition_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3592,7 +3592,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_volume = function(buffer, offset, pack
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3618,7 +3618,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_price = function(buffer, offset, packe
   local value = translate.trade_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -3638,7 +3638,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_id = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_id, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -3658,7 +3658,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.finra_timestamp = function(buffer, offset, p
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.finra_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -3727,7 +3727,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.prior_day_as_of_trade_message = function(buf
   if show.prior_day_as_of_trade_message then
     local range = buffer(offset, size_of_prior_day_as_of_trade_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.prior_day_as_of_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.prior_day_as_of_trade_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.prior_day_as_of_trade_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.prior_day_as_of_trade_message_fields(buffer, offset, packet, parent, size_of_prior_day_as_of_trade_message)
@@ -3750,7 +3750,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_participant_volume = function(buffer,
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.market_participant_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3776,7 +3776,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.market_participant_last_price = function(buf
   local value = translate.market_participant_last_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.market_participant_last_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price, range, value, display)
 
   return offset + length, value
 end
@@ -3821,7 +3821,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.consolidated_price_change_indicator = functi
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.consolidated_price_change_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3847,7 +3847,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.consolidated_last_price = function(buffer, o
   local value = translate.consolidated_last_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.consolidated_last_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price, range, value, display)
 
   return offset + length, value
 end
@@ -3873,7 +3873,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.consolidated_low_price = function(buffer, of
   local value = translate.consolidated_low_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.consolidated_low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price, range, value, display)
 
   return offset + length, value
 end
@@ -3899,7 +3899,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.consolidated_high_price = function(buffer, o
   local value = translate.consolidated_high_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.consolidated_high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price, range, value, display)
 
   return offset + length, value
 end
@@ -3919,7 +3919,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.corrected_sellers_sale_days = function(buffe
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.corrected_sellers_sale_days(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days, range, value, display)
 
   return offset + length, value
 end
@@ -3939,7 +3939,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.corrected_trade_through_exempt_flag = functi
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.corrected_trade_through_exempt_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_through_exempt_flag, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_through_exempt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -3959,7 +3959,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.corrected_volume = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.corrected_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.corrected_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3985,7 +3985,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.corrected_trade_price = function(buffer, off
   local value = translate.corrected_trade_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.corrected_trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -4005,7 +4005,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.corrected_trade_id = function(buffer, offset
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.corrected_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -4025,7 +4025,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.original_sellers_sale_days = function(buffer
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.original_sellers_sale_days(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days, range, value, display)
 
   return offset + length, value
 end
@@ -4045,7 +4045,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.original_trade_through_exempt_flag = functio
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.original_trade_through_exempt_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -4065,7 +4065,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.original_volume = function(buffer, offset, p
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.original_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.original_volume, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_volume, range, value, display)
 
   return offset + length, value
 end
@@ -4091,7 +4091,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.original_trade_price = function(buffer, offs
   local value = translate.original_trade_price(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.original_trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.original_trade_price, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -4111,7 +4111,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.original_trade_id = function(buffer, offset,
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.original_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.original_trade_id, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -4222,7 +4222,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_correction_message = function(buffer, 
   if show.trade_correction_message then
     local range = buffer(offset, size_of_trade_correction_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.trade_correction_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_correction_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_correction_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.trade_correction_message_fields(buffer, offset, packet, parent, size_of_trade_correction_message)
@@ -4245,7 +4245,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_cancellation_type = function(buffer, o
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_cancellation_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_cancellation_type, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancellation_type, range, value, display)
 
   return offset + length, value
 end
@@ -4341,7 +4341,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_cancel_error_message = function(buffer
   if show.trade_cancel_error_message then
     local range = buffer(offset, size_of_trade_cancel_error_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.trade_cancel_error_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_cancel_error_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancel_error_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
@@ -4389,7 +4389,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.participant_price_change_indicator = functio
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.participant_price_change_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4458,7 +4458,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_report_message_long_form_message = fun
   if show.trade_report_message_long_form_message then
     local range = buffer(offset, size_of_trade_report_message_long_form_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.trade_report_message_long_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_long_form_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_long_form_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.trade_report_message_long_form_message_fields(buffer, offset, packet, parent, size_of_trade_report_message_long_form_message)
@@ -4481,7 +4481,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_volume_short = function(buffer, offset
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_volume_short(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_volume_short, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -4507,7 +4507,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_price_short = function(buffer, offset,
   local value = translate.trade_price_short(raw)
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_price_short, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -4573,7 +4573,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_report_message_short_form_message = fu
   if show.trade_report_message_short_form_message then
     local range = buffer(offset, size_of_trade_report_message_short_form_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.trade_report_message_short_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_short_form_message, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_short_form_message, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.trade_report_message_short_form_message_fields(buffer, offset, packet, parent, size_of_trade_report_message_short_form_message)
@@ -4653,7 +4653,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_payload = function(buffer, offset, pac
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_payload, range, display)
+  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5_dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
 end
@@ -4689,7 +4689,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade_message_type = function(buffer, offset
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.trade_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_message_type, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -4731,7 +4731,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.trade = function(buffer, offset, packet, par
   if show.trade then
     local range = buffer(offset, size_of_trade)
     local display = nasdaq_utdf_output_utp_v1_5_display.trade(buffer, packet, parent)
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade, range, display)
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade, range, display)
   end
 
   nasdaq_utdf_output_utp_v1_5_dissect.trade_fields(buffer, offset, packet, parent, size_of_trade)
@@ -4803,7 +4803,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.payload = function(buffer, offset, packet, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_utdf_output_utp_v1_5_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_utdf_output_utp_v1_5.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.payload, range, display)
 
   return nasdaq_utdf_output_utp_v1_5_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
@@ -4823,7 +4823,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.message_category = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.message_category, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -4843,7 +4843,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.version = function(buffer, offset, packet, p
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.version, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -4863,7 +4863,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.message_length = function(buffer, offset, pa
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -4906,7 +4906,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_header, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4931,7 +4931,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.message_fields = function(buffer, offset, pa
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_utdf_output_utp_v1_5.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -4953,7 +4953,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.message = function(buffer, offset, packet, p
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_utdf_output_utp_v1_5_display.message(buffer, packet, parent)
@@ -4983,7 +4983,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.count = function(buffer, offset, packet, par
   local value = range:uint()
   local display = nasdaq_utdf_output_utp_v1_5_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.count, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -5003,7 +5003,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.sequence = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = nasdaq_utdf_output_utp_v1_5_display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.sequence, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sequence, range, value, display)
 
   return offset + length, value
 end
@@ -5023,7 +5023,7 @@ nasdaq_utdf_output_utp_v1_5_dissect.session = function(buffer, offset, packet, p
   local value = range:string()
   local display = nasdaq_utdf_output_utp_v1_5_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_utdf_output_utp_v1_5.fields.session, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -5066,7 +5066,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_utdf_output_utp_v1_5.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5112,23 +5112,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_utdf_output_utp_v1_5.init()
+function omi_nasdaq_utdf_output_utp_v1_5.init()
 end
 
 -- Dissector for Nasdaq Utdf Output Utp 1.5
-function nasdaq_utdf_output_utp_v1_5.dissector(buffer, packet, parent)
+function omi_nasdaq_utdf_output_utp_v1_5.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_utdf_output_utp_v1_5.name
+  packet.cols.protocol = omi_nasdaq_utdf_output_utp_v1_5.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_utdf_output_utp_v1_5, buffer(), nasdaq_utdf_output_utp_v1_5.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_utdf_output_utp_v1_5, buffer(), omi_nasdaq_utdf_output_utp_v1_5.description, "("..buffer:len().." Bytes)")
   return nasdaq_utdf_output_utp_v1_5_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_utdf_output_utp_v1_5)
+udp_table:add(65333, omi_nasdaq_utdf_output_utp_v1_5)
 
 
 -----------------------------------------------------------------------
@@ -5136,25 +5136,25 @@ udp_table:add(65333, nasdaq_utdf_output_utp_v1_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_utdf_output_utp_v1_5_packet_size = function(buffer)
+verify.omi_nasdaq_utdf_output_utp_v1_5_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq Utdf Output Utp 1.5
-local function nasdaq_utdf_output_utp_v1_5_heuristic(buffer, packet, parent)
+local function omi_nasdaq_utdf_output_utp_v1_5_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_utdf_output_utp_v1_5_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_utdf_output_utp_v1_5_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_utdf_output_utp_v1_5
-  nasdaq_utdf_output_utp_v1_5.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_utdf_output_utp_v1_5
+  omi_nasdaq_utdf_output_utp_v1_5.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq Utdf Output Utp 1.5
-nasdaq_utdf_output_utp_v1_5:register_heuristic("udp", nasdaq_utdf_output_utp_v1_5_heuristic)
+omi_nasdaq_utdf_output_utp_v1_5:register_heuristic("udp", omi_nasdaq_utdf_output_utp_v1_5_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

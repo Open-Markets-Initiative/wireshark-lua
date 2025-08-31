@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Eurex Derivatives Eobi T7 6.1 Protocol
-local eurex_derivatives_eobi_t7_v6_1 = Proto("Eurex.Derivatives.Eobi.T7.v6.1.Lua", "Eurex Derivatives Eobi T7 6.1")
+local omi_eurex_derivatives_eobi_t7_v6_1 = Proto("Eurex.Derivatives.Eobi.T7.v6.1.Lua", "Eurex Derivatives Eobi T7 6.1")
 
 -- Component Tables
 local show = {}
@@ -21,117 +21,117 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Eurex Derivatives Eobi T7 6.1 Fields
-eurex_derivatives_eobi_t7_v6_1.fields.aggressor_side = ProtoField.new("Aggressor Side", "eurex.derivatives.eobi.t7.v6.1.aggressorside", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.derivatives.eobi.t7.v6.1.aggressortime", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.algorithmic_trade_indicator = ProtoField.new("Algorithmic Trade Indicator", "eurex.derivatives.eobi.t7.v6.1.algorithmictradeindicator", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "eurex.derivatives.eobi.t7.v6.1.applseqnum", ftypes.UINT32)
-eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_reset_indicator = ProtoField.new("Appl Seq Reset Indicator", "eurex.derivatives.eobi.t7.v6.1.applseqresetindicator", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.bid_px = ProtoField.new("Bid Px", "eurex.derivatives.eobi.t7.v6.1.bidpx", ftypes.DOUBLE)
-eurex_derivatives_eobi_t7_v6_1.fields.bid_size = ProtoField.new("Bid Size", "eurex.derivatives.eobi.t7.v6.1.bidsize", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.body_len = ProtoField.new("Body Len", "eurex.derivatives.eobi.t7.v6.1.bodylen", ftypes.UINT16)
-eurex_derivatives_eobi_t7_v6_1.fields.completion_indicator = ProtoField.new("Completion Indicator", "eurex.derivatives.eobi.t7.v6.1.completionindicator", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.display_qty = ProtoField.new("Display Qty", "eurex.derivatives.eobi.t7.v6.1.displayqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.exec_id = ProtoField.new("Exec Id", "eurex.derivatives.eobi.t7.v6.1.execid", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.derivatives.eobi.t7.v6.1.fastmarketindicator", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.header_length = ProtoField.new("Header Length", "eurex.derivatives.eobi.t7.v6.1.headerlength", ftypes.UINT16)
-eurex_derivatives_eobi_t7_v6_1.fields.imbalance_qty = ProtoField.new("Imbalance Qty", "eurex.derivatives.eobi.t7.v6.1.imbalanceqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "eurex.derivatives.eobi.t7.v6.1.impliedmarketindicator", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp = ProtoField.new("Instrmt Leg Grp Comp", "eurex.derivatives.eobi.t7.v6.1.instrmtleggrpcomp", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.derivatives.eobi.t7.v6.1.lastmsgseqnumprocessed", ftypes.UINT32)
-eurex_derivatives_eobi_t7_v6_1.fields.last_px = ProtoField.new("Last Px", "eurex.derivatives.eobi.t7.v6.1.lastpx", ftypes.DOUBLE)
-eurex_derivatives_eobi_t7_v6_1.fields.last_qty = ProtoField.new("Last Qty", "eurex.derivatives.eobi.t7.v6.1.lastqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.derivatives.eobi.t7.v6.1.lastupdatetime", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.derivatives.eobi.t7.v6.1.legratioqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.leg_security_id = ProtoField.new("Leg Security Id", "eurex.derivatives.eobi.t7.v6.1.legsecurityid", ftypes.INT64)
-eurex_derivatives_eobi_t7_v6_1.fields.leg_side = ProtoField.new("Leg Side", "eurex.derivatives.eobi.t7.v6.1.legside", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "eurex.derivatives.eobi.t7.v6.1.legsymbol", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.market_condition = ProtoField.new("Market Condition", "eurex.derivatives.eobi.t7.v6.1.marketcondition", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.derivatives.eobi.t7.v6.1.marketsegmentid", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.match_sub_type = ProtoField.new("Match Sub Type", "eurex.derivatives.eobi.t7.v6.1.matchsubtype", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.match_type = ProtoField.new("Match Type", "eurex.derivatives.eobi.t7.v6.1.matchtype", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.derivatives.eobi.t7.v6.1.mdentrypx", ftypes.DOUBLE)
-eurex_derivatives_eobi_t7_v6_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "eurex.derivatives.eobi.t7.v6.1.mdentrysize", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.derivatives.eobi.t7.v6.1.mdentrytype", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp = ProtoField.new("Md Instrument Entry Grp Comp", "eurex.derivatives.eobi.t7.v6.1.mdinstrumententrygrpcomp", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp = ProtoField.new("Md Trade Entry Grp Comp", "eurex.derivatives.eobi.t7.v6.1.mdtradeentrygrpcomp", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.message = ProtoField.new("Message", "eurex.derivatives.eobi.t7.v6.1.message", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.derivatives.eobi.t7.v6.1.messageheadercomp", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.derivatives.eobi.t7.v6.1.msgseqnum", ftypes.UINT32)
-eurex_derivatives_eobi_t7_v6_1.fields.no_legs = ProtoField.new("No Legs", "eurex.derivatives.eobi.t7.v6.1.nolegs", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.derivatives.eobi.t7.v6.1.nomdentries", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.offer_px = ProtoField.new("Offer Px", "eurex.derivatives.eobi.t7.v6.1.offerpx", ftypes.DOUBLE)
-eurex_derivatives_eobi_t7_v6_1.fields.offer_size = ProtoField.new("Offer Size", "eurex.derivatives.eobi.t7.v6.1.offersize", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.ord_type = ProtoField.new("Ord Type", "eurex.derivatives.eobi.t7.v6.1.ordtype", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.order_details_comp = ProtoField.new("Order Details Comp", "eurex.derivatives.eobi.t7.v6.1.orderdetailscomp", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.packet = ProtoField.new("Packet", "eurex.derivatives.eobi.t7.v6.1.packet", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.packet_header = ProtoField.new("Packet Header", "eurex.derivatives.eobi.t7.v6.1.packetheader", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.packet_id = ProtoField.new("Packet Id", "eurex.derivatives.eobi.t7.v6.1.packetid", ftypes.UINT16)
-eurex_derivatives_eobi_t7_v6_1.fields.packet_info = ProtoField.new("Packet Info", "eurex.derivatives.eobi.t7.v6.1.packetinfo", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "eurex.derivatives.eobi.t7.v6.1.packetsequencenumber", ftypes.UINT32)
-eurex_derivatives_eobi_t7_v6_1.fields.pad_1 = ProtoField.new("Pad 1", "eurex.derivatives.eobi.t7.v6.1.pad1", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v6_1.fields.pad_2 = ProtoField.new("Pad 2", "eurex.derivatives.eobi.t7.v6.1.pad2", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v6_1.fields.pad_3 = ProtoField.new("Pad 3", "eurex.derivatives.eobi.t7.v6.1.pad3", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v6_1.fields.pad_4 = ProtoField.new("Pad 4", "eurex.derivatives.eobi.t7.v6.1.pad4", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v6_1.fields.pad_5 = ProtoField.new("Pad 5", "eurex.derivatives.eobi.t7.v6.1.pad5", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v6_1.fields.pad_6 = ProtoField.new("Pad 6", "eurex.derivatives.eobi.t7.v6.1.pad6", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v6_1.fields.pad_7 = ProtoField.new("Pad 7", "eurex.derivatives.eobi.t7.v6.1.pad7", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v6_1.fields.partition_id = ProtoField.new("Partition Id", "eurex.derivatives.eobi.t7.v6.1.partitionid", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eobi.t7.v6.1.payload", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.potential_security_trading_event = ProtoField.new("Potential Security Trading Event", "eurex.derivatives.eobi.t7.v6.1.potentialsecuritytradingevent", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.prev_display_qty = ProtoField.new("Prev Display Qty", "eurex.derivatives.eobi.t7.v6.1.prevdisplayqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.prev_price = ProtoField.new("Prev Price", "eurex.derivatives.eobi.t7.v6.1.prevprice", ftypes.DOUBLE)
-eurex_derivatives_eobi_t7_v6_1.fields.price = ProtoField.new("Price", "eurex.derivatives.eobi.t7.v6.1.price", ftypes.DOUBLE)
-eurex_derivatives_eobi_t7_v6_1.fields.product_complex = ProtoField.new("Product Complex", "eurex.derivatives.eobi.t7.v6.1.productcomplex", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.request_time = ProtoField.new("Request Time", "eurex.derivatives.eobi.t7.v6.1.requesttime", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.resting_cxl_qty = ProtoField.new("Resting Cxl Qty", "eurex.derivatives.eobi.t7.v6.1.restingcxlqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.resting_hidden_qty = ProtoField.new("Resting Hidden Qty", "eurex.derivatives.eobi.t7.v6.1.restinghiddenqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.security_id = ProtoField.new("Security Id", "eurex.derivatives.eobi.t7.v6.1.securityid", ftypes.INT64)
-eurex_derivatives_eobi_t7_v6_1.fields.security_status = ProtoField.new("Security Status", "eurex.derivatives.eobi.t7.v6.1.securitystatus", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.security_sub_type = ProtoField.new("Security Sub Type", "eurex.derivatives.eobi.t7.v6.1.securitysubtype", ftypes.INT32)
-eurex_derivatives_eobi_t7_v6_1.fields.security_trading_event = ProtoField.new("Security Trading Event", "eurex.derivatives.eobi.t7.v6.1.securitytradingevent", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.security_trading_status = ProtoField.new("Security Trading Status", "eurex.derivatives.eobi.t7.v6.1.securitytradingstatus", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.side = ProtoField.new("Side", "eurex.derivatives.eobi.t7.v6.1.side", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.template_id = ProtoField.new("Template Id", "eurex.derivatives.eobi.t7.v6.1.templateid", ftypes.UINT16)
-eurex_derivatives_eobi_t7_v6_1.fields.tot_no_orders = ProtoField.new("Tot No Orders", "eurex.derivatives.eobi.t7.v6.1.totnoorders", ftypes.UINT16)
-eurex_derivatives_eobi_t7_v6_1.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "eurex.derivatives.eobi.t7.v6.1.tradsesstatus", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.trade_condition = ProtoField.new("Trade Condition", "eurex.derivatives.eobi.t7.v6.1.tradecondition", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.trading_session_id = ProtoField.new("Trading Session Id", "eurex.derivatives.eobi.t7.v6.1.tradingsessionid", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "eurex.derivatives.eobi.t7.v6.1.tradingsessionsubid", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v6_1.fields.transact_time = ProtoField.new("Transact Time", "eurex.derivatives.eobi.t7.v6.1.transacttime", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.trd_match_id = ProtoField.new("Trd Match Id", "eurex.derivatives.eobi.t7.v6.1.trdmatchid", ftypes.UINT32)
-eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "eurex.derivatives.eobi.t7.v6.1.trdregtsexecutiontime", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg Ts Prev Time Priority", "eurex.derivatives.eobi.t7.v6.1.trdregtsprevtimepriority", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "eurex.derivatives.eobi.t7.v6.1.trdregtstimein", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.derivatives.eobi.t7.v6.1.trdregtstimepriority", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.aggressor_side = ProtoField.new("Aggressor Side", "eurex.derivatives.eobi.t7.v6.1.aggressorside", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.derivatives.eobi.t7.v6.1.aggressortime", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.algorithmic_trade_indicator = ProtoField.new("Algorithmic Trade Indicator", "eurex.derivatives.eobi.t7.v6.1.algorithmictradeindicator", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "eurex.derivatives.eobi.t7.v6.1.applseqnum", ftypes.UINT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_reset_indicator = ProtoField.new("Appl Seq Reset Indicator", "eurex.derivatives.eobi.t7.v6.1.applseqresetindicator", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.bid_px = ProtoField.new("Bid Px", "eurex.derivatives.eobi.t7.v6.1.bidpx", ftypes.DOUBLE)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.bid_size = ProtoField.new("Bid Size", "eurex.derivatives.eobi.t7.v6.1.bidsize", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.body_len = ProtoField.new("Body Len", "eurex.derivatives.eobi.t7.v6.1.bodylen", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.completion_indicator = ProtoField.new("Completion Indicator", "eurex.derivatives.eobi.t7.v6.1.completionindicator", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.display_qty = ProtoField.new("Display Qty", "eurex.derivatives.eobi.t7.v6.1.displayqty", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.exec_id = ProtoField.new("Exec Id", "eurex.derivatives.eobi.t7.v6.1.execid", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.derivatives.eobi.t7.v6.1.fastmarketindicator", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.header_length = ProtoField.new("Header Length", "eurex.derivatives.eobi.t7.v6.1.headerlength", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.imbalance_qty = ProtoField.new("Imbalance Qty", "eurex.derivatives.eobi.t7.v6.1.imbalanceqty", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "eurex.derivatives.eobi.t7.v6.1.impliedmarketindicator", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp = ProtoField.new("Instrmt Leg Grp Comp", "eurex.derivatives.eobi.t7.v6.1.instrmtleggrpcomp", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.derivatives.eobi.t7.v6.1.lastmsgseqnumprocessed", ftypes.UINT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.last_px = ProtoField.new("Last Px", "eurex.derivatives.eobi.t7.v6.1.lastpx", ftypes.DOUBLE)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.last_qty = ProtoField.new("Last Qty", "eurex.derivatives.eobi.t7.v6.1.lastqty", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.derivatives.eobi.t7.v6.1.lastupdatetime", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.derivatives.eobi.t7.v6.1.legratioqty", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_security_id = ProtoField.new("Leg Security Id", "eurex.derivatives.eobi.t7.v6.1.legsecurityid", ftypes.INT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_side = ProtoField.new("Leg Side", "eurex.derivatives.eobi.t7.v6.1.legside", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "eurex.derivatives.eobi.t7.v6.1.legsymbol", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.market_condition = ProtoField.new("Market Condition", "eurex.derivatives.eobi.t7.v6.1.marketcondition", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.derivatives.eobi.t7.v6.1.marketsegmentid", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.match_sub_type = ProtoField.new("Match Sub Type", "eurex.derivatives.eobi.t7.v6.1.matchsubtype", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.match_type = ProtoField.new("Match Type", "eurex.derivatives.eobi.t7.v6.1.matchtype", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.derivatives.eobi.t7.v6.1.mdentrypx", ftypes.DOUBLE)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "eurex.derivatives.eobi.t7.v6.1.mdentrysize", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.derivatives.eobi.t7.v6.1.mdentrytype", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp = ProtoField.new("Md Instrument Entry Grp Comp", "eurex.derivatives.eobi.t7.v6.1.mdinstrumententrygrpcomp", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp = ProtoField.new("Md Trade Entry Grp Comp", "eurex.derivatives.eobi.t7.v6.1.mdtradeentrygrpcomp", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.message = ProtoField.new("Message", "eurex.derivatives.eobi.t7.v6.1.message", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.derivatives.eobi.t7.v6.1.messageheadercomp", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.derivatives.eobi.t7.v6.1.msgseqnum", ftypes.UINT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.no_legs = ProtoField.new("No Legs", "eurex.derivatives.eobi.t7.v6.1.nolegs", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.derivatives.eobi.t7.v6.1.nomdentries", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.offer_px = ProtoField.new("Offer Px", "eurex.derivatives.eobi.t7.v6.1.offerpx", ftypes.DOUBLE)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.offer_size = ProtoField.new("Offer Size", "eurex.derivatives.eobi.t7.v6.1.offersize", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.ord_type = ProtoField.new("Ord Type", "eurex.derivatives.eobi.t7.v6.1.ordtype", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.order_details_comp = ProtoField.new("Order Details Comp", "eurex.derivatives.eobi.t7.v6.1.orderdetailscomp", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.packet = ProtoField.new("Packet", "eurex.derivatives.eobi.t7.v6.1.packet", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_header = ProtoField.new("Packet Header", "eurex.derivatives.eobi.t7.v6.1.packetheader", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_id = ProtoField.new("Packet Id", "eurex.derivatives.eobi.t7.v6.1.packetid", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_info = ProtoField.new("Packet Info", "eurex.derivatives.eobi.t7.v6.1.packetinfo", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "eurex.derivatives.eobi.t7.v6.1.packetsequencenumber", ftypes.UINT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_1 = ProtoField.new("Pad 1", "eurex.derivatives.eobi.t7.v6.1.pad1", ftypes.BYTES)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_2 = ProtoField.new("Pad 2", "eurex.derivatives.eobi.t7.v6.1.pad2", ftypes.BYTES)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_3 = ProtoField.new("Pad 3", "eurex.derivatives.eobi.t7.v6.1.pad3", ftypes.BYTES)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_4 = ProtoField.new("Pad 4", "eurex.derivatives.eobi.t7.v6.1.pad4", ftypes.BYTES)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_5 = ProtoField.new("Pad 5", "eurex.derivatives.eobi.t7.v6.1.pad5", ftypes.BYTES)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_6 = ProtoField.new("Pad 6", "eurex.derivatives.eobi.t7.v6.1.pad6", ftypes.BYTES)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_7 = ProtoField.new("Pad 7", "eurex.derivatives.eobi.t7.v6.1.pad7", ftypes.BYTES)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.partition_id = ProtoField.new("Partition Id", "eurex.derivatives.eobi.t7.v6.1.partitionid", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eobi.t7.v6.1.payload", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.potential_security_trading_event = ProtoField.new("Potential Security Trading Event", "eurex.derivatives.eobi.t7.v6.1.potentialsecuritytradingevent", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.prev_display_qty = ProtoField.new("Prev Display Qty", "eurex.derivatives.eobi.t7.v6.1.prevdisplayqty", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.prev_price = ProtoField.new("Prev Price", "eurex.derivatives.eobi.t7.v6.1.prevprice", ftypes.DOUBLE)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.price = ProtoField.new("Price", "eurex.derivatives.eobi.t7.v6.1.price", ftypes.DOUBLE)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.product_complex = ProtoField.new("Product Complex", "eurex.derivatives.eobi.t7.v6.1.productcomplex", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.request_time = ProtoField.new("Request Time", "eurex.derivatives.eobi.t7.v6.1.requesttime", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.resting_cxl_qty = ProtoField.new("Resting Cxl Qty", "eurex.derivatives.eobi.t7.v6.1.restingcxlqty", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.resting_hidden_qty = ProtoField.new("Resting Hidden Qty", "eurex.derivatives.eobi.t7.v6.1.restinghiddenqty", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.security_id = ProtoField.new("Security Id", "eurex.derivatives.eobi.t7.v6.1.securityid", ftypes.INT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.security_status = ProtoField.new("Security Status", "eurex.derivatives.eobi.t7.v6.1.securitystatus", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.security_sub_type = ProtoField.new("Security Sub Type", "eurex.derivatives.eobi.t7.v6.1.securitysubtype", ftypes.INT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.security_trading_event = ProtoField.new("Security Trading Event", "eurex.derivatives.eobi.t7.v6.1.securitytradingevent", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.security_trading_status = ProtoField.new("Security Trading Status", "eurex.derivatives.eobi.t7.v6.1.securitytradingstatus", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.side = ProtoField.new("Side", "eurex.derivatives.eobi.t7.v6.1.side", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.template_id = ProtoField.new("Template Id", "eurex.derivatives.eobi.t7.v6.1.templateid", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.tot_no_orders = ProtoField.new("Tot No Orders", "eurex.derivatives.eobi.t7.v6.1.totnoorders", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "eurex.derivatives.eobi.t7.v6.1.tradsesstatus", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trade_condition = ProtoField.new("Trade Condition", "eurex.derivatives.eobi.t7.v6.1.tradecondition", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trading_session_id = ProtoField.new("Trading Session Id", "eurex.derivatives.eobi.t7.v6.1.tradingsessionid", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "eurex.derivatives.eobi.t7.v6.1.tradingsessionsubid", ftypes.UINT8)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.transact_time = ProtoField.new("Transact Time", "eurex.derivatives.eobi.t7.v6.1.transacttime", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_match_id = ProtoField.new("Trd Match Id", "eurex.derivatives.eobi.t7.v6.1.trdmatchid", ftypes.UINT32)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "eurex.derivatives.eobi.t7.v6.1.trdregtsexecutiontime", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg Ts Prev Time Priority", "eurex.derivatives.eobi.t7.v6.1.trdregtsprevtimepriority", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "eurex.derivatives.eobi.t7.v6.1.trdregtstimein", ftypes.UINT64)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.derivatives.eobi.t7.v6.1.trdregtstimepriority", ftypes.UINT64)
 
 -- Eurex Derivatives Eobi T7 6.1 messages
-eurex_derivatives_eobi_t7_v6_1.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.derivatives.eobi.t7.v6.1.addcomplexinstrument", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.auction_bbo = ProtoField.new("Auction Bbo", "eurex.derivatives.eobi.t7.v6.1.auctionbbo", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.auction_clearing_price = ProtoField.new("Auction Clearing Price", "eurex.derivatives.eobi.t7.v6.1.auctionclearingprice", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.cross_request = ProtoField.new("Cross Request", "eurex.derivatives.eobi.t7.v6.1.crossrequest", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.execution_summary = ProtoField.new("Execution Summary", "eurex.derivatives.eobi.t7.v6.1.executionsummary", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.full_order_execution = ProtoField.new("Full Order Execution", "eurex.derivatives.eobi.t7.v6.1.fullorderexecution", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.heartbeat = ProtoField.new("Heartbeat", "eurex.derivatives.eobi.t7.v6.1.heartbeat", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.instrument_state_change = ProtoField.new("Instrument State Change", "eurex.derivatives.eobi.t7.v6.1.instrumentstatechange", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.instrument_summary = ProtoField.new("Instrument Summary", "eurex.derivatives.eobi.t7.v6.1.instrumentsummary", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.order_add = ProtoField.new("Order Add", "eurex.derivatives.eobi.t7.v6.1.orderadd", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.order_delete = ProtoField.new("Order Delete", "eurex.derivatives.eobi.t7.v6.1.orderdelete", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.order_mass_delete = ProtoField.new("Order Mass Delete", "eurex.derivatives.eobi.t7.v6.1.ordermassdelete", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.order_modify = ProtoField.new("Order Modify", "eurex.derivatives.eobi.t7.v6.1.ordermodify", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.order_modify_same_prio = ProtoField.new("Order Modify Same Prio", "eurex.derivatives.eobi.t7.v6.1.ordermodifysameprio", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.partial_order_execution = ProtoField.new("Partial Order Execution", "eurex.derivatives.eobi.t7.v6.1.partialorderexecution", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.product_state_change = ProtoField.new("Product State Change", "eurex.derivatives.eobi.t7.v6.1.productstatechange", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.product_summary = ProtoField.new("Product Summary", "eurex.derivatives.eobi.t7.v6.1.productsummary", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.quote_request = ProtoField.new("Quote Request", "eurex.derivatives.eobi.t7.v6.1.quoterequest", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.snapshot_order = ProtoField.new("Snapshot Order", "eurex.derivatives.eobi.t7.v6.1.snapshotorder", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.top_of_book = ProtoField.new("Top Of Book", "eurex.derivatives.eobi.t7.v6.1.topofbook", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.trade_report = ProtoField.new("Trade Report", "eurex.derivatives.eobi.t7.v6.1.tradereport", ftypes.STRING)
-eurex_derivatives_eobi_t7_v6_1.fields.trade_reversal = ProtoField.new("Trade Reversal", "eurex.derivatives.eobi.t7.v6.1.tradereversal", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.derivatives.eobi.t7.v6.1.addcomplexinstrument", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.auction_bbo = ProtoField.new("Auction Bbo", "eurex.derivatives.eobi.t7.v6.1.auctionbbo", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.auction_clearing_price = ProtoField.new("Auction Clearing Price", "eurex.derivatives.eobi.t7.v6.1.auctionclearingprice", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.cross_request = ProtoField.new("Cross Request", "eurex.derivatives.eobi.t7.v6.1.crossrequest", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.execution_summary = ProtoField.new("Execution Summary", "eurex.derivatives.eobi.t7.v6.1.executionsummary", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.full_order_execution = ProtoField.new("Full Order Execution", "eurex.derivatives.eobi.t7.v6.1.fullorderexecution", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.heartbeat = ProtoField.new("Heartbeat", "eurex.derivatives.eobi.t7.v6.1.heartbeat", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.instrument_state_change = ProtoField.new("Instrument State Change", "eurex.derivatives.eobi.t7.v6.1.instrumentstatechange", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.instrument_summary = ProtoField.new("Instrument Summary", "eurex.derivatives.eobi.t7.v6.1.instrumentsummary", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.order_add = ProtoField.new("Order Add", "eurex.derivatives.eobi.t7.v6.1.orderadd", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.order_delete = ProtoField.new("Order Delete", "eurex.derivatives.eobi.t7.v6.1.orderdelete", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.order_mass_delete = ProtoField.new("Order Mass Delete", "eurex.derivatives.eobi.t7.v6.1.ordermassdelete", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.order_modify = ProtoField.new("Order Modify", "eurex.derivatives.eobi.t7.v6.1.ordermodify", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.order_modify_same_prio = ProtoField.new("Order Modify Same Prio", "eurex.derivatives.eobi.t7.v6.1.ordermodifysameprio", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.partial_order_execution = ProtoField.new("Partial Order Execution", "eurex.derivatives.eobi.t7.v6.1.partialorderexecution", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.product_state_change = ProtoField.new("Product State Change", "eurex.derivatives.eobi.t7.v6.1.productstatechange", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.product_summary = ProtoField.new("Product Summary", "eurex.derivatives.eobi.t7.v6.1.productsummary", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.quote_request = ProtoField.new("Quote Request", "eurex.derivatives.eobi.t7.v6.1.quoterequest", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.snapshot_order = ProtoField.new("Snapshot Order", "eurex.derivatives.eobi.t7.v6.1.snapshotorder", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.top_of_book = ProtoField.new("Top Of Book", "eurex.derivatives.eobi.t7.v6.1.topofbook", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trade_report = ProtoField.new("Trade Report", "eurex.derivatives.eobi.t7.v6.1.tradereport", ftypes.STRING)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.trade_reversal = ProtoField.new("Trade Reversal", "eurex.derivatives.eobi.t7.v6.1.tradereversal", ftypes.STRING)
 
 -- Eurex Derivatives Eobi T7 6.1 generated fields
-eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp_index = ProtoField.new("Instrmt Leg Grp Comp Index", "eurex.derivatives.eobi.t7.v6.1.instrmtleggrpcompindex", ftypes.UINT16)
-eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp_index = ProtoField.new("Md Instrument Entry Grp Comp Index", "eurex.derivatives.eobi.t7.v6.1.mdinstrumententrygrpcompindex", ftypes.UINT16)
-eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp_index = ProtoField.new("Md Trade Entry Grp Comp Index", "eurex.derivatives.eobi.t7.v6.1.mdtradeentrygrpcompindex", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp_index = ProtoField.new("Instrmt Leg Grp Comp Index", "eurex.derivatives.eobi.t7.v6.1.instrmtleggrpcompindex", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp_index = ProtoField.new("Md Instrument Entry Grp Comp Index", "eurex.derivatives.eobi.t7.v6.1.mdinstrumententrygrpcompindex", ftypes.UINT16)
+omi_eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp_index = ProtoField.new("Md Trade Entry Grp Comp Index", "eurex.derivatives.eobi.t7.v6.1.mdtradeentrygrpcompindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -172,170 +172,170 @@ show.trade_reversal = true
 show.payload = false
 
 -- Register Eurex Derivatives Eobi T7 6.1 Show Options
-eurex_derivatives_eobi_t7_v6_1.prefs.show_add_complex_instrument = Pref.bool("Show Add Complex Instrument", show.add_complex_instrument, "Parse and add Add Complex Instrument to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_bbo = Pref.bool("Show Auction Bbo", show.auction_bbo, "Parse and add Auction Bbo to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_clearing_price = Pref.bool("Show Auction Clearing Price", show.auction_clearing_price, "Parse and add Auction Clearing Price to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_cross_request = Pref.bool("Show Cross Request", show.cross_request, "Parse and add Cross Request to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_execution_summary = Pref.bool("Show Execution Summary", show.execution_summary, "Parse and add Execution Summary to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_full_order_execution = Pref.bool("Show Full Order Execution", show.full_order_execution, "Parse and add Full Order Execution to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_instrmt_leg_grp_comp = Pref.bool("Show Instrmt Leg Grp Comp", show.instrmt_leg_grp_comp, "Parse and add Instrmt Leg Grp Comp to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_state_change = Pref.bool("Show Instrument State Change", show.instrument_state_change, "Parse and add Instrument State Change to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_summary = Pref.bool("Show Instrument Summary", show.instrument_summary, "Parse and add Instrument Summary to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_md_instrument_entry_grp_comp = Pref.bool("Show Md Instrument Entry Grp Comp", show.md_instrument_entry_grp_comp, "Parse and add Md Instrument Entry Grp Comp to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_md_trade_entry_grp_comp = Pref.bool("Show Md Trade Entry Grp Comp", show.md_trade_entry_grp_comp, "Parse and add Md Trade Entry Grp Comp to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_message_header_comp = Pref.bool("Show Message Header Comp", show.message_header_comp, "Parse and add Message Header Comp to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_order_add = Pref.bool("Show Order Add", show.order_add, "Parse and add Order Add to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_order_delete = Pref.bool("Show Order Delete", show.order_delete, "Parse and add Order Delete to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_order_details_comp = Pref.bool("Show Order Details Comp", show.order_details_comp, "Parse and add Order Details Comp to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_order_mass_delete = Pref.bool("Show Order Mass Delete", show.order_mass_delete, "Parse and add Order Mass Delete to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify = Pref.bool("Show Order Modify", show.order_modify, "Parse and add Order Modify to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify_same_prio = Pref.bool("Show Order Modify Same Prio", show.order_modify_same_prio, "Parse and add Order Modify Same Prio to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_info = Pref.bool("Show Packet Info", show.packet_info, "Parse and add Packet Info to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_partial_order_execution = Pref.bool("Show Partial Order Execution", show.partial_order_execution, "Parse and add Partial Order Execution to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_product_state_change = Pref.bool("Show Product State Change", show.product_state_change, "Parse and add Product State Change to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_product_summary = Pref.bool("Show Product Summary", show.product_summary, "Parse and add Product Summary to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_snapshot_order = Pref.bool("Show Snapshot Order", show.snapshot_order, "Parse and add Snapshot Order to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_top_of_book = Pref.bool("Show Top Of Book", show.top_of_book, "Parse and add Top Of Book to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_report = Pref.bool("Show Trade Report", show.trade_report, "Parse and add Trade Report to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_reversal = Pref.bool("Show Trade Reversal", show.trade_reversal, "Parse and add Trade Reversal to protocol tree")
-eurex_derivatives_eobi_t7_v6_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_add_complex_instrument = Pref.bool("Show Add Complex Instrument", show.add_complex_instrument, "Parse and add Add Complex Instrument to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_bbo = Pref.bool("Show Auction Bbo", show.auction_bbo, "Parse and add Auction Bbo to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_clearing_price = Pref.bool("Show Auction Clearing Price", show.auction_clearing_price, "Parse and add Auction Clearing Price to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_cross_request = Pref.bool("Show Cross Request", show.cross_request, "Parse and add Cross Request to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_execution_summary = Pref.bool("Show Execution Summary", show.execution_summary, "Parse and add Execution Summary to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_full_order_execution = Pref.bool("Show Full Order Execution", show.full_order_execution, "Parse and add Full Order Execution to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrmt_leg_grp_comp = Pref.bool("Show Instrmt Leg Grp Comp", show.instrmt_leg_grp_comp, "Parse and add Instrmt Leg Grp Comp to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_state_change = Pref.bool("Show Instrument State Change", show.instrument_state_change, "Parse and add Instrument State Change to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_summary = Pref.bool("Show Instrument Summary", show.instrument_summary, "Parse and add Instrument Summary to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_md_instrument_entry_grp_comp = Pref.bool("Show Md Instrument Entry Grp Comp", show.md_instrument_entry_grp_comp, "Parse and add Md Instrument Entry Grp Comp to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_md_trade_entry_grp_comp = Pref.bool("Show Md Trade Entry Grp Comp", show.md_trade_entry_grp_comp, "Parse and add Md Trade Entry Grp Comp to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_message_header_comp = Pref.bool("Show Message Header Comp", show.message_header_comp, "Parse and add Message Header Comp to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_add = Pref.bool("Show Order Add", show.order_add, "Parse and add Order Add to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_delete = Pref.bool("Show Order Delete", show.order_delete, "Parse and add Order Delete to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_details_comp = Pref.bool("Show Order Details Comp", show.order_details_comp, "Parse and add Order Details Comp to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_mass_delete = Pref.bool("Show Order Mass Delete", show.order_mass_delete, "Parse and add Order Mass Delete to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify = Pref.bool("Show Order Modify", show.order_modify, "Parse and add Order Modify to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify_same_prio = Pref.bool("Show Order Modify Same Prio", show.order_modify_same_prio, "Parse and add Order Modify Same Prio to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_info = Pref.bool("Show Packet Info", show.packet_info, "Parse and add Packet Info to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_partial_order_execution = Pref.bool("Show Partial Order Execution", show.partial_order_execution, "Parse and add Partial Order Execution to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_product_state_change = Pref.bool("Show Product State Change", show.product_state_change, "Parse and add Product State Change to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_product_summary = Pref.bool("Show Product Summary", show.product_summary, "Parse and add Product Summary to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_snapshot_order = Pref.bool("Show Snapshot Order", show.snapshot_order, "Parse and add Snapshot Order to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_top_of_book = Pref.bool("Show Top Of Book", show.top_of_book, "Parse and add Top Of Book to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_report = Pref.bool("Show Trade Report", show.trade_report, "Parse and add Trade Report to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_reversal = Pref.bool("Show Trade Reversal", show.trade_reversal, "Parse and add Trade Reversal to protocol tree")
+omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function eurex_derivatives_eobi_t7_v6_1.prefs_changed()
+function omi_eurex_derivatives_eobi_t7_v6_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_complex_instrument ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_add_complex_instrument then
-    show.add_complex_instrument = eurex_derivatives_eobi_t7_v6_1.prefs.show_add_complex_instrument
+  if show.add_complex_instrument ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_add_complex_instrument then
+    show.add_complex_instrument = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_add_complex_instrument
     changed = true
   end
-  if show.auction_bbo ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_bbo then
-    show.auction_bbo = eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_bbo
+  if show.auction_bbo ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_bbo then
+    show.auction_bbo = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_bbo
     changed = true
   end
-  if show.auction_clearing_price ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_clearing_price then
-    show.auction_clearing_price = eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_clearing_price
+  if show.auction_clearing_price ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_clearing_price then
+    show.auction_clearing_price = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_auction_clearing_price
     changed = true
   end
-  if show.cross_request ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_cross_request then
-    show.cross_request = eurex_derivatives_eobi_t7_v6_1.prefs.show_cross_request
+  if show.cross_request ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_cross_request then
+    show.cross_request = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_cross_request
     changed = true
   end
-  if show.execution_summary ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_execution_summary then
-    show.execution_summary = eurex_derivatives_eobi_t7_v6_1.prefs.show_execution_summary
+  if show.execution_summary ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_execution_summary then
+    show.execution_summary = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_execution_summary
     changed = true
   end
-  if show.full_order_execution ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_full_order_execution then
-    show.full_order_execution = eurex_derivatives_eobi_t7_v6_1.prefs.show_full_order_execution
+  if show.full_order_execution ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_full_order_execution then
+    show.full_order_execution = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_full_order_execution
     changed = true
   end
-  if show.heartbeat ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_heartbeat then
-    show.heartbeat = eurex_derivatives_eobi_t7_v6_1.prefs.show_heartbeat
+  if show.heartbeat ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_heartbeat then
+    show.heartbeat = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_heartbeat
     changed = true
   end
-  if show.instrmt_leg_grp_comp ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_instrmt_leg_grp_comp then
-    show.instrmt_leg_grp_comp = eurex_derivatives_eobi_t7_v6_1.prefs.show_instrmt_leg_grp_comp
+  if show.instrmt_leg_grp_comp ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrmt_leg_grp_comp then
+    show.instrmt_leg_grp_comp = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrmt_leg_grp_comp
     changed = true
   end
-  if show.instrument_state_change ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_state_change then
-    show.instrument_state_change = eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_state_change
+  if show.instrument_state_change ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_state_change then
+    show.instrument_state_change = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_state_change
     changed = true
   end
-  if show.instrument_summary ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_summary then
-    show.instrument_summary = eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_summary
+  if show.instrument_summary ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_summary then
+    show.instrument_summary = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_instrument_summary
     changed = true
   end
-  if show.md_instrument_entry_grp_comp ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_md_instrument_entry_grp_comp then
-    show.md_instrument_entry_grp_comp = eurex_derivatives_eobi_t7_v6_1.prefs.show_md_instrument_entry_grp_comp
+  if show.md_instrument_entry_grp_comp ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_md_instrument_entry_grp_comp then
+    show.md_instrument_entry_grp_comp = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_md_instrument_entry_grp_comp
     changed = true
   end
-  if show.md_trade_entry_grp_comp ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_md_trade_entry_grp_comp then
-    show.md_trade_entry_grp_comp = eurex_derivatives_eobi_t7_v6_1.prefs.show_md_trade_entry_grp_comp
+  if show.md_trade_entry_grp_comp ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_md_trade_entry_grp_comp then
+    show.md_trade_entry_grp_comp = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_md_trade_entry_grp_comp
     changed = true
   end
-  if show.message ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_message then
-    show.message = eurex_derivatives_eobi_t7_v6_1.prefs.show_message
+  if show.message ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_message then
+    show.message = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_message
     changed = true
   end
-  if show.message_header_comp ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_message_header_comp then
-    show.message_header_comp = eurex_derivatives_eobi_t7_v6_1.prefs.show_message_header_comp
+  if show.message_header_comp ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_message_header_comp then
+    show.message_header_comp = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_message_header_comp
     changed = true
   end
-  if show.order_add ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_order_add then
-    show.order_add = eurex_derivatives_eobi_t7_v6_1.prefs.show_order_add
+  if show.order_add ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_add then
+    show.order_add = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_add
     changed = true
   end
-  if show.order_delete ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_order_delete then
-    show.order_delete = eurex_derivatives_eobi_t7_v6_1.prefs.show_order_delete
+  if show.order_delete ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_delete then
+    show.order_delete = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_delete
     changed = true
   end
-  if show.order_details_comp ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_order_details_comp then
-    show.order_details_comp = eurex_derivatives_eobi_t7_v6_1.prefs.show_order_details_comp
+  if show.order_details_comp ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_details_comp then
+    show.order_details_comp = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_details_comp
     changed = true
   end
-  if show.order_mass_delete ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_order_mass_delete then
-    show.order_mass_delete = eurex_derivatives_eobi_t7_v6_1.prefs.show_order_mass_delete
+  if show.order_mass_delete ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_mass_delete then
+    show.order_mass_delete = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_mass_delete
     changed = true
   end
-  if show.order_modify ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify then
-    show.order_modify = eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify
+  if show.order_modify ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify then
+    show.order_modify = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify
     changed = true
   end
-  if show.order_modify_same_prio ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify_same_prio then
-    show.order_modify_same_prio = eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify_same_prio
+  if show.order_modify_same_prio ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify_same_prio then
+    show.order_modify_same_prio = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_order_modify_same_prio
     changed = true
   end
-  if show.packet ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_packet then
-    show.packet = eurex_derivatives_eobi_t7_v6_1.prefs.show_packet
+  if show.packet ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet then
+    show.packet = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_header then
-    show.packet_header = eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_header
+  if show.packet_header ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_header then
+    show.packet_header = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_header
     changed = true
   end
-  if show.packet_info ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_info then
-    show.packet_info = eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_info
+  if show.packet_info ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_info then
+    show.packet_info = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_packet_info
     changed = true
   end
-  if show.partial_order_execution ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_partial_order_execution then
-    show.partial_order_execution = eurex_derivatives_eobi_t7_v6_1.prefs.show_partial_order_execution
+  if show.partial_order_execution ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_partial_order_execution then
+    show.partial_order_execution = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_partial_order_execution
     changed = true
   end
-  if show.product_state_change ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_product_state_change then
-    show.product_state_change = eurex_derivatives_eobi_t7_v6_1.prefs.show_product_state_change
+  if show.product_state_change ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_product_state_change then
+    show.product_state_change = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_product_state_change
     changed = true
   end
-  if show.product_summary ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_product_summary then
-    show.product_summary = eurex_derivatives_eobi_t7_v6_1.prefs.show_product_summary
+  if show.product_summary ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_product_summary then
+    show.product_summary = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_product_summary
     changed = true
   end
-  if show.quote_request ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_quote_request then
-    show.quote_request = eurex_derivatives_eobi_t7_v6_1.prefs.show_quote_request
+  if show.quote_request ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_quote_request then
+    show.quote_request = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_quote_request
     changed = true
   end
-  if show.snapshot_order ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_snapshot_order then
-    show.snapshot_order = eurex_derivatives_eobi_t7_v6_1.prefs.show_snapshot_order
+  if show.snapshot_order ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_snapshot_order then
+    show.snapshot_order = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_snapshot_order
     changed = true
   end
-  if show.top_of_book ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_top_of_book then
-    show.top_of_book = eurex_derivatives_eobi_t7_v6_1.prefs.show_top_of_book
+  if show.top_of_book ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_top_of_book then
+    show.top_of_book = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_top_of_book
     changed = true
   end
-  if show.trade_report ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_report then
-    show.trade_report = eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_report
+  if show.trade_report ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_report then
+    show.trade_report = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_report
     changed = true
   end
-  if show.trade_reversal ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_reversal then
-    show.trade_reversal = eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_reversal
+  if show.trade_reversal ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_reversal then
+    show.trade_reversal = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_trade_reversal
     changed = true
   end
-  if show.payload ~= eurex_derivatives_eobi_t7_v6_1.prefs.show_payload then
-    show.payload = eurex_derivatives_eobi_t7_v6_1.prefs.show_payload
+  if show.payload ~= omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_payload then
+    show.payload = omi_eurex_derivatives_eobi_t7_v6_1.prefs.show_payload
     changed = true
   end
 
@@ -365,7 +365,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.pad_3 = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eobi_t7_v6_1_display.pad_3(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.pad_3, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_3, range, value, display)
 
   return offset + length, value
 end
@@ -425,7 +425,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.md_entry_type = function(buffer, offset, 
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.md_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.md_entry_type, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.md_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -450,7 +450,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.md_entry_size = function(buffer, offset, 
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.md_entry_size(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.md_entry_size, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.md_entry_size, range, value, display)
 
   return offset + length, value
 end
@@ -486,7 +486,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.md_entry_px = function(buffer, offset, pa
   local value = translate.md_entry_px(raw)
   local display = eurex_derivatives_eobi_t7_v6_1_display.md_entry_px(raw, value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.md_entry_px, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.md_entry_px, range, value, display)
 
   return offset + length, value
 end
@@ -517,7 +517,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.md_trade_entry_grp_comp_fields = function
 
   -- Implicit Md Trade Entry Grp Comp Index
   if md_trade_entry_grp_comp_index ~= nil then
-    local iteration = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
+    local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
     iteration:set_generated()
   end
 
@@ -540,7 +540,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.md_trade_entry_grp_comp = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
   if show.md_trade_entry_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.md_trade_entry_grp_comp, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.md_trade_entry_grp_comp_fields(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
@@ -574,7 +574,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.no_md_entries = function(buffer, offset, 
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.no_md_entries(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.no_md_entries, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.no_md_entries, range, value, display)
 
   return offset + length, value
 end
@@ -594,7 +594,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.pad_6 = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eobi_t7_v6_1_display.pad_6(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.pad_6, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_6, range, value, display)
 
   return offset + length, value
 end
@@ -627,7 +627,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trade_condition = function(buffer, offset
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trade_condition(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trade_condition, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trade_condition, range, value, display)
 
   return offset + length, value
 end
@@ -655,7 +655,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trd_reg_ts_execution_time = function(buff
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trd_reg_ts_execution_time(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_execution_time, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_execution_time, range, value, display)
 
   return offset + length, value
 end
@@ -691,7 +691,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.last_px = function(buffer, offset, packet
   local value = translate.last_px(raw)
   local display = eurex_derivatives_eobi_t7_v6_1_display.last_px(raw, value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.last_px, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -716,7 +716,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.last_qty = function(buffer, offset, packe
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.last_qty, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -741,7 +741,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trd_match_id = function(buffer, offset, p
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trd_match_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trd_match_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_match_id, range, value, display)
 
   return offset + length, value
 end
@@ -769,7 +769,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.transact_time = function(buffer, offset, 
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.transact_time, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -794,7 +794,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.security_id = function(buffer, offset, pa
   local value = range:le_int64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.security_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -879,7 +879,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trade_reversal = function(buffer, offset,
     local length = eurex_derivatives_eobi_t7_v6_1_size_of.trade_reversal(buffer, offset)
     local range = buffer(offset, length)
     local display = eurex_derivatives_eobi_t7_v6_1_display.trade_reversal(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trade_reversal, range, display)
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trade_reversal, range, display)
   end
 
   return eurex_derivatives_eobi_t7_v6_1_dissect.trade_reversal_fields(buffer, offset, packet, parent)
@@ -900,7 +900,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.pad_4 = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eobi_t7_v6_1_display.pad_4(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.pad_4, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_4, range, value, display)
 
   return offset + length, value
 end
@@ -927,7 +927,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.algorithmic_trade_indicator = function(bu
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.algorithmic_trade_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.algorithmic_trade_indicator, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.algorithmic_trade_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -966,7 +966,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.match_sub_type = function(buffer, offset,
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.match_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.match_sub_type, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.match_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -999,7 +999,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.match_type = function(buffer, offset, pac
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.match_type(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.match_type, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.match_type, range, value, display)
 
   return offset + length, value
 end
@@ -1077,7 +1077,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.trade_report = function(buffer, offset, packet, parent)
   if show.trade_report then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trade_report, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trade_report, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.trade_report_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1122,7 +1122,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.offer_px = function(buffer, offset, packe
   local value = translate.offer_px(raw)
   local display = eurex_derivatives_eobi_t7_v6_1_display.offer_px(raw, value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.offer_px, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.offer_px, range, value, display)
 
   return offset + length, value
 end
@@ -1158,7 +1158,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.bid_px = function(buffer, offset, packet,
   local value = translate.bid_px(raw)
   local display = eurex_derivatives_eobi_t7_v6_1_display.bid_px(raw, value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.bid_px, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.bid_px, range, value, display)
 
   return offset + length, value
 end
@@ -1206,7 +1206,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.top_of_book = function(buffer, offset, packet, parent)
   if show.top_of_book then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.top_of_book, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.top_of_book, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.top_of_book_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1251,7 +1251,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.price = function(buffer, offset, packet, 
   local value = translate.price(raw)
   local display = eurex_derivatives_eobi_t7_v6_1_display.price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.price, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1271,7 +1271,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.pad_2 = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eobi_t7_v6_1_display.pad_2(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.pad_2, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_2, range, value, display)
 
   return offset + length, value
 end
@@ -1298,7 +1298,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.ord_type = function(buffer, offset, packe
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.ord_type(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.ord_type, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.ord_type, range, value, display)
 
   return offset + length, value
 end
@@ -1328,7 +1328,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.side = function(buffer, offset, packet, p
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.side, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1353,7 +1353,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.display_qty = function(buffer, offset, pa
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.display_qty(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.display_qty, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.display_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1381,7 +1381,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trd_reg_ts_time_priority = function(buffe
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trd_reg_ts_time_priority(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_priority, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_priority, range, value, display)
 
   return offset + length, value
 end
@@ -1439,7 +1439,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.order_details_comp = function(buffer, offset, packet, parent)
   if show.order_details_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.order_details_comp, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.order_details_comp, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.order_details_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1481,7 +1481,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.snapshot_order = function(buffer, offset, packet, parent)
   if show.snapshot_order then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.snapshot_order, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.snapshot_order, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.snapshot_order_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1543,7 +1543,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.quote_request = function(buffer, offset, packet, parent)
   if show.quote_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.quote_request, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.quote_request, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.quote_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1572,7 +1572,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.pad_7 = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eobi_t7_v6_1_display.pad_7(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.pad_7, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_7, range, value, display)
 
   return offset + length, value
 end
@@ -1602,7 +1602,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.fast_market_indicator = function(buffer, 
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.fast_market_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.fast_market_indicator, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.fast_market_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1632,7 +1632,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.market_condition = function(buffer, offse
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.market_condition(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.market_condition, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.market_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1665,7 +1665,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trad_ses_status = function(buffer, offset
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trad_ses_status(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trad_ses_status, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trad_ses_status, range, value, display)
 
   return offset + length, value
 end
@@ -1704,7 +1704,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trading_session_sub_id = function(buffer,
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trading_session_sub_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trading_session_sub_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trading_session_sub_id, range, value, display)
 
   return offset + length, value
 end
@@ -1743,7 +1743,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trading_session_id = function(buffer, off
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trading_session_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trading_session_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trading_session_id, range, value, display)
 
   return offset + length, value
 end
@@ -1768,7 +1768,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.last_msg_seq_num_processed = function(buf
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.last_msg_seq_num_processed(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.last_msg_seq_num_processed, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.last_msg_seq_num_processed, range, value, display)
 
   return offset + length, value
 end
@@ -1831,7 +1831,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.product_summary = function(buffer, offset, packet, parent)
   if show.product_summary then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.product_summary, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.product_summary, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.product_summary_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1903,7 +1903,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.product_state_change = function(buffer, offset, packet, parent)
   if show.product_state_change then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.product_state_change, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.product_state_change, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.product_state_change_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1932,7 +1932,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.pad_5 = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eobi_t7_v6_1_display.pad_5(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.pad_5, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_5, range, value, display)
 
   return offset + length, value
 end
@@ -2010,7 +2010,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.partial_order_execution = function(buffer, offset, packet, parent)
   if show.partial_order_execution then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.partial_order_execution, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.partial_order_execution, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.partial_order_execution_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2044,7 +2044,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.prev_display_qty = function(buffer, offse
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.prev_display_qty(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.prev_display_qty, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.prev_display_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2072,7 +2072,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trd_reg_ts_time_in = function(buffer, off
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trd_reg_ts_time_in(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_in, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_time_in, range, value, display)
 
   return offset + length, value
 end
@@ -2130,7 +2130,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.order_modify_same_prio = function(buffer, offset, packet, parent)
   if show.order_modify_same_prio then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.order_modify_same_prio, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.order_modify_same_prio, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.order_modify_same_prio_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2175,7 +2175,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.prev_price = function(buffer, offset, pac
   local value = translate.prev_price(raw)
   local display = eurex_derivatives_eobi_t7_v6_1_display.prev_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.prev_price, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.prev_price, range, value, display)
 
   return offset + length, value
 end
@@ -2203,7 +2203,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.trd_reg_ts_prev_time_priority = function(
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.trd_reg_ts_prev_time_priority(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_prev_time_priority, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.trd_reg_ts_prev_time_priority, range, value, display)
 
   return offset + length, value
 end
@@ -2266,7 +2266,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.order_modify = function(buffer, offset, packet, parent)
   if show.order_modify then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.order_modify, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.order_modify, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.order_modify_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2313,7 +2313,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.order_mass_delete = function(buffer, offset, packet, parent)
   if show.order_mass_delete then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.order_mass_delete, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.order_mass_delete, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.order_mass_delete_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2370,7 +2370,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.order_delete = function(buffer, offset, packet, parent)
   if show.order_delete then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.order_delete, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.order_delete, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.order_delete_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2422,7 +2422,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.order_add = function(buffer, offset, packet, parent)
   if show.order_add then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.order_add, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.order_add, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.order_add_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2464,7 +2464,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.md_instrument_entry_grp_comp_fields = fun
 
   -- Implicit Md Instrument Entry Grp Comp Index
   if md_instrument_entry_grp_comp_index ~= nil then
-    local iteration = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
+    local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
     iteration:set_generated()
   end
 
@@ -2490,7 +2490,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.md_instrument_entry_grp_comp = function(buffer, offset, packet, parent, md_instrument_entry_grp_comp_index)
   if show.md_instrument_entry_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.md_instrument_entry_grp_comp, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.md_instrument_entry_grp_comp_fields(buffer, offset, packet, parent, md_instrument_entry_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
@@ -2529,7 +2529,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.security_trading_event = function(buffer,
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.security_trading_event(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.security_trading_event, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.security_trading_event, range, value, display)
 
   return offset + length, value
 end
@@ -2604,7 +2604,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.security_trading_status = function(buffer
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.security_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.security_trading_status, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.security_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -2643,7 +2643,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.security_status = function(buffer, offset
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.security_status, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -2668,7 +2668,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.tot_no_orders = function(buffer, offset, 
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.tot_no_orders(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.tot_no_orders, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.tot_no_orders, range, value, display)
 
   return offset + length, value
 end
@@ -2696,7 +2696,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.last_update_time = function(buffer, offse
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.last_update_time(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.last_update_time, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.last_update_time, range, value, display)
 
   return offset + length, value
 end
@@ -2786,7 +2786,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.instrument_summary = function(buffer, off
     local length = eurex_derivatives_eobi_t7_v6_1_size_of.instrument_summary(buffer, offset)
     local range = buffer(offset, length)
     local display = eurex_derivatives_eobi_t7_v6_1_display.instrument_summary(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.instrument_summary, range, display)
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.instrument_summary, range, display)
   end
 
   return eurex_derivatives_eobi_t7_v6_1_dissect.instrument_summary_fields(buffer, offset, packet, parent)
@@ -2855,7 +2855,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.instrument_state_change = function(buffer, offset, packet, parent)
   if show.instrument_state_change then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.instrument_state_change, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.instrument_state_change, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.instrument_state_change_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2902,7 +2902,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.heartbeat = function(buffer, offset, packet, parent)
   if show.heartbeat then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.heartbeat, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.heartbeat, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.heartbeat_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2989,7 +2989,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.full_order_execution = function(buffer, offset, packet, parent)
   if show.full_order_execution then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.full_order_execution, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.full_order_execution, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.full_order_execution_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3023,7 +3023,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.resting_cxl_qty = function(buffer, offset
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.resting_cxl_qty(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.resting_cxl_qty, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.resting_cxl_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3048,7 +3048,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.resting_hidden_qty = function(buffer, off
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.resting_hidden_qty(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.resting_hidden_qty, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.resting_hidden_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3078,7 +3078,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.aggressor_side = function(buffer, offset,
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.aggressor_side(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.aggressor_side, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.aggressor_side, range, value, display)
 
   return offset + length, value
 end
@@ -3106,7 +3106,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.exec_id = function(buffer, offset, packet
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.exec_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -3134,7 +3134,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.request_time = function(buffer, offset, p
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.request_time(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.request_time, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.request_time, range, value, display)
 
   return offset + length, value
 end
@@ -3162,7 +3162,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.aggressor_time = function(buffer, offset,
   local value = range:le_uint64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.aggressor_time(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.aggressor_time, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.aggressor_time, range, value, display)
 
   return offset + length, value
 end
@@ -3245,7 +3245,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.execution_summary = function(buffer, offset, packet, parent)
   if show.execution_summary then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.execution_summary, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.execution_summary, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.execution_summary_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3302,7 +3302,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.cross_request = function(buffer, offset, packet, parent)
   if show.cross_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.cross_request, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.cross_request, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.cross_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3341,7 +3341,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.potential_security_trading_event = functi
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.potential_security_trading_event(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.potential_security_trading_event, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.potential_security_trading_event, range, value, display)
 
   return offset + length, value
 end
@@ -3366,7 +3366,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.imbalance_qty = function(buffer, offset, 
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.imbalance_qty, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.imbalance_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3434,7 +3434,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.auction_clearing_price = function(buffer, offset, packet, parent)
   if show.auction_clearing_price then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.auction_clearing_price, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.auction_clearing_price, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.auction_clearing_price_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3468,7 +3468,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.offer_size = function(buffer, offset, pac
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.offer_size, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -3493,7 +3493,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.bid_size = function(buffer, offset, packe
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.bid_size, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -3561,7 +3561,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.auction_bbo = function(buffer, offset, packet, parent)
   if show.auction_bbo then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.auction_bbo, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.auction_bbo, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.auction_bbo_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3600,7 +3600,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.leg_side = function(buffer, offset, packe
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.leg_side, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -3625,7 +3625,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.leg_ratio_qty = function(buffer, offset, 
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.leg_ratio_qty, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3650,7 +3650,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.leg_security_id = function(buffer, offset
   local value = range:le_int64()
   local display = eurex_derivatives_eobi_t7_v6_1_display.leg_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.leg_security_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -3675,7 +3675,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.leg_symbol = function(buffer, offset, pac
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.leg_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.leg_symbol, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3710,7 +3710,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.instrmt_leg_grp_comp_fields = function(bu
 
   -- Implicit Instrmt Leg Grp Comp Index
   if instrmt_leg_grp_comp_index ~= nil then
-    local iteration = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
+    local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
     iteration:set_generated()
   end
 
@@ -3739,7 +3739,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.instrmt_leg_grp_comp = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
   if show.instrmt_leg_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.instrmt_leg_grp_comp, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
@@ -3768,7 +3768,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.pad_1 = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eobi_t7_v6_1_display.pad_1(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.pad_1, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.pad_1, range, value, display)
 
   return offset + length, value
 end
@@ -3793,7 +3793,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.no_legs = function(buffer, offset, packet
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.no_legs(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.no_legs, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.no_legs, range, value, display)
 
   return offset + length, value
 end
@@ -3823,7 +3823,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.implied_market_indicator = function(buffe
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.implied_market_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.implied_market_indicator, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.implied_market_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3871,7 +3871,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.product_complex = function(buffer, offset
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.product_complex(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.product_complex, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.product_complex, range, value, display)
 
   return offset + length, value
 end
@@ -3896,7 +3896,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.security_sub_type = function(buffer, offs
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.security_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.security_sub_type, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.security_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -3971,7 +3971,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.add_complex_instrument = function(buffer,
     local length = eurex_derivatives_eobi_t7_v6_1_size_of.add_complex_instrument(buffer, offset)
     local range = buffer(offset, length)
     local display = eurex_derivatives_eobi_t7_v6_1_display.add_complex_instrument(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.add_complex_instrument, range, display)
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.add_complex_instrument, range, display)
   end
 
   return eurex_derivatives_eobi_t7_v6_1_dissect.add_complex_instrument_fields(buffer, offset, packet, parent)
@@ -4185,7 +4185,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.payload = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = eurex_derivatives_eobi_t7_v6_1_display.payload(buffer, packet, parent)
-  local element = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.payload, range, display)
+  local element = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.payload, range, display)
 
   return eurex_derivatives_eobi_t7_v6_1_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -4210,7 +4210,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.msg_seq_num = function(buffer, offset, pa
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.msg_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.msg_seq_num, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.msg_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -4303,7 +4303,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.template_id = function(buffer, offset, pa
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.template_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -4328,7 +4328,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.body_len = function(buffer, offset, packe
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.body_len(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.body_len, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.body_len, range, value, display)
 
   return offset + length, value
 end
@@ -4371,7 +4371,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.message_header_comp = function(buffer, offset, packet, parent)
   if show.message_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.message_header_comp, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.message_header_comp, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.message_header_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4412,7 +4412,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.message = function(buffer, offset, packet
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.message, buffer(offset, 0))
     local current = eurex_derivatives_eobi_t7_v6_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
     local display = eurex_derivatives_eobi_t7_v6_1_display.message(buffer, packet, parent)
@@ -4452,7 +4452,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.appl_seq_reset_indicator = function(buffe
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.appl_seq_reset_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_reset_indicator, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_reset_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4482,7 +4482,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.completion_indicator = function(buffer, o
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.completion_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.completion_indicator, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.completion_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4507,7 +4507,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.partition_id = function(buffer, offset, p
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.partition_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.partition_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.partition_id, range, value, display)
 
   return offset + length, value
 end
@@ -4532,7 +4532,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.market_segment_id = function(buffer, offs
   local value = range:le_int()
   local display = eurex_derivatives_eobi_t7_v6_1_display.market_segment_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.market_segment_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.market_segment_id, range, value, display)
 
   return offset + length, value
 end
@@ -4557,7 +4557,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.appl_seq_num = function(buffer, offset, p
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.appl_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_num, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.appl_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -4577,7 +4577,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.packet_sequence_number = function(buffer,
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.packet_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.packet_sequence_number, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -4597,7 +4597,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.packet_id = function(buffer, offset, pack
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.packet_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.packet_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_id, range, value, display)
 
   return offset + length, value
 end
@@ -4617,7 +4617,7 @@ eurex_derivatives_eobi_t7_v6_1_dissect.header_length = function(buffer, offset, 
   local value = range:le_uint()
   local display = eurex_derivatives_eobi_t7_v6_1_display.header_length(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v6_1.fields.header_length, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.header_length, range, value, display)
 
   return offset + length, value
 end
@@ -4660,7 +4660,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.packet_info = function(buffer, offset, packet, parent)
   if show.packet_info then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.packet_info, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_info, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.packet_info_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4737,7 +4737,7 @@ end
 eurex_derivatives_eobi_t7_v6_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v6_1.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v6_1.fields.packet_header, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v6_1_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4780,23 +4780,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function eurex_derivatives_eobi_t7_v6_1.init()
+function omi_eurex_derivatives_eobi_t7_v6_1.init()
 end
 
 -- Dissector for Eurex Derivatives Eobi T7 6.1
-function eurex_derivatives_eobi_t7_v6_1.dissector(buffer, packet, parent)
+function omi_eurex_derivatives_eobi_t7_v6_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = eurex_derivatives_eobi_t7_v6_1.name
+  packet.cols.protocol = omi_eurex_derivatives_eobi_t7_v6_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(eurex_derivatives_eobi_t7_v6_1, buffer(), eurex_derivatives_eobi_t7_v6_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_eurex_derivatives_eobi_t7_v6_1, buffer(), omi_eurex_derivatives_eobi_t7_v6_1.description, "("..buffer:len().." Bytes)")
   return eurex_derivatives_eobi_t7_v6_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, eurex_derivatives_eobi_t7_v6_1)
+udp_table:add(65333, omi_eurex_derivatives_eobi_t7_v6_1)
 
 
 -----------------------------------------------------------------------
@@ -4804,7 +4804,7 @@ udp_table:add(65333, eurex_derivatives_eobi_t7_v6_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.eurex_derivatives_eobi_t7_v6_1_packet_size = function(buffer)
+verify.omi_eurex_derivatives_eobi_t7_v6_1_packet_size = function(buffer)
 
   return true
 end
@@ -4822,22 +4822,22 @@ verify.packet_id = function(buffer)
 end
 
 -- Dissector Heuristic for Eurex Derivatives Eobi T7 6.1
-local function eurex_derivatives_eobi_t7_v6_1_heuristic(buffer, packet, parent)
+local function omi_eurex_derivatives_eobi_t7_v6_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.eurex_derivatives_eobi_t7_v6_1_packet_size(buffer) then return false end
+  if not verify.omi_eurex_derivatives_eobi_t7_v6_1_packet_size(buffer) then return false end
 
   -- Verify Packet Id
   if not verify.packet_id(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = eurex_derivatives_eobi_t7_v6_1
-  eurex_derivatives_eobi_t7_v6_1.dissector(buffer, packet, parent)
+  packet.conversation = omi_eurex_derivatives_eobi_t7_v6_1
+  omi_eurex_derivatives_eobi_t7_v6_1.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Eurex Derivatives Eobi T7 6.1
-eurex_derivatives_eobi_t7_v6_1:register_heuristic("udp", eurex_derivatives_eobi_t7_v6_1_heuristic)
+omi_eurex_derivatives_eobi_t7_v6_1:register_heuristic("udp", omi_eurex_derivatives_eobi_t7_v6_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

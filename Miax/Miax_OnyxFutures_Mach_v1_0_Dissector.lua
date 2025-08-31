@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Protocol
-local miax_onyxfutures_mach_v1_0 = Proto("Miax.OnyxFutures.Mach.v1.0.Lua", "Miax OnyxFutures HeaderOnly Mach 1.0")
+local omi_miax_onyxfutures_mach_v1_0 = Proto("Miax.OnyxFutures.Mach.v1.0.Lua", "Miax OnyxFutures HeaderOnly Mach 1.0")
 
 -- Component Tables
 local show = {}
@@ -20,16 +20,16 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Fields
-miax_onyxfutures_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.onyxfutures.mach.v1.0.applicationmessage", ftypes.STRING)
-miax_onyxfutures_mach_v1_0.fields.data = ProtoField.new("Data", "miax.onyxfutures.mach.v1.0.data", ftypes.BYTES)
-miax_onyxfutures_mach_v1_0.fields.message = ProtoField.new("Message", "miax.onyxfutures.mach.v1.0.message", ftypes.STRING)
-miax_onyxfutures_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.mach.v1.0.messagetype", ftypes.UINT8)
-miax_onyxfutures_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.mach.v1.0.packet", ftypes.STRING)
-miax_onyxfutures_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.mach.v1.0.packetlength", ftypes.UINT16)
-miax_onyxfutures_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.mach.v1.0.packettype", ftypes.UINT8)
-miax_onyxfutures_mach_v1_0.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.mach.v1.0.payload", ftypes.STRING)
-miax_onyxfutures_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.mach.v1.0.sequencenumber", ftypes.UINT64)
-miax_onyxfutures_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.mach.v1.0.sessionnumber", ftypes.UINT8)
+omi_miax_onyxfutures_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.onyxfutures.mach.v1.0.applicationmessage", ftypes.STRING)
+omi_miax_onyxfutures_mach_v1_0.fields.data = ProtoField.new("Data", "miax.onyxfutures.mach.v1.0.data", ftypes.BYTES)
+omi_miax_onyxfutures_mach_v1_0.fields.message = ProtoField.new("Message", "miax.onyxfutures.mach.v1.0.message", ftypes.STRING)
+omi_miax_onyxfutures_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.mach.v1.0.messagetype", ftypes.UINT8)
+omi_miax_onyxfutures_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.mach.v1.0.packet", ftypes.STRING)
+omi_miax_onyxfutures_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.mach.v1.0.packetlength", ftypes.UINT16)
+omi_miax_onyxfutures_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.mach.v1.0.packettype", ftypes.UINT8)
+omi_miax_onyxfutures_mach_v1_0.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.mach.v1.0.payload", ftypes.STRING)
+omi_miax_onyxfutures_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.mach.v1.0.sequencenumber", ftypes.UINT64)
+omi_miax_onyxfutures_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.mach.v1.0.sessionnumber", ftypes.UINT8)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -42,30 +42,30 @@ show.packet = true
 show.payload = false
 
 -- Register Miax OnyxFutures HeaderOnly Mach 1.0 Show Options
-miax_onyxfutures_mach_v1_0.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-miax_onyxfutures_mach_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-miax_onyxfutures_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-miax_onyxfutures_mach_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_miax_onyxfutures_mach_v1_0.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+omi_miax_onyxfutures_mach_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_miax_onyxfutures_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_miax_onyxfutures_mach_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function miax_onyxfutures_mach_v1_0.prefs_changed()
+function omi_miax_onyxfutures_mach_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_message ~= miax_onyxfutures_mach_v1_0.prefs.show_application_message then
-    show.application_message = miax_onyxfutures_mach_v1_0.prefs.show_application_message
+  if show.application_message ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_application_message then
+    show.application_message = omi_miax_onyxfutures_mach_v1_0.prefs.show_application_message
     changed = true
   end
-  if show.message ~= miax_onyxfutures_mach_v1_0.prefs.show_message then
-    show.message = miax_onyxfutures_mach_v1_0.prefs.show_message
+  if show.message ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_message then
+    show.message = omi_miax_onyxfutures_mach_v1_0.prefs.show_message
     changed = true
   end
-  if show.packet ~= miax_onyxfutures_mach_v1_0.prefs.show_packet then
-    show.packet = miax_onyxfutures_mach_v1_0.prefs.show_packet
+  if show.packet ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_packet then
+    show.packet = omi_miax_onyxfutures_mach_v1_0.prefs.show_packet
     changed = true
   end
-  if show.payload ~= miax_onyxfutures_mach_v1_0.prefs.show_payload then
-    show.payload = miax_onyxfutures_mach_v1_0.prefs.show_payload
+  if show.payload ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_payload then
+    show.payload = omi_miax_onyxfutures_mach_v1_0.prefs.show_payload
     changed = true
   end
 
@@ -91,7 +91,7 @@ miax_onyxfutures_mach_v1_0_dissect.data = function(buffer, offset, packet, paren
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_mach_v1_0_display.data(value, buffer, offset, packet, parent, size)
 
-  parent:add(miax_onyxfutures_mach_v1_0.fields.data, range, value, display)
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.data, range, value, display)
 
   return offset + size
 end
@@ -111,7 +111,7 @@ miax_onyxfutures_mach_v1_0_dissect.message_type = function(buffer, offset, packe
   local value = range:uint()
   local display = miax_onyxfutures_mach_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_mach_v1_0.fields.message_type, range, value, display)
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -159,7 +159,7 @@ miax_onyxfutures_mach_v1_0_dissect.application_message = function(buffer, offset
   if show.application_message then
     local range = buffer(offset, size_of_application_message)
     local display = miax_onyxfutures_mach_v1_0_display.application_message(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_mach_v1_0.fields.application_message, range, display)
+    parent = parent:add(omi_miax_onyxfutures_mach_v1_0.fields.application_message, range, display)
   end
 
   miax_onyxfutures_mach_v1_0_dissect.application_message_fields(buffer, offset, packet, parent, size_of_application_message)
@@ -207,7 +207,7 @@ miax_onyxfutures_mach_v1_0_dissect.payload = function(buffer, offset, packet, pa
   -- Dissect Element
   local range = buffer(offset, size)
   local display = miax_onyxfutures_mach_v1_0_display.payload(buffer, packet, parent)
-  local element = parent:add(miax_onyxfutures_mach_v1_0.fields.payload, range, display)
+  local element = parent:add(omi_miax_onyxfutures_mach_v1_0.fields.payload, range, display)
 
   return miax_onyxfutures_mach_v1_0_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -227,7 +227,7 @@ miax_onyxfutures_mach_v1_0_dissect.session_number = function(buffer, offset, pac
   local value = range:uint()
   local display = miax_onyxfutures_mach_v1_0_display.session_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_mach_v1_0.fields.session_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.session_number, range, value, display)
 
   return offset + length, value
 end
@@ -260,7 +260,7 @@ miax_onyxfutures_mach_v1_0_dissect.packet_type = function(buffer, offset, packet
   local value = range:uint()
   local display = miax_onyxfutures_mach_v1_0_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_mach_v1_0.fields.packet_type, range, value, display)
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -280,7 +280,7 @@ miax_onyxfutures_mach_v1_0_dissect.packet_length = function(buffer, offset, pack
   local value = range:le_uint()
   local display = miax_onyxfutures_mach_v1_0_display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_mach_v1_0.fields.packet_length, range, value, display)
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -300,7 +300,7 @@ miax_onyxfutures_mach_v1_0_dissect.sequence_number = function(buffer, offset, pa
   local value = range:le_uint64()
   local display = miax_onyxfutures_mach_v1_0_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_mach_v1_0.fields.sequence_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -359,7 +359,7 @@ miax_onyxfutures_mach_v1_0_dissect.message = function(buffer, offset, packet, pa
     local length = miax_onyxfutures_mach_v1_0_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = miax_onyxfutures_mach_v1_0_display.message(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_mach_v1_0.fields.message, range, display)
+    parent = parent:add(omi_miax_onyxfutures_mach_v1_0.fields.message, range, display)
   end
 
   return miax_onyxfutures_mach_v1_0_dissect.message_fields(buffer, offset, packet, parent)
@@ -386,23 +386,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function miax_onyxfutures_mach_v1_0.init()
+function omi_miax_onyxfutures_mach_v1_0.init()
 end
 
 -- Dissector for Miax OnyxFutures HeaderOnly Mach 1.0
-function miax_onyxfutures_mach_v1_0.dissector(buffer, packet, parent)
+function omi_miax_onyxfutures_mach_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = miax_onyxfutures_mach_v1_0.name
+  packet.cols.protocol = omi_miax_onyxfutures_mach_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(miax_onyxfutures_mach_v1_0, buffer(), miax_onyxfutures_mach_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_miax_onyxfutures_mach_v1_0, buffer(), omi_miax_onyxfutures_mach_v1_0.description, "("..buffer:len().." Bytes)")
   return miax_onyxfutures_mach_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, miax_onyxfutures_mach_v1_0)
+udp_table:add(65333, omi_miax_onyxfutures_mach_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -410,25 +410,25 @@ udp_table:add(65333, miax_onyxfutures_mach_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.miax_onyxfutures_mach_v1_0_packet_size = function(buffer)
+verify.omi_miax_onyxfutures_mach_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Miax OnyxFutures HeaderOnly Mach 1.0
-local function miax_onyxfutures_mach_v1_0_heuristic(buffer, packet, parent)
+local function omi_miax_onyxfutures_mach_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.miax_onyxfutures_mach_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_miax_onyxfutures_mach_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = miax_onyxfutures_mach_v1_0
-  miax_onyxfutures_mach_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_miax_onyxfutures_mach_v1_0
+  omi_miax_onyxfutures_mach_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Miax OnyxFutures HeaderOnly Mach 1.0
-miax_onyxfutures_mach_v1_0:register_heuristic("udp", miax_onyxfutures_mach_v1_0_heuristic)
+omi_miax_onyxfutures_mach_v1_0:register_heuristic("udp", omi_miax_onyxfutures_mach_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

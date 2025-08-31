@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Equities BinaryGateway Pillar 5.8 Protocol
-local nyse_equities_binarygateway_pillar_v5_8 = Proto("Nyse.Equities.BinaryGateway.Pillar.v5.8.Lua", "Nyse Equities BinaryGateway Pillar 5.8")
+local omi_nyse_equities_binarygateway_pillar_v5_8 = Proto("Nyse.Equities.BinaryGateway.Pillar.v5.8.Lua", "Nyse Equities BinaryGateway Pillar 5.8")
 
 -- Component Tables
 local show = {}
@@ -21,215 +21,215 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nyse Equities BinaryGateway Pillar 5.8 Fields
-nyse_equities_binarygateway_pillar_v5_8.fields.access = ProtoField.new("Access", "nyse.equities.binarygateway.pillar.v5.8.access", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.ack_status = ProtoField.new("Ack Status", "nyse.equities.binarygateway.pillar.v5.8.ackstatus", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.ack_type = ProtoField.new("Ack Type", "nyse.equities.binarygateway.pillar.v5.8.acktype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.adv_risk_range_id = ProtoField.new("Adv Risk Range Id", "nyse.equities.binarygateway.pillar.v5.8.advriskrangeid", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.auction_type = ProtoField.new("Auction Type", "nyse.equities.binarygateway.pillar.v5.8.auctiontype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_flow_indicator = ProtoField.new("Bitfield Flow Indicator", "nyse.equities.binarygateway.pillar.v5.8.bitfieldflowindicator", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_order_instructions = ProtoField.new("Bitfield Order Instructions", "nyse.equities.binarygateway.pillar.v5.8.bitfieldorderinstructions", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "nyse.equities.binarygateway.pillar.v5.8.blockedbybreachindicator", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_kill_switch_indicator = ProtoField.new("Blocked By Kill Switch Indicator", "nyse.equities.binarygateway.pillar.v5.8.blockedbykillswitchindicator", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.bold_designation = ProtoField.new("Bold Designation", "nyse.equities.binarygateway.pillar.v5.8.bolddesignation", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.book = ProtoField.new("Book", "nyse.equities.binarygateway.pillar.v5.8.book", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_request = ProtoField.new("Breach Action Request", "nyse.equities.binarygateway.pillar.v5.8.breachactionrequest", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.equities.binarygateway.pillar.v5.8.breachactionresponse", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_type = ProtoField.new("Bulk Cancel Type", "nyse.equities.binarygateway.pillar.v5.8.bulkcanceltype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.buy_dmm_available_qty = ProtoField.new("Buy Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.8.buydmmavailableqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.equities.binarygateway.pillar.v5.8.cancelondisconnect", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.8.clordid", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.clearing_account = ProtoField.new("Clearing Account", "nyse.equities.binarygateway.pillar.v5.8.clearingaccount", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.clearing_firm = ProtoField.new("Clearing Firm", "nyse.equities.binarygateway.pillar.v5.8.clearingfirm", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.equities.binarygateway.pillar.v5.8.clearingnumber", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.close = ProtoField.new("Close", "nyse.equities.binarygateway.pillar.v5.8.close", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.close_on_trade_max_qty = ProtoField.new("Close On Trade Max Qty", "nyse.equities.binarygateway.pillar.v5.8.closeontrademaxqty", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.close_response = ProtoField.new("Close Response", "nyse.equities.binarygateway.pillar.v5.8.closeresponse", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.count_calculation = ProtoField.new("Count Calculation", "nyse.equities.binarygateway.pillar.v5.8.countcalculation", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.count_limit = ProtoField.new("Count Limit", "nyse.equities.binarygateway.pillar.v5.8.countlimit", ftypes.INT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.cum_qty = ProtoField.new("Cum Qty", "nyse.equities.binarygateway.pillar.v5.8.cumqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.deal_id = ProtoField.new("Deal Id", "nyse.equities.binarygateway.pillar.v5.8.dealid", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp Id", "nyse.equities.binarygateway.pillar.v5.8.delivertocompid", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.displayed_liquidity_indicator = ProtoField.new("Displayed Liquidity Indicator", "nyse.equities.binarygateway.pillar.v5.8.displayedliquidityindicator", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.dmm_allocated_qty = ProtoField.new("Dmm Allocated Qty", "nyse.equities.binarygateway.pillar.v5.8.dmmallocatedqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.dmm_available_qty = ProtoField.new("Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.8.dmmavailableqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.dmm_reject_reason = ProtoField.new("Dmm Reject Reason", "nyse.equities.binarygateway.pillar.v5.8.dmmrejectreason", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.dmm_requested_qty = ProtoField.new("Dmm Requested Qty", "nyse.equities.binarygateway.pillar.v5.8.dmmrequestedqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.dmm_unit_num = ProtoField.new("Dmm Unit Num", "nyse.equities.binarygateway.pillar.v5.8.dmmunitnum", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.end_seq = ProtoField.new("End Seq", "nyse.equities.binarygateway.pillar.v5.8.endseq", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.equities.binarygateway.pillar.v5.8.heartbeat", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.equities.binarygateway.pillar.v5.8.imbalanceside", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.equities.binarygateway.pillar.v5.8.imbalancevolume", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.intraday_sell_short_qty = ProtoField.new("Intraday Sell Short Qty", "nyse.equities.binarygateway.pillar.v5.8.intradaysellshortqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.introducing_badge_id = ProtoField.new("Introducing Badge Id", "nyse.equities.binarygateway.pillar.v5.8.introducingbadgeid", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.equities.binarygateway.pillar.v5.8.iocattribution", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.last_px = ProtoField.new("Last Px", "nyse.equities.binarygateway.pillar.v5.8.lastpx", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.last_qty = ProtoField.new("Last Qty", "nyse.equities.binarygateway.pillar.v5.8.lastqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.leaves_qty = ProtoField.new("Leaves Qty", "nyse.equities.binarygateway.pillar.v5.8.leavesqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "nyse.equities.binarygateway.pillar.v5.8.liquidityindicator", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.listed_mic = ProtoField.new("Listed Mic", "nyse.equities.binarygateway.pillar.v5.8.listedmic", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.lmocp = ProtoField.new("Lmocp", "nyse.equities.binarygateway.pillar.v5.8.lmocp", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.equities.binarygateway.pillar.v5.8.locatereqd", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.login_message = ProtoField.new("Login Message", "nyse.equities.binarygateway.pillar.v5.8.loginmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.login_response = ProtoField.new("Login Response", "nyse.equities.binarygateway.pillar.v5.8.loginresponse", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.equities.binarygateway.pillar.v5.8.luldmpv", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id = ProtoField.new("Manual Action Id", "nyse.equities.binarygateway.pillar.v5.8.manualactionid", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_type = ProtoField.new("Manual Action Type", "nyse.equities.binarygateway.pillar.v5.8.manualactiontype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.manual_override = ProtoField.new("Manual Override", "nyse.equities.binarygateway.pillar.v5.8.manualoverride", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.manual_override_reason = ProtoField.new("Manual Override Reason", "nyse.equities.binarygateway.pillar.v5.8.manualoverridereason", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.manual_response_type = ProtoField.new("Manual Response Type", "nyse.equities.binarygateway.pillar.v5.8.manualresponsetype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.market_maker = ProtoField.new("Market Maker", "nyse.equities.binarygateway.pillar.v5.8.marketmaker", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.max_floor = ProtoField.new("Max Floor", "nyse.equities.binarygateway.pillar.v5.8.maxfloor", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.equities.binarygateway.pillar.v5.8.maxorderquantity", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.median_volume = ProtoField.new("Median Volume", "nyse.equities.binarygateway.pillar.v5.8.medianvolume", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.mic = ProtoField.new("Mic", "nyse.equities.binarygateway.pillar.v5.8.mic", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.min_qty = ProtoField.new("Min Qty", "nyse.equities.binarygateway.pillar.v5.8.minqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.mmid = ProtoField.new("Mmid", "nyse.equities.binarygateway.pillar.v5.8.mmid", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.mode = ProtoField.new("Mode", "nyse.equities.binarygateway.pillar.v5.8.mode", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.equities.binarygateway.pillar.v5.8.mpsubid", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.mpid = ProtoField.new("Mpid", "nyse.equities.binarygateway.pillar.v5.8.mpid", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.mpid_status = ProtoField.new("Mpid Status", "nyse.equities.binarygateway.pillar.v5.8.mpidstatus", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_id = ProtoField.new("Mpv Class Id", "nyse.equities.binarygateway.pillar.v5.8.mpvclassid", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_name = ProtoField.new("Mpv Class Name", "nyse.equities.binarygateway.pillar.v5.8.mpvclassname", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition = ProtoField.new("Mpv Level Definition", "nyse.equities.binarygateway.pillar.v5.8.mpvleveldefinition", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_name = ProtoField.new("Mpv Level Name", "nyse.equities.binarygateway.pillar.v5.8.mpvlevelname", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.msg_header = ProtoField.new("Msg Header", "nyse.equities.binarygateway.pillar.v5.8.msgheader", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.msg_length = ProtoField.new("Msg Length", "nyse.equities.binarygateway.pillar.v5.8.msglength", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.msg_type = ProtoField.new("Msg Type", "nyse.equities.binarygateway.pillar.v5.8.msgtype", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.next_seq = ProtoField.new("Next Seq", "nyse.equities.binarygateway.pillar.v5.8.nextseq", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.nyse_symbol = ProtoField.new("Nyse Symbol", "nyse.equities.binarygateway.pillar.v5.8.nysesymbol", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.open = ProtoField.new("Open", "nyse.equities.binarygateway.pillar.v5.8.open", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.open_on_trade_max_qty = ProtoField.new("Open On Trade Max Qty", "nyse.equities.binarygateway.pillar.v5.8.openontrademaxqty", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.open_response = ProtoField.new("Open Response", "nyse.equities.binarygateway.pillar.v5.8.openresponse", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.optional_data = ProtoField.new("Optional Data", "nyse.equities.binarygateway.pillar.v5.8.optionaldata", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.equities.binarygateway.pillar.v5.8.optionalorderaddon", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on = ProtoField.new("Optional Settlement Type Add On", "nyse.equities.binarygateway.pillar.v5.8.optionalsettlementtypeaddon", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_id = ProtoField.new("Order Id", "nyse.equities.binarygateway.pillar.v5.8.orderid", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.equities.binarygateway.pillar.v5.8.orderpriorityupdateacksubscription", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_qty = ProtoField.new("Order Qty", "nyse.equities.binarygateway.pillar.v5.8.orderqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.8.origclordid", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.binarygateway.pillar.v5.8.pairedqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.participant_type = ProtoField.new("Participant Type", "nyse.equities.binarygateway.pillar.v5.8.participanttype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.password = ProtoField.new("Password", "nyse.equities.binarygateway.pillar.v5.8.password", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.equities.binarygateway.pillar.v5.8.percentagelimit", ftypes.INT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.equities.binarygateway.pillar.v5.8.pillarstreammessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.post = ProtoField.new("Post", "nyse.equities.binarygateway.pillar.v5.8.post", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.ppp_1 = ProtoField.new("Ppp 1", "nyse.equities.binarygateway.pillar.v5.8.ppp1", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.ppp_2 = ProtoField.new("Ppp 2", "nyse.equities.binarygateway.pillar.v5.8.ppp2", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.ppp_3 = ProtoField.new("Ppp 3", "nyse.equities.binarygateway.pillar.v5.8.ppp3", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.equities.binarygateway.pillar.v5.8.preliquidityindicator", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.price = ProtoField.new("Price", "nyse.equities.binarygateway.pillar.v5.8.price", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.price_scale = ProtoField.new("Price Scale", "nyse.equities.binarygateway.pillar.v5.8.pricescale", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.equities.binarygateway.pillar.v5.8.quotingmpv", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.rd_seq = ProtoField.new("Rd Seq", "nyse.equities.binarygateway.pillar.v5.8.rdseq", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.reason_code = ProtoField.new("Reason Code", "nyse.equities.binarygateway.pillar.v5.8.reasoncode", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.8.refclordid", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id = ProtoField.new("Ref Seq Msg Id", "nyse.equities.binarygateway.pillar.v5.8.refseqmsgid", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_other = ProtoField.new("Reinstatement Requiredby Other", "nyse.equities.binarygateway.pillar.v5.8.reinstatementrequiredbyother", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_self = ProtoField.new("Reinstatement Requiredby Self", "nyse.equities.binarygateway.pillar.v5.8.reinstatementrequiredbyself", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.reject_type = ProtoField.new("Reject Type", "nyse.equities.binarygateway.pillar.v5.8.rejecttype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_100 = ProtoField.new("Reserved 100", "nyse.equities.binarygateway.pillar.v5.8.reserved100", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_190 = ProtoField.new("Reserved 190", "nyse.equities.binarygateway.pillar.v5.8.reserved190", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_199 = ProtoField.new("Reserved 199", "nyse.equities.binarygateway.pillar.v5.8.reserved199", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.equities.binarygateway.pillar.v5.8.reserved200", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.binarygateway.pillar.v5.8.reserved4", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.equities.binarygateway.pillar.v5.8.reserved49", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.equities.binarygateway.pillar.v5.8.reserved50", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.reserved_7 = ProtoField.new("Reserved 7", "nyse.equities.binarygateway.pillar.v5.8.reserved7", ftypes.BYTES)
-nyse_equities_binarygateway_pillar_v5_8.fields.ridge = ProtoField.new("Ridge", "nyse.equities.binarygateway.pillar.v5.8.ridge", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.equities.binarygateway.pillar.v5.8.riskacktype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.equities.binarygateway.pillar.v5.8.riskactiontype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_activation = ProtoField.new("Risk Control Activation", "nyse.equities.binarygateway.pillar.v5.8.riskcontrolactivation", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_type = ProtoField.new("Risk Control Type", "nyse.equities.binarygateway.pillar.v5.8.riskcontroltype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_minimum_value = ProtoField.new("Risk Minimum Value", "nyse.equities.binarygateway.pillar.v5.8.riskminimumvalue", ftypes.INT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_range_id = ProtoField.new("Risk Range Id", "nyse.equities.binarygateway.pillar.v5.8.riskrangeid", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.equities.binarygateway.pillar.v5.8.riskusercrd", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.equities.binarygateway.pillar.v5.8.riskusertype", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.round_lot_size = ProtoField.new("Round Lot Size", "nyse.equities.binarygateway.pillar.v5.8.roundlotsize", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.equities.binarygateway.pillar.v5.8.rpimpv", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.equities.binarygateway.pillar.v5.8.selftradeprevention", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.equities.binarygateway.pillar.v5.8.selftradetype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.sell_dmm_available_qty = ProtoField.new("Sell Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.8.selldmmavailableqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.equities.binarygateway.pillar.v5.8.sellindicator", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.seq = ProtoField.new("Seq", "nyse.equities.binarygateway.pillar.v5.8.seq", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.equities.binarygateway.pillar.v5.8.seqmsg", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.equities.binarygateway.pillar.v5.8.seqmsgheader", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.equities.binarygateway.pillar.v5.8.seqmsglength", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.equities.binarygateway.pillar.v5.8.seqmsgtype", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.equities.binarygateway.pillar.v5.8.seqmsgid", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.equities.binarygateway.pillar.v5.8.sequencedmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.sess = ProtoField.new("Sess", "nyse.equities.binarygateway.pillar.v5.8.sess", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.settlement_type = ProtoField.new("Settlement Type", "nyse.equities.binarygateway.pillar.v5.8.settlementtype", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.side = ProtoField.new("Side", "nyse.equities.binarygateway.pillar.v5.8.side", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.equities.binarygateway.pillar.v5.8.sideofunpairedqty", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.equities.binarygateway.pillar.v5.8.ssrfilingprice", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.start_seq = ProtoField.new("Start Seq", "nyse.equities.binarygateway.pillar.v5.8.startseq", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.status = ProtoField.new("Status", "nyse.equities.binarygateway.pillar.v5.8.status", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.stop_px = ProtoField.new("Stop Px", "nyse.equities.binarygateway.pillar.v5.8.stoppx", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.equities.binarygateway.pillar.v5.8.streamavail", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.stream_id = ProtoField.new("Stream Id", "nyse.equities.binarygateway.pillar.v5.8.streamid", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.equities.binarygateway.pillar.v5.8.submsgheader", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.subscription_status = ProtoField.new("Subscription Status", "nyse.equities.binarygateway.pillar.v5.8.subscriptionstatus", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.symbol_eligibility = ProtoField.new("Symbol Eligibility", "nyse.equities.binarygateway.pillar.v5.8.symboleligibility", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.symbol_id = ProtoField.new("Symbol Id", "nyse.equities.binarygateway.pillar.v5.8.symbolid", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.test_symbol_indicator = ProtoField.new("Test Symbol Indicator", "nyse.equities.binarygateway.pillar.v5.8.testsymbolindicator", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.threshold_breach_level = ProtoField.new("Threshold Breach Level", "nyse.equities.binarygateway.pillar.v5.8.thresholdbreachlevel", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.equities.binarygateway.pillar.v5.8.throttlepreference", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.equities.binarygateway.pillar.v5.8.throttlethreshold", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.equities.binarygateway.pillar.v5.8.throttlewindow", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.8.throttled", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x8000000000000000)
-nyse_equities_binarygateway_pillar_v5_8.fields.time_limit = ProtoField.new("Time Limit", "nyse.equities.binarygateway.pillar.v5.8.timelimit", ftypes.INT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.binarygateway.pillar.v5.8.timestamp", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.equities.binarygateway.pillar.v5.8.tradingmpv", ftypes.DOUBLE)
-nyse_equities_binarygateway_pillar_v5_8.fields.transact_time = ProtoField.new("Transact Time", "nyse.equities.binarygateway.pillar.v5.8.transacttime", ftypes.UINT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.equities.binarygateway.pillar.v5.8.unpairedqty", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation1", ftypes.INT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_2 = ProtoField.new("Usd Calculation 2", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation2", ftypes.INT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation3", ftypes.INT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_4 = ProtoField.new("Usd Calculation 4", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation4", ftypes.INT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.usd_limit = ProtoField.new("Usd Limit", "nyse.equities.binarygateway.pillar.v5.8.usdlimit", ftypes.INT64)
-nyse_equities_binarygateway_pillar_v5_8.fields.user = ProtoField.new("User", "nyse.equities.binarygateway.pillar.v5.8.user", ftypes.UINT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.user_data = ProtoField.new("User Data", "nyse.equities.binarygateway.pillar.v5.8.userdata", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.user_session_status = ProtoField.new("User Session Status", "nyse.equities.binarygateway.pillar.v5.8.usersessionstatus", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.user_session_type = ProtoField.new("User Session Type", "nyse.equities.binarygateway.pillar.v5.8.usersessiontype", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.username = ProtoField.new("Username", "nyse.equities.binarygateway.pillar.v5.8.username", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.version = ProtoField.new("Version", "nyse.equities.binarygateway.pillar.v5.8.version", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.equities.binarygateway.pillar.v5.8.workingawayfromdisplay", ftypes.UINT8)
-nyse_equities_binarygateway_pillar_v5_8.fields.working_price = ProtoField.new("Working Price", "nyse.equities.binarygateway.pillar.v5.8.workingprice", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.access = ProtoField.new("Access", "nyse.equities.binarygateway.pillar.v5.8.access", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ack_status = ProtoField.new("Ack Status", "nyse.equities.binarygateway.pillar.v5.8.ackstatus", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ack_type = ProtoField.new("Ack Type", "nyse.equities.binarygateway.pillar.v5.8.acktype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.adv_risk_range_id = ProtoField.new("Adv Risk Range Id", "nyse.equities.binarygateway.pillar.v5.8.advriskrangeid", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.auction_type = ProtoField.new("Auction Type", "nyse.equities.binarygateway.pillar.v5.8.auctiontype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_flow_indicator = ProtoField.new("Bitfield Flow Indicator", "nyse.equities.binarygateway.pillar.v5.8.bitfieldflowindicator", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_order_instructions = ProtoField.new("Bitfield Order Instructions", "nyse.equities.binarygateway.pillar.v5.8.bitfieldorderinstructions", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "nyse.equities.binarygateway.pillar.v5.8.blockedbybreachindicator", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_kill_switch_indicator = ProtoField.new("Blocked By Kill Switch Indicator", "nyse.equities.binarygateway.pillar.v5.8.blockedbykillswitchindicator", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.bold_designation = ProtoField.new("Bold Designation", "nyse.equities.binarygateway.pillar.v5.8.bolddesignation", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.book = ProtoField.new("Book", "nyse.equities.binarygateway.pillar.v5.8.book", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_request = ProtoField.new("Breach Action Request", "nyse.equities.binarygateway.pillar.v5.8.breachactionrequest", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.equities.binarygateway.pillar.v5.8.breachactionresponse", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_type = ProtoField.new("Bulk Cancel Type", "nyse.equities.binarygateway.pillar.v5.8.bulkcanceltype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.buy_dmm_available_qty = ProtoField.new("Buy Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.8.buydmmavailableqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.equities.binarygateway.pillar.v5.8.cancelondisconnect", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.8.clordid", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.clearing_account = ProtoField.new("Clearing Account", "nyse.equities.binarygateway.pillar.v5.8.clearingaccount", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.clearing_firm = ProtoField.new("Clearing Firm", "nyse.equities.binarygateway.pillar.v5.8.clearingfirm", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.equities.binarygateway.pillar.v5.8.clearingnumber", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.close = ProtoField.new("Close", "nyse.equities.binarygateway.pillar.v5.8.close", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.close_on_trade_max_qty = ProtoField.new("Close On Trade Max Qty", "nyse.equities.binarygateway.pillar.v5.8.closeontrademaxqty", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.close_response = ProtoField.new("Close Response", "nyse.equities.binarygateway.pillar.v5.8.closeresponse", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.count_calculation = ProtoField.new("Count Calculation", "nyse.equities.binarygateway.pillar.v5.8.countcalculation", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.count_limit = ProtoField.new("Count Limit", "nyse.equities.binarygateway.pillar.v5.8.countlimit", ftypes.INT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.cum_qty = ProtoField.new("Cum Qty", "nyse.equities.binarygateway.pillar.v5.8.cumqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.deal_id = ProtoField.new("Deal Id", "nyse.equities.binarygateway.pillar.v5.8.dealid", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp Id", "nyse.equities.binarygateway.pillar.v5.8.delivertocompid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.displayed_liquidity_indicator = ProtoField.new("Displayed Liquidity Indicator", "nyse.equities.binarygateway.pillar.v5.8.displayedliquidityindicator", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_allocated_qty = ProtoField.new("Dmm Allocated Qty", "nyse.equities.binarygateway.pillar.v5.8.dmmallocatedqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_available_qty = ProtoField.new("Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.8.dmmavailableqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_reject_reason = ProtoField.new("Dmm Reject Reason", "nyse.equities.binarygateway.pillar.v5.8.dmmrejectreason", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_requested_qty = ProtoField.new("Dmm Requested Qty", "nyse.equities.binarygateway.pillar.v5.8.dmmrequestedqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_unit_num = ProtoField.new("Dmm Unit Num", "nyse.equities.binarygateway.pillar.v5.8.dmmunitnum", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.end_seq = ProtoField.new("End Seq", "nyse.equities.binarygateway.pillar.v5.8.endseq", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.equities.binarygateway.pillar.v5.8.heartbeat", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.equities.binarygateway.pillar.v5.8.imbalanceside", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.equities.binarygateway.pillar.v5.8.imbalancevolume", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.intraday_sell_short_qty = ProtoField.new("Intraday Sell Short Qty", "nyse.equities.binarygateway.pillar.v5.8.intradaysellshortqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.introducing_badge_id = ProtoField.new("Introducing Badge Id", "nyse.equities.binarygateway.pillar.v5.8.introducingbadgeid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.equities.binarygateway.pillar.v5.8.iocattribution", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.last_px = ProtoField.new("Last Px", "nyse.equities.binarygateway.pillar.v5.8.lastpx", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.last_qty = ProtoField.new("Last Qty", "nyse.equities.binarygateway.pillar.v5.8.lastqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.leaves_qty = ProtoField.new("Leaves Qty", "nyse.equities.binarygateway.pillar.v5.8.leavesqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "nyse.equities.binarygateway.pillar.v5.8.liquidityindicator", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.listed_mic = ProtoField.new("Listed Mic", "nyse.equities.binarygateway.pillar.v5.8.listedmic", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.lmocp = ProtoField.new("Lmocp", "nyse.equities.binarygateway.pillar.v5.8.lmocp", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.equities.binarygateway.pillar.v5.8.locatereqd", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.login_message = ProtoField.new("Login Message", "nyse.equities.binarygateway.pillar.v5.8.loginmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.login_response = ProtoField.new("Login Response", "nyse.equities.binarygateway.pillar.v5.8.loginresponse", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.equities.binarygateway.pillar.v5.8.luldmpv", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id = ProtoField.new("Manual Action Id", "nyse.equities.binarygateway.pillar.v5.8.manualactionid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_type = ProtoField.new("Manual Action Type", "nyse.equities.binarygateway.pillar.v5.8.manualactiontype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_override = ProtoField.new("Manual Override", "nyse.equities.binarygateway.pillar.v5.8.manualoverride", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_override_reason = ProtoField.new("Manual Override Reason", "nyse.equities.binarygateway.pillar.v5.8.manualoverridereason", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_response_type = ProtoField.new("Manual Response Type", "nyse.equities.binarygateway.pillar.v5.8.manualresponsetype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.market_maker = ProtoField.new("Market Maker", "nyse.equities.binarygateway.pillar.v5.8.marketmaker", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.max_floor = ProtoField.new("Max Floor", "nyse.equities.binarygateway.pillar.v5.8.maxfloor", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.equities.binarygateway.pillar.v5.8.maxorderquantity", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.median_volume = ProtoField.new("Median Volume", "nyse.equities.binarygateway.pillar.v5.8.medianvolume", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mic = ProtoField.new("Mic", "nyse.equities.binarygateway.pillar.v5.8.mic", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.min_qty = ProtoField.new("Min Qty", "nyse.equities.binarygateway.pillar.v5.8.minqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mmid = ProtoField.new("Mmid", "nyse.equities.binarygateway.pillar.v5.8.mmid", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mode = ProtoField.new("Mode", "nyse.equities.binarygateway.pillar.v5.8.mode", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.equities.binarygateway.pillar.v5.8.mpsubid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpid = ProtoField.new("Mpid", "nyse.equities.binarygateway.pillar.v5.8.mpid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpid_status = ProtoField.new("Mpid Status", "nyse.equities.binarygateway.pillar.v5.8.mpidstatus", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_id = ProtoField.new("Mpv Class Id", "nyse.equities.binarygateway.pillar.v5.8.mpvclassid", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_name = ProtoField.new("Mpv Class Name", "nyse.equities.binarygateway.pillar.v5.8.mpvclassname", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition = ProtoField.new("Mpv Level Definition", "nyse.equities.binarygateway.pillar.v5.8.mpvleveldefinition", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_name = ProtoField.new("Mpv Level Name", "nyse.equities.binarygateway.pillar.v5.8.mpvlevelname", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.msg_header = ProtoField.new("Msg Header", "nyse.equities.binarygateway.pillar.v5.8.msgheader", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.msg_length = ProtoField.new("Msg Length", "nyse.equities.binarygateway.pillar.v5.8.msglength", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.msg_type = ProtoField.new("Msg Type", "nyse.equities.binarygateway.pillar.v5.8.msgtype", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.next_seq = ProtoField.new("Next Seq", "nyse.equities.binarygateway.pillar.v5.8.nextseq", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.nyse_symbol = ProtoField.new("Nyse Symbol", "nyse.equities.binarygateway.pillar.v5.8.nysesymbol", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.open = ProtoField.new("Open", "nyse.equities.binarygateway.pillar.v5.8.open", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.open_on_trade_max_qty = ProtoField.new("Open On Trade Max Qty", "nyse.equities.binarygateway.pillar.v5.8.openontrademaxqty", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.open_response = ProtoField.new("Open Response", "nyse.equities.binarygateway.pillar.v5.8.openresponse", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.optional_data = ProtoField.new("Optional Data", "nyse.equities.binarygateway.pillar.v5.8.optionaldata", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.equities.binarygateway.pillar.v5.8.optionalorderaddon", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on = ProtoField.new("Optional Settlement Type Add On", "nyse.equities.binarygateway.pillar.v5.8.optionalsettlementtypeaddon", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_id = ProtoField.new("Order Id", "nyse.equities.binarygateway.pillar.v5.8.orderid", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.equities.binarygateway.pillar.v5.8.orderpriorityupdateacksubscription", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_qty = ProtoField.new("Order Qty", "nyse.equities.binarygateway.pillar.v5.8.orderqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.8.origclordid", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.binarygateway.pillar.v5.8.pairedqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.participant_type = ProtoField.new("Participant Type", "nyse.equities.binarygateway.pillar.v5.8.participanttype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.password = ProtoField.new("Password", "nyse.equities.binarygateway.pillar.v5.8.password", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.equities.binarygateway.pillar.v5.8.percentagelimit", ftypes.INT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.equities.binarygateway.pillar.v5.8.pillarstreammessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.post = ProtoField.new("Post", "nyse.equities.binarygateway.pillar.v5.8.post", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_1 = ProtoField.new("Ppp 1", "nyse.equities.binarygateway.pillar.v5.8.ppp1", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_2 = ProtoField.new("Ppp 2", "nyse.equities.binarygateway.pillar.v5.8.ppp2", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_3 = ProtoField.new("Ppp 3", "nyse.equities.binarygateway.pillar.v5.8.ppp3", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.equities.binarygateway.pillar.v5.8.preliquidityindicator", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.price = ProtoField.new("Price", "nyse.equities.binarygateway.pillar.v5.8.price", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.price_scale = ProtoField.new("Price Scale", "nyse.equities.binarygateway.pillar.v5.8.pricescale", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.equities.binarygateway.pillar.v5.8.quotingmpv", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.rd_seq = ProtoField.new("Rd Seq", "nyse.equities.binarygateway.pillar.v5.8.rdseq", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reason_code = ProtoField.new("Reason Code", "nyse.equities.binarygateway.pillar.v5.8.reasoncode", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.equities.binarygateway.pillar.v5.8.refclordid", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id = ProtoField.new("Ref Seq Msg Id", "nyse.equities.binarygateway.pillar.v5.8.refseqmsgid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_other = ProtoField.new("Reinstatement Requiredby Other", "nyse.equities.binarygateway.pillar.v5.8.reinstatementrequiredbyother", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_self = ProtoField.new("Reinstatement Requiredby Self", "nyse.equities.binarygateway.pillar.v5.8.reinstatementrequiredbyself", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reject_type = ProtoField.new("Reject Type", "nyse.equities.binarygateway.pillar.v5.8.rejecttype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_100 = ProtoField.new("Reserved 100", "nyse.equities.binarygateway.pillar.v5.8.reserved100", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_190 = ProtoField.new("Reserved 190", "nyse.equities.binarygateway.pillar.v5.8.reserved190", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_199 = ProtoField.new("Reserved 199", "nyse.equities.binarygateway.pillar.v5.8.reserved199", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.equities.binarygateway.pillar.v5.8.reserved200", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.binarygateway.pillar.v5.8.reserved4", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.equities.binarygateway.pillar.v5.8.reserved49", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.equities.binarygateway.pillar.v5.8.reserved50", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_7 = ProtoField.new("Reserved 7", "nyse.equities.binarygateway.pillar.v5.8.reserved7", ftypes.BYTES)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ridge = ProtoField.new("Ridge", "nyse.equities.binarygateway.pillar.v5.8.ridge", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.equities.binarygateway.pillar.v5.8.riskacktype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.equities.binarygateway.pillar.v5.8.riskactiontype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_activation = ProtoField.new("Risk Control Activation", "nyse.equities.binarygateway.pillar.v5.8.riskcontrolactivation", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_type = ProtoField.new("Risk Control Type", "nyse.equities.binarygateway.pillar.v5.8.riskcontroltype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_minimum_value = ProtoField.new("Risk Minimum Value", "nyse.equities.binarygateway.pillar.v5.8.riskminimumvalue", ftypes.INT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_range_id = ProtoField.new("Risk Range Id", "nyse.equities.binarygateway.pillar.v5.8.riskrangeid", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.equities.binarygateway.pillar.v5.8.riskusercrd", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.equities.binarygateway.pillar.v5.8.riskusertype", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.round_lot_size = ProtoField.new("Round Lot Size", "nyse.equities.binarygateway.pillar.v5.8.roundlotsize", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.equities.binarygateway.pillar.v5.8.rpimpv", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.equities.binarygateway.pillar.v5.8.selftradeprevention", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.equities.binarygateway.pillar.v5.8.selftradetype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.sell_dmm_available_qty = ProtoField.new("Sell Dmm Available Qty", "nyse.equities.binarygateway.pillar.v5.8.selldmmavailableqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.equities.binarygateway.pillar.v5.8.sellindicator", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq = ProtoField.new("Seq", "nyse.equities.binarygateway.pillar.v5.8.seq", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.equities.binarygateway.pillar.v5.8.seqmsg", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.equities.binarygateway.pillar.v5.8.seqmsgheader", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.equities.binarygateway.pillar.v5.8.seqmsglength", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.equities.binarygateway.pillar.v5.8.seqmsgtype", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.equities.binarygateway.pillar.v5.8.seqmsgid", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.equities.binarygateway.pillar.v5.8.sequencedmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.sess = ProtoField.new("Sess", "nyse.equities.binarygateway.pillar.v5.8.sess", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.settlement_type = ProtoField.new("Settlement Type", "nyse.equities.binarygateway.pillar.v5.8.settlementtype", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.side = ProtoField.new("Side", "nyse.equities.binarygateway.pillar.v5.8.side", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.equities.binarygateway.pillar.v5.8.sideofunpairedqty", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.equities.binarygateway.pillar.v5.8.ssrfilingprice", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.start_seq = ProtoField.new("Start Seq", "nyse.equities.binarygateway.pillar.v5.8.startseq", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.status = ProtoField.new("Status", "nyse.equities.binarygateway.pillar.v5.8.status", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.stop_px = ProtoField.new("Stop Px", "nyse.equities.binarygateway.pillar.v5.8.stoppx", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.equities.binarygateway.pillar.v5.8.streamavail", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.stream_id = ProtoField.new("Stream Id", "nyse.equities.binarygateway.pillar.v5.8.streamid", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.equities.binarygateway.pillar.v5.8.submsgheader", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.subscription_status = ProtoField.new("Subscription Status", "nyse.equities.binarygateway.pillar.v5.8.subscriptionstatus", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_eligibility = ProtoField.new("Symbol Eligibility", "nyse.equities.binarygateway.pillar.v5.8.symboleligibility", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_id = ProtoField.new("Symbol Id", "nyse.equities.binarygateway.pillar.v5.8.symbolid", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.test_symbol_indicator = ProtoField.new("Test Symbol Indicator", "nyse.equities.binarygateway.pillar.v5.8.testsymbolindicator", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.threshold_breach_level = ProtoField.new("Threshold Breach Level", "nyse.equities.binarygateway.pillar.v5.8.thresholdbreachlevel", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.equities.binarygateway.pillar.v5.8.throttlepreference", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.equities.binarygateway.pillar.v5.8.throttlethreshold", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.equities.binarygateway.pillar.v5.8.throttlewindow", ftypes.UINT16)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.8.throttled", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x8000000000000000)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.time_limit = ProtoField.new("Time Limit", "nyse.equities.binarygateway.pillar.v5.8.timelimit", ftypes.INT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.binarygateway.pillar.v5.8.timestamp", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.equities.binarygateway.pillar.v5.8.tradingmpv", ftypes.DOUBLE)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.transact_time = ProtoField.new("Transact Time", "nyse.equities.binarygateway.pillar.v5.8.transacttime", ftypes.UINT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.equities.binarygateway.pillar.v5.8.unpairedqty", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation1", ftypes.INT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_2 = ProtoField.new("Usd Calculation 2", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation2", ftypes.INT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation3", ftypes.INT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_4 = ProtoField.new("Usd Calculation 4", "nyse.equities.binarygateway.pillar.v5.8.usdcalculation4", ftypes.INT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_limit = ProtoField.new("Usd Limit", "nyse.equities.binarygateway.pillar.v5.8.usdlimit", ftypes.INT64)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.user = ProtoField.new("User", "nyse.equities.binarygateway.pillar.v5.8.user", ftypes.UINT32)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.user_data = ProtoField.new("User Data", "nyse.equities.binarygateway.pillar.v5.8.userdata", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.user_session_status = ProtoField.new("User Session Status", "nyse.equities.binarygateway.pillar.v5.8.usersessionstatus", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.user_session_type = ProtoField.new("User Session Type", "nyse.equities.binarygateway.pillar.v5.8.usersessiontype", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.username = ProtoField.new("Username", "nyse.equities.binarygateway.pillar.v5.8.username", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.version = ProtoField.new("Version", "nyse.equities.binarygateway.pillar.v5.8.version", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.equities.binarygateway.pillar.v5.8.workingawayfromdisplay", ftypes.UINT8)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.working_price = ProtoField.new("Working Price", "nyse.equities.binarygateway.pillar.v5.8.workingprice", ftypes.DOUBLE)
 
 -- Nyse Equities BinaryGateway Pillar 5.8 messages
-nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject = ProtoField.new("Application Layer Reject", "nyse.equities.binarygateway.pillar.v5.8.applicationlayerreject", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data = ProtoField.new("Auction Price Data", "nyse.equities.binarygateway.pillar.v5.8.auctionpricedata", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.auction_request = ProtoField.new("Auction Request", "nyse.equities.binarygateway.pillar.v5.8.auctionrequest", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message = ProtoField.new("Bulk Cancel Request Message", "nyse.equities.binarygateway.pillar.v5.8.bulkcancelrequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message = ProtoField.new("Dmm Symbol Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.dmmsymbolreferencedatamessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message = ProtoField.new("Equities Symbol Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.equitiessymbolreferencedatamessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.execution_report = ProtoField.new("Execution Report", "nyse.equities.binarygateway.pillar.v5.8.executionreport", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin = ProtoField.new("Gt Begin", "nyse.equities.binarygateway.pillar.v5.8.gtbegin", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.gt_end = ProtoField.new("Gt End", "nyse.equities.binarygateway.pillar.v5.8.gtend", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request = ProtoField.new("Manual Action Request", "nyse.equities.binarygateway.pillar.v5.8.manualactionrequest", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message = ProtoField.new("Manual Action Response Message", "nyse.equities.binarygateway.pillar.v5.8.manualactionresponsemessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message = ProtoField.new("Minimum Price Variant Class Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.minimumpricevariantclassreferencedatamessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_level_reference_data_message = ProtoField.new("Minimum Price Variant Level Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.minimumpricevariantlevelreferencedatamessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message = ProtoField.new("Mmid Configuration Message", "nyse.equities.binarygateway.pillar.v5.8.mmidconfigurationmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message = ProtoField.new("Mpid Configuration Message", "nyse.equities.binarygateway.pillar.v5.8.mpidconfigurationmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.new_order_single_and_cancel_replace_request_message = ProtoField.new("New Order Single And Cancel Replace Request Message", "nyse.equities.binarygateway.pillar.v5.8.newordersingleandcancelreplacerequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_and_cancel_replace_acknowledgement_message = ProtoField.new("Order And Cancel Replace Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.8.orderandcancelreplaceacknowledgementmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "nyse.equities.binarygateway.pillar.v5.8.ordercancelrequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout = ProtoField.new("Order Modify Cancel Request Acknowledgment And Urout", "nyse.equities.binarygateway.pillar.v5.8.ordermodifycancelrequestacknowledgmentandurout", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message = ProtoField.new("Order Modify Request Message", "nyse.equities.binarygateway.pillar.v5.8.ordermodifyrequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment = ProtoField.new("Order Priority Update Acknowledgment", "nyse.equities.binarygateway.pillar.v5.8.orderpriorityupdateacknowledgment", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message = ProtoField.new("Risk Action Request Message", "nyse.equities.binarygateway.pillar.v5.8.riskactionrequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement = ProtoField.new("Risk Control Acknowledgement", "nyse.equities.binarygateway.pillar.v5.8.riskcontrolacknowledgement", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert = ProtoField.new("Risk Control Alert", "nyse.equities.binarygateway.pillar.v5.8.riskcontrolalert", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message = ProtoField.new("Risk Limit Update Request Message", "nyse.equities.binarygateway.pillar.v5.8.risklimitupdaterequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message = ProtoField.new("Sequenced Filler Message", "nyse.equities.binarygateway.pillar.v5.8.sequencedfillermessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message = ProtoField.new("Session Configuration Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.8.sessionconfigurationacknowledgementmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.equities.binarygateway.pillar.v5.8.sessionconfigurationrequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement = ProtoField.new("Symbol Subscription Acknowledgement", "nyse.equities.binarygateway.pillar.v5.8.symbolsubscriptionacknowledgement", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message = ProtoField.new("Symbol Subscription Request Message", "nyse.equities.binarygateway.pillar.v5.8.symbolsubscriptionrequestmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message = ProtoField.new("Tg Begin Message", "nyse.equities.binarygateway.pillar.v5.8.tgbeginmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message = ProtoField.new("Tg End Message", "nyse.equities.binarygateway.pillar.v5.8.tgendmessage", ftypes.STRING)
-nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct = ProtoField.new("Trade Bust Correct", "nyse.equities.binarygateway.pillar.v5.8.tradebustcorrect", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject = ProtoField.new("Application Layer Reject", "nyse.equities.binarygateway.pillar.v5.8.applicationlayerreject", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data = ProtoField.new("Auction Price Data", "nyse.equities.binarygateway.pillar.v5.8.auctionpricedata", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.auction_request = ProtoField.new("Auction Request", "nyse.equities.binarygateway.pillar.v5.8.auctionrequest", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message = ProtoField.new("Bulk Cancel Request Message", "nyse.equities.binarygateway.pillar.v5.8.bulkcancelrequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message = ProtoField.new("Dmm Symbol Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.dmmsymbolreferencedatamessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message = ProtoField.new("Equities Symbol Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.equitiessymbolreferencedatamessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.execution_report = ProtoField.new("Execution Report", "nyse.equities.binarygateway.pillar.v5.8.executionreport", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin = ProtoField.new("Gt Begin", "nyse.equities.binarygateway.pillar.v5.8.gtbegin", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.gt_end = ProtoField.new("Gt End", "nyse.equities.binarygateway.pillar.v5.8.gtend", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request = ProtoField.new("Manual Action Request", "nyse.equities.binarygateway.pillar.v5.8.manualactionrequest", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message = ProtoField.new("Manual Action Response Message", "nyse.equities.binarygateway.pillar.v5.8.manualactionresponsemessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message = ProtoField.new("Minimum Price Variant Class Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.minimumpricevariantclassreferencedatamessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_level_reference_data_message = ProtoField.new("Minimum Price Variant Level Reference Data Message", "nyse.equities.binarygateway.pillar.v5.8.minimumpricevariantlevelreferencedatamessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message = ProtoField.new("Mmid Configuration Message", "nyse.equities.binarygateway.pillar.v5.8.mmidconfigurationmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message = ProtoField.new("Mpid Configuration Message", "nyse.equities.binarygateway.pillar.v5.8.mpidconfigurationmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.new_order_single_and_cancel_replace_request_message = ProtoField.new("New Order Single And Cancel Replace Request Message", "nyse.equities.binarygateway.pillar.v5.8.newordersingleandcancelreplacerequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_and_cancel_replace_acknowledgement_message = ProtoField.new("Order And Cancel Replace Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.8.orderandcancelreplaceacknowledgementmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "nyse.equities.binarygateway.pillar.v5.8.ordercancelrequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout = ProtoField.new("Order Modify Cancel Request Acknowledgment And Urout", "nyse.equities.binarygateway.pillar.v5.8.ordermodifycancelrequestacknowledgmentandurout", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message = ProtoField.new("Order Modify Request Message", "nyse.equities.binarygateway.pillar.v5.8.ordermodifyrequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment = ProtoField.new("Order Priority Update Acknowledgment", "nyse.equities.binarygateway.pillar.v5.8.orderpriorityupdateacknowledgment", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message = ProtoField.new("Risk Action Request Message", "nyse.equities.binarygateway.pillar.v5.8.riskactionrequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement = ProtoField.new("Risk Control Acknowledgement", "nyse.equities.binarygateway.pillar.v5.8.riskcontrolacknowledgement", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert = ProtoField.new("Risk Control Alert", "nyse.equities.binarygateway.pillar.v5.8.riskcontrolalert", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message = ProtoField.new("Risk Limit Update Request Message", "nyse.equities.binarygateway.pillar.v5.8.risklimitupdaterequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message = ProtoField.new("Sequenced Filler Message", "nyse.equities.binarygateway.pillar.v5.8.sequencedfillermessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message = ProtoField.new("Session Configuration Acknowledgement Message", "nyse.equities.binarygateway.pillar.v5.8.sessionconfigurationacknowledgementmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.equities.binarygateway.pillar.v5.8.sessionconfigurationrequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement = ProtoField.new("Symbol Subscription Acknowledgement", "nyse.equities.binarygateway.pillar.v5.8.symbolsubscriptionacknowledgement", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message = ProtoField.new("Symbol Subscription Request Message", "nyse.equities.binarygateway.pillar.v5.8.symbolsubscriptionrequestmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message = ProtoField.new("Tg Begin Message", "nyse.equities.binarygateway.pillar.v5.8.tgbeginmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message = ProtoField.new("Tg End Message", "nyse.equities.binarygateway.pillar.v5.8.tgendmessage", ftypes.STRING)
+omi_nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct = ProtoField.new("Trade Bust Correct", "nyse.equities.binarygateway.pillar.v5.8.tradebustcorrect", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -293,285 +293,285 @@ show.pillar_stream_message = false
 show.sequenced_message = false
 
 -- Register Nyse Equities BinaryGateway Pillar 5.8 Show Options
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_application_layer_reject = Pref.bool("Show Application Layer Reject", show.application_layer_reject, "Parse and add Application Layer Reject to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_price_data = Pref.bool("Show Auction Price Data", show.auction_price_data, "Parse and add Auction Price Data to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_request = Pref.bool("Show Auction Request", show.auction_request, "Parse and add Auction Request to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_bitfield_flow_indicator = Pref.bool("Show Bitfield Flow Indicator", show.bitfield_flow_indicator, "Parse and add Bitfield Flow Indicator to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_bulk_cancel_request_message = Pref.bool("Show Bulk Cancel Request Message", show.bulk_cancel_request_message, "Parse and add Bulk Cancel Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_dmm_symbol_reference_data_message = Pref.bool("Show Dmm Symbol Reference Data Message", show.dmm_symbol_reference_data_message, "Parse and add Dmm Symbol Reference Data Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_equities_symbol_reference_data_message = Pref.bool("Show Equities Symbol Reference Data Message", show.equities_symbol_reference_data_message, "Parse and add Equities Symbol Reference Data Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_execution_report = Pref.bool("Show Execution Report", show.execution_report, "Parse and add Execution Report to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_begin = Pref.bool("Show Gt Begin", show.gt_begin, "Parse and add Gt Begin to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_end = Pref.bool("Show Gt End", show.gt_end, "Parse and add Gt End to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_id = Pref.bool("Show Manual Action Id", show.manual_action_id, "Parse and add Manual Action Id to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_request = Pref.bool("Show Manual Action Request", show.manual_action_request, "Parse and add Manual Action Request to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_response_message = Pref.bool("Show Manual Action Response Message", show.manual_action_response_message, "Parse and add Manual Action Response Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_class_reference_data_message = Pref.bool("Show Minimum Price Variant Class Reference Data Message", show.minimum_price_variant_class_reference_data_message, "Parse and add Minimum Price Variant Class Reference Data Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_level_reference_data_message = Pref.bool("Show Minimum Price Variant Level Reference Data Message", show.minimum_price_variant_level_reference_data_message, "Parse and add Minimum Price Variant Level Reference Data Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_mmid_configuration_message = Pref.bool("Show Mmid Configuration Message", show.mmid_configuration_message, "Parse and add Mmid Configuration Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpid_configuration_message = Pref.bool("Show Mpid Configuration Message", show.mpid_configuration_message, "Parse and add Mpid Configuration Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_new_order_single_and_cancel_replace_request_message = Pref.bool("Show New Order Single And Cancel Replace Request Message", show.new_order_single_and_cancel_replace_request_message, "Parse and add New Order Single And Cancel Replace Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_settlement_type_add_on = Pref.bool("Show Optional Settlement Type Add On", show.optional_settlement_type_add_on, "Parse and add Optional Settlement Type Add On to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_and_cancel_replace_acknowledgement_message = Pref.bool("Show Order And Cancel Replace Acknowledgement Message", show.order_and_cancel_replace_acknowledgement_message, "Parse and add Order And Cancel Replace Acknowledgement Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_cancel_request_acknowledgment_and_urout = Pref.bool("Show Order Modify Cancel Request Acknowledgment And Urout", show.order_modify_cancel_request_acknowledgment_and_urout, "Parse and add Order Modify Cancel Request Acknowledgment And Urout to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_priority_update_acknowledgment = Pref.bool("Show Order Priority Update Acknowledgment", show.order_priority_update_acknowledgment, "Parse and add Order Priority Update Acknowledgment to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_acknowledgement = Pref.bool("Show Risk Control Acknowledgement", show.risk_control_acknowledgement, "Parse and add Risk Control Acknowledgement to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_alert = Pref.bool("Show Risk Control Alert", show.risk_control_alert, "Parse and add Risk Control Alert to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_limit_update_request_message = Pref.bool("Show Risk Limit Update Request Message", show.risk_limit_update_request_message, "Parse and add Risk Limit Update Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_seqmsgid = Pref.bool("Show Seqmsgid", show.seqmsgid, "Parse and add Seqmsgid to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_filler_message = Pref.bool("Show Sequenced Filler Message", show.sequenced_filler_message, "Parse and add Sequenced Filler Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_acknowledgement_message = Pref.bool("Show Session Configuration Acknowledgement Message", show.session_configuration_acknowledgement_message, "Parse and add Session Configuration Acknowledgement Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_acknowledgement = Pref.bool("Show Symbol Subscription Acknowledgement", show.symbol_subscription_acknowledgement, "Parse and add Symbol Subscription Acknowledgement to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_request_message = Pref.bool("Show Symbol Subscription Request Message", show.symbol_subscription_request_message, "Parse and add Symbol Subscription Request Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_begin_message = Pref.bool("Show Tg Begin Message", show.tg_begin_message, "Parse and add Tg Begin Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_end_message = Pref.bool("Show Tg End Message", show.tg_end_message, "Parse and add Tg End Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct = Pref.bool("Show Trade Bust Correct", show.trade_bust_correct, "Parse and add Trade Bust Correct to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_application_layer_reject = Pref.bool("Show Application Layer Reject", show.application_layer_reject, "Parse and add Application Layer Reject to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_price_data = Pref.bool("Show Auction Price Data", show.auction_price_data, "Parse and add Auction Price Data to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_request = Pref.bool("Show Auction Request", show.auction_request, "Parse and add Auction Request to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_bitfield_flow_indicator = Pref.bool("Show Bitfield Flow Indicator", show.bitfield_flow_indicator, "Parse and add Bitfield Flow Indicator to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_bulk_cancel_request_message = Pref.bool("Show Bulk Cancel Request Message", show.bulk_cancel_request_message, "Parse and add Bulk Cancel Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_dmm_symbol_reference_data_message = Pref.bool("Show Dmm Symbol Reference Data Message", show.dmm_symbol_reference_data_message, "Parse and add Dmm Symbol Reference Data Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_equities_symbol_reference_data_message = Pref.bool("Show Equities Symbol Reference Data Message", show.equities_symbol_reference_data_message, "Parse and add Equities Symbol Reference Data Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_execution_report = Pref.bool("Show Execution Report", show.execution_report, "Parse and add Execution Report to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_begin = Pref.bool("Show Gt Begin", show.gt_begin, "Parse and add Gt Begin to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_end = Pref.bool("Show Gt End", show.gt_end, "Parse and add Gt End to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_id = Pref.bool("Show Manual Action Id", show.manual_action_id, "Parse and add Manual Action Id to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_request = Pref.bool("Show Manual Action Request", show.manual_action_request, "Parse and add Manual Action Request to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_response_message = Pref.bool("Show Manual Action Response Message", show.manual_action_response_message, "Parse and add Manual Action Response Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_class_reference_data_message = Pref.bool("Show Minimum Price Variant Class Reference Data Message", show.minimum_price_variant_class_reference_data_message, "Parse and add Minimum Price Variant Class Reference Data Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_level_reference_data_message = Pref.bool("Show Minimum Price Variant Level Reference Data Message", show.minimum_price_variant_level_reference_data_message, "Parse and add Minimum Price Variant Level Reference Data Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mmid_configuration_message = Pref.bool("Show Mmid Configuration Message", show.mmid_configuration_message, "Parse and add Mmid Configuration Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpid_configuration_message = Pref.bool("Show Mpid Configuration Message", show.mpid_configuration_message, "Parse and add Mpid Configuration Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_new_order_single_and_cancel_replace_request_message = Pref.bool("Show New Order Single And Cancel Replace Request Message", show.new_order_single_and_cancel_replace_request_message, "Parse and add New Order Single And Cancel Replace Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_settlement_type_add_on = Pref.bool("Show Optional Settlement Type Add On", show.optional_settlement_type_add_on, "Parse and add Optional Settlement Type Add On to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_and_cancel_replace_acknowledgement_message = Pref.bool("Show Order And Cancel Replace Acknowledgement Message", show.order_and_cancel_replace_acknowledgement_message, "Parse and add Order And Cancel Replace Acknowledgement Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_cancel_request_acknowledgment_and_urout = Pref.bool("Show Order Modify Cancel Request Acknowledgment And Urout", show.order_modify_cancel_request_acknowledgment_and_urout, "Parse and add Order Modify Cancel Request Acknowledgment And Urout to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_priority_update_acknowledgment = Pref.bool("Show Order Priority Update Acknowledgment", show.order_priority_update_acknowledgment, "Parse and add Order Priority Update Acknowledgment to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_acknowledgement = Pref.bool("Show Risk Control Acknowledgement", show.risk_control_acknowledgement, "Parse and add Risk Control Acknowledgement to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_alert = Pref.bool("Show Risk Control Alert", show.risk_control_alert, "Parse and add Risk Control Alert to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_limit_update_request_message = Pref.bool("Show Risk Limit Update Request Message", show.risk_limit_update_request_message, "Parse and add Risk Limit Update Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seqmsgid = Pref.bool("Show Seqmsgid", show.seqmsgid, "Parse and add Seqmsgid to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_filler_message = Pref.bool("Show Sequenced Filler Message", show.sequenced_filler_message, "Parse and add Sequenced Filler Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_acknowledgement_message = Pref.bool("Show Session Configuration Acknowledgement Message", show.session_configuration_acknowledgement_message, "Parse and add Session Configuration Acknowledgement Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_acknowledgement = Pref.bool("Show Symbol Subscription Acknowledgement", show.symbol_subscription_acknowledgement, "Parse and add Symbol Subscription Acknowledgement to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_request_message = Pref.bool("Show Symbol Subscription Request Message", show.symbol_subscription_request_message, "Parse and add Symbol Subscription Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_begin_message = Pref.bool("Show Tg Begin Message", show.tg_begin_message, "Parse and add Tg Begin Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_end_message = Pref.bool("Show Tg End Message", show.tg_end_message, "Parse and add Tg End Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct = Pref.bool("Show Trade Bust Correct", show.trade_bust_correct, "Parse and add Trade Bust Correct to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 
 -- Handle changed preferences
-function nyse_equities_binarygateway_pillar_v5_8.prefs_changed()
+function omi_nyse_equities_binarygateway_pillar_v5_8.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_layer_reject ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_application_layer_reject then
-    show.application_layer_reject = nyse_equities_binarygateway_pillar_v5_8.prefs.show_application_layer_reject
+  if show.application_layer_reject ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_application_layer_reject then
+    show.application_layer_reject = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_application_layer_reject
     changed = true
   end
-  if show.auction_price_data ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_price_data then
-    show.auction_price_data = nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_price_data
+  if show.auction_price_data ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_price_data then
+    show.auction_price_data = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_price_data
     changed = true
   end
-  if show.auction_request ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_request then
-    show.auction_request = nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_request
+  if show.auction_request ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_request then
+    show.auction_request = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_auction_request
     changed = true
   end
-  if show.bitfield_flow_indicator ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_bitfield_flow_indicator then
-    show.bitfield_flow_indicator = nyse_equities_binarygateway_pillar_v5_8.prefs.show_bitfield_flow_indicator
+  if show.bitfield_flow_indicator ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_bitfield_flow_indicator then
+    show.bitfield_flow_indicator = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_bitfield_flow_indicator
     changed = true
   end
-  if show.bulk_cancel_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_bulk_cancel_request_message then
-    show.bulk_cancel_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_bulk_cancel_request_message
+  if show.bulk_cancel_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_bulk_cancel_request_message then
+    show.bulk_cancel_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_bulk_cancel_request_message
     changed = true
   end
-  if show.close ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_close then
-    show.close = nyse_equities_binarygateway_pillar_v5_8.prefs.show_close
+  if show.close ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_close then
+    show.close = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_close
     changed = true
   end
-  if show.close_response ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_close_response then
-    show.close_response = nyse_equities_binarygateway_pillar_v5_8.prefs.show_close_response
+  if show.close_response ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_close_response then
+    show.close_response = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_close_response
     changed = true
   end
-  if show.dmm_symbol_reference_data_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_dmm_symbol_reference_data_message then
-    show.dmm_symbol_reference_data_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_dmm_symbol_reference_data_message
+  if show.dmm_symbol_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_dmm_symbol_reference_data_message then
+    show.dmm_symbol_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_dmm_symbol_reference_data_message
     changed = true
   end
-  if show.equities_symbol_reference_data_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_equities_symbol_reference_data_message then
-    show.equities_symbol_reference_data_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_equities_symbol_reference_data_message
+  if show.equities_symbol_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_equities_symbol_reference_data_message then
+    show.equities_symbol_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_equities_symbol_reference_data_message
     changed = true
   end
-  if show.execution_report ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_execution_report then
-    show.execution_report = nyse_equities_binarygateway_pillar_v5_8.prefs.show_execution_report
+  if show.execution_report ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_execution_report then
+    show.execution_report = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_execution_report
     changed = true
   end
-  if show.gt_begin ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_begin then
-    show.gt_begin = nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_begin
+  if show.gt_begin ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_begin then
+    show.gt_begin = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_begin
     changed = true
   end
-  if show.gt_end ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_end then
-    show.gt_end = nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_end
+  if show.gt_end ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_end then
+    show.gt_end = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_gt_end
     changed = true
   end
-  if show.heartbeat ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_heartbeat then
-    show.heartbeat = nyse_equities_binarygateway_pillar_v5_8.prefs.show_heartbeat
+  if show.heartbeat ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_heartbeat then
+    show.heartbeat = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_heartbeat
     changed = true
   end
-  if show.login_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_message then
-    show.login_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_message
+  if show.login_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_message then
+    show.login_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_message
     changed = true
   end
-  if show.login_response ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_response then
-    show.login_response = nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_response
+  if show.login_response ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_response then
+    show.login_response = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_login_response
     changed = true
   end
-  if show.manual_action_id ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_id then
-    show.manual_action_id = nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_id
+  if show.manual_action_id ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_id then
+    show.manual_action_id = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_id
     changed = true
   end
-  if show.manual_action_request ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_request then
-    show.manual_action_request = nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_request
+  if show.manual_action_request ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_request then
+    show.manual_action_request = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_request
     changed = true
   end
-  if show.manual_action_response_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_response_message then
-    show.manual_action_response_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_response_message
+  if show.manual_action_response_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_response_message then
+    show.manual_action_response_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_manual_action_response_message
     changed = true
   end
-  if show.minimum_price_variant_class_reference_data_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_class_reference_data_message then
-    show.minimum_price_variant_class_reference_data_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_class_reference_data_message
+  if show.minimum_price_variant_class_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_class_reference_data_message then
+    show.minimum_price_variant_class_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_class_reference_data_message
     changed = true
   end
-  if show.minimum_price_variant_level_reference_data_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_level_reference_data_message then
-    show.minimum_price_variant_level_reference_data_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_level_reference_data_message
+  if show.minimum_price_variant_level_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_level_reference_data_message then
+    show.minimum_price_variant_level_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_minimum_price_variant_level_reference_data_message
     changed = true
   end
-  if show.mmid_configuration_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_mmid_configuration_message then
-    show.mmid_configuration_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_mmid_configuration_message
+  if show.mmid_configuration_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mmid_configuration_message then
+    show.mmid_configuration_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mmid_configuration_message
     changed = true
   end
-  if show.mpid_configuration_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpid_configuration_message then
-    show.mpid_configuration_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpid_configuration_message
+  if show.mpid_configuration_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpid_configuration_message then
+    show.mpid_configuration_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpid_configuration_message
     changed = true
   end
-  if show.mpv_level_definition ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpv_level_definition then
-    show.mpv_level_definition = nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpv_level_definition
+  if show.mpv_level_definition ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpv_level_definition then
+    show.mpv_level_definition = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_mpv_level_definition
     changed = true
   end
-  if show.msg_header ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_msg_header then
-    show.msg_header = nyse_equities_binarygateway_pillar_v5_8.prefs.show_msg_header
+  if show.msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_msg_header then
+    show.msg_header = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_msg_header
     changed = true
   end
-  if show.new_order_single_and_cancel_replace_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_new_order_single_and_cancel_replace_request_message then
-    show.new_order_single_and_cancel_replace_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_new_order_single_and_cancel_replace_request_message
+  if show.new_order_single_and_cancel_replace_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_new_order_single_and_cancel_replace_request_message then
+    show.new_order_single_and_cancel_replace_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_new_order_single_and_cancel_replace_request_message
     changed = true
   end
-  if show.open ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_open then
-    show.open = nyse_equities_binarygateway_pillar_v5_8.prefs.show_open
+  if show.open ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_open then
+    show.open = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_open
     changed = true
   end
-  if show.open_response ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_open_response then
-    show.open_response = nyse_equities_binarygateway_pillar_v5_8.prefs.show_open_response
+  if show.open_response ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_open_response then
+    show.open_response = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_open_response
     changed = true
   end
-  if show.optional_order_add_on ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_order_add_on then
-    show.optional_order_add_on = nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_order_add_on
+  if show.optional_order_add_on ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_order_add_on then
+    show.optional_order_add_on = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_order_add_on
     changed = true
   end
-  if show.optional_settlement_type_add_on ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_settlement_type_add_on then
-    show.optional_settlement_type_add_on = nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_settlement_type_add_on
+  if show.optional_settlement_type_add_on ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_settlement_type_add_on then
+    show.optional_settlement_type_add_on = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_optional_settlement_type_add_on
     changed = true
   end
-  if show.order_and_cancel_replace_acknowledgement_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_and_cancel_replace_acknowledgement_message then
-    show.order_and_cancel_replace_acknowledgement_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_and_cancel_replace_acknowledgement_message
+  if show.order_and_cancel_replace_acknowledgement_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_and_cancel_replace_acknowledgement_message then
+    show.order_and_cancel_replace_acknowledgement_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_and_cancel_replace_acknowledgement_message
     changed = true
   end
-  if show.order_cancel_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_cancel_request_message
+  if show.order_cancel_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_cancel_request_message then
+    show.order_cancel_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_cancel_request_message
     changed = true
   end
-  if show.order_modify_cancel_request_acknowledgment_and_urout ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_cancel_request_acknowledgment_and_urout then
-    show.order_modify_cancel_request_acknowledgment_and_urout = nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_cancel_request_acknowledgment_and_urout
+  if show.order_modify_cancel_request_acknowledgment_and_urout ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_cancel_request_acknowledgment_and_urout then
+    show.order_modify_cancel_request_acknowledgment_and_urout = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_cancel_request_acknowledgment_and_urout
     changed = true
   end
-  if show.order_modify_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_request_message then
-    show.order_modify_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_request_message
+  if show.order_modify_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_request_message then
+    show.order_modify_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_modify_request_message
     changed = true
   end
-  if show.order_priority_update_acknowledgment ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_priority_update_acknowledgment then
-    show.order_priority_update_acknowledgment = nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_priority_update_acknowledgment
+  if show.order_priority_update_acknowledgment ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_priority_update_acknowledgment then
+    show.order_priority_update_acknowledgment = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_order_priority_update_acknowledgment
     changed = true
   end
-  if show.ref_seq_msg_id ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_ref_seq_msg_id then
-    show.ref_seq_msg_id = nyse_equities_binarygateway_pillar_v5_8.prefs.show_ref_seq_msg_id
+  if show.ref_seq_msg_id ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_ref_seq_msg_id then
+    show.ref_seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_ref_seq_msg_id
     changed = true
   end
-  if show.risk_action_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_action_request_message then
-    show.risk_action_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_action_request_message
+  if show.risk_action_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_action_request_message then
+    show.risk_action_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_action_request_message
     changed = true
   end
-  if show.risk_control_acknowledgement ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_acknowledgement then
-    show.risk_control_acknowledgement = nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_acknowledgement
+  if show.risk_control_acknowledgement ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_acknowledgement then
+    show.risk_control_acknowledgement = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_acknowledgement
     changed = true
   end
-  if show.risk_control_alert ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_alert then
-    show.risk_control_alert = nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_alert
+  if show.risk_control_alert ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_alert then
+    show.risk_control_alert = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_control_alert
     changed = true
   end
-  if show.risk_limit_update_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_limit_update_request_message then
-    show.risk_limit_update_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_limit_update_request_message
+  if show.risk_limit_update_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_limit_update_request_message then
+    show.risk_limit_update_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_risk_limit_update_request_message
     changed = true
   end
-  if show.seq_msg ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg then
-    show.seq_msg = nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg
+  if show.seq_msg ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg then
+    show.seq_msg = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg
     changed = true
   end
-  if show.seq_msg_header ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg_header then
-    show.seq_msg_header = nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg_header
+  if show.seq_msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg_header then
+    show.seq_msg_header = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seq_msg_header
     changed = true
   end
-  if show.seqmsgid ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_seqmsgid then
-    show.seqmsgid = nyse_equities_binarygateway_pillar_v5_8.prefs.show_seqmsgid
+  if show.seqmsgid ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seqmsgid then
+    show.seqmsgid = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_seqmsgid
     changed = true
   end
-  if show.sequenced_filler_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_filler_message then
-    show.sequenced_filler_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_filler_message
+  if show.sequenced_filler_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_filler_message then
+    show.sequenced_filler_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_filler_message
     changed = true
   end
-  if show.session_configuration_acknowledgement_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_acknowledgement_message then
-    show.session_configuration_acknowledgement_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_acknowledgement_message
+  if show.session_configuration_acknowledgement_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_acknowledgement_message then
+    show.session_configuration_acknowledgement_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_acknowledgement_message
     changed = true
   end
-  if show.session_configuration_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_request_message then
-    show.session_configuration_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_request_message
+  if show.session_configuration_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_request_message then
+    show.session_configuration_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_session_configuration_request_message
     changed = true
   end
-  if show.stream_avail ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_avail then
-    show.stream_avail = nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_avail
+  if show.stream_avail ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_avail then
+    show.stream_avail = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_avail
     changed = true
   end
-  if show.stream_id ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_id then
-    show.stream_id = nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_id
+  if show.stream_id ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_id then
+    show.stream_id = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_stream_id
     changed = true
   end
-  if show.sub_msg_header ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_sub_msg_header then
-    show.sub_msg_header = nyse_equities_binarygateway_pillar_v5_8.prefs.show_sub_msg_header
+  if show.sub_msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sub_msg_header then
+    show.sub_msg_header = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sub_msg_header
     changed = true
   end
-  if show.symbol_subscription_acknowledgement ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_acknowledgement then
-    show.symbol_subscription_acknowledgement = nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_acknowledgement
+  if show.symbol_subscription_acknowledgement ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_acknowledgement then
+    show.symbol_subscription_acknowledgement = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_acknowledgement
     changed = true
   end
-  if show.symbol_subscription_request_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_request_message then
-    show.symbol_subscription_request_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_request_message
+  if show.symbol_subscription_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_request_message then
+    show.symbol_subscription_request_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_request_message
     changed = true
   end
-  if show.tg_begin_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_begin_message then
-    show.tg_begin_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_begin_message
+  if show.tg_begin_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_begin_message then
+    show.tg_begin_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_begin_message
     changed = true
   end
-  if show.tg_end_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_end_message then
-    show.tg_end_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_end_message
+  if show.tg_end_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_end_message then
+    show.tg_end_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_end_message
     changed = true
   end
-  if show.trade_bust_correct ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct then
-    show.trade_bust_correct = nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct
+  if show.trade_bust_correct ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct then
+    show.trade_bust_correct = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct
     changed = true
   end
-  if show.pillar_stream_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message then
-    show.pillar_stream_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message
+  if show.pillar_stream_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message then
+    show.pillar_stream_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message
     changed = true
   end
-  if show.sequenced_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message then
-    show.sequenced_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message then
+    show.sequenced_message = omi_nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message
     changed = true
   end
 
@@ -619,7 +619,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_200 = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_200(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_200, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_200, range, value, display)
 
   return offset + length, value
 end
@@ -646,7 +646,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reinstatement_requiredby_other =
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reinstatement_requiredby_other(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_other, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_other, range, value, display)
 
   return offset + length, value
 end
@@ -673,7 +673,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reinstatement_requiredby_self = 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reinstatement_requiredby_self(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_self, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reinstatement_requiredby_self, range, value, display)
 
   return offset + length, value
 end
@@ -700,7 +700,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.blocked_by_kill_switch_indicator
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.blocked_by_kill_switch_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_kill_switch_indicator, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_kill_switch_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -727,7 +727,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.blocked_by_breach_indicator = fu
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.blocked_by_breach_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_breach_indicator, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.blocked_by_breach_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -747,7 +747,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.threshold_breach_level = functio
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.threshold_breach_level(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.threshold_breach_level, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.threshold_breach_level, range, value, display)
 
   return offset + length, value
 end
@@ -795,7 +795,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_type = function(buff
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_action_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_type, range, value, display)
 
   return offset + length, value
 end
@@ -815,7 +815,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.count_calculation = function(buf
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.count_calculation(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.count_calculation, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.count_calculation, range, value, display)
 
   return offset + length, value
 end
@@ -835,7 +835,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.usd_calculation_4 = function(buf
   local value = range:le_int64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.usd_calculation_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_4, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_4, range, value, display)
 
   return offset + length, value
 end
@@ -855,7 +855,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.usd_calculation_3 = function(buf
   local value = range:le_int64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.usd_calculation_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_3, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_3, range, value, display)
 
   return offset + length, value
 end
@@ -875,7 +875,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.usd_calculation_2 = function(buf
   local value = range:le_int64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.usd_calculation_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_2, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_2, range, value, display)
 
   return offset + length, value
 end
@@ -895,7 +895,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.usd_calculation_1 = function(buf
   local value = range:le_int64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.usd_calculation_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_1, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_calculation_1, range, value, display)
 
   return offset + length, value
 end
@@ -920,7 +920,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ioc_attribution = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ioc_attribution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ioc_attribution, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ioc_attribution, range, value, display)
 
   return offset + length, value
 end
@@ -953,7 +953,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.breach_action_response = functio
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.breach_action_response(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_response, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_response, range, value, display)
 
   return offset + length, value
 end
@@ -973,7 +973,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.count_limit = function(buffer, o
   local value = range:le_int()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.count_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.count_limit, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.count_limit, range, value, display)
 
   return offset + length, value
 end
@@ -993,7 +993,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.percentage_limit = function(buff
   local value = range:le_int()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.percentage_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.percentage_limit, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.percentage_limit, range, value, display)
 
   return offset + length, value
 end
@@ -1013,7 +1013,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.time_limit = function(buffer, of
   local value = range:le_int()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.time_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.time_limit, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.time_limit, range, value, display)
 
   return offset + length, value
 end
@@ -1033,7 +1033,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.usd_limit = function(buffer, off
   local value = range:le_int64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.usd_limit(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.usd_limit, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.usd_limit, range, value, display)
 
   return offset + length, value
 end
@@ -1108,7 +1108,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_type = function(buf
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_type, range, value, display)
 
   return offset + length, value
 end
@@ -1135,7 +1135,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_user_type = function(buffer
   local value = range:string()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_user_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_type, range, value, display)
 
   return offset + length, value
 end
@@ -1155,7 +1155,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_user_crd = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_user_crd(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_crd, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_user_crd, range, value, display)
 
   return offset + length, value
 end
@@ -1191,7 +1191,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.clearing_number = function(buffe
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.clearing_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.clearing_number, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.clearing_number, range, value, display)
 
   return offset + length, value
 end
@@ -1211,7 +1211,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_4 = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -1231,7 +1231,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mp_sub_id = function(buffer, off
   local value = range:string()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mp_sub_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mp_sub_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mp_sub_id, range, value, display)
 
   return offset + length, value
 end
@@ -1267,7 +1267,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.market_maker = function(buffer, 
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.market_maker(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.market_maker, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.market_maker, range, value, display)
 
   return offset + length, value
 end
@@ -1303,7 +1303,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mpid = function(buffer, offset, 
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mpid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpid, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpid, range, value, display)
 
   return offset + length, value
 end
@@ -1323,7 +1323,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_id = function(buffer, off
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_id, range, value, display)
 
   return offset + length, value
 end
@@ -1343,7 +1343,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_length = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.seq_msg_length(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_length, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_length, range, value, display)
 
   return offset + length, value
 end
@@ -1463,7 +1463,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_type = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.seq_msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -1501,7 +1501,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header = function(buffer, offset, packet, parent)
   if show.seq_msg_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1678,7 +1678,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert = function(buffer, offset, packet, parent)
   if show.risk_control_alert then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1707,7 +1707,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_190 = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_190(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_190, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_190, range, value, display)
 
   return offset + length, value
 end
@@ -1734,7 +1734,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.price_scale = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.price_scale(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.price_scale, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.price_scale, range, value, display)
 
   return offset + length, value
 end
@@ -1754,7 +1754,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_minimum_value = function(bu
   local value = range:le_int64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_minimum_value(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_minimum_value, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_minimum_value, range, value, display)
 
   return offset + length, value
 end
@@ -1790,7 +1790,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_range_id = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_range_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_range_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_range_id, range, value, display)
 
   return offset + length, value
 end
@@ -1817,7 +1817,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_activation = functi
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_activation(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_activation, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_activation, range, value, display)
 
   return offset + length, value
 end
@@ -1844,7 +1844,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.risk_ack_type = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_ack_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_ack_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_ack_type, range, value, display)
 
   return offset + length, value
 end
@@ -1864,7 +1864,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.cl_ord_id = function(buffer, off
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.cl_ord_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -2057,7 +2057,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement = function(buffer, offset, packet, parent)
   if show.risk_control_acknowledgement then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2108,7 +2108,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_type = function(bu
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_type, range, value, display)
 
   return offset + length, value
 end
@@ -2128,7 +2128,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.manual_override_reason = functio
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_override_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_override_reason, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_override_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2155,7 +2155,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.manual_override = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_override(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_override, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_override, range, value, display)
 
   return offset + length, value
 end
@@ -2181,7 +2181,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ssr_filing_price = function(buff
   local value = translate.ssr_filing_price(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ssr_filing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ssr_filing_price, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ssr_filing_price, range, value, display)
 
   return offset + length, value
 end
@@ -2201,7 +2201,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_allocated_qty = function(buf
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_allocated_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_allocated_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_allocated_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2221,7 +2221,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_available_qty = function(buf
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_available_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_available_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_available_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2241,7 +2241,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_requested_qty = function(buf
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_requested_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_requested_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_requested_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2267,7 +2267,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.price = function(buffer, offset,
   local value = translate.price(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.price, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -2312,7 +2312,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.side = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.side, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -2332,7 +2332,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.seq = function(buffer, offset, p
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq, range, value, display)
 
   return offset + length, value
 end
@@ -2352,7 +2352,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.user = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.user(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.user, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.user, range, value, display)
 
   return offset + length, value
 end
@@ -2372,7 +2372,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.sess = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.sess(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sess, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.sess, range, value, display)
 
   return offset + length, value
 end
@@ -2414,7 +2414,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.stream_id = function(buffer, off
     local range = buffer(offset, length)
     local value = range:le_uint64()
     local display = nyse_equities_binarygateway_pillar_v5_8_display.stream_id(buffer, offset, value, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.stream_id, range, value, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.stream_id, range, value, display)
   end
 
   return nyse_equities_binarygateway_pillar_v5_8_dissect.stream_id_fields(buffer, offset, packet, parent)
@@ -2453,7 +2453,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id = function(buffer, offset, packet, parent)
   if show.manual_action_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2482,7 +2482,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mmid = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mmid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mmid, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mmid, range, value, display)
 
   return offset + length, value
 end
@@ -2518,7 +2518,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.introducing_badge_id = function(
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.introducing_badge_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.introducing_badge_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.introducing_badge_id, range, value, display)
 
   return offset + length, value
 end
@@ -2542,7 +2542,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.transact_time = function(buffer,
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.transact_time, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -2650,7 +2650,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request = function(buffer, offset, packet, parent)
   if show.manual_action_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2689,7 +2689,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.auction_type = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -2742,7 +2742,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request = function(buffer, offset, packet, parent)
   if show.auction_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_request, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.auction_request, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2771,7 +2771,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.sell_dmm_available_qty = functio
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.sell_dmm_available_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sell_dmm_available_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.sell_dmm_available_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2791,7 +2791,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.buy_dmm_available_qty = function
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.buy_dmm_available_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.buy_dmm_available_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.buy_dmm_available_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2811,7 +2811,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.unpaired_qty = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.unpaired_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.unpaired_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.unpaired_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2831,7 +2831,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.paired_qty = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.paired_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.paired_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.paired_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2851,7 +2851,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.imbalance_volume = function(buff
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_volume, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2881,7 +2881,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.side_of_unpaired_qty = function(
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.side_of_unpaired_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.side_of_unpaired_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.side_of_unpaired_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2911,7 +2911,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.imbalance_side = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_side, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.imbalance_side, range, value, display)
 
   return offset + length, value
 end
@@ -2994,7 +2994,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data = function(buffer, offset, packet, parent)
   if show.auction_price_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3041,7 +3041,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end = function(buffer, offset, packet, parent)
   if show.gt_end then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_end, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.gt_end, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3088,7 +3088,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin = function(buffer, offset, packet, parent)
   if show.gt_begin then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3124,7 +3124,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.subscription_status = function(b
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.subscription_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.subscription_status, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.subscription_status, range, value, display)
 
   return offset + length, value
 end
@@ -3144,7 +3144,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.username = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.username, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -3197,7 +3197,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement = function(buffer, offset, packet, parent)
   if show.symbol_subscription_acknowledgement then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3242,7 +3242,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.user_data = function(buffer, off
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.user_data(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.user_data, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.user_data, range, value, display)
 
   return offset + length, value
 end
@@ -3284,7 +3284,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reject_type = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reject_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reject_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reject_type, range, value, display)
 
   return offset + length, value
 end
@@ -4307,7 +4307,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reason_code = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reason_code, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -4380,7 +4380,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject = function(buffer, offset, packet, parent)
   if show.application_layer_reject then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4409,7 +4409,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.last_qty = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.last_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4435,7 +4435,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.last_px = function(buffer, offse
   local value = translate.last_px(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.last_px(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.last_px, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -4455,7 +4455,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.deal_id = function(buffer, offse
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.deal_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.deal_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.deal_id, range, value, display)
 
   return offset + length, value
 end
@@ -4493,7 +4493,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id = function(buffer, offset, packet, parent)
   if show.ref_seq_msg_id then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4522,7 +4522,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.order_id = function(buffer, offs
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -4610,7 +4610,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct = function(buffer, offset, packet, parent)
   if show.trade_bust_correct then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4662,7 +4662,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.settlement_type = function(buffe
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.settlement_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.settlement_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.settlement_type, range, value, display)
 
   return offset + length, value
 end
@@ -4700,7 +4700,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header = function(buffer, offset, packet, parent)
   if show.sub_msg_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4747,7 +4747,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on = function(buffer, offset, packet, parent)
   if show.optional_settlement_type_add_on then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4789,7 +4789,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.participant_type = function(buff
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.participant_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.participant_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.participant_type, range, value, display)
 
   return offset + length, value
 end
@@ -4816,7 +4816,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.locate_reqd = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.locate_reqd(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.locate_reqd, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.locate_reqd, range, value, display)
 
   return offset + length, value
 end
@@ -4852,7 +4852,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.displayed_liquidity_indicator = 
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.displayed_liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.displayed_liquidity_indicator, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.displayed_liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4888,7 +4888,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.liquidity_indicator = function(b
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.liquidity_indicator, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4908,7 +4908,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.cum_qty = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.cum_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.cum_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4928,7 +4928,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.leaves_qty = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.leaves_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -5046,7 +5046,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report = function(buffer, offset, packet, parent)
   if show.execution_report then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.execution_report, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.execution_report, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5118,7 +5118,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ack_type = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ack_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ack_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ack_type, range, value, display)
 
   return offset + length, value
 end
@@ -5162,7 +5162,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.pre_liquidity_indicator = functi
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.pre_liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.pre_liquidity_indicator, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.pre_liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -5189,7 +5189,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.working_away_from_display = func
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.working_away_from_display(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.working_away_from_display, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.working_away_from_display, range, value, display)
 
   return offset + length, value
 end
@@ -5209,7 +5209,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.order_qty = function(buffer, off
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.order_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -5235,7 +5235,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.working_price = function(buffer,
   local value = translate.working_price(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.working_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.working_price, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.working_price, range, value, display)
 
   return offset + length, value
 end
@@ -5323,7 +5323,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment = function(buffer, offset, packet, parent)
   if show.order_priority_update_acknowledgment then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5352,7 +5352,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_7 = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_7(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_7, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_7, range, value, display)
 
   return offset + length, value
 end
@@ -5376,10 +5376,10 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.bitfield_flow_indicator_bits = function(buffer, offset, packet, parent)
 
   -- Throttled: 1 Bit Enum with 2 values
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.throttled, buffer(offset, 7))
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttled, buffer(offset, 7))
 
   -- Reserved 7: 7 Byte
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_7, buffer(offset, 7))
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_7, buffer(offset, 7))
 end
 
 -- Dissect: Bitfield Flow Indicator
@@ -5387,7 +5387,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.bitfield_flow_indicator = functi
   local size = 7
   local range = buffer(offset, size)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.bitfield_flow_indicator(range, packet, parent)
-  local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_flow_indicator, range, display)
+  local element = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_flow_indicator, range, display)
 
   if show.bitfield_flow_indicator then
     nyse_equities_binarygateway_pillar_v5_8_dissect.bitfield_flow_indicator_bits(buffer, offset, packet, element)
@@ -5411,7 +5411,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.orig_cl_ord_id = function(buffer
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.orig_cl_ord_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.orig_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -5431,7 +5431,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ref_cl_ord_id = function(buffer,
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ref_cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ref_cl_ord_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ref_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -5539,7 +5539,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout = function(buffer, offset, packet, parent)
   if show.order_modify_cancel_request_acknowledgment_and_urout then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5584,7 +5584,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.clearing_account = function(buff
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.clearing_account(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.clearing_account, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.clearing_account, range, value, display)
 
   return offset + length, value
 end
@@ -5620,7 +5620,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.optional_data = function(buffer,
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.optional_data(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_data, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.optional_data, range, value, display)
 
   return offset + length, value
 end
@@ -5656,7 +5656,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.clearing_firm = function(buffer,
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.clearing_firm(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.clearing_firm, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.clearing_firm, range, value, display)
 
   return offset + length, value
 end
@@ -5692,7 +5692,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.deliver_to_comp_id = function(bu
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.deliver_to_comp_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.deliver_to_comp_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.deliver_to_comp_id, range, value, display)
 
   return offset + length, value
 end
@@ -5712,7 +5712,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.max_floor = function(buffer, off
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.max_floor(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.max_floor, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.max_floor, range, value, display)
 
   return offset + length, value
 end
@@ -5738,7 +5738,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.stop_px = function(buffer, offse
   local value = translate.stop_px(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.stop_px(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.stop_px, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.stop_px, range, value, display)
 
   return offset + length, value
 end
@@ -5801,7 +5801,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on = function(buffer, offset, packet, parent)
   if show.optional_order_add_on then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5830,7 +5830,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.min_qty = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.min_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.min_qty, range, value, display)
 
   return offset + length, value
 end
@@ -5850,7 +5850,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.bitfield_order_instructions = fu
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.bitfield_order_instructions(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_order_instructions, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.bitfield_order_instructions, range, value, display)
 
   return offset + length, value
 end
@@ -6004,7 +6004,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.order_and_cancel_replace_acknowl
     local length = nyse_equities_binarygateway_pillar_v5_8_size_of.order_and_cancel_replace_acknowledgement_message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.order_and_cancel_replace_acknowledgement_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_and_cancel_replace_acknowledgement_message, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_and_cancel_replace_acknowledgement_message, range, display)
   end
 
   return nyse_equities_binarygateway_pillar_v5_8_dissect.order_and_cancel_replace_acknowledgement_message_fields(buffer, offset, packet, parent)
@@ -6025,7 +6025,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_49 = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_49(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_49, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_49, range, value, display)
 
   return offset + length, value
 end
@@ -6045,7 +6045,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.bold_designation = function(buff
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.bold_designation(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bold_designation, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.bold_designation, range, value, display)
 
   return offset + length, value
 end
@@ -6072,7 +6072,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ack_status = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ack_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ack_status, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ack_status, range, value, display)
 
   return offset + length, value
 end
@@ -6099,7 +6099,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_ack_subscr
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.order_priority_update_ack_subscription(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_ack_subscription, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_ack_subscription, range, value, display)
 
   return offset + length, value
 end
@@ -6135,7 +6135,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.self_trade_prevention = function
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.self_trade_prevention(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_prevention, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_prevention, range, value, display)
 
   return offset + length, value
 end
@@ -6155,7 +6155,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.max_order_quantity = function(bu
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.max_order_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.max_order_quantity, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.max_order_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -6182,7 +6182,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_eligibility = function(bu
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_eligibility(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_eligibility, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_eligibility, range, value, display)
 
   return offset + length, value
 end
@@ -6202,7 +6202,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.throttle_threshold = function(bu
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.throttle_threshold(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.throttle_threshold, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttle_threshold, range, value, display)
 
   return offset + length, value
 end
@@ -6222,7 +6222,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.throttle_window = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.throttle_window(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.throttle_window, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttle_window, range, value, display)
 
   return offset + length, value
 end
@@ -6249,7 +6249,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.throttle_preference = function(b
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.throttle_preference(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.throttle_preference, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.throttle_preference, range, value, display)
 
   return offset + length, value
 end
@@ -6279,7 +6279,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.cancel_on_disconnect = function(
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.cancel_on_disconnect(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.cancel_on_disconnect, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.cancel_on_disconnect, range, value, display)
 
   return offset + length, value
 end
@@ -6299,7 +6299,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mic = function(buffer, offset, p
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mic(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mic, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mic, range, value, display)
 
   return offset + length, value
 end
@@ -6329,7 +6329,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.user_session_status = function(b
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.user_session_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.user_session_status, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.user_session_status, range, value, display)
 
   return offset + length, value
 end
@@ -6359,7 +6359,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.user_session_type = function(buf
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.user_session_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.user_session_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.user_session_type, range, value, display)
 
   return offset + length, value
 end
@@ -6472,7 +6472,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.session_configuration_acknowledgement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6501,7 +6501,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_100 = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_100(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_100, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_100, range, value, display)
 
   return offset + length, value
 end
@@ -6559,7 +6559,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message = function(buffer, offset, packet, parent)
   if show.mmid_configuration_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6588,7 +6588,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_50 = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_50(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_50, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_50, range, value, display)
 
   return offset + length, value
 end
@@ -6618,7 +6618,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_status = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mpid_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpid_status, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpid_status, range, value, display)
 
   return offset + length, value
 end
@@ -6676,7 +6676,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message = function(buffer, offset, packet, parent)
   if show.mpid_configuration_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6705,7 +6705,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_class_id = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mpv_class_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_id, range, value, display)
 
   return offset + length, value
 end
@@ -6731,7 +6731,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.trading_mpv = function(buffer, o
   local value = translate.trading_mpv(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.trading_mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.trading_mpv, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.trading_mpv, range, value, display)
 
   return offset + length, value
 end
@@ -6757,7 +6757,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.quoting_mpv = function(buffer, o
   local value = translate.quoting_mpv(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.quoting_mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.quoting_mpv, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.quoting_mpv, range, value, display)
 
   return offset + length, value
 end
@@ -6777,7 +6777,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_name = function(buffer
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mpv_level_name(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_name, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_name, range, value, display)
 
   return offset + length, value
 end
@@ -6830,7 +6830,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition = function(buffer, offset, packet, parent)
   if show.mpv_level_definition then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6884,7 +6884,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_level_refe
     local length = nyse_equities_binarygateway_pillar_v5_8_size_of.minimum_price_variant_level_reference_data_message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_level_reference_data_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_level_reference_data_message, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_level_reference_data_message, range, display)
   end
 
   return nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_level_reference_data_message_fields(buffer, offset, packet, parent)
@@ -6911,7 +6911,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.luldmpv = function(buffer, offse
   local value = translate.luldmpv(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.luldmpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.luldmpv, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.luldmpv, range, value, display)
 
   return offset + length, value
 end
@@ -6937,7 +6937,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.rpimpv = function(buffer, offset
   local value = translate.rpimpv(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.rpimpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.rpimpv, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.rpimpv, range, value, display)
 
   return offset + length, value
 end
@@ -6957,7 +6957,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_class_name = function(buffer
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mpv_class_name(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_name, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mpv_class_name, range, value, display)
 
   return offset + length, value
 end
@@ -7015,7 +7015,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message = function(buffer, offset, packet, parent)
   if show.minimum_price_variant_class_reference_data_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7050,7 +7050,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.lmocp = function(buffer, offset,
   local value = translate.lmocp(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.lmocp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.lmocp, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.lmocp, range, value, display)
 
   return offset + length, value
 end
@@ -7070,7 +7070,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.close_on_trade_max_qty = functio
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.close_on_trade_max_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.close_on_trade_max_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.close_on_trade_max_qty, range, value, display)
 
   return offset + length, value
 end
@@ -7090,7 +7090,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.open_on_trade_max_qty = function
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.open_on_trade_max_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.open_on_trade_max_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.open_on_trade_max_qty, range, value, display)
 
   return offset + length, value
 end
@@ -7116,7 +7116,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ppp_3 = function(buffer, offset,
   local value = translate.ppp_3(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ppp_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ppp_3, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_3, range, value, display)
 
   return offset + length, value
 end
@@ -7142,7 +7142,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ppp_2 = function(buffer, offset,
   local value = translate.ppp_2(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ppp_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ppp_2, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_2, range, value, display)
 
   return offset + length, value
 end
@@ -7168,7 +7168,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ppp_1 = function(buffer, offset,
   local value = translate.ppp_1(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ppp_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ppp_1, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_1, range, value, display)
 
   return offset + length, value
 end
@@ -7194,7 +7194,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.ridge = function(buffer, offset,
   local value = translate.ridge(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.ridge(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ridge, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ridge, range, value, display)
 
   return offset + length, value
 end
@@ -7214,7 +7214,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.rd_seq = function(buffer, offset
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.rd_seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.rd_seq, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.rd_seq, range, value, display)
 
   return offset + length, value
 end
@@ -7234,7 +7234,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.median_volume = function(buffer,
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.median_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.median_volume, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.median_volume, range, value, display)
 
   return offset + length, value
 end
@@ -7254,7 +7254,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.post = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.post(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.post, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.post, range, value, display)
 
   return offset + length, value
 end
@@ -7274,7 +7274,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_unit_num = function(buffer, 
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_unit_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_unit_num, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_unit_num, range, value, display)
 
   return offset + length, value
 end
@@ -7294,7 +7294,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.book = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.book(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.book, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.book, range, value, display)
 
   return offset + length, value
 end
@@ -7314,7 +7314,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.nyse_symbol = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.nyse_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.nyse_symbol, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.nyse_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -7427,7 +7427,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message = function(buffer, offset, packet, parent)
   if show.dmm_symbol_reference_data_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7463,7 +7463,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.test_symbol_indicator = function
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.test_symbol_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.test_symbol_indicator, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.test_symbol_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -7496,7 +7496,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.adv_risk_range_id = function(buf
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.adv_risk_range_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.adv_risk_range_id, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.adv_risk_range_id, range, value, display)
 
   return offset + length, value
 end
@@ -7516,7 +7516,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.round_lot_size = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.round_lot_size, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -7536,7 +7536,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.listed_mic = function(buffer, of
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.listed_mic(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.listed_mic, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.listed_mic, range, value, display)
 
   return offset + length, value
 end
@@ -7614,7 +7614,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message = function(buffer, offset, packet, parent)
   if show.equities_symbol_reference_data_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7643,7 +7643,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.reserved_199 = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_binarygateway_pillar_v5_8_display.reserved_199(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.reserved_199, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.reserved_199, range, value, display)
 
   return offset + length, value
 end
@@ -7741,7 +7741,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message = function(buffer, offset, packet, parent)
   if show.risk_action_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7783,7 +7783,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.breach_action_request = function
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.breach_action_request(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_request, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.breach_action_request, range, value, display)
 
   return offset + length, value
 end
@@ -7926,7 +7926,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message = function(buffer, offset, packet, parent)
   if show.risk_limit_update_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7955,7 +7955,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_reject_reason = function(buf
   local value = trim_right_spaces(range:string())
   local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_reject_reason, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.dmm_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -7982,7 +7982,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.manual_response_type = function(
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_response_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_response_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_response_type, range, value, display)
 
   return offset + length, value
 end
@@ -8021,7 +8021,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.self_trade_type = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.self_trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.self_trade_type, range, value, display)
 
   return offset + length, value
 end
@@ -8041,7 +8041,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.intraday_sell_short_qty = functi
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.intraday_sell_short_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.intraday_sell_short_qty, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.intraday_sell_short_qty, range, value, display)
 
   return offset + length, value
 end
@@ -8061,7 +8061,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.sell_indicator = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sell_indicator, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.sell_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -8149,7 +8149,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message = function(buffer, offset, packet, parent)
   if show.manual_action_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8191,7 +8191,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message = function(buffer, offset, packet, parent)
   if show.tg_end_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8233,7 +8233,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message = function(buffer, offset, packet, parent)
   if show.tg_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8285,7 +8285,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message = function(buffer, offset, packet, parent)
   if show.symbol_subscription_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8354,7 +8354,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_type = function(buff
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.bulk_cancel_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_type, range, value, display)
 
   return offset + length, value
 end
@@ -8422,7 +8422,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message = function(buffer, offset, packet, parent)
   if show.bulk_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8499,7 +8499,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message = function(buffer, offset, packet, parent)
   if show.order_modify_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8561,7 +8561,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8679,7 +8679,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.new_order_single_and_cancel_repl
     local length = nyse_equities_binarygateway_pillar_v5_8_size_of.new_order_single_and_cancel_replace_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.new_order_single_and_cancel_replace_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.new_order_single_and_cancel_replace_request_message, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.new_order_single_and_cancel_replace_request_message, range, display)
   end
 
   return nyse_equities_binarygateway_pillar_v5_8_dissect.new_order_single_and_cancel_replace_request_message_fields(buffer, offset, packet, parent)
@@ -8713,7 +8713,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message = function(buffer, offset, packet, parent)
   if show.sequenced_filler_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8790,7 +8790,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message = function(buffer, offset, packet, parent)
   if show.session_configuration_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -9100,7 +9100,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_message = function(buf
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_equities_binarygateway_pillar_v5_8_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_message, range, display)
+  local element = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_message, range, display)
 
   return nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_message_branches(buffer, offset, packet, parent, seq_msg_type)
 end
@@ -9120,7 +9120,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.timestamp = function(buffer, off
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -9158,7 +9158,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid = function(buffer, offset, packet, parent)
   if show.seqmsgid then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -9187,7 +9187,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.msg_length = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.msg_length(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.msg_length, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.msg_length, range, value, display)
 
   return offset + length, value
 end
@@ -9235,7 +9235,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.msg_type = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.msg_type, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -9273,7 +9273,7 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header = function(buffer, offset, packet, parent)
   if show.msg_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.msg_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.msg_header, buffer(offset, 0))
     local index = nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -9336,7 +9336,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg = function(buffer, offse
   if show.seq_msg then
     local range = buffer(offset, size_of_seq_msg)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.seq_msg(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_fields(buffer, offset, packet, parent, size_of_seq_msg)
@@ -9366,7 +9366,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.status = function(buffer, offset
   local value = range:uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.status, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -9411,7 +9411,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.close_response = function(buffer
   if show.close_response then
     local range = buffer(offset, size_of_close_response)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.close_response(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.close_response, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.close_response, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.close_response_fields(buffer, offset, packet, parent, size_of_close_response)
@@ -9456,7 +9456,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.close = function(buffer, offset,
   if show.close then
     local range = buffer(offset, size_of_close)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.close(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.close, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.close, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.close_fields(buffer, offset, packet, parent, size_of_close)
@@ -9479,7 +9479,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.access = function(buffer, offset
   local value = range:uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.access(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.access, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.access, range, value, display)
 
   return offset + length, value
 end
@@ -9527,7 +9527,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.open_response = function(buffer,
   if show.open_response then
     local range = buffer(offset, size_of_open_response)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.open_response(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.open_response, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.open_response, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.open_response_fields(buffer, offset, packet, parent, size_of_open_response)
@@ -9550,7 +9550,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.mode = function(buffer, offset, 
   local value = range:uint()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.mode(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mode, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.mode, range, value, display)
 
   return offset + length, value
 end
@@ -9570,7 +9570,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.end_seq = function(buffer, offse
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.end_seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.end_seq, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.end_seq, range, value, display)
 
   return offset + length, value
 end
@@ -9590,7 +9590,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.start_seq = function(buffer, off
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.start_seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.start_seq, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.start_seq, range, value, display)
 
   return offset + length, value
 end
@@ -9644,7 +9644,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.open = function(buffer, offset, 
   if show.open then
     local range = buffer(offset, size_of_open)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.open(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.open, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.open, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.open_fields(buffer, offset, packet, parent, size_of_open)
@@ -9686,7 +9686,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.heartbeat = function(buffer, off
   if show.heartbeat then
     local range = buffer(offset, size_of_heartbeat)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.heartbeat(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.heartbeat, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.heartbeat, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.heartbeat_fields(buffer, offset, packet, parent, size_of_heartbeat)
@@ -9709,7 +9709,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.next_seq = function(buffer, offs
   local value = range:le_uint64()
   local display = nyse_equities_binarygateway_pillar_v5_8_display.next_seq(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.next_seq, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.next_seq, range, value, display)
 
   return offset + length, value
 end
@@ -9757,7 +9757,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.stream_avail = function(buffer, 
   if show.stream_avail then
     local range = buffer(offset, size_of_stream_avail)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.stream_avail(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.stream_avail, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.stream_avail, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.stream_avail_fields(buffer, offset, packet, parent, size_of_stream_avail)
@@ -9805,7 +9805,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.login_response = function(buffer
   if show.login_response then
     local range = buffer(offset, size_of_login_response)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.login_response(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.login_response, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.login_response, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.login_response_fields(buffer, offset, packet, parent, size_of_login_response)
@@ -9844,7 +9844,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.version = function(buffer, offse
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.version, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -9880,7 +9880,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.password = function(buffer, offs
 
   local display = nyse_equities_binarygateway_pillar_v5_8_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.password, range, value, display)
+  parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -9931,7 +9931,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.login_message = function(buffer,
   if show.login_message then
     local range = buffer(offset, size_of_login_message)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.login_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.login_message, range, display)
+    parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.login_message, range, display)
   end
 
   nyse_equities_binarygateway_pillar_v5_8_dissect.login_message_fields(buffer, offset, packet, parent, size_of_login_message)
@@ -9992,23 +9992,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_equities_binarygateway_pillar_v5_8.init()
+function omi_nyse_equities_binarygateway_pillar_v5_8.init()
 end
 
 -- Dissector for Nyse Equities BinaryGateway Pillar 5.8
-function nyse_equities_binarygateway_pillar_v5_8.dissector(buffer, packet, parent)
+function omi_nyse_equities_binarygateway_pillar_v5_8.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_equities_binarygateway_pillar_v5_8.name
+  packet.cols.protocol = omi_nyse_equities_binarygateway_pillar_v5_8.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_equities_binarygateway_pillar_v5_8, buffer(), nyse_equities_binarygateway_pillar_v5_8.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_equities_binarygateway_pillar_v5_8, buffer(), omi_nyse_equities_binarygateway_pillar_v5_8.description, "("..buffer:len().." Bytes)")
   return nyse_equities_binarygateway_pillar_v5_8_dissect.pillar_stream_message(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, nyse_equities_binarygateway_pillar_v5_8)
+tcp_table:add(65333, omi_nyse_equities_binarygateway_pillar_v5_8)
 
 
 -----------------------------------------------------------------------
@@ -10016,25 +10016,25 @@ tcp_table:add(65333, nyse_equities_binarygateway_pillar_v5_8)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_equities_binarygateway_pillar_v5_8_packet_size = function(buffer)
+verify.omi_nyse_equities_binarygateway_pillar_v5_8_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nyse Equities BinaryGateway Pillar 5.8
-local function nyse_equities_binarygateway_pillar_v5_8_heuristic(buffer, packet, parent)
+local function omi_nyse_equities_binarygateway_pillar_v5_8_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_equities_binarygateway_pillar_v5_8_packet_size(buffer) then return false end
+  if not verify.omi_nyse_equities_binarygateway_pillar_v5_8_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_equities_binarygateway_pillar_v5_8
-  nyse_equities_binarygateway_pillar_v5_8.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_equities_binarygateway_pillar_v5_8
+  omi_nyse_equities_binarygateway_pillar_v5_8.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Equities BinaryGateway Pillar 5.8
-nyse_equities_binarygateway_pillar_v5_8:register_heuristic("tcp", nyse_equities_binarygateway_pillar_v5_8_heuristic)
+omi_nyse_equities_binarygateway_pillar_v5_8:register_heuristic("tcp", omi_nyse_equities_binarygateway_pillar_v5_8_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

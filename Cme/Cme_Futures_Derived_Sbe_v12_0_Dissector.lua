@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme Futures Derived Sbe 12.0 Protocol
-local cme_futures_derived_sbe_v12_0 = Proto("Cme.Futures.Derived.Sbe.v12.0.Lua", "Cme Futures Derived Sbe 12.0")
+local omi_cme_futures_derived_sbe_v12_0 = Proto("Cme.Futures.Derived.Sbe.v12.0.Lua", "Cme Futures Derived Sbe 12.0")
 
 -- Component Tables
 local show = {}
@@ -21,55 +21,55 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Cme Futures Derived Sbe 12.0 Fields
-cme_futures_derived_sbe_v12_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.futures.derived.sbe.v12.0.aggressorside", ftypes.UINT8)
-cme_futures_derived_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.derived.sbe.v12.0.binarypacketheader", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.block_length = ProtoField.new("Block Length", "cme.futures.derived.sbe.v12.0.blocklength", ftypes.UINT16)
-cme_futures_derived_sbe_v12_0.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.derived.sbe.v12.0.financialinstrumentfullname", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.derived.sbe.v12.0.groupsize", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.derived.sbe.v12.0.instrumentguid", ftypes.UINT64)
-cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group = ProtoField.new("M D Incremental Refresh Spectrum Group", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrumgroup", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_groups = ProtoField.new("M D Incremental Refresh Spectrum Groups", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrumgroups", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group = ProtoField.new("M D Incremental Refresh Ticker Group", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshtickergroup", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_groups = ProtoField.new("M D Incremental Refresh Ticker Groups", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshtickergroups", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group = ProtoField.new("M D Snapshot Refresh Spectrum Group", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrumgroup", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups = ProtoField.new("M D Snapshot Refresh Spectrum Groups", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrumgroups", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group = ProtoField.new("M D Snapshot Refresh Ticker Group", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroup", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups = ProtoField.new("M D Snapshot Refresh Ticker Groups", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroups", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.derived.sbe.v12.0.mdentrypx", ftypes.DOUBLE)
-cme_futures_derived_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.derived.sbe.v12.0.mdentrysize", ftypes.UINT64)
-cme_futures_derived_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.derived.sbe.v12.0.mdentrytime", ftypes.UINT64)
-cme_futures_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoField.new("Md Entry Type Spectrum Entry Type", "cme.futures.derived.sbe.v12.0.mdentrytypespectrumentrytype", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoField.new("Md Entry Type Ticker Entry Type", "cme.futures.derived.sbe.v12.0.mdentrytypetickerentrytype", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.futures.derived.sbe.v12.0.message", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.futures.derived.sbe.v12.0.messageheader", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.derived.sbe.v12.0.messagesequencenumber", ftypes.UINT32)
-cme_futures_derived_sbe_v12_0.fields.message_size = ProtoField.new("Message Size", "cme.futures.derived.sbe.v12.0.messagesize", ftypes.UINT16)
-cme_futures_derived_sbe_v12_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.futures.derived.sbe.v12.0.numingroupuint8", ftypes.UINT8)
-cme_futures_derived_sbe_v12_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.derived.sbe.v12.0.openclosesettlflag", ftypes.UINT8)
-cme_futures_derived_sbe_v12_0.fields.packet = ProtoField.new("Packet", "cme.futures.derived.sbe.v12.0.packet", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.payload = ProtoField.new("Payload", "cme.futures.derived.sbe.v12.0.payload", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.derived.sbe.v12.0.schemaid", ftypes.UINT16)
-cme_futures_derived_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.futures.derived.sbe.v12.0.securityid", ftypes.INT32)
-cme_futures_derived_sbe_v12_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.futures.derived.sbe.v12.0.securitytradingevent", ftypes.UINT8)
-cme_futures_derived_sbe_v12_0.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.derived.sbe.v12.0.sendingtime", ftypes.UINT64)
-cme_futures_derived_sbe_v12_0.fields.symbol = ProtoField.new("Symbol", "cme.futures.derived.sbe.v12.0.symbol", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.futures.derived.sbe.v12.0.templateid", ftypes.UINT16)
-cme_futures_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.futures.derived.sbe.v12.0.tradingsessionid", ftypes.UINT8)
-cme_futures_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.derived.sbe.v12.0.transacttime", ftypes.UINT64)
-cme_futures_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.futures.derived.sbe.v12.0.version", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.futures.derived.sbe.v12.0.aggressorside", ftypes.UINT8)
+omi_cme_futures_derived_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.derived.sbe.v12.0.binarypacketheader", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.block_length = ProtoField.new("Block Length", "cme.futures.derived.sbe.v12.0.blocklength", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.derived.sbe.v12.0.financialinstrumentfullname", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.derived.sbe.v12.0.groupsize", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.derived.sbe.v12.0.instrumentguid", ftypes.UINT64)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group = ProtoField.new("M D Incremental Refresh Spectrum Group", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrumgroup", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_groups = ProtoField.new("M D Incremental Refresh Spectrum Groups", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrumgroups", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group = ProtoField.new("M D Incremental Refresh Ticker Group", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshtickergroup", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_groups = ProtoField.new("M D Incremental Refresh Ticker Groups", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshtickergroups", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group = ProtoField.new("M D Snapshot Refresh Spectrum Group", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrumgroup", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups = ProtoField.new("M D Snapshot Refresh Spectrum Groups", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrumgroups", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group = ProtoField.new("M D Snapshot Refresh Ticker Group", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroup", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups = ProtoField.new("M D Snapshot Refresh Ticker Groups", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroups", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.derived.sbe.v12.0.mdentrypx", ftypes.DOUBLE)
+omi_cme_futures_derived_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.derived.sbe.v12.0.mdentrysize", ftypes.UINT64)
+omi_cme_futures_derived_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.derived.sbe.v12.0.mdentrytime", ftypes.UINT64)
+omi_cme_futures_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoField.new("Md Entry Type Spectrum Entry Type", "cme.futures.derived.sbe.v12.0.mdentrytypespectrumentrytype", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoField.new("Md Entry Type Ticker Entry Type", "cme.futures.derived.sbe.v12.0.mdentrytypetickerentrytype", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.futures.derived.sbe.v12.0.message", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.futures.derived.sbe.v12.0.messageheader", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.derived.sbe.v12.0.messagesequencenumber", ftypes.UINT32)
+omi_cme_futures_derived_sbe_v12_0.fields.message_size = ProtoField.new("Message Size", "cme.futures.derived.sbe.v12.0.messagesize", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.futures.derived.sbe.v12.0.numingroupuint8", ftypes.UINT8)
+omi_cme_futures_derived_sbe_v12_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.derived.sbe.v12.0.openclosesettlflag", ftypes.UINT8)
+omi_cme_futures_derived_sbe_v12_0.fields.packet = ProtoField.new("Packet", "cme.futures.derived.sbe.v12.0.packet", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.payload = ProtoField.new("Payload", "cme.futures.derived.sbe.v12.0.payload", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.derived.sbe.v12.0.schemaid", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.futures.derived.sbe.v12.0.securityid", ftypes.INT32)
+omi_cme_futures_derived_sbe_v12_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.futures.derived.sbe.v12.0.securitytradingevent", ftypes.UINT8)
+omi_cme_futures_derived_sbe_v12_0.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.derived.sbe.v12.0.sendingtime", ftypes.UINT64)
+omi_cme_futures_derived_sbe_v12_0.fields.symbol = ProtoField.new("Symbol", "cme.futures.derived.sbe.v12.0.symbol", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.futures.derived.sbe.v12.0.templateid", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.futures.derived.sbe.v12.0.tradingsessionid", ftypes.UINT8)
+omi_cme_futures_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.derived.sbe.v12.0.transacttime", ftypes.UINT64)
+omi_cme_futures_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.futures.derived.sbe.v12.0.version", ftypes.UINT16)
 
 -- Cme Futures Derived Sbe 12.0 messages
-cme_futures_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.futures.derived.sbe.v12.0.globaldayroll", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new("Md Incremental Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshticker", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum = ProtoField.new("Md Snapshot Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrum", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker = ProtoField.new("Md Snapshot Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshticker", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.futures.derived.sbe.v12.0.globaldayroll", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new("Md Incremental Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshticker", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum = ProtoField.new("Md Snapshot Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrum", ftypes.STRING)
+omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker = ProtoField.new("Md Snapshot Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshticker", ftypes.STRING)
 
 -- Cme Futures Derived Sbe 12.0 generated fields
-cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index = ProtoField.new("M D Incremental Refresh Spectrum Group Index", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrumgroupindex", ftypes.UINT16)
-cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index = ProtoField.new("M D Incremental Refresh Ticker Group Index", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshtickergroupindex", ftypes.UINT16)
-cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index = ProtoField.new("M D Snapshot Refresh Spectrum Group Index", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrumgroupindex", ftypes.UINT16)
-cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index = ProtoField.new("M D Snapshot Refresh Ticker Group Index", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroupindex", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index = ProtoField.new("M D Incremental Refresh Spectrum Group Index", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrumgroupindex", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index = ProtoField.new("M D Incremental Refresh Ticker Group Index", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshtickergroupindex", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index = ProtoField.new("M D Snapshot Refresh Spectrum Group Index", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrumgroupindex", ftypes.UINT16)
+omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index = ProtoField.new("M D Snapshot Refresh Ticker Group Index", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -97,105 +97,105 @@ show.packet = true
 show.payload = false
 
 -- Register Cme Futures Derived Sbe 12.0 Show Options
-cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll = Pref.bool("Show Global Day Roll", show.global_day_roll, "Parse and add Global Day Roll to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group = Pref.bool("Show M D Incremental Refresh Spectrum Group", show.m_d_incremental_refresh_spectrum_group, "Parse and add M D Incremental Refresh Spectrum Group to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups = Pref.bool("Show M D Incremental Refresh Spectrum Groups", show.m_d_incremental_refresh_spectrum_groups, "Parse and add M D Incremental Refresh Spectrum Groups to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group = Pref.bool("Show M D Incremental Refresh Ticker Group", show.m_d_incremental_refresh_ticker_group, "Parse and add M D Incremental Refresh Ticker Group to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups = Pref.bool("Show M D Incremental Refresh Ticker Groups", show.m_d_incremental_refresh_ticker_groups, "Parse and add M D Incremental Refresh Ticker Groups to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group = Pref.bool("Show M D Snapshot Refresh Spectrum Group", show.m_d_snapshot_refresh_spectrum_group, "Parse and add M D Snapshot Refresh Spectrum Group to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups = Pref.bool("Show M D Snapshot Refresh Spectrum Groups", show.m_d_snapshot_refresh_spectrum_groups, "Parse and add M D Snapshot Refresh Spectrum Groups to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group = Pref.bool("Show M D Snapshot Refresh Ticker Group", show.m_d_snapshot_refresh_ticker_group, "Parse and add M D Snapshot Refresh Ticker Group to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups = Pref.bool("Show M D Snapshot Refresh Ticker Groups", show.m_d_snapshot_refresh_ticker_groups, "Parse and add M D Snapshot Refresh Ticker Groups to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum = Pref.bool("Show Md Incremental Refresh Spectrum", show.md_incremental_refresh_spectrum, "Parse and add Md Incremental Refresh Spectrum to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker = Pref.bool("Show Md Incremental Refresh Ticker", show.md_incremental_refresh_ticker, "Parse and add Md Incremental Refresh Ticker to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum = Pref.bool("Show Md Snapshot Refresh Spectrum", show.md_snapshot_refresh_spectrum, "Parse and add Md Snapshot Refresh Spectrum to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker = Pref.bool("Show Md Snapshot Refresh Ticker", show.md_snapshot_refresh_ticker, "Parse and add Md Snapshot Refresh Ticker to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cme_futures_derived_sbe_v12_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll = Pref.bool("Show Global Day Roll", show.global_day_roll, "Parse and add Global Day Roll to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group = Pref.bool("Show M D Incremental Refresh Spectrum Group", show.m_d_incremental_refresh_spectrum_group, "Parse and add M D Incremental Refresh Spectrum Group to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups = Pref.bool("Show M D Incremental Refresh Spectrum Groups", show.m_d_incremental_refresh_spectrum_groups, "Parse and add M D Incremental Refresh Spectrum Groups to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group = Pref.bool("Show M D Incremental Refresh Ticker Group", show.m_d_incremental_refresh_ticker_group, "Parse and add M D Incremental Refresh Ticker Group to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups = Pref.bool("Show M D Incremental Refresh Ticker Groups", show.m_d_incremental_refresh_ticker_groups, "Parse and add M D Incremental Refresh Ticker Groups to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group = Pref.bool("Show M D Snapshot Refresh Spectrum Group", show.m_d_snapshot_refresh_spectrum_group, "Parse and add M D Snapshot Refresh Spectrum Group to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups = Pref.bool("Show M D Snapshot Refresh Spectrum Groups", show.m_d_snapshot_refresh_spectrum_groups, "Parse and add M D Snapshot Refresh Spectrum Groups to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group = Pref.bool("Show M D Snapshot Refresh Ticker Group", show.m_d_snapshot_refresh_ticker_group, "Parse and add M D Snapshot Refresh Ticker Group to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups = Pref.bool("Show M D Snapshot Refresh Ticker Groups", show.m_d_snapshot_refresh_ticker_groups, "Parse and add M D Snapshot Refresh Ticker Groups to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum = Pref.bool("Show Md Incremental Refresh Spectrum", show.md_incremental_refresh_spectrum, "Parse and add Md Incremental Refresh Spectrum to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker = Pref.bool("Show Md Incremental Refresh Ticker", show.md_incremental_refresh_ticker, "Parse and add Md Incremental Refresh Ticker to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum = Pref.bool("Show Md Snapshot Refresh Spectrum", show.md_snapshot_refresh_spectrum, "Parse and add Md Snapshot Refresh Spectrum to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker = Pref.bool("Show Md Snapshot Refresh Ticker", show.md_snapshot_refresh_ticker, "Parse and add Md Snapshot Refresh Ticker to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function cme_futures_derived_sbe_v12_0.prefs_changed()
+function omi_cme_futures_derived_sbe_v12_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.binary_packet_header ~= cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header then
-    show.binary_packet_header = cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header
+  if show.binary_packet_header ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header then
+    show.binary_packet_header = omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header
     changed = true
   end
-  if show.global_day_roll ~= cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll then
-    show.global_day_roll = cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll
+  if show.global_day_roll ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll then
+    show.global_day_roll = omi_cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll
     changed = true
   end
-  if show.group_size ~= cme_futures_derived_sbe_v12_0.prefs.show_group_size then
-    show.group_size = cme_futures_derived_sbe_v12_0.prefs.show_group_size
+  if show.group_size ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_group_size then
+    show.group_size = omi_cme_futures_derived_sbe_v12_0.prefs.show_group_size
     changed = true
   end
-  if show.m_d_incremental_refresh_spectrum_group ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group then
-    show.m_d_incremental_refresh_spectrum_group = cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group
+  if show.m_d_incremental_refresh_spectrum_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group then
+    show.m_d_incremental_refresh_spectrum_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_group
     changed = true
   end
-  if show.m_d_incremental_refresh_spectrum_groups ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups then
-    show.m_d_incremental_refresh_spectrum_groups = cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups
+  if show.m_d_incremental_refresh_spectrum_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups then
+    show.m_d_incremental_refresh_spectrum_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_spectrum_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_ticker_group ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group then
-    show.m_d_incremental_refresh_ticker_group = cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group
+  if show.m_d_incremental_refresh_ticker_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group then
+    show.m_d_incremental_refresh_ticker_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_group
     changed = true
   end
-  if show.m_d_incremental_refresh_ticker_groups ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups then
-    show.m_d_incremental_refresh_ticker_groups = cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups
+  if show.m_d_incremental_refresh_ticker_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups then
+    show.m_d_incremental_refresh_ticker_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_incremental_refresh_ticker_groups
     changed = true
   end
-  if show.m_d_snapshot_refresh_spectrum_group ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group then
-    show.m_d_snapshot_refresh_spectrum_group = cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group
+  if show.m_d_snapshot_refresh_spectrum_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group then
+    show.m_d_snapshot_refresh_spectrum_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_group
     changed = true
   end
-  if show.m_d_snapshot_refresh_spectrum_groups ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups then
-    show.m_d_snapshot_refresh_spectrum_groups = cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups
+  if show.m_d_snapshot_refresh_spectrum_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups then
+    show.m_d_snapshot_refresh_spectrum_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_spectrum_groups
     changed = true
   end
-  if show.m_d_snapshot_refresh_ticker_group ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group then
-    show.m_d_snapshot_refresh_ticker_group = cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group
+  if show.m_d_snapshot_refresh_ticker_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group then
+    show.m_d_snapshot_refresh_ticker_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_group
     changed = true
   end
-  if show.m_d_snapshot_refresh_ticker_groups ~= cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups then
-    show.m_d_snapshot_refresh_ticker_groups = cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups
+  if show.m_d_snapshot_refresh_ticker_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups then
+    show.m_d_snapshot_refresh_ticker_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_m_d_snapshot_refresh_ticker_groups
     changed = true
   end
-  if show.md_incremental_refresh_spectrum ~= cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum then
-    show.md_incremental_refresh_spectrum = cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum
+  if show.md_incremental_refresh_spectrum ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum then
+    show.md_incremental_refresh_spectrum = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum
     changed = true
   end
-  if show.md_incremental_refresh_ticker ~= cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker then
-    show.md_incremental_refresh_ticker = cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker
+  if show.md_incremental_refresh_ticker ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker then
+    show.md_incremental_refresh_ticker = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker
     changed = true
   end
-  if show.md_snapshot_refresh_spectrum ~= cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum then
-    show.md_snapshot_refresh_spectrum = cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum
+  if show.md_snapshot_refresh_spectrum ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum then
+    show.md_snapshot_refresh_spectrum = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum
     changed = true
   end
-  if show.md_snapshot_refresh_ticker ~= cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker then
-    show.md_snapshot_refresh_ticker = cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker
+  if show.md_snapshot_refresh_ticker ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker then
+    show.md_snapshot_refresh_ticker = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker
     changed = true
   end
-  if show.message ~= cme_futures_derived_sbe_v12_0.prefs.show_message then
-    show.message = cme_futures_derived_sbe_v12_0.prefs.show_message
+  if show.message ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_message then
+    show.message = omi_cme_futures_derived_sbe_v12_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cme_futures_derived_sbe_v12_0.prefs.show_message_header then
-    show.message_header = cme_futures_derived_sbe_v12_0.prefs.show_message_header
+  if show.message_header ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_message_header then
+    show.message_header = omi_cme_futures_derived_sbe_v12_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= cme_futures_derived_sbe_v12_0.prefs.show_packet then
-    show.packet = cme_futures_derived_sbe_v12_0.prefs.show_packet
+  if show.packet ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_packet then
+    show.packet = omi_cme_futures_derived_sbe_v12_0.prefs.show_packet
     changed = true
   end
-  if show.payload ~= cme_futures_derived_sbe_v12_0.prefs.show_payload then
-    show.payload = cme_futures_derived_sbe_v12_0.prefs.show_payload
+  if show.payload ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_payload then
+    show.payload = omi_cme_futures_derived_sbe_v12_0.prefs.show_payload
     changed = true
   end
 
@@ -229,7 +229,7 @@ cme_futures_derived_sbe_v12_0_dissect.security_trading_event = function(buffer, 
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.security_trading_event(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.security_trading_event, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.security_trading_event, range, value, display)
 
   return offset + length, value
 end
@@ -253,7 +253,7 @@ cme_futures_derived_sbe_v12_0_dissect.transact_time = function(buffer, offset, p
   local value = range:le_uint64()
   local display = cme_futures_derived_sbe_v12_0_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.transact_time, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -291,7 +291,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.global_day_roll = function(buffer, offset, packet, parent)
   if show.global_day_roll then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.global_day_roll_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -330,7 +330,7 @@ cme_futures_derived_sbe_v12_0_dissect.aggressor_side = function(buffer, offset, 
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.aggressor_side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.aggressor_side, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.aggressor_side, range, value, display)
 
   return offset + length, value
 end
@@ -372,7 +372,7 @@ cme_futures_derived_sbe_v12_0_dissect.trading_session_id = function(buffer, offs
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.trading_session_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.trading_session_id, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.trading_session_id, range, value, display)
 
   return offset + length, value
 end
@@ -399,7 +399,7 @@ cme_futures_derived_sbe_v12_0_dissect.open_close_settl_flag = function(buffer, o
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.open_close_settl_flag(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.open_close_settl_flag, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.open_close_settl_flag, range, value, display)
 
   return offset + length, value
 end
@@ -423,7 +423,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_entry_time = function(buffer, offset, p
   local value = range:le_uint64()
   local display = cme_futures_derived_sbe_v12_0_display.md_entry_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.md_entry_time, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_time, range, value, display)
 
   return offset + length, value
 end
@@ -448,7 +448,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_entry_size = function(buffer, offset, p
   local value = range:le_uint64()
   local display = cme_futures_derived_sbe_v12_0_display.md_entry_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.md_entry_size, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_size, range, value, display)
 
   return offset + length, value
 end
@@ -474,7 +474,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_entry_px = function(buffer, offset, pac
   local value = translate.md_entry_px(raw)
   local display = cme_futures_derived_sbe_v12_0_display.md_entry_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.md_entry_px, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_px, range, value, display)
 
   return offset + length, value
 end
@@ -544,7 +544,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_entry_type_ticker_entry_type = function
 
   local display = cme_futures_derived_sbe_v12_0_display.md_entry_type_ticker_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.md_entry_type_ticker_entry_type, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_type_ticker_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -581,7 +581,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields =
 
   -- Implicit M D Snapshot Refresh Ticker Group Index
   if m_d_snapshot_refresh_ticker_group_index ~= nil then
-    local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index, m_d_snapshot_refresh_ticker_group_index)
+    local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index, m_d_snapshot_refresh_ticker_group_index)
     iteration:set_generated()
   end
 
@@ -613,7 +613,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
   if show.m_d_snapshot_refresh_ticker_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -642,7 +642,7 @@ cme_futures_derived_sbe_v12_0_dissect.num_in_group_uint_8 = function(buffer, off
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.num_in_group_uint_8(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.num_in_group_uint_8, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.num_in_group_uint_8, range, value, display)
 
   return offset + length, value
 end
@@ -662,7 +662,7 @@ cme_futures_derived_sbe_v12_0_dissect.block_length = function(buffer, offset, pa
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.block_length, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -700,7 +700,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.group_size = function(buffer, offset, packet, parent)
   if show.group_size then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.group_size, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.group_size, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.group_size_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -757,7 +757,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups = funct
     local length = cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_ticker_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_ticker_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups_fields(buffer, offset, packet, parent)
@@ -778,7 +778,7 @@ cme_futures_derived_sbe_v12_0_dissect.security_id = function(buffer, offset, pac
   local value = range:le_int()
   local display = cme_futures_derived_sbe_v12_0_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.security_id, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -798,7 +798,7 @@ cme_futures_derived_sbe_v12_0_dissect.instrument_guid = function(buffer, offset,
   local value = range:le_uint64()
   local display = cme_futures_derived_sbe_v12_0_display.instrument_guid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.instrument_guid, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.instrument_guid, range, value, display)
 
   return offset + length, value
 end
@@ -834,7 +834,7 @@ cme_futures_derived_sbe_v12_0_dissect.symbol = function(buffer, offset, packet, 
 
   local display = cme_futures_derived_sbe_v12_0_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.symbol, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -870,7 +870,7 @@ cme_futures_derived_sbe_v12_0_dissect.financial_instrument_full_name = function(
 
   local display = cme_futures_derived_sbe_v12_0_display.financial_instrument_full_name(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.financial_instrument_full_name, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.financial_instrument_full_name, range, value, display)
 
   return offset + length, value
 end
@@ -936,7 +936,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_ticker = function(buff
     local length = cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_ticker(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.md_snapshot_refresh_ticker(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_ticker_fields(buffer, offset, packet, parent)
@@ -977,7 +977,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type = functi
 
   local display = cme_futures_derived_sbe_v12_0_display.md_entry_type_spectrum_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -1008,7 +1008,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields
 
   -- Implicit M D Snapshot Refresh Spectrum Group Index
   if m_d_snapshot_refresh_spectrum_group_index ~= nil then
-    local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index, m_d_snapshot_refresh_spectrum_group_index)
+    local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index, m_d_snapshot_refresh_spectrum_group_index)
     iteration:set_generated()
   end
 
@@ -1031,7 +1031,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
   if show.m_d_snapshot_refresh_spectrum_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1088,7 +1088,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups = fun
     local length = cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_spectrum_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_spectrum_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups_fields(buffer, offset, packet, parent)
@@ -1155,7 +1155,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_spectrum = function(bu
     local length = cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_spectrum(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.md_snapshot_refresh_spectrum(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_spectrum_fields(buffer, offset, packet, parent)
@@ -1201,7 +1201,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_field
 
   -- Implicit M D Incremental Refresh Ticker Group Index
   if m_d_incremental_refresh_ticker_group_index ~= nil then
-    local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index, m_d_incremental_refresh_ticker_group_index)
+    local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index, m_d_incremental_refresh_ticker_group_index)
     iteration:set_generated()
   end
 
@@ -1245,7 +1245,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
   if show.m_d_incremental_refresh_ticker_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1302,7 +1302,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups = fu
     local length = cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_ticker_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_ticker_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_groups, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_groups, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups_fields(buffer, offset, packet, parent)
@@ -1349,7 +1349,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_ticker = function(b
     local length = cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_ticker(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.md_incremental_refresh_ticker(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_ticker_fields(buffer, offset, packet, parent)
@@ -1389,7 +1389,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fie
 
   -- Implicit M D Incremental Refresh Spectrum Group Index
   if m_d_incremental_refresh_spectrum_group_index ~= nil then
-    local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index, m_d_incremental_refresh_spectrum_group_index)
+    local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index, m_d_incremental_refresh_spectrum_group_index)
     iteration:set_generated()
   end
 
@@ -1424,7 +1424,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
   if show.m_d_incremental_refresh_spectrum_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1481,7 +1481,7 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups = 
     local length = cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_spectrum_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_spectrum_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_groups, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_groups, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups_fields(buffer, offset, packet, parent)
@@ -1528,7 +1528,7 @@ cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_spectrum = function
     local length = cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_spectrum(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.md_incremental_refresh_spectrum(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_spectrum_fields(buffer, offset, packet, parent)
@@ -1613,7 +1613,7 @@ cme_futures_derived_sbe_v12_0_dissect.payload = function(buffer, offset, packet,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = cme_futures_derived_sbe_v12_0_display.payload(buffer, packet, parent)
-  local element = parent:add(cme_futures_derived_sbe_v12_0.fields.payload, range, display)
+  local element = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.payload, range, display)
 
   return cme_futures_derived_sbe_v12_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -1633,7 +1633,7 @@ cme_futures_derived_sbe_v12_0_dissect.version = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.version, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1653,7 +1653,7 @@ cme_futures_derived_sbe_v12_0_dissect.schema_id = function(buffer, offset, packe
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.schema_id, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -1692,7 +1692,7 @@ cme_futures_derived_sbe_v12_0_dissect.template_id = function(buffer, offset, pac
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.template_id, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -1740,7 +1740,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message_header, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1769,7 +1769,7 @@ cme_futures_derived_sbe_v12_0_dissect.message_size = function(buffer, offset, pa
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.message_size, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -1821,7 +1821,7 @@ cme_futures_derived_sbe_v12_0_dissect.message = function(buffer, offset, packet,
     local length = cme_futures_derived_sbe_v12_0_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = cme_futures_derived_sbe_v12_0_display.message(buffer, packet, parent)
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.message, range, display)
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message, range, display)
   end
 
   return cme_futures_derived_sbe_v12_0_dissect.message_fields(buffer, offset, packet, parent)
@@ -1846,7 +1846,7 @@ cme_futures_derived_sbe_v12_0_dissect.sending_time = function(buffer, offset, pa
   local value = range:le_uint64()
   local display = cme_futures_derived_sbe_v12_0_display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.sending_time, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -1866,7 +1866,7 @@ cme_futures_derived_sbe_v12_0_dissect.message_sequence_number = function(buffer,
   local value = range:le_uint()
   local display = cme_futures_derived_sbe_v12_0_display.message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_derived_sbe_v12_0.fields.message_sequence_number, range, value, display)
+  parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1904,7 +1904,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.binary_packet_header = function(buffer, offset, packet, parent)
   if show.binary_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_derived_sbe_v12_0.fields.binary_packet_header, buffer(offset, 0))
+    parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1942,23 +1942,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cme_futures_derived_sbe_v12_0.init()
+function omi_cme_futures_derived_sbe_v12_0.init()
 end
 
 -- Dissector for Cme Futures Derived Sbe 12.0
-function cme_futures_derived_sbe_v12_0.dissector(buffer, packet, parent)
+function omi_cme_futures_derived_sbe_v12_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cme_futures_derived_sbe_v12_0.name
+  packet.cols.protocol = omi_cme_futures_derived_sbe_v12_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(cme_futures_derived_sbe_v12_0, buffer(), cme_futures_derived_sbe_v12_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_cme_futures_derived_sbe_v12_0, buffer(), omi_cme_futures_derived_sbe_v12_0.description, "("..buffer:len().." Bytes)")
   return cme_futures_derived_sbe_v12_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cme_futures_derived_sbe_v12_0)
+udp_table:add(65333, omi_cme_futures_derived_sbe_v12_0)
 
 
 -----------------------------------------------------------------------
@@ -1966,7 +1966,7 @@ udp_table:add(65333, cme_futures_derived_sbe_v12_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cme_futures_derived_sbe_v12_0_packet_size = function(buffer)
+verify.omi_cme_futures_derived_sbe_v12_0_packet_size = function(buffer)
 
   return true
 end
@@ -1996,9 +1996,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Cme Futures Derived Sbe 12.0
-local function cme_futures_derived_sbe_v12_0_heuristic(buffer, packet, parent)
+local function omi_cme_futures_derived_sbe_v12_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cme_futures_derived_sbe_v12_0_packet_size(buffer) then return false end
+  if not verify.omi_cme_futures_derived_sbe_v12_0_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -2007,14 +2007,14 @@ local function cme_futures_derived_sbe_v12_0_heuristic(buffer, packet, parent)
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cme_futures_derived_sbe_v12_0
-  cme_futures_derived_sbe_v12_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_cme_futures_derived_sbe_v12_0
+  omi_cme_futures_derived_sbe_v12_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Cme Futures Derived Sbe 12.0
-cme_futures_derived_sbe_v12_0:register_heuristic("udp", cme_futures_derived_sbe_v12_0_heuristic)
+omi_cme_futures_derived_sbe_v12_0:register_heuristic("udp", omi_cme_futures_derived_sbe_v12_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

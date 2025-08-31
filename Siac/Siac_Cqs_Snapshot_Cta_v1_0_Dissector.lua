@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Siac Cqs Snapshot Cta 1.0 Protocol
-local siac_cqs_snapshot_cta_v1_0 = Proto("Siac.Cqs.Snapshot.Cta.v1.0.Lua", "Siac Cqs Snapshot Cta 1.0")
+local omi_siac_cqs_snapshot_cta_v1_0 = Proto("Siac.Cqs.Snapshot.Cta.v1.0.Lua", "Siac Cqs Snapshot Cta 1.0")
 
 -- Component Tables
 local show = {}
@@ -21,83 +21,83 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Siac Cqs Snapshot Cta 1.0 Fields
-siac_cqs_snapshot_cta_v1_0.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cqs.snapshot.cta.v1.0.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cqs.snapshot.cta.v1.0.auctioncollarreferenceprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cqs.snapshot.cta.v1.0.auctioncollarupperthresholdprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.bid_price = ProtoField.new("Bid Price", "siac.cqs.snapshot.cta.v1.0.bidprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.bid_size = ProtoField.new("Bid Size", "siac.cqs.snapshot.cta.v1.0.bidsize", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.snapshot.cta.v1.0.blockchecksum", ftypes.UINT16)
-siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v1.0.blockheader", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v1.0.blockpadbyte", ftypes.UINT8)
-siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v1.0.blocksequencenumber", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v1.0.blocksize", ftypes.UINT16)
-siac_cqs_snapshot_cta_v1_0.fields.delivery_flag = ProtoField.new("Delivery Flag", "siac.cqs.snapshot.cta.v1.0.deliveryflag", ftypes.UINT8)
-siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.snapshot.cta.v1.0.financialstatusindicator", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.finra_bbo_luld_indicator = ProtoField.new("Finra Bbo Luld Indicator", "siac.cqs.snapshot.cta.v1.0.finrabboluldindicator", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_market_maker_id = ProtoField.new("Finra Best Bid Market Maker Id", "siac.cqs.snapshot.cta.v1.0.finrabestbidmarketmakerid", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_price = ProtoField.new("Finra Best Bid Price", "siac.cqs.snapshot.cta.v1.0.finrabestbidprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_quote_condition = ProtoField.new("Finra Best Bid Quote Condition", "siac.cqs.snapshot.cta.v1.0.finrabestbidquotecondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_size = ProtoField.new("Finra Best Bid Size", "siac.cqs.snapshot.cta.v1.0.finrabestbidsize", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_market_maker_id = ProtoField.new("Finra Best Offer Market Maker Id", "siac.cqs.snapshot.cta.v1.0.finrabestoffermarketmakerid", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price = ProtoField.new("Finra Best Offer Price", "siac.cqs.snapshot.cta.v1.0.finrabestofferprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_quote_condition = ProtoField.new("Finra Best Offer Quote Condition", "siac.cqs.snapshot.cta.v1.0.finrabestofferquotecondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_size = ProtoField.new("Finra Best Offer Size", "siac.cqs.snapshot.cta.v1.0.finrabestoffersize", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.future = ProtoField.new("Future", "siac.cqs.snapshot.cta.v1.0.future", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cqs.snapshot.cta.v1.0.haltreason", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.high_indication_price = ProtoField.new("High Indication Price", "siac.cqs.snapshot.cta.v1.0.highindicationprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.snapshot.cta.v1.0.instrumenttype", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "siac.cqs.snapshot.cta.v1.0.lastseqnum", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.low_indication_price = ProtoField.new("Low Indication Price", "siac.cqs.snapshot.cta.v1.0.lowindicationprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band = ProtoField.new("Lower Limit Price Band", "siac.cqs.snapshot.cta.v1.0.lowerlimitpriceband", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.luld_indicator = ProtoField.new("Luld Indicator", "siac.cqs.snapshot.cta.v1.0.luldindicator", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.snapshot.cta.v1.0.marketcondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v1.0.message", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.message_category = ProtoField.new("Message Category", "siac.cqs.snapshot.cta.v1.0.messagecategory", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.message_header = ProtoField.new("Message Header", "siac.cqs.snapshot.cta.v1.0.messageheader", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.message_length = ProtoField.new("Message Length", "siac.cqs.snapshot.cta.v1.0.messagelength", ftypes.UINT16)
-siac_cqs_snapshot_cta_v1_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v1.0.messagesinblock", ftypes.UINT8)
-siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v1.0.mwcblevel2", ftypes.INT64)
-siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v1.0.mwcblevel3", ftypes.INT64)
-siac_cqs_snapshot_cta_v1_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.snapshot.cta.v1.0.nanoseconds", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.snapshot.cta.v1.0.nationalbboluldindicator", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_participant_id = ProtoField.new("National Best Bid Participant Id", "siac.cqs.snapshot.cta.v1.0.nationalbestbidparticipantid", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_price = ProtoField.new("National Best Bid Price", "siac.cqs.snapshot.cta.v1.0.nationalbestbidprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_quote_condition = ProtoField.new("National Best Bid Quote Condition", "siac.cqs.snapshot.cta.v1.0.nationalbestbidquotecondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_size = ProtoField.new("National Best Bid Size", "siac.cqs.snapshot.cta.v1.0.nationalbestbidsize", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_participant_id = ProtoField.new("National Best Offer Participant Id", "siac.cqs.snapshot.cta.v1.0.nationalbestofferparticipantid", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_price = ProtoField.new("National Best Offer Price", "siac.cqs.snapshot.cta.v1.0.nationalbestofferprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_quote_condition = ProtoField.new("National Best Offer Quote Condition", "siac.cqs.snapshot.cta.v1.0.nationalbestofferquotecondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_size = ProtoField.new("National Best Offer Size", "siac.cqs.snapshot.cta.v1.0.nationalbestoffersize", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cqs.snapshot.cta.v1.0.numberofextensions", ftypes.UINT8)
-siac_cqs_snapshot_cta_v1_0.fields.offer_price = ProtoField.new("Offer Price", "siac.cqs.snapshot.cta.v1.0.offerprice", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v1.0.packet", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.snapshot.cta.v1.0.participantid", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.payload = ProtoField.new("Payload", "siac.cqs.snapshot.cta.v1.0.payload", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.snapshot.cta.v1.0.primarylistingmarketparticipantid", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.snapshot.cta.v1.0.quotecondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v1.0.reserved", ftypes.UINT8)
-siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.snapshot.cta.v1.0.retailinterestindicator", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v1.0.seconds", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v1.0.securitysymbol", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v1.0.settlementcondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v1.0.shortsalerestrictionindicator", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v1.0.sipblocktimestamp", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.snapshot = ProtoField.new("Snapshot", "siac.cqs.snapshot.cta.v1.0.snapshot", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v1.0.snapshotmessagetype", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.snapshot_payload = ProtoField.new("Snapshot Payload", "siac.cqs.snapshot.cta.v1.0.snapshotpayload", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover = ProtoField.new("Tot Pub Seq Rollover", "siac.cqs.snapshot.cta.v1.0.totpubseqrollover", ftypes.UINT8)
-siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v1.0.upperlimitpriceband", ftypes.DOUBLE)
-siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cqs.snapshot.cta.v1.0.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cqs.snapshot.cta.v1.0.auctioncollarreferenceprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cqs.snapshot.cta.v1.0.auctioncollarupperthresholdprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price = ProtoField.new("Bid Price", "siac.cqs.snapshot.cta.v1.0.bidprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.bid_size = ProtoField.new("Bid Size", "siac.cqs.snapshot.cta.v1.0.bidsize", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.snapshot.cta.v1.0.blockchecksum", ftypes.UINT16)
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v1.0.blockheader", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v1.0.blockpadbyte", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v1.0.blocksequencenumber", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v1.0.blocksize", ftypes.UINT16)
+omi_siac_cqs_snapshot_cta_v1_0.fields.delivery_flag = ProtoField.new("Delivery Flag", "siac.cqs.snapshot.cta.v1.0.deliveryflag", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.snapshot.cta.v1.0.financialstatusindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_bbo_luld_indicator = ProtoField.new("Finra Bbo Luld Indicator", "siac.cqs.snapshot.cta.v1.0.finrabboluldindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_market_maker_id = ProtoField.new("Finra Best Bid Market Maker Id", "siac.cqs.snapshot.cta.v1.0.finrabestbidmarketmakerid", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_price = ProtoField.new("Finra Best Bid Price", "siac.cqs.snapshot.cta.v1.0.finrabestbidprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_quote_condition = ProtoField.new("Finra Best Bid Quote Condition", "siac.cqs.snapshot.cta.v1.0.finrabestbidquotecondition", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_size = ProtoField.new("Finra Best Bid Size", "siac.cqs.snapshot.cta.v1.0.finrabestbidsize", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_market_maker_id = ProtoField.new("Finra Best Offer Market Maker Id", "siac.cqs.snapshot.cta.v1.0.finrabestoffermarketmakerid", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price = ProtoField.new("Finra Best Offer Price", "siac.cqs.snapshot.cta.v1.0.finrabestofferprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_quote_condition = ProtoField.new("Finra Best Offer Quote Condition", "siac.cqs.snapshot.cta.v1.0.finrabestofferquotecondition", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_size = ProtoField.new("Finra Best Offer Size", "siac.cqs.snapshot.cta.v1.0.finrabestoffersize", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.future = ProtoField.new("Future", "siac.cqs.snapshot.cta.v1.0.future", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cqs.snapshot.cta.v1.0.haltreason", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.high_indication_price = ProtoField.new("High Indication Price", "siac.cqs.snapshot.cta.v1.0.highindicationprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.snapshot.cta.v1.0.instrumenttype", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "siac.cqs.snapshot.cta.v1.0.lastseqnum", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.low_indication_price = ProtoField.new("Low Indication Price", "siac.cqs.snapshot.cta.v1.0.lowindicationprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band = ProtoField.new("Lower Limit Price Band", "siac.cqs.snapshot.cta.v1.0.lowerlimitpriceband", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.luld_indicator = ProtoField.new("Luld Indicator", "siac.cqs.snapshot.cta.v1.0.luldindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.snapshot.cta.v1.0.marketcondition", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v1.0.message", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.message_category = ProtoField.new("Message Category", "siac.cqs.snapshot.cta.v1.0.messagecategory", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.message_header = ProtoField.new("Message Header", "siac.cqs.snapshot.cta.v1.0.messageheader", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.message_length = ProtoField.new("Message Length", "siac.cqs.snapshot.cta.v1.0.messagelength", ftypes.UINT16)
+omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v1.0.messagesinblock", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v1.0.mwcblevel2", ftypes.INT64)
+omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v1.0.mwcblevel3", ftypes.INT64)
+omi_siac_cqs_snapshot_cta_v1_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.snapshot.cta.v1.0.nanoseconds", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.snapshot.cta.v1.0.nationalbboluldindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_participant_id = ProtoField.new("National Best Bid Participant Id", "siac.cqs.snapshot.cta.v1.0.nationalbestbidparticipantid", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_price = ProtoField.new("National Best Bid Price", "siac.cqs.snapshot.cta.v1.0.nationalbestbidprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_quote_condition = ProtoField.new("National Best Bid Quote Condition", "siac.cqs.snapshot.cta.v1.0.nationalbestbidquotecondition", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_size = ProtoField.new("National Best Bid Size", "siac.cqs.snapshot.cta.v1.0.nationalbestbidsize", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_participant_id = ProtoField.new("National Best Offer Participant Id", "siac.cqs.snapshot.cta.v1.0.nationalbestofferparticipantid", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_price = ProtoField.new("National Best Offer Price", "siac.cqs.snapshot.cta.v1.0.nationalbestofferprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_quote_condition = ProtoField.new("National Best Offer Quote Condition", "siac.cqs.snapshot.cta.v1.0.nationalbestofferquotecondition", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_size = ProtoField.new("National Best Offer Size", "siac.cqs.snapshot.cta.v1.0.nationalbestoffersize", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cqs.snapshot.cta.v1.0.numberofextensions", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.offer_price = ProtoField.new("Offer Price", "siac.cqs.snapshot.cta.v1.0.offerprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v1.0.packet", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.snapshot.cta.v1.0.participantid", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.payload = ProtoField.new("Payload", "siac.cqs.snapshot.cta.v1.0.payload", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.snapshot.cta.v1.0.primarylistingmarketparticipantid", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.snapshot.cta.v1.0.quotecondition", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v1.0.reserved", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.snapshot.cta.v1.0.retailinterestindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v1.0.seconds", ftypes.UINT32)
+omi_siac_cqs_snapshot_cta_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v1.0.securitysymbol", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v1.0.settlementcondition", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v1.0.shortsalerestrictionindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v1.0.sipblocktimestamp", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot = ProtoField.new("Snapshot", "siac.cqs.snapshot.cta.v1.0.snapshot", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v1.0.snapshotmessagetype", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_payload = ProtoField.new("Snapshot Payload", "siac.cqs.snapshot.cta.v1.0.snapshotpayload", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover = ProtoField.new("Tot Pub Seq Rollover", "siac.cqs.snapshot.cta.v1.0.totpubseqrollover", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v1.0.upperlimitpriceband", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8)
 
 -- Siac Cqs Snapshot Cta 1.0 messages
-siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v1.0.consolidatedsnapshotmessage", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message = ProtoField.new("Finra Snapshot Message", "siac.cqs.snapshot.cta.v1.0.finrasnapshotmessage", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.snapshot.cta.v1.0.lineintegritymessage", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Snapshot Message", "siac.cqs.snapshot.cta.v1.0.marketwidecircuitbreakerdeclinelevelstatussnapshotmessage", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message = ProtoField.new("Participant Snapshot Message", "siac.cqs.snapshot.cta.v1.0.participantsnapshotmessage", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v1.0.consolidatedsnapshotmessage", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message = ProtoField.new("Finra Snapshot Message", "siac.cqs.snapshot.cta.v1.0.finrasnapshotmessage", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.snapshot.cta.v1.0.lineintegritymessage", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Snapshot Message", "siac.cqs.snapshot.cta.v1.0.marketwidecircuitbreakerdeclinelevelstatussnapshotmessage", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message = ProtoField.new("Participant Snapshot Message", "siac.cqs.snapshot.cta.v1.0.participantsnapshotmessage", ftypes.STRING)
 
 -- Siac Cqs Snapshot Cta 1.0 generated fields
-siac_cqs_snapshot_cta_v1_0.fields.message_index = ProtoField.new("Message Index", "siac.cqs.snapshot.cta.v1.0.messageindex", ftypes.UINT16)
+omi_siac_cqs_snapshot_cta_v1_0.fields.message_index = ProtoField.new("Message Index", "siac.cqs.snapshot.cta.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -119,75 +119,75 @@ show.payload = false
 show.snapshot_payload = false
 
 -- Register Siac Cqs Snapshot Cta 1.0 Show Options
-siac_cqs_snapshot_cta_v1_0.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message = Pref.bool("Show Consolidated Snapshot Message", show.consolidated_snapshot_message, "Parse and add Consolidated Snapshot Message to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message = Pref.bool("Show Finra Snapshot Message", show.finra_snapshot_message, "Parse and add Finra Snapshot Message to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Snapshot Message", show.market_wide_circuit_breaker_decline_level_status_snapshot_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Snapshot Message to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message = Pref.bool("Show Participant Snapshot Message", show.participant_snapshot_message, "Parse and add Participant Snapshot Message to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot = Pref.bool("Show Snapshot", show.snapshot, "Parse and add Snapshot to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload = Pref.bool("Show Snapshot Payload", show.snapshot_payload, "Parse and add Snapshot Payload to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message = Pref.bool("Show Consolidated Snapshot Message", show.consolidated_snapshot_message, "Parse and add Consolidated Snapshot Message to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message = Pref.bool("Show Finra Snapshot Message", show.finra_snapshot_message, "Parse and add Finra Snapshot Message to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Snapshot Message", show.market_wide_circuit_breaker_decline_level_status_snapshot_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Snapshot Message to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message = Pref.bool("Show Participant Snapshot Message", show.participant_snapshot_message, "Parse and add Participant Snapshot Message to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot = Pref.bool("Show Snapshot", show.snapshot, "Parse and add Snapshot to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload = Pref.bool("Show Snapshot Payload", show.snapshot_payload, "Parse and add Snapshot Payload to protocol tree")
 
 -- Handle changed preferences
-function siac_cqs_snapshot_cta_v1_0.prefs_changed()
+function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.block_header ~= siac_cqs_snapshot_cta_v1_0.prefs.show_block_header then
-    show.block_header = siac_cqs_snapshot_cta_v1_0.prefs.show_block_header
+  if show.block_header ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header then
+    show.block_header = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header
     changed = true
   end
-  if show.consolidated_snapshot_message ~= siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message then
-    show.consolidated_snapshot_message = siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message
+  if show.consolidated_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message then
+    show.consolidated_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message
     changed = true
   end
-  if show.finra_snapshot_message ~= siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message then
-    show.finra_snapshot_message = siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message
+  if show.finra_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message then
+    show.finra_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message
     changed = true
   end
-  if show.line_integrity_message ~= siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message then
-    show.line_integrity_message = siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message
+  if show.line_integrity_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message then
+    show.line_integrity_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message
     changed = true
   end
-  if show.market_wide_circuit_breaker_decline_level_status_snapshot_message ~= siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message then
-    show.market_wide_circuit_breaker_decline_level_status_snapshot_message = siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message
+  if show.market_wide_circuit_breaker_decline_level_status_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message then
+    show.market_wide_circuit_breaker_decline_level_status_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message
     changed = true
   end
-  if show.message ~= siac_cqs_snapshot_cta_v1_0.prefs.show_message then
-    show.message = siac_cqs_snapshot_cta_v1_0.prefs.show_message
+  if show.message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message then
+    show.message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= siac_cqs_snapshot_cta_v1_0.prefs.show_message_header then
-    show.message_header = siac_cqs_snapshot_cta_v1_0.prefs.show_message_header
+  if show.message_header ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_header then
+    show.message_header = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= siac_cqs_snapshot_cta_v1_0.prefs.show_packet then
-    show.packet = siac_cqs_snapshot_cta_v1_0.prefs.show_packet
+  if show.packet ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet then
+    show.packet = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet
     changed = true
   end
-  if show.participant_snapshot_message ~= siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message then
-    show.participant_snapshot_message = siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message
+  if show.participant_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message then
+    show.participant_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message
     changed = true
   end
-  if show.sip_block_timestamp ~= siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp then
-    show.sip_block_timestamp = siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp
+  if show.sip_block_timestamp ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp then
+    show.sip_block_timestamp = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp
     changed = true
   end
-  if show.snapshot ~= siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot then
-    show.snapshot = siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot
+  if show.snapshot ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot then
+    show.snapshot = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot
     changed = true
   end
-  if show.payload ~= siac_cqs_snapshot_cta_v1_0.prefs.show_payload then
-    show.payload = siac_cqs_snapshot_cta_v1_0.prefs.show_payload
+  if show.payload ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_payload then
+    show.payload = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_payload
     changed = true
   end
-  if show.snapshot_payload ~= siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload then
-    show.snapshot_payload = siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload
+  if show.snapshot_payload ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload then
+    show.snapshot_payload = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_payload
     changed = true
   end
 
@@ -227,7 +227,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.block_pad_byte = function(buffer, offset, pac
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.block_pad_byte(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte, range, value, display)
 
   return offset + length, value
 end
@@ -299,7 +299,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.halt_reason = function(buffer, offset, packet
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.halt_reason(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.halt_reason, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.halt_reason, range, value, display)
 
   return offset + length, value
 end
@@ -325,7 +325,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.low_indication_price = function(buffer, offse
   local value = translate.low_indication_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.low_indication_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.low_indication_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.low_indication_price, range, value, display)
 
   return offset + length, value
 end
@@ -351,7 +351,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.high_indication_price = function(buffer, offs
   local value = translate.high_indication_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.high_indication_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.high_indication_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.high_indication_price, range, value, display)
 
   return offset + length, value
 end
@@ -387,7 +387,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_bbo_luld_indicator = function(buffer, o
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_bbo_luld_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_bbo_luld_indicator, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_bbo_luld_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -407,7 +407,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_offer_market_maker_id = function(b
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_offer_market_maker_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_market_maker_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_market_maker_id, range, value, display)
 
   return offset + length, value
 end
@@ -427,7 +427,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_offer_size = function(buffer, offs
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_size, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -453,7 +453,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_offer_price = function(buffer, off
   local value = translate.finra_best_offer_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -516,7 +516,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_offer_quote_condition = function(b
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_offer_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_quote_condition, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -536,7 +536,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_bid_market_maker_id = function(buf
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_bid_market_maker_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_market_maker_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_market_maker_id, range, value, display)
 
   return offset + length, value
 end
@@ -556,7 +556,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_bid_size = function(buffer, offset
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_size, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -582,7 +582,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_bid_price = function(buffer, offse
   local value = translate.finra_best_bid_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -645,7 +645,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_best_bid_quote_condition = function(buf
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.finra_best_bid_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_quote_condition, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -665,7 +665,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.security_symbol = function(buffer, offset, pa
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.security_symbol, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -746,7 +746,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.participant_id = function(buffer, offset, pac
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.participant_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -824,7 +824,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.finra_snapshot_message = function(buffer, off
   if show.finra_snapshot_message then
     local range = buffer(offset, size_of_finra_snapshot_message)
     local display = siac_cqs_snapshot_cta_v1_0_display.finra_snapshot_message(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message, range, display)
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message, range, display)
   end
 
   siac_cqs_snapshot_cta_v1_0_dissect.finra_snapshot_message_fields(buffer, offset, packet, parent, size_of_finra_snapshot_message)
@@ -857,7 +857,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.luld_indicator = function(buffer, offset, pac
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.luld_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.luld_indicator, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.luld_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -887,7 +887,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.market_condition = function(buffer, offset, p
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.market_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.market_condition, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.market_condition, range, value, display)
 
   return offset + length, value
 end
@@ -917,7 +917,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.settlement_condition = function(buffer, offse
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.settlement_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.settlement_condition, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.settlement_condition, range, value, display)
 
   return offset + length, value
 end
@@ -950,7 +950,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.retail_interest_indicator = function(buffer, 
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.retail_interest_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -976,7 +976,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.offer_price = function(buffer, offset, packet
   local value = translate.offer_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.offer_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -996,7 +996,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.bid_size = function(buffer, offset, packet, p
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.bid_size, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1022,7 +1022,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.bid_price = function(buffer, offset, packet, 
   local value = translate.bid_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.bid_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1085,7 +1085,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.quote_condition = function(buffer, offset, pa
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.quote_condition, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1163,7 +1163,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.participant_snapshot_message = function(buffe
   if show.participant_snapshot_message then
     local range = buffer(offset, size_of_participant_snapshot_message)
     local display = siac_cqs_snapshot_cta_v1_0_display.participant_snapshot_message(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message, range, display)
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message, range, display)
   end
 
   siac_cqs_snapshot_cta_v1_0_dissect.participant_snapshot_message_fields(buffer, offset, packet, parent, size_of_participant_snapshot_message)
@@ -1186,7 +1186,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.future = function(buffer, offset, packet, par
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.future(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.future, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.future, range, value, display)
 
   return offset + length, value
 end
@@ -1222,7 +1222,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.short_sale_restriction_indicator = function(b
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.short_sale_restriction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1276,7 +1276,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.financial_status_indicator = function(buffer,
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.financial_status_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1357,7 +1357,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.primary_listing_market_participant_id = funct
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.primary_listing_market_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1408,7 +1408,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_bbo_luld_indicator = function(buffer
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.national_bbo_luld_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_bbo_luld_indicator, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_bbo_luld_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1428,7 +1428,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_offer_size = function(buffer, o
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_size, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -1454,7 +1454,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_offer_price = function(buffer, 
   local value = translate.national_best_offer_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -1517,7 +1517,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_offer_quote_condition = functio
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_offer_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_quote_condition, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1598,7 +1598,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_offer_participant_id = function
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_offer_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_participant_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1618,7 +1618,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_bid_size = function(buffer, off
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_size, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1644,7 +1644,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_bid_price = function(buffer, of
   local value = translate.national_best_bid_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1707,7 +1707,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_bid_quote_condition = function(
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_bid_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_quote_condition, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1788,7 +1788,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.national_best_bid_participant_id = function(b
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.national_best_bid_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_participant_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1808,7 +1808,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.number_of_extensions = function(buffer, offse
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.number_of_extensions(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.number_of_extensions, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.number_of_extensions, range, value, display)
 
   return offset + length, value
 end
@@ -1834,7 +1834,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.auction_collar_lower_threshold_price = functi
   local value = translate.auction_collar_lower_threshold_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.auction_collar_lower_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.auction_collar_lower_threshold_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_lower_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -1860,7 +1860,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.auction_collar_upper_threshold_price = functi
   local value = translate.auction_collar_upper_threshold_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.auction_collar_upper_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -1886,7 +1886,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.auction_collar_reference_price = function(buf
   local value = translate.auction_collar_reference_price(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.auction_collar_reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -1912,7 +1912,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.upper_limit_price_band = function(buffer, off
   local value = translate.upper_limit_price_band(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.upper_limit_price_band(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band, range, value, display)
 
   return offset + length, value
 end
@@ -1938,7 +1938,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.lower_limit_price_band = function(buffer, off
   local value = translate.lower_limit_price_band(raw)
   local display = siac_cqs_snapshot_cta_v1_0_display.lower_limit_price_band(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band, range, value, display)
 
   return offset + length, value
 end
@@ -1971,7 +1971,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.instrument_type = function(buffer, offset, pa
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.instrument_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.instrument_type, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.instrument_type, range, value, display)
 
   return offset + length, value
 end
@@ -2082,7 +2082,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.consolidated_snapshot_message = function(buff
   if show.consolidated_snapshot_message then
     local range = buffer(offset, size_of_consolidated_snapshot_message)
     local display = siac_cqs_snapshot_cta_v1_0_display.consolidated_snapshot_message(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message, range, display)
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message, range, display)
   end
 
   siac_cqs_snapshot_cta_v1_0_dissect.consolidated_snapshot_message_fields(buffer, offset, packet, parent, size_of_consolidated_snapshot_message)
@@ -2105,7 +2105,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.reserved = function(buffer, offset, packet, p
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.reserved, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2125,7 +2125,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.mwcb_level_3 = function(buffer, offset, packe
   local value = range:int64()
   local display = siac_cqs_snapshot_cta_v1_0_display.mwcb_level_3(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3, range, value, display)
 
   return offset + length, value
 end
@@ -2145,7 +2145,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.mwcb_level_2 = function(buffer, offset, packe
   local value = range:int64()
   local display = siac_cqs_snapshot_cta_v1_0_display.mwcb_level_2(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2, range, value, display)
 
   return offset + length, value
 end
@@ -2196,7 +2196,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.market_wide_circuit_breaker_decline_level_sta
   if show.market_wide_circuit_breaker_decline_level_status_snapshot_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message)
     local display = siac_cqs_snapshot_cta_v1_0_display.market_wide_circuit_breaker_decline_level_status_snapshot_message(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message, range, display)
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message, range, display)
   end
 
   siac_cqs_snapshot_cta_v1_0_dissect.market_wide_circuit_breaker_decline_level_status_snapshot_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message)
@@ -2238,7 +2238,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.line_integrity_message = function(buffer, off
   if show.line_integrity_message then
     local range = buffer(offset, size_of_line_integrity_message)
     local display = siac_cqs_snapshot_cta_v1_0_display.line_integrity_message(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message, range, display)
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message, range, display)
   end
 
   siac_cqs_snapshot_cta_v1_0_dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
@@ -2318,7 +2318,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.snapshot_payload = function(buffer, offset, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cqs_snapshot_cta_v1_0_display.snapshot_payload(buffer, packet, parent)
-  local element = parent:add(siac_cqs_snapshot_cta_v1_0.fields.snapshot_payload, range, display)
+  local element = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_payload, range, display)
 
   return siac_cqs_snapshot_cta_v1_0_dissect.snapshot_payload_branches(buffer, offset, packet, parent, snapshot_message_type)
 end
@@ -2354,7 +2354,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.snapshot_message_type = function(buffer, offs
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.snapshot_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2396,7 +2396,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.snapshot = function(buffer, offset, packet, p
   if show.snapshot then
     local range = buffer(offset, size_of_snapshot)
     local display = siac_cqs_snapshot_cta_v1_0_display.snapshot(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.snapshot, range, display)
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot, range, display)
   end
 
   siac_cqs_snapshot_cta_v1_0_dissect.snapshot_fields(buffer, offset, packet, parent, size_of_snapshot)
@@ -2444,7 +2444,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.payload = function(buffer, offset, packet, pa
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cqs_snapshot_cta_v1_0_display.payload(buffer, packet, parent)
-  local element = parent:add(siac_cqs_snapshot_cta_v1_0.fields.payload, range, display)
+  local element = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.payload, range, display)
 
   return siac_cqs_snapshot_cta_v1_0_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
@@ -2468,7 +2468,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.message_category = function(buffer, offset, p
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_category, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -2488,7 +2488,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.message_length = function(buffer, offset, pac
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_length, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2526,7 +2526,7 @@ end
 siac_cqs_snapshot_cta_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_header, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2551,7 +2551,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.message_fields = function(buffer, offset, pac
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_index, message_index)
+    local iteration = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2573,7 +2573,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.message = function(buffer, offset, packet, pa
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message, buffer(offset, 0))
     local current = siac_cqs_snapshot_cta_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = siac_cqs_snapshot_cta_v1_0_display.message(buffer, packet, parent)
@@ -2603,7 +2603,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.block_checksum = function(buffer, offset, pac
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.block_checksum(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_checksum, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum, range, value, display)
 
   return offset + length, value
 end
@@ -2623,7 +2623,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.nanoseconds = function(buffer, offset, packet
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.nanoseconds, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -2643,7 +2643,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.seconds = function(buffer, offset, packet, pa
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.seconds, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -2681,7 +2681,7 @@ end
 siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   if show.sip_block_timestamp then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp, buffer(offset, 0))
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2710,7 +2710,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.tot_pub_seq_rollover = function(buffer, offse
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.tot_pub_seq_rollover(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover, range, value, display)
 
   return offset + length, value
 end
@@ -2730,7 +2730,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.last_seq_num = function(buffer, offset, packe
   local value = range:string()
   local display = siac_cqs_snapshot_cta_v1_0_display.last_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.last_seq_num, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.last_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2763,7 +2763,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.delivery_flag = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.delivery_flag, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
@@ -2783,7 +2783,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.messages_in_block = function(buffer, offset, 
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.messages_in_block(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.messages_in_block, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block, range, value, display)
 
   return offset + length, value
 end
@@ -2803,7 +2803,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.block_sequence_number = function(buffer, offs
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.block_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2823,7 +2823,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.block_size = function(buffer, offset, packet,
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.block_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_size, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_size, range, value, display)
 
   return offset + length, value
 end
@@ -2843,7 +2843,7 @@ siac_cqs_snapshot_cta_v1_0_dissect.version = function(buffer, offset, packet, pa
   local value = range:uint()
   local display = siac_cqs_snapshot_cta_v1_0_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_snapshot_cta_v1_0.fields.version, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -2916,7 +2916,7 @@ end
 siac_cqs_snapshot_cta_v1_0_dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_header, buffer(offset, 0))
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_header, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2967,23 +2967,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function siac_cqs_snapshot_cta_v1_0.init()
+function omi_siac_cqs_snapshot_cta_v1_0.init()
 end
 
 -- Dissector for Siac Cqs Snapshot Cta 1.0
-function siac_cqs_snapshot_cta_v1_0.dissector(buffer, packet, parent)
+function omi_siac_cqs_snapshot_cta_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = siac_cqs_snapshot_cta_v1_0.name
+  packet.cols.protocol = omi_siac_cqs_snapshot_cta_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(siac_cqs_snapshot_cta_v1_0, buffer(), siac_cqs_snapshot_cta_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_siac_cqs_snapshot_cta_v1_0, buffer(), omi_siac_cqs_snapshot_cta_v1_0.description, "("..buffer:len().." Bytes)")
   return siac_cqs_snapshot_cta_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, siac_cqs_snapshot_cta_v1_0)
+udp_table:add(65333, omi_siac_cqs_snapshot_cta_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -2991,25 +2991,25 @@ udp_table:add(65333, siac_cqs_snapshot_cta_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.siac_cqs_snapshot_cta_v1_0_packet_size = function(buffer)
+verify.omi_siac_cqs_snapshot_cta_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Siac Cqs Snapshot Cta 1.0
-local function siac_cqs_snapshot_cta_v1_0_heuristic(buffer, packet, parent)
+local function omi_siac_cqs_snapshot_cta_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.siac_cqs_snapshot_cta_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_siac_cqs_snapshot_cta_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = siac_cqs_snapshot_cta_v1_0
-  siac_cqs_snapshot_cta_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_siac_cqs_snapshot_cta_v1_0
+  omi_siac_cqs_snapshot_cta_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Siac Cqs Snapshot Cta 1.0
-siac_cqs_snapshot_cta_v1_0:register_heuristic("udp", siac_cqs_snapshot_cta_v1_0_heuristic)
+omi_siac_cqs_snapshot_cta_v1_0:register_heuristic("udp", omi_siac_cqs_snapshot_cta_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

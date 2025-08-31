@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Otc Markets Multicast Ats 4.5 Protocol
-local otc_markets_multicast_ats_v4_5 = Proto("Otc.Markets.Multicast.Ats.v4.5.Lua", "Otc Markets Multicast Ats 4.5")
+local omi_otc_markets_multicast_ats_v4_5 = Proto("Otc.Markets.Multicast.Ats.v4.5.Lua", "Otc Markets Multicast Ats 4.5")
 
 -- Component Tables
 local show = {}
@@ -20,139 +20,139 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Otc Markets Multicast Ats 4.5 Fields
-otc_markets_multicast_ats_v4_5.fields.adr_level = ProtoField.new("Adr Level", "otc.markets.multicast.ats.v4.5.adrlevel", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.adr_ratio = ProtoField.new("Adr Ratio", "otc.markets.multicast.ats.v4.5.adrratio", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.ask_bid_wanted = ProtoField.new("Ask Bid Wanted", "otc.markets.multicast.ats.v4.5.askbidwanted", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
-otc_markets_multicast_ats_v4_5.fields.ask_price = ProtoField.new("Ask Price", "otc.markets.multicast.ats.v4.5.askprice", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.ask_priced = ProtoField.new("Ask Priced", "otc.markets.multicast.ats.v4.5.askpriced", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-otc_markets_multicast_ats_v4_5.fields.ask_qap = ProtoField.new("Ask Qap", "otc.markets.multicast.ats.v4.5.askqap", ftypes.INT8)
-otc_markets_multicast_ats_v4_5.fields.ask_size = ProtoField.new("Ask Size", "otc.markets.multicast.ats.v4.5.asksize", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.ask_time_milli = ProtoField.new("Ask Time Milli", "otc.markets.multicast.ats.v4.5.asktimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.ask_unsolicited = ProtoField.new("Ask Unsolicited", "otc.markets.multicast.ats.v4.5.askunsolicited", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-otc_markets_multicast_ats_v4_5.fields.asset_class = ProtoField.new("Asset Class", "otc.markets.multicast.ats.v4.5.assetclass", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.bb_quoted = ProtoField.new("Bb Quoted", "otc.markets.multicast.ats.v4.5.bbquoted", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
-otc_markets_multicast_ats_v4_5.fields.bid_ask_wanted = ProtoField.new("Bid Ask Wanted", "otc.markets.multicast.ats.v4.5.bidaskwanted", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-otc_markets_multicast_ats_v4_5.fields.bid_auto_ex = ProtoField.new("Bid Auto Ex", "otc.markets.multicast.ats.v4.5.bidautoex", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-otc_markets_multicast_ats_v4_5.fields.bid_price = ProtoField.new("Bid Price", "otc.markets.multicast.ats.v4.5.bidprice", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.bid_priced = ProtoField.new("Bid Priced", "otc.markets.multicast.ats.v4.5.bidpriced", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-otc_markets_multicast_ats_v4_5.fields.bid_qap = ProtoField.new("Bid Qap", "otc.markets.multicast.ats.v4.5.bidqap", ftypes.INT8)
-otc_markets_multicast_ats_v4_5.fields.bid_size = ProtoField.new("Bid Size", "otc.markets.multicast.ats.v4.5.bidsize", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.bid_time_milli = ProtoField.new("Bid Time Milli", "otc.markets.multicast.ats.v4.5.bidtimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.bid_unsolicited = ProtoField.new("Bid Unsolicited", "otc.markets.multicast.ats.v4.5.bidunsolicited", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
-otc_markets_multicast_ats_v4_5.fields.callable = ProtoField.new("Callable", "otc.markets.multicast.ats.v4.5.callable", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
-otc_markets_multicast_ats_v4_5.fields.callable_date_milli = ProtoField.new("Callable Date Milli", "otc.markets.multicast.ats.v4.5.callabledatemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning = ProtoField.new("Caveat Emptor Warning", "otc.markets.multicast.ats.v4.5.caveatemptorwarning", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-otc_markets_multicast_ats_v4_5.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otc.markets.multicast.ats.v4.5.channelseqnum", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.coupon = ProtoField.new("Coupon", "otc.markets.multicast.ats.v4.5.coupon", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.cusip = ProtoField.new("Cusip", "otc.markets.multicast.ats.v4.5.cusip", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.deprecated = ProtoField.new("Deprecated", "otc.markets.multicast.ats.v4.5.deprecated", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.disclosure_status = ProtoField.new("Disclosure Status", "otc.markets.multicast.ats.v4.5.disclosurestatus", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.extended_quote_flags = ProtoField.new("Extended Quote Flags", "otc.markets.multicast.ats.v4.5.extendedquoteflags", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.extended_security_flags = ProtoField.new("Extended Security Flags", "otc.markets.multicast.ats.v4.5.extendedsecurityflags", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.multicast.ats.v4.5.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-otc_markets_multicast_ats_v4_5.fields.inside_id = ProtoField.new("Inside Id", "otc.markets.multicast.ats.v4.5.insideid", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.inside_time_milli = ProtoField.new("Inside Time Milli", "otc.markets.multicast.ats.v4.5.insidetimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.investment_grade = ProtoField.new("Investment Grade", "otc.markets.multicast.ats.v4.5.investmentgrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
-otc_markets_multicast_ats_v4_5.fields.irregular = ProtoField.new("Irregular", "otc.markets.multicast.ats.v4.5.irregular", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-otc_markets_multicast_ats_v4_5.fields.issuer_name = ProtoField.new("Issuer Name", "otc.markets.multicast.ats.v4.5.issuername", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.issuer_size = ProtoField.new("Issuer Size", "otc.markets.multicast.ats.v4.5.issuersize", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.last_update_milli = ProtoField.new("Last Update Milli", "otc.markets.multicast.ats.v4.5.lastupdatemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.market_close = ProtoField.new("Market Close", "otc.markets.multicast.ats.v4.5.marketclose", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otc.markets.multicast.ats.v4.5.marketclosetimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otc.markets.multicast.ats.v4.5.marketmsgct", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.market_open = ProtoField.new("Market Open", "otc.markets.multicast.ats.v4.5.marketopen", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.maturity_date_milli = ProtoField.new("Maturity Date Milli", "otc.markets.multicast.ats.v4.5.maturitydatemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.message = ProtoField.new("Message", "otc.markets.multicast.ats.v4.5.message", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.message_header = ProtoField.new("Message Header", "otc.markets.multicast.ats.v4.5.messageheader", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.message_size = ProtoField.new("Message Size", "otc.markets.multicast.ats.v4.5.messagesize", ftypes.UINT16)
-otc_markets_multicast_ats_v4_5.fields.message_type = ProtoField.new("Message Type", "otc.markets.multicast.ats.v4.5.messagetype", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.messages = ProtoField.new("Messages", "otc.markets.multicast.ats.v4.5.messages", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.mpid = ProtoField.new("Mpid", "otc.markets.multicast.ats.v4.5.mpid", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.nms_conditional_quote = ProtoField.new("Nms Conditional Quote", "otc.markets.multicast.ats.v4.5.nmsconditionalquote", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-otc_markets_multicast_ats_v4_5.fields.num_priced_mp = ProtoField.new("Num Priced Mp", "otc.markets.multicast.ats.v4.5.numpricedmp", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.offer_auto_ex = ProtoField.new("Offer Auto Ex", "otc.markets.multicast.ats.v4.5.offerautoex", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-otc_markets_multicast_ats_v4_5.fields.otc_issuer_id = ProtoField.new("Otc Issuer Id", "otc.markets.multicast.ats.v4.5.otcissuerid", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible = ProtoField.new("Otc Link Ecn Eligible", "otc.markets.multicast.ats.v4.5.otclinkecneligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
-otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled = ProtoField.new("Otc Link Messaging Disabled", "otc.markets.multicast.ats.v4.5.otclinkmessagingdisabled", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-otc_markets_multicast_ats_v4_5.fields.packet = ProtoField.new("Packet", "otc.markets.multicast.ats.v4.5.packet", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.packet_flag = ProtoField.new("Packet Flag", "otc.markets.multicast.ats.v4.5.packetflag", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.packet_header = ProtoField.new("Packet Header", "otc.markets.multicast.ats.v4.5.packetheader", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.multicast.ats.v4.5.packetmilli", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.multicast.ats.v4.5.packetsize", ftypes.UINT16)
-otc_markets_multicast_ats_v4_5.fields.par_value = ProtoField.new("Par Value", "otc.markets.multicast.ats.v4.5.parvalue", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.payload = ProtoField.new("Payload", "otc.markets.multicast.ats.v4.5.payload", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.piggyback = ProtoField.new("Piggyback", "otc.markets.multicast.ats.v4.5.piggyback", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
-otc_markets_multicast_ats_v4_5.fields.price = ProtoField.new("Price", "otc.markets.multicast.ats.v4.5.price", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.primary_market = ProtoField.new("Primary Market", "otc.markets.multicast.ats.v4.5.primarymarket", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.proprietary_quote_eligible = ProtoField.new("Proprietary Quote Eligible", "otc.markets.multicast.ats.v4.5.proprietaryquoteeligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-otc_markets_multicast_ats_v4_5.fields.qap = ProtoField.new("Qap", "otc.markets.multicast.ats.v4.5.qap", ftypes.INT8)
-otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only = ProtoField.new("Qualified Institutional Buyers Only", "otc.markets.multicast.ats.v4.5.qualifiedinstitutionalbuyersonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-otc_markets_multicast_ats_v4_5.fields.quote_action = ProtoField.new("Quote Action", "otc.markets.multicast.ats.v4.5.quoteaction", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.quote_flags = ProtoField.new("Quote Flags", "otc.markets.multicast.ats.v4.5.quoteflags", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.quote_id = ProtoField.new("Quote Id", "otc.markets.multicast.ats.v4.5.quoteid", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.quote_reference_id = ProtoField.new("Quote Reference Id", "otc.markets.multicast.ats.v4.5.quotereferenceid", ftypes.UINT16)
-otc_markets_multicast_ats_v4_5.fields.quote_saturated = ProtoField.new("Quote Saturated", "otc.markets.multicast.ats.v4.5.quotesaturated", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-otc_markets_multicast_ats_v4_5.fields.quote_time_milli = ProtoField.new("Quote Time Milli", "otc.markets.multicast.ats.v4.5.quotetimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.reference_price_action = ProtoField.new("Reference Price Action", "otc.markets.multicast.ats.v4.5.referencepriceaction", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.reference_price_id = ProtoField.new("Reference Price Id", "otc.markets.multicast.ats.v4.5.referencepriceid", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.replay = ProtoField.new("Replay", "otc.markets.multicast.ats.v4.5.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-otc_markets_multicast_ats_v4_5.fields.reporting_status = ProtoField.new("Reporting Status", "otc.markets.multicast.ats.v4.5.reportingstatus", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.reserved_extended_quote_flag_bits = ProtoField.new("Reserved Extended Quote Flag Bits", "otc.markets.multicast.ats.v4.5.reservedextendedquoteflagbits", ftypes.UINT8, nil, base.DEC, 0xF0)
-otc_markets_multicast_ats_v4_5.fields.reserved_extended_security_flag_bits = ProtoField.new("Reserved Extended Security Flag Bits", "otc.markets.multicast.ats.v4.5.reservedextendedsecurityflagbits", ftypes.UINT16, nil, base.DEC, 0xF800)
-otc_markets_multicast_ats_v4_5.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.multicast.ats.v4.5.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
-otc_markets_multicast_ats_v4_5.fields.reserved_trade_status_bits = ProtoField.new("Reserved Trade Status Bits", "otc.markets.multicast.ats.v4.5.reservedtradestatusbits", ftypes.UINT8, nil, base.DEC, 0xFE)
-otc_markets_multicast_ats_v4_5.fields.saturation_eligible = ProtoField.new("Saturation Eligible", "otc.markets.multicast.ats.v4.5.saturationeligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-otc_markets_multicast_ats_v4_5.fields.security_action = ProtoField.new("Security Action", "otc.markets.multicast.ats.v4.5.securityaction", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.security_desc = ProtoField.new("Security Desc", "otc.markets.multicast.ats.v4.5.securitydesc", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.security_detail = ProtoField.new("Security Detail", "otc.markets.multicast.ats.v4.5.securitydetail", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.security_detail_size = ProtoField.new("Security Detail Size", "otc.markets.multicast.ats.v4.5.securitydetailsize", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.security_flags = ProtoField.new("Security Flags", "otc.markets.multicast.ats.v4.5.securityflags", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.security_id = ProtoField.new("Security Id", "otc.markets.multicast.ats.v4.5.securityid", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.security_status = ProtoField.new("Security Status", "otc.markets.multicast.ats.v4.5.securitystatus", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.security_type = ProtoField.new("Security Type", "otc.markets.multicast.ats.v4.5.securitytype", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.multicast.ats.v4.5.seqnum", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.multicast.ats.v4.5.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-otc_markets_multicast_ats_v4_5.fields.short_name = ProtoField.new("Short Name", "otc.markets.multicast.ats.v4.5.shortname", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.size = ProtoField.new("Size", "otc.markets.multicast.ats.v4.5.size", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otc.markets.multicast.ats.v4.5.spinendtimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.spin_last_seq_num = ProtoField.new("Spin Last Seq Num", "otc.markets.multicast.ats.v4.5.spinlastseqnum", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otc.markets.multicast.ats.v4.5.spinmsgct", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otc.markets.multicast.ats.v4.5.spinstarttimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.spin_type = ProtoField.new("Spin Type", "otc.markets.multicast.ats.v4.5.spintype", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.sponsored_status = ProtoField.new("Sponsored Status", "otc.markets.multicast.ats.v4.5.sponsoredstatus", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
-otc_markets_multicast_ats_v4_5.fields.state = ProtoField.new("State", "otc.markets.multicast.ats.v4.5.state", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-otc_markets_multicast_ats_v4_5.fields.symbol = ProtoField.new("Symbol", "otc.markets.multicast.ats.v4.5.symbol", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.test = ProtoField.new("Test", "otc.markets.multicast.ats.v4.5.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-otc_markets_multicast_ats_v4_5.fields.tier = ProtoField.new("Tier", "otc.markets.multicast.ats.v4.5.tier", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.time_milli = ProtoField.new("Time Milli", "otc.markets.multicast.ats.v4.5.timemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.trade_action = ProtoField.new("Trade Action", "otc.markets.multicast.ats.v4.5.tradeaction", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.trade_flags = ProtoField.new("Trade Flags", "otc.markets.multicast.ats.v4.5.tradeflags", ftypes.UINT8)
-otc_markets_multicast_ats_v4_5.fields.trade_id = ProtoField.new("Trade Id", "otc.markets.multicast.ats.v4.5.tradeid", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.trade_price = ProtoField.new("Trade Price", "otc.markets.multicast.ats.v4.5.tradeprice", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.trade_size = ProtoField.new("Trade Size", "otc.markets.multicast.ats.v4.5.tradesize", ftypes.UINT32)
-otc_markets_multicast_ats_v4_5.fields.trade_status = ProtoField.new("Trade Status", "otc.markets.multicast.ats.v4.5.tradestatus", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.trade_time_milli = ProtoField.new("Trade Time Milli", "otc.markets.multicast.ats.v4.5.tradetimemilli", ftypes.UINT64)
-otc_markets_multicast_ats_v4_5.fields.trading_flat = ProtoField.new("Trading Flat", "otc.markets.multicast.ats.v4.5.tradingflat", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0200)
-otc_markets_multicast_ats_v4_5.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otc.markets.multicast.ats.v4.5.unsolicitedonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-otc_markets_multicast_ats_v4_5.fields.update_side = ProtoField.new("Update Side", "otc.markets.multicast.ats.v4.5.updateside", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_multicast_ats_v4_5.fields.adr_level = ProtoField.new("Adr Level", "otc.markets.multicast.ats.v4.5.adrlevel", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.adr_ratio = ProtoField.new("Adr Ratio", "otc.markets.multicast.ats.v4.5.adrratio", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.ask_bid_wanted = ProtoField.new("Ask Bid Wanted", "otc.markets.multicast.ats.v4.5.askbidwanted", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
+omi_otc_markets_multicast_ats_v4_5.fields.ask_price = ProtoField.new("Ask Price", "otc.markets.multicast.ats.v4.5.askprice", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.ask_priced = ProtoField.new("Ask Priced", "otc.markets.multicast.ats.v4.5.askpriced", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_otc_markets_multicast_ats_v4_5.fields.ask_qap = ProtoField.new("Ask Qap", "otc.markets.multicast.ats.v4.5.askqap", ftypes.INT8)
+omi_otc_markets_multicast_ats_v4_5.fields.ask_size = ProtoField.new("Ask Size", "otc.markets.multicast.ats.v4.5.asksize", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.ask_time_milli = ProtoField.new("Ask Time Milli", "otc.markets.multicast.ats.v4.5.asktimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.ask_unsolicited = ProtoField.new("Ask Unsolicited", "otc.markets.multicast.ats.v4.5.askunsolicited", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_otc_markets_multicast_ats_v4_5.fields.asset_class = ProtoField.new("Asset Class", "otc.markets.multicast.ats.v4.5.assetclass", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.bb_quoted = ProtoField.new("Bb Quoted", "otc.markets.multicast.ats.v4.5.bbquoted", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_ask_wanted = ProtoField.new("Bid Ask Wanted", "otc.markets.multicast.ats.v4.5.bidaskwanted", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_auto_ex = ProtoField.new("Bid Auto Ex", "otc.markets.multicast.ats.v4.5.bidautoex", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_price = ProtoField.new("Bid Price", "otc.markets.multicast.ats.v4.5.bidprice", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_priced = ProtoField.new("Bid Priced", "otc.markets.multicast.ats.v4.5.bidpriced", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_qap = ProtoField.new("Bid Qap", "otc.markets.multicast.ats.v4.5.bidqap", ftypes.INT8)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_size = ProtoField.new("Bid Size", "otc.markets.multicast.ats.v4.5.bidsize", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_time_milli = ProtoField.new("Bid Time Milli", "otc.markets.multicast.ats.v4.5.bidtimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.bid_unsolicited = ProtoField.new("Bid Unsolicited", "otc.markets.multicast.ats.v4.5.bidunsolicited", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_otc_markets_multicast_ats_v4_5.fields.callable = ProtoField.new("Callable", "otc.markets.multicast.ats.v4.5.callable", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
+omi_otc_markets_multicast_ats_v4_5.fields.callable_date_milli = ProtoField.new("Callable Date Milli", "otc.markets.multicast.ats.v4.5.callabledatemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning = ProtoField.new("Caveat Emptor Warning", "otc.markets.multicast.ats.v4.5.caveatemptorwarning", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_otc_markets_multicast_ats_v4_5.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otc.markets.multicast.ats.v4.5.channelseqnum", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.coupon = ProtoField.new("Coupon", "otc.markets.multicast.ats.v4.5.coupon", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.cusip = ProtoField.new("Cusip", "otc.markets.multicast.ats.v4.5.cusip", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.deprecated = ProtoField.new("Deprecated", "otc.markets.multicast.ats.v4.5.deprecated", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.disclosure_status = ProtoField.new("Disclosure Status", "otc.markets.multicast.ats.v4.5.disclosurestatus", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.extended_quote_flags = ProtoField.new("Extended Quote Flags", "otc.markets.multicast.ats.v4.5.extendedquoteflags", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.extended_security_flags = ProtoField.new("Extended Security Flags", "otc.markets.multicast.ats.v4.5.extendedsecurityflags", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.multicast.ats.v4.5.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_multicast_ats_v4_5.fields.inside_id = ProtoField.new("Inside Id", "otc.markets.multicast.ats.v4.5.insideid", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.inside_time_milli = ProtoField.new("Inside Time Milli", "otc.markets.multicast.ats.v4.5.insidetimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.investment_grade = ProtoField.new("Investment Grade", "otc.markets.multicast.ats.v4.5.investmentgrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0100)
+omi_otc_markets_multicast_ats_v4_5.fields.irregular = ProtoField.new("Irregular", "otc.markets.multicast.ats.v4.5.irregular", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_multicast_ats_v4_5.fields.issuer_name = ProtoField.new("Issuer Name", "otc.markets.multicast.ats.v4.5.issuername", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.issuer_size = ProtoField.new("Issuer Size", "otc.markets.multicast.ats.v4.5.issuersize", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.last_update_milli = ProtoField.new("Last Update Milli", "otc.markets.multicast.ats.v4.5.lastupdatemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.market_close = ProtoField.new("Market Close", "otc.markets.multicast.ats.v4.5.marketclose", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otc.markets.multicast.ats.v4.5.marketclosetimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otc.markets.multicast.ats.v4.5.marketmsgct", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.market_open = ProtoField.new("Market Open", "otc.markets.multicast.ats.v4.5.marketopen", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.maturity_date_milli = ProtoField.new("Maturity Date Milli", "otc.markets.multicast.ats.v4.5.maturitydatemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.message = ProtoField.new("Message", "otc.markets.multicast.ats.v4.5.message", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.message_header = ProtoField.new("Message Header", "otc.markets.multicast.ats.v4.5.messageheader", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.message_size = ProtoField.new("Message Size", "otc.markets.multicast.ats.v4.5.messagesize", ftypes.UINT16)
+omi_otc_markets_multicast_ats_v4_5.fields.message_type = ProtoField.new("Message Type", "otc.markets.multicast.ats.v4.5.messagetype", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.messages = ProtoField.new("Messages", "otc.markets.multicast.ats.v4.5.messages", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.mpid = ProtoField.new("Mpid", "otc.markets.multicast.ats.v4.5.mpid", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.nms_conditional_quote = ProtoField.new("Nms Conditional Quote", "otc.markets.multicast.ats.v4.5.nmsconditionalquote", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_otc_markets_multicast_ats_v4_5.fields.num_priced_mp = ProtoField.new("Num Priced Mp", "otc.markets.multicast.ats.v4.5.numpricedmp", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.offer_auto_ex = ProtoField.new("Offer Auto Ex", "otc.markets.multicast.ats.v4.5.offerautoex", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_otc_markets_multicast_ats_v4_5.fields.otc_issuer_id = ProtoField.new("Otc Issuer Id", "otc.markets.multicast.ats.v4.5.otcissuerid", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible = ProtoField.new("Otc Link Ecn Eligible", "otc.markets.multicast.ats.v4.5.otclinkecneligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled = ProtoField.new("Otc Link Messaging Disabled", "otc.markets.multicast.ats.v4.5.otclinkmessagingdisabled", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_otc_markets_multicast_ats_v4_5.fields.packet = ProtoField.new("Packet", "otc.markets.multicast.ats.v4.5.packet", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.packet_flag = ProtoField.new("Packet Flag", "otc.markets.multicast.ats.v4.5.packetflag", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.packet_header = ProtoField.new("Packet Header", "otc.markets.multicast.ats.v4.5.packetheader", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.multicast.ats.v4.5.packetmilli", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.multicast.ats.v4.5.packetsize", ftypes.UINT16)
+omi_otc_markets_multicast_ats_v4_5.fields.par_value = ProtoField.new("Par Value", "otc.markets.multicast.ats.v4.5.parvalue", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.payload = ProtoField.new("Payload", "otc.markets.multicast.ats.v4.5.payload", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.piggyback = ProtoField.new("Piggyback", "otc.markets.multicast.ats.v4.5.piggyback", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_otc_markets_multicast_ats_v4_5.fields.price = ProtoField.new("Price", "otc.markets.multicast.ats.v4.5.price", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.primary_market = ProtoField.new("Primary Market", "otc.markets.multicast.ats.v4.5.primarymarket", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.proprietary_quote_eligible = ProtoField.new("Proprietary Quote Eligible", "otc.markets.multicast.ats.v4.5.proprietaryquoteeligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_multicast_ats_v4_5.fields.qap = ProtoField.new("Qap", "otc.markets.multicast.ats.v4.5.qap", ftypes.INT8)
+omi_otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only = ProtoField.new("Qualified Institutional Buyers Only", "otc.markets.multicast.ats.v4.5.qualifiedinstitutionalbuyersonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_action = ProtoField.new("Quote Action", "otc.markets.multicast.ats.v4.5.quoteaction", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_flags = ProtoField.new("Quote Flags", "otc.markets.multicast.ats.v4.5.quoteflags", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_id = ProtoField.new("Quote Id", "otc.markets.multicast.ats.v4.5.quoteid", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_reference_id = ProtoField.new("Quote Reference Id", "otc.markets.multicast.ats.v4.5.quotereferenceid", ftypes.UINT16)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_saturated = ProtoField.new("Quote Saturated", "otc.markets.multicast.ats.v4.5.quotesaturated", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_time_milli = ProtoField.new("Quote Time Milli", "otc.markets.multicast.ats.v4.5.quotetimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.reference_price_action = ProtoField.new("Reference Price Action", "otc.markets.multicast.ats.v4.5.referencepriceaction", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.reference_price_id = ProtoField.new("Reference Price Id", "otc.markets.multicast.ats.v4.5.referencepriceid", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.replay = ProtoField.new("Replay", "otc.markets.multicast.ats.v4.5.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_otc_markets_multicast_ats_v4_5.fields.reporting_status = ProtoField.new("Reporting Status", "otc.markets.multicast.ats.v4.5.reportingstatus", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_quote_flag_bits = ProtoField.new("Reserved Extended Quote Flag Bits", "otc.markets.multicast.ats.v4.5.reservedextendedquoteflagbits", ftypes.UINT8, nil, base.DEC, 0xF0)
+omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_security_flag_bits = ProtoField.new("Reserved Extended Security Flag Bits", "otc.markets.multicast.ats.v4.5.reservedextendedsecurityflagbits", ftypes.UINT16, nil, base.DEC, 0xF800)
+omi_otc_markets_multicast_ats_v4_5.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.multicast.ats.v4.5.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
+omi_otc_markets_multicast_ats_v4_5.fields.reserved_trade_status_bits = ProtoField.new("Reserved Trade Status Bits", "otc.markets.multicast.ats.v4.5.reservedtradestatusbits", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible = ProtoField.new("Saturation Eligible", "otc.markets.multicast.ats.v4.5.saturationeligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_otc_markets_multicast_ats_v4_5.fields.security_action = ProtoField.new("Security Action", "otc.markets.multicast.ats.v4.5.securityaction", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.security_desc = ProtoField.new("Security Desc", "otc.markets.multicast.ats.v4.5.securitydesc", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.security_detail = ProtoField.new("Security Detail", "otc.markets.multicast.ats.v4.5.securitydetail", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.security_detail_size = ProtoField.new("Security Detail Size", "otc.markets.multicast.ats.v4.5.securitydetailsize", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.security_flags = ProtoField.new("Security Flags", "otc.markets.multicast.ats.v4.5.securityflags", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.security_id = ProtoField.new("Security Id", "otc.markets.multicast.ats.v4.5.securityid", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.security_status = ProtoField.new("Security Status", "otc.markets.multicast.ats.v4.5.securitystatus", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.security_type = ProtoField.new("Security Type", "otc.markets.multicast.ats.v4.5.securitytype", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.multicast.ats.v4.5.seqnum", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.multicast.ats.v4.5.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_otc_markets_multicast_ats_v4_5.fields.short_name = ProtoField.new("Short Name", "otc.markets.multicast.ats.v4.5.shortname", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.size = ProtoField.new("Size", "otc.markets.multicast.ats.v4.5.size", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otc.markets.multicast.ats.v4.5.spinendtimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.spin_last_seq_num = ProtoField.new("Spin Last Seq Num", "otc.markets.multicast.ats.v4.5.spinlastseqnum", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otc.markets.multicast.ats.v4.5.spinmsgct", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otc.markets.multicast.ats.v4.5.spinstarttimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.spin_type = ProtoField.new("Spin Type", "otc.markets.multicast.ats.v4.5.spintype", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.sponsored_status = ProtoField.new("Sponsored Status", "otc.markets.multicast.ats.v4.5.sponsoredstatus", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
+omi_otc_markets_multicast_ats_v4_5.fields.state = ProtoField.new("State", "otc.markets.multicast.ats.v4.5.state", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_otc_markets_multicast_ats_v4_5.fields.symbol = ProtoField.new("Symbol", "otc.markets.multicast.ats.v4.5.symbol", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.test = ProtoField.new("Test", "otc.markets.multicast.ats.v4.5.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_otc_markets_multicast_ats_v4_5.fields.tier = ProtoField.new("Tier", "otc.markets.multicast.ats.v4.5.tier", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.time_milli = ProtoField.new("Time Milli", "otc.markets.multicast.ats.v4.5.timemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_action = ProtoField.new("Trade Action", "otc.markets.multicast.ats.v4.5.tradeaction", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_flags = ProtoField.new("Trade Flags", "otc.markets.multicast.ats.v4.5.tradeflags", ftypes.UINT8)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_id = ProtoField.new("Trade Id", "otc.markets.multicast.ats.v4.5.tradeid", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_price = ProtoField.new("Trade Price", "otc.markets.multicast.ats.v4.5.tradeprice", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_size = ProtoField.new("Trade Size", "otc.markets.multicast.ats.v4.5.tradesize", ftypes.UINT32)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_status = ProtoField.new("Trade Status", "otc.markets.multicast.ats.v4.5.tradestatus", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_time_milli = ProtoField.new("Trade Time Milli", "otc.markets.multicast.ats.v4.5.tradetimemilli", ftypes.UINT64)
+omi_otc_markets_multicast_ats_v4_5.fields.trading_flat = ProtoField.new("Trading Flat", "otc.markets.multicast.ats.v4.5.tradingflat", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0200)
+omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otc.markets.multicast.ats.v4.5.unsolicitedonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_otc_markets_multicast_ats_v4_5.fields.update_side = ProtoField.new("Update Side", "otc.markets.multicast.ats.v4.5.updateside", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 
 -- Otc Markets Multicast Ats 4.5 messages
-otc_markets_multicast_ats_v4_5.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otc.markets.multicast.ats.v4.5.endofspinmessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.extended_security_message = ProtoField.new("Extended Security Message", "otc.markets.multicast.ats.v4.5.extendedsecuritymessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.extended_security_no_cusip_message = ProtoField.new("Extended Security No Cusip Message", "otc.markets.multicast.ats.v4.5.extendedsecuritynocusipmessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.inside_update_message = ProtoField.new("Inside Update Message", "otc.markets.multicast.ats.v4.5.insideupdatemessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.market_close_message = ProtoField.new("Market Close Message", "otc.markets.multicast.ats.v4.5.marketclosemessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.market_open_message = ProtoField.new("Market Open Message", "otc.markets.multicast.ats.v4.5.marketopenmessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.quote_message = ProtoField.new("Quote Message", "otc.markets.multicast.ats.v4.5.quotemessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.quote_update_message = ProtoField.new("Quote Update Message", "otc.markets.multicast.ats.v4.5.quoteupdatemessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.reference_price_message = ProtoField.new("Reference Price Message", "otc.markets.multicast.ats.v4.5.referencepricemessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.reference_price_update_message = ProtoField.new("Reference Price Update Message", "otc.markets.multicast.ats.v4.5.referencepriceupdatemessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.security_message = ProtoField.new("Security Message", "otc.markets.multicast.ats.v4.5.securitymessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.start_of_spin_message = ProtoField.new("Start Of Spin Message", "otc.markets.multicast.ats.v4.5.startofspinmessage", ftypes.STRING)
-otc_markets_multicast_ats_v4_5.fields.trade_message = ProtoField.new("Trade Message", "otc.markets.multicast.ats.v4.5.trademessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otc.markets.multicast.ats.v4.5.endofspinmessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.extended_security_message = ProtoField.new("Extended Security Message", "otc.markets.multicast.ats.v4.5.extendedsecuritymessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.extended_security_no_cusip_message = ProtoField.new("Extended Security No Cusip Message", "otc.markets.multicast.ats.v4.5.extendedsecuritynocusipmessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.inside_update_message = ProtoField.new("Inside Update Message", "otc.markets.multicast.ats.v4.5.insideupdatemessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.market_close_message = ProtoField.new("Market Close Message", "otc.markets.multicast.ats.v4.5.marketclosemessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.market_open_message = ProtoField.new("Market Open Message", "otc.markets.multicast.ats.v4.5.marketopenmessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_message = ProtoField.new("Quote Message", "otc.markets.multicast.ats.v4.5.quotemessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.quote_update_message = ProtoField.new("Quote Update Message", "otc.markets.multicast.ats.v4.5.quoteupdatemessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.reference_price_message = ProtoField.new("Reference Price Message", "otc.markets.multicast.ats.v4.5.referencepricemessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.reference_price_update_message = ProtoField.new("Reference Price Update Message", "otc.markets.multicast.ats.v4.5.referencepriceupdatemessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.security_message = ProtoField.new("Security Message", "otc.markets.multicast.ats.v4.5.securitymessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.start_of_spin_message = ProtoField.new("Start Of Spin Message", "otc.markets.multicast.ats.v4.5.startofspinmessage", ftypes.STRING)
+omi_otc_markets_multicast_ats_v4_5.fields.trade_message = ProtoField.new("Trade Message", "otc.markets.multicast.ats.v4.5.trademessage", ftypes.STRING)
 
 -- Otc Markets Multicast Ats 4.5 generated fields
-otc_markets_multicast_ats_v4_5.fields.message_index = ProtoField.new("Message Index", "otc.markets.multicast.ats.v4.5.messageindex", ftypes.UINT16)
+omi_otc_markets_multicast_ats_v4_5.fields.message_index = ProtoField.new("Message Index", "otc.markets.multicast.ats.v4.5.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -185,130 +185,130 @@ show.trade_status = true
 show.payload = false
 
 -- Register Otc Markets Multicast Ats 4.5 Show Options
-otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message = Pref.bool("Show End Of Spin Message", show.end_of_spin_message, "Parse and add End Of Spin Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags = Pref.bool("Show Extended Quote Flags", show.extended_quote_flags, "Parse and add Extended Quote Flags to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags = Pref.bool("Show Extended Security Flags", show.extended_security_flags, "Parse and add Extended Security Flags to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message = Pref.bool("Show Extended Security Message", show.extended_security_message, "Parse and add Extended Security Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message = Pref.bool("Show Extended Security No Cusip Message", show.extended_security_no_cusip_message, "Parse and add Extended Security No Cusip Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message = Pref.bool("Show Inside Update Message", show.inside_update_message, "Parse and add Inside Update Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_market_close_message = Pref.bool("Show Market Close Message", show.market_close_message, "Parse and add Market Close Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_market_open_message = Pref.bool("Show Market Open Message", show.market_open_message, "Parse and add Market Open Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_quote_flags = Pref.bool("Show Quote Flags", show.quote_flags, "Parse and add Quote Flags to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message = Pref.bool("Show Reference Price Message", show.reference_price_message, "Parse and add Reference Price Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message = Pref.bool("Show Reference Price Update Message", show.reference_price_update_message, "Parse and add Reference Price Update Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_security_message = Pref.bool("Show Security Message", show.security_message, "Parse and add Security Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message = Pref.bool("Show Start Of Spin Message", show.start_of_spin_message, "Parse and add Start Of Spin Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_trade_status = Pref.bool("Show Trade Status", show.trade_status, "Parse and add Trade Status to protocol tree")
-otc_markets_multicast_ats_v4_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message = Pref.bool("Show End Of Spin Message", show.end_of_spin_message, "Parse and add End Of Spin Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags = Pref.bool("Show Extended Quote Flags", show.extended_quote_flags, "Parse and add Extended Quote Flags to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags = Pref.bool("Show Extended Security Flags", show.extended_security_flags, "Parse and add Extended Security Flags to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message = Pref.bool("Show Extended Security Message", show.extended_security_message, "Parse and add Extended Security Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message = Pref.bool("Show Extended Security No Cusip Message", show.extended_security_no_cusip_message, "Parse and add Extended Security No Cusip Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message = Pref.bool("Show Inside Update Message", show.inside_update_message, "Parse and add Inside Update Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message = Pref.bool("Show Market Close Message", show.market_close_message, "Parse and add Market Close Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_market_open_message = Pref.bool("Show Market Open Message", show.market_open_message, "Parse and add Market Open Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_flags = Pref.bool("Show Quote Flags", show.quote_flags, "Parse and add Quote Flags to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message = Pref.bool("Show Reference Price Message", show.reference_price_message, "Parse and add Reference Price Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message = Pref.bool("Show Reference Price Update Message", show.reference_price_update_message, "Parse and add Reference Price Update Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_security_message = Pref.bool("Show Security Message", show.security_message, "Parse and add Security Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message = Pref.bool("Show Start Of Spin Message", show.start_of_spin_message, "Parse and add Start Of Spin Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_status = Pref.bool("Show Trade Status", show.trade_status, "Parse and add Trade Status to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function otc_markets_multicast_ats_v4_5.prefs_changed()
+function omi_otc_markets_multicast_ats_v4_5.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.end_of_spin_message ~= otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message then
-    show.end_of_spin_message = otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message
+  if show.end_of_spin_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message then
+    show.end_of_spin_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message
     changed = true
   end
-  if show.extended_quote_flags ~= otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags then
-    show.extended_quote_flags = otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags
+  if show.extended_quote_flags ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags then
+    show.extended_quote_flags = omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags
     changed = true
   end
-  if show.extended_security_flags ~= otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags then
-    show.extended_security_flags = otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags
+  if show.extended_security_flags ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags then
+    show.extended_security_flags = omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags
     changed = true
   end
-  if show.extended_security_message ~= otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message then
-    show.extended_security_message = otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message
+  if show.extended_security_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message then
+    show.extended_security_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message
     changed = true
   end
-  if show.extended_security_no_cusip_message ~= otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message then
-    show.extended_security_no_cusip_message = otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message
+  if show.extended_security_no_cusip_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message then
+    show.extended_security_no_cusip_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message
     changed = true
   end
-  if show.inside_update_message ~= otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message then
-    show.inside_update_message = otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message
+  if show.inside_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message then
+    show.inside_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message
     changed = true
   end
-  if show.market_close_message ~= otc_markets_multicast_ats_v4_5.prefs.show_market_close_message then
-    show.market_close_message = otc_markets_multicast_ats_v4_5.prefs.show_market_close_message
+  if show.market_close_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message then
+    show.market_close_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message
     changed = true
   end
-  if show.market_open_message ~= otc_markets_multicast_ats_v4_5.prefs.show_market_open_message then
-    show.market_open_message = otc_markets_multicast_ats_v4_5.prefs.show_market_open_message
+  if show.market_open_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_market_open_message then
+    show.market_open_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_market_open_message
     changed = true
   end
-  if show.message ~= otc_markets_multicast_ats_v4_5.prefs.show_message then
-    show.message = otc_markets_multicast_ats_v4_5.prefs.show_message
+  if show.message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_message then
+    show.message = omi_otc_markets_multicast_ats_v4_5.prefs.show_message
     changed = true
   end
-  if show.message_header ~= otc_markets_multicast_ats_v4_5.prefs.show_message_header then
-    show.message_header = otc_markets_multicast_ats_v4_5.prefs.show_message_header
+  if show.message_header ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_message_header then
+    show.message_header = omi_otc_markets_multicast_ats_v4_5.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= otc_markets_multicast_ats_v4_5.prefs.show_packet then
-    show.packet = otc_markets_multicast_ats_v4_5.prefs.show_packet
+  if show.packet ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_packet then
+    show.packet = omi_otc_markets_multicast_ats_v4_5.prefs.show_packet
     changed = true
   end
-  if show.packet_flag ~= otc_markets_multicast_ats_v4_5.prefs.show_packet_flag then
-    show.packet_flag = otc_markets_multicast_ats_v4_5.prefs.show_packet_flag
+  if show.packet_flag ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_flag then
+    show.packet_flag = omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_flag
     changed = true
   end
-  if show.packet_header ~= otc_markets_multicast_ats_v4_5.prefs.show_packet_header then
-    show.packet_header = otc_markets_multicast_ats_v4_5.prefs.show_packet_header
+  if show.packet_header ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_header then
+    show.packet_header = omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_header
     changed = true
   end
-  if show.quote_flags ~= otc_markets_multicast_ats_v4_5.prefs.show_quote_flags then
-    show.quote_flags = otc_markets_multicast_ats_v4_5.prefs.show_quote_flags
+  if show.quote_flags ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_flags then
+    show.quote_flags = omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_flags
     changed = true
   end
-  if show.quote_message ~= otc_markets_multicast_ats_v4_5.prefs.show_quote_message then
-    show.quote_message = otc_markets_multicast_ats_v4_5.prefs.show_quote_message
+  if show.quote_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_message then
+    show.quote_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_message
     changed = true
   end
-  if show.quote_update_message ~= otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message then
-    show.quote_update_message = otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message
+  if show.quote_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message then
+    show.quote_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message
     changed = true
   end
-  if show.reference_price_message ~= otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message then
-    show.reference_price_message = otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message
+  if show.reference_price_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message then
+    show.reference_price_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message
     changed = true
   end
-  if show.reference_price_update_message ~= otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message then
-    show.reference_price_update_message = otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message
+  if show.reference_price_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message then
+    show.reference_price_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message
     changed = true
   end
-  if show.security_flags ~= otc_markets_multicast_ats_v4_5.prefs.show_security_flags then
-    show.security_flags = otc_markets_multicast_ats_v4_5.prefs.show_security_flags
+  if show.security_flags ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags then
+    show.security_flags = omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags
     changed = true
   end
-  if show.security_message ~= otc_markets_multicast_ats_v4_5.prefs.show_security_message then
-    show.security_message = otc_markets_multicast_ats_v4_5.prefs.show_security_message
+  if show.security_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_security_message then
+    show.security_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_security_message
     changed = true
   end
-  if show.start_of_spin_message ~= otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message then
-    show.start_of_spin_message = otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message
+  if show.start_of_spin_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message then
+    show.start_of_spin_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message
     changed = true
   end
-  if show.trade_message ~= otc_markets_multicast_ats_v4_5.prefs.show_trade_message then
-    show.trade_message = otc_markets_multicast_ats_v4_5.prefs.show_trade_message
+  if show.trade_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_message then
+    show.trade_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_message
     changed = true
   end
-  if show.trade_status ~= otc_markets_multicast_ats_v4_5.prefs.show_trade_status then
-    show.trade_status = otc_markets_multicast_ats_v4_5.prefs.show_trade_status
+  if show.trade_status ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_status then
+    show.trade_status = omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_status
     changed = true
   end
-  if show.payload ~= otc_markets_multicast_ats_v4_5.prefs.show_payload then
-    show.payload = otc_markets_multicast_ats_v4_5.prefs.show_payload
+  if show.payload ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_payload then
+    show.payload = omi_otc_markets_multicast_ats_v4_5.prefs.show_payload
     changed = true
   end
 
@@ -338,7 +338,7 @@ otc_markets_multicast_ats_v4_5_dissect.trade_time_milli = function(buffer, offse
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.trade_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.trade_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -358,7 +358,7 @@ otc_markets_multicast_ats_v4_5_dissect.trade_size = function(buffer, offset, pac
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.trade_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.trade_size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_size, range, value, display)
 
   return offset + length, value
 end
@@ -378,7 +378,7 @@ otc_markets_multicast_ats_v4_5_dissect.trade_price = function(buffer, offset, pa
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.trade_price, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -398,7 +398,7 @@ otc_markets_multicast_ats_v4_5_dissect.deprecated = function(buffer, offset, pac
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.deprecated(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.deprecated, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.deprecated, range, value, display)
 
   return offset + length, value
 end
@@ -422,10 +422,10 @@ end
 otc_markets_multicast_ats_v4_5_dissect.trade_status_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Trade Status Bits: 7 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.reserved_trade_status_bits, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_trade_status_bits, buffer(offset, 1))
 
   -- Irregular: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.irregular, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.irregular, buffer(offset, 1))
 end
 
 -- Dissect: Trade Status
@@ -433,7 +433,7 @@ otc_markets_multicast_ats_v4_5_dissect.trade_status = function(buffer, offset, p
   local size = 1
   local range = buffer(offset, size)
   local display = otc_markets_multicast_ats_v4_5_display.trade_status(range, packet, parent)
-  local element = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_status, range, display)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_status, range, display)
 
   if show.trade_status then
     otc_markets_multicast_ats_v4_5_dissect.trade_status_bits(buffer, offset, packet, element)
@@ -457,7 +457,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_id = function(buffer, offset, pa
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.security_id, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -477,7 +477,7 @@ otc_markets_multicast_ats_v4_5_dissect.trade_flags = function(buffer, offset, pa
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.trade_flags(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.trade_flags, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_flags, range, value, display)
 
   return offset + length, value
 end
@@ -501,7 +501,7 @@ otc_markets_multicast_ats_v4_5_dissect.trade_action = function(buffer, offset, p
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.trade_action(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.trade_action, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_action, range, value, display)
 
   return offset + length, value
 end
@@ -521,7 +521,7 @@ otc_markets_multicast_ats_v4_5_dissect.trade_id = function(buffer, offset, packe
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.trade_id, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -541,7 +541,7 @@ otc_markets_multicast_ats_v4_5_dissect.channel_seq_num = function(buffer, offset
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.channel_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.channel_seq_num, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.channel_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -619,7 +619,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -644,7 +644,7 @@ otc_markets_multicast_ats_v4_5_dissect.issuer_name = function(buffer, offset, pa
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.issuer_name(value, buffer, offset, packet, parent, size)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.issuer_name, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.issuer_name, range, value, display)
 
   return offset + size
 end
@@ -664,7 +664,7 @@ otc_markets_multicast_ats_v4_5_dissect.issuer_size = function(buffer, offset, pa
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.issuer_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.issuer_size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.issuer_size, range, value, display)
 
   return offset + length, value
 end
@@ -680,7 +680,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_detail = function(buffer, offset
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.security_detail(value, buffer, offset, packet, parent, size)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.security_detail, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_detail, range, value, display)
 
   return offset + size
 end
@@ -700,7 +700,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_detail_size = function(buffer, o
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.security_detail_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.security_detail_size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_detail_size, range, value, display)
 
   return offset + length, value
 end
@@ -720,7 +720,7 @@ otc_markets_multicast_ats_v4_5_dissect.adr_level = function(buffer, offset, pack
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.adr_level(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.adr_level, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.adr_level, range, value, display)
 
   return offset + length, value
 end
@@ -740,7 +740,7 @@ otc_markets_multicast_ats_v4_5_dissect.adr_ratio = function(buffer, offset, pack
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.adr_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.adr_ratio, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.adr_ratio, range, value, display)
 
   return offset + length, value
 end
@@ -760,7 +760,7 @@ otc_markets_multicast_ats_v4_5_dissect.callable_date_milli = function(buffer, of
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.callable_date_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.callable_date_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.callable_date_milli, range, value, display)
 
   return offset + length, value
 end
@@ -780,7 +780,7 @@ otc_markets_multicast_ats_v4_5_dissect.maturity_date_milli = function(buffer, of
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.maturity_date_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.maturity_date_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.maturity_date_milli, range, value, display)
 
   return offset + length, value
 end
@@ -800,7 +800,7 @@ otc_markets_multicast_ats_v4_5_dissect.coupon = function(buffer, offset, packet,
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.coupon(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.coupon, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.coupon, range, value, display)
 
   return offset + length, value
 end
@@ -820,7 +820,7 @@ otc_markets_multicast_ats_v4_5_dissect.par_value = function(buffer, offset, pack
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.par_value(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.par_value, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.par_value, range, value, display)
 
   return offset + length, value
 end
@@ -862,7 +862,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_status = function(buffer, offset
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.security_status, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -895,7 +895,7 @@ otc_markets_multicast_ats_v4_5_dissect.disclosure_status = function(buffer, offs
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.disclosure_status(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.disclosure_status, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.disclosure_status, range, value, display)
 
   return offset + length, value
 end
@@ -949,7 +949,7 @@ otc_markets_multicast_ats_v4_5_dissect.reporting_status = function(buffer, offse
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.reporting_status(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.reporting_status, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reporting_status, range, value, display)
 
   return offset + length, value
 end
@@ -1009,7 +1009,7 @@ otc_markets_multicast_ats_v4_5_dissect.tier = function(buffer, offset, packet, p
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.tier(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.tier, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.tier, range, value, display)
 
   return offset + length, value
 end
@@ -1061,28 +1061,28 @@ end
 otc_markets_multicast_ats_v4_5_dissect.security_flags_bits = function(buffer, offset, packet, parent)
 
   -- Saturation Eligible: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.saturation_eligible, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible, buffer(offset, 1))
 
   -- Otc Link Messaging Disabled: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, buffer(offset, 1))
 
   -- Otc Link Ecn Eligible: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, buffer(offset, 1))
 
   -- Bb Quoted: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bb_quoted, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bb_quoted, buffer(offset, 1))
 
   -- Unsolicited Only: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.unsolicited_only, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only, buffer(offset, 1))
 
   -- Qualified Institutional Buyers Only: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, buffer(offset, 1))
 
   -- Caveat Emptor Warning: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, buffer(offset, 1))
 
   -- Proprietary Quote Eligible: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.proprietary_quote_eligible, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.proprietary_quote_eligible, buffer(offset, 1))
 end
 
 -- Dissect: Security Flags
@@ -1090,7 +1090,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_flags = function(buffer, offset,
   local size = 1
   local range = buffer(offset, size)
   local display = otc_markets_multicast_ats_v4_5_display.security_flags(range, packet, parent)
-  local element = parent:add(otc_markets_multicast_ats_v4_5.fields.security_flags, range, display)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_flags, range, display)
 
   if show.security_flags then
     otc_markets_multicast_ats_v4_5_dissect.security_flags_bits(buffer, offset, packet, element)
@@ -1114,7 +1114,7 @@ otc_markets_multicast_ats_v4_5_dissect.primary_market = function(buffer, offset,
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.primary_market(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.primary_market, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.primary_market, range, value, display)
 
   return offset + length, value
 end
@@ -1134,7 +1134,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_type = function(buffer, offset, 
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.security_type, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -1161,7 +1161,7 @@ otc_markets_multicast_ats_v4_5_dissect.asset_class = function(buffer, offset, pa
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.asset_class(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.asset_class, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.asset_class, range, value, display)
 
   return offset + length, value
 end
@@ -1181,7 +1181,7 @@ otc_markets_multicast_ats_v4_5_dissect.short_name = function(buffer, offset, pac
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.short_name(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.short_name, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.short_name, range, value, display)
 
   return offset + length, value
 end
@@ -1201,7 +1201,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_desc = function(buffer, offset, 
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.security_desc(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.security_desc, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_desc, range, value, display)
 
   return offset + length, value
 end
@@ -1221,7 +1221,7 @@ otc_markets_multicast_ats_v4_5_dissect.otc_issuer_id = function(buffer, offset, 
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.otc_issuer_id(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.otc_issuer_id, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_issuer_id, range, value, display)
 
   return offset + length, value
 end
@@ -1254,7 +1254,7 @@ otc_markets_multicast_ats_v4_5_dissect.security_action = function(buffer, offset
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.security_action(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.security_action, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_action, range, value, display)
 
   return offset + length, value
 end
@@ -1274,7 +1274,7 @@ otc_markets_multicast_ats_v4_5_dissect.last_update_milli = function(buffer, offs
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.last_update_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.last_update_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.last_update_milli, range, value, display)
 
   return offset + length, value
 end
@@ -1294,7 +1294,7 @@ otc_markets_multicast_ats_v4_5_dissect.symbol = function(buffer, offset, packet,
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.symbol, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1457,7 +1457,7 @@ otc_markets_multicast_ats_v4_5_dissect.extended_security_no_cusip_message = func
     local length = otc_markets_multicast_ats_v4_5_size_of.extended_security_no_cusip_message(buffer, offset)
     local range = buffer(offset, length)
     local display = otc_markets_multicast_ats_v4_5_display.extended_security_no_cusip_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_security_no_cusip_message, range, display)
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_security_no_cusip_message, range, display)
   end
 
   return otc_markets_multicast_ats_v4_5_dissect.extended_security_no_cusip_message_fields(buffer, offset, packet, parent)
@@ -1478,7 +1478,7 @@ otc_markets_multicast_ats_v4_5_dissect.cusip = function(buffer, offset, packet, 
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.cusip(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.cusip, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.cusip, range, value, display)
 
   return offset + length, value
 end
@@ -1542,40 +1542,40 @@ end
 otc_markets_multicast_ats_v4_5_dissect.extended_security_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Extended Security Flag Bits: 5 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.reserved_extended_security_flag_bits, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_security_flag_bits, buffer(offset, 2))
 
   -- Callable: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.callable, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.callable, buffer(offset, 2))
 
   -- Trading Flat: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.trading_flat, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trading_flat, buffer(offset, 2))
 
   -- Investment Grade: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.investment_grade, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.investment_grade, buffer(offset, 2))
 
   -- Saturation Eligible: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.saturation_eligible, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.saturation_eligible, buffer(offset, 2))
 
   -- Otc Link Messaging Disabled: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_messaging_disabled, buffer(offset, 2))
 
   -- Otc Link Ecn Eligible: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.otc_link_ecn_eligible, buffer(offset, 2))
 
   -- Sponsored Status: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.sponsored_status, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.sponsored_status, buffer(offset, 2))
 
   -- Unsolicited Only: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.unsolicited_only, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only, buffer(offset, 2))
 
   -- Qualified Institutional Buyers Only: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.qualified_institutional_buyers_only, buffer(offset, 2))
 
   -- Caveat Emptor Warning: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.caveat_emptor_warning, buffer(offset, 2))
 
   -- Piggyback: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.piggyback, buffer(offset, 2))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.piggyback, buffer(offset, 2))
 end
 
 -- Dissect: Extended Security Flags
@@ -1583,7 +1583,7 @@ otc_markets_multicast_ats_v4_5_dissect.extended_security_flags = function(buffer
   local size = 2
   local range = buffer(offset, size)
   local display = otc_markets_multicast_ats_v4_5_display.extended_security_flags(range, packet, parent)
-  local element = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_security_flags, range, display)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_security_flags, range, display)
 
   if show.extended_security_flags then
     otc_markets_multicast_ats_v4_5_dissect.extended_security_flags_bits(buffer, offset, packet, element)
@@ -1755,7 +1755,7 @@ otc_markets_multicast_ats_v4_5_dissect.extended_security_message = function(buff
     local length = otc_markets_multicast_ats_v4_5_size_of.extended_security_message(buffer, offset)
     local range = buffer(offset, length)
     local display = otc_markets_multicast_ats_v4_5_display.extended_security_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_security_message, range, display)
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_security_message, range, display)
   end
 
   return otc_markets_multicast_ats_v4_5_dissect.extended_security_message_fields(buffer, offset, packet, parent)
@@ -1776,7 +1776,7 @@ otc_markets_multicast_ats_v4_5_dissect.time_milli = function(buffer, offset, pac
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -1796,7 +1796,7 @@ otc_markets_multicast_ats_v4_5_dissect.size = function(buffer, offset, packet, p
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -1816,7 +1816,7 @@ otc_markets_multicast_ats_v4_5_dissect.price = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.price, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1868,28 +1868,28 @@ end
 otc_markets_multicast_ats_v4_5_dissect.quote_flags_bits = function(buffer, offset, packet, parent)
 
   -- Bid Ask Wanted: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_ask_wanted, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_ask_wanted, buffer(offset, 1))
 
   -- Bid Priced: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_priced, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_priced, buffer(offset, 1))
 
   -- Bid Unsolicited: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_unsolicited, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_unsolicited, buffer(offset, 1))
 
   -- Ask Bid Wanted: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.ask_bid_wanted, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_bid_wanted, buffer(offset, 1))
 
   -- Ask Priced: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.ask_priced, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_priced, buffer(offset, 1))
 
   -- Ask Unsolicited: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.ask_unsolicited, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_unsolicited, buffer(offset, 1))
 
   -- State: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.state, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.state, buffer(offset, 1))
 
   -- Update Side: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.update_side, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.update_side, buffer(offset, 1))
 end
 
 -- Dissect: Quote Flags
@@ -1897,7 +1897,7 @@ otc_markets_multicast_ats_v4_5_dissect.quote_flags = function(buffer, offset, pa
   local size = 1
   local range = buffer(offset, size)
   local display = otc_markets_multicast_ats_v4_5_display.quote_flags(range, packet, parent)
-  local element = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_flags, range, display)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_flags, range, display)
 
   if show.quote_flags then
     otc_markets_multicast_ats_v4_5_dissect.quote_flags_bits(buffer, offset, packet, element)
@@ -1921,7 +1921,7 @@ otc_markets_multicast_ats_v4_5_dissect.reference_price_id = function(buffer, off
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.reference_price_id(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_id, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reference_price_id, range, value, display)
 
   return offset + length, value
 end
@@ -1979,7 +1979,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message = function(buffer, offset, packet, parent)
   if show.reference_price_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2008,7 +2008,7 @@ otc_markets_multicast_ats_v4_5_dissect.bid_time_milli = function(buffer, offset,
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.bid_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -2028,7 +2028,7 @@ otc_markets_multicast_ats_v4_5_dissect.bid_size = function(buffer, offset, packe
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -2048,7 +2048,7 @@ otc_markets_multicast_ats_v4_5_dissect.bid_price = function(buffer, offset, pack
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_price, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -2068,7 +2068,7 @@ otc_markets_multicast_ats_v4_5_dissect.ask_time_milli = function(buffer, offset,
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.ask_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.ask_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -2088,7 +2088,7 @@ otc_markets_multicast_ats_v4_5_dissect.ask_size = function(buffer, offset, packe
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.ask_size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -2108,7 +2108,7 @@ otc_markets_multicast_ats_v4_5_dissect.ask_price = function(buffer, offset, pack
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.ask_price, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -2138,7 +2138,7 @@ otc_markets_multicast_ats_v4_5_dissect.reference_price_action = function(buffer,
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.reference_price_action(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_action, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reference_price_action, range, value, display)
 
   return offset + length, value
 end
@@ -2221,7 +2221,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.reference_price_message = function(buffer, offset, packet, parent)
   if show.reference_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reference_price_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2250,7 +2250,7 @@ otc_markets_multicast_ats_v4_5_dissect.num_priced_mp = function(buffer, offset, 
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.num_priced_mp(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.num_priced_mp, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.num_priced_mp, range, value, display)
 
   return offset + length, value
 end
@@ -2270,7 +2270,7 @@ otc_markets_multicast_ats_v4_5_dissect.inside_time_milli = function(buffer, offs
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.inside_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.inside_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.inside_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -2290,7 +2290,7 @@ otc_markets_multicast_ats_v4_5_dissect.inside_id = function(buffer, offset, pack
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.inside_id(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.inside_id, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.inside_id, range, value, display)
 
   return offset + length, value
 end
@@ -2353,7 +2353,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.inside_update_message = function(buffer, offset, packet, parent)
   if show.inside_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.inside_update_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.inside_update_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2382,7 +2382,7 @@ otc_markets_multicast_ats_v4_5_dissect.market_close = function(buffer, offset, p
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.market_close(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.market_close, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_close, range, value, display)
 
   return offset + length, value
 end
@@ -2402,7 +2402,7 @@ otc_markets_multicast_ats_v4_5_dissect.market_open = function(buffer, offset, pa
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.market_open(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.market_open, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_open, range, value, display)
 
   return offset + length, value
 end
@@ -2445,7 +2445,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.market_open_message = function(buffer, offset, packet, parent)
   if show.market_open_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_open_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_open_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2490,19 +2490,19 @@ end
 otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Extended Quote Flag Bits: 4 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.reserved_extended_quote_flag_bits, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_extended_quote_flag_bits, buffer(offset, 1))
 
   -- Nms Conditional Quote: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.nms_conditional_quote, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.nms_conditional_quote, buffer(offset, 1))
 
   -- Offer Auto Ex: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.offer_auto_ex, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.offer_auto_ex, buffer(offset, 1))
 
   -- Bid Auto Ex: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_auto_ex, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_auto_ex, buffer(offset, 1))
 
   -- Quote Saturated: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.quote_saturated, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_saturated, buffer(offset, 1))
 end
 
 -- Dissect: Extended Quote Flags
@@ -2510,7 +2510,7 @@ otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags = function(buffer, o
   local size = 1
   local range = buffer(offset, size)
   local display = otc_markets_multicast_ats_v4_5_display.extended_quote_flags(range, packet, parent)
-  local element = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_quote_flags, range, display)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_quote_flags, range, display)
 
   if show.extended_quote_flags then
     otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags_bits(buffer, offset, packet, element)
@@ -2534,7 +2534,7 @@ otc_markets_multicast_ats_v4_5_dissect.quote_reference_id = function(buffer, off
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.quote_reference_id(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.quote_reference_id, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_reference_id, range, value, display)
 
   return offset + length, value
 end
@@ -2554,7 +2554,7 @@ otc_markets_multicast_ats_v4_5_dissect.quote_time_milli = function(buffer, offse
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.quote_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.quote_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -2574,7 +2574,7 @@ otc_markets_multicast_ats_v4_5_dissect.qap = function(buffer, offset, packet, pa
   local value = range:int()
   local display = otc_markets_multicast_ats_v4_5_display.qap(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.qap, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.qap, range, value, display)
 
   return offset + length, value
 end
@@ -2594,7 +2594,7 @@ otc_markets_multicast_ats_v4_5_dissect.quote_id = function(buffer, offset, packe
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.quote_id(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.quote_id, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_id, range, value, display)
 
   return offset + length, value
 end
@@ -2667,7 +2667,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.quote_update_message = function(buffer, offset, packet, parent)
   if show.quote_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_update_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_update_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2696,7 +2696,7 @@ otc_markets_multicast_ats_v4_5_dissect.bid_qap = function(buffer, offset, packet
   local value = range:int()
   local display = otc_markets_multicast_ats_v4_5_display.bid_qap(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.bid_qap, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.bid_qap, range, value, display)
 
   return offset + length, value
 end
@@ -2716,7 +2716,7 @@ otc_markets_multicast_ats_v4_5_dissect.ask_qap = function(buffer, offset, packet
   local value = range:int()
   local display = otc_markets_multicast_ats_v4_5_display.ask_qap(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.ask_qap, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.ask_qap, range, value, display)
 
   return offset + length, value
 end
@@ -2736,7 +2736,7 @@ otc_markets_multicast_ats_v4_5_dissect.mpid = function(buffer, offset, packet, p
   local value = range:string()
   local display = otc_markets_multicast_ats_v4_5_display.mpid(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.mpid, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.mpid, range, value, display)
 
   return offset + length, value
 end
@@ -2756,7 +2756,7 @@ otc_markets_multicast_ats_v4_5_dissect.quote_action = function(buffer, offset, p
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.quote_action(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.quote_action, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_action, range, value, display)
 
   return offset + length, value
 end
@@ -2864,7 +2864,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.quote_message = function(buffer, offset, packet, parent)
   if show.quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2951,7 +2951,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.security_message = function(buffer, offset, packet, parent)
   if show.security_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.security_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2980,7 +2980,7 @@ otc_markets_multicast_ats_v4_5_dissect.market_msg_ct = function(buffer, offset, 
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.market_msg_ct(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.market_msg_ct, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_msg_ct, range, value, display)
 
   return offset + length, value
 end
@@ -3000,7 +3000,7 @@ otc_markets_multicast_ats_v4_5_dissect.market_close_time_milli = function(buffer
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.market_close_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_close_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -3043,7 +3043,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.market_close_message = function(buffer, offset, packet, parent)
   if show.market_close_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_close_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3072,7 +3072,7 @@ otc_markets_multicast_ats_v4_5_dissect.spin_last_seq_num = function(buffer, offs
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.spin_last_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.spin_last_seq_num, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.spin_last_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3092,7 +3092,7 @@ otc_markets_multicast_ats_v4_5_dissect.spin_end_time_milli = function(buffer, of
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.spin_end_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.spin_end_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.spin_end_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -3112,7 +3112,7 @@ otc_markets_multicast_ats_v4_5_dissect.spin_msg_ct = function(buffer, offset, pa
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.spin_msg_ct(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.spin_msg_ct, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.spin_msg_ct, range, value, display)
 
   return offset + length, value
 end
@@ -3142,7 +3142,7 @@ otc_markets_multicast_ats_v4_5_dissect.spin_type = function(buffer, offset, pack
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.spin_type(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.spin_type, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.spin_type, range, value, display)
 
   return offset + length, value
 end
@@ -3195,7 +3195,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message = function(buffer, offset, packet, parent)
   if show.end_of_spin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3224,7 +3224,7 @@ otc_markets_multicast_ats_v4_5_dissect.spin_start_time_milli = function(buffer, 
   local value = range:uint64()
   local display = otc_markets_multicast_ats_v4_5_display.spin_start_time_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.spin_start_time_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.spin_start_time_milli, range, value, display)
 
   return offset + length, value
 end
@@ -3272,7 +3272,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message = function(buffer, offset, packet, parent)
   if show.start_of_spin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3430,7 +3430,7 @@ otc_markets_multicast_ats_v4_5_dissect.payload = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = otc_markets_multicast_ats_v4_5_display.payload(buffer, packet, parent)
-  local element = parent:add(otc_markets_multicast_ats_v4_5.fields.payload, range, display)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.payload, range, display)
 
   return otc_markets_multicast_ats_v4_5_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -3450,7 +3450,7 @@ otc_markets_multicast_ats_v4_5_dissect.message_type = function(buffer, offset, p
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.message_type, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3470,7 +3470,7 @@ otc_markets_multicast_ats_v4_5_dissect.message_size = function(buffer, offset, p
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.message_size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -3508,7 +3508,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.message_header, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3533,7 +3533,7 @@ otc_markets_multicast_ats_v4_5_dissect.message_fields = function(buffer, offset,
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(otc_markets_multicast_ats_v4_5.fields.message_index, message_index)
+    local iteration = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -3555,7 +3555,7 @@ otc_markets_multicast_ats_v4_5_dissect.message = function(buffer, offset, packet
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.message, buffer(offset, 0))
     local current = otc_markets_multicast_ats_v4_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = otc_markets_multicast_ats_v4_5_display.message(buffer, packet, parent)
@@ -3585,7 +3585,7 @@ otc_markets_multicast_ats_v4_5_dissect.packet_milli = function(buffer, offset, p
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.packet_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.packet_milli, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.packet_milli, range, value, display)
 
   return offset + length, value
 end
@@ -3605,7 +3605,7 @@ otc_markets_multicast_ats_v4_5_dissect.messages = function(buffer, offset, packe
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.messages(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.messages, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.messages, range, value, display)
 
   return offset + length, value
 end
@@ -3641,19 +3641,19 @@ end
 otc_markets_multicast_ats_v4_5_dissect.packet_flag_bits = function(buffer, offset, packet, parent)
 
   -- Test: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.test, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.test, buffer(offset, 1))
 
   -- Replay: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.replay, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.replay, buffer(offset, 1))
 
   -- Reserved Packet Flags: 4 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.reserved_packet_flags, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reserved_packet_flags, buffer(offset, 1))
 
   -- Seq Num Reset: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.seq_num_reset, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.seq_num_reset, buffer(offset, 1))
 
   -- Heartbeat: 1 Bit
-  parent:add(otc_markets_multicast_ats_v4_5.fields.heartbeat, buffer(offset, 1))
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.heartbeat, buffer(offset, 1))
 end
 
 -- Dissect: Packet Flag
@@ -3661,7 +3661,7 @@ otc_markets_multicast_ats_v4_5_dissect.packet_flag = function(buffer, offset, pa
   local size = 1
   local range = buffer(offset, size)
   local display = otc_markets_multicast_ats_v4_5_display.packet_flag(range, packet, parent)
-  local element = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_flag, range, display)
+  local element = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.packet_flag, range, display)
 
   if show.packet_flag then
     otc_markets_multicast_ats_v4_5_dissect.packet_flag_bits(buffer, offset, packet, element)
@@ -3685,7 +3685,7 @@ otc_markets_multicast_ats_v4_5_dissect.seq_num = function(buffer, offset, packet
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.seq_num, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3705,7 +3705,7 @@ otc_markets_multicast_ats_v4_5_dissect.packet_size = function(buffer, offset, pa
   local value = range:uint()
   local display = otc_markets_multicast_ats_v4_5_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_multicast_ats_v4_5.fields.packet_size, range, value, display)
+  parent:add(omi_otc_markets_multicast_ats_v4_5.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -3758,7 +3758,7 @@ end
 otc_markets_multicast_ats_v4_5_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.packet_header, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3801,23 +3801,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function otc_markets_multicast_ats_v4_5.init()
+function omi_otc_markets_multicast_ats_v4_5.init()
 end
 
 -- Dissector for Otc Markets Multicast Ats 4.5
-function otc_markets_multicast_ats_v4_5.dissector(buffer, packet, parent)
+function omi_otc_markets_multicast_ats_v4_5.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = otc_markets_multicast_ats_v4_5.name
+  packet.cols.protocol = omi_otc_markets_multicast_ats_v4_5.name
 
   -- Dissect protocol
-  local protocol = parent:add(otc_markets_multicast_ats_v4_5, buffer(), otc_markets_multicast_ats_v4_5.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_otc_markets_multicast_ats_v4_5, buffer(), omi_otc_markets_multicast_ats_v4_5.description, "("..buffer:len().." Bytes)")
   return otc_markets_multicast_ats_v4_5_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, otc_markets_multicast_ats_v4_5)
+udp_table:add(65333, omi_otc_markets_multicast_ats_v4_5)
 
 
 -----------------------------------------------------------------------
@@ -3825,25 +3825,25 @@ udp_table:add(65333, otc_markets_multicast_ats_v4_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.otc_markets_multicast_ats_v4_5_packet_size = function(buffer)
+verify.omi_otc_markets_multicast_ats_v4_5_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Otc Markets Multicast Ats 4.5
-local function otc_markets_multicast_ats_v4_5_heuristic(buffer, packet, parent)
+local function omi_otc_markets_multicast_ats_v4_5_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.otc_markets_multicast_ats_v4_5_packet_size(buffer) then return false end
+  if not verify.omi_otc_markets_multicast_ats_v4_5_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = otc_markets_multicast_ats_v4_5
-  otc_markets_multicast_ats_v4_5.dissector(buffer, packet, parent)
+  packet.conversation = omi_otc_markets_multicast_ats_v4_5
+  omi_otc_markets_multicast_ats_v4_5.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Otc Markets Multicast Ats 4.5
-otc_markets_multicast_ats_v4_5:register_heuristic("udp", otc_markets_multicast_ats_v4_5_heuristic)
+omi_otc_markets_multicast_ats_v4_5:register_heuristic("udp", omi_otc_markets_multicast_ats_v4_5_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

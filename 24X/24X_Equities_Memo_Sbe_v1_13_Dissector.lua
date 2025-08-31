@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- 24X Equities Memo Sbe 1.13 Protocol
-local n24x_equities_memo_sbe_v1_13 = Proto("24X.Equities.Memo.Sbe.v1.13.Lua", "24X Equities Memo Sbe 1.13")
+local omi_n24x_equities_memo_sbe_v1_13 = Proto("24X.Equities.Memo.Sbe.v1.13.Lua", "24X Equities Memo Sbe 1.13")
 
 -- Component Tables
 local show = {}
@@ -21,141 +21,141 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- 24X Equities Memo Sbe 1.13 Fields
-n24x_equities_memo_sbe_v1_13.fields.block_length = ProtoField.new("Block Length", "24x.equities.memo.sbe.v1.13.blocklength", ftypes.UINT16)
-n24x_equities_memo_sbe_v1_13.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "24x.equities.memo.sbe.v1.13.blocklengthuint8", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "24x.equities.memo.sbe.v1.13.cancelgroupid", ftypes.UINT16)
-n24x_equities_memo_sbe_v1_13.fields.cancel_reason = ProtoField.new("Cancel Reason", "24x.equities.memo.sbe.v1.13.cancelreason", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.clordid = ProtoField.new("ClOrdId", "24x.equities.memo.sbe.v1.13.clordid", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "24x.equities.memo.sbe.v1.13.commonheader", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.count = ProtoField.new("Count", "24x.equities.memo.sbe.v1.13.count", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.cum_qty = ProtoField.new("Cum Qty", "24x.equities.memo.sbe.v1.13.cumqty", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type = ProtoField.new("Cust Order Capacity Cust Order Capacity Type", "24x.equities.memo.sbe.v1.13.custordercapacitycustordercapacitytype", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type_optional = ProtoField.new("Cust Order Capacity Cust Order Capacity Type optional", "24x.equities.memo.sbe.v1.13.custordercapacitycustordercapacitytypeoptional", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "24x.equities.memo.sbe.v1.13.cxlrejreason", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "24x.equities.memo.sbe.v1.13.cxlrejresponseto", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.data = ProtoField.new("Data", "24x.equities.memo.sbe.v1.13.data", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.display_method = ProtoField.new("Display Method", "24x.equities.memo.sbe.v1.13.displaymethod", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.display_min_incr = ProtoField.new("Display Min Incr", "24x.equities.memo.sbe.v1.13.displayminincr", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.display_qty = ProtoField.new("Display Qty", "24x.equities.memo.sbe.v1.13.displayqty", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.exec_id = ProtoField.new("Exec Id", "24x.equities.memo.sbe.v1.13.execid", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.exec_inst = ProtoField.new("Exec Inst", "24x.equities.memo.sbe.v1.13.execinst", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "24x.equities.memo.sbe.v1.13.execrefid", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "24x.equities.memo.sbe.v1.13.execrestatementreason", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.expire_time = ProtoField.new("Expire Time", "24x.equities.memo.sbe.v1.13.expiretime", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "24x.equities.memo.sbe.v1.13.extendedrestatementreason", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "24x.equities.memo.sbe.v1.13.externalroutingnotallowed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
-n24x_equities_memo_sbe_v1_13.fields.higher_than_price = ProtoField.new("Higher Than Price", "24x.equities.memo.sbe.v1.13.higherthanprice", ftypes.DOUBLE)
-n24x_equities_memo_sbe_v1_13.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "24x.equities.memo.sbe.v1.13.intermarketsweep", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
-n24x_equities_memo_sbe_v1_13.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "24x.equities.memo.sbe.v1.13.lastliquidityind", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.last_mkt = ProtoField.new("Last Mkt", "24x.equities.memo.sbe.v1.13.lastmkt", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.last_px = ProtoField.new("Last Px", "24x.equities.memo.sbe.v1.13.lastpx", ftypes.DOUBLE)
-n24x_equities_memo_sbe_v1_13.fields.last_px_optional = ProtoField.new("Last Px Optional", "24x.equities.memo.sbe.v1.13.lastpxoptional", ftypes.DOUBLE)
-n24x_equities_memo_sbe_v1_13.fields.last_qty = ProtoField.new("Last Qty", "24x.equities.memo.sbe.v1.13.lastqty", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.last_qty_optional = ProtoField.new("Last Qty Optional", "24x.equities.memo.sbe.v1.13.lastqtyoptional", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.last_shares = ProtoField.new("Last Shares", "24x.equities.memo.sbe.v1.13.lastshares", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.leaves_qty = ProtoField.new("Leaves Qty", "24x.equities.memo.sbe.v1.13.leavesqty", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.link_id_optional = ProtoField.new("Link Id Optional", "24x.equities.memo.sbe.v1.13.linkidoptional", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.locate_broker_optional = ProtoField.new("Locate Broker Optional", "24x.equities.memo.sbe.v1.13.locatebrokeroptional", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.locate_reqd = ProtoField.new("Locate Reqd", "24x.equities.memo.sbe.v1.13.locatereqd", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "24x.equities.memo.sbe.v1.13.loginacceptedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.login_reject_code = ProtoField.new("Login Reject Code", "24x.equities.memo.sbe.v1.13.loginrejectcode", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "24x.equities.memo.sbe.v1.13.loginrejectedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.login_request_message = ProtoField.new("Login Request Message", "24x.equities.memo.sbe.v1.13.loginrequestmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.lower_than_price = ProtoField.new("Lower Than Price", "24x.equities.memo.sbe.v1.13.lowerthanprice", ftypes.DOUBLE)
-n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "24x.equities.memo.sbe.v1.13.masscancelrejectreason", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.message_count = ProtoField.new("Message Count", "24x.equities.memo.sbe.v1.13.messagecount", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.message_length = ProtoField.new("Message Length", "24x.equities.memo.sbe.v1.13.messagelength", ftypes.UINT16)
-n24x_equities_memo_sbe_v1_13.fields.message_type = ProtoField.new("Message Type", "24x.equities.memo.sbe.v1.13.messagetype", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.min_qty = ProtoField.new("Min Qty", "24x.equities.memo.sbe.v1.13.minqty", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "24x.equities.memo.sbe.v1.13.nextsequencenumber", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.num_in_group = ProtoField.new("Num In Group", "24x.equities.memo.sbe.v1.13.numingroup", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.ord_status = ProtoField.new("Ord Status", "24x.equities.memo.sbe.v1.13.ordstatus", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.ord_type = ProtoField.new("Ord Type", "24x.equities.memo.sbe.v1.13.ordtype", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.order_capacity = ProtoField.new("Order Capacity", "24x.equities.memo.sbe.v1.13.ordercapacity", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.order_id = ProtoField.new("Order Id", "24x.equities.memo.sbe.v1.13.orderid", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.order_id_optional = ProtoField.new("Order Id Optional", "24x.equities.memo.sbe.v1.13.orderidoptional", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.order_qty = ProtoField.new("Order Qty", "24x.equities.memo.sbe.v1.13.orderqty", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "24x.equities.memo.sbe.v1.13.orderrejectreason", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.origclordid = ProtoField.new("OrigClOrdId", "24x.equities.memo.sbe.v1.13.origclordid", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "24x.equities.memo.sbe.v1.13.origclordidoptional", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "24x.equities.memo.sbe.v1.13.packet", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "24x.equities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
-n24x_equities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "24x.equities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "24x.equities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id = ProtoField.new("Party I D New Order Single Party Id", "24x.equities.memo.sbe.v1.13.partyidnewordersinglepartyid", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.party_id_source = ProtoField.new("Party Id Source", "24x.equities.memo.sbe.v1.13.partyidsource", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.party_role = ProtoField.new("Party Role", "24x.equities.memo.sbe.v1.13.partyrole", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.payload = ProtoField.new("Payload", "24x.equities.memo.sbe.v1.13.payload", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "24x.equities.memo.sbe.v1.13.pegoffsetvalue", ftypes.DOUBLE)
-n24x_equities_memo_sbe_v1_13.fields.peg_price_type = ProtoField.new("Peg Price Type", "24x.equities.memo.sbe.v1.13.pegpricetype", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.pending_message_count = ProtoField.new("Pending Message Count", "24x.equities.memo.sbe.v1.13.pendingmessagecount", ftypes.UINT32)
-n24x_equities_memo_sbe_v1_13.fields.price = ProtoField.new("Price", "24x.equities.memo.sbe.v1.13.price", ftypes.DOUBLE)
-n24x_equities_memo_sbe_v1_13.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "24x.equities.memo.sbe.v1.13.repeatinggroupdimensions", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "24x.equities.memo.sbe.v1.13.replayallrequestmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "24x.equities.memo.sbe.v1.13.replaybeginmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "24x.equities.memo.sbe.v1.13.replaycompletemessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "24x.equities.memo.sbe.v1.13.replayrejectcode", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "24x.equities.memo.sbe.v1.13.replayrejectedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.replay_request_message = ProtoField.new("Replay Request Message", "24x.equities.memo.sbe.v1.13.replayrequestmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "24x.equities.memo.sbe.v1.13.repricebehavior", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "24x.equities.memo.sbe.v1.13.repricefrequency", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "24x.equities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.reserved_13 = ProtoField.new("Reserved 13", "24x.equities.memo.sbe.v1.13.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
-n24x_equities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk Group Id", "24x.equities.memo.sbe.v1.13.riskgroupid", ftypes.UINT16)
-n24x_equities_memo_sbe_v1_13.fields.sbe_header = ProtoField.new("Sbe Header", "24x.equities.memo.sbe.v1.13.sbeheader", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", "24x.equities.memo.sbe.v1.13.sbemessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "24x.equities.memo.sbe.v1.13.schemaid", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "24x.equities.memo.sbe.v1.13.securitygroup", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "24x.equities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.equities.memo.sbe.v1.13.sendingtime", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "24x.equities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "24x.equities.memo.sbe.v1.13.sessionid", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.side = ProtoField.new("Side", "24x.equities.memo.sbe.v1.13.side", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.side_optional = ProtoField.new("Side Optional", "24x.equities.memo.sbe.v1.13.sideoptional", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "24x.equities.memo.sbe.v1.13.startofsessionmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.stp_group_id = ProtoField.new("Stp Group Id", "24x.equities.memo.sbe.v1.13.stpgroupid", ftypes.UINT16)
-n24x_equities_memo_sbe_v1_13.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "24x.equities.memo.sbe.v1.13.streambeginmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "24x.equities.memo.sbe.v1.13.streamcompletemessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "24x.equities.memo.sbe.v1.13.streamrejectcode", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "24x.equities.memo.sbe.v1.13.streamrejectedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "24x.equities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "24x.equities.memo.sbe.v1.13.supportedrequestmode", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.symbol = ProtoField.new("Symbol", "24x.equities.memo.sbe.v1.13.symbol", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "24x.equities.memo.sbe.v1.13.symbolsfx", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.template_id = ProtoField.new("Template Id", "24x.equities.memo.sbe.v1.13.templateid", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.time_in_force = ProtoField.new("Time In Force", "24x.equities.memo.sbe.v1.13.timeinforce", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.token = ProtoField.new("Token", "24x.equities.memo.sbe.v1.13.token", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.token_type = ProtoField.new("Token Type", "24x.equities.memo.sbe.v1.13.tokentype", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "24x.equities.memo.sbe.v1.13.totalsequencecount", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "24x.equities.memo.sbe.v1.13.transacttime", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.trd_match_id = ProtoField.new("Trd Match Id", "24x.equities.memo.sbe.v1.13.trdmatchid", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "24x.equities.memo.sbe.v1.13.trdmatchingid", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "24x.equities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "24x.equities.memo.sbe.v1.13.version", ftypes.UINT16)
+omi_n24x_equities_memo_sbe_v1_13.fields.block_length = ProtoField.new("Block Length", "24x.equities.memo.sbe.v1.13.blocklength", ftypes.UINT16)
+omi_n24x_equities_memo_sbe_v1_13.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "24x.equities.memo.sbe.v1.13.blocklengthuint8", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "24x.equities.memo.sbe.v1.13.cancelgroupid", ftypes.UINT16)
+omi_n24x_equities_memo_sbe_v1_13.fields.cancel_reason = ProtoField.new("Cancel Reason", "24x.equities.memo.sbe.v1.13.cancelreason", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.clordid = ProtoField.new("ClOrdId", "24x.equities.memo.sbe.v1.13.clordid", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "24x.equities.memo.sbe.v1.13.commonheader", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.count = ProtoField.new("Count", "24x.equities.memo.sbe.v1.13.count", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.cum_qty = ProtoField.new("Cum Qty", "24x.equities.memo.sbe.v1.13.cumqty", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type = ProtoField.new("Cust Order Capacity Cust Order Capacity Type", "24x.equities.memo.sbe.v1.13.custordercapacitycustordercapacitytype", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type_optional = ProtoField.new("Cust Order Capacity Cust Order Capacity Type optional", "24x.equities.memo.sbe.v1.13.custordercapacitycustordercapacitytypeoptional", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "24x.equities.memo.sbe.v1.13.cxlrejreason", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "24x.equities.memo.sbe.v1.13.cxlrejresponseto", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.data = ProtoField.new("Data", "24x.equities.memo.sbe.v1.13.data", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.display_method = ProtoField.new("Display Method", "24x.equities.memo.sbe.v1.13.displaymethod", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.display_min_incr = ProtoField.new("Display Min Incr", "24x.equities.memo.sbe.v1.13.displayminincr", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.display_qty = ProtoField.new("Display Qty", "24x.equities.memo.sbe.v1.13.displayqty", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.exec_id = ProtoField.new("Exec Id", "24x.equities.memo.sbe.v1.13.execid", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.exec_inst = ProtoField.new("Exec Inst", "24x.equities.memo.sbe.v1.13.execinst", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "24x.equities.memo.sbe.v1.13.execrefid", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "24x.equities.memo.sbe.v1.13.execrestatementreason", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.expire_time = ProtoField.new("Expire Time", "24x.equities.memo.sbe.v1.13.expiretime", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "24x.equities.memo.sbe.v1.13.extendedrestatementreason", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "24x.equities.memo.sbe.v1.13.externalroutingnotallowed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
+omi_n24x_equities_memo_sbe_v1_13.fields.higher_than_price = ProtoField.new("Higher Than Price", "24x.equities.memo.sbe.v1.13.higherthanprice", ftypes.DOUBLE)
+omi_n24x_equities_memo_sbe_v1_13.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "24x.equities.memo.sbe.v1.13.intermarketsweep", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
+omi_n24x_equities_memo_sbe_v1_13.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "24x.equities.memo.sbe.v1.13.lastliquidityind", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.last_mkt = ProtoField.new("Last Mkt", "24x.equities.memo.sbe.v1.13.lastmkt", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.last_px = ProtoField.new("Last Px", "24x.equities.memo.sbe.v1.13.lastpx", ftypes.DOUBLE)
+omi_n24x_equities_memo_sbe_v1_13.fields.last_px_optional = ProtoField.new("Last Px Optional", "24x.equities.memo.sbe.v1.13.lastpxoptional", ftypes.DOUBLE)
+omi_n24x_equities_memo_sbe_v1_13.fields.last_qty = ProtoField.new("Last Qty", "24x.equities.memo.sbe.v1.13.lastqty", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.last_qty_optional = ProtoField.new("Last Qty Optional", "24x.equities.memo.sbe.v1.13.lastqtyoptional", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.last_shares = ProtoField.new("Last Shares", "24x.equities.memo.sbe.v1.13.lastshares", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.leaves_qty = ProtoField.new("Leaves Qty", "24x.equities.memo.sbe.v1.13.leavesqty", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.link_id_optional = ProtoField.new("Link Id Optional", "24x.equities.memo.sbe.v1.13.linkidoptional", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.locate_broker_optional = ProtoField.new("Locate Broker Optional", "24x.equities.memo.sbe.v1.13.locatebrokeroptional", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.locate_reqd = ProtoField.new("Locate Reqd", "24x.equities.memo.sbe.v1.13.locatereqd", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "24x.equities.memo.sbe.v1.13.loginacceptedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.login_reject_code = ProtoField.new("Login Reject Code", "24x.equities.memo.sbe.v1.13.loginrejectcode", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "24x.equities.memo.sbe.v1.13.loginrejectedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.login_request_message = ProtoField.new("Login Request Message", "24x.equities.memo.sbe.v1.13.loginrequestmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.lower_than_price = ProtoField.new("Lower Than Price", "24x.equities.memo.sbe.v1.13.lowerthanprice", ftypes.DOUBLE)
+omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "24x.equities.memo.sbe.v1.13.masscancelrejectreason", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.message_count = ProtoField.new("Message Count", "24x.equities.memo.sbe.v1.13.messagecount", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.message_length = ProtoField.new("Message Length", "24x.equities.memo.sbe.v1.13.messagelength", ftypes.UINT16)
+omi_n24x_equities_memo_sbe_v1_13.fields.message_type = ProtoField.new("Message Type", "24x.equities.memo.sbe.v1.13.messagetype", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.min_qty = ProtoField.new("Min Qty", "24x.equities.memo.sbe.v1.13.minqty", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "24x.equities.memo.sbe.v1.13.nextsequencenumber", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.num_in_group = ProtoField.new("Num In Group", "24x.equities.memo.sbe.v1.13.numingroup", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.ord_status = ProtoField.new("Ord Status", "24x.equities.memo.sbe.v1.13.ordstatus", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.ord_type = ProtoField.new("Ord Type", "24x.equities.memo.sbe.v1.13.ordtype", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_capacity = ProtoField.new("Order Capacity", "24x.equities.memo.sbe.v1.13.ordercapacity", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_id = ProtoField.new("Order Id", "24x.equities.memo.sbe.v1.13.orderid", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_id_optional = ProtoField.new("Order Id Optional", "24x.equities.memo.sbe.v1.13.orderidoptional", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_qty = ProtoField.new("Order Qty", "24x.equities.memo.sbe.v1.13.orderqty", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "24x.equities.memo.sbe.v1.13.orderrejectreason", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.origclordid = ProtoField.new("OrigClOrdId", "24x.equities.memo.sbe.v1.13.origclordid", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "24x.equities.memo.sbe.v1.13.origclordidoptional", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "24x.equities.memo.sbe.v1.13.packet", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "24x.equities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_n24x_equities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "24x.equities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "24x.equities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id = ProtoField.new("Party I D New Order Single Party Id", "24x.equities.memo.sbe.v1.13.partyidnewordersinglepartyid", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.party_id_source = ProtoField.new("Party Id Source", "24x.equities.memo.sbe.v1.13.partyidsource", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.party_role = ProtoField.new("Party Role", "24x.equities.memo.sbe.v1.13.partyrole", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.payload = ProtoField.new("Payload", "24x.equities.memo.sbe.v1.13.payload", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "24x.equities.memo.sbe.v1.13.pegoffsetvalue", ftypes.DOUBLE)
+omi_n24x_equities_memo_sbe_v1_13.fields.peg_price_type = ProtoField.new("Peg Price Type", "24x.equities.memo.sbe.v1.13.pegpricetype", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.pending_message_count = ProtoField.new("Pending Message Count", "24x.equities.memo.sbe.v1.13.pendingmessagecount", ftypes.UINT32)
+omi_n24x_equities_memo_sbe_v1_13.fields.price = ProtoField.new("Price", "24x.equities.memo.sbe.v1.13.price", ftypes.DOUBLE)
+omi_n24x_equities_memo_sbe_v1_13.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "24x.equities.memo.sbe.v1.13.repeatinggroupdimensions", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "24x.equities.memo.sbe.v1.13.replayallrequestmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "24x.equities.memo.sbe.v1.13.replaybeginmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "24x.equities.memo.sbe.v1.13.replaycompletemessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "24x.equities.memo.sbe.v1.13.replayrejectcode", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "24x.equities.memo.sbe.v1.13.replayrejectedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.replay_request_message = ProtoField.new("Replay Request Message", "24x.equities.memo.sbe.v1.13.replayrequestmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "24x.equities.memo.sbe.v1.13.repricebehavior", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "24x.equities.memo.sbe.v1.13.repricefrequency", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "24x.equities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.reserved_13 = ProtoField.new("Reserved 13", "24x.equities.memo.sbe.v1.13.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
+omi_n24x_equities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk Group Id", "24x.equities.memo.sbe.v1.13.riskgroupid", ftypes.UINT16)
+omi_n24x_equities_memo_sbe_v1_13.fields.sbe_header = ProtoField.new("Sbe Header", "24x.equities.memo.sbe.v1.13.sbeheader", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", "24x.equities.memo.sbe.v1.13.sbemessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "24x.equities.memo.sbe.v1.13.schemaid", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "24x.equities.memo.sbe.v1.13.securitygroup", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "24x.equities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.equities.memo.sbe.v1.13.sendingtime", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "24x.equities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "24x.equities.memo.sbe.v1.13.sessionid", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.side = ProtoField.new("Side", "24x.equities.memo.sbe.v1.13.side", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.side_optional = ProtoField.new("Side Optional", "24x.equities.memo.sbe.v1.13.sideoptional", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "24x.equities.memo.sbe.v1.13.startofsessionmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.stp_group_id = ProtoField.new("Stp Group Id", "24x.equities.memo.sbe.v1.13.stpgroupid", ftypes.UINT16)
+omi_n24x_equities_memo_sbe_v1_13.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "24x.equities.memo.sbe.v1.13.streambeginmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "24x.equities.memo.sbe.v1.13.streamcompletemessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "24x.equities.memo.sbe.v1.13.streamrejectcode", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "24x.equities.memo.sbe.v1.13.streamrejectedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "24x.equities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "24x.equities.memo.sbe.v1.13.supportedrequestmode", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.symbol = ProtoField.new("Symbol", "24x.equities.memo.sbe.v1.13.symbol", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "24x.equities.memo.sbe.v1.13.symbolsfx", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.template_id = ProtoField.new("Template Id", "24x.equities.memo.sbe.v1.13.templateid", ftypes.UINT8)
+omi_n24x_equities_memo_sbe_v1_13.fields.time_in_force = ProtoField.new("Time In Force", "24x.equities.memo.sbe.v1.13.timeinforce", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.token = ProtoField.new("Token", "24x.equities.memo.sbe.v1.13.token", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.token_type = ProtoField.new("Token Type", "24x.equities.memo.sbe.v1.13.tokentype", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "24x.equities.memo.sbe.v1.13.totalsequencecount", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "24x.equities.memo.sbe.v1.13.transacttime", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.trd_match_id = ProtoField.new("Trd Match Id", "24x.equities.memo.sbe.v1.13.trdmatchid", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "24x.equities.memo.sbe.v1.13.trdmatchingid", ftypes.UINT64)
+omi_n24x_equities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "24x.equities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "24x.equities.memo.sbe.v1.13.version", ftypes.UINT16)
 
 -- 24X Equities Memo Sbe 1.13 messages
-n24x_equities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "24x.equities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "24x.equities.memo.sbe.v1.13.executionreportnewmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "24x.equities.memo.sbe.v1.13.executionreportpendingcancelmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_new_message = ProtoField.new("Execution Report Pending New Message", "24x.equities.memo.sbe.v1.13.executionreportpendingnewmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_replace_message = ProtoField.new("Execution Report Pending Replace Message", "24x.equities.memo.sbe.v1.13.executionreportpendingreplacemessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_rejected_message = ProtoField.new("Execution Report Rejected Message", "24x.equities.memo.sbe.v1.13.executionreportrejectedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_replaced_message = ProtoField.new("Execution Report Replaced Message", "24x.equities.memo.sbe.v1.13.executionreportreplacedmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_restatement_message = ProtoField.new("Execution Report Restatement Message", "24x.equities.memo.sbe.v1.13.executionreportrestatementmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_break_message = ProtoField.new("Execution Report Trade Break Message", "24x.equities.memo.sbe.v1.13.executionreporttradebreakmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_correction_message = ProtoField.new("Execution Report Trade Correction Message", "24x.equities.memo.sbe.v1.13.executionreporttradecorrectionmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "24x.equities.memo.sbe.v1.13.executionreporttrademessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.mass_cancel_done_message = ProtoField.new("Mass Cancel Done Message", "24x.equities.memo.sbe.v1.13.masscanceldonemessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message = ProtoField.new("Mass Cancel Reject Message", "24x.equities.memo.sbe.v1.13.masscancelrejectmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "24x.equities.memo.sbe.v1.13.masscancelrequestmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.new_order_single_message = ProtoField.new("New Order Single Message", "24x.equities.memo.sbe.v1.13.newordersinglemessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.order_cancel_reject_message = ProtoField.new("Order Cancel Reject Message", "24x.equities.memo.sbe.v1.13.ordercancelrejectmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message = ProtoField.new("Order Cancel Replace Request Message", "24x.equities.memo.sbe.v1.13.ordercancelreplacerequestmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "24x.equities.memo.sbe.v1.13.ordercancelrequestmessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "24x.equities.memo.sbe.v1.13.pendingmasscancelmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "24x.equities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "24x.equities.memo.sbe.v1.13.executionreportnewmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "24x.equities.memo.sbe.v1.13.executionreportpendingcancelmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_new_message = ProtoField.new("Execution Report Pending New Message", "24x.equities.memo.sbe.v1.13.executionreportpendingnewmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_replace_message = ProtoField.new("Execution Report Pending Replace Message", "24x.equities.memo.sbe.v1.13.executionreportpendingreplacemessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_rejected_message = ProtoField.new("Execution Report Rejected Message", "24x.equities.memo.sbe.v1.13.executionreportrejectedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_replaced_message = ProtoField.new("Execution Report Replaced Message", "24x.equities.memo.sbe.v1.13.executionreportreplacedmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_restatement_message = ProtoField.new("Execution Report Restatement Message", "24x.equities.memo.sbe.v1.13.executionreportrestatementmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_break_message = ProtoField.new("Execution Report Trade Break Message", "24x.equities.memo.sbe.v1.13.executionreporttradebreakmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_correction_message = ProtoField.new("Execution Report Trade Correction Message", "24x.equities.memo.sbe.v1.13.executionreporttradecorrectionmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "24x.equities.memo.sbe.v1.13.executionreporttrademessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_done_message = ProtoField.new("Mass Cancel Done Message", "24x.equities.memo.sbe.v1.13.masscanceldonemessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message = ProtoField.new("Mass Cancel Reject Message", "24x.equities.memo.sbe.v1.13.masscancelrejectmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "24x.equities.memo.sbe.v1.13.masscancelrequestmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.new_order_single_message = ProtoField.new("New Order Single Message", "24x.equities.memo.sbe.v1.13.newordersinglemessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_cancel_reject_message = ProtoField.new("Order Cancel Reject Message", "24x.equities.memo.sbe.v1.13.ordercancelrejectmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message = ProtoField.new("Order Cancel Replace Request Message", "24x.equities.memo.sbe.v1.13.ordercancelreplacerequestmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "24x.equities.memo.sbe.v1.13.ordercancelrequestmessage", ftypes.STRING)
+omi_n24x_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "24x.equities.memo.sbe.v1.13.pendingmasscancelmessage", ftypes.STRING)
 
 -- 24X Equities Memo Sbe 1.13 generated fields
-n24x_equities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Parties Group Index", "24x.equities.memo.sbe.v1.13.partiesgroupindex", ftypes.UINT16)
+omi_n24x_equities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Parties Group Index", "24x.equities.memo.sbe.v1.13.partiesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -208,230 +208,230 @@ show.data = false
 show.payload = false
 
 -- Register 24X Equities Memo Sbe 1.13 Show Options
-n24x_equities_memo_sbe_v1_13.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_canceled_message = Pref.bool("Show Execution Report Canceled Message", show.execution_report_canceled_message, "Parse and add Execution Report Canceled Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_cancel_message = Pref.bool("Show Execution Report Pending Cancel Message", show.execution_report_pending_cancel_message, "Parse and add Execution Report Pending Cancel Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_new_message = Pref.bool("Show Execution Report Pending New Message", show.execution_report_pending_new_message, "Parse and add Execution Report Pending New Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_replace_message = Pref.bool("Show Execution Report Pending Replace Message", show.execution_report_pending_replace_message, "Parse and add Execution Report Pending Replace Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_rejected_message = Pref.bool("Show Execution Report Rejected Message", show.execution_report_rejected_message, "Parse and add Execution Report Rejected Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_replaced_message = Pref.bool("Show Execution Report Replaced Message", show.execution_report_replaced_message, "Parse and add Execution Report Replaced Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_restatement_message = Pref.bool("Show Execution Report Restatement Message", show.execution_report_restatement_message, "Parse and add Execution Report Restatement Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_break_message = Pref.bool("Show Execution Report Trade Break Message", show.execution_report_trade_break_message, "Parse and add Execution Report Trade Break Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_correction_message = Pref.bool("Show Execution Report Trade Correction Message", show.execution_report_trade_correction_message, "Parse and add Execution Report Trade Correction Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_message = Pref.bool("Show Execution Report Trade Message", show.execution_report_trade_message, "Parse and add Execution Report Trade Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_done_message = Pref.bool("Show Mass Cancel Done Message", show.mass_cancel_done_message, "Parse and add Mass Cancel Done Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_reject_message = Pref.bool("Show Order Cancel Reject Message", show.order_cancel_reject_message, "Parse and add Order Cancel Reject Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_pending_mass_cancel_message = Pref.bool("Show Pending Mass Cancel Message", show.pending_mass_cancel_message, "Parse and add Pending Mass Cancel Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-n24x_equities_memo_sbe_v1_13.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_canceled_message = Pref.bool("Show Execution Report Canceled Message", show.execution_report_canceled_message, "Parse and add Execution Report Canceled Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_cancel_message = Pref.bool("Show Execution Report Pending Cancel Message", show.execution_report_pending_cancel_message, "Parse and add Execution Report Pending Cancel Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_new_message = Pref.bool("Show Execution Report Pending New Message", show.execution_report_pending_new_message, "Parse and add Execution Report Pending New Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_replace_message = Pref.bool("Show Execution Report Pending Replace Message", show.execution_report_pending_replace_message, "Parse and add Execution Report Pending Replace Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_rejected_message = Pref.bool("Show Execution Report Rejected Message", show.execution_report_rejected_message, "Parse and add Execution Report Rejected Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_replaced_message = Pref.bool("Show Execution Report Replaced Message", show.execution_report_replaced_message, "Parse and add Execution Report Replaced Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_restatement_message = Pref.bool("Show Execution Report Restatement Message", show.execution_report_restatement_message, "Parse and add Execution Report Restatement Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_break_message = Pref.bool("Show Execution Report Trade Break Message", show.execution_report_trade_break_message, "Parse and add Execution Report Trade Break Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_correction_message = Pref.bool("Show Execution Report Trade Correction Message", show.execution_report_trade_correction_message, "Parse and add Execution Report Trade Correction Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_message = Pref.bool("Show Execution Report Trade Message", show.execution_report_trade_message, "Parse and add Execution Report Trade Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_done_message = Pref.bool("Show Mass Cancel Done Message", show.mass_cancel_done_message, "Parse and add Mass Cancel Done Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_reject_message = Pref.bool("Show Order Cancel Reject Message", show.order_cancel_reject_message, "Parse and add Order Cancel Reject Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_pending_mass_cancel_message = Pref.bool("Show Pending Mass Cancel Message", show.pending_mass_cancel_message, "Parse and add Pending Mass Cancel Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function n24x_equities_memo_sbe_v1_13.prefs_changed()
+function omi_n24x_equities_memo_sbe_v1_13.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.common_header ~= n24x_equities_memo_sbe_v1_13.prefs.show_common_header then
-    show.common_header = n24x_equities_memo_sbe_v1_13.prefs.show_common_header
+  if show.common_header ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_common_header then
+    show.common_header = omi_n24x_equities_memo_sbe_v1_13.prefs.show_common_header
     changed = true
   end
-  if show.exec_inst ~= n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst then
-    show.exec_inst = n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst
+  if show.exec_inst ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst then
+    show.exec_inst = omi_n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst
     changed = true
   end
-  if show.execution_report_canceled_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_canceled_message then
-    show.execution_report_canceled_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_canceled_message
+  if show.execution_report_canceled_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_canceled_message then
+    show.execution_report_canceled_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_canceled_message
     changed = true
   end
-  if show.execution_report_new_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_new_message then
-    show.execution_report_new_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_new_message
+  if show.execution_report_new_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_new_message then
+    show.execution_report_new_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_new_message
     changed = true
   end
-  if show.execution_report_pending_cancel_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_cancel_message then
-    show.execution_report_pending_cancel_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_cancel_message
+  if show.execution_report_pending_cancel_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_cancel_message then
+    show.execution_report_pending_cancel_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_cancel_message
     changed = true
   end
-  if show.execution_report_pending_new_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_new_message then
-    show.execution_report_pending_new_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_new_message
+  if show.execution_report_pending_new_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_new_message then
+    show.execution_report_pending_new_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_new_message
     changed = true
   end
-  if show.execution_report_pending_replace_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_replace_message then
-    show.execution_report_pending_replace_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_replace_message
+  if show.execution_report_pending_replace_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_replace_message then
+    show.execution_report_pending_replace_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_pending_replace_message
     changed = true
   end
-  if show.execution_report_rejected_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_rejected_message then
-    show.execution_report_rejected_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_rejected_message
+  if show.execution_report_rejected_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_rejected_message then
+    show.execution_report_rejected_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_rejected_message
     changed = true
   end
-  if show.execution_report_replaced_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_replaced_message then
-    show.execution_report_replaced_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_replaced_message
+  if show.execution_report_replaced_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_replaced_message then
+    show.execution_report_replaced_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_replaced_message
     changed = true
   end
-  if show.execution_report_restatement_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_restatement_message then
-    show.execution_report_restatement_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_restatement_message
+  if show.execution_report_restatement_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_restatement_message then
+    show.execution_report_restatement_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_restatement_message
     changed = true
   end
-  if show.execution_report_trade_break_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_break_message then
-    show.execution_report_trade_break_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_break_message
+  if show.execution_report_trade_break_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_break_message then
+    show.execution_report_trade_break_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_break_message
     changed = true
   end
-  if show.execution_report_trade_correction_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_correction_message then
-    show.execution_report_trade_correction_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_correction_message
+  if show.execution_report_trade_correction_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_correction_message then
+    show.execution_report_trade_correction_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_correction_message
     changed = true
   end
-  if show.execution_report_trade_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_message then
-    show.execution_report_trade_message = n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_message
+  if show.execution_report_trade_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_message then
+    show.execution_report_trade_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_execution_report_trade_message
     changed = true
   end
-  if show.login_accepted_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message then
-    show.login_accepted_message = n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message
+  if show.login_accepted_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message then
+    show.login_accepted_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message
     changed = true
   end
-  if show.login_rejected_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message then
-    show.login_rejected_message = n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message
+  if show.login_rejected_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message then
+    show.login_rejected_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message
     changed = true
   end
-  if show.login_request_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message then
-    show.login_request_message = n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message
+  if show.login_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message then
+    show.login_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message
     changed = true
   end
-  if show.mass_cancel_done_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_done_message then
-    show.mass_cancel_done_message = n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_done_message
+  if show.mass_cancel_done_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_done_message then
+    show.mass_cancel_done_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_done_message
     changed = true
   end
-  if show.mass_cancel_reject_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_reject_message then
-    show.mass_cancel_reject_message = n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_reject_message
+  if show.mass_cancel_reject_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_reject_message then
+    show.mass_cancel_reject_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_reject_message
     changed = true
   end
-  if show.mass_cancel_request_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_request_message then
-    show.mass_cancel_request_message = n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_request_message
+  if show.mass_cancel_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_request_message then
+    show.mass_cancel_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_mass_cancel_request_message
     changed = true
   end
-  if show.new_order_single_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_new_order_single_message then
-    show.new_order_single_message = n24x_equities_memo_sbe_v1_13.prefs.show_new_order_single_message
+  if show.new_order_single_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_new_order_single_message then
+    show.new_order_single_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_new_order_single_message
     changed = true
   end
-  if show.order_cancel_reject_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_reject_message then
-    show.order_cancel_reject_message = n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_reject_message
+  if show.order_cancel_reject_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_reject_message then
+    show.order_cancel_reject_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_reject_message
     changed = true
   end
-  if show.order_cancel_replace_request_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_replace_request_message then
-    show.order_cancel_replace_request_message = n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_replace_request_message
+  if show.order_cancel_replace_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_replace_request_message then
+    show.order_cancel_replace_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_replace_request_message
     changed = true
   end
-  if show.order_cancel_request_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_request_message
+  if show.order_cancel_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_request_message then
+    show.order_cancel_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_order_cancel_request_message
     changed = true
   end
-  if show.packet ~= n24x_equities_memo_sbe_v1_13.prefs.show_packet then
-    show.packet = n24x_equities_memo_sbe_v1_13.prefs.show_packet
+  if show.packet ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_packet then
+    show.packet = omi_n24x_equities_memo_sbe_v1_13.prefs.show_packet
     changed = true
   end
-  if show.parties_group ~= n24x_equities_memo_sbe_v1_13.prefs.show_parties_group then
-    show.parties_group = n24x_equities_memo_sbe_v1_13.prefs.show_parties_group
+  if show.parties_group ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group then
+    show.parties_group = omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group
     changed = true
   end
-  if show.parties_groups ~= n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups then
-    show.parties_groups = n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups
+  if show.parties_groups ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups then
+    show.parties_groups = omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups
     changed = true
   end
-  if show.pending_mass_cancel_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_pending_mass_cancel_message then
-    show.pending_mass_cancel_message = n24x_equities_memo_sbe_v1_13.prefs.show_pending_mass_cancel_message
+  if show.pending_mass_cancel_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_pending_mass_cancel_message then
+    show.pending_mass_cancel_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_pending_mass_cancel_message
     changed = true
   end
-  if show.repeating_group_dimensions ~= n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions then
-    show.repeating_group_dimensions = n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions
+  if show.repeating_group_dimensions ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions then
+    show.repeating_group_dimensions = omi_n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions
     changed = true
   end
-  if show.replay_all_request_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message then
-    show.replay_all_request_message = n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message
+  if show.replay_all_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message then
+    show.replay_all_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message
     changed = true
   end
-  if show.replay_begin_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message then
-    show.replay_begin_message = n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message
+  if show.replay_begin_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message then
+    show.replay_begin_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message
     changed = true
   end
-  if show.replay_complete_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message then
-    show.replay_complete_message = n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message
+  if show.replay_complete_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message then
+    show.replay_complete_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message
     changed = true
   end
-  if show.replay_rejected_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message then
-    show.replay_rejected_message = n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message
+  if show.replay_rejected_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message then
+    show.replay_rejected_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message
     changed = true
   end
-  if show.replay_request_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message then
-    show.replay_request_message = n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message
+  if show.replay_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message then
+    show.replay_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message
     changed = true
   end
-  if show.sbe_header ~= n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header then
-    show.sbe_header = n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header
+  if show.sbe_header ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header then
+    show.sbe_header = omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header
     changed = true
   end
-  if show.sbe_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message then
-    show.sbe_message = n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message
+  if show.sbe_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message then
+    show.sbe_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message
     changed = true
   end
-  if show.sequenced_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message then
-    show.sequenced_message = n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message then
+    show.sequenced_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message
     changed = true
   end
-  if show.start_of_session_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message then
-    show.start_of_session_message = n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message
+  if show.start_of_session_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message then
+    show.start_of_session_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message
     changed = true
   end
-  if show.stream_begin_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message then
-    show.stream_begin_message = n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message
+  if show.stream_begin_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message then
+    show.stream_begin_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message
     changed = true
   end
-  if show.stream_complete_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message then
-    show.stream_complete_message = n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message
+  if show.stream_complete_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message then
+    show.stream_complete_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message
     changed = true
   end
-  if show.stream_rejected_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message then
-    show.stream_rejected_message = n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message
+  if show.stream_rejected_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message then
+    show.stream_rejected_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message
     changed = true
   end
-  if show.stream_request_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message then
-    show.stream_request_message = n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message
+  if show.stream_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message then
+    show.stream_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message
     changed = true
   end
-  if show.unsequenced_message ~= n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message then
-    show.unsequenced_message = n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message
     changed = true
   end
-  if show.data ~= n24x_equities_memo_sbe_v1_13.prefs.show_data then
-    show.data = n24x_equities_memo_sbe_v1_13.prefs.show_data
+  if show.data ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_data then
+    show.data = omi_n24x_equities_memo_sbe_v1_13.prefs.show_data
     changed = true
   end
-  if show.payload ~= n24x_equities_memo_sbe_v1_13.prefs.show_payload then
-    show.payload = n24x_equities_memo_sbe_v1_13.prefs.show_payload
+  if show.payload ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_payload then
+    show.payload = omi_n24x_equities_memo_sbe_v1_13.prefs.show_payload
     changed = true
   end
 
@@ -501,7 +501,7 @@ n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_reason = function(buffer
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.mass_cancel_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_reason, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -526,7 +526,7 @@ n24x_equities_memo_sbe_v1_13_dissect.cancel_group_id = function(buffer, offset, 
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.cancel_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.cancel_group_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.cancel_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -562,7 +562,7 @@ n24x_equities_memo_sbe_v1_13_dissect.higher_than_price = function(buffer, offset
   local value = translate.higher_than_price(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.higher_than_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.higher_than_price, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.higher_than_price, range, value, display)
 
   return offset + length, value
 end
@@ -598,7 +598,7 @@ n24x_equities_memo_sbe_v1_13_dissect.lower_than_price = function(buffer, offset,
   local value = translate.lower_than_price(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.lower_than_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.lower_than_price, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.lower_than_price, range, value, display)
 
   return offset + length, value
 end
@@ -647,7 +647,7 @@ n24x_equities_memo_sbe_v1_13_dissect.side_optional = function(buffer, offset, pa
 
   local display = n24x_equities_memo_sbe_v1_13_display.side_optional(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.side_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.side_optional, range, value, display)
 
   return offset + length, value
 end
@@ -683,7 +683,7 @@ n24x_equities_memo_sbe_v1_13_dissect.symbol_sfx = function(buffer, offset, packe
 
   local display = n24x_equities_memo_sbe_v1_13_display.symbol_sfx(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.symbol_sfx, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.symbol_sfx, range, value, display)
 
   return offset + length, value
 end
@@ -719,7 +719,7 @@ n24x_equities_memo_sbe_v1_13_dissect.symbol = function(buffer, offset, packet, p
 
   local display = n24x_equities_memo_sbe_v1_13_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.symbol, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -755,7 +755,7 @@ n24x_equities_memo_sbe_v1_13_dissect.clordid = function(buffer, offset, packet, 
 
   local display = n24x_equities_memo_sbe_v1_13_display.clordid(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.clordid, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -779,7 +779,7 @@ n24x_equities_memo_sbe_v1_13_dissect.sending_time = function(buffer, offset, pac
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.sending_time, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -852,7 +852,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -897,7 +897,7 @@ n24x_equities_memo_sbe_v1_13_dissect.link_id_optional = function(buffer, offset,
 
   local display = n24x_equities_memo_sbe_v1_13_display.link_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.link_id_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.link_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1035,7 +1035,7 @@ n24x_equities_memo_sbe_v1_13_dissect.cxl_rej_reason = function(buffer, offset, p
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.cxl_rej_reason(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.cxl_rej_reason, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.cxl_rej_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1075,7 +1075,7 @@ n24x_equities_memo_sbe_v1_13_dissect.cxl_rej_response_to = function(buffer, offs
 
   local display = n24x_equities_memo_sbe_v1_13_display.cxl_rej_response_to(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.cxl_rej_response_to, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.cxl_rej_response_to, range, value, display)
 
   return offset + length, value
 end
@@ -1128,7 +1128,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.order_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.order_cancel_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_cancel_reject_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1161,7 +1161,7 @@ n24x_equities_memo_sbe_v1_13_dissect.party_role = function(buffer, offset, packe
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.party_role(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.party_role, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.party_role, range, value, display)
 
   return offset + length, value
 end
@@ -1194,7 +1194,7 @@ n24x_equities_memo_sbe_v1_13_dissect.party_id_source = function(buffer, offset, 
 
   local display = n24x_equities_memo_sbe_v1_13_display.party_id_source(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.party_id_source, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.party_id_source, range, value, display)
 
   return offset + length, value
 end
@@ -1230,7 +1230,7 @@ n24x_equities_memo_sbe_v1_13_dissect.party_i_d_new_order_single_party_id = funct
 
   local display = n24x_equities_memo_sbe_v1_13_display.party_i_d_new_order_single_party_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id, range, value, display)
 
   return offset + length, value
 end
@@ -1259,7 +1259,7 @@ n24x_equities_memo_sbe_v1_13_dissect.parties_group_fields = function(buffer, off
 
   -- Implicit Parties Group Index
   if parties_group_index ~= nil then
-    local iteration = parent:add(n24x_equities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
+    local iteration = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
   end
 
@@ -1279,7 +1279,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.parties_group = function(buffer, offset, packet, parent, parties_group_index)
   if show.parties_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.parties_group, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.parties_group, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, parent, parties_group_index)
     local length = index - offset
     parent:set_len(length)
@@ -1308,7 +1308,7 @@ n24x_equities_memo_sbe_v1_13_dissect.num_in_group = function(buffer, offset, pac
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.num_in_group(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.num_in_group, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -1328,7 +1328,7 @@ n24x_equities_memo_sbe_v1_13_dissect.block_length_uint_8 = function(buffer, offs
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.block_length_uint_8(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.block_length_uint_8, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.block_length_uint_8, range, value, display)
 
   return offset + length, value
 end
@@ -1366,7 +1366,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions = function(buffer, offset, packet, parent)
   if show.repeating_group_dimensions then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.repeating_group_dimensions, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.repeating_group_dimensions, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1423,7 +1423,7 @@ n24x_equities_memo_sbe_v1_13_dissect.parties_groups = function(buffer, offset, p
     local length = n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.parties_groups(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.parties_groups, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.parties_groups, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.parties_groups_fields(buffer, offset, packet, parent)
@@ -1475,7 +1475,7 @@ n24x_equities_memo_sbe_v1_13_dissect.extended_restatement_reason = function(buff
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.extended_restatement_reason(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.extended_restatement_reason, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.extended_restatement_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1495,7 +1495,7 @@ n24x_equities_memo_sbe_v1_13_dissect.transact_time = function(buffer, offset, pa
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.transact_time, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -1528,7 +1528,7 @@ n24x_equities_memo_sbe_v1_13_dissect.exec_restatement_reason = function(buffer, 
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.exec_restatement_reason(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.exec_restatement_reason, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.exec_restatement_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1553,7 +1553,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_shares = function(buffer, offset, pack
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.last_shares(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.last_shares, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.last_shares, range, value, display)
 
   return offset + length, value
 end
@@ -1573,7 +1573,7 @@ n24x_equities_memo_sbe_v1_13_dissect.cum_qty = function(buffer, offset, packet, 
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.cum_qty(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.cum_qty, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1593,7 +1593,7 @@ n24x_equities_memo_sbe_v1_13_dissect.leaves_qty = function(buffer, offset, packe
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.leaves_qty, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1629,7 +1629,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_px_optional = function(buffer, offset,
   local value = translate.last_px_optional(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.last_px_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.last_px_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.last_px_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1690,7 +1690,7 @@ n24x_equities_memo_sbe_v1_13_dissect.ord_status = function(buffer, offset, packe
 
   local display = n24x_equities_memo_sbe_v1_13_display.ord_status(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.ord_status, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.ord_status, range, value, display)
 
   return offset + length, value
 end
@@ -1710,7 +1710,7 @@ n24x_equities_memo_sbe_v1_13_dissect.exec_id = function(buffer, offset, packet, 
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.exec_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -1730,7 +1730,7 @@ n24x_equities_memo_sbe_v1_13_dissect.order_id = function(buffer, offset, packet,
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.order_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1831,7 +1831,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message = func
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_restatement_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_restatement_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_restatement_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_restatement_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
@@ -1865,7 +1865,7 @@ n24x_equities_memo_sbe_v1_13_dissect.security_group = function(buffer, offset, p
 
   local display = n24x_equities_memo_sbe_v1_13_display.security_group(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.security_group, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.security_group, range, value, display)
 
   return offset + length, value
 end
@@ -1885,7 +1885,7 @@ n24x_equities_memo_sbe_v1_13_dissect.trd_match_id = function(buffer, offset, pac
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.trd_match_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.trd_match_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.trd_match_id, range, value, display)
 
   return offset + length, value
 end
@@ -1905,7 +1905,7 @@ n24x_equities_memo_sbe_v1_13_dissect.exec_ref_id = function(buffer, offset, pack
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.exec_ref_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.exec_ref_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.exec_ref_id, range, value, display)
 
   return offset + length, value
 end
@@ -1996,7 +1996,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_break_message = func
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_trade_break_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_trade_break_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_break_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_break_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
@@ -2022,7 +2022,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_qty_optional = function(buffer, offset
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.last_qty_optional(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.last_qty_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.last_qty_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2048,7 +2048,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_px = function(buffer, offset, packet, 
   local value = translate.last_px(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.last_px(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.last_px, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -2149,7 +2149,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_correction_message =
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_trade_correction_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_trade_correction_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_correction_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_correction_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
@@ -2186,7 +2186,7 @@ n24x_equities_memo_sbe_v1_13_dissect.locate_broker_optional = function(buffer, o
 
   local display = n24x_equities_memo_sbe_v1_13_display.locate_broker_optional(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.locate_broker_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.locate_broker_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2219,7 +2219,7 @@ n24x_equities_memo_sbe_v1_13_dissect.locate_reqd = function(buffer, offset, pack
 
   local display = n24x_equities_memo_sbe_v1_13_display.locate_reqd(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.locate_reqd, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.locate_reqd, range, value, display)
 
   return offset + length, value
 end
@@ -2244,7 +2244,7 @@ n24x_equities_memo_sbe_v1_13_dissect.display_qty = function(buffer, offset, pack
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.display_qty(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.display_qty, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.display_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2280,7 +2280,7 @@ n24x_equities_memo_sbe_v1_13_dissect.price = function(buffer, offset, packet, pa
   local value = translate.price(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.price, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -2323,7 +2323,7 @@ n24x_equities_memo_sbe_v1_13_dissect.ord_type = function(buffer, offset, packet,
 
   local display = n24x_equities_memo_sbe_v1_13_display.ord_type(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.ord_type, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.ord_type, range, value, display)
 
   return offset + length, value
 end
@@ -2343,7 +2343,7 @@ n24x_equities_memo_sbe_v1_13_dissect.order_qty = function(buffer, offset, packet
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.order_qty(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.order_qty, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2389,7 +2389,7 @@ n24x_equities_memo_sbe_v1_13_dissect.side = function(buffer, offset, packet, par
 
   local display = n24x_equities_memo_sbe_v1_13_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.side, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -2425,7 +2425,7 @@ n24x_equities_memo_sbe_v1_13_dissect.origclordid_optional = function(buffer, off
 
   local display = n24x_equities_memo_sbe_v1_13_display.origclordid_optional(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.origclordid_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.origclordid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2556,7 +2556,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message = functio
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_replaced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_replaced_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_replaced_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_replaced_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
@@ -2683,7 +2683,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_replace_message = 
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_pending_replace_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_pending_replace_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_replace_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_replace_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
@@ -2722,7 +2722,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.mass_cancel_done_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_done_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2815,7 +2815,7 @@ n24x_equities_memo_sbe_v1_13_dissect.cancel_reason = function(buffer, offset, pa
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.cancel_reason(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.cancel_reason, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2906,7 +2906,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_canceled_message = functio
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_canceled_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_canceled_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_canceled_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_canceled_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
@@ -2975,7 +2975,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
   if show.pending_mass_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3075,7 +3075,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_cancel_message = f
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_pending_cancel_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_pending_cancel_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
@@ -3096,7 +3096,7 @@ n24x_equities_memo_sbe_v1_13_dissect.trd_matching_id = function(buffer, offset, 
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.trd_matching_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.trd_matching_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.trd_matching_id, range, value, display)
 
   return offset + length, value
 end
@@ -3132,7 +3132,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_mkt = function(buffer, offset, packet,
 
   local display = n24x_equities_memo_sbe_v1_13_display.last_mkt(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.last_mkt, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.last_mkt, range, value, display)
 
   return offset + length, value
 end
@@ -3225,7 +3225,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_liquidity_ind = function(buffer, offse
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.last_liquidity_ind(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.last_liquidity_ind, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.last_liquidity_ind, range, value, display)
 
   return offset + length, value
 end
@@ -3245,7 +3245,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_qty = function(buffer, offset, packet,
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.last_qty, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3356,7 +3356,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_message = function(b
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_trade_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
@@ -3663,7 +3663,7 @@ n24x_equities_memo_sbe_v1_13_dissect.order_reject_reason = function(buffer, offs
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.order_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.order_reject_reason, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3749,7 +3749,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_rejected_message = functio
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_rejected_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_rejected_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_rejected_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_rejected_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
@@ -3775,7 +3775,7 @@ n24x_equities_memo_sbe_v1_13_dissect.risk_group_id = function(buffer, offset, pa
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.risk_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.risk_group_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.risk_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -3817,7 +3817,7 @@ n24x_equities_memo_sbe_v1_13_dissect.self_trade_prevention = function(buffer, of
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.self_trade_prevention(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.self_trade_prevention, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.self_trade_prevention, range, value, display)
 
   return offset + length, value
 end
@@ -3842,7 +3842,7 @@ n24x_equities_memo_sbe_v1_13_dissect.stp_group_id = function(buffer, offset, pac
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.stp_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.stp_group_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.stp_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -3875,7 +3875,7 @@ n24x_equities_memo_sbe_v1_13_dissect.reprice_behavior = function(buffer, offset,
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.reprice_behavior(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.reprice_behavior, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.reprice_behavior, range, value, display)
 
   return offset + length, value
 end
@@ -3911,7 +3911,7 @@ n24x_equities_memo_sbe_v1_13_dissect.reprice_frequency = function(buffer, offset
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.reprice_frequency(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.reprice_frequency, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.reprice_frequency, range, value, display)
 
   return offset + length, value
 end
@@ -3936,7 +3936,7 @@ n24x_equities_memo_sbe_v1_13_dissect.display_min_incr = function(buffer, offset,
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.display_min_incr(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.display_min_incr, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.display_min_incr, range, value, display)
 
   return offset + length, value
 end
@@ -3969,7 +3969,7 @@ n24x_equities_memo_sbe_v1_13_dissect.reserve_replenish_timing = function(buffer,
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.reserve_replenish_timing(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.reserve_replenish_timing, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.reserve_replenish_timing, range, value, display)
 
   return offset + length, value
 end
@@ -4015,7 +4015,7 @@ n24x_equities_memo_sbe_v1_13_dissect.display_method = function(buffer, offset, p
 
   local display = n24x_equities_memo_sbe_v1_13_display.display_method(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.display_method, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.display_method, range, value, display)
 
   return offset + length, value
 end
@@ -4040,7 +4040,7 @@ n24x_equities_memo_sbe_v1_13_dissect.min_qty = function(buffer, offset, packet, 
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.min_qty, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.min_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4065,7 +4065,7 @@ n24x_equities_memo_sbe_v1_13_dissect.expire_time = function(buffer, offset, pack
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.expire_time(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.expire_time, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.expire_time, range, value, display)
 
   return offset + length, value
 end
@@ -4098,7 +4098,7 @@ n24x_equities_memo_sbe_v1_13_dissect.peg_price_type = function(buffer, offset, p
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.peg_price_type(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.peg_price_type, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.peg_price_type, range, value, display)
 
   return offset + length, value
 end
@@ -4134,7 +4134,7 @@ n24x_equities_memo_sbe_v1_13_dissect.peg_offset_value = function(buffer, offset,
   local value = translate.peg_offset_value(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.peg_offset_value(raw, value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.peg_offset_value, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.peg_offset_value, range, value, display)
 
   return offset + length, value
 end
@@ -4166,16 +4166,16 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.exec_inst_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 13: 13 Bit
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.reserved_13, buffer(offset, 2))
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.reserved_13, buffer(offset, 2))
 
   -- External Routing Not Allowed: 1 Bit
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.external_routing_not_allowed, buffer(offset, 2))
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.external_routing_not_allowed, buffer(offset, 2))
 
   -- Intermarket Sweep: 1 Bit
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.intermarket_sweep, buffer(offset, 2))
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.intermarket_sweep, buffer(offset, 2))
 
   -- Participate Do Not Initiate: 1 Bit
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.participate_do_not_initiate, buffer(offset, 2))
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.participate_do_not_initiate, buffer(offset, 2))
 end
 
 -- Dissect: Exec Inst
@@ -4183,7 +4183,7 @@ n24x_equities_memo_sbe_v1_13_dissect.exec_inst = function(buffer, offset, packet
   local size = 2
   local range = buffer(offset, size)
   local display = n24x_equities_memo_sbe_v1_13_display.exec_inst(range, packet, parent)
-  local element = parent:add(n24x_equities_memo_sbe_v1_13.fields.exec_inst, range, display)
+  local element = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.exec_inst, range, display)
 
   if show.exec_inst then
     n24x_equities_memo_sbe_v1_13_dissect.exec_inst_bits(buffer, offset, packet, element)
@@ -4217,7 +4217,7 @@ n24x_equities_memo_sbe_v1_13_dissect.cust_order_capacity_cust_order_capacity_typ
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.cust_order_capacity_cust_order_capacity_type(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type, range, value, display)
 
   return offset + length, value
 end
@@ -4260,7 +4260,7 @@ n24x_equities_memo_sbe_v1_13_dissect.order_capacity = function(buffer, offset, p
 
   local display = n24x_equities_memo_sbe_v1_13_display.order_capacity(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.order_capacity, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -4309,7 +4309,7 @@ n24x_equities_memo_sbe_v1_13_dissect.time_in_force = function(buffer, offset, pa
 
   local display = n24x_equities_memo_sbe_v1_13_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.time_in_force, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -4520,7 +4520,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message = function(buf
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_new_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_new_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_new_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_new_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
@@ -4727,7 +4727,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message = func
     local length = n24x_equities_memo_sbe_v1_13_size_of.execution_report_pending_new_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.execution_report_pending_new_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_new_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.execution_report_pending_new_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
@@ -4791,7 +4791,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.mass_cancel_request_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.mass_cancel_request_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4825,7 +4825,7 @@ n24x_equities_memo_sbe_v1_13_dissect.order_id_optional = function(buffer, offset
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.order_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.order_id_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4878,7 +4878,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.order_cancel_request_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_cancel_request_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4923,7 +4923,7 @@ n24x_equities_memo_sbe_v1_13_dissect.origclordid = function(buffer, offset, pack
 
   local display = n24x_equities_memo_sbe_v1_13_display.origclordid(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.origclordid, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.origclordid, range, value, display)
 
   return offset + length, value
 end
@@ -5011,7 +5011,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_replace_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5053,7 +5053,7 @@ n24x_equities_memo_sbe_v1_13_dissect.cust_order_capacity_cust_order_capacity_typ
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.cust_order_capacity_cust_order_capacity_type_optional(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type_optional, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5229,7 +5229,7 @@ n24x_equities_memo_sbe_v1_13_dissect.new_order_single_message = function(buffer,
     local length = n24x_equities_memo_sbe_v1_13_size_of.new_order_single_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.new_order_single_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.new_order_single_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.new_order_single_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
@@ -5419,7 +5419,7 @@ n24x_equities_memo_sbe_v1_13_dissect.payload = function(buffer, offset, packet, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = n24x_equities_memo_sbe_v1_13_display.payload(buffer, packet, parent)
-  local element = parent:add(n24x_equities_memo_sbe_v1_13.fields.payload, range, display)
+  local element = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.payload, range, display)
 
   return n24x_equities_memo_sbe_v1_13_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -5439,7 +5439,7 @@ n24x_equities_memo_sbe_v1_13_dissect.version = function(buffer, offset, packet, 
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.version, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -5459,7 +5459,7 @@ n24x_equities_memo_sbe_v1_13_dissect.schema_id = function(buffer, offset, packet
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.schema_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -5537,7 +5537,7 @@ n24x_equities_memo_sbe_v1_13_dissect.template_id = function(buffer, offset, pack
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.template_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -5557,7 +5557,7 @@ n24x_equities_memo_sbe_v1_13_dissect.block_length = function(buffer, offset, pac
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.block_length, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -5605,7 +5605,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5646,7 +5646,7 @@ n24x_equities_memo_sbe_v1_13_dissect.sbe_message = function(buffer, offset, pack
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.sbe_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.sbe_message, buffer(offset, 0))
     local current = n24x_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
     local display = n24x_equities_memo_sbe_v1_13_display.sbe_message(buffer, packet, parent)
@@ -5699,7 +5699,7 @@ n24x_equities_memo_sbe_v1_13_dissect.sequenced_message = function(buffer, offset
     local length = n24x_equities_memo_sbe_v1_13_size_of.sequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.sequenced_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.sequenced_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.sequenced_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.sequenced_message_fields(buffer, offset, packet, parent)
@@ -5720,7 +5720,7 @@ n24x_equities_memo_sbe_v1_13_dissect.total_sequence_count = function(buffer, off
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.total_sequence_count(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.total_sequence_count, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.total_sequence_count, range, value, display)
 
   return offset + length, value
 end
@@ -5753,7 +5753,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.stream_complete_message = function(buffer, offset, packet, parent)
   if show.stream_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5792,7 +5792,7 @@ n24x_equities_memo_sbe_v1_13_dissect.stream_reject_code = function(buffer, offse
   local value = range:string()
   local display = n24x_equities_memo_sbe_v1_13_display.stream_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.stream_reject_code, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.stream_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -5825,7 +5825,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
   if show.stream_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5854,7 +5854,7 @@ n24x_equities_memo_sbe_v1_13_dissect.next_sequence_number = function(buffer, off
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.next_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.next_sequence_number, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.next_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -5892,7 +5892,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.stream_begin_message = function(buffer, offset, packet, parent)
   if show.stream_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5921,7 +5921,7 @@ n24x_equities_memo_sbe_v1_13_dissect.message_count = function(buffer, offset, pa
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.message_count, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -5954,7 +5954,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.replay_complete_message = function(buffer, offset, packet, parent)
   if show.replay_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5996,7 +5996,7 @@ n24x_equities_memo_sbe_v1_13_dissect.replay_reject_code = function(buffer, offse
   local value = range:string()
   local display = n24x_equities_memo_sbe_v1_13_display.replay_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.replay_reject_code, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.replay_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -6029,7 +6029,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
   if show.replay_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6058,7 +6058,7 @@ n24x_equities_memo_sbe_v1_13_dissect.pending_message_count = function(buffer, of
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.pending_message_count(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.pending_message_count, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.pending_message_count, range, value, display)
 
   return offset + length, value
 end
@@ -6096,7 +6096,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.replay_begin_message = function(buffer, offset, packet, parent)
   if show.replay_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6125,7 +6125,7 @@ n24x_equities_memo_sbe_v1_13_dissect.session_id = function(buffer, offset, packe
   local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.session_id, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -6158,7 +6158,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.start_of_session_message = function(buffer, offset, packet, parent)
   if show.start_of_session_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6200,7 +6200,7 @@ n24x_equities_memo_sbe_v1_13_dissect.login_reject_code = function(buffer, offset
   local value = range:string()
   local display = n24x_equities_memo_sbe_v1_13_display.login_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.login_reject_code, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.login_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -6233,7 +6233,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.login_rejected_message = function(buffer, offset, packet, parent)
   if show.login_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6272,7 +6272,7 @@ n24x_equities_memo_sbe_v1_13_dissect.supported_request_mode = function(buffer, o
   local value = range:string()
   local display = n24x_equities_memo_sbe_v1_13_display.supported_request_mode(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.supported_request_mode, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.supported_request_mode, range, value, display)
 
   return offset + length, value
 end
@@ -6305,7 +6305,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.login_accepted_message = function(buffer, offset, packet, parent)
   if show.login_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6357,7 +6357,7 @@ n24x_equities_memo_sbe_v1_13_dissect.unsequenced_message = function(buffer, offs
     local length = n24x_equities_memo_sbe_v1_13_size_of.unsequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memo_sbe_v1_13_display.unsequenced_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.unsequenced_message, range, display)
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.unsequenced_message, range, display)
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.unsequenced_message_fields(buffer, offset, packet, parent)
@@ -6396,7 +6396,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.stream_request_message = function(buffer, offset, packet, parent)
   if show.stream_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6438,7 +6438,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
   if show.replay_all_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6467,7 +6467,7 @@ n24x_equities_memo_sbe_v1_13_dissect.count = function(buffer, offset, packet, pa
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.count, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -6510,7 +6510,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.replay_request_message = function(buffer, offset, packet, parent)
   if show.replay_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6539,7 +6539,7 @@ n24x_equities_memo_sbe_v1_13_dissect.token = function(buffer, offset, packet, pa
   local value = range:string()
   local display = n24x_equities_memo_sbe_v1_13_display.token(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.token, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.token, range, value, display)
 
   return offset + length, value
 end
@@ -6559,7 +6559,7 @@ n24x_equities_memo_sbe_v1_13_dissect.token_type = function(buffer, offset, packe
   local value = range:string()
   local display = n24x_equities_memo_sbe_v1_13_display.token_type(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.token_type, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.token_type, range, value, display)
 
   return offset + length, value
 end
@@ -6597,7 +6597,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.login_request_message = function(buffer, offset, packet, parent)
   if show.login_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6763,7 +6763,7 @@ n24x_equities_memo_sbe_v1_13_dissect.data = function(buffer, offset, packet, par
   -- Dissect Element
   local range = buffer(offset, size)
   local display = n24x_equities_memo_sbe_v1_13_display.data(buffer, packet, parent)
-  local element = parent:add(n24x_equities_memo_sbe_v1_13.fields.data, range, display)
+  local element = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.data, range, display)
 
   return n24x_equities_memo_sbe_v1_13_dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
@@ -6783,7 +6783,7 @@ n24x_equities_memo_sbe_v1_13_dissect.message_length = function(buffer, offset, p
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.message_length, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -6852,7 +6852,7 @@ n24x_equities_memo_sbe_v1_13_dissect.message_type = function(buffer, offset, pac
   local value = range:uint()
   local display = n24x_equities_memo_sbe_v1_13_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.message_type, range, value, display)
+  parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -6890,7 +6890,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
     local index = n24x_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6926,23 +6926,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function n24x_equities_memo_sbe_v1_13.init()
+function omi_n24x_equities_memo_sbe_v1_13.init()
 end
 
 -- Dissector for 24X Equities Memo Sbe 1.13
-function n24x_equities_memo_sbe_v1_13.dissector(buffer, packet, parent)
+function omi_n24x_equities_memo_sbe_v1_13.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = n24x_equities_memo_sbe_v1_13.name
+  packet.cols.protocol = omi_n24x_equities_memo_sbe_v1_13.name
 
   -- Dissect protocol
-  local protocol = parent:add(n24x_equities_memo_sbe_v1_13, buffer(), n24x_equities_memo_sbe_v1_13.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_n24x_equities_memo_sbe_v1_13, buffer(), omi_n24x_equities_memo_sbe_v1_13.description, "("..buffer:len().." Bytes)")
   return n24x_equities_memo_sbe_v1_13_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, n24x_equities_memo_sbe_v1_13)
+tcp_table:add(65333, omi_n24x_equities_memo_sbe_v1_13)
 
 
 -----------------------------------------------------------------------
@@ -6950,7 +6950,7 @@ tcp_table:add(65333, n24x_equities_memo_sbe_v1_13)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.n24x_equities_memo_sbe_v1_13_packet_size = function(buffer)
+verify.omi_n24x_equities_memo_sbe_v1_13_packet_size = function(buffer)
 
   return true
 end
@@ -7004,9 +7004,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for 24X Equities Memo Sbe 1.13
-local function n24x_equities_memo_sbe_v1_13_heuristic(buffer, packet, parent)
+local function omi_n24x_equities_memo_sbe_v1_13_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.n24x_equities_memo_sbe_v1_13_packet_size(buffer) then return false end
+  if not verify.omi_n24x_equities_memo_sbe_v1_13_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -7021,14 +7021,14 @@ local function n24x_equities_memo_sbe_v1_13_heuristic(buffer, packet, parent)
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = n24x_equities_memo_sbe_v1_13
-  n24x_equities_memo_sbe_v1_13.dissector(buffer, packet, parent)
+  packet.conversation = omi_n24x_equities_memo_sbe_v1_13
+  omi_n24x_equities_memo_sbe_v1_13.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for 24X Equities Memo Sbe 1.13
-n24x_equities_memo_sbe_v1_13:register_heuristic("tcp", n24x_equities_memo_sbe_v1_13_heuristic)
+omi_n24x_equities_memo_sbe_v1_13:register_heuristic("tcp", omi_n24x_equities_memo_sbe_v1_13_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

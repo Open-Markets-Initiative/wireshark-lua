@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe Pitch SequencedUnitHeader Pitch 1.0 Protocol
-local cboe_pitch_sequencedunitheader_pitch_v1_0 = Proto("Cboe.Pitch.SequencedUnitHeader.Pitch.v1.0.Lua", "Cboe Pitch SequencedUnitHeader Pitch 1.0")
+local omi_cboe_pitch_sequencedunitheader_pitch_v1_0 = Proto("Cboe.Pitch.SequencedUnitHeader.Pitch.v1.0.Lua", "Cboe Pitch SequencedUnitHeader Pitch 1.0")
 
 -- Component Tables
 local show = {}
@@ -20,20 +20,20 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Cboe Pitch SequencedUnitHeader Pitch 1.0 Fields
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.count = ProtoField.new("Count", "cboe.pitch.sequencedunitheader.pitch.v1.0.count", ftypes.UINT8)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.length = ProtoField.new("Length", "cboe.pitch.sequencedunitheader.pitch.v1.0.length", ftypes.UINT16)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message = ProtoField.new("Message", "cboe.pitch.sequencedunitheader.pitch.v1.0.message", ftypes.STRING)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.pitch.sequencedunitheader.pitch.v1.0.messageheader", ftypes.STRING)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_length = ProtoField.new("Message Length", "cboe.pitch.sequencedunitheader.pitch.v1.0.messagelength", ftypes.UINT8)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_type = ProtoField.new("Message Type", "cboe.pitch.sequencedunitheader.pitch.v1.0.messagetype", ftypes.UINT8)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet = ProtoField.new("Packet", "cboe.pitch.sequencedunitheader.pitch.v1.0.packet", ftypes.STRING)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "cboe.pitch.sequencedunitheader.pitch.v1.0.packetheader", ftypes.STRING)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.payload = ProtoField.new("Payload", "cboe.pitch.sequencedunitheader.pitch.v1.0.payload", ftypes.BYTES)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.sequence = ProtoField.new("Sequence", "cboe.pitch.sequencedunitheader.pitch.v1.0.sequence", ftypes.UINT32)
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.unit = ProtoField.new("Unit", "cboe.pitch.sequencedunitheader.pitch.v1.0.unit", ftypes.UINT8)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.count = ProtoField.new("Count", "cboe.pitch.sequencedunitheader.pitch.v1.0.count", ftypes.UINT8)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.length = ProtoField.new("Length", "cboe.pitch.sequencedunitheader.pitch.v1.0.length", ftypes.UINT16)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message = ProtoField.new("Message", "cboe.pitch.sequencedunitheader.pitch.v1.0.message", ftypes.STRING)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.pitch.sequencedunitheader.pitch.v1.0.messageheader", ftypes.STRING)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_length = ProtoField.new("Message Length", "cboe.pitch.sequencedunitheader.pitch.v1.0.messagelength", ftypes.UINT8)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_type = ProtoField.new("Message Type", "cboe.pitch.sequencedunitheader.pitch.v1.0.messagetype", ftypes.UINT8)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet = ProtoField.new("Packet", "cboe.pitch.sequencedunitheader.pitch.v1.0.packet", ftypes.STRING)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "cboe.pitch.sequencedunitheader.pitch.v1.0.packetheader", ftypes.STRING)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.payload = ProtoField.new("Payload", "cboe.pitch.sequencedunitheader.pitch.v1.0.payload", ftypes.BYTES)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.sequence = ProtoField.new("Sequence", "cboe.pitch.sequencedunitheader.pitch.v1.0.sequence", ftypes.UINT32)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.unit = ProtoField.new("Unit", "cboe.pitch.sequencedunitheader.pitch.v1.0.unit", ftypes.UINT8)
 
 -- Cboe Pitch SequencedUnitHeader Pitch 1.0 generated fields
-cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_index = ProtoField.new("Message Index", "cboe.pitch.sequencedunitheader.pitch.v1.0.messageindex", ftypes.UINT16)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_index = ProtoField.new("Message Index", "cboe.pitch.sequencedunitheader.pitch.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -46,30 +46,30 @@ show.packet = true
 show.packet_header = true
 
 -- Register Cboe Pitch SequencedUnitHeader Pitch 1.0 Show Options
-cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
 -- Handle changed preferences
-function cboe_pitch_sequencedunitheader_pitch_v1_0.prefs_changed()
+function omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.message ~= cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message then
-    show.message = cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message
+  if show.message ~= omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message then
+    show.message = omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message_header then
-    show.message_header = cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message_header
+  if show.message_header ~= omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message_header then
+    show.message_header = omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet then
-    show.packet = cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet
+  if show.packet ~= omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet then
+    show.packet = omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet_header then
-    show.packet_header = cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet_header
+  if show.packet_header ~= omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet_header then
+    show.packet_header = omi_cboe_pitch_sequencedunitheader_pitch_v1_0.prefs.show_packet_header
     changed = true
   end
 
@@ -95,7 +95,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.payload = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.payload(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.payload, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.payload, range, value, display)
 
   return offset + size
 end
@@ -115,7 +115,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_type = function(buffer
   local value = range:le_uint()
   local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_type, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -135,7 +135,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_length = function(buff
   local value = range:le_uint()
   local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_length, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -173,7 +173,7 @@ end
 cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header, buffer(offset, 0))
     local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -198,7 +198,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields = function(buff
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_index, message_index)
+    local iteration = parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -223,7 +223,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message = function(buffer, off
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message, buffer(offset, 0))
     local current = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message(buffer, packet, parent)
@@ -253,7 +253,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.sequence = function(buffer, of
   local value = range:le_uint()
   local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.sequence, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.sequence, range, value, display)
 
   return offset + length, value
 end
@@ -273,7 +273,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.unit = function(buffer, offset
   local value = range:le_uint()
   local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.unit(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.unit, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.unit, range, value, display)
 
   return offset + length, value
 end
@@ -293,7 +293,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.count = function(buffer, offse
   local value = range:le_uint()
   local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.count, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -313,7 +313,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.length = function(buffer, offs
   local value = range:le_uint()
   local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.length, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -361,7 +361,7 @@ end
 cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header, buffer(offset, 0))
     local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -404,23 +404,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cboe_pitch_sequencedunitheader_pitch_v1_0.init()
+function omi_cboe_pitch_sequencedunitheader_pitch_v1_0.init()
 end
 
 -- Dissector for Cboe Pitch SequencedUnitHeader Pitch 1.0
-function cboe_pitch_sequencedunitheader_pitch_v1_0.dissector(buffer, packet, parent)
+function omi_cboe_pitch_sequencedunitheader_pitch_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cboe_pitch_sequencedunitheader_pitch_v1_0.name
+  packet.cols.protocol = omi_cboe_pitch_sequencedunitheader_pitch_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0, buffer(), cboe_pitch_sequencedunitheader_pitch_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_cboe_pitch_sequencedunitheader_pitch_v1_0, buffer(), omi_cboe_pitch_sequencedunitheader_pitch_v1_0.description, "("..buffer:len().." Bytes)")
   return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cboe_pitch_sequencedunitheader_pitch_v1_0)
+udp_table:add(65333, omi_cboe_pitch_sequencedunitheader_pitch_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -428,25 +428,25 @@ udp_table:add(65333, cboe_pitch_sequencedunitheader_pitch_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cboe_pitch_sequencedunitheader_pitch_v1_0_packet_size = function(buffer)
+verify.omi_cboe_pitch_sequencedunitheader_pitch_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Cboe Pitch SequencedUnitHeader Pitch 1.0
-local function cboe_pitch_sequencedunitheader_pitch_v1_0_heuristic(buffer, packet, parent)
+local function omi_cboe_pitch_sequencedunitheader_pitch_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cboe_pitch_sequencedunitheader_pitch_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_cboe_pitch_sequencedunitheader_pitch_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cboe_pitch_sequencedunitheader_pitch_v1_0
-  cboe_pitch_sequencedunitheader_pitch_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_cboe_pitch_sequencedunitheader_pitch_v1_0
+  omi_cboe_pitch_sequencedunitheader_pitch_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Cboe Pitch SequencedUnitHeader Pitch 1.0
-cboe_pitch_sequencedunitheader_pitch_v1_0:register_heuristic("udp", cboe_pitch_sequencedunitheader_pitch_v1_0_heuristic)
+omi_cboe_pitch_sequencedunitheader_pitch_v1_0:register_heuristic("udp", omi_cboe_pitch_sequencedunitheader_pitch_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

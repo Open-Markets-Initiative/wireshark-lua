@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Eurex Derivatives Eti T7 1.0 Protocol
-local eurex_derivatives_eti_t7_v1_0 = Proto("Eurex.Derivatives.Eti.T7.v1.0.Lua", "Eurex Derivatives Eti T7 1.0")
+local omi_eurex_derivatives_eti_t7_v1_0 = Proto("Eurex.Derivatives.Eti.T7.v1.0.Lua", "Eurex Derivatives Eti T7 1.0")
 
 -- Component Tables
 local show = {}
@@ -20,12 +20,12 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Eurex Derivatives Eti T7 1.0 Fields
-eurex_derivatives_eti_t7_v1_0.fields.body_len = ProtoField.new("Body Len", "eurex.derivatives.eti.t7.v1.0.bodylen", ftypes.UINT32)
-eurex_derivatives_eti_t7_v1_0.fields.message = ProtoField.new("Message", "eurex.derivatives.eti.t7.v1.0.message", ftypes.STRING)
-eurex_derivatives_eti_t7_v1_0.fields.message_header = ProtoField.new("Message Header", "eurex.derivatives.eti.t7.v1.0.messageheader", ftypes.STRING)
-eurex_derivatives_eti_t7_v1_0.fields.packet = ProtoField.new("Packet", "eurex.derivatives.eti.t7.v1.0.packet", ftypes.STRING)
-eurex_derivatives_eti_t7_v1_0.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eti.t7.v1.0.payload", ftypes.BYTES)
-eurex_derivatives_eti_t7_v1_0.fields.template_id = ProtoField.new("Template Id", "eurex.derivatives.eti.t7.v1.0.templateid", ftypes.UINT16)
+omi_eurex_derivatives_eti_t7_v1_0.fields.body_len = ProtoField.new("Body Len", "eurex.derivatives.eti.t7.v1.0.bodylen", ftypes.UINT32)
+omi_eurex_derivatives_eti_t7_v1_0.fields.message = ProtoField.new("Message", "eurex.derivatives.eti.t7.v1.0.message", ftypes.STRING)
+omi_eurex_derivatives_eti_t7_v1_0.fields.message_header = ProtoField.new("Message Header", "eurex.derivatives.eti.t7.v1.0.messageheader", ftypes.STRING)
+omi_eurex_derivatives_eti_t7_v1_0.fields.packet = ProtoField.new("Packet", "eurex.derivatives.eti.t7.v1.0.packet", ftypes.STRING)
+omi_eurex_derivatives_eti_t7_v1_0.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eti.t7.v1.0.payload", ftypes.BYTES)
+omi_eurex_derivatives_eti_t7_v1_0.fields.template_id = ProtoField.new("Template Id", "eurex.derivatives.eti.t7.v1.0.templateid", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -37,25 +37,25 @@ show.message_header = true
 show.packet = true
 
 -- Register Eurex Derivatives Eti T7 1.0 Show Options
-eurex_derivatives_eti_t7_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-eurex_derivatives_eti_t7_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-eurex_derivatives_eti_t7_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_eurex_derivatives_eti_t7_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
 -- Handle changed preferences
-function eurex_derivatives_eti_t7_v1_0.prefs_changed()
+function omi_eurex_derivatives_eti_t7_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.message ~= eurex_derivatives_eti_t7_v1_0.prefs.show_message then
-    show.message = eurex_derivatives_eti_t7_v1_0.prefs.show_message
+  if show.message ~= omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message then
+    show.message = omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= eurex_derivatives_eti_t7_v1_0.prefs.show_message_header then
-    show.message_header = eurex_derivatives_eti_t7_v1_0.prefs.show_message_header
+  if show.message_header ~= omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message_header then
+    show.message_header = omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= eurex_derivatives_eti_t7_v1_0.prefs.show_packet then
-    show.packet = eurex_derivatives_eti_t7_v1_0.prefs.show_packet
+  if show.packet ~= omi_eurex_derivatives_eti_t7_v1_0.prefs.show_packet then
+    show.packet = omi_eurex_derivatives_eti_t7_v1_0.prefs.show_packet
     changed = true
   end
 
@@ -81,7 +81,7 @@ eurex_derivatives_eti_t7_v1_0_dissect.payload = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = eurex_derivatives_eti_t7_v1_0_display.payload(value, buffer, offset, packet, parent, size)
 
-  parent:add(eurex_derivatives_eti_t7_v1_0.fields.payload, range, value, display)
+  parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.payload, range, value, display)
 
   return offset + size
 end
@@ -101,7 +101,7 @@ eurex_derivatives_eti_t7_v1_0_dissect.template_id = function(buffer, offset, pac
   local value = range:le_uint()
   local display = eurex_derivatives_eti_t7_v1_0_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eti_t7_v1_0.fields.template_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -121,7 +121,7 @@ eurex_derivatives_eti_t7_v1_0_dissect.body_len = function(buffer, offset, packet
   local value = range:le_uint()
   local display = eurex_derivatives_eti_t7_v1_0_display.body_len(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eti_t7_v1_0.fields.body_len, range, value, display)
+  parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.body_len, range, value, display)
 
   return offset + length, value
 end
@@ -159,7 +159,7 @@ end
 eurex_derivatives_eti_t7_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.message_header, buffer(offset, 0))
     local index = eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -203,7 +203,7 @@ eurex_derivatives_eti_t7_v1_0_dissect.message = function(buffer, offset, packet,
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.message, buffer(offset, 0))
     local current = eurex_derivatives_eti_t7_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
     local display = eurex_derivatives_eti_t7_v1_0_display.message(buffer, packet, parent)
@@ -272,23 +272,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function eurex_derivatives_eti_t7_v1_0.init()
+function omi_eurex_derivatives_eti_t7_v1_0.init()
 end
 
 -- Dissector for Eurex Derivatives Eti T7 1.0
-function eurex_derivatives_eti_t7_v1_0.dissector(buffer, packet, parent)
+function omi_eurex_derivatives_eti_t7_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = eurex_derivatives_eti_t7_v1_0.name
+  packet.cols.protocol = omi_eurex_derivatives_eti_t7_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(eurex_derivatives_eti_t7_v1_0, buffer(), eurex_derivatives_eti_t7_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_eurex_derivatives_eti_t7_v1_0, buffer(), omi_eurex_derivatives_eti_t7_v1_0.description, "("..buffer:len().." Bytes)")
   return eurex_derivatives_eti_t7_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, eurex_derivatives_eti_t7_v1_0)
+tcp_table:add(65333, omi_eurex_derivatives_eti_t7_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -296,25 +296,25 @@ tcp_table:add(65333, eurex_derivatives_eti_t7_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.eurex_derivatives_eti_t7_v1_0_packet_size = function(buffer)
+verify.omi_eurex_derivatives_eti_t7_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Eurex Derivatives Eti T7 1.0
-local function eurex_derivatives_eti_t7_v1_0_heuristic(buffer, packet, parent)
+local function omi_eurex_derivatives_eti_t7_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.eurex_derivatives_eti_t7_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_eurex_derivatives_eti_t7_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = eurex_derivatives_eti_t7_v1_0
-  eurex_derivatives_eti_t7_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_eurex_derivatives_eti_t7_v1_0
+  omi_eurex_derivatives_eti_t7_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Eurex Derivatives Eti T7 1.0
-eurex_derivatives_eti_t7_v1_0:register_heuristic("tcp", eurex_derivatives_eti_t7_v1_0_heuristic)
+omi_eurex_derivatives_eti_t7_v1_0:register_heuristic("tcp", omi_eurex_derivatives_eti_t7_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

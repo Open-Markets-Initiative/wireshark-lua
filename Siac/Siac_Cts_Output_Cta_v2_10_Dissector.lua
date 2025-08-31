@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Siac Cts Output Cta 2.10 Protocol
-local siac_cts_output_cta_v2_10 = Proto("Siac.Cts.Output.Cta.v2.10.Lua", "Siac Cts Output Cta 2.10")
+local omi_siac_cts_output_cta_v2_10 = Proto("Siac.Cts.Output.Cta.v2.10.Lua", "Siac Cts Output Cta 2.10")
 
 -- Component Tables
 local show = {}
@@ -21,178 +21,178 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Siac Cts Output Cta 2.10 Fields
-siac_cts_output_cta_v2_10.fields.administrative = ProtoField.new("Administrative", "siac.cts.output.cta.v2.10.administrative", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v2.10.administrativemessagetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.administrative_payload = ProtoField.new("Administrative Payload", "siac.cts.output.cta.v2.10.administrativepayload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v2.10.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v2.10.auctioncollarreferenceprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.10.auctioncollarupperthresholdprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.10.bidindexvalue", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.10.blockchecksum", ftypes.UINT16)
-siac_cts_output_cta_v2_10.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.10.blockheader", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.10.blockpadbyte", ftypes.UINT8)
-siac_cts_output_cta_v2_10.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.10.blocksequencenumber", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.block_size = ProtoField.new("Block Size", "siac.cts.output.cta.v2.10.blocksize", ftypes.UINT16)
-siac_cts_output_cta_v2_10.fields.buy_volume = ProtoField.new("Buy Volume", "siac.cts.output.cta.v2.10.buyvolume", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.cancel_error_action = ProtoField.new("Cancel Error Action", "siac.cts.output.cta.v2.10.cancelerroraction", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.consolidated_data = ProtoField.new("Consolidated Data", "siac.cts.output.cta.v2.10.consolidateddata", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.consolidated_high_low_last_indicator = ProtoField.new("Consolidated High Low Last Indicator", "siac.cts.output.cta.v2.10.consolidatedhighlowlastindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.control = ProtoField.new("Control", "siac.cts.output.cta.v2.10.control", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.10.controlmessagetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.control_payload = ProtoField.new("Control Payload", "siac.cts.output.cta.v2.10.controlpayload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.corrected_trade = ProtoField.new("Corrected Trade", "siac.cts.output.cta.v2.10.correctedtrade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.crossing_session_1_total_trades_volume = ProtoField.new("Crossing Session 1 Total Trades Volume", "siac.cts.output.cta.v2.10.crossingsession1totaltradesvolume", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.crossing_session_2_dollar_value = ProtoField.new("Crossing Session 2 Dollar Value", "siac.cts.output.cta.v2.10.crossingsession2dollarvalue", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.crossing_session_2_total_trades_volume = ProtoField.new("Crossing Session 2 Total Trades Volume", "siac.cts.output.cta.v2.10.crossingsession2totaltradesvolume", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.10.datafeedindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.10.dollarvalue", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.extended_hours_or_sequence_type = ProtoField.new("Extended Hours Or Sequence Type", "siac.cts.output.cta.v2.10.extendedhoursorsequencetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cts.output.cta.v2.10.financialstatusindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_consolidated_data = ProtoField.new("Fractional Consolidated Data", "siac.cts.output.cta.v2.10.fractionalconsolidateddata", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_corrected_trade = ProtoField.new("Fractional Corrected Trade", "siac.cts.output.cta.v2.10.fractionalcorrectedtrade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_original_trade = ProtoField.new("Fractional Original Trade", "siac.cts.output.cta.v2.10.fractionaloriginaltrade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_participant_data = ProtoField.new("Fractional Participant Data", "siac.cts.output.cta.v2.10.fractionalparticipantdata", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_participants = ProtoField.new("Fractional Participants", "siac.cts.output.cta.v2.10.fractionalparticipants", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_prior_day_corrected_trade = ProtoField.new("Fractional Prior Day Corrected Trade", "siac.cts.output.cta.v2.10.fractionalpriordaycorrectedtrade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_total_volume = ProtoField.new("Fractional Total Volume", "siac.cts.output.cta.v2.10.fractionaltotalvolume", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.fractional_trade_total_volume = ProtoField.new("Fractional Trade Total Volume", "siac.cts.output.cta.v2.10.fractionaltradetotalvolume", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.fractional_trade_volume = ProtoField.new("Fractional Trade Volume", "siac.cts.output.cta.v2.10.fractionaltradevolume", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.fractional_trade_volume_short = ProtoField.new("Fractional Trade Volume Short", "siac.cts.output.cta.v2.10.fractionaltradevolumeshort", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.future_use = ProtoField.new("Future Use", "siac.cts.output.cta.v2.10.futureuse", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cts.output.cta.v2.10.haltreason", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.held_trade_indicator = ProtoField.new("Held Trade Indicator", "siac.cts.output.cta.v2.10.heldtradeindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.output.cta.v2.10.highindicationpriceupperlimitpriceband", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v2.10.highprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.index = ProtoField.new("Index", "siac.cts.output.cta.v2.10.index", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.index_message_type = ProtoField.new("Index Message Type", "siac.cts.output.cta.v2.10.indexmessagetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.index_payload = ProtoField.new("Index Payload", "siac.cts.output.cta.v2.10.indexpayload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.index_symbol = ProtoField.new("Index Symbol", "siac.cts.output.cta.v2.10.indexsymbol", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.10.indexvalue", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.initiating_participant_id = ProtoField.new("Initiating Participant Id", "siac.cts.output.cta.v2.10.initiatingparticipantid", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cts.output.cta.v2.10.instrumenttype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.last_participant_id = ProtoField.new("Last Participant Id", "siac.cts.output.cta.v2.10.lastparticipantid", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.last_price = ProtoField.new("Last Price", "siac.cts.output.cta.v2.10.lastprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.limit_up_limit_down_indicator = ProtoField.new("Limit Up Limit Down Indicator", "siac.cts.output.cta.v2.10.limituplimitdownindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.low_indication_price_lower_limit_price_band = ProtoField.new("Low Indication Price Lower Limit Price Band", "siac.cts.output.cta.v2.10.lowindicationpricelowerlimitpriceband", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v2.10.lowprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.market_status = ProtoField.new("Market Status", "siac.cts.output.cta.v2.10.marketstatus", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.10.marketstatusmessagetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cts.output.cta.v2.10.marketstatuspayload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.10.message", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.10.messagecategory", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.message_header = ProtoField.new("Message Header", "siac.cts.output.cta.v2.10.messageheader", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.10.messageid", ftypes.UINT8)
-siac_cts_output_cta_v2_10.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.10.messagelength", ftypes.UINT16)
-siac_cts_output_cta_v2_10.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v2.10.messagesinblock", ftypes.UINT8)
-siac_cts_output_cta_v2_10.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.10.mwcblevel1", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.10.mwcblevel2", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.10.mwcblevel3", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.output.cta.v2.10.nanoseconds", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cts.output.cta.v2.10.numberofextensions", ftypes.UINT8)
-siac_cts_output_cta_v2_10.fields.number_of_participants = ProtoField.new("Number Of Participants", "siac.cts.output.cta.v2.10.numberofparticipants", ftypes.UINT8)
-siac_cts_output_cta_v2_10.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.output.cta.v2.10.offerindexvalue", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v2.10.openprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v2.10.originalparticipantreferencenumber", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.original_trade = ProtoField.new("Original Trade", "siac.cts.output.cta.v2.10.originaltrade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.10.packet", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.participant_data = ProtoField.new("Participant Data", "siac.cts.output.cta.v2.10.participantdata", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.participant_id = ProtoField.new("Participant Id", "siac.cts.output.cta.v2.10.participantid", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.participant_open_high_low_last_indicator = ProtoField.new("Participant Open High Low Last Indicator", "siac.cts.output.cta.v2.10.participantopenhighlowlastindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cts.output.cta.v2.10.participantreferencenumber", ftypes.INT64)
-siac_cts_output_cta_v2_10.fields.participants = ProtoField.new("Participants", "siac.cts.output.cta.v2.10.participants", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.payload = ProtoField.new("Payload", "siac.cts.output.cta.v2.10.payload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.previous_close_price = ProtoField.new("Previous Close Price", "siac.cts.output.cta.v2.10.previouscloseprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.previous_close_price_date = ProtoField.new("Previous Close Price Date", "siac.cts.output.cta.v2.10.previousclosepricedate", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cts.output.cta.v2.10.primarylistingmarketparticipantid", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day = ProtoField.new("Prior Day", "siac.cts.output.cta.v2.10.priorday", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day_corrected_trade = ProtoField.new("Prior Day Corrected Trade", "siac.cts.output.cta.v2.10.priordaycorrectedtrade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.output.cta.v2.10.priordaymessagetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day_original_trade = ProtoField.new("Prior Day Original Trade", "siac.cts.output.cta.v2.10.priordayoriginaltrade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day_payload = ProtoField.new("Prior Day Payload", "siac.cts.output.cta.v2.10.priordaypayload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.10.priordaytradedateandtime", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.10.reserved", ftypes.UINT8)
-siac_cts_output_cta_v2_10.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cts.output.cta.v2.10.retransmissionindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.sale_condition = ProtoField.new("Sale Condition", "siac.cts.output.cta.v2.10.salecondition", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.output.cta.v2.10.saleconditioncategory", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.sale_conditions = ProtoField.new("Sale Conditions", "siac.cts.output.cta.v2.10.saleconditions", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.10.seconds", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.security_status = ProtoField.new("Security Status", "siac.cts.output.cta.v2.10.securitystatus", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cts.output.cta.v2.10.securitysymbol", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cts.output.cta.v2.10.securitysymbolshort", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.sell_volume = ProtoField.new("Sell Volume", "siac.cts.output.cta.v2.10.sellvolume", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "siac.cts.output.cta.v2.10.sellerssaledays", ftypes.UINT8)
-siac_cts_output_cta_v2_10.fields.settlement_type = ProtoField.new("Settlement Type", "siac.cts.output.cta.v2.10.settlementtype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.output.cta.v2.10.shortsalerestrictionindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cts.output.cta.v2.10.sipblocktimestamp", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.sro_trade_detail = ProtoField.new("Sro Trade Detail", "siac.cts.output.cta.v2.10.srotradedetail", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.10.stopstockindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.summary = ProtoField.new("Summary", "siac.cts.output.cta.v2.10.summary", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v2.10.summarymessagetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.summary_payload = ProtoField.new("Summary Payload", "siac.cts.output.cta.v2.10.summarypayload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.tick = ProtoField.new("Tick", "siac.cts.output.cta.v2.10.tick", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.10.timestamp1", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.10.timestamp2", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.total_trades = ProtoField.new("Total Trades", "siac.cts.output.cta.v2.10.totaltrades", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.total_volume = ProtoField.new("Total Volume", "siac.cts.output.cta.v2.10.totalvolume", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.total_volume_short = ProtoField.new("Total Volume Short", "siac.cts.output.cta.v2.10.totalvolumeshort", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.trade = ProtoField.new("Trade", "siac.cts.output.cta.v2.10.trade", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.cts.output.cta.v2.10.trademessagetype", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_payload = ProtoField.new("Trade Payload", "siac.cts.output.cta.v2.10.tradepayload", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_price = ProtoField.new("Trade Price", "siac.cts.output.cta.v2.10.tradeprice", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.trade_price_short = ProtoField.new("Trade Price Short", "siac.cts.output.cta.v2.10.tradepriceshort", ftypes.DOUBLE)
-siac_cts_output_cta_v2_10.fields.trade_reporting_facility_id = ProtoField.new("Trade Reporting Facility Id", "siac.cts.output.cta.v2.10.tradereportingfacilityid", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_through_exempt_indicator = ProtoField.new("Trade Through Exempt Indicator", "siac.cts.output.cta.v2.10.tradethroughexemptindicator", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_through_exempt_reason = ProtoField.new("Trade Through Exempt Reason", "siac.cts.output.cta.v2.10.tradethroughexemptreason", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_total_volume = ProtoField.new("Trade Total Volume", "siac.cts.output.cta.v2.10.tradetotalvolume", ftypes.UINT64)
-siac_cts_output_cta_v2_10.fields.trade_volume = ProtoField.new("Trade Volume", "siac.cts.output.cta.v2.10.tradevolume", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.trade_volume_short = ProtoField.new("Trade Volume Short", "siac.cts.output.cta.v2.10.tradevolumeshort", ftypes.UINT16)
-siac_cts_output_cta_v2_10.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cts.output.cta.v2.10.transactionid", ftypes.UINT32)
-siac_cts_output_cta_v2_10.fields.version = ProtoField.new("Version", "siac.cts.output.cta.v2.10.version", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.administrative = ProtoField.new("Administrative", "siac.cts.output.cta.v2.10.administrative", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v2.10.administrativemessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.administrative_payload = ProtoField.new("Administrative Payload", "siac.cts.output.cta.v2.10.administrativepayload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v2.10.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v2.10.auctioncollarreferenceprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.10.auctioncollarupperthresholdprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.10.bidindexvalue", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.10.blockchecksum", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_10.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.10.blockheader", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.10.blockpadbyte", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.10.blocksequencenumber", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.block_size = ProtoField.new("Block Size", "siac.cts.output.cta.v2.10.blocksize", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_10.fields.buy_volume = ProtoField.new("Buy Volume", "siac.cts.output.cta.v2.10.buyvolume", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.cancel_error_action = ProtoField.new("Cancel Error Action", "siac.cts.output.cta.v2.10.cancelerroraction", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.consolidated_data = ProtoField.new("Consolidated Data", "siac.cts.output.cta.v2.10.consolidateddata", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.consolidated_high_low_last_indicator = ProtoField.new("Consolidated High Low Last Indicator", "siac.cts.output.cta.v2.10.consolidatedhighlowlastindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.control = ProtoField.new("Control", "siac.cts.output.cta.v2.10.control", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.10.controlmessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.control_payload = ProtoField.new("Control Payload", "siac.cts.output.cta.v2.10.controlpayload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.corrected_trade = ProtoField.new("Corrected Trade", "siac.cts.output.cta.v2.10.correctedtrade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.crossing_session_1_total_trades_volume = ProtoField.new("Crossing Session 1 Total Trades Volume", "siac.cts.output.cta.v2.10.crossingsession1totaltradesvolume", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_dollar_value = ProtoField.new("Crossing Session 2 Dollar Value", "siac.cts.output.cta.v2.10.crossingsession2dollarvalue", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_total_trades_volume = ProtoField.new("Crossing Session 2 Total Trades Volume", "siac.cts.output.cta.v2.10.crossingsession2totaltradesvolume", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.10.datafeedindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.10.dollarvalue", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.extended_hours_or_sequence_type = ProtoField.new("Extended Hours Or Sequence Type", "siac.cts.output.cta.v2.10.extendedhoursorsequencetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cts.output.cta.v2.10.financialstatusindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_consolidated_data = ProtoField.new("Fractional Consolidated Data", "siac.cts.output.cta.v2.10.fractionalconsolidateddata", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_corrected_trade = ProtoField.new("Fractional Corrected Trade", "siac.cts.output.cta.v2.10.fractionalcorrectedtrade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_original_trade = ProtoField.new("Fractional Original Trade", "siac.cts.output.cta.v2.10.fractionaloriginaltrade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_participant_data = ProtoField.new("Fractional Participant Data", "siac.cts.output.cta.v2.10.fractionalparticipantdata", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_participants = ProtoField.new("Fractional Participants", "siac.cts.output.cta.v2.10.fractionalparticipants", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_prior_day_corrected_trade = ProtoField.new("Fractional Prior Day Corrected Trade", "siac.cts.output.cta.v2.10.fractionalpriordaycorrectedtrade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_total_volume = ProtoField.new("Fractional Total Volume", "siac.cts.output.cta.v2.10.fractionaltotalvolume", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.fractional_trade_total_volume = ProtoField.new("Fractional Trade Total Volume", "siac.cts.output.cta.v2.10.fractionaltradetotalvolume", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume = ProtoField.new("Fractional Trade Volume", "siac.cts.output.cta.v2.10.fractionaltradevolume", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume_short = ProtoField.new("Fractional Trade Volume Short", "siac.cts.output.cta.v2.10.fractionaltradevolumeshort", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.future_use = ProtoField.new("Future Use", "siac.cts.output.cta.v2.10.futureuse", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cts.output.cta.v2.10.haltreason", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.held_trade_indicator = ProtoField.new("Held Trade Indicator", "siac.cts.output.cta.v2.10.heldtradeindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.output.cta.v2.10.highindicationpriceupperlimitpriceband", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v2.10.highprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.index = ProtoField.new("Index", "siac.cts.output.cta.v2.10.index", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.index_message_type = ProtoField.new("Index Message Type", "siac.cts.output.cta.v2.10.indexmessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.index_payload = ProtoField.new("Index Payload", "siac.cts.output.cta.v2.10.indexpayload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.index_symbol = ProtoField.new("Index Symbol", "siac.cts.output.cta.v2.10.indexsymbol", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.10.indexvalue", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.initiating_participant_id = ProtoField.new("Initiating Participant Id", "siac.cts.output.cta.v2.10.initiatingparticipantid", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cts.output.cta.v2.10.instrumenttype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.last_participant_id = ProtoField.new("Last Participant Id", "siac.cts.output.cta.v2.10.lastparticipantid", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.last_price = ProtoField.new("Last Price", "siac.cts.output.cta.v2.10.lastprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.limit_up_limit_down_indicator = ProtoField.new("Limit Up Limit Down Indicator", "siac.cts.output.cta.v2.10.limituplimitdownindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.low_indication_price_lower_limit_price_band = ProtoField.new("Low Indication Price Lower Limit Price Band", "siac.cts.output.cta.v2.10.lowindicationpricelowerlimitpriceband", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v2.10.lowprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.market_status = ProtoField.new("Market Status", "siac.cts.output.cta.v2.10.marketstatus", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.10.marketstatusmessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cts.output.cta.v2.10.marketstatuspayload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.10.message", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.10.messagecategory", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.message_header = ProtoField.new("Message Header", "siac.cts.output.cta.v2.10.messageheader", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.10.messageid", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.10.messagelength", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_10.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v2.10.messagesinblock", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.10.mwcblevel1", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.10.mwcblevel2", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.10.mwcblevel3", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.output.cta.v2.10.nanoseconds", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cts.output.cta.v2.10.numberofextensions", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.number_of_participants = ProtoField.new("Number Of Participants", "siac.cts.output.cta.v2.10.numberofparticipants", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.output.cta.v2.10.offerindexvalue", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v2.10.openprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v2.10.originalparticipantreferencenumber", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.original_trade = ProtoField.new("Original Trade", "siac.cts.output.cta.v2.10.originaltrade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.10.packet", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.participant_data = ProtoField.new("Participant Data", "siac.cts.output.cta.v2.10.participantdata", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.participant_id = ProtoField.new("Participant Id", "siac.cts.output.cta.v2.10.participantid", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.participant_open_high_low_last_indicator = ProtoField.new("Participant Open High Low Last Indicator", "siac.cts.output.cta.v2.10.participantopenhighlowlastindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cts.output.cta.v2.10.participantreferencenumber", ftypes.INT64)
+omi_siac_cts_output_cta_v2_10.fields.participants = ProtoField.new("Participants", "siac.cts.output.cta.v2.10.participants", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.payload = ProtoField.new("Payload", "siac.cts.output.cta.v2.10.payload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.previous_close_price = ProtoField.new("Previous Close Price", "siac.cts.output.cta.v2.10.previouscloseprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.previous_close_price_date = ProtoField.new("Previous Close Price Date", "siac.cts.output.cta.v2.10.previousclosepricedate", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cts.output.cta.v2.10.primarylistingmarketparticipantid", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day = ProtoField.new("Prior Day", "siac.cts.output.cta.v2.10.priorday", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day_corrected_trade = ProtoField.new("Prior Day Corrected Trade", "siac.cts.output.cta.v2.10.priordaycorrectedtrade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.output.cta.v2.10.priordaymessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day_original_trade = ProtoField.new("Prior Day Original Trade", "siac.cts.output.cta.v2.10.priordayoriginaltrade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day_payload = ProtoField.new("Prior Day Payload", "siac.cts.output.cta.v2.10.priordaypayload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.10.priordaytradedateandtime", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.10.reserved", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cts.output.cta.v2.10.retransmissionindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.sale_condition = ProtoField.new("Sale Condition", "siac.cts.output.cta.v2.10.salecondition", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.output.cta.v2.10.saleconditioncategory", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.sale_conditions = ProtoField.new("Sale Conditions", "siac.cts.output.cta.v2.10.saleconditions", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.10.seconds", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.security_status = ProtoField.new("Security Status", "siac.cts.output.cta.v2.10.securitystatus", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cts.output.cta.v2.10.securitysymbol", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cts.output.cta.v2.10.securitysymbolshort", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.sell_volume = ProtoField.new("Sell Volume", "siac.cts.output.cta.v2.10.sellvolume", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "siac.cts.output.cta.v2.10.sellerssaledays", ftypes.UINT8)
+omi_siac_cts_output_cta_v2_10.fields.settlement_type = ProtoField.new("Settlement Type", "siac.cts.output.cta.v2.10.settlementtype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.output.cta.v2.10.shortsalerestrictionindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cts.output.cta.v2.10.sipblocktimestamp", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.sro_trade_detail = ProtoField.new("Sro Trade Detail", "siac.cts.output.cta.v2.10.srotradedetail", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.10.stopstockindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.summary = ProtoField.new("Summary", "siac.cts.output.cta.v2.10.summary", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v2.10.summarymessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.summary_payload = ProtoField.new("Summary Payload", "siac.cts.output.cta.v2.10.summarypayload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.tick = ProtoField.new("Tick", "siac.cts.output.cta.v2.10.tick", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.10.timestamp1", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.10.timestamp2", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.total_trades = ProtoField.new("Total Trades", "siac.cts.output.cta.v2.10.totaltrades", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.total_volume = ProtoField.new("Total Volume", "siac.cts.output.cta.v2.10.totalvolume", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.total_volume_short = ProtoField.new("Total Volume Short", "siac.cts.output.cta.v2.10.totalvolumeshort", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.trade = ProtoField.new("Trade", "siac.cts.output.cta.v2.10.trade", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.cts.output.cta.v2.10.trademessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_payload = ProtoField.new("Trade Payload", "siac.cts.output.cta.v2.10.tradepayload", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_price = ProtoField.new("Trade Price", "siac.cts.output.cta.v2.10.tradeprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.trade_price_short = ProtoField.new("Trade Price Short", "siac.cts.output.cta.v2.10.tradepriceshort", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v2_10.fields.trade_reporting_facility_id = ProtoField.new("Trade Reporting Facility Id", "siac.cts.output.cta.v2.10.tradereportingfacilityid", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_indicator = ProtoField.new("Trade Through Exempt Indicator", "siac.cts.output.cta.v2.10.tradethroughexemptindicator", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_reason = ProtoField.new("Trade Through Exempt Reason", "siac.cts.output.cta.v2.10.tradethroughexemptreason", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_total_volume = ProtoField.new("Trade Total Volume", "siac.cts.output.cta.v2.10.tradetotalvolume", ftypes.UINT64)
+omi_siac_cts_output_cta_v2_10.fields.trade_volume = ProtoField.new("Trade Volume", "siac.cts.output.cta.v2.10.tradevolume", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.trade_volume_short = ProtoField.new("Trade Volume Short", "siac.cts.output.cta.v2.10.tradevolumeshort", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_10.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cts.output.cta.v2.10.transactionid", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_10.fields.version = ProtoField.new("Version", "siac.cts.output.cta.v2.10.version", ftypes.UINT8)
 
 -- Siac Cts Output Cta 2.10 messages
-siac_cts_output_cta_v2_10.fields.approximate_adjusted_volume_market_center_message = ProtoField.new("Approximate Adjusted Volume Market Center Message", "siac.cts.output.cta.v2.10.approximateadjustedvolumemarketcentermessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.approximate_trades_and_total_dollar_value_message = ProtoField.new("Approximate Trades And Total Dollar Value Message", "siac.cts.output.cta.v2.10.approximatetradesandtotaldollarvaluemessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cts.output.cta.v2.10.auctionstatusmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.bid_and_offer_index_message = ProtoField.new("Bid And Offer Index Message", "siac.cts.output.cta.v2.10.bidandofferindexmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.consolidated_end_of_day_summary_message = ProtoField.new("Consolidated End Of Day Summary Message", "siac.cts.output.cta.v2.10.consolidatedendofdaysummarymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.consolidated_start_of_day_summary_message = ProtoField.new("Consolidated Start Of Day Summary Message", "siac.cts.output.cta.v2.10.consolidatedstartofdaysummarymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.crossing_session_summary_message = ProtoField.new("Crossing Session Summary Message", "siac.cts.output.cta.v2.10.crossingsessionsummarymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cts.output.cta.v2.10.disasterrecoverydatacenteractivationmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cts.output.cta.v2.10.endofdaymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.end_of_end_of_day_message = ProtoField.new("End Of End Of Day Message", "siac.cts.output.cta.v2.10.endofendofdaymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.end_of_start_of_day_message = ProtoField.new("End Of Start Of Day Message", "siac.cts.output.cta.v2.10.endofstartofdaymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_approximate_adjusted_volume_market_center_message = ProtoField.new("Fractional Approximate Adjusted Volume Market Center Message", "siac.cts.output.cta.v2.10.fractionalapproximateadjustedvolumemarketcentermessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_consolidated_end_of_day_summary_message = ProtoField.new("Fractional Consolidated End Of Day Summary Message", "siac.cts.output.cta.v2.10.fractionalconsolidatedendofdaysummarymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_long_trade_message = ProtoField.new("Fractional Long Trade Message", "siac.cts.output.cta.v2.10.fractionallongtrademessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_participant_end_of_day_summary_message = ProtoField.new("Fractional Participant End Of Day Summary Message", "siac.cts.output.cta.v2.10.fractionalparticipantendofdaysummarymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_correction_message = ProtoField.new("Fractional Prior Day Trade Correction Message", "siac.cts.output.cta.v2.10.fractionalpriordaytradecorrectionmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_message = ProtoField.new("Fractional Prior Day Trade Message", "siac.cts.output.cta.v2.10.fractionalpriordaytrademessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_short_trade_message = ProtoField.new("Fractional Short Trade Message", "siac.cts.output.cta.v2.10.fractionalshorttrademessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_trade_cancel_error_message = ProtoField.new("Fractional Trade Cancel Error Message", "siac.cts.output.cta.v2.10.fractionaltradecancelerrormessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.fractional_trade_correction_message = ProtoField.new("Fractional Trade Correction Message", "siac.cts.output.cta.v2.10.fractionaltradecorrectionmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.index_message = ProtoField.new("Index Message", "siac.cts.output.cta.v2.10.indexmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cts.output.cta.v2.10.lineintegritymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.long_trade_message = ProtoField.new("Long Trade Message", "siac.cts.output.cta.v2.10.longtrademessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.participant_end_of_day_summary_message = ProtoField.new("Participant End Of Day Summary Message", "siac.cts.output.cta.v2.10.participantendofdaysummarymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.participant_start_of_day_summary_message = ProtoField.new("Participant Start Of Day Summary Message", "siac.cts.output.cta.v2.10.participantstartofdaysummarymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day_trade_correction_message = ProtoField.new("Prior Day Trade Correction Message", "siac.cts.output.cta.v2.10.priordaytradecorrectionmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.prior_day_trade_message = ProtoField.new("Prior Day Trade Message", "siac.cts.output.cta.v2.10.priordaytrademessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cts.output.cta.v2.10.resetblocksequencenumbermessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.short_trade_message = ProtoField.new("Short Trade Message", "siac.cts.output.cta.v2.10.shorttrademessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cts.output.cta.v2.10.startofdaymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.start_of_end_of_day_message = ProtoField.new("Start Of End Of Day Message", "siac.cts.output.cta.v2.10.startofendofdaymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.start_of_start_of_day_message = ProtoField.new("Start Of Start Of Day Message", "siac.cts.output.cta.v2.10.startofstartofdaymessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "siac.cts.output.cta.v2.10.tradecancelerrormessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.10.tradecorrectionmessage", ftypes.STRING)
-siac_cts_output_cta_v2_10.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cts.output.cta.v2.10.tradingstatusmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.approximate_adjusted_volume_market_center_message = ProtoField.new("Approximate Adjusted Volume Market Center Message", "siac.cts.output.cta.v2.10.approximateadjustedvolumemarketcentermessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.approximate_trades_and_total_dollar_value_message = ProtoField.new("Approximate Trades And Total Dollar Value Message", "siac.cts.output.cta.v2.10.approximatetradesandtotaldollarvaluemessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cts.output.cta.v2.10.auctionstatusmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.bid_and_offer_index_message = ProtoField.new("Bid And Offer Index Message", "siac.cts.output.cta.v2.10.bidandofferindexmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.consolidated_end_of_day_summary_message = ProtoField.new("Consolidated End Of Day Summary Message", "siac.cts.output.cta.v2.10.consolidatedendofdaysummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.consolidated_start_of_day_summary_message = ProtoField.new("Consolidated Start Of Day Summary Message", "siac.cts.output.cta.v2.10.consolidatedstartofdaysummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.crossing_session_summary_message = ProtoField.new("Crossing Session Summary Message", "siac.cts.output.cta.v2.10.crossingsessionsummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cts.output.cta.v2.10.disasterrecoverydatacenteractivationmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cts.output.cta.v2.10.endofdaymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.end_of_end_of_day_message = ProtoField.new("End Of End Of Day Message", "siac.cts.output.cta.v2.10.endofendofdaymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.end_of_start_of_day_message = ProtoField.new("End Of Start Of Day Message", "siac.cts.output.cta.v2.10.endofstartofdaymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_approximate_adjusted_volume_market_center_message = ProtoField.new("Fractional Approximate Adjusted Volume Market Center Message", "siac.cts.output.cta.v2.10.fractionalapproximateadjustedvolumemarketcentermessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_consolidated_end_of_day_summary_message = ProtoField.new("Fractional Consolidated End Of Day Summary Message", "siac.cts.output.cta.v2.10.fractionalconsolidatedendofdaysummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_long_trade_message = ProtoField.new("Fractional Long Trade Message", "siac.cts.output.cta.v2.10.fractionallongtrademessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_participant_end_of_day_summary_message = ProtoField.new("Fractional Participant End Of Day Summary Message", "siac.cts.output.cta.v2.10.fractionalparticipantendofdaysummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_correction_message = ProtoField.new("Fractional Prior Day Trade Correction Message", "siac.cts.output.cta.v2.10.fractionalpriordaytradecorrectionmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_message = ProtoField.new("Fractional Prior Day Trade Message", "siac.cts.output.cta.v2.10.fractionalpriordaytrademessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_short_trade_message = ProtoField.new("Fractional Short Trade Message", "siac.cts.output.cta.v2.10.fractionalshorttrademessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_trade_cancel_error_message = ProtoField.new("Fractional Trade Cancel Error Message", "siac.cts.output.cta.v2.10.fractionaltradecancelerrormessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.fractional_trade_correction_message = ProtoField.new("Fractional Trade Correction Message", "siac.cts.output.cta.v2.10.fractionaltradecorrectionmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.index_message = ProtoField.new("Index Message", "siac.cts.output.cta.v2.10.indexmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cts.output.cta.v2.10.lineintegritymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.long_trade_message = ProtoField.new("Long Trade Message", "siac.cts.output.cta.v2.10.longtrademessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.participant_end_of_day_summary_message = ProtoField.new("Participant End Of Day Summary Message", "siac.cts.output.cta.v2.10.participantendofdaysummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.participant_start_of_day_summary_message = ProtoField.new("Participant Start Of Day Summary Message", "siac.cts.output.cta.v2.10.participantstartofdaysummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_correction_message = ProtoField.new("Prior Day Trade Correction Message", "siac.cts.output.cta.v2.10.priordaytradecorrectionmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_message = ProtoField.new("Prior Day Trade Message", "siac.cts.output.cta.v2.10.priordaytrademessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cts.output.cta.v2.10.resetblocksequencenumbermessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.short_trade_message = ProtoField.new("Short Trade Message", "siac.cts.output.cta.v2.10.shorttrademessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cts.output.cta.v2.10.startofdaymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.start_of_end_of_day_message = ProtoField.new("Start Of End Of Day Message", "siac.cts.output.cta.v2.10.startofendofdaymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.start_of_start_of_day_message = ProtoField.new("Start Of Start Of Day Message", "siac.cts.output.cta.v2.10.startofstartofdaymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "siac.cts.output.cta.v2.10.tradecancelerrormessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.10.tradecorrectionmessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cts.output.cta.v2.10.tradingstatusmessage", ftypes.STRING)
 
 -- Siac Cts Output Cta 2.10 generated fields
-siac_cts_output_cta_v2_10.fields.fractional_participants_index = ProtoField.new("Fractional Participants Index", "siac.cts.output.cta.v2.10.fractionalparticipantsindex", ftypes.UINT16)
-siac_cts_output_cta_v2_10.fields.message_index = ProtoField.new("Message Index", "siac.cts.output.cta.v2.10.messageindex", ftypes.UINT16)
-siac_cts_output_cta_v2_10.fields.participants_index = ProtoField.new("Participants Index", "siac.cts.output.cta.v2.10.participantsindex", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_10.fields.fractional_participants_index = ProtoField.new("Fractional Participants Index", "siac.cts.output.cta.v2.10.fractionalparticipantsindex", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_10.fields.message_index = ProtoField.new("Message Index", "siac.cts.output.cta.v2.10.messageindex", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_10.fields.participants_index = ProtoField.new("Participants Index", "siac.cts.output.cta.v2.10.participantsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -275,380 +275,380 @@ show.summary_payload = false
 show.trade_payload = false
 
 -- Register Siac Cts Output Cta 2.10 Show Options
-siac_cts_output_cta_v2_10.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_approximate_adjusted_volume_market_center_message = Pref.bool("Show Approximate Adjusted Volume Market Center Message", show.approximate_adjusted_volume_market_center_message, "Parse and add Approximate Adjusted Volume Market Center Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_approximate_trades_and_total_dollar_value_message = Pref.bool("Show Approximate Trades And Total Dollar Value Message", show.approximate_trades_and_total_dollar_value_message, "Parse and add Approximate Trades And Total Dollar Value Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_auction_status_message = Pref.bool("Show Auction Status Message", show.auction_status_message, "Parse and add Auction Status Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_bid_and_offer_index_message = Pref.bool("Show Bid And Offer Index Message", show.bid_and_offer_index_message, "Parse and add Bid And Offer Index Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_consolidated_data = Pref.bool("Show Consolidated Data", show.consolidated_data, "Parse and add Consolidated Data to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_consolidated_end_of_day_summary_message = Pref.bool("Show Consolidated End Of Day Summary Message", show.consolidated_end_of_day_summary_message, "Parse and add Consolidated End Of Day Summary Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_consolidated_start_of_day_summary_message = Pref.bool("Show Consolidated Start Of Day Summary Message", show.consolidated_start_of_day_summary_message, "Parse and add Consolidated Start Of Day Summary Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_corrected_trade = Pref.bool("Show Corrected Trade", show.corrected_trade, "Parse and add Corrected Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_crossing_session_summary_message = Pref.bool("Show Crossing Session Summary Message", show.crossing_session_summary_message, "Parse and add Crossing Session Summary Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_disaster_recovery_data_center_activation_message = Pref.bool("Show Disaster Recovery Data Center Activation Message", show.disaster_recovery_data_center_activation_message, "Parse and add Disaster Recovery Data Center Activation Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_end_of_end_of_day_message = Pref.bool("Show End Of End Of Day Message", show.end_of_end_of_day_message, "Parse and add End Of End Of Day Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_end_of_start_of_day_message = Pref.bool("Show End Of Start Of Day Message", show.end_of_start_of_day_message, "Parse and add End Of Start Of Day Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_approximate_adjusted_volume_market_center_message = Pref.bool("Show Fractional Approximate Adjusted Volume Market Center Message", show.fractional_approximate_adjusted_volume_market_center_message, "Parse and add Fractional Approximate Adjusted Volume Market Center Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_data = Pref.bool("Show Fractional Consolidated Data", show.fractional_consolidated_data, "Parse and add Fractional Consolidated Data to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_end_of_day_summary_message = Pref.bool("Show Fractional Consolidated End Of Day Summary Message", show.fractional_consolidated_end_of_day_summary_message, "Parse and add Fractional Consolidated End Of Day Summary Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_corrected_trade = Pref.bool("Show Fractional Corrected Trade", show.fractional_corrected_trade, "Parse and add Fractional Corrected Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_long_trade_message = Pref.bool("Show Fractional Long Trade Message", show.fractional_long_trade_message, "Parse and add Fractional Long Trade Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_original_trade = Pref.bool("Show Fractional Original Trade", show.fractional_original_trade, "Parse and add Fractional Original Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_participant_data = Pref.bool("Show Fractional Participant Data", show.fractional_participant_data, "Parse and add Fractional Participant Data to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_participant_end_of_day_summary_message = Pref.bool("Show Fractional Participant End Of Day Summary Message", show.fractional_participant_end_of_day_summary_message, "Parse and add Fractional Participant End Of Day Summary Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_participants = Pref.bool("Show Fractional Participants", show.fractional_participants, "Parse and add Fractional Participants to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade = Pref.bool("Show Fractional Prior Day Corrected Trade", show.fractional_prior_day_corrected_trade, "Parse and add Fractional Prior Day Corrected Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message = Pref.bool("Show Fractional Prior Day Trade Correction Message", show.fractional_prior_day_trade_correction_message, "Parse and add Fractional Prior Day Trade Correction Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_message = Pref.bool("Show Fractional Prior Day Trade Message", show.fractional_prior_day_trade_message, "Parse and add Fractional Prior Day Trade Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_short_trade_message = Pref.bool("Show Fractional Short Trade Message", show.fractional_short_trade_message, "Parse and add Fractional Short Trade Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_trade_cancel_error_message = Pref.bool("Show Fractional Trade Cancel Error Message", show.fractional_trade_cancel_error_message, "Parse and add Fractional Trade Cancel Error Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_fractional_trade_correction_message = Pref.bool("Show Fractional Trade Correction Message", show.fractional_trade_correction_message, "Parse and add Fractional Trade Correction Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_index = Pref.bool("Show Index", show.index, "Parse and add Index to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_index_message = Pref.bool("Show Index Message", show.index_message, "Parse and add Index Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_long_trade_message = Pref.bool("Show Long Trade Message", show.long_trade_message, "Parse and add Long Trade Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_decline_level_status_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Message", show.market_wide_circuit_breaker_decline_level_status_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_status_message = Pref.bool("Show Market Wide Circuit Breaker Status Message", show.market_wide_circuit_breaker_status_message, "Parse and add Market Wide Circuit Breaker Status Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_original_trade = Pref.bool("Show Original Trade", show.original_trade, "Parse and add Original Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_participant_data = Pref.bool("Show Participant Data", show.participant_data, "Parse and add Participant Data to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_participant_end_of_day_summary_message = Pref.bool("Show Participant End Of Day Summary Message", show.participant_end_of_day_summary_message, "Parse and add Participant End Of Day Summary Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_participant_start_of_day_summary_message = Pref.bool("Show Participant Start Of Day Summary Message", show.participant_start_of_day_summary_message, "Parse and add Participant Start Of Day Summary Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_participants = Pref.bool("Show Participants", show.participants, "Parse and add Participants to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_prior_day = Pref.bool("Show Prior Day", show.prior_day, "Parse and add Prior Day to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade = Pref.bool("Show Prior Day Corrected Trade", show.prior_day_corrected_trade, "Parse and add Prior Day Corrected Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade = Pref.bool("Show Prior Day Original Trade", show.prior_day_original_trade, "Parse and add Prior Day Original Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message = Pref.bool("Show Prior Day Trade Correction Message", show.prior_day_trade_correction_message, "Parse and add Prior Day Trade Correction Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_date_and_time = Pref.bool("Show Prior Day Trade Date And Time", show.prior_day_trade_date_and_time, "Parse and add Prior Day Trade Date And Time to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_message = Pref.bool("Show Prior Day Trade Message", show.prior_day_trade_message, "Parse and add Prior Day Trade Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_reset_block_sequence_number_message = Pref.bool("Show Reset Block Sequence Number Message", show.reset_block_sequence_number_message, "Parse and add Reset Block Sequence Number Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_sale_conditions = Pref.bool("Show Sale Conditions", show.sale_conditions, "Parse and add Sale Conditions to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_short_trade_message = Pref.bool("Show Short Trade Message", show.short_trade_message, "Parse and add Short Trade Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_start_of_end_of_day_message = Pref.bool("Show Start Of End Of Day Message", show.start_of_end_of_day_message, "Parse and add Start Of End Of Day Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_start_of_start_of_day_message = Pref.bool("Show Start Of Start Of Day Message", show.start_of_start_of_day_message, "Parse and add Start Of Start Of Day Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_summary = Pref.bool("Show Summary", show.summary, "Parse and add Summary to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_index_payload = Pref.bool("Show Index Payload", show.index_payload, "Parse and add Index Payload to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_market_status_payload = Pref.bool("Show Market Status Payload", show.market_status_payload, "Parse and add Market Status Payload to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_prior_day_payload = Pref.bool("Show Prior Day Payload", show.prior_day_payload, "Parse and add Prior Day Payload to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_summary_payload = Pref.bool("Show Summary Payload", show.summary_payload, "Parse and add Summary Payload to protocol tree")
-siac_cts_output_cta_v2_10.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_approximate_adjusted_volume_market_center_message = Pref.bool("Show Approximate Adjusted Volume Market Center Message", show.approximate_adjusted_volume_market_center_message, "Parse and add Approximate Adjusted Volume Market Center Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_approximate_trades_and_total_dollar_value_message = Pref.bool("Show Approximate Trades And Total Dollar Value Message", show.approximate_trades_and_total_dollar_value_message, "Parse and add Approximate Trades And Total Dollar Value Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_auction_status_message = Pref.bool("Show Auction Status Message", show.auction_status_message, "Parse and add Auction Status Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_bid_and_offer_index_message = Pref.bool("Show Bid And Offer Index Message", show.bid_and_offer_index_message, "Parse and add Bid And Offer Index Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_data = Pref.bool("Show Consolidated Data", show.consolidated_data, "Parse and add Consolidated Data to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_end_of_day_summary_message = Pref.bool("Show Consolidated End Of Day Summary Message", show.consolidated_end_of_day_summary_message, "Parse and add Consolidated End Of Day Summary Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_start_of_day_summary_message = Pref.bool("Show Consolidated Start Of Day Summary Message", show.consolidated_start_of_day_summary_message, "Parse and add Consolidated Start Of Day Summary Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_corrected_trade = Pref.bool("Show Corrected Trade", show.corrected_trade, "Parse and add Corrected Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_crossing_session_summary_message = Pref.bool("Show Crossing Session Summary Message", show.crossing_session_summary_message, "Parse and add Crossing Session Summary Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_disaster_recovery_data_center_activation_message = Pref.bool("Show Disaster Recovery Data Center Activation Message", show.disaster_recovery_data_center_activation_message, "Parse and add Disaster Recovery Data Center Activation Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_end_of_end_of_day_message = Pref.bool("Show End Of End Of Day Message", show.end_of_end_of_day_message, "Parse and add End Of End Of Day Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_end_of_start_of_day_message = Pref.bool("Show End Of Start Of Day Message", show.end_of_start_of_day_message, "Parse and add End Of Start Of Day Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_approximate_adjusted_volume_market_center_message = Pref.bool("Show Fractional Approximate Adjusted Volume Market Center Message", show.fractional_approximate_adjusted_volume_market_center_message, "Parse and add Fractional Approximate Adjusted Volume Market Center Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_data = Pref.bool("Show Fractional Consolidated Data", show.fractional_consolidated_data, "Parse and add Fractional Consolidated Data to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_end_of_day_summary_message = Pref.bool("Show Fractional Consolidated End Of Day Summary Message", show.fractional_consolidated_end_of_day_summary_message, "Parse and add Fractional Consolidated End Of Day Summary Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_corrected_trade = Pref.bool("Show Fractional Corrected Trade", show.fractional_corrected_trade, "Parse and add Fractional Corrected Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_long_trade_message = Pref.bool("Show Fractional Long Trade Message", show.fractional_long_trade_message, "Parse and add Fractional Long Trade Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_original_trade = Pref.bool("Show Fractional Original Trade", show.fractional_original_trade, "Parse and add Fractional Original Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participant_data = Pref.bool("Show Fractional Participant Data", show.fractional_participant_data, "Parse and add Fractional Participant Data to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participant_end_of_day_summary_message = Pref.bool("Show Fractional Participant End Of Day Summary Message", show.fractional_participant_end_of_day_summary_message, "Parse and add Fractional Participant End Of Day Summary Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participants = Pref.bool("Show Fractional Participants", show.fractional_participants, "Parse and add Fractional Participants to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade = Pref.bool("Show Fractional Prior Day Corrected Trade", show.fractional_prior_day_corrected_trade, "Parse and add Fractional Prior Day Corrected Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message = Pref.bool("Show Fractional Prior Day Trade Correction Message", show.fractional_prior_day_trade_correction_message, "Parse and add Fractional Prior Day Trade Correction Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_message = Pref.bool("Show Fractional Prior Day Trade Message", show.fractional_prior_day_trade_message, "Parse and add Fractional Prior Day Trade Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_short_trade_message = Pref.bool("Show Fractional Short Trade Message", show.fractional_short_trade_message, "Parse and add Fractional Short Trade Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_trade_cancel_error_message = Pref.bool("Show Fractional Trade Cancel Error Message", show.fractional_trade_cancel_error_message, "Parse and add Fractional Trade Cancel Error Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_fractional_trade_correction_message = Pref.bool("Show Fractional Trade Correction Message", show.fractional_trade_correction_message, "Parse and add Fractional Trade Correction Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_index = Pref.bool("Show Index", show.index, "Parse and add Index to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_index_message = Pref.bool("Show Index Message", show.index_message, "Parse and add Index Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_long_trade_message = Pref.bool("Show Long Trade Message", show.long_trade_message, "Parse and add Long Trade Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_decline_level_status_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Message", show.market_wide_circuit_breaker_decline_level_status_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_status_message = Pref.bool("Show Market Wide Circuit Breaker Status Message", show.market_wide_circuit_breaker_status_message, "Parse and add Market Wide Circuit Breaker Status Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_original_trade = Pref.bool("Show Original Trade", show.original_trade, "Parse and add Original Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_participant_data = Pref.bool("Show Participant Data", show.participant_data, "Parse and add Participant Data to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_participant_end_of_day_summary_message = Pref.bool("Show Participant End Of Day Summary Message", show.participant_end_of_day_summary_message, "Parse and add Participant End Of Day Summary Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_participant_start_of_day_summary_message = Pref.bool("Show Participant Start Of Day Summary Message", show.participant_start_of_day_summary_message, "Parse and add Participant Start Of Day Summary Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_participants = Pref.bool("Show Participants", show.participants, "Parse and add Participants to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_prior_day = Pref.bool("Show Prior Day", show.prior_day, "Parse and add Prior Day to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade = Pref.bool("Show Prior Day Corrected Trade", show.prior_day_corrected_trade, "Parse and add Prior Day Corrected Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade = Pref.bool("Show Prior Day Original Trade", show.prior_day_original_trade, "Parse and add Prior Day Original Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message = Pref.bool("Show Prior Day Trade Correction Message", show.prior_day_trade_correction_message, "Parse and add Prior Day Trade Correction Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_date_and_time = Pref.bool("Show Prior Day Trade Date And Time", show.prior_day_trade_date_and_time, "Parse and add Prior Day Trade Date And Time to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_message = Pref.bool("Show Prior Day Trade Message", show.prior_day_trade_message, "Parse and add Prior Day Trade Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_reset_block_sequence_number_message = Pref.bool("Show Reset Block Sequence Number Message", show.reset_block_sequence_number_message, "Parse and add Reset Block Sequence Number Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_sale_conditions = Pref.bool("Show Sale Conditions", show.sale_conditions, "Parse and add Sale Conditions to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_short_trade_message = Pref.bool("Show Short Trade Message", show.short_trade_message, "Parse and add Short Trade Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_start_of_end_of_day_message = Pref.bool("Show Start Of End Of Day Message", show.start_of_end_of_day_message, "Parse and add Start Of End Of Day Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_start_of_start_of_day_message = Pref.bool("Show Start Of Start Of Day Message", show.start_of_start_of_day_message, "Parse and add Start Of Start Of Day Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_summary = Pref.bool("Show Summary", show.summary, "Parse and add Summary to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_index_payload = Pref.bool("Show Index Payload", show.index_payload, "Parse and add Index Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_market_status_payload = Pref.bool("Show Market Status Payload", show.market_status_payload, "Parse and add Market Status Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_payload = Pref.bool("Show Prior Day Payload", show.prior_day_payload, "Parse and add Prior Day Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_summary_payload = Pref.bool("Show Summary Payload", show.summary_payload, "Parse and add Summary Payload to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_trade_payload = Pref.bool("Show Trade Payload", show.trade_payload, "Parse and add Trade Payload to protocol tree")
 
 -- Handle changed preferences
-function siac_cts_output_cta_v2_10.prefs_changed()
+function omi_siac_cts_output_cta_v2_10.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.administrative ~= siac_cts_output_cta_v2_10.prefs.show_administrative then
-    show.administrative = siac_cts_output_cta_v2_10.prefs.show_administrative
+  if show.administrative ~= omi_siac_cts_output_cta_v2_10.prefs.show_administrative then
+    show.administrative = omi_siac_cts_output_cta_v2_10.prefs.show_administrative
     changed = true
   end
-  if show.approximate_adjusted_volume_market_center_message ~= siac_cts_output_cta_v2_10.prefs.show_approximate_adjusted_volume_market_center_message then
-    show.approximate_adjusted_volume_market_center_message = siac_cts_output_cta_v2_10.prefs.show_approximate_adjusted_volume_market_center_message
+  if show.approximate_adjusted_volume_market_center_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_approximate_adjusted_volume_market_center_message then
+    show.approximate_adjusted_volume_market_center_message = omi_siac_cts_output_cta_v2_10.prefs.show_approximate_adjusted_volume_market_center_message
     changed = true
   end
-  if show.approximate_trades_and_total_dollar_value_message ~= siac_cts_output_cta_v2_10.prefs.show_approximate_trades_and_total_dollar_value_message then
-    show.approximate_trades_and_total_dollar_value_message = siac_cts_output_cta_v2_10.prefs.show_approximate_trades_and_total_dollar_value_message
+  if show.approximate_trades_and_total_dollar_value_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_approximate_trades_and_total_dollar_value_message then
+    show.approximate_trades_and_total_dollar_value_message = omi_siac_cts_output_cta_v2_10.prefs.show_approximate_trades_and_total_dollar_value_message
     changed = true
   end
-  if show.auction_status_message ~= siac_cts_output_cta_v2_10.prefs.show_auction_status_message then
-    show.auction_status_message = siac_cts_output_cta_v2_10.prefs.show_auction_status_message
+  if show.auction_status_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_auction_status_message then
+    show.auction_status_message = omi_siac_cts_output_cta_v2_10.prefs.show_auction_status_message
     changed = true
   end
-  if show.bid_and_offer_index_message ~= siac_cts_output_cta_v2_10.prefs.show_bid_and_offer_index_message then
-    show.bid_and_offer_index_message = siac_cts_output_cta_v2_10.prefs.show_bid_and_offer_index_message
+  if show.bid_and_offer_index_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_bid_and_offer_index_message then
+    show.bid_and_offer_index_message = omi_siac_cts_output_cta_v2_10.prefs.show_bid_and_offer_index_message
     changed = true
   end
-  if show.block_header ~= siac_cts_output_cta_v2_10.prefs.show_block_header then
-    show.block_header = siac_cts_output_cta_v2_10.prefs.show_block_header
+  if show.block_header ~= omi_siac_cts_output_cta_v2_10.prefs.show_block_header then
+    show.block_header = omi_siac_cts_output_cta_v2_10.prefs.show_block_header
     changed = true
   end
-  if show.consolidated_data ~= siac_cts_output_cta_v2_10.prefs.show_consolidated_data then
-    show.consolidated_data = siac_cts_output_cta_v2_10.prefs.show_consolidated_data
+  if show.consolidated_data ~= omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_data then
+    show.consolidated_data = omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_data
     changed = true
   end
-  if show.consolidated_end_of_day_summary_message ~= siac_cts_output_cta_v2_10.prefs.show_consolidated_end_of_day_summary_message then
-    show.consolidated_end_of_day_summary_message = siac_cts_output_cta_v2_10.prefs.show_consolidated_end_of_day_summary_message
+  if show.consolidated_end_of_day_summary_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_end_of_day_summary_message then
+    show.consolidated_end_of_day_summary_message = omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_end_of_day_summary_message
     changed = true
   end
-  if show.consolidated_start_of_day_summary_message ~= siac_cts_output_cta_v2_10.prefs.show_consolidated_start_of_day_summary_message then
-    show.consolidated_start_of_day_summary_message = siac_cts_output_cta_v2_10.prefs.show_consolidated_start_of_day_summary_message
+  if show.consolidated_start_of_day_summary_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_start_of_day_summary_message then
+    show.consolidated_start_of_day_summary_message = omi_siac_cts_output_cta_v2_10.prefs.show_consolidated_start_of_day_summary_message
     changed = true
   end
-  if show.control ~= siac_cts_output_cta_v2_10.prefs.show_control then
-    show.control = siac_cts_output_cta_v2_10.prefs.show_control
+  if show.control ~= omi_siac_cts_output_cta_v2_10.prefs.show_control then
+    show.control = omi_siac_cts_output_cta_v2_10.prefs.show_control
     changed = true
   end
-  if show.corrected_trade ~= siac_cts_output_cta_v2_10.prefs.show_corrected_trade then
-    show.corrected_trade = siac_cts_output_cta_v2_10.prefs.show_corrected_trade
+  if show.corrected_trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_corrected_trade then
+    show.corrected_trade = omi_siac_cts_output_cta_v2_10.prefs.show_corrected_trade
     changed = true
   end
-  if show.crossing_session_summary_message ~= siac_cts_output_cta_v2_10.prefs.show_crossing_session_summary_message then
-    show.crossing_session_summary_message = siac_cts_output_cta_v2_10.prefs.show_crossing_session_summary_message
+  if show.crossing_session_summary_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_crossing_session_summary_message then
+    show.crossing_session_summary_message = omi_siac_cts_output_cta_v2_10.prefs.show_crossing_session_summary_message
     changed = true
   end
-  if show.disaster_recovery_data_center_activation_message ~= siac_cts_output_cta_v2_10.prefs.show_disaster_recovery_data_center_activation_message then
-    show.disaster_recovery_data_center_activation_message = siac_cts_output_cta_v2_10.prefs.show_disaster_recovery_data_center_activation_message
+  if show.disaster_recovery_data_center_activation_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_disaster_recovery_data_center_activation_message then
+    show.disaster_recovery_data_center_activation_message = omi_siac_cts_output_cta_v2_10.prefs.show_disaster_recovery_data_center_activation_message
     changed = true
   end
-  if show.end_of_day_message ~= siac_cts_output_cta_v2_10.prefs.show_end_of_day_message then
-    show.end_of_day_message = siac_cts_output_cta_v2_10.prefs.show_end_of_day_message
+  if show.end_of_day_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_end_of_day_message then
+    show.end_of_day_message = omi_siac_cts_output_cta_v2_10.prefs.show_end_of_day_message
     changed = true
   end
-  if show.end_of_end_of_day_message ~= siac_cts_output_cta_v2_10.prefs.show_end_of_end_of_day_message then
-    show.end_of_end_of_day_message = siac_cts_output_cta_v2_10.prefs.show_end_of_end_of_day_message
+  if show.end_of_end_of_day_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_end_of_end_of_day_message then
+    show.end_of_end_of_day_message = omi_siac_cts_output_cta_v2_10.prefs.show_end_of_end_of_day_message
     changed = true
   end
-  if show.end_of_start_of_day_message ~= siac_cts_output_cta_v2_10.prefs.show_end_of_start_of_day_message then
-    show.end_of_start_of_day_message = siac_cts_output_cta_v2_10.prefs.show_end_of_start_of_day_message
+  if show.end_of_start_of_day_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_end_of_start_of_day_message then
+    show.end_of_start_of_day_message = omi_siac_cts_output_cta_v2_10.prefs.show_end_of_start_of_day_message
     changed = true
   end
-  if show.fractional_approximate_adjusted_volume_market_center_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_approximate_adjusted_volume_market_center_message then
-    show.fractional_approximate_adjusted_volume_market_center_message = siac_cts_output_cta_v2_10.prefs.show_fractional_approximate_adjusted_volume_market_center_message
+  if show.fractional_approximate_adjusted_volume_market_center_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_approximate_adjusted_volume_market_center_message then
+    show.fractional_approximate_adjusted_volume_market_center_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_approximate_adjusted_volume_market_center_message
     changed = true
   end
-  if show.fractional_consolidated_data ~= siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_data then
-    show.fractional_consolidated_data = siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_data
+  if show.fractional_consolidated_data ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_data then
+    show.fractional_consolidated_data = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_data
     changed = true
   end
-  if show.fractional_consolidated_end_of_day_summary_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_end_of_day_summary_message then
-    show.fractional_consolidated_end_of_day_summary_message = siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_end_of_day_summary_message
+  if show.fractional_consolidated_end_of_day_summary_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_end_of_day_summary_message then
+    show.fractional_consolidated_end_of_day_summary_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_consolidated_end_of_day_summary_message
     changed = true
   end
-  if show.fractional_corrected_trade ~= siac_cts_output_cta_v2_10.prefs.show_fractional_corrected_trade then
-    show.fractional_corrected_trade = siac_cts_output_cta_v2_10.prefs.show_fractional_corrected_trade
+  if show.fractional_corrected_trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_corrected_trade then
+    show.fractional_corrected_trade = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_corrected_trade
     changed = true
   end
-  if show.fractional_long_trade_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_long_trade_message then
-    show.fractional_long_trade_message = siac_cts_output_cta_v2_10.prefs.show_fractional_long_trade_message
+  if show.fractional_long_trade_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_long_trade_message then
+    show.fractional_long_trade_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_long_trade_message
     changed = true
   end
-  if show.fractional_original_trade ~= siac_cts_output_cta_v2_10.prefs.show_fractional_original_trade then
-    show.fractional_original_trade = siac_cts_output_cta_v2_10.prefs.show_fractional_original_trade
+  if show.fractional_original_trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_original_trade then
+    show.fractional_original_trade = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_original_trade
     changed = true
   end
-  if show.fractional_participant_data ~= siac_cts_output_cta_v2_10.prefs.show_fractional_participant_data then
-    show.fractional_participant_data = siac_cts_output_cta_v2_10.prefs.show_fractional_participant_data
+  if show.fractional_participant_data ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participant_data then
+    show.fractional_participant_data = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participant_data
     changed = true
   end
-  if show.fractional_participant_end_of_day_summary_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_participant_end_of_day_summary_message then
-    show.fractional_participant_end_of_day_summary_message = siac_cts_output_cta_v2_10.prefs.show_fractional_participant_end_of_day_summary_message
+  if show.fractional_participant_end_of_day_summary_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participant_end_of_day_summary_message then
+    show.fractional_participant_end_of_day_summary_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participant_end_of_day_summary_message
     changed = true
   end
-  if show.fractional_participants ~= siac_cts_output_cta_v2_10.prefs.show_fractional_participants then
-    show.fractional_participants = siac_cts_output_cta_v2_10.prefs.show_fractional_participants
+  if show.fractional_participants ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participants then
+    show.fractional_participants = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participants
     changed = true
   end
-  if show.fractional_prior_day_corrected_trade ~= siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade then
-    show.fractional_prior_day_corrected_trade = siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade
+  if show.fractional_prior_day_corrected_trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade then
+    show.fractional_prior_day_corrected_trade = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade
     changed = true
   end
-  if show.fractional_prior_day_trade_correction_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message then
-    show.fractional_prior_day_trade_correction_message = siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message
+  if show.fractional_prior_day_trade_correction_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message then
+    show.fractional_prior_day_trade_correction_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message
     changed = true
   end
-  if show.fractional_prior_day_trade_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_message then
-    show.fractional_prior_day_trade_message = siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_message
+  if show.fractional_prior_day_trade_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_message then
+    show.fractional_prior_day_trade_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_message
     changed = true
   end
-  if show.fractional_short_trade_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_short_trade_message then
-    show.fractional_short_trade_message = siac_cts_output_cta_v2_10.prefs.show_fractional_short_trade_message
+  if show.fractional_short_trade_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_short_trade_message then
+    show.fractional_short_trade_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_short_trade_message
     changed = true
   end
-  if show.fractional_trade_cancel_error_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_trade_cancel_error_message then
-    show.fractional_trade_cancel_error_message = siac_cts_output_cta_v2_10.prefs.show_fractional_trade_cancel_error_message
+  if show.fractional_trade_cancel_error_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_trade_cancel_error_message then
+    show.fractional_trade_cancel_error_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_trade_cancel_error_message
     changed = true
   end
-  if show.fractional_trade_correction_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_trade_correction_message then
-    show.fractional_trade_correction_message = siac_cts_output_cta_v2_10.prefs.show_fractional_trade_correction_message
+  if show.fractional_trade_correction_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_fractional_trade_correction_message then
+    show.fractional_trade_correction_message = omi_siac_cts_output_cta_v2_10.prefs.show_fractional_trade_correction_message
     changed = true
   end
-  if show.index ~= siac_cts_output_cta_v2_10.prefs.show_index then
-    show.index = siac_cts_output_cta_v2_10.prefs.show_index
+  if show.index ~= omi_siac_cts_output_cta_v2_10.prefs.show_index then
+    show.index = omi_siac_cts_output_cta_v2_10.prefs.show_index
     changed = true
   end
-  if show.index_message ~= siac_cts_output_cta_v2_10.prefs.show_index_message then
-    show.index_message = siac_cts_output_cta_v2_10.prefs.show_index_message
+  if show.index_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_index_message then
+    show.index_message = omi_siac_cts_output_cta_v2_10.prefs.show_index_message
     changed = true
   end
-  if show.line_integrity_message ~= siac_cts_output_cta_v2_10.prefs.show_line_integrity_message then
-    show.line_integrity_message = siac_cts_output_cta_v2_10.prefs.show_line_integrity_message
+  if show.line_integrity_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_line_integrity_message then
+    show.line_integrity_message = omi_siac_cts_output_cta_v2_10.prefs.show_line_integrity_message
     changed = true
   end
-  if show.long_trade_message ~= siac_cts_output_cta_v2_10.prefs.show_long_trade_message then
-    show.long_trade_message = siac_cts_output_cta_v2_10.prefs.show_long_trade_message
+  if show.long_trade_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_long_trade_message then
+    show.long_trade_message = omi_siac_cts_output_cta_v2_10.prefs.show_long_trade_message
     changed = true
   end
-  if show.market_status ~= siac_cts_output_cta_v2_10.prefs.show_market_status then
-    show.market_status = siac_cts_output_cta_v2_10.prefs.show_market_status
+  if show.market_status ~= omi_siac_cts_output_cta_v2_10.prefs.show_market_status then
+    show.market_status = omi_siac_cts_output_cta_v2_10.prefs.show_market_status
     changed = true
   end
-  if show.market_wide_circuit_breaker_decline_level_status_message ~= siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_decline_level_status_message then
-    show.market_wide_circuit_breaker_decline_level_status_message = siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_decline_level_status_message
+  if show.market_wide_circuit_breaker_decline_level_status_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_decline_level_status_message then
+    show.market_wide_circuit_breaker_decline_level_status_message = omi_siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_decline_level_status_message
     changed = true
   end
-  if show.market_wide_circuit_breaker_status_message ~= siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_status_message then
-    show.market_wide_circuit_breaker_status_message = siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_status_message
+  if show.market_wide_circuit_breaker_status_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_status_message then
+    show.market_wide_circuit_breaker_status_message = omi_siac_cts_output_cta_v2_10.prefs.show_market_wide_circuit_breaker_status_message
     changed = true
   end
-  if show.message ~= siac_cts_output_cta_v2_10.prefs.show_message then
-    show.message = siac_cts_output_cta_v2_10.prefs.show_message
+  if show.message ~= omi_siac_cts_output_cta_v2_10.prefs.show_message then
+    show.message = omi_siac_cts_output_cta_v2_10.prefs.show_message
     changed = true
   end
-  if show.message_header ~= siac_cts_output_cta_v2_10.prefs.show_message_header then
-    show.message_header = siac_cts_output_cta_v2_10.prefs.show_message_header
+  if show.message_header ~= omi_siac_cts_output_cta_v2_10.prefs.show_message_header then
+    show.message_header = omi_siac_cts_output_cta_v2_10.prefs.show_message_header
     changed = true
   end
-  if show.original_trade ~= siac_cts_output_cta_v2_10.prefs.show_original_trade then
-    show.original_trade = siac_cts_output_cta_v2_10.prefs.show_original_trade
+  if show.original_trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_original_trade then
+    show.original_trade = omi_siac_cts_output_cta_v2_10.prefs.show_original_trade
     changed = true
   end
-  if show.packet ~= siac_cts_output_cta_v2_10.prefs.show_packet then
-    show.packet = siac_cts_output_cta_v2_10.prefs.show_packet
+  if show.packet ~= omi_siac_cts_output_cta_v2_10.prefs.show_packet then
+    show.packet = omi_siac_cts_output_cta_v2_10.prefs.show_packet
     changed = true
   end
-  if show.participant_data ~= siac_cts_output_cta_v2_10.prefs.show_participant_data then
-    show.participant_data = siac_cts_output_cta_v2_10.prefs.show_participant_data
+  if show.participant_data ~= omi_siac_cts_output_cta_v2_10.prefs.show_participant_data then
+    show.participant_data = omi_siac_cts_output_cta_v2_10.prefs.show_participant_data
     changed = true
   end
-  if show.participant_end_of_day_summary_message ~= siac_cts_output_cta_v2_10.prefs.show_participant_end_of_day_summary_message then
-    show.participant_end_of_day_summary_message = siac_cts_output_cta_v2_10.prefs.show_participant_end_of_day_summary_message
+  if show.participant_end_of_day_summary_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_participant_end_of_day_summary_message then
+    show.participant_end_of_day_summary_message = omi_siac_cts_output_cta_v2_10.prefs.show_participant_end_of_day_summary_message
     changed = true
   end
-  if show.participant_start_of_day_summary_message ~= siac_cts_output_cta_v2_10.prefs.show_participant_start_of_day_summary_message then
-    show.participant_start_of_day_summary_message = siac_cts_output_cta_v2_10.prefs.show_participant_start_of_day_summary_message
+  if show.participant_start_of_day_summary_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_participant_start_of_day_summary_message then
+    show.participant_start_of_day_summary_message = omi_siac_cts_output_cta_v2_10.prefs.show_participant_start_of_day_summary_message
     changed = true
   end
-  if show.participants ~= siac_cts_output_cta_v2_10.prefs.show_participants then
-    show.participants = siac_cts_output_cta_v2_10.prefs.show_participants
+  if show.participants ~= omi_siac_cts_output_cta_v2_10.prefs.show_participants then
+    show.participants = omi_siac_cts_output_cta_v2_10.prefs.show_participants
     changed = true
   end
-  if show.prior_day ~= siac_cts_output_cta_v2_10.prefs.show_prior_day then
-    show.prior_day = siac_cts_output_cta_v2_10.prefs.show_prior_day
+  if show.prior_day ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day then
+    show.prior_day = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day
     changed = true
   end
-  if show.prior_day_corrected_trade ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade then
-    show.prior_day_corrected_trade = siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade
+  if show.prior_day_corrected_trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade then
+    show.prior_day_corrected_trade = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade
     changed = true
   end
-  if show.prior_day_original_trade ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade then
-    show.prior_day_original_trade = siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade
+  if show.prior_day_original_trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade then
+    show.prior_day_original_trade = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade
     changed = true
   end
-  if show.prior_day_trade_correction_message ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message then
-    show.prior_day_trade_correction_message = siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message
+  if show.prior_day_trade_correction_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message then
+    show.prior_day_trade_correction_message = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message
     changed = true
   end
-  if show.prior_day_trade_date_and_time ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_date_and_time then
-    show.prior_day_trade_date_and_time = siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_date_and_time
+  if show.prior_day_trade_date_and_time ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_date_and_time then
+    show.prior_day_trade_date_and_time = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_date_and_time
     changed = true
   end
-  if show.prior_day_trade_message ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_message then
-    show.prior_day_trade_message = siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_message
+  if show.prior_day_trade_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_message then
+    show.prior_day_trade_message = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_message
     changed = true
   end
-  if show.reset_block_sequence_number_message ~= siac_cts_output_cta_v2_10.prefs.show_reset_block_sequence_number_message then
-    show.reset_block_sequence_number_message = siac_cts_output_cta_v2_10.prefs.show_reset_block_sequence_number_message
+  if show.reset_block_sequence_number_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_reset_block_sequence_number_message then
+    show.reset_block_sequence_number_message = omi_siac_cts_output_cta_v2_10.prefs.show_reset_block_sequence_number_message
     changed = true
   end
-  if show.sale_conditions ~= siac_cts_output_cta_v2_10.prefs.show_sale_conditions then
-    show.sale_conditions = siac_cts_output_cta_v2_10.prefs.show_sale_conditions
+  if show.sale_conditions ~= omi_siac_cts_output_cta_v2_10.prefs.show_sale_conditions then
+    show.sale_conditions = omi_siac_cts_output_cta_v2_10.prefs.show_sale_conditions
     changed = true
   end
-  if show.short_trade_message ~= siac_cts_output_cta_v2_10.prefs.show_short_trade_message then
-    show.short_trade_message = siac_cts_output_cta_v2_10.prefs.show_short_trade_message
+  if show.short_trade_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_short_trade_message then
+    show.short_trade_message = omi_siac_cts_output_cta_v2_10.prefs.show_short_trade_message
     changed = true
   end
-  if show.sip_block_timestamp ~= siac_cts_output_cta_v2_10.prefs.show_sip_block_timestamp then
-    show.sip_block_timestamp = siac_cts_output_cta_v2_10.prefs.show_sip_block_timestamp
+  if show.sip_block_timestamp ~= omi_siac_cts_output_cta_v2_10.prefs.show_sip_block_timestamp then
+    show.sip_block_timestamp = omi_siac_cts_output_cta_v2_10.prefs.show_sip_block_timestamp
     changed = true
   end
-  if show.start_of_day_message ~= siac_cts_output_cta_v2_10.prefs.show_start_of_day_message then
-    show.start_of_day_message = siac_cts_output_cta_v2_10.prefs.show_start_of_day_message
+  if show.start_of_day_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_start_of_day_message then
+    show.start_of_day_message = omi_siac_cts_output_cta_v2_10.prefs.show_start_of_day_message
     changed = true
   end
-  if show.start_of_end_of_day_message ~= siac_cts_output_cta_v2_10.prefs.show_start_of_end_of_day_message then
-    show.start_of_end_of_day_message = siac_cts_output_cta_v2_10.prefs.show_start_of_end_of_day_message
+  if show.start_of_end_of_day_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_start_of_end_of_day_message then
+    show.start_of_end_of_day_message = omi_siac_cts_output_cta_v2_10.prefs.show_start_of_end_of_day_message
     changed = true
   end
-  if show.start_of_start_of_day_message ~= siac_cts_output_cta_v2_10.prefs.show_start_of_start_of_day_message then
-    show.start_of_start_of_day_message = siac_cts_output_cta_v2_10.prefs.show_start_of_start_of_day_message
+  if show.start_of_start_of_day_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_start_of_start_of_day_message then
+    show.start_of_start_of_day_message = omi_siac_cts_output_cta_v2_10.prefs.show_start_of_start_of_day_message
     changed = true
   end
-  if show.summary ~= siac_cts_output_cta_v2_10.prefs.show_summary then
-    show.summary = siac_cts_output_cta_v2_10.prefs.show_summary
+  if show.summary ~= omi_siac_cts_output_cta_v2_10.prefs.show_summary then
+    show.summary = omi_siac_cts_output_cta_v2_10.prefs.show_summary
     changed = true
   end
-  if show.timestamp_1 ~= siac_cts_output_cta_v2_10.prefs.show_timestamp_1 then
-    show.timestamp_1 = siac_cts_output_cta_v2_10.prefs.show_timestamp_1
+  if show.timestamp_1 ~= omi_siac_cts_output_cta_v2_10.prefs.show_timestamp_1 then
+    show.timestamp_1 = omi_siac_cts_output_cta_v2_10.prefs.show_timestamp_1
     changed = true
   end
-  if show.timestamp_2 ~= siac_cts_output_cta_v2_10.prefs.show_timestamp_2 then
-    show.timestamp_2 = siac_cts_output_cta_v2_10.prefs.show_timestamp_2
+  if show.timestamp_2 ~= omi_siac_cts_output_cta_v2_10.prefs.show_timestamp_2 then
+    show.timestamp_2 = omi_siac_cts_output_cta_v2_10.prefs.show_timestamp_2
     changed = true
   end
-  if show.trade ~= siac_cts_output_cta_v2_10.prefs.show_trade then
-    show.trade = siac_cts_output_cta_v2_10.prefs.show_trade
+  if show.trade ~= omi_siac_cts_output_cta_v2_10.prefs.show_trade then
+    show.trade = omi_siac_cts_output_cta_v2_10.prefs.show_trade
     changed = true
   end
-  if show.trade_cancel_error_message ~= siac_cts_output_cta_v2_10.prefs.show_trade_cancel_error_message then
-    show.trade_cancel_error_message = siac_cts_output_cta_v2_10.prefs.show_trade_cancel_error_message
+  if show.trade_cancel_error_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_trade_cancel_error_message then
+    show.trade_cancel_error_message = omi_siac_cts_output_cta_v2_10.prefs.show_trade_cancel_error_message
     changed = true
   end
-  if show.trade_correction_message ~= siac_cts_output_cta_v2_10.prefs.show_trade_correction_message then
-    show.trade_correction_message = siac_cts_output_cta_v2_10.prefs.show_trade_correction_message
+  if show.trade_correction_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_trade_correction_message then
+    show.trade_correction_message = omi_siac_cts_output_cta_v2_10.prefs.show_trade_correction_message
     changed = true
   end
-  if show.trading_status_message ~= siac_cts_output_cta_v2_10.prefs.show_trading_status_message then
-    show.trading_status_message = siac_cts_output_cta_v2_10.prefs.show_trading_status_message
+  if show.trading_status_message ~= omi_siac_cts_output_cta_v2_10.prefs.show_trading_status_message then
+    show.trading_status_message = omi_siac_cts_output_cta_v2_10.prefs.show_trading_status_message
     changed = true
   end
-  if show.administrative_payload ~= siac_cts_output_cta_v2_10.prefs.show_administrative_payload then
-    show.administrative_payload = siac_cts_output_cta_v2_10.prefs.show_administrative_payload
+  if show.administrative_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_administrative_payload then
+    show.administrative_payload = omi_siac_cts_output_cta_v2_10.prefs.show_administrative_payload
     changed = true
   end
-  if show.control_payload ~= siac_cts_output_cta_v2_10.prefs.show_control_payload then
-    show.control_payload = siac_cts_output_cta_v2_10.prefs.show_control_payload
+  if show.control_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_control_payload then
+    show.control_payload = omi_siac_cts_output_cta_v2_10.prefs.show_control_payload
     changed = true
   end
-  if show.index_payload ~= siac_cts_output_cta_v2_10.prefs.show_index_payload then
-    show.index_payload = siac_cts_output_cta_v2_10.prefs.show_index_payload
+  if show.index_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_index_payload then
+    show.index_payload = omi_siac_cts_output_cta_v2_10.prefs.show_index_payload
     changed = true
   end
-  if show.market_status_payload ~= siac_cts_output_cta_v2_10.prefs.show_market_status_payload then
-    show.market_status_payload = siac_cts_output_cta_v2_10.prefs.show_market_status_payload
+  if show.market_status_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_market_status_payload then
+    show.market_status_payload = omi_siac_cts_output_cta_v2_10.prefs.show_market_status_payload
     changed = true
   end
-  if show.payload ~= siac_cts_output_cta_v2_10.prefs.show_payload then
-    show.payload = siac_cts_output_cta_v2_10.prefs.show_payload
+  if show.payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_payload then
+    show.payload = omi_siac_cts_output_cta_v2_10.prefs.show_payload
     changed = true
   end
-  if show.prior_day_payload ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_payload then
-    show.prior_day_payload = siac_cts_output_cta_v2_10.prefs.show_prior_day_payload
+  if show.prior_day_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_payload then
+    show.prior_day_payload = omi_siac_cts_output_cta_v2_10.prefs.show_prior_day_payload
     changed = true
   end
-  if show.summary_payload ~= siac_cts_output_cta_v2_10.prefs.show_summary_payload then
-    show.summary_payload = siac_cts_output_cta_v2_10.prefs.show_summary_payload
+  if show.summary_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_summary_payload then
+    show.summary_payload = omi_siac_cts_output_cta_v2_10.prefs.show_summary_payload
     changed = true
   end
-  if show.trade_payload ~= siac_cts_output_cta_v2_10.prefs.show_trade_payload then
-    show.trade_payload = siac_cts_output_cta_v2_10.prefs.show_trade_payload
+  if show.trade_payload ~= omi_siac_cts_output_cta_v2_10.prefs.show_trade_payload then
+    show.trade_payload = omi_siac_cts_output_cta_v2_10.prefs.show_trade_payload
     changed = true
   end
 
@@ -688,7 +688,7 @@ siac_cts_output_cta_v2_10_dissect.block_pad_byte = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.block_pad_byte(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.block_pad_byte, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_pad_byte, range, value, display)
 
   return offset + length, value
 end
@@ -724,7 +724,7 @@ siac_cts_output_cta_v2_10_dissect.tick = function(buffer, offset, packet, parent
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.tick(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.tick, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.tick, range, value, display)
 
   return offset + length, value
 end
@@ -744,7 +744,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_total_volume = function(buffer, off
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.fractional_total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.fractional_total_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -770,7 +770,7 @@ siac_cts_output_cta_v2_10_dissect.open_price = function(buffer, offset, packet, 
   local value = translate.open_price(raw)
   local display = siac_cts_output_cta_v2_10_display.open_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.open_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.open_price, range, value, display)
 
   return offset + length, value
 end
@@ -796,7 +796,7 @@ siac_cts_output_cta_v2_10_dissect.low_price = function(buffer, offset, packet, p
   local value = translate.low_price(raw)
   local display = siac_cts_output_cta_v2_10_display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.low_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -822,7 +822,7 @@ siac_cts_output_cta_v2_10_dissect.high_price = function(buffer, offset, packet, 
   local value = translate.high_price(raw)
   local display = siac_cts_output_cta_v2_10_display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.high_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -848,7 +848,7 @@ siac_cts_output_cta_v2_10_dissect.last_price = function(buffer, offset, packet, 
   local value = translate.last_price(raw)
   local display = siac_cts_output_cta_v2_10_display.last_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.last_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.last_price, range, value, display)
 
   return offset + length, value
 end
@@ -868,7 +868,7 @@ siac_cts_output_cta_v2_10_dissect.previous_close_price_date = function(buffer, o
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.previous_close_price_date(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.previous_close_price_date, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.previous_close_price_date, range, value, display)
 
   return offset + length, value
 end
@@ -931,7 +931,7 @@ end
 siac_cts_output_cta_v2_10_dissect.fractional_participant_data = function(buffer, offset, packet, parent)
   if show.fractional_participant_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_participant_data, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_participant_data, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.fractional_participant_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1015,7 +1015,7 @@ siac_cts_output_cta_v2_10_dissect.last_participant_id = function(buffer, offset,
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.last_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.last_participant_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.last_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1078,7 +1078,7 @@ end
 siac_cts_output_cta_v2_10_dissect.fractional_consolidated_data = function(buffer, offset, packet, parent)
   if show.fractional_consolidated_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_consolidated_data, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_consolidated_data, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.fractional_consolidated_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1141,7 +1141,7 @@ siac_cts_output_cta_v2_10_dissect.financial_status_indicator = function(buffer, 
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.financial_status_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.financial_status_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.financial_status_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1210,7 +1210,7 @@ siac_cts_output_cta_v2_10_dissect.primary_listing_market_participant_id = functi
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.primary_listing_market_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1246,7 +1246,7 @@ siac_cts_output_cta_v2_10_dissect.short_sale_restriction_indicator = function(bu
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.short_sale_restriction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.short_sale_restriction_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.short_sale_restriction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1273,7 +1273,7 @@ siac_cts_output_cta_v2_10_dissect.cancel_error_action = function(buffer, offset,
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.cancel_error_action(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.cancel_error_action, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.cancel_error_action, range, value, display)
 
   return offset + length, value
 end
@@ -1293,7 +1293,7 @@ siac_cts_output_cta_v2_10_dissect.nanoseconds = function(buffer, offset, packet,
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.nanoseconds, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -1313,7 +1313,7 @@ siac_cts_output_cta_v2_10_dissect.seconds = function(buffer, offset, packet, par
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.seconds, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -1351,7 +1351,7 @@ end
 siac_cts_output_cta_v2_10_dissect.timestamp_2 = function(buffer, offset, packet, parent)
   if show.timestamp_2 then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.timestamp_2, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.timestamp_2, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.timestamp_2_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1380,7 +1380,7 @@ siac_cts_output_cta_v2_10_dissect.original_participant_reference_number = functi
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.original_participant_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.original_participant_reference_number, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.original_participant_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1413,7 +1413,7 @@ siac_cts_output_cta_v2_10_dissect.trade_reporting_facility_id = function(buffer,
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.trade_reporting_facility_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_reporting_facility_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_reporting_facility_id, range, value, display)
 
   return offset + length, value
 end
@@ -1440,7 +1440,7 @@ siac_cts_output_cta_v2_10_dissect.trade_through_exempt_indicator = function(buff
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.trade_through_exempt_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_through_exempt_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1467,7 +1467,7 @@ siac_cts_output_cta_v2_10_dissect.stop_stock_indicator = function(buffer, offset
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.stop_stock_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.stop_stock_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.stop_stock_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1487,7 +1487,7 @@ siac_cts_output_cta_v2_10_dissect.sellers_sale_days = function(buffer, offset, p
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.sellers_sale_days(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.sellers_sale_days, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sellers_sale_days, range, value, display)
 
   return offset + length, value
 end
@@ -1507,7 +1507,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_volume = function(buffer, off
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.fractional_trade_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.fractional_trade_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1533,7 +1533,7 @@ siac_cts_output_cta_v2_10_dissect.trade_price = function(buffer, offset, packet,
   local value = translate.trade_price(raw)
   local display = siac_cts_output_cta_v2_10_display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -1587,7 +1587,7 @@ siac_cts_output_cta_v2_10_dissect.sro_trade_detail = function(buffer, offset, pa
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.sro_trade_detail(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.sro_trade_detail, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sro_trade_detail, range, value, display)
 
   return offset + length, value
 end
@@ -1623,7 +1623,7 @@ siac_cts_output_cta_v2_10_dissect.extended_hours_or_sequence_type = function(buf
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.extended_hours_or_sequence_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.extended_hours_or_sequence_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.extended_hours_or_sequence_type, range, value, display)
 
   return offset + length, value
 end
@@ -1671,7 +1671,7 @@ siac_cts_output_cta_v2_10_dissect.trade_through_exempt_reason = function(buffer,
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.trade_through_exempt_reason(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_through_exempt_reason, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1704,7 +1704,7 @@ siac_cts_output_cta_v2_10_dissect.settlement_type = function(buffer, offset, pac
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.settlement_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.settlement_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.settlement_type, range, value, display)
 
   return offset + length, value
 end
@@ -1752,7 +1752,7 @@ end
 siac_cts_output_cta_v2_10_dissect.sale_conditions = function(buffer, offset, packet, parent)
   if show.sale_conditions then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.sale_conditions, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_conditions, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.sale_conditions_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1794,7 +1794,7 @@ siac_cts_output_cta_v2_10_dissect.instrument_type = function(buffer, offset, pac
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.instrument_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.instrument_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.instrument_type, range, value, display)
 
   return offset + length, value
 end
@@ -1814,7 +1814,7 @@ siac_cts_output_cta_v2_10_dissect.security_symbol = function(buffer, offset, pac
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.security_symbol, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1834,7 +1834,7 @@ siac_cts_output_cta_v2_10_dissect.participant_reference_number = function(buffer
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.participant_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.participant_reference_number, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1854,7 +1854,7 @@ siac_cts_output_cta_v2_10_dissect.transaction_id = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.transaction_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.transaction_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.transaction_id, range, value, display)
 
   return offset + length, value
 end
@@ -1874,7 +1874,7 @@ siac_cts_output_cta_v2_10_dissect.message_id = function(buffer, offset, packet, 
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.message_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.message_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.message_id, range, value, display)
 
   return offset + length, value
 end
@@ -1912,7 +1912,7 @@ end
 siac_cts_output_cta_v2_10_dissect.timestamp_1 = function(buffer, offset, packet, parent)
   if show.timestamp_1 then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.timestamp_1, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.timestamp_1, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.timestamp_1_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2002,7 +2002,7 @@ siac_cts_output_cta_v2_10_dissect.participant_id = function(buffer, offset, pack
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.participant_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -2104,7 +2104,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_cancel_error_message = functi
   if show.fractional_trade_cancel_error_message then
     local range = buffer(offset, size_of_fractional_trade_cancel_error_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_trade_cancel_error_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_trade_cancel_error_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_cancel_error_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_trade_cancel_error_message_fields(buffer, offset, packet, parent, size_of_fractional_trade_cancel_error_message)
@@ -2127,7 +2127,7 @@ siac_cts_output_cta_v2_10_dissect.total_volume_short = function(buffer, offset, 
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.total_volume_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.total_volume_short, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -2190,7 +2190,7 @@ end
 siac_cts_output_cta_v2_10_dissect.participant_data = function(buffer, offset, packet, parent)
   if show.participant_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.participant_data, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_data, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.participant_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2262,7 +2262,7 @@ end
 siac_cts_output_cta_v2_10_dissect.consolidated_data = function(buffer, offset, packet, parent)
   if show.consolidated_data then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.consolidated_data, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.consolidated_data, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.consolidated_data_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2291,7 +2291,7 @@ siac_cts_output_cta_v2_10_dissect.trade_volume = function(buffer, offset, packet
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.trade_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2393,7 +2393,7 @@ siac_cts_output_cta_v2_10_dissect.trade_cancel_error_message = function(buffer, 
   if show.trade_cancel_error_message then
     local range = buffer(offset, size_of_trade_cancel_error_message)
     local display = siac_cts_output_cta_v2_10_display.trade_cancel_error_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.trade_cancel_error_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_cancel_error_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
@@ -2468,7 +2468,7 @@ siac_cts_output_cta_v2_10_dissect.participant_open_high_low_last_indicator = fun
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.participant_open_high_low_last_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.participant_open_high_low_last_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_open_high_low_last_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2513,7 +2513,7 @@ siac_cts_output_cta_v2_10_dissect.consolidated_high_low_last_indicator = functio
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.consolidated_high_low_last_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.consolidated_high_low_last_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.consolidated_high_low_last_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2533,7 +2533,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_volume_short = function(buffe
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.fractional_trade_volume_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.fractional_trade_volume_short, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -2559,7 +2559,7 @@ siac_cts_output_cta_v2_10_dissect.trade_price_short = function(buffer, offset, p
   local value = translate.trade_price_short(raw)
   local display = siac_cts_output_cta_v2_10_display.trade_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_price_short, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -2595,7 +2595,7 @@ siac_cts_output_cta_v2_10_dissect.sale_condition_category = function(buffer, off
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.sale_condition_category(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.sale_condition_category, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_condition_category, range, value, display)
 
   return offset + length, value
 end
@@ -2694,7 +2694,7 @@ siac_cts_output_cta_v2_10_dissect.sale_condition = function(buffer, offset, pack
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.sale_condition(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.sale_condition, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_condition, range, value, display)
 
   return offset + length, value
 end
@@ -2714,7 +2714,7 @@ siac_cts_output_cta_v2_10_dissect.security_symbol_short = function(buffer, offse
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.security_symbol_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.security_symbol_short, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -2789,7 +2789,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_short_trade_message = function(buff
   if show.fractional_short_trade_message then
     local range = buffer(offset, size_of_fractional_short_trade_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_short_trade_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_short_trade_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_short_trade_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_short_trade_message_fields(buffer, offset, packet, parent, size_of_fractional_short_trade_message)
@@ -2812,7 +2812,7 @@ siac_cts_output_cta_v2_10_dissect.trade_volume_short = function(buffer, offset, 
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.trade_volume_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_volume_short, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -2887,7 +2887,7 @@ siac_cts_output_cta_v2_10_dissect.short_trade_message = function(buffer, offset,
   if show.short_trade_message then
     local range = buffer(offset, size_of_short_trade_message)
     local display = siac_cts_output_cta_v2_10_display.short_trade_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.short_trade_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.short_trade_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.short_trade_message_fields(buffer, offset, packet, parent, size_of_short_trade_message)
@@ -2944,7 +2944,7 @@ siac_cts_output_cta_v2_10_dissect.limit_up_limit_down_indicator = function(buffe
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.limit_up_limit_down_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.limit_up_limit_down_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.limit_up_limit_down_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3016,7 +3016,7 @@ siac_cts_output_cta_v2_10_dissect.halt_reason = function(buffer, offset, packet,
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.halt_reason(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.halt_reason, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.halt_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3076,7 +3076,7 @@ siac_cts_output_cta_v2_10_dissect.security_status = function(buffer, offset, pac
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.security_status, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -3096,7 +3096,7 @@ siac_cts_output_cta_v2_10_dissect.sell_volume = function(buffer, offset, packet,
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.sell_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.sell_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sell_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3116,7 +3116,7 @@ siac_cts_output_cta_v2_10_dissect.buy_volume = function(buffer, offset, packet, 
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.buy_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.buy_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.buy_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3142,7 +3142,7 @@ siac_cts_output_cta_v2_10_dissect.low_indication_price_lower_limit_price_band = 
   local value = translate.low_indication_price_lower_limit_price_band(raw)
   local display = siac_cts_output_cta_v2_10_display.low_indication_price_lower_limit_price_band(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.low_indication_price_lower_limit_price_band, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.low_indication_price_lower_limit_price_band, range, value, display)
 
   return offset + length, value
 end
@@ -3168,7 +3168,7 @@ siac_cts_output_cta_v2_10_dissect.high_indication_price_upper_limit_price_band =
   local value = translate.high_indication_price_upper_limit_price_band(raw)
   local display = siac_cts_output_cta_v2_10_display.high_indication_price_upper_limit_price_band(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.high_indication_price_upper_limit_price_band, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.high_indication_price_upper_limit_price_band, range, value, display)
 
   return offset + length, value
 end
@@ -3258,7 +3258,7 @@ siac_cts_output_cta_v2_10_dissect.trading_status_message = function(buffer, offs
   if show.trading_status_message then
     local range = buffer(offset, size_of_trading_status_message)
     local display = siac_cts_output_cta_v2_10_display.trading_status_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.trading_status_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.trading_status_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.trading_status_message_fields(buffer, offset, packet, parent, size_of_trading_status_message)
@@ -3294,7 +3294,7 @@ siac_cts_output_cta_v2_10_dissect.held_trade_indicator = function(buffer, offset
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.held_trade_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.held_trade_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.held_trade_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3393,7 +3393,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_long_trade_message = function(buffe
   if show.fractional_long_trade_message then
     local range = buffer(offset, size_of_fractional_long_trade_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_long_trade_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_long_trade_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_long_trade_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_long_trade_message_fields(buffer, offset, packet, parent, size_of_fractional_long_trade_message)
@@ -3495,7 +3495,7 @@ siac_cts_output_cta_v2_10_dissect.long_trade_message = function(buffer, offset, 
   if show.long_trade_message then
     local range = buffer(offset, size_of_long_trade_message)
     local display = siac_cts_output_cta_v2_10_display.long_trade_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.long_trade_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.long_trade_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.long_trade_message_fields(buffer, offset, packet, parent, size_of_long_trade_message)
@@ -3536,7 +3536,7 @@ end
 siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time = function(buffer, offset, packet, parent)
   if show.prior_day_trade_date_and_time then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3613,7 +3613,7 @@ end
 siac_cts_output_cta_v2_10_dissect.fractional_original_trade = function(buffer, offset, packet, parent)
   if show.fractional_original_trade then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_original_trade, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_original_trade, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.fractional_original_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3685,7 +3685,7 @@ end
 siac_cts_output_cta_v2_10_dissect.fractional_corrected_trade = function(buffer, offset, packet, parent)
   if show.fractional_corrected_trade then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_corrected_trade, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_corrected_trade, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.fractional_corrected_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3778,7 +3778,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_correction_message = function
   if show.fractional_trade_correction_message then
     local range = buffer(offset, size_of_fractional_trade_correction_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_trade_correction_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_trade_correction_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_correction_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_trade_correction_message_fields(buffer, offset, packet, parent, size_of_fractional_trade_correction_message)
@@ -3844,7 +3844,7 @@ end
 siac_cts_output_cta_v2_10_dissect.original_trade = function(buffer, offset, packet, parent)
   if show.original_trade then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.original_trade, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.original_trade, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.original_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3916,7 +3916,7 @@ end
 siac_cts_output_cta_v2_10_dissect.corrected_trade = function(buffer, offset, packet, parent)
   if show.corrected_trade then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.corrected_trade, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.corrected_trade, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.corrected_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4009,7 +4009,7 @@ siac_cts_output_cta_v2_10_dissect.trade_correction_message = function(buffer, of
   if show.trade_correction_message then
     local range = buffer(offset, size_of_trade_correction_message)
     local display = siac_cts_output_cta_v2_10_display.trade_correction_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.trade_correction_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_correction_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.trade_correction_message_fields(buffer, offset, packet, parent, size_of_trade_correction_message)
@@ -4032,7 +4032,7 @@ siac_cts_output_cta_v2_10_dissect.future_use = function(buffer, offset, packet, 
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.future_use(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.future_use, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.future_use, range, value, display)
 
   return offset + length, value
 end
@@ -4052,7 +4052,7 @@ siac_cts_output_cta_v2_10_dissect.number_of_extensions = function(buffer, offset
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.number_of_extensions(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.number_of_extensions, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.number_of_extensions, range, value, display)
 
   return offset + length, value
 end
@@ -4078,7 +4078,7 @@ siac_cts_output_cta_v2_10_dissect.auction_collar_lower_threshold_price = functio
   local value = translate.auction_collar_lower_threshold_price(raw)
   local display = siac_cts_output_cta_v2_10_display.auction_collar_lower_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.auction_collar_lower_threshold_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_lower_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -4104,7 +4104,7 @@ siac_cts_output_cta_v2_10_dissect.auction_collar_upper_threshold_price = functio
   local value = translate.auction_collar_upper_threshold_price(raw)
   local display = siac_cts_output_cta_v2_10_display.auction_collar_upper_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -4130,7 +4130,7 @@ siac_cts_output_cta_v2_10_dissect.auction_collar_reference_price = function(buff
   local value = translate.auction_collar_reference_price(raw)
   local display = siac_cts_output_cta_v2_10_display.auction_collar_reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.auction_collar_reference_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -4211,7 +4211,7 @@ siac_cts_output_cta_v2_10_dissect.auction_status_message = function(buffer, offs
   if show.auction_status_message then
     local range = buffer(offset, size_of_auction_status_message)
     local display = siac_cts_output_cta_v2_10_display.auction_status_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.auction_status_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_status_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.auction_status_message_fields(buffer, offset, packet, parent, size_of_auction_status_message)
@@ -4331,7 +4331,7 @@ siac_cts_output_cta_v2_10_dissect.trade_payload = function(buffer, offset, packe
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.trade_payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.trade_payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
 end
@@ -4382,7 +4382,7 @@ siac_cts_output_cta_v2_10_dissect.trade_message_type = function(buffer, offset, 
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.trade_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_message_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -4424,7 +4424,7 @@ siac_cts_output_cta_v2_10_dissect.trade = function(buffer, offset, packet, paren
   if show.trade then
     local range = buffer(offset, size_of_trade)
     local display = siac_cts_output_cta_v2_10_display.trade(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.trade, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.trade, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.trade_fields(buffer, offset, packet, parent, size_of_trade)
@@ -4508,7 +4508,7 @@ siac_cts_output_cta_v2_10_dissect.initiating_participant_id = function(buffer, o
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.initiating_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.initiating_participant_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.initiating_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -4589,7 +4589,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_participant_end_of_day_summary_mess
   if show.fractional_participant_end_of_day_summary_message then
     local range = buffer(offset, size_of_fractional_participant_end_of_day_summary_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_participant_end_of_day_summary_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_participant_end_of_day_summary_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_participant_end_of_day_summary_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_participant_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_fractional_participant_end_of_day_summary_message)
@@ -4612,7 +4612,7 @@ siac_cts_output_cta_v2_10_dissect.total_volume = function(buffer, offset, packet
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.total_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -4693,7 +4693,7 @@ siac_cts_output_cta_v2_10_dissect.participant_end_of_day_summary_message = funct
   if show.participant_end_of_day_summary_message then
     local range = buffer(offset, size_of_participant_end_of_day_summary_message)
     local display = siac_cts_output_cta_v2_10_display.participant_end_of_day_summary_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.participant_end_of_day_summary_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_end_of_day_summary_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.participant_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
@@ -4716,7 +4716,7 @@ siac_cts_output_cta_v2_10_dissect.number_of_participants = function(buffer, offs
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.number_of_participants(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.number_of_participants, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.number_of_participants, range, value, display)
 
   return offset + length, value
 end
@@ -4803,7 +4803,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_consolidated_end_of_day_summary_mes
   if show.fractional_consolidated_end_of_day_summary_message then
     local range = buffer(offset, size_of_fractional_consolidated_end_of_day_summary_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_consolidated_end_of_day_summary_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_consolidated_end_of_day_summary_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_consolidated_end_of_day_summary_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_consolidated_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_fractional_consolidated_end_of_day_summary_message)
@@ -4893,7 +4893,7 @@ siac_cts_output_cta_v2_10_dissect.consolidated_end_of_day_summary_message = func
   if show.consolidated_end_of_day_summary_message then
     local range = buffer(offset, size_of_consolidated_end_of_day_summary_message)
     local display = siac_cts_output_cta_v2_10_display.consolidated_end_of_day_summary_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.consolidated_end_of_day_summary_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.consolidated_end_of_day_summary_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.consolidated_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
@@ -4922,7 +4922,7 @@ siac_cts_output_cta_v2_10_dissect.previous_close_price = function(buffer, offset
   local value = translate.previous_close_price(raw)
   local display = siac_cts_output_cta_v2_10_display.previous_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.previous_close_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.previous_close_price, range, value, display)
 
   return offset + length, value
 end
@@ -4988,7 +4988,7 @@ siac_cts_output_cta_v2_10_dissect.participant_start_of_day_summary_message = fun
   if show.participant_start_of_day_summary_message then
     local range = buffer(offset, size_of_participant_start_of_day_summary_message)
     local display = siac_cts_output_cta_v2_10_display.participant_start_of_day_summary_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.participant_start_of_day_summary_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_start_of_day_summary_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.participant_start_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
@@ -5069,7 +5069,7 @@ siac_cts_output_cta_v2_10_dissect.consolidated_start_of_day_summary_message = fu
   if show.consolidated_start_of_day_summary_message then
     local range = buffer(offset, size_of_consolidated_start_of_day_summary_message)
     local display = siac_cts_output_cta_v2_10_display.consolidated_start_of_day_summary_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.consolidated_start_of_day_summary_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.consolidated_start_of_day_summary_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.consolidated_start_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
@@ -5157,7 +5157,7 @@ siac_cts_output_cta_v2_10_dissect.summary_payload = function(buffer, offset, pac
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.summary_payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.summary_payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.summary_payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.summary_payload_branches(buffer, offset, packet, parent, summary_message_type)
 end
@@ -5196,7 +5196,7 @@ siac_cts_output_cta_v2_10_dissect.summary_message_type = function(buffer, offset
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.summary_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.summary_message_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.summary_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -5238,7 +5238,7 @@ siac_cts_output_cta_v2_10_dissect.summary = function(buffer, offset, packet, par
   if show.summary then
     local range = buffer(offset, size_of_summary)
     local display = siac_cts_output_cta_v2_10_display.summary(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.summary, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.summary, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.summary_fields(buffer, offset, packet, parent, size_of_summary)
@@ -5325,7 +5325,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_message = function(
   if show.fractional_prior_day_trade_message then
     local range = buffer(offset, size_of_fractional_prior_day_trade_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_prior_day_trade_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_message_fields(buffer, offset, packet, parent, size_of_fractional_prior_day_trade_message)
@@ -5412,7 +5412,7 @@ siac_cts_output_cta_v2_10_dissect.prior_day_trade_message = function(buffer, off
   if show.prior_day_trade_message then
     local range = buffer(offset, size_of_prior_day_trade_message)
     local display = siac_cts_output_cta_v2_10_display.prior_day_trade_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_trade_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.prior_day_trade_message_fields(buffer, offset, packet, parent, size_of_prior_day_trade_message)
@@ -5483,7 +5483,7 @@ end
 siac_cts_output_cta_v2_10_dissect.fractional_prior_day_corrected_trade = function(buffer, offset, packet, parent)
   if show.fractional_prior_day_corrected_trade then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_prior_day_corrected_trade, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_prior_day_corrected_trade, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.fractional_prior_day_corrected_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5558,7 +5558,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_correction_message 
   if show.fractional_prior_day_trade_correction_message then
     local range = buffer(offset, size_of_fractional_prior_day_trade_correction_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_prior_day_trade_correction_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_correction_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_correction_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_correction_message_fields(buffer, offset, packet, parent, size_of_fractional_prior_day_trade_correction_message)
@@ -5629,7 +5629,7 @@ end
 siac_cts_output_cta_v2_10_dissect.prior_day_original_trade = function(buffer, offset, packet, parent)
   if show.prior_day_original_trade then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_original_trade, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_original_trade, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.prior_day_original_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5706,7 +5706,7 @@ end
 siac_cts_output_cta_v2_10_dissect.prior_day_corrected_trade = function(buffer, offset, packet, parent)
   if show.prior_day_corrected_trade then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_corrected_trade, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_corrected_trade, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.prior_day_corrected_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5781,7 +5781,7 @@ siac_cts_output_cta_v2_10_dissect.prior_day_trade_correction_message = function(
   if show.prior_day_trade_correction_message then
     local range = buffer(offset, size_of_prior_day_trade_correction_message)
     local display = siac_cts_output_cta_v2_10_display.prior_day_trade_correction_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_trade_correction_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_correction_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.prior_day_trade_correction_message_fields(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
@@ -5869,7 +5869,7 @@ siac_cts_output_cta_v2_10_dissect.prior_day_payload = function(buffer, offset, p
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.prior_day_payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.prior_day_payload_branches(buffer, offset, packet, parent, prior_day_message_type)
 end
@@ -5908,7 +5908,7 @@ siac_cts_output_cta_v2_10_dissect.prior_day_message_type = function(buffer, offs
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.prior_day_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.prior_day_message_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -5950,7 +5950,7 @@ siac_cts_output_cta_v2_10_dissect.prior_day = function(buffer, offset, packet, p
   if show.prior_day then
     local range = buffer(offset, size_of_prior_day)
     local display = siac_cts_output_cta_v2_10_display.prior_day(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.prior_day_fields(buffer, offset, packet, parent, size_of_prior_day)
@@ -5973,7 +5973,7 @@ siac_cts_output_cta_v2_10_dissect.crossing_session_2_total_trades_volume = funct
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.crossing_session_2_total_trades_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.crossing_session_2_total_trades_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_total_trades_volume, range, value, display)
 
   return offset + length, value
 end
@@ -5993,7 +5993,7 @@ siac_cts_output_cta_v2_10_dissect.crossing_session_2_dollar_value = function(buf
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.crossing_session_2_dollar_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.crossing_session_2_dollar_value, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_dollar_value, range, value, display)
 
   return offset + length, value
 end
@@ -6013,7 +6013,7 @@ siac_cts_output_cta_v2_10_dissect.crossing_session_1_total_trades_volume = funct
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.crossing_session_1_total_trades_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.crossing_session_1_total_trades_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_1_total_trades_volume, range, value, display)
 
   return offset + length, value
 end
@@ -6073,7 +6073,7 @@ siac_cts_output_cta_v2_10_dissect.crossing_session_summary_message = function(bu
   if show.crossing_session_summary_message then
     local range = buffer(offset, size_of_crossing_session_summary_message)
     local display = siac_cts_output_cta_v2_10_display.crossing_session_summary_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.crossing_session_summary_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_summary_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.crossing_session_summary_message_fields(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
@@ -6096,7 +6096,7 @@ siac_cts_output_cta_v2_10_dissect.dollar_value = function(buffer, offset, packet
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.dollar_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.dollar_value, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.dollar_value, range, value, display)
 
   return offset + length, value
 end
@@ -6116,7 +6116,7 @@ siac_cts_output_cta_v2_10_dissect.total_trades = function(buffer, offset, packet
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.total_trades(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.total_trades, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_trades, range, value, display)
 
   return offset + length, value
 end
@@ -6173,7 +6173,7 @@ siac_cts_output_cta_v2_10_dissect.approximate_trades_and_total_dollar_value_mess
   if show.approximate_trades_and_total_dollar_value_message then
     local range = buffer(offset, size_of_approximate_trades_and_total_dollar_value_message)
     local display = siac_cts_output_cta_v2_10_display.approximate_trades_and_total_dollar_value_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.approximate_trades_and_total_dollar_value_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.approximate_trades_and_total_dollar_value_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.approximate_trades_and_total_dollar_value_message_fields(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
@@ -6196,7 +6196,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_total_volume = function(buffe
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.fractional_trade_total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.fractional_trade_total_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -6223,7 +6223,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_participants_fields = function(buff
 
   -- Implicit Fractional Participants Index
   if fractional_participants_index ~= nil then
-    local iteration = parent:add(siac_cts_output_cta_v2_10.fields.fractional_participants_index, fractional_participants_index)
+    local iteration = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_participants_index, fractional_participants_index)
     iteration:set_generated()
   end
 
@@ -6240,7 +6240,7 @@ end
 siac_cts_output_cta_v2_10_dissect.fractional_participants = function(buffer, offset, packet, parent, fractional_participants_index)
   if show.fractional_participants then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_participants, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_participants, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.fractional_participants_fields(buffer, offset, packet, parent, fractional_participants_index)
     local length = index - offset
     parent:set_len(length)
@@ -6308,7 +6308,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_approximate_adjusted_volume_market_
   if show.fractional_approximate_adjusted_volume_market_center_message then
     local range = buffer(offset, size_of_fractional_approximate_adjusted_volume_market_center_message)
     local display = siac_cts_output_cta_v2_10_display.fractional_approximate_adjusted_volume_market_center_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_approximate_adjusted_volume_market_center_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_approximate_adjusted_volume_market_center_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.fractional_approximate_adjusted_volume_market_center_message_fields(buffer, offset, packet, parent, size_of_fractional_approximate_adjusted_volume_market_center_message)
@@ -6331,7 +6331,7 @@ siac_cts_output_cta_v2_10_dissect.trade_total_volume = function(buffer, offset, 
   local value = range:uint64()
   local display = siac_cts_output_cta_v2_10_display.trade_total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.trade_total_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -6358,7 +6358,7 @@ siac_cts_output_cta_v2_10_dissect.participants_fields = function(buffer, offset,
 
   -- Implicit Participants Index
   if participants_index ~= nil then
-    local iteration = parent:add(siac_cts_output_cta_v2_10.fields.participants_index, participants_index)
+    local iteration = parent:add(omi_siac_cts_output_cta_v2_10.fields.participants_index, participants_index)
     iteration:set_generated()
   end
 
@@ -6375,7 +6375,7 @@ end
 siac_cts_output_cta_v2_10_dissect.participants = function(buffer, offset, packet, parent, participants_index)
   if show.participants then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.participants, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.participants, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.participants_fields(buffer, offset, packet, parent, participants_index)
     local length = index - offset
     parent:set_len(length)
@@ -6443,7 +6443,7 @@ siac_cts_output_cta_v2_10_dissect.approximate_adjusted_volume_market_center_mess
   if show.approximate_adjusted_volume_market_center_message then
     local range = buffer(offset, size_of_approximate_adjusted_volume_market_center_message)
     local display = siac_cts_output_cta_v2_10_display.approximate_adjusted_volume_market_center_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.approximate_adjusted_volume_market_center_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.approximate_adjusted_volume_market_center_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.approximate_adjusted_volume_market_center_message_fields(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
@@ -6466,7 +6466,7 @@ siac_cts_output_cta_v2_10_dissect.reserved = function(buffer, offset, packet, pa
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.reserved, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -6499,7 +6499,7 @@ siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_level_indicator = 
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.market_wide_circuit_breaker_level_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -6556,7 +6556,7 @@ siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_status_message = f
   if show.market_wide_circuit_breaker_status_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_status_message)
     local display = siac_cts_output_cta_v2_10_display.market_wide_circuit_breaker_status_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_status_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_status_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
@@ -6579,7 +6579,7 @@ siac_cts_output_cta_v2_10_dissect.mwcb_level_3 = function(buffer, offset, packet
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.mwcb_level_3(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.mwcb_level_3, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_3, range, value, display)
 
   return offset + length, value
 end
@@ -6599,7 +6599,7 @@ siac_cts_output_cta_v2_10_dissect.mwcb_level_2 = function(buffer, offset, packet
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.mwcb_level_2(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.mwcb_level_2, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_2, range, value, display)
 
   return offset + length, value
 end
@@ -6619,7 +6619,7 @@ siac_cts_output_cta_v2_10_dissect.mwcb_level_1 = function(buffer, offset, packet
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.mwcb_level_1(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.mwcb_level_1, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_1, range, value, display)
 
   return offset + length, value
 end
@@ -6682,7 +6682,7 @@ siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_decline_level_stat
   if show.market_wide_circuit_breaker_decline_level_status_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_decline_level_status_message)
     local display = siac_cts_output_cta_v2_10_display.market_wide_circuit_breaker_decline_level_status_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_decline_level_status_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_decline_level_status_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_decline_level_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
@@ -6770,7 +6770,7 @@ siac_cts_output_cta_v2_10_dissect.market_status_payload = function(buffer, offse
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.market_status_payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.market_status_payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.market_status_payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
 end
@@ -6809,7 +6809,7 @@ siac_cts_output_cta_v2_10_dissect.market_status_message_type = function(buffer, 
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.market_status_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.market_status_message_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.market_status_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -6851,7 +6851,7 @@ siac_cts_output_cta_v2_10_dissect.market_status = function(buffer, offset, packe
   if show.market_status then
     local range = buffer(offset, size_of_market_status)
     local display = siac_cts_output_cta_v2_10_display.market_status(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.market_status, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.market_status, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.market_status_fields(buffer, offset, packet, parent, size_of_market_status)
@@ -6874,7 +6874,7 @@ siac_cts_output_cta_v2_10_dissect.offer_index_value = function(buffer, offset, p
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.offer_index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.offer_index_value, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.offer_index_value, range, value, display)
 
   return offset + length, value
 end
@@ -6894,7 +6894,7 @@ siac_cts_output_cta_v2_10_dissect.bid_index_value = function(buffer, offset, pac
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.bid_index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.bid_index_value, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.bid_index_value, range, value, display)
 
   return offset + length, value
 end
@@ -6914,7 +6914,7 @@ siac_cts_output_cta_v2_10_dissect.index_symbol = function(buffer, offset, packet
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.index_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.index_symbol, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -6974,7 +6974,7 @@ siac_cts_output_cta_v2_10_dissect.bid_and_offer_index_message = function(buffer,
   if show.bid_and_offer_index_message then
     local range = buffer(offset, size_of_bid_and_offer_index_message)
     local display = siac_cts_output_cta_v2_10_display.bid_and_offer_index_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.bid_and_offer_index_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.bid_and_offer_index_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.bid_and_offer_index_message_fields(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
@@ -6997,7 +6997,7 @@ siac_cts_output_cta_v2_10_dissect.index_value = function(buffer, offset, packet,
   local value = range:int64()
   local display = siac_cts_output_cta_v2_10_display.index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.index_value, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_value, range, value, display)
 
   return offset + length, value
 end
@@ -7054,7 +7054,7 @@ siac_cts_output_cta_v2_10_dissect.index_message = function(buffer, offset, packe
   if show.index_message then
     local range = buffer(offset, size_of_index_message)
     local display = siac_cts_output_cta_v2_10_display.index_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.index_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.index_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.index_message_fields(buffer, offset, packet, parent, size_of_index_message)
@@ -7110,7 +7110,7 @@ siac_cts_output_cta_v2_10_dissect.index_payload = function(buffer, offset, packe
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.index_payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.index_payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.index_payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.index_payload_branches(buffer, offset, packet, parent, index_message_type)
 end
@@ -7137,7 +7137,7 @@ siac_cts_output_cta_v2_10_dissect.index_message_type = function(buffer, offset, 
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.index_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.index_message_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -7179,7 +7179,7 @@ siac_cts_output_cta_v2_10_dissect.index = function(buffer, offset, packet, paren
   if show.index then
     local range = buffer(offset, size_of_index)
     local display = siac_cts_output_cta_v2_10_display.index(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.index, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.index, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.index_fields(buffer, offset, packet, parent, size_of_index)
@@ -7233,7 +7233,7 @@ siac_cts_output_cta_v2_10_dissect.end_of_day_message = function(buffer, offset, 
   if show.end_of_day_message then
     local range = buffer(offset, size_of_end_of_day_message)
     local display = siac_cts_output_cta_v2_10_display.end_of_day_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.end_of_day_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.end_of_day_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
@@ -7287,7 +7287,7 @@ siac_cts_output_cta_v2_10_dissect.line_integrity_message = function(buffer, offs
   if show.line_integrity_message then
     local range = buffer(offset, size_of_line_integrity_message)
     local display = siac_cts_output_cta_v2_10_display.line_integrity_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.line_integrity_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.line_integrity_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
@@ -7341,7 +7341,7 @@ siac_cts_output_cta_v2_10_dissect.disaster_recovery_data_center_activation_messa
   if show.disaster_recovery_data_center_activation_message then
     local range = buffer(offset, size_of_disaster_recovery_data_center_activation_message)
     local display = siac_cts_output_cta_v2_10_display.disaster_recovery_data_center_activation_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.disaster_recovery_data_center_activation_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.disaster_recovery_data_center_activation_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.disaster_recovery_data_center_activation_message_fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
@@ -7395,7 +7395,7 @@ siac_cts_output_cta_v2_10_dissect.reset_block_sequence_number_message = function
   if show.reset_block_sequence_number_message then
     local range = buffer(offset, size_of_reset_block_sequence_number_message)
     local display = siac_cts_output_cta_v2_10_display.reset_block_sequence_number_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.reset_block_sequence_number_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.reset_block_sequence_number_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.reset_block_sequence_number_message_fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
@@ -7449,7 +7449,7 @@ siac_cts_output_cta_v2_10_dissect.start_of_day_message = function(buffer, offset
   if show.start_of_day_message then
     local range = buffer(offset, size_of_start_of_day_message)
     local display = siac_cts_output_cta_v2_10_display.start_of_day_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.start_of_day_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.start_of_day_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_day_message)
@@ -7529,7 +7529,7 @@ siac_cts_output_cta_v2_10_dissect.control_payload = function(buffer, offset, pac
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.control_payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.control_payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.control_payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
 end
@@ -7565,7 +7565,7 @@ siac_cts_output_cta_v2_10_dissect.control_message_type = function(buffer, offset
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.control_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.control_message_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -7607,7 +7607,7 @@ siac_cts_output_cta_v2_10_dissect.control = function(buffer, offset, packet, par
   if show.control then
     local range = buffer(offset, size_of_control)
     local display = siac_cts_output_cta_v2_10_display.control(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.control, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.control, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.control_fields(buffer, offset, packet, parent, size_of_control)
@@ -7661,7 +7661,7 @@ siac_cts_output_cta_v2_10_dissect.end_of_start_of_day_message = function(buffer,
   if show.end_of_start_of_day_message then
     local range = buffer(offset, size_of_end_of_start_of_day_message)
     local display = siac_cts_output_cta_v2_10_display.end_of_start_of_day_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.end_of_start_of_day_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.end_of_start_of_day_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.end_of_start_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
@@ -7715,7 +7715,7 @@ siac_cts_output_cta_v2_10_dissect.start_of_start_of_day_message = function(buffe
   if show.start_of_start_of_day_message then
     local range = buffer(offset, size_of_start_of_start_of_day_message)
     local display = siac_cts_output_cta_v2_10_display.start_of_start_of_day_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.start_of_start_of_day_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.start_of_start_of_day_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.start_of_start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
@@ -7769,7 +7769,7 @@ siac_cts_output_cta_v2_10_dissect.end_of_end_of_day_message = function(buffer, o
   if show.end_of_end_of_day_message then
     local range = buffer(offset, size_of_end_of_end_of_day_message)
     local display = siac_cts_output_cta_v2_10_display.end_of_end_of_day_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.end_of_end_of_day_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.end_of_end_of_day_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.end_of_end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
@@ -7823,7 +7823,7 @@ siac_cts_output_cta_v2_10_dissect.start_of_end_of_day_message = function(buffer,
   if show.start_of_end_of_day_message then
     local range = buffer(offset, size_of_start_of_end_of_day_message)
     local display = siac_cts_output_cta_v2_10_display.start_of_end_of_day_message(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.start_of_end_of_day_message, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.start_of_end_of_day_message, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.start_of_end_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
@@ -7895,7 +7895,7 @@ siac_cts_output_cta_v2_10_dissect.administrative_payload = function(buffer, offs
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.administrative_payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.administrative_payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.administrative_payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -7928,7 +7928,7 @@ siac_cts_output_cta_v2_10_dissect.administrative_message_type = function(buffer,
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.administrative_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.administrative_message_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.administrative_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -7970,7 +7970,7 @@ siac_cts_output_cta_v2_10_dissect.administrative = function(buffer, offset, pack
   if show.administrative then
     local range = buffer(offset, size_of_administrative)
     local display = siac_cts_output_cta_v2_10_display.administrative(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.administrative, range, display)
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.administrative, range, display)
   end
 
   siac_cts_output_cta_v2_10_dissect.administrative_fields(buffer, offset, packet, parent, size_of_administrative)
@@ -8066,7 +8066,7 @@ siac_cts_output_cta_v2_10_dissect.payload = function(buffer, offset, packet, par
   -- Dissect Element
   local range = buffer(offset, size)
   local display = siac_cts_output_cta_v2_10_display.payload(buffer, packet, parent)
-  local element = parent:add(siac_cts_output_cta_v2_10.fields.payload, range, display)
+  local element = parent:add(omi_siac_cts_output_cta_v2_10.fields.payload, range, display)
 
   return siac_cts_output_cta_v2_10_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
@@ -8108,7 +8108,7 @@ siac_cts_output_cta_v2_10_dissect.message_category = function(buffer, offset, pa
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.message_category, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -8128,7 +8128,7 @@ siac_cts_output_cta_v2_10_dissect.message_length = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.message_length, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -8166,7 +8166,7 @@ end
 siac_cts_output_cta_v2_10_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.message_header, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8191,7 +8191,7 @@ siac_cts_output_cta_v2_10_dissect.message_fields = function(buffer, offset, pack
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(siac_cts_output_cta_v2_10.fields.message_index, message_index)
+    local iteration = parent:add(omi_siac_cts_output_cta_v2_10.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -8213,7 +8213,7 @@ siac_cts_output_cta_v2_10_dissect.message = function(buffer, offset, packet, par
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_10_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = siac_cts_output_cta_v2_10_display.message(buffer, packet, parent)
@@ -8243,7 +8243,7 @@ siac_cts_output_cta_v2_10_dissect.block_checksum = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.block_checksum(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.block_checksum, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_checksum, range, value, display)
 
   return offset + length, value
 end
@@ -8281,7 +8281,7 @@ end
 siac_cts_output_cta_v2_10_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   if show.sip_block_timestamp then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.sip_block_timestamp, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.sip_block_timestamp, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8310,7 +8310,7 @@ siac_cts_output_cta_v2_10_dissect.messages_in_block = function(buffer, offset, p
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.messages_in_block(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.messages_in_block, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.messages_in_block, range, value, display)
 
   return offset + length, value
 end
@@ -8330,7 +8330,7 @@ siac_cts_output_cta_v2_10_dissect.block_sequence_number = function(buffer, offse
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.block_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.block_sequence_number, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -8357,7 +8357,7 @@ siac_cts_output_cta_v2_10_dissect.retransmission_indicator = function(buffer, of
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.retransmission_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.retransmission_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.retransmission_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -8377,7 +8377,7 @@ siac_cts_output_cta_v2_10_dissect.data_feed_indicator = function(buffer, offset,
   local value = range:string()
   local display = siac_cts_output_cta_v2_10_display.data_feed_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.data_feed_indicator, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.data_feed_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -8397,7 +8397,7 @@ siac_cts_output_cta_v2_10_dissect.block_size = function(buffer, offset, packet, 
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.block_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.block_size, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_size, range, value, display)
 
   return offset + length, value
 end
@@ -8417,7 +8417,7 @@ siac_cts_output_cta_v2_10_dissect.version = function(buffer, offset, packet, par
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.version, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -8485,7 +8485,7 @@ end
 siac_cts_output_cta_v2_10_dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.block_header, buffer(offset, 0))
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.block_header, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10_dissect.block_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8536,23 +8536,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function siac_cts_output_cta_v2_10.init()
+function omi_siac_cts_output_cta_v2_10.init()
 end
 
 -- Dissector for Siac Cts Output Cta 2.10
-function siac_cts_output_cta_v2_10.dissector(buffer, packet, parent)
+function omi_siac_cts_output_cta_v2_10.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = siac_cts_output_cta_v2_10.name
+  packet.cols.protocol = omi_siac_cts_output_cta_v2_10.name
 
   -- Dissect protocol
-  local protocol = parent:add(siac_cts_output_cta_v2_10, buffer(), siac_cts_output_cta_v2_10.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_siac_cts_output_cta_v2_10, buffer(), omi_siac_cts_output_cta_v2_10.description, "("..buffer:len().." Bytes)")
   return siac_cts_output_cta_v2_10_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, siac_cts_output_cta_v2_10)
+udp_table:add(65333, omi_siac_cts_output_cta_v2_10)
 
 
 -----------------------------------------------------------------------
@@ -8560,25 +8560,25 @@ udp_table:add(65333, siac_cts_output_cta_v2_10)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.siac_cts_output_cta_v2_10_packet_size = function(buffer)
+verify.omi_siac_cts_output_cta_v2_10_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Siac Cts Output Cta 2.10
-local function siac_cts_output_cta_v2_10_heuristic(buffer, packet, parent)
+local function omi_siac_cts_output_cta_v2_10_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.siac_cts_output_cta_v2_10_packet_size(buffer) then return false end
+  if not verify.omi_siac_cts_output_cta_v2_10_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = siac_cts_output_cta_v2_10
-  siac_cts_output_cta_v2_10.dissector(buffer, packet, parent)
+  packet.conversation = omi_siac_cts_output_cta_v2_10
+  omi_siac_cts_output_cta_v2_10.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Siac Cts Output Cta 2.10
-siac_cts_output_cta_v2_10:register_heuristic("udp", siac_cts_output_cta_v2_10_heuristic)
+omi_siac_cts_output_cta_v2_10:register_heuristic("udp", omi_siac_cts_output_cta_v2_10_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

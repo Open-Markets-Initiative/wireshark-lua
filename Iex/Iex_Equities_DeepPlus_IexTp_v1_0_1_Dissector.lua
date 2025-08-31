@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Iex Equities DeepPlus IexTp 1.0.1 Protocol
-local iex_equities_deepplus_iextp_v1_0_1 = Proto("Iex.Equities.DeepPlus.IexTp.v1.0.1.Lua", "Iex Equities DeepPlus IexTp 1.0.1")
+local omi_iex_equities_deepplus_iextp_v1_0_1 = Proto("Iex.Equities.DeepPlus.IexTp.v1.0.1.Lua", "Iex Equities DeepPlus IexTp 1.0.1")
 
 -- Component Tables
 local show = {}
@@ -21,77 +21,77 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Iex Equities DeepPlus IexTp 1.0.1 Fields
-iex_equities_deepplus_iextp_v1_0_1.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.equities.deepplus.iextp.v1.0.1.adjustedpocprice", ftypes.DOUBLE)
-iex_equities_deepplus_iextp_v1_0_1.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.deepplus.iextp.v1.0.1.channelid", ftypes.UINT32)
-iex_equities_deepplus_iextp_v1_0_1.fields.detail = ProtoField.new("Detail", "iex.equities.deepplus.iextp.v1.0.1.detail", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.etp = ProtoField.new("Etp", "iex.equities.deepplus.iextp.v1.0.1.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
-iex_equities_deepplus_iextp_v1_0_1.fields.extended_hours = ProtoField.new("Extended Hours", "iex.equities.deepplus.iextp.v1.0.1.extendedhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-iex_equities_deepplus_iextp_v1_0_1.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.deepplus.iextp.v1.0.1.firstmessagesequencenumber", ftypes.UINT64)
-iex_equities_deepplus_iextp_v1_0_1.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.equities.deepplus.iextp.v1.0.1.iextpheader", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.equities.deepplus.iextp.v1.0.1.intermarketsweep", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-iex_equities_deepplus_iextp_v1_0_1.fields.luld_tier = ProtoField.new("Luld Tier", "iex.equities.deepplus.iextp.v1.0.1.luldtier", ftypes.UINT8)
-iex_equities_deepplus_iextp_v1_0_1.fields.message = ProtoField.new("Message", "iex.equities.deepplus.iextp.v1.0.1.message", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.message_count = ProtoField.new("Message Count", "iex.equities.deepplus.iextp.v1.0.1.messagecount", ftypes.UINT16)
-iex_equities_deepplus_iextp_v1_0_1.fields.message_data = ProtoField.new("Message Data", "iex.equities.deepplus.iextp.v1.0.1.messagedata", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.message_header = ProtoField.new("Message Header", "iex.equities.deepplus.iextp.v1.0.1.messageheader", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.message_length = ProtoField.new("Message Length", "iex.equities.deepplus.iextp.v1.0.1.messagelength", ftypes.UINT16)
-iex_equities_deepplus_iextp_v1_0_1.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.equities.deepplus.iextp.v1.0.1.messageprotocolid", ftypes.UINT16)
-iex_equities_deepplus_iextp_v1_0_1.fields.message_type = ProtoField.new("Message Type", "iex.equities.deepplus.iextp.v1.0.1.messagetype", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.modify_flags = ProtoField.new("Modify Flags", "iex.equities.deepplus.iextp.v1.0.1.modifyflags", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.odd_lot = ProtoField.new("Odd Lot", "iex.equities.deepplus.iextp.v1.0.1.oddlot", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
-iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.equities.deepplus.iextp.v1.0.1.operationalhaltstatus", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.order_id = ProtoField.new("Order Id", "iex.equities.deepplus.iextp.v1.0.1.orderid", ftypes.UINT64)
-iex_equities_deepplus_iextp_v1_0_1.fields.order_id_reference = ProtoField.new("Order Id Reference", "iex.equities.deepplus.iextp.v1.0.1.orderidreference", ftypes.UINT64)
-iex_equities_deepplus_iextp_v1_0_1.fields.packet = ProtoField.new("Packet", "iex.equities.deepplus.iextp.v1.0.1.packet", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.payload_length = ProtoField.new("Payload Length", "iex.equities.deepplus.iextp.v1.0.1.payloadlength", ftypes.UINT16)
-iex_equities_deepplus_iextp_v1_0_1.fields.price = ProtoField.new("Price", "iex.equities.deepplus.iextp.v1.0.1.price", ftypes.DOUBLE)
-iex_equities_deepplus_iextp_v1_0_1.fields.priority = ProtoField.new("Priority", "iex.equities.deepplus.iextp.v1.0.1.priority", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-iex_equities_deepplus_iextp_v1_0_1.fields.reason = ProtoField.new("Reason", "iex.equities.deepplus.iextp.v1.0.1.reason", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.reserved = ProtoField.new("Reserved", "iex.equities.deepplus.iextp.v1.0.1.reserved", ftypes.BYTES)
-iex_equities_deepplus_iextp_v1_0_1.fields.reserved_1 = ProtoField.new("Reserved 1", "iex.equities.deepplus.iextp.v1.0.1.reserved1", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator = ProtoField.new("Retail Liquidity Indicator", "iex.equities.deepplus.iextp.v1.0.1.retailliquidityindicator", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.equities.deepplus.iextp.v1.0.1.roundlotsize", ftypes.UINT32)
-iex_equities_deepplus_iextp_v1_0_1.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.equities.deepplus.iextp.v1.0.1.saleconditionflags", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_flags = ProtoField.new("Security Directory Flags", "iex.equities.deepplus.iextp.v1.0.1.securitydirectoryflags", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.security_event = ProtoField.new("Security Event", "iex.equities.deepplus.iextp.v1.0.1.securityevent", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.send_time = ProtoField.new("Send Time", "iex.equities.deepplus.iextp.v1.0.1.sendtime", ftypes.UINT64)
-iex_equities_deepplus_iextp_v1_0_1.fields.session_id = ProtoField.new("Session Id", "iex.equities.deepplus.iextp.v1.0.1.sessionid", ftypes.UINT32)
-iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.equities.deepplus.iextp.v1.0.1.shortsalepriceteststatus", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.side = ProtoField.new("Side", "iex.equities.deepplus.iextp.v1.0.1.side", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.singleprice_cross_trade = ProtoField.new("Singleprice Cross Trade", "iex.equities.deepplus.iextp.v1.0.1.singlepricecrosstrade", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-iex_equities_deepplus_iextp_v1_0_1.fields.size = ProtoField.new("Size", "iex.equities.deepplus.iextp.v1.0.1.size", ftypes.UINT32)
-iex_equities_deepplus_iextp_v1_0_1.fields.stream_offset = ProtoField.new("Stream Offset", "iex.equities.deepplus.iextp.v1.0.1.streamoffset", ftypes.UINT64)
-iex_equities_deepplus_iextp_v1_0_1.fields.symbol = ProtoField.new("Symbol", "iex.equities.deepplus.iextp.v1.0.1.symbol", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.system_event = ProtoField.new("System Event", "iex.equities.deepplus.iextp.v1.0.1.systemevent", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.test_security = ProtoField.new("Test Security", "iex.equities.deepplus.iextp.v1.0.1.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-iex_equities_deepplus_iextp_v1_0_1.fields.timestamp = ProtoField.new("Timestamp", "iex.equities.deepplus.iextp.v1.0.1.timestamp", ftypes.INT64)
-iex_equities_deepplus_iextp_v1_0_1.fields.trade_id = ProtoField.new("Trade Id", "iex.equities.deepplus.iextp.v1.0.1.tradeid", ftypes.UINT64)
-iex_equities_deepplus_iextp_v1_0_1.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.equities.deepplus.iextp.v1.0.1.tradethroughexempt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
-iex_equities_deepplus_iextp_v1_0_1.fields.trading_status = ProtoField.new("Trading Status", "iex.equities.deepplus.iextp.v1.0.1.tradingstatus", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.unused_3 = ProtoField.new("Unused 3", "iex.equities.deepplus.iextp.v1.0.1.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
-iex_equities_deepplus_iextp_v1_0_1.fields.unused_5 = ProtoField.new("Unused 5", "iex.equities.deepplus.iextp.v1.0.1.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
-iex_equities_deepplus_iextp_v1_0_1.fields.unused_7 = ProtoField.new("Unused 7", "iex.equities.deepplus.iextp.v1.0.1.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
-iex_equities_deepplus_iextp_v1_0_1.fields.version = ProtoField.new("Version", "iex.equities.deepplus.iextp.v1.0.1.version", ftypes.UINT8)
-iex_equities_deepplus_iextp_v1_0_1.fields.when_issued = ProtoField.new("When Issued", "iex.equities.deepplus.iextp.v1.0.1.whenissued", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.equities.deepplus.iextp.v1.0.1.adjustedpocprice", ftypes.DOUBLE)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.deepplus.iextp.v1.0.1.channelid", ftypes.UINT32)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.detail = ProtoField.new("Detail", "iex.equities.deepplus.iextp.v1.0.1.detail", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.etp = ProtoField.new("Etp", "iex.equities.deepplus.iextp.v1.0.1.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.extended_hours = ProtoField.new("Extended Hours", "iex.equities.deepplus.iextp.v1.0.1.extendedhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.deepplus.iextp.v1.0.1.firstmessagesequencenumber", ftypes.UINT64)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.equities.deepplus.iextp.v1.0.1.iextpheader", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.equities.deepplus.iextp.v1.0.1.intermarketsweep", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.luld_tier = ProtoField.new("Luld Tier", "iex.equities.deepplus.iextp.v1.0.1.luldtier", ftypes.UINT8)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message = ProtoField.new("Message", "iex.equities.deepplus.iextp.v1.0.1.message", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_count = ProtoField.new("Message Count", "iex.equities.deepplus.iextp.v1.0.1.messagecount", ftypes.UINT16)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_data = ProtoField.new("Message Data", "iex.equities.deepplus.iextp.v1.0.1.messagedata", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_header = ProtoField.new("Message Header", "iex.equities.deepplus.iextp.v1.0.1.messageheader", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_length = ProtoField.new("Message Length", "iex.equities.deepplus.iextp.v1.0.1.messagelength", ftypes.UINT16)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.equities.deepplus.iextp.v1.0.1.messageprotocolid", ftypes.UINT16)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_type = ProtoField.new("Message Type", "iex.equities.deepplus.iextp.v1.0.1.messagetype", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.modify_flags = ProtoField.new("Modify Flags", "iex.equities.deepplus.iextp.v1.0.1.modifyflags", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.odd_lot = ProtoField.new("Odd Lot", "iex.equities.deepplus.iextp.v1.0.1.oddlot", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.equities.deepplus.iextp.v1.0.1.operationalhaltstatus", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_id = ProtoField.new("Order Id", "iex.equities.deepplus.iextp.v1.0.1.orderid", ftypes.UINT64)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_id_reference = ProtoField.new("Order Id Reference", "iex.equities.deepplus.iextp.v1.0.1.orderidreference", ftypes.UINT64)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.packet = ProtoField.new("Packet", "iex.equities.deepplus.iextp.v1.0.1.packet", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.payload_length = ProtoField.new("Payload Length", "iex.equities.deepplus.iextp.v1.0.1.payloadlength", ftypes.UINT16)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.price = ProtoField.new("Price", "iex.equities.deepplus.iextp.v1.0.1.price", ftypes.DOUBLE)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.priority = ProtoField.new("Priority", "iex.equities.deepplus.iextp.v1.0.1.priority", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.reason = ProtoField.new("Reason", "iex.equities.deepplus.iextp.v1.0.1.reason", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.reserved = ProtoField.new("Reserved", "iex.equities.deepplus.iextp.v1.0.1.reserved", ftypes.BYTES)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.reserved_1 = ProtoField.new("Reserved 1", "iex.equities.deepplus.iextp.v1.0.1.reserved1", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator = ProtoField.new("Retail Liquidity Indicator", "iex.equities.deepplus.iextp.v1.0.1.retailliquidityindicator", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.equities.deepplus.iextp.v1.0.1.roundlotsize", ftypes.UINT32)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.equities.deepplus.iextp.v1.0.1.saleconditionflags", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_flags = ProtoField.new("Security Directory Flags", "iex.equities.deepplus.iextp.v1.0.1.securitydirectoryflags", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_event = ProtoField.new("Security Event", "iex.equities.deepplus.iextp.v1.0.1.securityevent", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.send_time = ProtoField.new("Send Time", "iex.equities.deepplus.iextp.v1.0.1.sendtime", ftypes.UINT64)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.session_id = ProtoField.new("Session Id", "iex.equities.deepplus.iextp.v1.0.1.sessionid", ftypes.UINT32)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.equities.deepplus.iextp.v1.0.1.shortsalepriceteststatus", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.side = ProtoField.new("Side", "iex.equities.deepplus.iextp.v1.0.1.side", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.singleprice_cross_trade = ProtoField.new("Singleprice Cross Trade", "iex.equities.deepplus.iextp.v1.0.1.singlepricecrosstrade", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.size = ProtoField.new("Size", "iex.equities.deepplus.iextp.v1.0.1.size", ftypes.UINT32)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.stream_offset = ProtoField.new("Stream Offset", "iex.equities.deepplus.iextp.v1.0.1.streamoffset", ftypes.UINT64)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.symbol = ProtoField.new("Symbol", "iex.equities.deepplus.iextp.v1.0.1.symbol", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.system_event = ProtoField.new("System Event", "iex.equities.deepplus.iextp.v1.0.1.systemevent", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.test_security = ProtoField.new("Test Security", "iex.equities.deepplus.iextp.v1.0.1.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.timestamp = ProtoField.new("Timestamp", "iex.equities.deepplus.iextp.v1.0.1.timestamp", ftypes.INT64)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_id = ProtoField.new("Trade Id", "iex.equities.deepplus.iextp.v1.0.1.tradeid", ftypes.UINT64)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.equities.deepplus.iextp.v1.0.1.tradethroughexempt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.trading_status = ProtoField.new("Trading Status", "iex.equities.deepplus.iextp.v1.0.1.tradingstatus", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.unused_3 = ProtoField.new("Unused 3", "iex.equities.deepplus.iextp.v1.0.1.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.unused_5 = ProtoField.new("Unused 5", "iex.equities.deepplus.iextp.v1.0.1.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.unused_7 = ProtoField.new("Unused 7", "iex.equities.deepplus.iextp.v1.0.1.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.version = ProtoField.new("Version", "iex.equities.deepplus.iextp.v1.0.1.version", ftypes.UINT8)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.when_issued = ProtoField.new("When Issued", "iex.equities.deepplus.iextp.v1.0.1.whenissued", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 
 -- Iex Equities DeepPlus IexTp 1.0.1 messages
-iex_equities_deepplus_iextp_v1_0_1.fields.add_order_message = ProtoField.new("Add Order Message", "iex.equities.deepplus.iextp.v1.0.1.addordermessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.clear_book_message = ProtoField.new("Clear Book Message", "iex.equities.deepplus.iextp.v1.0.1.clearbookmessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status_message = ProtoField.new("Operational Halt Status Message", "iex.equities.deepplus.iextp.v1.0.1.operationalhaltstatusmessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.order_delete_message = ProtoField.new("Order Delete Message", "iex.equities.deepplus.iextp.v1.0.1.orderdeletemessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.order_executed_message = ProtoField.new("Order Executed Message", "iex.equities.deepplus.iextp.v1.0.1.orderexecutedmessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.order_modify_message = ProtoField.new("Order Modify Message", "iex.equities.deepplus.iextp.v1.0.1.ordermodifymessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator_message = ProtoField.new("Retail Liquidity Indicator Message", "iex.equities.deepplus.iextp.v1.0.1.retailliquidityindicatormessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_message = ProtoField.new("Security Directory Message", "iex.equities.deepplus.iextp.v1.0.1.securitydirectorymessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.security_event_message = ProtoField.new("Security Event Message", "iex.equities.deepplus.iextp.v1.0.1.securityeventmessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status_message = ProtoField.new("Short Sale Price Test Status Message", "iex.equities.deepplus.iextp.v1.0.1.shortsalepriceteststatusmessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.system_event_message = ProtoField.new("System Event Message", "iex.equities.deepplus.iextp.v1.0.1.systemeventmessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.trade_break_message = ProtoField.new("Trade Break Message", "iex.equities.deepplus.iextp.v1.0.1.tradebreakmessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.trade_message = ProtoField.new("Trade Message", "iex.equities.deepplus.iextp.v1.0.1.trademessage", ftypes.STRING)
-iex_equities_deepplus_iextp_v1_0_1.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.equities.deepplus.iextp.v1.0.1.tradingstatusmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.add_order_message = ProtoField.new("Add Order Message", "iex.equities.deepplus.iextp.v1.0.1.addordermessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.clear_book_message = ProtoField.new("Clear Book Message", "iex.equities.deepplus.iextp.v1.0.1.clearbookmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status_message = ProtoField.new("Operational Halt Status Message", "iex.equities.deepplus.iextp.v1.0.1.operationalhaltstatusmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_delete_message = ProtoField.new("Order Delete Message", "iex.equities.deepplus.iextp.v1.0.1.orderdeletemessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_executed_message = ProtoField.new("Order Executed Message", "iex.equities.deepplus.iextp.v1.0.1.orderexecutedmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_modify_message = ProtoField.new("Order Modify Message", "iex.equities.deepplus.iextp.v1.0.1.ordermodifymessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator_message = ProtoField.new("Retail Liquidity Indicator Message", "iex.equities.deepplus.iextp.v1.0.1.retailliquidityindicatormessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_message = ProtoField.new("Security Directory Message", "iex.equities.deepplus.iextp.v1.0.1.securitydirectorymessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_event_message = ProtoField.new("Security Event Message", "iex.equities.deepplus.iextp.v1.0.1.securityeventmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status_message = ProtoField.new("Short Sale Price Test Status Message", "iex.equities.deepplus.iextp.v1.0.1.shortsalepriceteststatusmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.system_event_message = ProtoField.new("System Event Message", "iex.equities.deepplus.iextp.v1.0.1.systemeventmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_break_message = ProtoField.new("Trade Break Message", "iex.equities.deepplus.iextp.v1.0.1.tradebreakmessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_message = ProtoField.new("Trade Message", "iex.equities.deepplus.iextp.v1.0.1.trademessage", ftypes.STRING)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.equities.deepplus.iextp.v1.0.1.tradingstatusmessage", ftypes.STRING)
 
 -- Iex Equities DeepPlus IexTp 1.0.1 generated fields
-iex_equities_deepplus_iextp_v1_0_1.fields.message_index = ProtoField.new("Message Index", "iex.equities.deepplus.iextp.v1.0.1.messageindex", ftypes.UINT16)
+omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_index = ProtoField.new("Message Index", "iex.equities.deepplus.iextp.v1.0.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -122,120 +122,120 @@ show.trading_status_message = true
 show.message_data = false
 
 -- Register Iex Equities DeepPlus IexTp 1.0.1 Show Options
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_iex_tp_header = Pref.bool("Show Iex Tp Header", show.iex_tp_header, "Parse and add Iex Tp Header to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message = Pref.bool("Show Operational Halt Status Message", show.operational_halt_status_message, "Parse and add Operational Halt Status Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message = Pref.bool("Show Retail Liquidity Indicator Message", show.retail_liquidity_indicator_message, "Parse and add Retail Liquidity Indicator Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message = Pref.bool("Show Security Directory Message", show.security_directory_message, "Parse and add Security Directory Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message = Pref.bool("Show Security Event Message", show.security_event_message, "Parse and add Security Event Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message = Pref.bool("Show Short Sale Price Test Status Message", show.short_sale_price_test_status_message, "Parse and add Short Sale Price Test Status Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
-iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_data = Pref.bool("Show Message Data", show.message_data, "Parse and add Message Data to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_iex_tp_header = Pref.bool("Show Iex Tp Header", show.iex_tp_header, "Parse and add Iex Tp Header to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message = Pref.bool("Show Operational Halt Status Message", show.operational_halt_status_message, "Parse and add Operational Halt Status Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message = Pref.bool("Show Retail Liquidity Indicator Message", show.retail_liquidity_indicator_message, "Parse and add Retail Liquidity Indicator Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message = Pref.bool("Show Security Directory Message", show.security_directory_message, "Parse and add Security Directory Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message = Pref.bool("Show Security Event Message", show.security_event_message, "Parse and add Security Event Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message = Pref.bool("Show Short Sale Price Test Status Message", show.short_sale_price_test_status_message, "Parse and add Short Sale Price Test Status Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_data = Pref.bool("Show Message Data", show.message_data, "Parse and add Message Data to protocol tree")
 
 -- Handle changed preferences
-function iex_equities_deepplus_iextp_v1_0_1.prefs_changed()
+function omi_iex_equities_deepplus_iextp_v1_0_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message then
-    show.add_order_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message
+  if show.add_order_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message then
+    show.add_order_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message
     changed = true
   end
-  if show.clear_book_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message then
-    show.clear_book_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message
+  if show.clear_book_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message then
+    show.clear_book_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message
     changed = true
   end
-  if show.iex_tp_header ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_iex_tp_header then
-    show.iex_tp_header = iex_equities_deepplus_iextp_v1_0_1.prefs.show_iex_tp_header
+  if show.iex_tp_header ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_iex_tp_header then
+    show.iex_tp_header = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_iex_tp_header
     changed = true
   end
-  if show.message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_message then
-    show.message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_message
+  if show.message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message then
+    show.message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message
     changed = true
   end
-  if show.message_header ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_header then
-    show.message_header = iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_header
+  if show.message_header ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_header then
+    show.message_header = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_header
     changed = true
   end
-  if show.modify_flags ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags then
-    show.modify_flags = iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags
+  if show.modify_flags ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags then
+    show.modify_flags = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags
     changed = true
   end
-  if show.operational_halt_status_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message then
-    show.operational_halt_status_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message
+  if show.operational_halt_status_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message then
+    show.operational_halt_status_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message
     changed = true
   end
-  if show.order_delete_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message then
-    show.order_delete_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message
+  if show.order_delete_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message then
+    show.order_delete_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message
     changed = true
   end
-  if show.order_executed_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message then
-    show.order_executed_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message then
+    show.order_executed_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_modify_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message then
-    show.order_modify_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message
+  if show.order_modify_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message then
+    show.order_modify_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message
     changed = true
   end
-  if show.packet ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet then
-    show.packet = iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet
+  if show.packet ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet then
+    show.packet = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet
     changed = true
   end
-  if show.retail_liquidity_indicator_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message then
-    show.retail_liquidity_indicator_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message
+  if show.retail_liquidity_indicator_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message then
+    show.retail_liquidity_indicator_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message
     changed = true
   end
-  if show.sale_condition_flags ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags then
-    show.sale_condition_flags = iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags
+  if show.sale_condition_flags ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags then
+    show.sale_condition_flags = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags
     changed = true
   end
-  if show.security_directory_flags ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags then
-    show.security_directory_flags = iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags
+  if show.security_directory_flags ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags then
+    show.security_directory_flags = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags
     changed = true
   end
-  if show.security_directory_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message then
-    show.security_directory_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message
+  if show.security_directory_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message then
+    show.security_directory_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message
     changed = true
   end
-  if show.security_event_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message then
-    show.security_event_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message
+  if show.security_event_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message then
+    show.security_event_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message
     changed = true
   end
-  if show.short_sale_price_test_status_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message then
-    show.short_sale_price_test_status_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message
+  if show.short_sale_price_test_status_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message then
+    show.short_sale_price_test_status_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message
     changed = true
   end
-  if show.system_event_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message then
-    show.system_event_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message
+  if show.system_event_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message then
+    show.system_event_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message
     changed = true
   end
-  if show.trade_break_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message then
-    show.trade_break_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message
+  if show.trade_break_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message then
+    show.trade_break_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message
     changed = true
   end
-  if show.trade_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message then
-    show.trade_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message
+  if show.trade_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message then
+    show.trade_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message
     changed = true
   end
-  if show.trading_status_message ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message then
-    show.trading_status_message = iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message
+  if show.trading_status_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message then
+    show.trading_status_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message
     changed = true
   end
-  if show.message_data ~= iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_data then
-    show.message_data = iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_data
+  if show.message_data ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_data then
+    show.message_data = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_data
     changed = true
   end
 
@@ -283,7 +283,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.symbol = function(buffer, offset, pac
   local value = trim_right_spaces(range:string())
   local display = iex_equities_deepplus_iextp_v1_0_1_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.symbol, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -307,7 +307,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp = function(buffer, offset, 
   local value = range:le_int64()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.timestamp, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -327,7 +327,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_1 = function(buffer, offset,
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.reserved_1, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -370,7 +370,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.clear_book_message = function(buffer, offset, packet, parent)
   if show.clear_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.clear_book_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.clear_book_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.clear_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -399,7 +399,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.trade_id = function(buffer, offset, p
   local value = range:le_uint64()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trade_id, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -425,7 +425,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.price = function(buffer, offset, pack
   local value = translate.price(raw)
   local display = iex_equities_deepplus_iextp_v1_0_1_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.price, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -445,7 +445,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.size = function(buffer, offset, packe
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.size(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.size, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -485,22 +485,22 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags_bits = function(buffer, offset, packet, parent)
 
   -- Intermarket Sweep: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.intermarket_sweep, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.intermarket_sweep, buffer(offset, 1))
 
   -- Extended Hours: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.extended_hours, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.extended_hours, buffer(offset, 1))
 
   -- Odd Lot: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.odd_lot, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.odd_lot, buffer(offset, 1))
 
   -- Trade Through Exempt: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trade_through_exempt, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_through_exempt, buffer(offset, 1))
 
   -- Singleprice Cross Trade: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.singleprice_cross_trade, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.singleprice_cross_trade, buffer(offset, 1))
 
   -- Unused 3: 3 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_3, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.unused_3, buffer(offset, 1))
 end
 
 -- Dissect: Sale Condition Flags
@@ -508,7 +508,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags = function(buffe
   local size = 1
   local range = buffer(offset, size)
   local display = iex_equities_deepplus_iextp_v1_0_1_display.sale_condition_flags(range, packet, parent)
-  local element = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.sale_condition_flags, range, display)
+  local element = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.sale_condition_flags, range, display)
 
   if show.sale_condition_flags then
     iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags_bits(buffer, offset, packet, element)
@@ -570,7 +570,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.trade_break_message = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trade_break_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_break_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.trade_break_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -637,7 +637,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -666,7 +666,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.order_id_reference = function(buffer,
   local value = range:le_uint64()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.order_id_reference(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.order_id_reference, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_id_reference, range, value, display)
 
   return offset + length, value
 end
@@ -729,7 +729,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_executed_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -786,7 +786,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.order_delete_message = function(buffer, offset, packet, parent)
   if show.order_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.order_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_delete_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.order_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -819,10 +819,10 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.modify_flags_bits = function(buffer, offset, packet, parent)
 
   -- Priority: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.priority, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.priority, buffer(offset, 1))
 
   -- Unused 7: 7 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_7, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.unused_7, buffer(offset, 1))
 end
 
 -- Dissect: Modify Flags
@@ -830,7 +830,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.modify_flags = function(buffer, offse
   local size = 1
   local range = buffer(offset, size)
   local display = iex_equities_deepplus_iextp_v1_0_1_display.modify_flags(range, packet, parent)
-  local element = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.modify_flags, range, display)
+  local element = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.modify_flags, range, display)
 
   if show.modify_flags then
     iex_equities_deepplus_iextp_v1_0_1_dissect.modify_flags_bits(buffer, offset, packet, element)
@@ -892,7 +892,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.order_modify_message = function(buffer, offset, packet, parent)
   if show.order_modify_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.order_modify_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_modify_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.order_modify_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -921,7 +921,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.order_id = function(buffer, offset, p
   local value = range:le_uint64()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.order_id, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -941,7 +941,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.side = function(buffer, offset, packe
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.side, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -999,7 +999,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.add_order_message = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.add_order_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.add_order_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.add_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1041,7 +1041,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.security_event = function(buffer, off
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.security_event(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.security_event, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_event, range, value, display)
 
   return offset + length, value
 end
@@ -1084,7 +1084,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.security_event_message = function(buffer, offset, packet, parent)
   if show.security_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.security_event_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_event_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.security_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1129,7 +1129,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.detail = function(buffer, offset, pac
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.detail(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.detail, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.detail, range, value, display)
 
   return offset + length, value
 end
@@ -1156,7 +1156,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.short_sale_price_test_status = functi
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.short_sale_price_test_status(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status, range, value, display)
 
   return offset + length, value
 end
@@ -1204,7 +1204,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.short_sale_price_test_status_message = function(buffer, offset, packet, parent)
   if show.short_sale_price_test_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.short_sale_price_test_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1240,7 +1240,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.operational_halt_status = function(bu
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.operational_halt_status(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status, range, value, display)
 
   return offset + length, value
 end
@@ -1283,7 +1283,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.operational_halt_status_message = function(buffer, offset, packet, parent)
   if show.operational_halt_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.operational_halt_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1325,7 +1325,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.retail_liquidity_indicator = function
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.retail_liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1368,7 +1368,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.retail_liquidity_indicator_message = function(buffer, offset, packet, parent)
   if show.retail_liquidity_indicator_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.retail_liquidity_indicator_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1397,7 +1397,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.reason = function(buffer, offset, pac
   local value = trim_right_spaces(range:string())
   local display = iex_equities_deepplus_iextp_v1_0_1_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.reason, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -1430,7 +1430,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.trading_status = function(buffer, off
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trading_status, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1478,7 +1478,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.trading_status_message = function(buffer, offset, packet, parent)
   if show.trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trading_status_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trading_status_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.trading_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1517,7 +1517,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.luld_tier = function(buffer, offset, 
   local value = range:uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.luld_tier(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.luld_tier, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.luld_tier, range, value, display)
 
   return offset + length, value
 end
@@ -1543,7 +1543,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.adjusted_poc_price = function(buffer,
   local value = translate.adjusted_poc_price(raw)
   local display = iex_equities_deepplus_iextp_v1_0_1_display.adjusted_poc_price(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.adjusted_poc_price, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.adjusted_poc_price, range, value, display)
 
   return offset + length, value
 end
@@ -1563,7 +1563,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.round_lot_size = function(buffer, off
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.round_lot_size, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -1595,16 +1595,16 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_flags_bits = function(buffer, offset, packet, parent)
 
   -- Test Security: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.test_security, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.test_security, buffer(offset, 1))
 
   -- When Issued: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.when_issued, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.when_issued, buffer(offset, 1))
 
   -- Etp: 1 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.etp, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.etp, buffer(offset, 1))
 
   -- Unused 5: 5 Bit
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.unused_5, buffer(offset, 1))
 end
 
 -- Dissect: Security Directory Flags
@@ -1612,7 +1612,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_flags = function(b
   local size = 1
   local range = buffer(offset, size)
   local display = iex_equities_deepplus_iextp_v1_0_1_display.security_directory_flags(range, packet, parent)
-  local element = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_flags, range, display)
+  local element = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_flags, range, display)
 
   if show.security_directory_flags then
     iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_flags_bits(buffer, offset, packet, element)
@@ -1674,7 +1674,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_message = function(buffer, offset, packet, parent)
   if show.security_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1722,7 +1722,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.system_event = function(buffer, offse
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.system_event(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.system_event, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.system_event, range, value, display)
 
   return offset + length, value
 end
@@ -1760,7 +1760,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.system_event_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1918,7 +1918,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.message_data = function(buffer, offse
   -- Dissect Element
   local range = buffer(offset, size)
   local display = iex_equities_deepplus_iextp_v1_0_1_display.message_data(buffer, packet, parent)
-  local element = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message_data, range, display)
+  local element = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_data, range, display)
 
   return iex_equities_deepplus_iextp_v1_0_1_dissect.message_data_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1981,7 +1981,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.message_type = function(buffer, offse
   local value = range:string()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message_type, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2001,7 +2001,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.message_length = function(buffer, off
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message_length, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2039,7 +2039,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_header, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2064,7 +2064,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.message_fields = function(buffer, off
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message_index, message_index)
+    local iteration = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2086,7 +2086,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.message = function(buffer, offset, pa
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message, buffer(offset, 0))
     local current = iex_equities_deepplus_iextp_v1_0_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = iex_equities_deepplus_iextp_v1_0_1_display.message(buffer, packet, parent)
@@ -2120,7 +2120,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.send_time = function(buffer, offset, 
   local value = range:le_uint64()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.send_time(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.send_time, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.send_time, range, value, display)
 
   return offset + length, value
 end
@@ -2140,7 +2140,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.first_message_sequence_number = funct
   local value = range:le_uint64()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.first_message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.first_message_sequence_number, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.first_message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2160,7 +2160,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.stream_offset = function(buffer, offs
   local value = range:le_uint64()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.stream_offset(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.stream_offset, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.stream_offset, range, value, display)
 
   return offset + length, value
 end
@@ -2180,7 +2180,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.message_count = function(buffer, offs
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message_count, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2200,7 +2200,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.payload_length = function(buffer, off
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.payload_length(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.payload_length, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.payload_length, range, value, display)
 
   return offset + length, value
 end
@@ -2220,7 +2220,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.session_id = function(buffer, offset,
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.session_id, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -2240,7 +2240,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.channel_id = function(buffer, offset,
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.channel_id, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -2260,7 +2260,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.message_protocol_id = function(buffer
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.message_protocol_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.message_protocol_id, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_protocol_id, range, value, display)
 
   return offset + length, value
 end
@@ -2280,7 +2280,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.reserved = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = iex_equities_deepplus_iextp_v1_0_1_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.reserved, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2300,7 +2300,7 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.version = function(buffer, offset, pa
   local value = range:le_uint()
   local display = iex_equities_deepplus_iextp_v1_0_1_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.version, range, value, display)
+  parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -2378,7 +2378,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.iex_tp_header = function(buffer, offset, packet, parent)
   if show.iex_tp_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.iex_tp_header, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.iex_tp_header, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2424,23 +2424,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function iex_equities_deepplus_iextp_v1_0_1.init()
+function omi_iex_equities_deepplus_iextp_v1_0_1.init()
 end
 
 -- Dissector for Iex Equities DeepPlus IexTp 1.0.1
-function iex_equities_deepplus_iextp_v1_0_1.dissector(buffer, packet, parent)
+function omi_iex_equities_deepplus_iextp_v1_0_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = iex_equities_deepplus_iextp_v1_0_1.name
+  packet.cols.protocol = omi_iex_equities_deepplus_iextp_v1_0_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(iex_equities_deepplus_iextp_v1_0_1, buffer(), iex_equities_deepplus_iextp_v1_0_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1, buffer(), omi_iex_equities_deepplus_iextp_v1_0_1.description, "("..buffer:len().." Bytes)")
   return iex_equities_deepplus_iextp_v1_0_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, iex_equities_deepplus_iextp_v1_0_1)
+udp_table:add(65333, omi_iex_equities_deepplus_iextp_v1_0_1)
 
 
 -----------------------------------------------------------------------
@@ -2448,25 +2448,25 @@ udp_table:add(65333, iex_equities_deepplus_iextp_v1_0_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.iex_equities_deepplus_iextp_v1_0_1_packet_size = function(buffer)
+verify.omi_iex_equities_deepplus_iextp_v1_0_1_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Iex Equities DeepPlus IexTp 1.0.1
-local function iex_equities_deepplus_iextp_v1_0_1_heuristic(buffer, packet, parent)
+local function omi_iex_equities_deepplus_iextp_v1_0_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.iex_equities_deepplus_iextp_v1_0_1_packet_size(buffer) then return false end
+  if not verify.omi_iex_equities_deepplus_iextp_v1_0_1_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = iex_equities_deepplus_iextp_v1_0_1
-  iex_equities_deepplus_iextp_v1_0_1.dissector(buffer, packet, parent)
+  packet.conversation = omi_iex_equities_deepplus_iextp_v1_0_1
+  omi_iex_equities_deepplus_iextp_v1_0_1.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Iex Equities DeepPlus IexTp 1.0.1
-iex_equities_deepplus_iextp_v1_0_1:register_heuristic("udp", iex_equities_deepplus_iextp_v1_0_1_heuristic)
+omi_iex_equities_deepplus_iextp_v1_0_1:register_heuristic("udp", omi_iex_equities_deepplus_iextp_v1_0_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

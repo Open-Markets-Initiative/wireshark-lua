@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- A2X Equities Rtmdf Amd 1.3.2 Protocol
-local a2x_equities_rtmdf_amd_v1_3_2 = Proto("A2X.Equities.Rtmdf.Amd.v1.3.2.Lua", "A2X Equities Rtmdf Amd 1.3.2")
+local omi_a2x_equities_rtmdf_amd_v1_3_2 = Proto("A2X.Equities.Rtmdf.Amd.v1.3.2.Lua", "A2X Equities Rtmdf Amd 1.3.2")
 
 -- Component Tables
 local show = {}
@@ -20,62 +20,62 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- A2X Equities Rtmdf Amd 1.3.2 Fields
-a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.equities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x001000)
-a2x_equities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.equities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32)
-a2x_equities_rtmdf_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.equities.rtmdf.amd.v1.3.2.closingsellqty", ftypes.UINT32)
-a2x_equities_rtmdf_amd_v1_3_2.fields.currency = ProtoField.new("Currency", "a2x.equities.rtmdf.amd.v1.3.2.currency", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid = ProtoField.new("Illiquid", "a2x.equities.rtmdf.amd.v1.3.2.illiquid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000400)
-a2x_equities_rtmdf_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.equities.rtmdf.amd.v1.3.2.indicativeprice", ftypes.UINT64)
-a2x_equities_rtmdf_amd_v1_3_2.fields.isin = ProtoField.new("Isin", "a2x.equities.rtmdf.amd.v1.3.2.isin", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.equities.rtmdf.amd.v1.3.2.macenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000080)
-a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.equities.rtmdf.amd.v1.3.2.macopen", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.equities.rtmdf.amd.v1.3.2.macrun", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-a2x_equities_rtmdf_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.equities.rtmdf.amd.v1.3.2.marketflags", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.match_vol = ProtoField.new("Match Vol", "a2x.equities.rtmdf.amd.v1.3.2.matchvol", ftypes.UINT32)
-a2x_equities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.equities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.equities.rtmdf.amd.v1.3.2.messagecount", ftypes.UINT8)
-a2x_equities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.equities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.mic = ProtoField.new("Mic", "a2x.equities.rtmdf.amd.v1.3.2.mic", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.msg_length = ProtoField.new("Msg Length", "a2x.equities.rtmdf.amd.v1.3.2.msglength", ftypes.UINT8)
-a2x_equities_rtmdf_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "a2x.equities.rtmdf.amd.v1.3.2.msgtype", ftypes.UINT8)
-a2x_equities_rtmdf_amd_v1_3_2.fields.name = ProtoField.new("Name", "a2x.equities.rtmdf.amd.v1.3.2.name", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.equities.rtmdf.amd.v1.3.2.orderref", ftypes.UINT32)
-a2x_equities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.equities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.payload = ProtoField.new("Payload", "a2x.equities.rtmdf.amd.v1.3.2.payload", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.equities.rtmdf.amd.v1.3.2.price", ftypes.UINT64)
-a2x_equities_rtmdf_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.equities.rtmdf.amd.v1.3.2.quantity", ftypes.UINT32)
-a2x_equities_rtmdf_amd_v1_3_2.fields.security_flags = ProtoField.new("Security Flags", "a2x.equities.rtmdf.amd.v1.3.2.securityflags", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.security_id = ProtoField.new("Security Id", "a2x.equities.rtmdf.amd.v1.3.2.securityid", ftypes.UINT16)
-a2x_equities_rtmdf_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.equities.rtmdf.amd.v1.3.2.seqno", ftypes.UINT32)
-a2x_equities_rtmdf_amd_v1_3_2.fields.side = ProtoField.new("Side", "a2x.equities.rtmdf.amd.v1.3.2.side", ftypes.UINT8)
-a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock = ProtoField.new("Test Stock", "a2x.equities.rtmdf.amd.v1.3.2.teststock", ftypes.UINT16, nil, base.DEC, 0x000300)
-a2x_equities_rtmdf_amd_v1_3_2.fields.threshold = ProtoField.new("Threshold", "a2x.equities.rtmdf.amd.v1.3.2.threshold", ftypes.UINT64)
-a2x_equities_rtmdf_amd_v1_3_2.fields.tick_size = ProtoField.new("Tick Size", "a2x.equities.rtmdf.amd.v1.3.2.ticksize", ftypes.UINT64)
-a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_id = ProtoField.new("Tick Table Id", "a2x.equities.rtmdf.amd.v1.3.2.ticktableid", ftypes.UINT8)
-a2x_equities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.equities.rtmdf.amd.v1.3.2.timestamp", ftypes.UINT64)
-a2x_equities_rtmdf_amd_v1_3_2.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.equities.rtmdf.amd.v1.3.2.traderef", ftypes.UINT32)
-a2x_equities_rtmdf_amd_v1_3_2.fields.trade_type = ProtoField.new("Trade Type", "a2x.equities.rtmdf.amd.v1.3.2.tradetype", ftypes.UINT8)
-a2x_equities_rtmdf_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.rtmdf.amd.v1.3.2.trading", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-a2x_equities_rtmdf_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.equities.rtmdf.amd.v1.3.2.tradingstatus", ftypes.UINT8)
-a2x_equities_rtmdf_amd_v1_3_2.fields.umtf = ProtoField.new("Umtf", "a2x.equities.rtmdf.amd.v1.3.2.umtf", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1", "a2x.equities.rtmdf.amd.v1.3.2.unused1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000800)
-a2x_equities_rtmdf_amd_v1_3_2.fields.unused_11 = ProtoField.new("Unused 11", "a2x.equities.rtmdf.amd.v1.3.2.unused11", ftypes.UINT16, nil, base.DEC, 0xFFE000)
-a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.equities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x001000)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.equities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.equities.rtmdf.amd.v1.3.2.closingsellqty", ftypes.UINT32)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.currency = ProtoField.new("Currency", "a2x.equities.rtmdf.amd.v1.3.2.currency", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid = ProtoField.new("Illiquid", "a2x.equities.rtmdf.amd.v1.3.2.illiquid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000400)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.equities.rtmdf.amd.v1.3.2.indicativeprice", ftypes.UINT64)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.isin = ProtoField.new("Isin", "a2x.equities.rtmdf.amd.v1.3.2.isin", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.equities.rtmdf.amd.v1.3.2.macenabled", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000080)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.equities.rtmdf.amd.v1.3.2.macopen", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.equities.rtmdf.amd.v1.3.2.macrun", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.equities.rtmdf.amd.v1.3.2.marketflags", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.match_vol = ProtoField.new("Match Vol", "a2x.equities.rtmdf.amd.v1.3.2.matchvol", ftypes.UINT32)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.equities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.equities.rtmdf.amd.v1.3.2.messagecount", ftypes.UINT8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.equities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mic = ProtoField.new("Mic", "a2x.equities.rtmdf.amd.v1.3.2.mic", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.msg_length = ProtoField.new("Msg Length", "a2x.equities.rtmdf.amd.v1.3.2.msglength", ftypes.UINT8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "a2x.equities.rtmdf.amd.v1.3.2.msgtype", ftypes.UINT8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.name = ProtoField.new("Name", "a2x.equities.rtmdf.amd.v1.3.2.name", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.equities.rtmdf.amd.v1.3.2.orderref", ftypes.UINT32)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.equities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.payload = ProtoField.new("Payload", "a2x.equities.rtmdf.amd.v1.3.2.payload", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.equities.rtmdf.amd.v1.3.2.price", ftypes.UINT64)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.equities.rtmdf.amd.v1.3.2.quantity", ftypes.UINT32)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_flags = ProtoField.new("Security Flags", "a2x.equities.rtmdf.amd.v1.3.2.securityflags", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_id = ProtoField.new("Security Id", "a2x.equities.rtmdf.amd.v1.3.2.securityid", ftypes.UINT16)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.equities.rtmdf.amd.v1.3.2.seqno", ftypes.UINT32)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.side = ProtoField.new("Side", "a2x.equities.rtmdf.amd.v1.3.2.side", ftypes.UINT8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock = ProtoField.new("Test Stock", "a2x.equities.rtmdf.amd.v1.3.2.teststock", ftypes.UINT16, nil, base.DEC, 0x000300)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.threshold = ProtoField.new("Threshold", "a2x.equities.rtmdf.amd.v1.3.2.threshold", ftypes.UINT64)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_size = ProtoField.new("Tick Size", "a2x.equities.rtmdf.amd.v1.3.2.ticksize", ftypes.UINT64)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_id = ProtoField.new("Tick Table Id", "a2x.equities.rtmdf.amd.v1.3.2.ticktableid", ftypes.UINT8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.equities.rtmdf.amd.v1.3.2.timestamp", ftypes.UINT64)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.equities.rtmdf.amd.v1.3.2.traderef", ftypes.UINT32)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_type = ProtoField.new("Trade Type", "a2x.equities.rtmdf.amd.v1.3.2.tradetype", ftypes.UINT8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.rtmdf.amd.v1.3.2.trading", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.equities.rtmdf.amd.v1.3.2.tradingstatus", ftypes.UINT8)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.umtf = ProtoField.new("Umtf", "a2x.equities.rtmdf.amd.v1.3.2.umtf", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1", "a2x.equities.rtmdf.amd.v1.3.2.unused1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x000800)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_11 = ProtoField.new("Unused 11", "a2x.equities.rtmdf.amd.v1.3.2.unused11", ftypes.UINT16, nil, base.DEC, 0xFFE000)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 
 -- A2X Equities Rtmdf Amd 1.3.2 messages
-a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message = ProtoField.new("Auction On Demand Message", "a2x.equities.rtmdf.amd.v1.3.2.auctionondemandmessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close = ProtoField.new("Market At Close", "a2x.equities.rtmdf.amd.v1.3.2.marketatclose", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message = ProtoField.new("Order Add Message", "a2x.equities.rtmdf.amd.v1.3.2.orderaddmessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "a2x.equities.rtmdf.amd.v1.3.2.ordercancelmessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.order_modify_message = ProtoField.new("Order Modify Message", "a2x.equities.rtmdf.amd.v1.3.2.ordermodifymessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.security_definition_message = ProtoField.new("Security Definition Message", "a2x.equities.rtmdf.amd.v1.3.2.securitydefinitionmessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.security_status_message = ProtoField.new("Security Status Message", "a2x.equities.rtmdf.amd.v1.3.2.securitystatusmessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_data_message = ProtoField.new("Tick Table Data Message", "a2x.equities.rtmdf.amd.v1.3.2.ticktabledatamessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "a2x.equities.rtmdf.amd.v1.3.2.tradebustmessage", ftypes.STRING)
-a2x_equities_rtmdf_amd_v1_3_2.fields.trade_message = ProtoField.new("Trade Message", "a2x.equities.rtmdf.amd.v1.3.2.trademessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message = ProtoField.new("Auction On Demand Message", "a2x.equities.rtmdf.amd.v1.3.2.auctionondemandmessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close = ProtoField.new("Market At Close", "a2x.equities.rtmdf.amd.v1.3.2.marketatclose", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message = ProtoField.new("Order Add Message", "a2x.equities.rtmdf.amd.v1.3.2.orderaddmessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "a2x.equities.rtmdf.amd.v1.3.2.ordercancelmessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_modify_message = ProtoField.new("Order Modify Message", "a2x.equities.rtmdf.amd.v1.3.2.ordermodifymessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_definition_message = ProtoField.new("Security Definition Message", "a2x.equities.rtmdf.amd.v1.3.2.securitydefinitionmessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_status_message = ProtoField.new("Security Status Message", "a2x.equities.rtmdf.amd.v1.3.2.securitystatusmessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_data_message = ProtoField.new("Tick Table Data Message", "a2x.equities.rtmdf.amd.v1.3.2.ticktabledatamessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "a2x.equities.rtmdf.amd.v1.3.2.tradebustmessage", ftypes.STRING)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_message = ProtoField.new("Trade Message", "a2x.equities.rtmdf.amd.v1.3.2.trademessage", ftypes.STRING)
 
 -- A2X Equities Rtmdf Amd 1.3.2 generated fields
-a2x_equities_rtmdf_amd_v1_3_2.fields.message_index = ProtoField.new("Message Index", "a2x.equities.rtmdf.amd.v1.3.2.messageindex", ftypes.UINT16)
+omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_index = ProtoField.new("Message Index", "a2x.equities.rtmdf.amd.v1.3.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -100,90 +100,90 @@ show.trade_message = true
 show.payload = false
 
 -- Register A2X Equities Rtmdf Amd 1.3.2 Show Options
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message = Pref.bool("Show Auction On Demand Message", show.auction_on_demand_message, "Parse and add Auction On Demand Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close = Pref.bool("Show Market At Close", show.market_at_close, "Parse and add Market At Close to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message = Pref.bool("Show Order Add Message", show.order_add_message, "Parse and add Order Add Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message = Pref.bool("Show Tick Table Data Message", show.tick_table_data_message, "Parse and add Tick Table Data Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message = Pref.bool("Show Auction On Demand Message", show.auction_on_demand_message, "Parse and add Auction On Demand Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close = Pref.bool("Show Market At Close", show.market_at_close, "Parse and add Market At Close to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message = Pref.bool("Show Order Add Message", show.order_add_message, "Parse and add Order Add Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message = Pref.bool("Show Tick Table Data Message", show.tick_table_data_message, "Parse and add Tick Table Data Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function a2x_equities_rtmdf_amd_v1_3_2.prefs_changed()
+function omi_a2x_equities_rtmdf_amd_v1_3_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_on_demand_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message then
-    show.auction_on_demand_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message
+  if show.auction_on_demand_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message then
+    show.auction_on_demand_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message
     changed = true
   end
-  if show.market_at_close ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close then
-    show.market_at_close = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close
+  if show.market_at_close ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close then
+    show.market_at_close = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close
     changed = true
   end
-  if show.market_flags ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags then
-    show.market_flags = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags
+  if show.market_flags ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags then
+    show.market_flags = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags
     changed = true
   end
-  if show.message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message then
-    show.message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message
+  if show.message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message then
+    show.message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message
     changed = true
   end
-  if show.message_header ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header then
-    show.message_header = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header
+  if show.message_header ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header then
+    show.message_header = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header
     changed = true
   end
-  if show.order_add_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message then
-    show.order_add_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message
+  if show.order_add_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message then
+    show.order_add_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message
     changed = true
   end
-  if show.order_cancel_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message then
-    show.order_cancel_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message
+  if show.order_cancel_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message then
+    show.order_cancel_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message
     changed = true
   end
-  if show.order_modify_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message then
-    show.order_modify_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message
+  if show.order_modify_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message then
+    show.order_modify_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message
     changed = true
   end
-  if show.packet ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet then
-    show.packet = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet
+  if show.packet ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet then
+    show.packet = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet
     changed = true
   end
-  if show.security_definition_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message then
-    show.security_definition_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message
+  if show.security_definition_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message then
+    show.security_definition_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message
     changed = true
   end
-  if show.security_flags ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags then
-    show.security_flags = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags
+  if show.security_flags ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags then
+    show.security_flags = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags
     changed = true
   end
-  if show.security_status_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message then
-    show.security_status_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message
+  if show.security_status_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message then
+    show.security_status_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message
     changed = true
   end
-  if show.tick_table_data_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message then
-    show.tick_table_data_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message
+  if show.tick_table_data_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message then
+    show.tick_table_data_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message
     changed = true
   end
-  if show.trade_bust_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message then
-    show.trade_bust_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message
+  if show.trade_bust_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message then
+    show.trade_bust_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message
     changed = true
   end
-  if show.trade_message ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message then
-    show.trade_message = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message
+  if show.trade_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message then
+    show.trade_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message
     changed = true
   end
-  if show.payload ~= a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload then
-    show.payload = a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload
+  if show.payload ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload then
+    show.payload = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_payload
     changed = true
   end
 
@@ -213,7 +213,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp = function(buffer, offset, packe
   local value = range:le_uint64()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.timestamp, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -233,7 +233,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.closing_sell_qty = function(buffer, offset
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.closing_sell_qty(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.closing_sell_qty, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.closing_sell_qty, range, value, display)
 
   return offset + length, value
 end
@@ -253,7 +253,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.closing_buy_qty = function(buffer, offset,
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.closing_buy_qty(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.closing_buy_qty, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.closing_buy_qty, range, value, display)
 
   return offset + length, value
 end
@@ -273,7 +273,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.indicative_price = function(buffer, offset
   local value = range:le_uint64()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.indicative_price(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.indicative_price, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.indicative_price, range, value, display)
 
   return offset + length, value
 end
@@ -293,7 +293,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id = function(buffer, offset, pac
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_id, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -346,7 +346,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.market_at_close = function(buffer, offset, packet, parent)
   if show.market_at_close then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.market_at_close_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -375,7 +375,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.match_vol = function(buffer, offset, packe
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.match_vol(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.match_vol, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.match_vol, range, value, display)
 
   return offset + length, value
 end
@@ -423,7 +423,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.auction_on_demand_message = function(buffer, offset, packet, parent)
   if show.auction_on_demand_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.auction_on_demand_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -464,16 +464,16 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.market_flags_bits = function(buffer, offset, packet, parent)
 
   -- Unused 5: 5 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_5, buffer(offset, 1))
 
   -- Mac Run: 1 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_run, buffer(offset, 1))
 
   -- Mac Open: 1 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_open, buffer(offset, 1))
 
   -- Trading: 1 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trading, buffer(offset, 1))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading, buffer(offset, 1))
 end
 
 -- Dissect: Market Flags
@@ -481,7 +481,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.market_flags = function(buffer, offset, pa
   local size = 1
   local range = buffer(offset, size)
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.market_flags(range, packet, parent)
-  local element = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.market_flags, range, display)
+  local element = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_flags, range, display)
 
   if show.market_flags then
     a2x_equities_rtmdf_amd_v1_3_2_dissect.market_flags_bits(buffer, offset, packet, element)
@@ -521,7 +521,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.trading_status = function(buffer, offset, 
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trading_status, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -569,7 +569,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_status_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_status_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -614,22 +614,22 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.security_flags_bits = function(buffer, offset, packet, parent)
 
   -- Unused 11: 11 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.unused_11, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_11, buffer(offset, 2))
 
   -- Aod Enabled: 1 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.aod_enabled, buffer(offset, 2))
 
   -- Unused 1: 1 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.unused_1, buffer(offset, 2))
 
   -- Illiquid: 1 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.illiquid, buffer(offset, 2))
 
   -- Test Stock: 2 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.test_stock, buffer(offset, 2))
 
   -- Mac Enabled: 1 Bit
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled, buffer(offset, 2))
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mac_enabled, buffer(offset, 2))
 end
 
 -- Dissect: Security Flags
@@ -637,7 +637,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.security_flags = function(buffer, offset, 
   local size = 2
   local range = buffer(offset, size)
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.security_flags(range, packet, parent)
-  local element = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_flags, range, display)
+  local element = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_flags, range, display)
 
   if show.security_flags then
     a2x_equities_rtmdf_amd_v1_3_2_dissect.security_flags_bits(buffer, offset, packet, element)
@@ -661,7 +661,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_id = function(buffer, offset, p
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.tick_table_id(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_id, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_id, range, value, display)
 
   return offset + length, value
 end
@@ -697,7 +697,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.mic = function(buffer, offset, packet, par
 
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.mic(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.mic, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.mic, range, value, display)
 
   return offset + length, value
 end
@@ -733,7 +733,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.currency = function(buffer, offset, packet
 
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.currency, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -769,7 +769,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.isin = function(buffer, offset, packet, pa
 
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.isin, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -805,7 +805,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.umtf = function(buffer, offset, packet, pa
 
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.umtf(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.umtf, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.umtf, range, value, display)
 
   return offset + length, value
 end
@@ -868,7 +868,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.security_definition_message = function(buffer, offset, packet, parent)
   if show.security_definition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_definition_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_definition_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_definition_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -897,7 +897,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_size = function(buffer, offset, packe
   local value = range:le_uint64()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.tick_size(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.tick_size, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_size, range, value, display)
 
   return offset + length, value
 end
@@ -917,7 +917,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.threshold = function(buffer, offset, packe
   local value = range:le_uint64()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.threshold(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.threshold, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.threshold, range, value, display)
 
   return offset + length, value
 end
@@ -953,7 +953,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.name = function(buffer, offset, packet, pa
 
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.name(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.name, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.name, range, value, display)
 
   return offset + length, value
 end
@@ -1001,7 +1001,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_data_message = function(buffer, offset, packet, parent)
   if show.tick_table_data_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_data_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_data_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1030,7 +1030,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_ref = function(buffer, offset, packe
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.trade_ref(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_ref, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_ref, range, value, display)
 
   return offset + length, value
 end
@@ -1050,7 +1050,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.price = function(buffer, offset, packet, p
   local value = range:le_uint64()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.price, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1070,7 +1070,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.quantity = function(buffer, offset, packet
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.quantity, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1123,7 +1123,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_bust_message = function(buffer, offset, packet, parent)
   if show.trade_bust_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_bust_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_bust_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_bust_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1152,7 +1152,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.order_ref = function(buffer, offset, packe
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.order_ref(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_ref, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_ref, range, value, display)
 
   return offset + length, value
 end
@@ -1191,7 +1191,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_type = function(buffer, offset, pack
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_type, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_type, range, value, display)
 
   return offset + length, value
 end
@@ -1254,7 +1254,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1316,7 +1316,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_modify_message = function(buffer, offset, packet, parent)
   if show.order_modify_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_modify_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_modify_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_modify_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1368,7 +1368,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_cancel_message = function(buffer, offset, packet, parent)
   if show.order_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_cancel_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1404,7 +1404,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.side = function(buffer, offset, packet, pa
   local value = range:le_uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.side, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1462,7 +1462,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_add_message = function(buffer, offset, packet, parent)
   if show.order_add_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_add_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1595,7 +1595,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.payload = function(buffer, offset, packet,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.payload(buffer, packet, parent)
-  local element = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.payload, range, display)
+  local element = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.payload, range, display)
 
   return a2x_equities_rtmdf_amd_v1_3_2_dissect.payload_branches(buffer, offset, packet, parent, msg_type)
 end
@@ -1615,7 +1615,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.seq_no = function(buffer, offset, packet, 
   local value = range:uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.seq_no, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -1635,7 +1635,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.msg_length = function(buffer, offset, pack
   local value = range:uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.msg_length(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.msg_length, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.msg_length, range, value, display)
 
   return offset + length, value
 end
@@ -1689,7 +1689,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.msg_type = function(buffer, offset, packet
   local value = range:uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.msg_type, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -1732,7 +1732,7 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_header, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1757,7 +1757,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields = function(buffer, offset, 
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message_index, message_index)
+    local iteration = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -1779,7 +1779,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.message = function(buffer, offset, packet,
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message, buffer(offset, 0))
     local current = a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = a2x_equities_rtmdf_amd_v1_3_2_display.message(buffer, packet, parent)
@@ -1809,7 +1809,7 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.message_count = function(buffer, offset, p
   local value = range:uint()
   local display = a2x_equities_rtmdf_amd_v1_3_2_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message_count, range, value, display)
+  parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1840,23 +1840,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function a2x_equities_rtmdf_amd_v1_3_2.init()
+function omi_a2x_equities_rtmdf_amd_v1_3_2.init()
 end
 
 -- Dissector for A2X Equities Rtmdf Amd 1.3.2
-function a2x_equities_rtmdf_amd_v1_3_2.dissector(buffer, packet, parent)
+function omi_a2x_equities_rtmdf_amd_v1_3_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = a2x_equities_rtmdf_amd_v1_3_2.name
+  packet.cols.protocol = omi_a2x_equities_rtmdf_amd_v1_3_2.name
 
   -- Dissect protocol
-  local protocol = parent:add(a2x_equities_rtmdf_amd_v1_3_2, buffer(), a2x_equities_rtmdf_amd_v1_3_2.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2, buffer(), omi_a2x_equities_rtmdf_amd_v1_3_2.description, "("..buffer:len().." Bytes)")
   return a2x_equities_rtmdf_amd_v1_3_2_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, a2x_equities_rtmdf_amd_v1_3_2)
+udp_table:add(65333, omi_a2x_equities_rtmdf_amd_v1_3_2)
 
 
 -----------------------------------------------------------------------
@@ -1864,25 +1864,25 @@ udp_table:add(65333, a2x_equities_rtmdf_amd_v1_3_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.a2x_equities_rtmdf_amd_v1_3_2_packet_size = function(buffer)
+verify.omi_a2x_equities_rtmdf_amd_v1_3_2_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for A2X Equities Rtmdf Amd 1.3.2
-local function a2x_equities_rtmdf_amd_v1_3_2_heuristic(buffer, packet, parent)
+local function omi_a2x_equities_rtmdf_amd_v1_3_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.a2x_equities_rtmdf_amd_v1_3_2_packet_size(buffer) then return false end
+  if not verify.omi_a2x_equities_rtmdf_amd_v1_3_2_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = a2x_equities_rtmdf_amd_v1_3_2
-  a2x_equities_rtmdf_amd_v1_3_2.dissector(buffer, packet, parent)
+  packet.conversation = omi_a2x_equities_rtmdf_amd_v1_3_2
+  omi_a2x_equities_rtmdf_amd_v1_3_2.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for A2X Equities Rtmdf Amd 1.3.2
-a2x_equities_rtmdf_amd_v1_3_2:register_heuristic("udp", a2x_equities_rtmdf_amd_v1_3_2_heuristic)
+omi_a2x_equities_rtmdf_amd_v1_3_2:register_heuristic("udp", omi_a2x_equities_rtmdf_amd_v1_3_2_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

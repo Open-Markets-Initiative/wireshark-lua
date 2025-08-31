@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6 Protocol
-local tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6 = Proto("Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Lua", "Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6")
+local omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6 = Proto("Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Lua", "Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6")
 
 -- Component Tables
 local show = {}
@@ -21,110 +21,110 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6 Fields
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ackrequiredpossdup", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.board_lot = ProtoField.new("Board Lot", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.boardlot", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body = ProtoField.new("Body", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.body", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bodyheader", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bodymessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.broker_number = ProtoField.new("Broker Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.brokernumber", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.businessheader", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_message = ProtoField.new("Business Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.businessmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buybrokernumber", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_display_volume = ProtoField.new("Buy Display Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buydisplayvolume", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_maximum_quantity = ProtoField.new("Buy Maximum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buymaximumquantity", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_minimum_quantity = ProtoField.new("Buy Minimum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buyminimumquantity", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_order_id = ProtoField.new("Buy Order Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buyorderid", ftypes.UINT64)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.bypass = ProtoField.new("Bypass", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bypass", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.calculatedopeningprice", ftypes.DOUBLE)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.comment = ProtoField.new("Comment", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.comment", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit = ProtoField.new("Cop Limit", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coplimit", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order = ProtoField.new("Cop Order", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coporder", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cross_type = ProtoField.new("Cross Type", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.crosstype", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.currency = ProtoField.new("Currency", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.currency", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cusip = ProtoField.new("Cusip", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.cusip", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.face_value = ProtoField.new("Face Value", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.facevalue", ftypes.DOUBLE)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.far_indicative_closing_price = ProtoField.new("Far Indicative Closing Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.farindicativeclosingprice", ftypes.DOUBLE)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.frameheader", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_reference_price = ProtoField.new("Imbalance Reference Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.imbalancereferenceprice", ftypes.DOUBLE)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_side = ProtoField.new("Imbalance Side", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.imbalanceside", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.imbalancevolume", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.initiated_by = ProtoField.new("Initiated By", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.initiatedby", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_conditional = ProtoField.new("Is Conditional", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.isconditional", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_dark = ProtoField.new("Is Dark", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.isdark", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_mid_only = ProtoField.new("Is Mid Only", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ismidonly", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.last_sale = ProtoField.new("Last Sale", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.lastsale", ftypes.DOUBLE)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.listing_market = ProtoField.new("Listing Market", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.listingmarket", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_side = ProtoField.new("Market Order Imbalance Side", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketorderimbalanceside", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_volume = ProtoField.new("Market Order Imbalance Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketorderimbalancevolume", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state = ProtoField.new("Market State", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketstate", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.message_length = ProtoField.new("Message Length", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.messagelength", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_eligible = ProtoField.new("Moc Eligible", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.moceligible", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_length = ProtoField.new("Msg Length", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.msglength", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.msgtype", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_version = ProtoField.new("Msg Version", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.msgversion", ftypes.UINT8)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.near_indicative_closing_price = ProtoField.new("Near Indicative Closing Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.nearindicativeclosingprice", ftypes.DOUBLE)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.non_resident = ProtoField.new("Non Resident", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.nonresident", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.num_body = ProtoField.new("Num Body", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.numbody", ftypes.UINT8)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_id = ProtoField.new("Order Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderid", ftypes.UINT64)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_side = ProtoField.new("Order Side", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderside", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.orig_trade_number = ProtoField.new("Orig Trade Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.origtradenumber", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.packet", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.paired_volume = ProtoField.new("Paired Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.pairedvolume", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.price = ProtoField.new("Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.price", ftypes.DOUBLE)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.priority_time_stamp = ProtoField.new("Priority Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.prioritytimestamp", ftypes.UINT64)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.product_type = ProtoField.new("Product Type", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.producttype", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.protocolname", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.protocolversion", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellbrokernumber", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_display_volume = ProtoField.new("Sell Display Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.selldisplayvolume", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_maximum_quantity = ProtoField.new("Sell Maximum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellmaximumquantity", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_minimum_quantity = ProtoField.new("Sell Minimum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellminimumquantity", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_order_id = ProtoField.new("Sell Order Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellorderid", ftypes.UINT64)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_0 = ProtoField.new("Sequence 0", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sequence0", ftypes.UINT8)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_1 = ProtoField.new("Sequence 1", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sequence1", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.session_id = ProtoField.new("Session Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sessionid", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_date = ProtoField.new("Settlement Date", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.settlementdate", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_terms = ProtoField.new("Settlement Terms", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.settlementterms", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.source_id = ProtoField.new("Source Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sourceid", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.startofframe", ftypes.INT8)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_group = ProtoField.new("Stock Group", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.stockgroup", ftypes.UINT8)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_state = ProtoField.new("Stock State", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.stockstate", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stream_id = ProtoField.new("Stream Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.streamid", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol = ProtoField.new("Symbol", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.symbol", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.test_symbol = ProtoField.new("Test Symbol", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.testsymbol", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_date = ProtoField.new("Trade Date", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradedate", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_number = ProtoField.new("Trade Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradenumber", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradetimestamp", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradingsystemtimestamp", ftypes.UINT64)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.volume", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ackrequiredpossdup", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.board_lot = ProtoField.new("Board Lot", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.boardlot", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body = ProtoField.new("Body", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.body", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bodyheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bodymessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.broker_number = ProtoField.new("Broker Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.brokernumber", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.businessheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_message = ProtoField.new("Business Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.businessmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buybrokernumber", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_display_volume = ProtoField.new("Buy Display Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buydisplayvolume", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_maximum_quantity = ProtoField.new("Buy Maximum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buymaximumquantity", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_minimum_quantity = ProtoField.new("Buy Minimum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buyminimumquantity", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_order_id = ProtoField.new("Buy Order Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.buyorderid", ftypes.UINT64)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.bypass = ProtoField.new("Bypass", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bypass", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.calculatedopeningprice", ftypes.DOUBLE)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.comment = ProtoField.new("Comment", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.comment", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit = ProtoField.new("Cop Limit", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coplimit", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order = ProtoField.new("Cop Order", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coporder", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cross_type = ProtoField.new("Cross Type", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.crosstype", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.currency = ProtoField.new("Currency", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.currency", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cusip = ProtoField.new("Cusip", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.cusip", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.face_value = ProtoField.new("Face Value", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.facevalue", ftypes.DOUBLE)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.far_indicative_closing_price = ProtoField.new("Far Indicative Closing Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.farindicativeclosingprice", ftypes.DOUBLE)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.frameheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_reference_price = ProtoField.new("Imbalance Reference Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.imbalancereferenceprice", ftypes.DOUBLE)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_side = ProtoField.new("Imbalance Side", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.imbalanceside", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.imbalancevolume", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.initiated_by = ProtoField.new("Initiated By", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.initiatedby", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_conditional = ProtoField.new("Is Conditional", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.isconditional", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_dark = ProtoField.new("Is Dark", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.isdark", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_mid_only = ProtoField.new("Is Mid Only", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ismidonly", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.last_sale = ProtoField.new("Last Sale", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.lastsale", ftypes.DOUBLE)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.listing_market = ProtoField.new("Listing Market", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.listingmarket", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_side = ProtoField.new("Market Order Imbalance Side", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketorderimbalanceside", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_volume = ProtoField.new("Market Order Imbalance Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketorderimbalancevolume", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state = ProtoField.new("Market State", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketstate", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.message_length = ProtoField.new("Message Length", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.messagelength", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_eligible = ProtoField.new("Moc Eligible", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.moceligible", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_length = ProtoField.new("Msg Length", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.msglength", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.msgtype", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_version = ProtoField.new("Msg Version", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.msgversion", ftypes.UINT8)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.near_indicative_closing_price = ProtoField.new("Near Indicative Closing Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.nearindicativeclosingprice", ftypes.DOUBLE)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.non_resident = ProtoField.new("Non Resident", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.nonresident", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.num_body = ProtoField.new("Num Body", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.numbody", ftypes.UINT8)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_id = ProtoField.new("Order Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderid", ftypes.UINT64)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_side = ProtoField.new("Order Side", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderside", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.orig_trade_number = ProtoField.new("Orig Trade Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.origtradenumber", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.packet", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.paired_volume = ProtoField.new("Paired Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.pairedvolume", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.price = ProtoField.new("Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.price", ftypes.DOUBLE)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.priority_time_stamp = ProtoField.new("Priority Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.prioritytimestamp", ftypes.UINT64)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.product_type = ProtoField.new("Product Type", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.producttype", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.protocolname", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.protocolversion", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellbrokernumber", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_display_volume = ProtoField.new("Sell Display Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.selldisplayvolume", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_maximum_quantity = ProtoField.new("Sell Maximum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellmaximumquantity", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_minimum_quantity = ProtoField.new("Sell Minimum Quantity", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellminimumquantity", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_order_id = ProtoField.new("Sell Order Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sellorderid", ftypes.UINT64)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_0 = ProtoField.new("Sequence 0", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sequence0", ftypes.UINT8)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_1 = ProtoField.new("Sequence 1", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sequence1", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.session_id = ProtoField.new("Session Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sessionid", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_date = ProtoField.new("Settlement Date", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.settlementdate", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_terms = ProtoField.new("Settlement Terms", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.settlementterms", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.source_id = ProtoField.new("Source Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.sourceid", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.startofframe", ftypes.INT8)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_group = ProtoField.new("Stock Group", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.stockgroup", ftypes.UINT8)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_state = ProtoField.new("Stock State", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.stockstate", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stream_id = ProtoField.new("Stream Id", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.streamid", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol = ProtoField.new("Symbol", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.symbol", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.test_symbol = ProtoField.new("Test Symbol", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.testsymbol", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_date = ProtoField.new("Trade Date", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradedate", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_number = ProtoField.new("Trade Number", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradenumber", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradetimestamp", ftypes.UINT32)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradingsystemtimestamp", ftypes.UINT64)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.volume", ftypes.UINT32)
 
 -- Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6 messages
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_no_orders_message = ProtoField.new("Assign Cop No Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assigncopnoordersmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_orders_message = ProtoField.new("Assign Cop Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assigncopordersmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_limit_message = ProtoField.new("Assign Limit Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assignlimitmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state_update_message = ProtoField.new("Market State Update Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketstateupdatemessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_imbalance_message = ProtoField.new("Moc Imbalance Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.mocimbalancemessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_message = ProtoField.new("Order Book Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbookmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_terms_message = ProtoField.new("Order Book Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbooktermsmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_message = ProtoField.new("Order Booked Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbookedmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_terms_message = ProtoField.new("Order Booked Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbookedtermsmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ordercancelledmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_terms_message = ProtoField.new("Order Cancelled Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ordercancelledtermsmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_message = ProtoField.new("Order Price Time Assigned Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderpricetimeassignedmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_terms_message = ProtoField.new("Order Price Time Assigned Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderpricetimeassignedtermsmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.stockstatusmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.symbolstatusmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_message = ProtoField.new("Trade Cancelled Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecancelledmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_terms_message = ProtoField.new("Trade Cancelled Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecancelledtermsmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecorrectionmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_terms_message = ProtoField.new("Trade Correction Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecorrectiontermsmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_message = ProtoField.new("Trade Report Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradereportmessage", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_terms_message = ProtoField.new("Trade Report Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradereporttermsmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_no_orders_message = ProtoField.new("Assign Cop No Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assigncopnoordersmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_orders_message = ProtoField.new("Assign Cop Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assigncopordersmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_limit_message = ProtoField.new("Assign Limit Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.assignlimitmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state_update_message = ProtoField.new("Market State Update Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.marketstateupdatemessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_imbalance_message = ProtoField.new("Moc Imbalance Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.mocimbalancemessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_message = ProtoField.new("Order Book Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbookmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_terms_message = ProtoField.new("Order Book Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbooktermsmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_message = ProtoField.new("Order Booked Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbookedmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_terms_message = ProtoField.new("Order Booked Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderbookedtermsmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ordercancelledmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_terms_message = ProtoField.new("Order Cancelled Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.ordercancelledtermsmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_message = ProtoField.new("Order Price Time Assigned Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderpricetimeassignedmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_terms_message = ProtoField.new("Order Price Time Assigned Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.orderpricetimeassignedtermsmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.stockstatusmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.symbolstatusmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_message = ProtoField.new("Trade Cancelled Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecancelledmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_terms_message = ProtoField.new("Trade Cancelled Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecancelledtermsmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecorrectionmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_terms_message = ProtoField.new("Trade Correction Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradecorrectiontermsmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_message = ProtoField.new("Trade Report Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradereportmessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_terms_message = ProtoField.new("Trade Report Terms Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.tradereporttermsmessage", ftypes.STRING)
 
 -- Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6 generated fields
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_index = ProtoField.new("Body Index", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bodyindex", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_index = ProtoField.new("Cop Limit Index", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coplimitindex", ftypes.UINT16)
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_index = ProtoField.new("Cop Order Index", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coporderindex", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_index = ProtoField.new("Body Index", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bodyindex", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_index = ProtoField.new("Cop Limit Index", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coplimitindex", ftypes.UINT16)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_index = ProtoField.new("Cop Order Index", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coporderindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -163,160 +163,160 @@ show.trade_report_terms_message = true
 show.business_message = false
 
 -- Register Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6 Show Options
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_no_orders_message = Pref.bool("Show Assign Cop No Orders Message", show.assign_cop_no_orders_message, "Parse and add Assign Cop No Orders Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_orders_message = Pref.bool("Show Assign Cop Orders Message", show.assign_cop_orders_message, "Parse and add Assign Cop Orders Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_limit_message = Pref.bool("Show Assign Limit Message", show.assign_limit_message, "Parse and add Assign Limit Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_header = Pref.bool("Show Body Header", show.body_header, "Parse and add Body Header to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit = Pref.bool("Show Cop Limit", show.cop_limit, "Parse and add Cop Limit to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order = Pref.bool("Show Cop Order", show.cop_order, "Parse and add Cop Order to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_market_state_update_message = Pref.bool("Show Market State Update Message", show.market_state_update_message, "Parse and add Market State Update Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_moc_imbalance_message = Pref.bool("Show Moc Imbalance Message", show.moc_imbalance_message, "Parse and add Moc Imbalance Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_message = Pref.bool("Show Order Book Message", show.order_book_message, "Parse and add Order Book Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_terms_message = Pref.bool("Show Order Book Terms Message", show.order_book_terms_message, "Parse and add Order Book Terms Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_message = Pref.bool("Show Order Booked Message", show.order_booked_message, "Parse and add Order Booked Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_terms_message = Pref.bool("Show Order Booked Terms Message", show.order_booked_terms_message, "Parse and add Order Booked Terms Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_terms_message = Pref.bool("Show Order Cancelled Terms Message", show.order_cancelled_terms_message, "Parse and add Order Cancelled Terms Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_message = Pref.bool("Show Order Price Time Assigned Message", show.order_price_time_assigned_message, "Parse and add Order Price Time Assigned Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_terms_message = Pref.bool("Show Order Price Time Assigned Terms Message", show.order_price_time_assigned_terms_message, "Parse and add Order Price Time Assigned Terms Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_stock_status_message = Pref.bool("Show Stock Status Message", show.stock_status_message, "Parse and add Stock Status Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_message = Pref.bool("Show Trade Cancelled Message", show.trade_cancelled_message, "Parse and add Trade Cancelled Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_terms_message = Pref.bool("Show Trade Cancelled Terms Message", show.trade_cancelled_terms_message, "Parse and add Trade Cancelled Terms Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_terms_message = Pref.bool("Show Trade Correction Terms Message", show.trade_correction_terms_message, "Parse and add Trade Correction Terms Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_terms_message = Pref.bool("Show Trade Report Terms Message", show.trade_report_terms_message, "Parse and add Trade Report Terms Message to protocol tree")
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_message = Pref.bool("Show Business Message", show.business_message, "Parse and add Business Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_no_orders_message = Pref.bool("Show Assign Cop No Orders Message", show.assign_cop_no_orders_message, "Parse and add Assign Cop No Orders Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_orders_message = Pref.bool("Show Assign Cop Orders Message", show.assign_cop_orders_message, "Parse and add Assign Cop Orders Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_limit_message = Pref.bool("Show Assign Limit Message", show.assign_limit_message, "Parse and add Assign Limit Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_header = Pref.bool("Show Body Header", show.body_header, "Parse and add Body Header to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit = Pref.bool("Show Cop Limit", show.cop_limit, "Parse and add Cop Limit to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order = Pref.bool("Show Cop Order", show.cop_order, "Parse and add Cop Order to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_market_state_update_message = Pref.bool("Show Market State Update Message", show.market_state_update_message, "Parse and add Market State Update Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_moc_imbalance_message = Pref.bool("Show Moc Imbalance Message", show.moc_imbalance_message, "Parse and add Moc Imbalance Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_message = Pref.bool("Show Order Book Message", show.order_book_message, "Parse and add Order Book Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_terms_message = Pref.bool("Show Order Book Terms Message", show.order_book_terms_message, "Parse and add Order Book Terms Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_message = Pref.bool("Show Order Booked Message", show.order_booked_message, "Parse and add Order Booked Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_terms_message = Pref.bool("Show Order Booked Terms Message", show.order_booked_terms_message, "Parse and add Order Booked Terms Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_terms_message = Pref.bool("Show Order Cancelled Terms Message", show.order_cancelled_terms_message, "Parse and add Order Cancelled Terms Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_message = Pref.bool("Show Order Price Time Assigned Message", show.order_price_time_assigned_message, "Parse and add Order Price Time Assigned Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_terms_message = Pref.bool("Show Order Price Time Assigned Terms Message", show.order_price_time_assigned_terms_message, "Parse and add Order Price Time Assigned Terms Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_stock_status_message = Pref.bool("Show Stock Status Message", show.stock_status_message, "Parse and add Stock Status Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_message = Pref.bool("Show Trade Cancelled Message", show.trade_cancelled_message, "Parse and add Trade Cancelled Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_terms_message = Pref.bool("Show Trade Cancelled Terms Message", show.trade_cancelled_terms_message, "Parse and add Trade Cancelled Terms Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_terms_message = Pref.bool("Show Trade Correction Terms Message", show.trade_correction_terms_message, "Parse and add Trade Correction Terms Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_terms_message = Pref.bool("Show Trade Report Terms Message", show.trade_report_terms_message, "Parse and add Trade Report Terms Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_message = Pref.bool("Show Business Message", show.business_message, "Parse and add Business Message to protocol tree")
 
 -- Handle changed preferences
-function tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs_changed()
+function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.assign_cop_no_orders_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_no_orders_message then
-    show.assign_cop_no_orders_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_no_orders_message
+  if show.assign_cop_no_orders_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_no_orders_message then
+    show.assign_cop_no_orders_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_no_orders_message
     changed = true
   end
-  if show.assign_cop_orders_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_orders_message then
-    show.assign_cop_orders_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_orders_message
+  if show.assign_cop_orders_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_orders_message then
+    show.assign_cop_orders_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_cop_orders_message
     changed = true
   end
-  if show.assign_limit_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_limit_message then
-    show.assign_limit_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_limit_message
+  if show.assign_limit_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_limit_message then
+    show.assign_limit_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_assign_limit_message
     changed = true
   end
-  if show.body ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body then
-    show.body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body
+  if show.body ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body then
+    show.body = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body
     changed = true
   end
-  if show.body_header ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_header then
-    show.body_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_header
+  if show.body_header ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_header then
+    show.body_header = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_header
     changed = true
   end
-  if show.body_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_message then
-    show.body_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_message
+  if show.body_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_message then
+    show.body_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_message
     changed = true
   end
-  if show.business_header ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header then
-    show.business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header
+  if show.business_header ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header then
+    show.business_header = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header
     changed = true
   end
-  if show.cop_limit ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit then
-    show.cop_limit = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit
+  if show.cop_limit ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit then
+    show.cop_limit = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit
     changed = true
   end
-  if show.cop_order ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order then
-    show.cop_order = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order
+  if show.cop_order ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order then
+    show.cop_order = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order
     changed = true
   end
-  if show.frame_header ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_frame_header then
-    show.frame_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_frame_header
+  if show.frame_header ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_frame_header then
+    show.frame_header = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_frame_header
     changed = true
   end
-  if show.market_state_update_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_market_state_update_message then
-    show.market_state_update_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_market_state_update_message
+  if show.market_state_update_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_market_state_update_message then
+    show.market_state_update_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_market_state_update_message
     changed = true
   end
-  if show.moc_imbalance_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_moc_imbalance_message then
-    show.moc_imbalance_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_moc_imbalance_message
+  if show.moc_imbalance_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_moc_imbalance_message then
+    show.moc_imbalance_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_moc_imbalance_message
     changed = true
   end
-  if show.order_book_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_message then
-    show.order_book_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_message
+  if show.order_book_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_message then
+    show.order_book_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_message
     changed = true
   end
-  if show.order_book_terms_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_terms_message then
-    show.order_book_terms_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_terms_message
+  if show.order_book_terms_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_terms_message then
+    show.order_book_terms_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_book_terms_message
     changed = true
   end
-  if show.order_booked_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_message then
-    show.order_booked_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_message
+  if show.order_booked_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_message then
+    show.order_booked_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_message
     changed = true
   end
-  if show.order_booked_terms_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_terms_message then
-    show.order_booked_terms_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_terms_message
+  if show.order_booked_terms_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_terms_message then
+    show.order_booked_terms_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_booked_terms_message
     changed = true
   end
-  if show.order_cancelled_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_message then
-    show.order_cancelled_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_message
+  if show.order_cancelled_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_message then
+    show.order_cancelled_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_message
     changed = true
   end
-  if show.order_cancelled_terms_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_terms_message then
-    show.order_cancelled_terms_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_terms_message
+  if show.order_cancelled_terms_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_terms_message then
+    show.order_cancelled_terms_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_cancelled_terms_message
     changed = true
   end
-  if show.order_price_time_assigned_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_message then
-    show.order_price_time_assigned_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_message
+  if show.order_price_time_assigned_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_message then
+    show.order_price_time_assigned_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_message
     changed = true
   end
-  if show.order_price_time_assigned_terms_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_terms_message then
-    show.order_price_time_assigned_terms_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_terms_message
+  if show.order_price_time_assigned_terms_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_terms_message then
+    show.order_price_time_assigned_terms_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_order_price_time_assigned_terms_message
     changed = true
   end
-  if show.packet ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_packet then
-    show.packet = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_packet
+  if show.packet ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_packet then
+    show.packet = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_packet
     changed = true
   end
-  if show.stock_status_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_stock_status_message then
-    show.stock_status_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_stock_status_message
+  if show.stock_status_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_stock_status_message then
+    show.stock_status_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_stock_status_message
     changed = true
   end
-  if show.symbol_status_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_symbol_status_message then
-    show.symbol_status_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_symbol_status_message
+  if show.symbol_status_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_symbol_status_message then
+    show.symbol_status_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_symbol_status_message
     changed = true
   end
-  if show.trade_cancelled_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_message then
-    show.trade_cancelled_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_message
+  if show.trade_cancelled_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_message then
+    show.trade_cancelled_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_message
     changed = true
   end
-  if show.trade_cancelled_terms_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_terms_message then
-    show.trade_cancelled_terms_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_terms_message
+  if show.trade_cancelled_terms_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_terms_message then
+    show.trade_cancelled_terms_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_cancelled_terms_message
     changed = true
   end
-  if show.trade_correction_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_message then
-    show.trade_correction_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_message
+  if show.trade_correction_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_message then
+    show.trade_correction_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_message
     changed = true
   end
-  if show.trade_correction_terms_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_terms_message then
-    show.trade_correction_terms_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_terms_message
+  if show.trade_correction_terms_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_terms_message then
+    show.trade_correction_terms_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_correction_terms_message
     changed = true
   end
-  if show.trade_report_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_message then
-    show.trade_report_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_message
+  if show.trade_report_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_message then
+    show.trade_report_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_message
     changed = true
   end
-  if show.trade_report_terms_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_terms_message then
-    show.trade_report_terms_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_terms_message
+  if show.trade_report_terms_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_terms_message then
+    show.trade_report_terms_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_trade_report_terms_message
     changed = true
   end
-  if show.business_message ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_message then
-    show.business_message = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_message
+  if show.business_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_message then
+    show.business_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_message
     changed = true
   end
 
@@ -368,7 +368,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp = funct
   local value = range:le_uint64()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trading_system_time_stamp(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trading_system_time_stamp, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trading_system_time_stamp, range, value, display)
 
   return offset + length, value
 end
@@ -413,7 +413,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cross_type = function(buffer, off
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cross_type, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -433,7 +433,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_date = function(buffer
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.settlement_date(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_date, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_date, range, value, display)
 
   return offset + length, value
 end
@@ -472,7 +472,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_terms = function(buffe
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.settlement_terms(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_terms, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_terms, range, value, display)
 
   return offset + length, value
 end
@@ -499,7 +499,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.non_resident = function(buffer, o
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.non_resident(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.non_resident, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.non_resident, range, value, display)
 
   return offset + length, value
 end
@@ -519,7 +519,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_time_stamp = function(buffe
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_time_stamp(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_time_stamp, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_time_stamp, range, value, display)
 
   return offset + length, value
 end
@@ -539,7 +539,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.orig_trade_number = function(buff
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.orig_trade_number(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.orig_trade_number, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.orig_trade_number, range, value, display)
 
   return offset + length, value
 end
@@ -569,7 +569,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.initiated_by = function(buffer, o
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.initiated_by(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.initiated_by, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.initiated_by, range, value, display)
 
   return offset + length, value
 end
@@ -589,7 +589,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_broker_number = function(buf
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_broker_number(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_broker_number, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_broker_number, range, value, display)
 
   return offset + length, value
 end
@@ -609,7 +609,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_broker_number = function(buff
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_broker_number(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_broker_number, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_broker_number, range, value, display)
 
   return offset + length, value
 end
@@ -629,7 +629,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume = function(buffer, offset,
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.volume, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -655,7 +655,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price = function(buffer, offset, 
   local value = translate.price(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.price, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -675,7 +675,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number = function(buffer, o
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_number(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_number, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_number, range, value, display)
 
   return offset + length, value
 end
@@ -695,7 +695,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -793,7 +793,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_message = function(buffer, offset, packet, parent)
   if show.trade_correction_terms_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_terms_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_terms_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -829,7 +829,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_conditional = function(buffer,
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_conditional(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_conditional, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_conditional, range, value, display)
 
   return offset + length, value
 end
@@ -856,7 +856,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_dark = function(buffer, offset
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_dark(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_dark, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_dark, range, value, display)
 
   return offset + length, value
 end
@@ -883,7 +883,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_mid_only = function(buffer, of
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_mid_only(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_mid_only, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_mid_only, range, value, display)
 
   return offset + length, value
 end
@@ -903,7 +903,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_date = function(buffer, off
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_date, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -942,7 +942,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.product_type = function(buffer, o
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.product_type(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.product_type, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.product_type, range, value, display)
 
   return offset + length, value
 end
@@ -984,7 +984,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.listing_market = function(buffer,
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.listing_market(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.listing_market, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.listing_market, range, value, display)
 
   return offset + length, value
 end
@@ -1011,7 +1011,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.bypass = function(buffer, offset,
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.bypass(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.bypass, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.bypass, range, value, display)
 
   return offset + length, value
 end
@@ -1129,7 +1129,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   if show.trade_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1181,7 +1181,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_message = function(buffer, offset, packet, parent)
   if show.trade_cancelled_terms_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_terms_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_terms_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1248,7 +1248,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_message = function(buffer, offset, packet, parent)
   if show.trade_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1277,7 +1277,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_display_volume = function(bu
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_display_volume(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_display_volume, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_display_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1297,7 +1297,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_order_id = function(buffer, 
   local value = range:le_uint64()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_order_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1317,7 +1317,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_display_volume = function(buf
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_display_volume(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_display_volume, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_display_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1337,7 +1337,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_order_id = function(buffer, o
   local value = range:le_uint64()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_order_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1445,7 +1445,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_message = function(buffer, offset, packet, parent)
   if show.trade_report_terms_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_terms_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_terms_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1582,7 +1582,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1636,7 +1636,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_state = function(buffer, of
   local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_state(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_state, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_state, range, value, display)
 
   return offset + length, value
 end
@@ -1656,7 +1656,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.comment = function(buffer, offset
   local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.comment(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.comment, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.comment, range, value, display)
 
   return offset + length, value
 end
@@ -1714,7 +1714,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_message = function(buffer, offset, packet, parent)
   if show.stock_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_status_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_status_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1747,7 +1747,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp = function(bu
   local value = range:le_uint64()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.priority_time_stamp(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.priority_time_stamp, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.priority_time_stamp, range, value, display)
 
   return offset + length, value
 end
@@ -1767,7 +1767,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id = function(buffer, offse
   local value = range:le_uint64()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1794,7 +1794,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side = function(buffer, off
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_side(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_side, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_side, range, value, display)
 
   return offset + length, value
 end
@@ -1814,7 +1814,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number = function(buffer, 
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.broker_number(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.broker_number, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.broker_number, range, value, display)
 
   return offset + length, value
 end
@@ -1882,7 +1882,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_message = function(buffer, offset, packet, parent)
   if show.order_price_time_assigned_terms_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_terms_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_terms_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1959,7 +1959,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_message = function(buffer, offset, packet, parent)
   if show.order_price_time_assigned_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2021,7 +2021,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_message = function(buffer, offset, packet, parent)
   if show.order_cancelled_terms_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_terms_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_terms_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2083,7 +2083,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   if show.order_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2175,7 +2175,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_message = function(buffer, offset, packet, parent)
   if show.order_booked_terms_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_terms_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_terms_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2252,7 +2252,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_message = function(buffer, offset, packet, parent)
   if show.order_booked_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2287,7 +2287,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.far_indicative_closing_price = fu
   local value = translate.far_indicative_closing_price(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.far_indicative_closing_price(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.far_indicative_closing_price, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.far_indicative_closing_price, range, value, display)
 
   return offset + length, value
 end
@@ -2313,7 +2313,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.near_indicative_closing_price = f
   local value = translate.near_indicative_closing_price(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.near_indicative_closing_price(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.near_indicative_closing_price, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.near_indicative_closing_price, range, value, display)
 
   return offset + length, value
 end
@@ -2343,7 +2343,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_order_imbalance_side = fun
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_order_imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_side, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_side, range, value, display)
 
   return offset + length, value
 end
@@ -2363,7 +2363,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_order_imbalance_volume = f
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_order_imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_volume, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2383,7 +2383,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.paired_volume = function(buffer, 
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.paired_volume(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.paired_volume, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.paired_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2409,7 +2409,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_reference_price = funct
   local value = translate.imbalance_reference_price(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_reference_price, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -2429,7 +2429,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_volume = function(buffe
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_volume, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2459,7 +2459,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_side = function(buffer,
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_side, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_side, range, value, display)
 
   return offset + length, value
 end
@@ -2537,7 +2537,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_message = function(buffer, offset, packet, parent)
   if show.moc_imbalance_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_imbalance_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_imbalance_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2566,7 +2566,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_group = function(buffer, of
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_group(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_group, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_group, range, value, display)
 
   return offset + length, value
 end
@@ -2638,7 +2638,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state = function(buffer, o
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_state(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state, range, value, display)
 
   return offset + length, value
 end
@@ -2681,7 +2681,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_message = function(buffer, offset, packet, parent)
   if show.market_state_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state_update_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state_update_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2719,7 +2719,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_fields = function(buffe
 
   -- Implicit Cop Limit Index
   if cop_limit_index ~= nil then
-    local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_index, cop_limit_index)
+    local iteration = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_index, cop_limit_index)
     iteration:set_generated()
   end
 
@@ -2739,7 +2739,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit = function(buffer, offset, packet, parent, cop_limit_index)
   if show.cop_limit then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_fields(buffer, offset, packet, parent, cop_limit_index)
     local length = index - offset
     parent:set_len(length)
@@ -2774,7 +2774,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.calculated_opening_price = functi
   local value = translate.calculated_opening_price(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.calculated_opening_price(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.calculated_opening_price, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.calculated_opening_price, range, value, display)
 
   return offset + length, value
 end
@@ -2829,7 +2829,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message = function(buffer, offset, packet, parent)
   if show.assign_limit_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_limit_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_limit_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2881,7 +2881,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_message = function(buffer, offset, packet, parent)
   if show.assign_cop_no_orders_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_no_orders_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_no_orders_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2917,7 +2917,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_fields = function(buffe
 
   -- Implicit Cop Order Index
   if cop_order_index ~= nil then
-    local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_index, cop_order_index)
+    local iteration = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_index, cop_order_index)
     iteration:set_generated()
   end
 
@@ -2934,7 +2934,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order = function(buffer, offset, packet, parent, cop_order_index)
   if show.cop_order then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_fields(buffer, offset, packet, parent, cop_order_index)
     local length = index - offset
     parent:set_len(length)
@@ -2998,7 +2998,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_message = function(buffer, offset, packet, parent)
   if show.assign_cop_orders_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_orders_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_orders_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3085,7 +3085,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_message = function(buffer, offset, packet, parent)
   if show.order_book_terms_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_terms_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_terms_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3172,7 +3172,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_message = function(buffer, offset, packet, parent)
   if show.order_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3208,7 +3208,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_eligible = function(buffer, o
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.moc_eligible(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_eligible, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_eligible, range, value, display)
 
   return offset + length, value
 end
@@ -3235,7 +3235,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.test_symbol = function(buffer, of
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.test_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.test_symbol, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.test_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3255,7 +3255,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_minimum_quantity = function(
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_minimum_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_minimum_quantity, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_minimum_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -3275,7 +3275,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_maximum_quantity = function(
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_maximum_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_maximum_quantity, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_maximum_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -3295,7 +3295,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_minimum_quantity = function(b
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_minimum_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_minimum_quantity, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_minimum_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -3315,7 +3315,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_maximum_quantity = function(b
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_maximum_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_maximum_quantity, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_maximum_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -3341,7 +3341,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.last_sale = function(buffer, offs
   local value = translate.last_sale(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.last_sale(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.last_sale, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.last_sale, range, value, display)
 
   return offset + length, value
 end
@@ -3367,7 +3367,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.face_value = function(buffer, off
   local value = translate.face_value(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.face_value(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.face_value, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.face_value, range, value, display)
 
   return offset + length, value
 end
@@ -3394,7 +3394,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.currency = function(buffer, offse
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.currency, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -3414,7 +3414,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.board_lot = function(buffer, offs
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.board_lot(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.board_lot, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.board_lot, range, value, display)
 
   return offset + length, value
 end
@@ -3434,7 +3434,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cusip = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cusip(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cusip, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cusip, range, value, display)
 
   return offset + length, value
 end
@@ -3542,7 +3542,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_message = function(buffer, offset, packet, parent)
   if show.symbol_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol_status_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol_status_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3756,7 +3756,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_message = function(buffe
   -- Dissect Element
   local range = buffer(offset, size)
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.business_message(buffer, packet, parent)
-  local element = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_message, range, display)
+  local element = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_message, range, display)
 
   return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_message_branches(buffer, offset, packet, parent, msg_type)
 end
@@ -3776,7 +3776,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sequence_1 = function(buffer, off
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sequence_1(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_1, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_1, range, value, display)
 
   return offset + length, value
 end
@@ -3796,7 +3796,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sequence_0 = function(buffer, off
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sequence_0(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_0, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_0, range, value, display)
 
   return offset + length, value
 end
@@ -3816,7 +3816,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stream_id = function(buffer, offs
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stream_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stream_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stream_id, range, value, display)
 
   return offset + length, value
 end
@@ -3836,7 +3836,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.source_id = function(buffer, offs
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.source_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.source_id, range, value, display)
 
   return offset + length, value
 end
@@ -3856,7 +3856,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_version = function(buffer, of
   local value = range:uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_version(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_version, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_version, range, value, display)
 
   return offset + length, value
 end
@@ -3909,7 +3909,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header = function(buffer, offset, packet, parent)
   if show.business_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_header, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3950,7 +3950,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message = function(buffer, o
 
   -- Optionally add group/struct element to protocol tree
   if show.body_message then
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_message, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_message, buffer(offset, 0))
     local current = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message_fields(buffer, offset, packet, parent, size_of_body_message)
     parent:set_len(size_of_body_message)
     local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body_message(buffer, packet, parent)
@@ -4044,7 +4044,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_type = function(buffer, offse
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_type, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -4064,7 +4064,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_length = function(buffer, off
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_length(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_length, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_length, range, value, display)
 
   return offset + length, value
 end
@@ -4102,7 +4102,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_header = function(buffer, offset, packet, parent)
   if show.body_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_header, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4127,7 +4127,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields = function(buffer, of
 
   -- Implicit Body Index
   if body_index ~= nil then
-    local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_index, body_index)
+    local iteration = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_index, body_index)
     iteration:set_generated()
   end
 
@@ -4152,7 +4152,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body = function(buffer, offset, p
 
   -- Optionally add group/struct element to protocol tree
   if show.body then
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body, buffer(offset, 0))
     local current = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields(buffer, offset, packet, parent, size_of_body, body_index)
     parent:set_len(size_of_body)
     local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body(buffer, packet, parent)
@@ -4182,7 +4182,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.num_body = function(buffer, offse
   local value = range:uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.num_body(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.num_body, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.num_body, range, value, display)
 
   return offset + length, value
 end
@@ -4206,7 +4206,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.ack_required_poss_dup = function(
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.ack_required_poss_dup(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.ack_required_poss_dup, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.ack_required_poss_dup, range, value, display)
 
   return offset + length, value
 end
@@ -4226,7 +4226,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.session_id = function(buffer, off
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.session_id, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -4246,7 +4246,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.message_length = function(buffer,
   local value = range:le_uint()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.message_length, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -4266,7 +4266,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.protocol_version = function(buffe
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.protocol_version(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_version, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_version, range, value, display)
 
   return offset + length, value
 end
@@ -4290,7 +4290,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.protocol_name = function(buffer, 
   local value = range:string()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.protocol_name(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_name, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_name, range, value, display)
 
   return offset + length, value
 end
@@ -4314,7 +4314,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.start_of_frame = function(buffer,
   local value = range:int()
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.start_of_frame(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.start_of_frame, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.start_of_frame, range, value, display)
 
   return offset + length, value
 end
@@ -4377,7 +4377,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header = function(buffer, offset, packet, parent)
   if show.frame_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.frame_header, buffer(offset, 0))
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.frame_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4426,23 +4426,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.init()
+function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.init()
 end
 
 -- Dissector for Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6
-function tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.dissector(buffer, packet, parent)
+function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.name
+  packet.cols.protocol = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.name
 
   -- Dissect protocol
-  local protocol = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6, buffer(), tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6, buffer(), omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.description, "("..buffer:len().." Bytes)")
   return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6)
+udp_table:add(65333, omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6)
 
 
 -----------------------------------------------------------------------
@@ -4450,25 +4450,25 @@ udp_table:add(65333, tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_packet_size = function(buffer)
+verify.omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6
-local function tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_heuristic(buffer, packet, parent)
+local function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_packet_size(buffer) then return false end
+  if not verify.omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6
-  tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.dissector(buffer, packet, parent)
+  packet.conversation = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6
+  omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6:register_heuristic("udp", tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_heuristic)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6:register_heuristic("udp", omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

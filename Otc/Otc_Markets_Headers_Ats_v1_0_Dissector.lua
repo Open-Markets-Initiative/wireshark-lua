@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Otc Markets Headers Ats 1.0 Protocol
-local otc_markets_headers_ats_v1_0 = Proto("Otc.Markets.Headers.Ats.v1.0.Lua", "Otc Markets Headers Ats 1.0")
+local omi_otc_markets_headers_ats_v1_0 = Proto("Otc.Markets.Headers.Ats.v1.0.Lua", "Otc Markets Headers Ats 1.0")
 
 -- Component Tables
 local show = {}
@@ -20,25 +20,25 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Otc Markets Headers Ats 1.0 Fields
-otc_markets_headers_ats_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.headers.ats.v1.0.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-otc_markets_headers_ats_v1_0.fields.message = ProtoField.new("Message", "otc.markets.headers.ats.v1.0.message", ftypes.STRING)
-otc_markets_headers_ats_v1_0.fields.message_header = ProtoField.new("Message Header", "otc.markets.headers.ats.v1.0.messageheader", ftypes.STRING)
-otc_markets_headers_ats_v1_0.fields.message_size = ProtoField.new("Message Size", "otc.markets.headers.ats.v1.0.messagesize", ftypes.UINT16)
-otc_markets_headers_ats_v1_0.fields.message_type = ProtoField.new("Message Type", "otc.markets.headers.ats.v1.0.messagetype", ftypes.UINT8)
-otc_markets_headers_ats_v1_0.fields.messages = ProtoField.new("Messages", "otc.markets.headers.ats.v1.0.messages", ftypes.UINT8)
-otc_markets_headers_ats_v1_0.fields.packet = ProtoField.new("Packet", "otc.markets.headers.ats.v1.0.packet", ftypes.STRING)
-otc_markets_headers_ats_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otc.markets.headers.ats.v1.0.packetflag", ftypes.STRING)
-otc_markets_headers_ats_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otc.markets.headers.ats.v1.0.packetheader", ftypes.STRING)
-otc_markets_headers_ats_v1_0.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.headers.ats.v1.0.packetmilli", ftypes.UINT32)
-otc_markets_headers_ats_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.headers.ats.v1.0.packetsize", ftypes.UINT16)
-otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-otc_markets_headers_ats_v1_0.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.headers.ats.v1.0.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
-otc_markets_headers_ats_v1_0.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.headers.ats.v1.0.seqnum", ftypes.UINT32)
-otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_otc_markets_headers_ats_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.headers.ats.v1.0.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_otc_markets_headers_ats_v1_0.fields.message = ProtoField.new("Message", "otc.markets.headers.ats.v1.0.message", ftypes.STRING)
+omi_otc_markets_headers_ats_v1_0.fields.message_header = ProtoField.new("Message Header", "otc.markets.headers.ats.v1.0.messageheader", ftypes.STRING)
+omi_otc_markets_headers_ats_v1_0.fields.message_size = ProtoField.new("Message Size", "otc.markets.headers.ats.v1.0.messagesize", ftypes.UINT16)
+omi_otc_markets_headers_ats_v1_0.fields.message_type = ProtoField.new("Message Type", "otc.markets.headers.ats.v1.0.messagetype", ftypes.UINT8)
+omi_otc_markets_headers_ats_v1_0.fields.messages = ProtoField.new("Messages", "otc.markets.headers.ats.v1.0.messages", ftypes.UINT8)
+omi_otc_markets_headers_ats_v1_0.fields.packet = ProtoField.new("Packet", "otc.markets.headers.ats.v1.0.packet", ftypes.STRING)
+omi_otc_markets_headers_ats_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otc.markets.headers.ats.v1.0.packetflag", ftypes.STRING)
+omi_otc_markets_headers_ats_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otc.markets.headers.ats.v1.0.packetheader", ftypes.STRING)
+omi_otc_markets_headers_ats_v1_0.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.headers.ats.v1.0.packetmilli", ftypes.UINT32)
+omi_otc_markets_headers_ats_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.headers.ats.v1.0.packetsize", ftypes.UINT16)
+omi_otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_otc_markets_headers_ats_v1_0.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.headers.ats.v1.0.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
+omi_otc_markets_headers_ats_v1_0.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.headers.ats.v1.0.seqnum", ftypes.UINT32)
+omi_otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 
 -- Otc Markets Headers Ats 1.0 generated fields
-otc_markets_headers_ats_v1_0.fields.message_index = ProtoField.new("Message Index", "otc.markets.headers.ats.v1.0.messageindex", ftypes.UINT16)
+omi_otc_markets_headers_ats_v1_0.fields.message_index = ProtoField.new("Message Index", "otc.markets.headers.ats.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -52,35 +52,35 @@ show.packet_flag = true
 show.packet_header = true
 
 -- Register Otc Markets Headers Ats 1.0 Show Options
-otc_markets_headers_ats_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-otc_markets_headers_ats_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-otc_markets_headers_ats_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-otc_markets_headers_ats_v1_0.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
-otc_markets_headers_ats_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_otc_markets_headers_ats_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_otc_markets_headers_ats_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_otc_markets_headers_ats_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_otc_markets_headers_ats_v1_0.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
+omi_otc_markets_headers_ats_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
 -- Handle changed preferences
-function otc_markets_headers_ats_v1_0.prefs_changed()
+function omi_otc_markets_headers_ats_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.message ~= otc_markets_headers_ats_v1_0.prefs.show_message then
-    show.message = otc_markets_headers_ats_v1_0.prefs.show_message
+  if show.message ~= omi_otc_markets_headers_ats_v1_0.prefs.show_message then
+    show.message = omi_otc_markets_headers_ats_v1_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= otc_markets_headers_ats_v1_0.prefs.show_message_header then
-    show.message_header = otc_markets_headers_ats_v1_0.prefs.show_message_header
+  if show.message_header ~= omi_otc_markets_headers_ats_v1_0.prefs.show_message_header then
+    show.message_header = omi_otc_markets_headers_ats_v1_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= otc_markets_headers_ats_v1_0.prefs.show_packet then
-    show.packet = otc_markets_headers_ats_v1_0.prefs.show_packet
+  if show.packet ~= omi_otc_markets_headers_ats_v1_0.prefs.show_packet then
+    show.packet = omi_otc_markets_headers_ats_v1_0.prefs.show_packet
     changed = true
   end
-  if show.packet_flag ~= otc_markets_headers_ats_v1_0.prefs.show_packet_flag then
-    show.packet_flag = otc_markets_headers_ats_v1_0.prefs.show_packet_flag
+  if show.packet_flag ~= omi_otc_markets_headers_ats_v1_0.prefs.show_packet_flag then
+    show.packet_flag = omi_otc_markets_headers_ats_v1_0.prefs.show_packet_flag
     changed = true
   end
-  if show.packet_header ~= otc_markets_headers_ats_v1_0.prefs.show_packet_header then
-    show.packet_header = otc_markets_headers_ats_v1_0.prefs.show_packet_header
+  if show.packet_header ~= omi_otc_markets_headers_ats_v1_0.prefs.show_packet_header then
+    show.packet_header = omi_otc_markets_headers_ats_v1_0.prefs.show_packet_header
     changed = true
   end
 
@@ -110,7 +110,7 @@ otc_markets_headers_ats_v1_0_dissect.message_type = function(buffer, offset, pac
   local value = range:uint()
   local display = otc_markets_headers_ats_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_headers_ats_v1_0.fields.message_type, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -130,7 +130,7 @@ otc_markets_headers_ats_v1_0_dissect.message_size = function(buffer, offset, pac
   local value = range:uint()
   local display = otc_markets_headers_ats_v1_0_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_headers_ats_v1_0.fields.message_size, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -168,7 +168,7 @@ end
 otc_markets_headers_ats_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_headers_ats_v1_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_header, buffer(offset, 0))
     local index = otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -193,7 +193,7 @@ otc_markets_headers_ats_v1_0_dissect.message_fields = function(buffer, offset, p
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(otc_markets_headers_ats_v1_0.fields.message_index, message_index)
+    local iteration = parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -212,7 +212,7 @@ otc_markets_headers_ats_v1_0_dissect.message = function(buffer, offset, packet, 
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(otc_markets_headers_ats_v1_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_headers_ats_v1_0.fields.message, buffer(offset, 0))
     local current = otc_markets_headers_ats_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = otc_markets_headers_ats_v1_0_display.message(buffer, packet, parent)
@@ -242,7 +242,7 @@ otc_markets_headers_ats_v1_0_dissect.packet_milli = function(buffer, offset, pac
   local value = range:uint()
   local display = otc_markets_headers_ats_v1_0_display.packet_milli(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_headers_ats_v1_0.fields.packet_milli, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_milli, range, value, display)
 
   return offset + length, value
 end
@@ -262,7 +262,7 @@ otc_markets_headers_ats_v1_0_dissect.messages = function(buffer, offset, packet,
   local value = range:uint()
   local display = otc_markets_headers_ats_v1_0_display.messages(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_headers_ats_v1_0.fields.messages, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.messages, range, value, display)
 
   return offset + length, value
 end
@@ -298,19 +298,19 @@ end
 otc_markets_headers_ats_v1_0_dissect.packet_flag_bits = function(buffer, offset, packet, parent)
 
   -- Test: 1 Bit
-  parent:add(otc_markets_headers_ats_v1_0.fields.test, buffer(offset, 1))
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.test, buffer(offset, 1))
 
   -- Replay: 1 Bit
-  parent:add(otc_markets_headers_ats_v1_0.fields.replay, buffer(offset, 1))
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.replay, buffer(offset, 1))
 
   -- Reserved Packet Flags: 4 Bit
-  parent:add(otc_markets_headers_ats_v1_0.fields.reserved_packet_flags, buffer(offset, 1))
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.reserved_packet_flags, buffer(offset, 1))
 
   -- Seq Num Reset: 1 Bit
-  parent:add(otc_markets_headers_ats_v1_0.fields.seq_num_reset, buffer(offset, 1))
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.seq_num_reset, buffer(offset, 1))
 
   -- Heartbeat: 1 Bit
-  parent:add(otc_markets_headers_ats_v1_0.fields.heartbeat, buffer(offset, 1))
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.heartbeat, buffer(offset, 1))
 end
 
 -- Dissect: Packet Flag
@@ -318,7 +318,7 @@ otc_markets_headers_ats_v1_0_dissect.packet_flag = function(buffer, offset, pack
   local size = 1
   local range = buffer(offset, size)
   local display = otc_markets_headers_ats_v1_0_display.packet_flag(range, packet, parent)
-  local element = parent:add(otc_markets_headers_ats_v1_0.fields.packet_flag, range, display)
+  local element = parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_flag, range, display)
 
   if show.packet_flag then
     otc_markets_headers_ats_v1_0_dissect.packet_flag_bits(buffer, offset, packet, element)
@@ -342,7 +342,7 @@ otc_markets_headers_ats_v1_0_dissect.seq_num = function(buffer, offset, packet, 
   local value = range:uint()
   local display = otc_markets_headers_ats_v1_0_display.seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_headers_ats_v1_0.fields.seq_num, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -362,7 +362,7 @@ otc_markets_headers_ats_v1_0_dissect.packet_size = function(buffer, offset, pack
   local value = range:uint()
   local display = otc_markets_headers_ats_v1_0_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(otc_markets_headers_ats_v1_0.fields.packet_size, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -415,7 +415,7 @@ end
 otc_markets_headers_ats_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_headers_ats_v1_0.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_header, buffer(offset, 0))
     local index = otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -458,23 +458,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function otc_markets_headers_ats_v1_0.init()
+function omi_otc_markets_headers_ats_v1_0.init()
 end
 
 -- Dissector for Otc Markets Headers Ats 1.0
-function otc_markets_headers_ats_v1_0.dissector(buffer, packet, parent)
+function omi_otc_markets_headers_ats_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = otc_markets_headers_ats_v1_0.name
+  packet.cols.protocol = omi_otc_markets_headers_ats_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(otc_markets_headers_ats_v1_0, buffer(), otc_markets_headers_ats_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_otc_markets_headers_ats_v1_0, buffer(), omi_otc_markets_headers_ats_v1_0.description, "("..buffer:len().." Bytes)")
   return otc_markets_headers_ats_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, otc_markets_headers_ats_v1_0)
+udp_table:add(65333, omi_otc_markets_headers_ats_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -482,25 +482,25 @@ udp_table:add(65333, otc_markets_headers_ats_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.otc_markets_headers_ats_v1_0_packet_size = function(buffer)
+verify.omi_otc_markets_headers_ats_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Otc Markets Headers Ats 1.0
-local function otc_markets_headers_ats_v1_0_heuristic(buffer, packet, parent)
+local function omi_otc_markets_headers_ats_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.otc_markets_headers_ats_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_otc_markets_headers_ats_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = otc_markets_headers_ats_v1_0
-  otc_markets_headers_ats_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_otc_markets_headers_ats_v1_0
+  omi_otc_markets_headers_ats_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Otc Markets Headers Ats 1.0
-otc_markets_headers_ats_v1_0:register_heuristic("udp", otc_markets_headers_ats_v1_0_heuristic)
+omi_otc_markets_headers_ats_v1_0:register_heuristic("udp", omi_otc_markets_headers_ats_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- 24X Equities MemoirTopOfBook Sbe 1.3 Protocol
-local n24x_equities_memoirtopofbook_sbe_v1_3 = Proto("24X.Equities.MemoirTopOfBook.Sbe.v1.3.Lua", "24X Equities MemoirTopOfBook Sbe 1.3")
+local omi_n24x_equities_memoirtopofbook_sbe_v1_3 = Proto("24X.Equities.MemoirTopOfBook.Sbe.v1.3.Lua", "24X Equities MemoirTopOfBook Sbe 1.3")
 
 -- Component Tables
 local show = {}
@@ -21,60 +21,60 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- 24X Equities MemoirTopOfBook Sbe 1.3 Fields
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "24x.equities.memoirtopofbook.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price = ProtoField.new("Bid Price", "24x.equities.memoirtopofbook.sbe.v1.3.bidprice", ftypes.DOUBLE)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short = ProtoField.new("Bid Price Short", "24x.equities.memoirtopofbook.sbe.v1.3.bidpriceshort", ftypes.DOUBLE)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size = ProtoField.new("Bid Size", "24x.equities.memoirtopofbook.sbe.v1.3.bidsize", ftypes.UINT32)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size_short = ProtoField.new("Bid Size Short", "24x.equities.memoirtopofbook.sbe.v1.3.bidsizeshort", ftypes.UINT16)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "24x.equities.memoirtopofbook.sbe.v1.3.blocklength", ftypes.UINT16)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.equities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "24x.equities.memoirtopofbook.sbe.v1.3.headerlength", ftypes.UINT8)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "24x.equities.memoirtopofbook.sbe.v1.3.istestsymbol", ftypes.UINT8)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.message = ProtoField.new("Message", "24x.equities.memoirtopofbook.sbe.v1.3.message", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "24x.equities.memoirtopofbook.sbe.v1.3.messagecount", ftypes.UINT16)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "24x.equities.memoirtopofbook.sbe.v1.3.messagelength", ftypes.UINT16)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "24x.equities.memoirtopofbook.sbe.v1.3.messagetype", ftypes.UINT8)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "24x.equities.memoirtopofbook.sbe.v1.3.mpv", ftypes.DOUBLE)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price = ProtoField.new("Offer Price", "24x.equities.memoirtopofbook.sbe.v1.3.offerprice", ftypes.DOUBLE)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoField.new("Offer Price Short", "24x.equities.memoirtopofbook.sbe.v1.3.offerpriceshort", ftypes.DOUBLE)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer size", "24x.equities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "24x.equities.memoirtopofbook.sbe.v1.3.offersizeuint16", ftypes.UINT16)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.equities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.payload = ProtoField.new("Payload", "24x.equities.memoirtopofbook.sbe.v1.3.payload", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "24x.equities.memoirtopofbook.sbe.v1.3.roundlot", ftypes.UINT32)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "24x.equities.memoirtopofbook.sbe.v1.3.sbeheader", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "24x.equities.memoirtopofbook.sbe.v1.3.sbemessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "24x.equities.memoirtopofbook.sbe.v1.3.schemaid", ftypes.UINT8)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "24x.equities.memoirtopofbook.sbe.v1.3.securityid", ftypes.UINT16)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "24x.equities.memoirtopofbook.sbe.v1.3.securitytradingstatus", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "24x.equities.memoirtopofbook.sbe.v1.3.securitytradingstatusreason", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "24x.equities.memoirtopofbook.sbe.v1.3.sequencenumber", ftypes.UINT64)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "24x.equities.memoirtopofbook.sbe.v1.3.sequencedmessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "24x.equities.memoirtopofbook.sbe.v1.3.sequencedmessages", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "24x.equities.memoirtopofbook.sbe.v1.3.sessionid", ftypes.UINT64)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "24x.equities.memoirtopofbook.sbe.v1.3.shortsalerestriction", ftypes.UINT8)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "24x.equities.memoirtopofbook.sbe.v1.3.symbol", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "24x.equities.memoirtopofbook.sbe.v1.3.symbolsfx", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "24x.equities.memoirtopofbook.sbe.v1.3.templateid", ftypes.UINT8)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "24x.equities.memoirtopofbook.sbe.v1.3.timestamp", ftypes.UINT64)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "24x.equities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "24x.equities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "24x.equities.memoirtopofbook.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price = ProtoField.new("Bid Price", "24x.equities.memoirtopofbook.sbe.v1.3.bidprice", ftypes.DOUBLE)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short = ProtoField.new("Bid Price Short", "24x.equities.memoirtopofbook.sbe.v1.3.bidpriceshort", ftypes.DOUBLE)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size = ProtoField.new("Bid Size", "24x.equities.memoirtopofbook.sbe.v1.3.bidsize", ftypes.UINT32)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size_short = ProtoField.new("Bid Size Short", "24x.equities.memoirtopofbook.sbe.v1.3.bidsizeshort", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "24x.equities.memoirtopofbook.sbe.v1.3.blocklength", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.equities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "24x.equities.memoirtopofbook.sbe.v1.3.headerlength", ftypes.UINT8)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "24x.equities.memoirtopofbook.sbe.v1.3.istestsymbol", ftypes.UINT8)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message = ProtoField.new("Message", "24x.equities.memoirtopofbook.sbe.v1.3.message", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "24x.equities.memoirtopofbook.sbe.v1.3.messagecount", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "24x.equities.memoirtopofbook.sbe.v1.3.messagelength", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "24x.equities.memoirtopofbook.sbe.v1.3.messagetype", ftypes.UINT8)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "24x.equities.memoirtopofbook.sbe.v1.3.mpv", ftypes.DOUBLE)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price = ProtoField.new("Offer Price", "24x.equities.memoirtopofbook.sbe.v1.3.offerprice", ftypes.DOUBLE)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoField.new("Offer Price Short", "24x.equities.memoirtopofbook.sbe.v1.3.offerpriceshort", ftypes.DOUBLE)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer size", "24x.equities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "24x.equities.memoirtopofbook.sbe.v1.3.offersizeuint16", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.equities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.payload = ProtoField.new("Payload", "24x.equities.memoirtopofbook.sbe.v1.3.payload", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "24x.equities.memoirtopofbook.sbe.v1.3.roundlot", ftypes.UINT32)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "24x.equities.memoirtopofbook.sbe.v1.3.sbeheader", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "24x.equities.memoirtopofbook.sbe.v1.3.sbemessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "24x.equities.memoirtopofbook.sbe.v1.3.schemaid", ftypes.UINT8)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "24x.equities.memoirtopofbook.sbe.v1.3.securityid", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "24x.equities.memoirtopofbook.sbe.v1.3.securitytradingstatus", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "24x.equities.memoirtopofbook.sbe.v1.3.securitytradingstatusreason", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "24x.equities.memoirtopofbook.sbe.v1.3.sequencenumber", ftypes.UINT64)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "24x.equities.memoirtopofbook.sbe.v1.3.sequencedmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "24x.equities.memoirtopofbook.sbe.v1.3.sequencedmessages", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "24x.equities.memoirtopofbook.sbe.v1.3.sessionid", ftypes.UINT64)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "24x.equities.memoirtopofbook.sbe.v1.3.shortsalerestriction", ftypes.UINT8)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "24x.equities.memoirtopofbook.sbe.v1.3.symbol", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "24x.equities.memoirtopofbook.sbe.v1.3.symbolsfx", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "24x.equities.memoirtopofbook.sbe.v1.3.templateid", ftypes.UINT8)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "24x.equities.memoirtopofbook.sbe.v1.3.timestamp", ftypes.UINT64)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "24x.equities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "24x.equities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
 
 -- 24X Equities MemoirTopOfBook Sbe 1.3 messages
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestbidmessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestbidoffermessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestbidshortmessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_message = ProtoField.new("Best Offer Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestoffermessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_short_message = ProtoField.new("Best Offer Short Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestoffershortmessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "24x.equities.memoirtopofbook.sbe.v1.3.clearbookmessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "24x.equities.memoirtopofbook.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "24x.equities.memoirtopofbook.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "24x.equities.memoirtopofbook.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "24x.equities.memoirtopofbook.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "24x.equities.memoirtopofbook.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestbidmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestbidoffermessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestbidshortmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_message = ProtoField.new("Best Offer Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestoffermessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_short_message = ProtoField.new("Best Offer Short Message", "24x.equities.memoirtopofbook.sbe.v1.3.bestoffershortmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "24x.equities.memoirtopofbook.sbe.v1.3.clearbookmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "24x.equities.memoirtopofbook.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "24x.equities.memoirtopofbook.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "24x.equities.memoirtopofbook.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "24x.equities.memoirtopofbook.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "24x.equities.memoirtopofbook.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
 -- 24X Equities MemoirTopOfBook Sbe 1.3 generated fields
-n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "24x.equities.memoirtopofbook.sbe.v1.3.messageindex", ftypes.UINT16)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "24x.equities.memoirtopofbook.sbe.v1.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -102,105 +102,105 @@ show.payload = false
 show.sequenced_messages = false
 
 -- Register 24X Equities MemoirTopOfBook Sbe 1.3 Show Options
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message = Pref.bool("Show Best Bid Offer Message", show.best_bid_offer_message, "Parse and add Best Bid Offer Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message = Pref.bool("Show Best Bid Short Message", show.best_bid_short_message, "Parse and add Best Bid Short Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message = Pref.bool("Show Best Offer Message", show.best_offer_message, "Parse and add Best Offer Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message = Pref.bool("Show Best Offer Short Message", show.best_offer_short_message, "Parse and add Best Offer Short Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message = Pref.bool("Show Best Bid Offer Message", show.best_bid_offer_message, "Parse and add Best Bid Offer Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message = Pref.bool("Show Best Bid Short Message", show.best_bid_short_message, "Parse and add Best Bid Short Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message = Pref.bool("Show Best Offer Message", show.best_offer_message, "Parse and add Best Offer Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message = Pref.bool("Show Best Offer Short Message", show.best_offer_short_message, "Parse and add Best Offer Short Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
 
 -- Handle changed preferences
-function n24x_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
+function omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.best_bid_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message then
-    show.best_bid_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message
+  if show.best_bid_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message then
+    show.best_bid_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message
     changed = true
   end
-  if show.best_bid_offer_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message then
-    show.best_bid_offer_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message
+  if show.best_bid_offer_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message then
+    show.best_bid_offer_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message
     changed = true
   end
-  if show.best_bid_short_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message then
-    show.best_bid_short_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message
+  if show.best_bid_short_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message then
+    show.best_bid_short_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message
     changed = true
   end
-  if show.best_offer_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message then
-    show.best_offer_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message
+  if show.best_offer_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message then
+    show.best_offer_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message
     changed = true
   end
-  if show.best_offer_short_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message then
-    show.best_offer_short_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message
+  if show.best_offer_short_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message then
+    show.best_offer_short_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message
     changed = true
   end
-  if show.clear_book_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message then
-    show.clear_book_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message
+  if show.clear_book_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message then
+    show.clear_book_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message
     changed = true
   end
-  if show.common_header ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header then
-    show.common_header = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header
+  if show.common_header ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header then
+    show.common_header = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header
     changed = true
   end
-  if show.instrument_directory_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message
+  if show.instrument_directory_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message then
+    show.instrument_directory_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message
     changed = true
   end
-  if show.message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_message then
-    show.message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_message
+  if show.message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_message then
+    show.message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_message
     changed = true
   end
-  if show.packet ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet then
-    show.packet = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet
+  if show.packet ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet then
+    show.packet = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet
     changed = true
   end
-  if show.reg_sho_restriction_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message then
-    show.reg_sho_restriction_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message
+  if show.reg_sho_restriction_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message then
+    show.reg_sho_restriction_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message
     changed = true
   end
-  if show.sbe_header ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header then
-    show.sbe_header = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header
+  if show.sbe_header ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header then
+    show.sbe_header = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header
     changed = true
   end
-  if show.sbe_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message then
-    show.sbe_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message
+  if show.sbe_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message then
+    show.sbe_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message
     changed = true
   end
-  if show.security_trading_status_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message then
-    show.security_trading_status_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message
+  if show.security_trading_status_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message then
+    show.security_trading_status_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message
     changed = true
   end
-  if show.sequenced_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message then
-    show.sequenced_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message then
+    show.sequenced_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message
     changed = true
   end
-  if show.snapshot_complete_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message then
-    show.snapshot_complete_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message
+  if show.snapshot_complete_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message then
+    show.snapshot_complete_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message
     changed = true
   end
-  if show.trading_session_status_message ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message then
-    show.trading_session_status_message = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message
+  if show.trading_session_status_message ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message then
+    show.trading_session_status_message = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message
     changed = true
   end
-  if show.payload ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload then
-    show.payload = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload
+  if show.payload ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload then
+    show.payload = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_payload
     changed = true
   end
-  if show.sequenced_messages ~= n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages then
-    show.sequenced_messages = n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages
+  if show.sequenced_messages ~= omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages then
+    show.sequenced_messages = omi_n24x_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_messages
     changed = true
   end
 
@@ -230,7 +230,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.security_id = function(buffer, of
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_id, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -254,7 +254,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.timestamp = function(buffer, offs
   local value = range:uint64()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.timestamp, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -292,7 +292,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.clear_book_message = function(buffer, offset, packet, parent)
   if show.clear_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -327,7 +327,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.offer_price_short = function(buff
   local value = translate.offer_price_short(raw)
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.offer_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -347,7 +347,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.offer_size_uint_16 = function(buf
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.offer_size_uint_16(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16, range, value, display)
 
   return offset + length, value
 end
@@ -395,7 +395,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_offer_short_message = function(buffer, offset, packet, parent)
   if show.best_offer_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_short_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_short_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_offer_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -430,7 +430,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.bid_price_short = function(buffer
   local value = translate.bid_price_short(raw)
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.bid_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -450,7 +450,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.bid_size_short = function(buffer,
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.bid_size_short(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size_short, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -498,7 +498,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_bid_short_message = function(buffer, offset, packet, parent)
   if show.best_bid_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_short_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_short_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_bid_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -533,7 +533,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.offer_price = function(buffer, of
   local value = translate.offer_price(raw)
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -553,7 +553,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.offer_size = function(buffer, off
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -601,7 +601,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_offer_message = function(buffer, offset, packet, parent)
   if show.best_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_offer_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -636,7 +636,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.bid_price = function(buffer, offs
   local value = translate.bid_price(raw)
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -656,7 +656,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.bid_size = function(buffer, offse
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -704,7 +704,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_bid_message = function(buffer, offset, packet, parent)
   if show.best_bid_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_bid_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -771,7 +771,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_bid_offer_message = function(buffer, offset, packet, parent)
   if show.best_bid_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.best_bid_offer_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -826,7 +826,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.trading_session = function(buffer
 
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.trading_session(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session, range, value, display)
 
   return offset + length, value
 end
@@ -864,7 +864,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
   if show.trading_session_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -893,7 +893,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.as_of_sequence_number = function(
   local value = range:uint64()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.as_of_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -931,7 +931,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.snapshot_complete_message = function(buffer, offset, packet, parent)
   if show.snapshot_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -983,7 +983,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.security_trading_status_reason = 
 
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.security_trading_status_reason(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1029,7 +1029,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.security_trading_status = functio
 
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.security_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1077,7 +1077,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
   if show.security_trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1113,7 +1113,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.short_sale_restriction = function
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.short_sale_restriction(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction, range, value, display)
 
   return offset + length, value
 end
@@ -1156,7 +1156,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   if show.reg_sho_restriction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1191,7 +1191,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.mpv = function(buffer, offset, pa
   local value = translate.mpv(raw)
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.mpv, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -1218,7 +1218,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.is_test_symbol = function(buffer,
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.is_test_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1238,7 +1238,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.round_lot = function(buffer, offs
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.round_lot, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
@@ -1274,7 +1274,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.symbol_sfx = function(buffer, off
 
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.symbol_sfx(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx, range, value, display)
 
   return offset + length, value
 end
@@ -1310,7 +1310,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.symbol = function(buffer, offset,
 
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1373,7 +1373,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1507,7 +1507,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.payload = function(buffer, offset
   -- Dissect Element
   local range = buffer(offset, size)
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.payload(buffer, packet, parent)
-  local element = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.payload, range, display)
+  local element = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.payload, range, display)
 
   return n24x_equities_memoirtopofbook_sbe_v1_3_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -1527,7 +1527,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.version = function(buffer, offset
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.version, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1547,7 +1547,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.schema_id = function(buffer, offs
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.schema_id, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -1601,7 +1601,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.template_id = function(buffer, of
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.template_id, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -1621,7 +1621,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.block_length = function(buffer, o
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.block_length, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -1669,7 +1669,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1710,7 +1710,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sbe_message = function(buffer, of
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
     local current = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
     local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.sbe_message(buffer, packet, parent)
@@ -1740,7 +1740,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.message_length = function(buffer,
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_length, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1756,7 +1756,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.message_fields = function(buffer,
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_index, message_index)
+    local iteration = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -1781,7 +1781,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.message = function(buffer, offset
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message, buffer(offset, 0))
     local current = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.message(buffer, packet, parent)
@@ -1811,7 +1811,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.message_count = function(buffer, 
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_count, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1863,7 +1863,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sequenced_message = function(buff
     local length = n24x_equities_memoirtopofbook_sbe_v1_3_size_of.sequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.sequenced_message(buffer, packet, parent)
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_message, range, display)
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_message, range, display)
   end
 
   return n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sequenced_message_fields(buffer, offset, packet, parent)
@@ -1909,7 +1909,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sequenced_messages = function(buf
   -- Dissect Element
   local range = buffer(offset, size)
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.sequenced_messages(buffer, packet, parent)
-  local element = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_messages, range, display)
+  local element = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequenced_messages, range, display)
 
   return n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sequenced_messages_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1929,7 +1929,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.sequence_number = function(buffer
   local value = range:uint64()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequence_number, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1949,7 +1949,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.session_id = function(buffer, off
   local value = range:uint64()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.session_id, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -1969,7 +1969,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.header_length = function(buffer, 
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.header_length(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.header_length, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.header_length, range, value, display)
 
   return offset + length, value
 end
@@ -1999,7 +1999,7 @@ n24x_equities_memoirtopofbook_sbe_v1_3_dissect.message_type = function(buffer, o
   local value = range:uint()
   local display = n24x_equities_memoirtopofbook_sbe_v1_3_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_type, range, value, display)
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2047,7 +2047,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    parent = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.common_header, buffer(offset, 0))
     local index = n24x_equities_memoirtopofbook_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2083,23 +2083,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function n24x_equities_memoirtopofbook_sbe_v1_3.init()
+function omi_n24x_equities_memoirtopofbook_sbe_v1_3.init()
 end
 
 -- Dissector for 24X Equities MemoirTopOfBook Sbe 1.3
-function n24x_equities_memoirtopofbook_sbe_v1_3.dissector(buffer, packet, parent)
+function omi_n24x_equities_memoirtopofbook_sbe_v1_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = n24x_equities_memoirtopofbook_sbe_v1_3.name
+  packet.cols.protocol = omi_n24x_equities_memoirtopofbook_sbe_v1_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3, buffer(), n24x_equities_memoirtopofbook_sbe_v1_3.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3, buffer(), omi_n24x_equities_memoirtopofbook_sbe_v1_3.description, "("..buffer:len().." Bytes)")
   return n24x_equities_memoirtopofbook_sbe_v1_3_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, n24x_equities_memoirtopofbook_sbe_v1_3)
+udp_table:add(65333, omi_n24x_equities_memoirtopofbook_sbe_v1_3)
 
 
 -----------------------------------------------------------------------
@@ -2107,7 +2107,7 @@ udp_table:add(65333, n24x_equities_memoirtopofbook_sbe_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.n24x_equities_memoirtopofbook_sbe_v1_3_packet_size = function(buffer)
+verify.omi_n24x_equities_memoirtopofbook_sbe_v1_3_packet_size = function(buffer)
 
   return true
 end
@@ -2137,9 +2137,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for 24X Equities MemoirTopOfBook Sbe 1.3
-local function n24x_equities_memoirtopofbook_sbe_v1_3_heuristic(buffer, packet, parent)
+local function omi_n24x_equities_memoirtopofbook_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.n24x_equities_memoirtopofbook_sbe_v1_3_packet_size(buffer) then return false end
+  if not verify.omi_n24x_equities_memoirtopofbook_sbe_v1_3_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -2148,14 +2148,14 @@ local function n24x_equities_memoirtopofbook_sbe_v1_3_heuristic(buffer, packet, 
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = n24x_equities_memoirtopofbook_sbe_v1_3
-  n24x_equities_memoirtopofbook_sbe_v1_3.dissector(buffer, packet, parent)
+  packet.conversation = omi_n24x_equities_memoirtopofbook_sbe_v1_3
+  omi_n24x_equities_memoirtopofbook_sbe_v1_3.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for 24X Equities MemoirTopOfBook Sbe 1.3
-n24x_equities_memoirtopofbook_sbe_v1_3:register_heuristic("udp", n24x_equities_memoirtopofbook_sbe_v1_3_heuristic)
+omi_n24x_equities_memoirtopofbook_sbe_v1_3:register_heuristic("udp", omi_n24x_equities_memoirtopofbook_sbe_v1_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

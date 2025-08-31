@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe Bzx Equities DepthOfBook Pitch 2.41.29 Protocol
-local cboe_bzx_equities_depthofbook_pitch_v2_41_29 = Proto("Cboe.Bzx.Equities.DepthOfBook.Pitch.v2.41.29.Lua", "Cboe Bzx Equities DepthOfBook Pitch 2.41.29")
+local omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29 = Proto("Cboe.Bzx.Equities.DepthOfBook.Pitch.v2.41.29.Lua", "Cboe Bzx Equities DepthOfBook Pitch 2.41.29")
 
 -- Component Tables
 local show = {}
@@ -21,74 +21,74 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Cboe Bzx Equities DepthOfBook Pitch 2.41.29 Fields
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctiononlyprice", ftypes.UINT64)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_opening_type = ProtoField.new("Auction Opening Type", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctionopeningtype", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_type = ProtoField.new("Auction Type", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctiontype", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.buyshares", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.canceledquantity", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.canceledquantityshort", ftypes.UINT16)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.count = ProtoField.new("Count", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.count", ftypes.UINT8)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.customerindicator", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.display = ProtoField.new("Display", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.display", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.executedquantity", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.executionid", ftypes.UINT64)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.indicativeprice", ftypes.UINT64)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.length = ProtoField.new("Length", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.length", ftypes.UINT16)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message = ProtoField.new("Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.message", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_header = ProtoField.new("Message Header", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messageheader", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_length = ProtoField.new("Message Length", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messagelength", ftypes.UINT8)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_type = ProtoField.new("Message Type", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messagetype", ftypes.UINT8)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_id = ProtoField.new("Order Id", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.orderid", ftypes.UINT64)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.packet", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.padding = ProtoField.new("Padding", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.padding", ftypes.BYTES)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.participant_id = ProtoField.new("Participant Id", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.participantid", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.payload = ProtoField.new("Payload", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.payload", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.price", ftypes.DOUBLE)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.priceshort", ftypes.DOUBLE)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity = ProtoField.new("Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.quantity", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.quantityshort", ftypes.UINT16)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reference_price = ProtoField.new("Reference Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.referenceprice", ftypes.UINT64)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.regshoaction", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.remainingquantity", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.reservedflags", ftypes.UINT8, nil, base.DEC, 0xFE)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sellshares", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sequence = ProtoField.new("Sequence", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sequence", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.shares_contracts = ProtoField.new("Shares Contracts", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sharescontracts", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sideindicator", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol = ProtoField.new("Symbol", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.symbol", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.symbolextended", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time = ProtoField.new("Time", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.time", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_offset = ProtoField.new("Time Offset", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.timeoffset", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.timestamp", ftypes.UINT32)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status = ProtoField.new("Trading Status", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradingstatus", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctiononlyprice", ftypes.UINT64)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_opening_type = ProtoField.new("Auction Opening Type", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctionopeningtype", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_type = ProtoField.new("Auction Type", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctiontype", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.buyshares", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.canceledquantity", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.canceledquantityshort", ftypes.UINT16)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.count = ProtoField.new("Count", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.count", ftypes.UINT8)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.customerindicator", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.display = ProtoField.new("Display", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.display", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.executedquantity", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.executionid", ftypes.UINT64)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.indicativeprice", ftypes.UINT64)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.length = ProtoField.new("Length", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.length", ftypes.UINT16)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message = ProtoField.new("Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.message", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_header = ProtoField.new("Message Header", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messageheader", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_length = ProtoField.new("Message Length", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messagelength", ftypes.UINT8)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_type = ProtoField.new("Message Type", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messagetype", ftypes.UINT8)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_id = ProtoField.new("Order Id", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.orderid", ftypes.UINT64)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.packet", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.padding = ProtoField.new("Padding", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.padding", ftypes.BYTES)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.participant_id = ProtoField.new("Participant Id", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.participantid", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.payload = ProtoField.new("Payload", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.payload", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.price", ftypes.DOUBLE)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.priceshort", ftypes.DOUBLE)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity = ProtoField.new("Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.quantity", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.quantityshort", ftypes.UINT16)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reference_price = ProtoField.new("Reference Price", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.referenceprice", ftypes.UINT64)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.regshoaction", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.remainingquantity", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.reservedflags", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sellshares", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sequence = ProtoField.new("Sequence", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sequence", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.shares_contracts = ProtoField.new("Shares Contracts", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sharescontracts", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.sideindicator", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol = ProtoField.new("Symbol", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.symbol", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.symbolextended", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time = ProtoField.new("Time", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.time", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_offset = ProtoField.new("Time Offset", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.timeoffset", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.timestamp", ftypes.UINT32)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status = ProtoField.new("Trading Status", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradingstatus", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
 
 -- Cboe Bzx Equities DepthOfBook Pitch 2.41.29 messages
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addorderlongmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addordershortmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctionsummarymessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctionupdatemessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.deleteordermessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session = ProtoField.new("End Of Session", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.endofsession", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.modifyorderlongmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.modifyordershortmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message = ProtoField.new("Order Executed At Price Size Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.orderexecutedatpricesizemessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_message = ProtoField.new("Order Executed Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.orderexecutedmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.reducesizelongmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.reducesizeshortmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_message = ProtoField.new("Time Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.timemessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradebreakmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_expanded_message = ProtoField.new("Trade Expanded Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradeexpandedmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_long_message = ProtoField.new("Trade Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradelongmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_short_message = ProtoField.new("Trade Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradeshortmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradingstatusmessage", ftypes.STRING)
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.unitclearmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addorderlongmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.addordershortmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctionsummarymessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.auctionupdatemessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.deleteordermessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session = ProtoField.new("End Of Session", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.endofsession", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.modifyorderlongmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.modifyordershortmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message = ProtoField.new("Order Executed At Price Size Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.orderexecutedatpricesizemessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_message = ProtoField.new("Order Executed Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.orderexecutedmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.reducesizelongmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.reducesizeshortmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_message = ProtoField.new("Time Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.timemessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradebreakmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_expanded_message = ProtoField.new("Trade Expanded Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradeexpandedmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_long_message = ProtoField.new("Trade Long Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradelongmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_short_message = ProtoField.new("Trade Short Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradeshortmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.tradingstatusmessage", ftypes.STRING)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.unitclearmessage", ftypes.STRING)
 
 -- Cboe Bzx Equities DepthOfBook Pitch 2.41.29 generated fields
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_index = ProtoField.new("Message Index", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messageindex", ftypes.UINT16)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_index = ProtoField.new("Message Index", "cboe.bzx.equities.depthofbook.pitch.v2.41.29.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -123,140 +123,140 @@ show.unit_clear_message = true
 show.payload = false
 
 -- Register Cboe Bzx Equities DepthOfBook Pitch 2.41.29 Show Options
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_expanded_message = Pref.bool("Show Add Order Expanded Message", show.add_order_expanded_message, "Parse and add Add Order Expanded Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags = Pref.bool("Show Add Order Flags", show.add_order_flags, "Parse and add Add Order Flags to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_short_message = Pref.bool("Show Add Order Short Message", show.add_order_short_message, "Parse and add Add Order Short Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_update_message = Pref.bool("Show Auction Update Message", show.auction_update_message, "Parse and add Auction Update Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session = Pref.bool("Show End Of Session", show.end_of_session, "Parse and add End Of Session to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_long_message = Pref.bool("Show Reduce Size Long Message", show.reduce_size_long_message, "Parse and add Reduce Size Long Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_short_message = Pref.bool("Show Reduce Size Short Message", show.reduce_size_short_message, "Parse and add Reduce Size Short Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_expanded_message = Pref.bool("Show Trade Expanded Message", show.trade_expanded_message, "Parse and add Trade Expanded Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_long_message = Pref.bool("Show Trade Long Message", show.trade_long_message, "Parse and add Trade Long Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_short_message = Pref.bool("Show Trade Short Message", show.trade_short_message, "Parse and add Trade Short Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_expanded_message = Pref.bool("Show Add Order Expanded Message", show.add_order_expanded_message, "Parse and add Add Order Expanded Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags = Pref.bool("Show Add Order Flags", show.add_order_flags, "Parse and add Add Order Flags to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_short_message = Pref.bool("Show Add Order Short Message", show.add_order_short_message, "Parse and add Add Order Short Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_update_message = Pref.bool("Show Auction Update Message", show.auction_update_message, "Parse and add Auction Update Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session = Pref.bool("Show End Of Session", show.end_of_session, "Parse and add End Of Session to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_long_message = Pref.bool("Show Reduce Size Long Message", show.reduce_size_long_message, "Parse and add Reduce Size Long Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_short_message = Pref.bool("Show Reduce Size Short Message", show.reduce_size_short_message, "Parse and add Reduce Size Short Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_expanded_message = Pref.bool("Show Trade Expanded Message", show.trade_expanded_message, "Parse and add Trade Expanded Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_long_message = Pref.bool("Show Trade Long Message", show.trade_long_message, "Parse and add Trade Long Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_short_message = Pref.bool("Show Trade Short Message", show.trade_short_message, "Parse and add Trade Short Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs_changed()
+function omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_expanded_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_expanded_message then
-    show.add_order_expanded_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_expanded_message
+  if show.add_order_expanded_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_expanded_message then
+    show.add_order_expanded_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_expanded_message
     changed = true
   end
-  if show.add_order_flags ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags then
-    show.add_order_flags = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags
+  if show.add_order_flags ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags then
+    show.add_order_flags = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags
     changed = true
   end
-  if show.add_order_long_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_long_message then
-    show.add_order_long_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_long_message
+  if show.add_order_long_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_long_message then
+    show.add_order_long_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_long_message
     changed = true
   end
-  if show.add_order_short_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_short_message then
-    show.add_order_short_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_short_message
+  if show.add_order_short_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_short_message then
+    show.add_order_short_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_short_message
     changed = true
   end
-  if show.auction_summary_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_summary_message then
-    show.auction_summary_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_summary_message
+  if show.auction_summary_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_summary_message then
+    show.auction_summary_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_summary_message
     changed = true
   end
-  if show.auction_update_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_update_message then
-    show.auction_update_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_update_message
+  if show.auction_update_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_update_message then
+    show.auction_update_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_update_message
     changed = true
   end
-  if show.delete_order_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message then
-    show.delete_order_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message
+  if show.delete_order_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message then
+    show.delete_order_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message
     changed = true
   end
-  if show.end_of_session ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session then
-    show.end_of_session = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session
+  if show.end_of_session ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session then
+    show.end_of_session = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session
     changed = true
   end
-  if show.message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message then
-    show.message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message
+  if show.message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message then
+    show.message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header then
-    show.message_header = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header
+  if show.message_header ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header then
+    show.message_header = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header
     changed = true
   end
-  if show.modify_order_long_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_long_message then
-    show.modify_order_long_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_long_message
+  if show.modify_order_long_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_long_message then
+    show.modify_order_long_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_long_message
     changed = true
   end
-  if show.modify_order_short_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_short_message then
-    show.modify_order_short_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_short_message
+  if show.modify_order_short_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_short_message then
+    show.modify_order_short_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_short_message
     changed = true
   end
-  if show.order_executed_at_price_size_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_at_price_size_message then
-    show.order_executed_at_price_size_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_at_price_size_message
+  if show.order_executed_at_price_size_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_at_price_size_message then
+    show.order_executed_at_price_size_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_at_price_size_message
     changed = true
   end
-  if show.order_executed_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_message then
-    show.order_executed_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_message then
+    show.order_executed_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_order_executed_message
     changed = true
   end
-  if show.packet ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet then
-    show.packet = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet
+  if show.packet ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet then
+    show.packet = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header then
-    show.packet_header = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header
+  if show.packet_header ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header then
+    show.packet_header = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header
     changed = true
   end
-  if show.reduce_size_long_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_long_message then
-    show.reduce_size_long_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_long_message
+  if show.reduce_size_long_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_long_message then
+    show.reduce_size_long_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_long_message
     changed = true
   end
-  if show.reduce_size_short_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_short_message then
-    show.reduce_size_short_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_short_message
+  if show.reduce_size_short_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_short_message then
+    show.reduce_size_short_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_reduce_size_short_message
     changed = true
   end
-  if show.time_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_time_message then
-    show.time_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_time_message
+  if show.time_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_time_message then
+    show.time_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_time_message
     changed = true
   end
-  if show.trade_break_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_break_message then
-    show.trade_break_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_break_message
+  if show.trade_break_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_break_message then
+    show.trade_break_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_break_message
     changed = true
   end
-  if show.trade_expanded_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_expanded_message then
-    show.trade_expanded_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_expanded_message
+  if show.trade_expanded_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_expanded_message then
+    show.trade_expanded_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_expanded_message
     changed = true
   end
-  if show.trade_long_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_long_message then
-    show.trade_long_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_long_message
+  if show.trade_long_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_long_message then
+    show.trade_long_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_long_message
     changed = true
   end
-  if show.trade_short_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_short_message then
-    show.trade_short_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_short_message
+  if show.trade_short_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_short_message then
+    show.trade_short_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trade_short_message
     changed = true
   end
-  if show.trading_status_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trading_status_message then
-    show.trading_status_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trading_status_message
+  if show.trading_status_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trading_status_message then
+    show.trading_status_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_trading_status_message
     changed = true
   end
-  if show.unit_clear_message ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_unit_clear_message then
-    show.unit_clear_message = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_unit_clear_message
+  if show.unit_clear_message ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_unit_clear_message then
+    show.unit_clear_message = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_unit_clear_message
     changed = true
   end
-  if show.payload ~= cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_payload then
-    show.payload = cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_payload
+  if show.payload ~= omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_payload then
+    show.payload = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.prefs.show_payload
     changed = true
   end
 
@@ -286,7 +286,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.shares_contracts = function
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.shares_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.shares_contracts, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.shares_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -312,7 +312,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.price = function(buffer, of
   local value = translate.price(raw)
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -332,7 +332,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.auction_opening_type = func
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.auction_opening_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_opening_type, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_opening_type, range, value, display)
 
   return offset + length, value
 end
@@ -352,7 +352,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.symbol_extended = function(
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.symbol_extended(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol_extended, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol_extended, range, value, display)
 
   return offset + length, value
 end
@@ -372,7 +372,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.time_offset = function(buff
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.time_offset(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_offset, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_offset, range, value, display)
 
   return offset + length, value
 end
@@ -425,7 +425,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.auction_summary_message = function(buffer, offset, packet, parent)
   if show.auction_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_summary_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_summary_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -454,7 +454,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.auction_only_price = functi
   local value = range:le_uint64()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.auction_only_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_only_price, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_only_price, range, value, display)
 
   return offset + length, value
 end
@@ -474,7 +474,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.indicative_price = function
   local value = range:le_uint64()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.indicative_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.indicative_price, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.indicative_price, range, value, display)
 
   return offset + length, value
 end
@@ -494,7 +494,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.sell_shares = function(buff
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.sell_shares(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sell_shares, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sell_shares, range, value, display)
 
   return offset + length, value
 end
@@ -514,7 +514,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.buy_shares = function(buffe
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.buy_shares(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.buy_shares, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.buy_shares, range, value, display)
 
   return offset + length, value
 end
@@ -534,7 +534,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.reference_price = function(
   local value = range:le_uint64()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reference_price, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -576,7 +576,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.auction_type = function(buf
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_type, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -644,7 +644,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.auction_update_message = function(buffer, offset, packet, parent)
   if show.auction_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_update_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.auction_update_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.auction_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -673,7 +673,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.padding = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.padding(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.padding, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.padding, range, value, display)
 
   return offset + length, value
 end
@@ -700,7 +700,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.reg_sho_action = function(b
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.reg_sho_action(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reg_sho_action, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reg_sho_action, range, value, display)
 
   return offset + length, value
 end
@@ -736,7 +736,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status = function(b
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -789,7 +789,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status_message = function(buffer, offset, packet, parent)
   if show.trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trading_status_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -818,7 +818,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.timestamp = function(buffer
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.timestamp, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -851,7 +851,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.end_of_session = function(buffer, offset, packet, parent)
   if show.end_of_session then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -880,7 +880,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.execution_id = function(buf
   local value = range:le_uint64()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.execution_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.execution_id, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
@@ -918,7 +918,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_break_message = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_break_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_break_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -947,7 +947,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.quantity = function(buffer,
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -974,7 +974,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.side_indicator = function(b
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.side_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.side_indicator, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.side_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -994,7 +994,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.order_id = function(buffer,
   local value = range:le_uint64()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_id, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1057,7 +1057,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message = function(buffer, offset, packet, parent)
   if show.trade_expanded_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_expanded_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_expanded_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1092,7 +1092,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.price_short = function(buff
   local value = translate.price_short(raw)
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.price_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price_short, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1112,7 +1112,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.symbol = function(buffer, o
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1132,7 +1132,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.quantity_short = function(b
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.quantity_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity_short, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1195,7 +1195,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_short_message = function(buffer, offset, packet, parent)
   if show.trade_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_short_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_short_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1267,7 +1267,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_long_message = function(buffer, offset, packet, parent)
   if show.trade_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_long_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.trade_long_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1314,7 +1314,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.delete_order_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.delete_order_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1376,7 +1376,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   if show.modify_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_short_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_short_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1438,7 +1438,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   if show.modify_order_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_long_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_long_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1467,7 +1467,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.canceled_quantity_short = f
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.canceled_quantity_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity_short, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1510,7 +1510,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   if show.reduce_size_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1539,7 +1539,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.canceled_quantity = functio
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.canceled_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1582,7 +1582,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
   if show.reduce_size_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1611,7 +1611,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.remaining_quantity = functi
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.remaining_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.remaining_quantity, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.remaining_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1631,7 +1631,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.executed_quantity = functio
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.executed_quantity, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1689,7 +1689,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
   if show.order_executed_at_price_size_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1746,7 +1746,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1775,7 +1775,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.customer_indicator = functi
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.customer_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.customer_indicator, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.customer_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1795,7 +1795,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.participant_id = function(b
   local value = range:string()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.participant_id, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1819,10 +1819,10 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Flags: 7 Bit
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reserved_flags, buffer(offset, 1))
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.reserved_flags, buffer(offset, 1))
 
   -- Display: 1 Bit
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.display, buffer(offset, 1))
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.display, buffer(offset, 1))
 end
 
 -- Dissect: Add Order Flags
@@ -1830,7 +1830,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_flags = function(
   local size = 1
   local range = buffer(offset, size)
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.add_order_flags(range, packet, parent)
-  local element = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_flags, range, display)
+  local element = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_flags, range, display)
 
   if show.add_order_flags then
     cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_flags_bits(buffer, offset, packet, element)
@@ -1907,7 +1907,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
   if show.add_order_expanded_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1979,7 +1979,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_short_message = function(buffer, offset, packet, parent)
   if show.add_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_short_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_short_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2051,7 +2051,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_long_message = function(buffer, offset, packet, parent)
   if show.add_order_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_long_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.add_order_long_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2093,7 +2093,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.unit_clear_message = function(buffer, offset, packet, parent)
   if show.unit_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit_clear_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit_clear_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2122,7 +2122,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.time = function(buffer, off
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -2155,7 +2155,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.time_message = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time_message, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2361,7 +2361,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.payload = function(buffer, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.payload(buffer, packet, parent)
-  local element = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.payload, range, display)
+  local element = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.payload, range, display)
 
   return cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2442,7 +2442,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.message_type = function(buf
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_type, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2462,7 +2462,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.message_length = function(b
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_length, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2500,7 +2500,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_header, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2525,7 +2525,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.message_fields = function(b
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_index, message_index)
+    local iteration = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2547,7 +2547,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.message = function(buffer, 
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.message, buffer(offset, 0))
     local current = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.message(buffer, packet, parent)
@@ -2577,7 +2577,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.sequence = function(buffer,
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sequence, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.sequence, range, value, display)
 
   return offset + length, value
 end
@@ -2597,7 +2597,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.unit = function(buffer, off
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.unit(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.unit, range, value, display)
 
   return offset + length, value
 end
@@ -2617,7 +2617,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.count = function(buffer, of
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.count, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -2637,7 +2637,7 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.length = function(buffer, o
   local value = range:le_uint()
   local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.length, range, value, display)
+  parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -2685,7 +2685,7 @@ end
 cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.packet_header, buffer(offset, 0))
     local index = cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2728,23 +2728,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cboe_bzx_equities_depthofbook_pitch_v2_41_29.init()
+function omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.init()
 end
 
 -- Dissector for Cboe Bzx Equities DepthOfBook Pitch 2.41.29
-function cboe_bzx_equities_depthofbook_pitch_v2_41_29.dissector(buffer, packet, parent)
+function omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cboe_bzx_equities_depthofbook_pitch_v2_41_29.name
+  packet.cols.protocol = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.name
 
   -- Dissect protocol
-  local protocol = parent:add(cboe_bzx_equities_depthofbook_pitch_v2_41_29, buffer(), cboe_bzx_equities_depthofbook_pitch_v2_41_29.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29, buffer(), omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.description, "("..buffer:len().." Bytes)")
   return cboe_bzx_equities_depthofbook_pitch_v2_41_29_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cboe_bzx_equities_depthofbook_pitch_v2_41_29)
+udp_table:add(65333, omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29)
 
 
 -----------------------------------------------------------------------
@@ -2752,25 +2752,25 @@ udp_table:add(65333, cboe_bzx_equities_depthofbook_pitch_v2_41_29)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cboe_bzx_equities_depthofbook_pitch_v2_41_29_packet_size = function(buffer)
+verify.omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Cboe Bzx Equities DepthOfBook Pitch 2.41.29
-local function cboe_bzx_equities_depthofbook_pitch_v2_41_29_heuristic(buffer, packet, parent)
+local function omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cboe_bzx_equities_depthofbook_pitch_v2_41_29_packet_size(buffer) then return false end
+  if not verify.omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cboe_bzx_equities_depthofbook_pitch_v2_41_29
-  cboe_bzx_equities_depthofbook_pitch_v2_41_29.dissector(buffer, packet, parent)
+  packet.conversation = omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29
+  omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Cboe Bzx Equities DepthOfBook Pitch 2.41.29
-cboe_bzx_equities_depthofbook_pitch_v2_41_29:register_heuristic("udp", cboe_bzx_equities_depthofbook_pitch_v2_41_29_heuristic)
+omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29:register_heuristic("udp", omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

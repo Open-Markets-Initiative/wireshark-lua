@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Level2 Gtp 24.4 Protocol
-local lseg_turquoise_level2_gtp_v24_4 = Proto("Lseg.Turquoise.Level2.Gtp.v24.4.Lua", "Lseg Turquoise Level2 Gtp 24.4")
+local omi_lseg_turquoise_level2_gtp_v24_4 = Proto("Lseg.Turquoise.Level2.Gtp.v24.4.Lua", "Lseg Turquoise Level2 Gtp 24.4")
 
 -- Component Tables
 local show = {}
@@ -21,110 +21,110 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Level2 Gtp 24.4 Fields
-lseg_turquoise_level2_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.level2.gtp.v24.4.allowedbooktypes", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.auction_info = ProtoField.new("Auction Info", "lseg.turquoise.level2.gtp.v24.4.auctioninfo", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.auction_type = ProtoField.new("Auction Type", "lseg.turquoise.level2.gtp.v24.4.auctiontype", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.best_bid_price = ProtoField.new("Best Bid Price", "lseg.turquoise.level2.gtp.v24.4.bestbidprice", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.best_bid_size = ProtoField.new("Best Bid Size", "lseg.turquoise.level2.gtp.v24.4.bestbidsize", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.best_offer_price = ProtoField.new("Best Offer Price", "lseg.turquoise.level2.gtp.v24.4.bestofferprice", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.best_offer_size = ProtoField.new("Best Offer Size", "lseg.turquoise.level2.gtp.v24.4.bestoffersize", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.bid_depth = ProtoField.new("Bid Depth", "lseg.turquoise.level2.gtp.v24.4.biddepth", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x800000000000)
-lseg_turquoise_level2_gtp_v24_4.fields.cross_id = ProtoField.new("Cross Id", "lseg.turquoise.level2.gtp.v24.4.crossid", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.cross_type = ProtoField.new("Cross Type", "lseg.turquoise.level2.gtp.v24.4.crosstype", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.turquoise.level2.gtp.v24.4.currency", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.deleted_order_quantity = ProtoField.new("Deleted Order Quantity", "lseg.turquoise.level2.gtp.v24.4.deletedorderquantity", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.turquoise.level2.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.level2.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
-lseg_turquoise_level2_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.level2.gtp.v24.4.eventcode", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.executed_size = ProtoField.new("Executed Size", "lseg.turquoise.level2.gtp.v24.4.executedsize", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.far_price = ProtoField.new("Far Price", "lseg.turquoise.level2.gtp.v24.4.farprice", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.hidden_execution_indicator = ProtoField.new("Hidden Execution Indicator", "lseg.turquoise.level2.gtp.v24.4.hiddenexecutionindicator", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.imbalance_quantity = ProtoField.new("Imbalance Quantity", "lseg.turquoise.level2.gtp.v24.4.imbalancequantity", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.level2.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_turquoise_level2_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.level2.gtp.v24.4.isin", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.turquoise.level2.gtp.v24.4.length", ftypes.UINT16)
-lseg_turquoise_level2_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.level2.gtp.v24.4.marketdatagroup", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.level2.gtp.v24.4.message", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.level2.gtp.v24.4.messagecount", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.level2.gtp.v24.4.messageheader", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.level2.gtp.v24.4.messagelength", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.level2.gtp.v24.4.messagetype", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.level2.gtp.v24.4.newendtime", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.new_price = ProtoField.new("New Price", "lseg.turquoise.level2.gtp.v24.4.newprice", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.new_quantity = ProtoField.new("New Quantity", "lseg.turquoise.level2.gtp.v24.4.newquantity", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.turquoise.level2.gtp.v24.4.numberoftrades", ftypes.UINT32)
-lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades_onbook_only = ProtoField.new("Number Of Trades Onbook Only", "lseg.turquoise.level2.gtp.v24.4.numberoftradesonbookonly", ftypes.UINT32)
-lseg_turquoise_level2_gtp_v24_4.fields.offer_depth = ProtoField.new("Offer Depth", "lseg.turquoise.level2.gtp.v24.4.offerdepth", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x400000000000)
-lseg_turquoise_level2_gtp_v24_4.fields.opening_closing_price_indicator = ProtoField.new("Opening Closing Price Indicator", "lseg.turquoise.level2.gtp.v24.4.openingclosingpriceindicator", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.level2.gtp.v24.4.orderbooktype", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.order_flags = ProtoField.new("Order Flags", "lseg.turquoise.level2.gtp.v24.4.orderflags", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.turquoise.level2.gtp.v24.4.orderid", ftypes.UINT64)
-lseg_turquoise_level2_gtp_v24_4.fields.order_type = ProtoField.new("Order Type", "lseg.turquoise.level2.gtp.v24.4.ordertype", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.level2.gtp.v24.4.packet", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.turquoise.level2.gtp.v24.4.participant", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.turquoise.level2.gtp.v24.4.payload", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.previous_price = ProtoField.new("Previous Price", "lseg.turquoise.level2.gtp.v24.4.previousprice", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.turquoise.level2.gtp.v24.4.previousquantity", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.price = ProtoField.new("Price", "lseg.turquoise.level2.gtp.v24.4.price", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.level2.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.priority_flags = ProtoField.new("Priority Flags", "lseg.turquoise.level2.gtp.v24.4.priorityflags", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.level2.gtp.v24.4.reserved23", ftypes.BYTES)
-lseg_turquoise_level2_gtp_v24_4.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.level2.gtp.v24.4.reserved38", ftypes.BYTES)
-lseg_turquoise_level2_gtp_v24_4.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.turquoise.level2.gtp.v24.4.reserved5", ftypes.BYTES)
-lseg_turquoise_level2_gtp_v24_4.fields.reserved_7 = ProtoField.new("Reserved 7", "lseg.turquoise.level2.gtp.v24.4.reserved7", ftypes.BYTES)
-lseg_turquoise_level2_gtp_v24_4.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.turquoise.level2.gtp.v24.4.reserved8", ftypes.BYTES)
-lseg_turquoise_level2_gtp_v24_4.fields.retail_lp = ProtoField.new("Retail Lp", "lseg.turquoise.level2.gtp.v24.4.retaillp", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x200000000000)
-lseg_turquoise_level2_gtp_v24_4.fields.retained = ProtoField.new("Retained", "lseg.turquoise.level2.gtp.v24.4.retained", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x8000000000000000)
-lseg_turquoise_level2_gtp_v24_4.fields.rfq_id = ProtoField.new("Rfq Id", "lseg.turquoise.level2.gtp.v24.4.rfqid", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.turquoise.level2.gtp.v24.4.segment", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.turquoise.level2.gtp.v24.4.sequencenumber", ftypes.UINT32)
-lseg_turquoise_level2_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.turquoise.level2.gtp.v24.4.sessionchangereason", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.side = ProtoField.new("Side", "lseg.turquoise.level2.gtp.v24.4.side", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.size = ProtoField.new("Size", "lseg.turquoise.level2.gtp.v24.4.size", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.level2.gtp.v24.4.sourcevenue", ftypes.UINT16)
-lseg_turquoise_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.level2.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.statistic_price = ProtoField.new("Statistic Price", "lseg.turquoise.level2.gtp.v24.4.statisticprice", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.statistic_size = ProtoField.new("Statistic Size", "lseg.turquoise.level2.gtp.v24.4.statisticsize", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.turquoise.level2.gtp.v24.4.statistictype", ftypes.UINT16)
-lseg_turquoise_level2_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.level2.gtp.v24.4.tickid", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.level2.gtp.v24.4.timestamp", ftypes.UINT64)
-lseg_turquoise_level2_gtp_v24_4.fields.total_executed_quantity = ProtoField.new("Total Executed Quantity", "lseg.turquoise.level2.gtp.v24.4.totalexecutedquantity", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.total_hidden_executed_quantity = ProtoField.new("Total Hidden Executed Quantity", "lseg.turquoise.level2.gtp.v24.4.totalhiddenexecutedquantity", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "lseg.turquoise.level2.gtp.v24.4.tradecancellation", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_flags = ProtoField.new("Trade Flags", "lseg.turquoise.level2.gtp.v24.4.tradeflags", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_id = ProtoField.new("Trade Id", "lseg.turquoise.level2.gtp.v24.4.tradeid", ftypes.UINT64)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.level2.gtp.v24.4.tradequalifier", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_type = ProtoField.new("Trade Type", "lseg.turquoise.level2.gtp.v24.4.tradetype", ftypes.UINT8)
-lseg_turquoise_level2_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.level2.gtp.v24.4.tradingstatus", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.level2.gtp.v24.4.transactiontime", ftypes.UINT64)
-lseg_turquoise_level2_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.turquoise.level2.gtp.v24.4.turnover", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.turquoise.level2.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.level2.gtp.v24.4.unitheader", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.unused_2 = ProtoField.new("Unused 2", "lseg.turquoise.level2.gtp.v24.4.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
-lseg_turquoise_level2_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.level2.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
-lseg_turquoise_level2_gtp_v24_4.fields.unused_7 = ProtoField.new("Unused 7", "lseg.turquoise.level2.gtp.v24.4.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
-lseg_turquoise_level2_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.level2.gtp.v24.4.venueinstrumentid", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.volume = ProtoField.new("Volume", "lseg.turquoise.level2.gtp.v24.4.volume", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.turquoise.level2.gtp.v24.4.volumeonbookonly", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.level2.gtp.v24.4.vwap", ftypes.DOUBLE)
-lseg_turquoise_level2_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.level2.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.level2.gtp.v24.4.allowedbooktypes", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.auction_info = ProtoField.new("Auction Info", "lseg.turquoise.level2.gtp.v24.4.auctioninfo", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.auction_type = ProtoField.new("Auction Type", "lseg.turquoise.level2.gtp.v24.4.auctiontype", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.best_bid_price = ProtoField.new("Best Bid Price", "lseg.turquoise.level2.gtp.v24.4.bestbidprice", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.best_bid_size = ProtoField.new("Best Bid Size", "lseg.turquoise.level2.gtp.v24.4.bestbidsize", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.best_offer_price = ProtoField.new("Best Offer Price", "lseg.turquoise.level2.gtp.v24.4.bestofferprice", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.best_offer_size = ProtoField.new("Best Offer Size", "lseg.turquoise.level2.gtp.v24.4.bestoffersize", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.bid_depth = ProtoField.new("Bid Depth", "lseg.turquoise.level2.gtp.v24.4.biddepth", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x800000000000)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.cross_id = ProtoField.new("Cross Id", "lseg.turquoise.level2.gtp.v24.4.crossid", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.cross_type = ProtoField.new("Cross Type", "lseg.turquoise.level2.gtp.v24.4.crosstype", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.turquoise.level2.gtp.v24.4.currency", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.deleted_order_quantity = ProtoField.new("Deleted Order Quantity", "lseg.turquoise.level2.gtp.v24.4.deletedorderquantity", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.turquoise.level2.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.level2.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.level2.gtp.v24.4.eventcode", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.executed_size = ProtoField.new("Executed Size", "lseg.turquoise.level2.gtp.v24.4.executedsize", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.far_price = ProtoField.new("Far Price", "lseg.turquoise.level2.gtp.v24.4.farprice", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.hidden_execution_indicator = ProtoField.new("Hidden Execution Indicator", "lseg.turquoise.level2.gtp.v24.4.hiddenexecutionindicator", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.imbalance_quantity = ProtoField.new("Imbalance Quantity", "lseg.turquoise.level2.gtp.v24.4.imbalancequantity", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.level2.gtp.v24.4.instrument", ftypes.UINT64)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.level2.gtp.v24.4.isin", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.turquoise.level2.gtp.v24.4.length", ftypes.UINT16)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.level2.gtp.v24.4.marketdatagroup", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.level2.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.level2.gtp.v24.4.messagecount", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.level2.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.level2.gtp.v24.4.messagelength", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.level2.gtp.v24.4.messagetype", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.level2.gtp.v24.4.newendtime", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.new_price = ProtoField.new("New Price", "lseg.turquoise.level2.gtp.v24.4.newprice", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.new_quantity = ProtoField.new("New Quantity", "lseg.turquoise.level2.gtp.v24.4.newquantity", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.turquoise.level2.gtp.v24.4.numberoftrades", ftypes.UINT32)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades_onbook_only = ProtoField.new("Number Of Trades Onbook Only", "lseg.turquoise.level2.gtp.v24.4.numberoftradesonbookonly", ftypes.UINT32)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.offer_depth = ProtoField.new("Offer Depth", "lseg.turquoise.level2.gtp.v24.4.offerdepth", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x400000000000)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.opening_closing_price_indicator = ProtoField.new("Opening Closing Price Indicator", "lseg.turquoise.level2.gtp.v24.4.openingclosingpriceindicator", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.level2.gtp.v24.4.orderbooktype", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.order_flags = ProtoField.new("Order Flags", "lseg.turquoise.level2.gtp.v24.4.orderflags", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.turquoise.level2.gtp.v24.4.orderid", ftypes.UINT64)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.order_type = ProtoField.new("Order Type", "lseg.turquoise.level2.gtp.v24.4.ordertype", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.level2.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.turquoise.level2.gtp.v24.4.participant", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.turquoise.level2.gtp.v24.4.payload", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.previous_price = ProtoField.new("Previous Price", "lseg.turquoise.level2.gtp.v24.4.previousprice", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.turquoise.level2.gtp.v24.4.previousquantity", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.price = ProtoField.new("Price", "lseg.turquoise.level2.gtp.v24.4.price", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.level2.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.priority_flags = ProtoField.new("Priority Flags", "lseg.turquoise.level2.gtp.v24.4.priorityflags", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.level2.gtp.v24.4.reserved23", ftypes.BYTES)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.level2.gtp.v24.4.reserved38", ftypes.BYTES)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.turquoise.level2.gtp.v24.4.reserved5", ftypes.BYTES)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_7 = ProtoField.new("Reserved 7", "lseg.turquoise.level2.gtp.v24.4.reserved7", ftypes.BYTES)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.turquoise.level2.gtp.v24.4.reserved8", ftypes.BYTES)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.retail_lp = ProtoField.new("Retail Lp", "lseg.turquoise.level2.gtp.v24.4.retaillp", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x200000000000)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.retained = ProtoField.new("Retained", "lseg.turquoise.level2.gtp.v24.4.retained", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x8000000000000000)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.rfq_id = ProtoField.new("Rfq Id", "lseg.turquoise.level2.gtp.v24.4.rfqid", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.turquoise.level2.gtp.v24.4.segment", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.turquoise.level2.gtp.v24.4.sequencenumber", ftypes.UINT32)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.turquoise.level2.gtp.v24.4.sessionchangereason", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.side = ProtoField.new("Side", "lseg.turquoise.level2.gtp.v24.4.side", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.size = ProtoField.new("Size", "lseg.turquoise.level2.gtp.v24.4.size", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.level2.gtp.v24.4.sourcevenue", ftypes.UINT16)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.level2.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_price = ProtoField.new("Statistic Price", "lseg.turquoise.level2.gtp.v24.4.statisticprice", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_size = ProtoField.new("Statistic Size", "lseg.turquoise.level2.gtp.v24.4.statisticsize", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.turquoise.level2.gtp.v24.4.statistictype", ftypes.UINT16)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.level2.gtp.v24.4.tickid", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.level2.gtp.v24.4.timestamp", ftypes.UINT64)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.total_executed_quantity = ProtoField.new("Total Executed Quantity", "lseg.turquoise.level2.gtp.v24.4.totalexecutedquantity", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.total_hidden_executed_quantity = ProtoField.new("Total Hidden Executed Quantity", "lseg.turquoise.level2.gtp.v24.4.totalhiddenexecutedquantity", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "lseg.turquoise.level2.gtp.v24.4.tradecancellation", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_flags = ProtoField.new("Trade Flags", "lseg.turquoise.level2.gtp.v24.4.tradeflags", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_id = ProtoField.new("Trade Id", "lseg.turquoise.level2.gtp.v24.4.tradeid", ftypes.UINT64)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.level2.gtp.v24.4.tradequalifier", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_type = ProtoField.new("Trade Type", "lseg.turquoise.level2.gtp.v24.4.tradetype", ftypes.UINT8)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.level2.gtp.v24.4.tradingstatus", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.level2.gtp.v24.4.transactiontime", ftypes.UINT64)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.turquoise.level2.gtp.v24.4.turnover", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.turquoise.level2.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.level2.gtp.v24.4.unitheader", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.unused_2 = ProtoField.new("Unused 2", "lseg.turquoise.level2.gtp.v24.4.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.level2.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.unused_7 = ProtoField.new("Unused 7", "lseg.turquoise.level2.gtp.v24.4.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.level2.gtp.v24.4.venueinstrumentid", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.volume = ProtoField.new("Volume", "lseg.turquoise.level2.gtp.v24.4.volume", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.turquoise.level2.gtp.v24.4.volumeonbookonly", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.level2.gtp.v24.4.vwap", ftypes.DOUBLE)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.level2.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
 -- Lseg Turquoise Level2 Gtp 24.4 messages
-lseg_turquoise_level2_gtp_v24_4.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.level2.gtp.v24.4.addorderincrementalmessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.level2.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.level2.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.turquoise.level2.gtp.v24.4.orderbookclearmessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.order_delete_message = ProtoField.new("Order Delete Message", "lseg.turquoise.level2.gtp.v24.4.orderdeletemessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.order_modify_message = ProtoField.new("Order Modify Message", "lseg.turquoise.level2.gtp.v24.4.ordermodifymessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.statistics_message = ProtoField.new("Statistics Message", "lseg.turquoise.level2.gtp.v24.4.statisticsmessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.statistics_update_message = ProtoField.new("Statistics Update Message", "lseg.turquoise.level2.gtp.v24.4.statisticsupdatemessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.level2.gtp.v24.4.systemeventmessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_cross_message = ProtoField.new("Trade Cross Message", "lseg.turquoise.level2.gtp.v24.4.tradecrossmessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_message = ProtoField.new("Trade Message", "lseg.turquoise.level2.gtp.v24.4.trademessage", ftypes.STRING)
-lseg_turquoise_level2_gtp_v24_4.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "lseg.turquoise.level2.gtp.v24.4.tradesummarymessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.level2.gtp.v24.4.addorderincrementalmessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.level2.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.level2.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.turquoise.level2.gtp.v24.4.orderbookclearmessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.order_delete_message = ProtoField.new("Order Delete Message", "lseg.turquoise.level2.gtp.v24.4.orderdeletemessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.order_modify_message = ProtoField.new("Order Modify Message", "lseg.turquoise.level2.gtp.v24.4.ordermodifymessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.statistics_message = ProtoField.new("Statistics Message", "lseg.turquoise.level2.gtp.v24.4.statisticsmessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.statistics_update_message = ProtoField.new("Statistics Update Message", "lseg.turquoise.level2.gtp.v24.4.statisticsupdatemessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.level2.gtp.v24.4.systemeventmessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_cross_message = ProtoField.new("Trade Cross Message", "lseg.turquoise.level2.gtp.v24.4.tradecrossmessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_message = ProtoField.new("Trade Message", "lseg.turquoise.level2.gtp.v24.4.trademessage", ftypes.STRING)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "lseg.turquoise.level2.gtp.v24.4.tradesummarymessage", ftypes.STRING)
 
 -- Lseg Turquoise Level2 Gtp 24.4 generated fields
-lseg_turquoise_level2_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.level2.gtp.v24.4.messageindex", ftypes.UINT16)
+omi_lseg_turquoise_level2_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.level2.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -154,115 +154,115 @@ show.unit_header = true
 show.payload = false
 
 -- Register Lseg Turquoise Level2 Gtp 24.4 Show Options
-lseg_turquoise_level2_gtp_v24_4.prefs.show_add_order_incremental_message = Pref.bool("Show Add Order Incremental Message", show.add_order_incremental_message, "Parse and add Add Order Incremental Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_status_message = Pref.bool("Show Instrument Status Message", show.instrument_status_message, "Parse and add Instrument Status Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_order_book_clear_message = Pref.bool("Show Order Book Clear Message", show.order_book_clear_message, "Parse and add Order Book Clear Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_order_flags = Pref.bool("Show Order Flags", show.order_flags, "Parse and add Order Flags to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_priority_flags = Pref.bool("Show Priority Flags", show.priority_flags, "Parse and add Priority Flags to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_message = Pref.bool("Show Statistics Message", show.statistics_message, "Parse and add Statistics Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_update_message = Pref.bool("Show Statistics Update Message", show.statistics_update_message, "Parse and add Statistics Update Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_cross_message = Pref.bool("Show Trade Cross Message", show.trade_cross_message, "Parse and add Trade Cross Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-lseg_turquoise_level2_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_add_order_incremental_message = Pref.bool("Show Add Order Incremental Message", show.add_order_incremental_message, "Parse and add Add Order Incremental Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_status_message = Pref.bool("Show Instrument Status Message", show.instrument_status_message, "Parse and add Instrument Status Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_book_clear_message = Pref.bool("Show Order Book Clear Message", show.order_book_clear_message, "Parse and add Order Book Clear Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_flags = Pref.bool("Show Order Flags", show.order_flags, "Parse and add Order Flags to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_priority_flags = Pref.bool("Show Priority Flags", show.priority_flags, "Parse and add Priority Flags to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_message = Pref.bool("Show Statistics Message", show.statistics_message, "Parse and add Statistics Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_update_message = Pref.bool("Show Statistics Update Message", show.statistics_update_message, "Parse and add Statistics Update Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_cross_message = Pref.bool("Show Trade Cross Message", show.trade_cross_message, "Parse and add Trade Cross Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function lseg_turquoise_level2_gtp_v24_4.prefs_changed()
+function omi_lseg_turquoise_level2_gtp_v24_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_incremental_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_add_order_incremental_message then
-    show.add_order_incremental_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_add_order_incremental_message
+  if show.add_order_incremental_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_add_order_incremental_message then
+    show.add_order_incremental_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_add_order_incremental_message
     changed = true
   end
-  if show.allowed_book_types ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_allowed_book_types then
-    show.allowed_book_types = lseg_turquoise_level2_gtp_v24_4.prefs.show_allowed_book_types
+  if show.allowed_book_types ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_allowed_book_types then
+    show.allowed_book_types = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_allowed_book_types
     changed = true
   end
-  if show.instrument_directory_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_directory_message
+  if show.instrument_directory_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_directory_message then
+    show.instrument_directory_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_directory_message
     changed = true
   end
-  if show.instrument_status_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_status_message then
-    show.instrument_status_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_status_message
+  if show.instrument_status_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_status_message then
+    show.instrument_status_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_instrument_status_message
     changed = true
   end
-  if show.message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_message then
-    show.message = lseg_turquoise_level2_gtp_v24_4.prefs.show_message
+  if show.message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_message then
+    show.message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_message
     changed = true
   end
-  if show.message_header ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_message_header then
-    show.message_header = lseg_turquoise_level2_gtp_v24_4.prefs.show_message_header
+  if show.message_header ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_message_header then
+    show.message_header = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_message_header
     changed = true
   end
-  if show.order_book_clear_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_order_book_clear_message then
-    show.order_book_clear_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_order_book_clear_message
+  if show.order_book_clear_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_book_clear_message then
+    show.order_book_clear_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_book_clear_message
     changed = true
   end
-  if show.order_delete_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_order_delete_message then
-    show.order_delete_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_order_delete_message
+  if show.order_delete_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_delete_message then
+    show.order_delete_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_delete_message
     changed = true
   end
-  if show.order_flags ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_order_flags then
-    show.order_flags = lseg_turquoise_level2_gtp_v24_4.prefs.show_order_flags
+  if show.order_flags ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_flags then
+    show.order_flags = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_flags
     changed = true
   end
-  if show.order_modify_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_order_modify_message then
-    show.order_modify_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_order_modify_message
+  if show.order_modify_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_modify_message then
+    show.order_modify_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_order_modify_message
     changed = true
   end
-  if show.packet ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_packet then
-    show.packet = lseg_turquoise_level2_gtp_v24_4.prefs.show_packet
+  if show.packet ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_packet then
+    show.packet = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_packet
     changed = true
   end
-  if show.priority_flags ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_priority_flags then
-    show.priority_flags = lseg_turquoise_level2_gtp_v24_4.prefs.show_priority_flags
+  if show.priority_flags ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_priority_flags then
+    show.priority_flags = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_priority_flags
     changed = true
   end
-  if show.statistics_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_message then
-    show.statistics_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_message
+  if show.statistics_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_message then
+    show.statistics_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_message
     changed = true
   end
-  if show.statistics_update_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_update_message then
-    show.statistics_update_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_update_message
+  if show.statistics_update_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_update_message then
+    show.statistics_update_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_statistics_update_message
     changed = true
   end
-  if show.system_event_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_system_event_message then
-    show.system_event_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_system_event_message
+  if show.system_event_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_system_event_message then
+    show.system_event_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_system_event_message
     changed = true
   end
-  if show.trade_cross_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_cross_message then
-    show.trade_cross_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_cross_message
+  if show.trade_cross_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_cross_message then
+    show.trade_cross_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_cross_message
     changed = true
   end
-  if show.trade_flags ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_flags then
-    show.trade_flags = lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_flags
+  if show.trade_flags ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_flags then
+    show.trade_flags = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_flags
     changed = true
   end
-  if show.trade_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_message then
-    show.trade_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_message
+  if show.trade_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_message then
+    show.trade_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_message
     changed = true
   end
-  if show.trade_summary_message ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_summary_message then
-    show.trade_summary_message = lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_summary_message
+  if show.trade_summary_message ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_summary_message then
+    show.trade_summary_message = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_summary_message
     changed = true
   end
-  if show.unit_header ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_unit_header then
-    show.unit_header = lseg_turquoise_level2_gtp_v24_4.prefs.show_unit_header
+  if show.unit_header ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_unit_header then
+    show.unit_header = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_unit_header
     changed = true
   end
-  if show.payload ~= lseg_turquoise_level2_gtp_v24_4.prefs.show_payload then
-    show.payload = lseg_turquoise_level2_gtp_v24_4.prefs.show_payload
+  if show.payload ~= omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_payload then
+    show.payload = omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_payload
     changed = true
   end
 
@@ -316,7 +316,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.best_offer_price = function(buffer, offs
   local value = translate.best_offer_price(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.best_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.best_offer_price, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -342,7 +342,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.best_offer_size = function(buffer, offse
   local value = translate.best_offer_size(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.best_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.best_offer_size, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -368,7 +368,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.best_bid_price = function(buffer, offset
   local value = translate.best_bid_price(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.best_bid_price, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -394,7 +394,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.best_bid_size = function(buffer, offset,
   local value = translate.best_bid_size(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.best_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.best_bid_size, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -414,7 +414,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.side = function(buffer, offset, packet, 
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.side, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -440,7 +440,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.deleted_order_quantity = function(buffer
   local value = translate.deleted_order_quantity(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.deleted_order_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.deleted_order_quantity, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.deleted_order_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -466,7 +466,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.total_hidden_executed_quantity = functio
   local value = translate.total_hidden_executed_quantity(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.total_hidden_executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.total_hidden_executed_quantity, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.total_hidden_executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -492,7 +492,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.total_executed_quantity = function(buffe
   local value = translate.total_executed_quantity(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.total_executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.total_executed_quantity, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.total_executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -518,7 +518,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.far_price = function(buffer, offset, pac
   local value = translate.far_price(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.far_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.far_price, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.far_price, range, value, display)
 
   return offset + length, value
 end
@@ -542,7 +542,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.transaction_time = function(buffer, offs
   local value = range:le_uint64()
   local display = lseg_turquoise_level2_gtp_v24_4_display.transaction_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.transaction_time, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.transaction_time, range, value, display)
 
   return offset + length, value
 end
@@ -581,7 +581,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.source_venue = function(buffer, offset, 
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.source_venue(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.source_venue, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.source_venue, range, value, display)
 
   return offset + length, value
 end
@@ -601,7 +601,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.instrument = function(buffer, offset, pa
   local value = range:le_uint64()
   local display = lseg_turquoise_level2_gtp_v24_4_display.instrument(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.instrument, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.instrument, range, value, display)
 
   return offset + length, value
 end
@@ -625,7 +625,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.timestamp = function(buffer, offset, pac
   local value = range:le_uint64()
   local display = lseg_turquoise_level2_gtp_v24_4_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.timestamp, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -718,7 +718,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.trade_summary_message = function(buffer, offset, packet, parent)
   if show.trade_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_summary_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_summary_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.trade_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -747,7 +747,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.opening_closing_price_indicator = functi
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.opening_closing_price_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.opening_closing_price_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.opening_closing_price_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -771,7 +771,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.auction_info = function(buffer, offset, 
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.auction_info(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.auction_info, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.auction_info, range, value, display)
 
   return offset + length, value
 end
@@ -797,7 +797,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.imbalance_quantity = function(buffer, of
   local value = translate.imbalance_quantity(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.imbalance_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.imbalance_quantity, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.imbalance_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -821,7 +821,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.auction_type = function(buffer, offset, 
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.auction_type, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -847,7 +847,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.statistic_size = function(buffer, offset
   local value = translate.statistic_size(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.statistic_size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistic_size, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_size, range, value, display)
 
   return offset + length, value
 end
@@ -873,7 +873,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.statistic_price = function(buffer, offse
   local value = translate.statistic_price(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.statistic_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistic_price, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_price, range, value, display)
 
   return offset + length, value
 end
@@ -915,7 +915,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.statistic_type = function(buffer, offset
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.statistic_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistic_type, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_type, range, value, display)
 
   return offset + length, value
 end
@@ -993,7 +993,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.statistics_update_message = function(buffer, offset, packet, parent)
   if show.statistics_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistics_update_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.statistics_update_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.statistics_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1028,7 +1028,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.turnover_onbook_only = function(buffer, 
   local value = translate.turnover_onbook_only(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.turnover_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.turnover_onbook_only, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.turnover_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -1054,7 +1054,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.turnover = function(buffer, offset, pack
   local value = translate.turnover(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.turnover(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.turnover, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.turnover, range, value, display)
 
   return offset + length, value
 end
@@ -1074,7 +1074,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.number_of_trades_onbook_only = function(
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.number_of_trades_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades_onbook_only, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -1094,7 +1094,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.number_of_trades = function(buffer, offs
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.number_of_trades(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.number_of_trades, range, value, display)
 
   return offset + length, value
 end
@@ -1120,7 +1120,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.vwap_onbook_only = function(buffer, offs
   local value = translate.vwap_onbook_only(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.vwap_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.vwap_onbook_only, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.vwap_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -1146,7 +1146,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.vwap = function(buffer, offset, packet, 
   local value = translate.vwap(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.vwap(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.vwap, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.vwap, range, value, display)
 
   return offset + length, value
 end
@@ -1172,7 +1172,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.volume_onbook_only = function(buffer, of
   local value = translate.volume_onbook_only(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.volume_onbook_only(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.volume_onbook_only, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.volume_onbook_only, range, value, display)
 
   return offset + length, value
 end
@@ -1198,7 +1198,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.volume = function(buffer, offset, packet
   local value = translate.volume(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.volume, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -1281,7 +1281,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.statistics_message = function(buffer, offset, packet, parent)
   if show.statistics_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistics_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.statistics_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.statistics_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1314,10 +1314,10 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.trade_flags_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancellation: 1 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_cancellation, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_cancellation, buffer(offset, 1))
 
   -- Unused 7: 7 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.unused_7, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.unused_7, buffer(offset, 1))
 end
 
 -- Dissect: Trade Flags
@@ -1325,7 +1325,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.trade_flags = function(buffer, offset, p
   local size = 1
   local range = buffer(offset, size)
   local display = lseg_turquoise_level2_gtp_v24_4_display.trade_flags(range, packet, parent)
-  local element = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_flags, range, display)
+  local element = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_flags, range, display)
 
   if show.trade_flags then
     lseg_turquoise_level2_gtp_v24_4_dissect.trade_flags_bits(buffer, offset, packet, element)
@@ -1356,7 +1356,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.cross_type = function(buffer, offset, pa
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.cross_type, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -1376,7 +1376,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.cross_id = function(buffer, offset, pack
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.cross_id, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -1396,7 +1396,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.trade_id = function(buffer, offset, pack
   local value = range:le_uint64()
   local display = lseg_turquoise_level2_gtp_v24_4_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_id, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -1416,7 +1416,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.reserved_8 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level2_gtp_v24_4_display.reserved_8(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.reserved_8, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -1442,7 +1442,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.price = function(buffer, offset, packet,
   local value = translate.price(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.price, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1468,7 +1468,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.executed_size = function(buffer, offset,
   local value = translate.executed_size(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.executed_size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.executed_size, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.executed_size, range, value, display)
 
   return offset + length, value
 end
@@ -1551,7 +1551,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.trade_cross_message = function(buffer, offset, packet, parent)
   if show.trade_cross_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_cross_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_cross_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.trade_cross_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1602,7 +1602,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.trade_qualifier = function(buffer, offse
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.trade_qualifier(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_qualifier, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_qualifier, range, value, display)
 
   return offset + length, value
 end
@@ -1632,7 +1632,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.hidden_execution_indicator = function(bu
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.hidden_execution_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.hidden_execution_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.hidden_execution_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1652,7 +1652,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.reserved_5 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level2_gtp_v24_4_display.reserved_5(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.reserved_5, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_5, range, value, display)
 
   return offset + length, value
 end
@@ -1684,16 +1684,16 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.order_flags_bits = function(buffer, offset, packet, parent)
 
   -- Bid Depth: 1 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.bid_depth, buffer(offset, 5))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.bid_depth, buffer(offset, 5))
 
   -- Offer Depth: 1 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.offer_depth, buffer(offset, 5))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.offer_depth, buffer(offset, 5))
 
   -- Retail Lp: 1 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.retail_lp, buffer(offset, 5))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.retail_lp, buffer(offset, 5))
 
   -- Reserved 5: 5 Byte
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.reserved_5, buffer(offset, 5))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_5, buffer(offset, 5))
 end
 
 -- Dissect: Order Flags
@@ -1701,7 +1701,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.order_flags = function(buffer, offset, p
   local size = 5
   local range = buffer(offset, size)
   local display = lseg_turquoise_level2_gtp_v24_4_display.order_flags(range, packet, parent)
-  local element = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_flags, range, display)
+  local element = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.order_flags, range, display)
 
   if show.order_flags then
     lseg_turquoise_level2_gtp_v24_4_dissect.order_flags_bits(buffer, offset, packet, element)
@@ -1725,7 +1725,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.trade_type = function(buffer, offset, pa
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_type, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_type, range, value, display)
 
   return offset + length, value
 end
@@ -1818,7 +1818,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trade_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1851,7 +1851,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.order_book_type = function(buffer, offse
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.order_book_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_book_type, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.order_book_type, range, value, display)
 
   return offset + length, value
 end
@@ -1899,7 +1899,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.order_book_clear_message = function(buffer, offset, packet, parent)
   if show.order_book_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_book_clear_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.order_book_clear_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1934,7 +1934,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.previous_quantity = function(buffer, off
   local value = translate.previous_quantity(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.previous_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.previous_quantity, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.previous_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1960,7 +1960,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.previous_price = function(buffer, offset
   local value = translate.previous_price(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.previous_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.previous_price, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.previous_price, range, value, display)
 
   return offset + length, value
 end
@@ -1980,7 +1980,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.order_id = function(buffer, offset, pack
   local value = range:le_uint64()
   local display = lseg_turquoise_level2_gtp_v24_4_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_id, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -2053,7 +2053,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.order_delete_message = function(buffer, offset, packet, parent)
   if show.order_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.order_delete_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.order_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2088,7 +2088,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.new_price = function(buffer, offset, pac
   local value = translate.new_price(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.new_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.new_price, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.new_price, range, value, display)
 
   return offset + length, value
 end
@@ -2114,7 +2114,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.new_quantity = function(buffer, offset, 
   local value = translate.new_quantity(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.new_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.new_quantity, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.new_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2134,7 +2134,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.reserved_7 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level2_gtp_v24_4_display.reserved_7(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.reserved_7, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_7, range, value, display)
 
   return offset + length, value
 end
@@ -2158,10 +2158,10 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.priority_flags_bits = function(buffer, offset, packet, parent)
 
   -- Retained: 1 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.retained, buffer(offset, 7))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.retained, buffer(offset, 7))
 
   -- Reserved 7: 7 Byte
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.reserved_7, buffer(offset, 7))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_7, buffer(offset, 7))
 end
 
 -- Dissect: Priority Flags
@@ -2169,7 +2169,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.priority_flags = function(buffer, offset
   local size = 7
   local range = buffer(offset, size)
   local display = lseg_turquoise_level2_gtp_v24_4_display.priority_flags(range, packet, parent)
-  local element = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.priority_flags, range, display)
+  local element = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.priority_flags, range, display)
 
   if show.priority_flags then
     lseg_turquoise_level2_gtp_v24_4_dissect.priority_flags_bits(buffer, offset, packet, element)
@@ -2266,7 +2266,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.order_modify_message = function(buffer, offset, packet, parent)
   if show.order_modify_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_modify_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.order_modify_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.order_modify_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2295,7 +2295,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.rfq_id = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.rfq_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.rfq_id, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.rfq_id, range, value, display)
 
   return offset + length, value
 end
@@ -2315,7 +2315,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.order_type = function(buffer, offset, pa
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.order_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_type, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.order_type, range, value, display)
 
   return offset + length, value
 end
@@ -2335,7 +2335,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.participant = function(buffer, offset, p
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.participant(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.participant, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.participant, range, value, display)
 
   return offset + length, value
 end
@@ -2361,7 +2361,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.size = function(buffer, offset, packet, 
   local value = translate.size(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.size, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -2449,7 +2449,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.add_order_incremental_message = function(buffer, offset, packet, parent)
   if show.add_order_incremental_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.add_order_incremental_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.add_order_incremental_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2478,7 +2478,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.new_end_time = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.new_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.new_end_time, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.new_end_time, range, value, display)
 
   return offset + length, value
 end
@@ -2520,7 +2520,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.session_change_reason = function(buffer,
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.session_change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.session_change_reason, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2568,7 +2568,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.trading_status = function(buffer, offset
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trading_status, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -2631,7 +2631,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.instrument_status_message = function(buffer, offset, packet, parent)
   if show.instrument_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2660,7 +2660,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.reserved_38 = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level2_gtp_v24_4_display.reserved_38(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.reserved_38, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_38, range, value, display)
 
   return offset + length, value
 end
@@ -2680,7 +2680,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.currency = function(buffer, offset, pack
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.currency, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -2700,7 +2700,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.reserved_23 = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level2_gtp_v24_4_display.reserved_23(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.reserved_23, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.reserved_23, range, value, display)
 
   return offset + length, value
 end
@@ -2720,7 +2720,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.segment = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.segment(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.segment, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.segment, range, value, display)
 
   return offset + length, value
 end
@@ -2746,7 +2746,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.static_circuit_breaker_tolerances = func
   local value = translate.static_circuit_breaker_tolerances(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.static_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2772,7 +2772,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.dynamic_circuit_breaker_tolerances = fun
   local value = translate.dynamic_circuit_breaker_tolerances(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.dynamic_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2798,7 +2798,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.price_band_tolerances = function(buffer,
   local value = translate.price_band_tolerances(raw)
   local display = lseg_turquoise_level2_gtp_v24_4_display.price_band_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.price_band_tolerances, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.price_band_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2818,7 +2818,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.tick_id = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.tick_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.tick_id, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.tick_id, range, value, display)
 
   return offset + length, value
 end
@@ -2838,7 +2838,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.venue_instrument_id = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.venue_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.venue_instrument_id, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.venue_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -2862,13 +2862,13 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.allowed_book_types_bits = function(buffer, offset, packet, parent)
 
   -- Unused 2: 2 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.unused_2, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.unused_2, buffer(offset, 1))
 
   -- Electronic Order Book: 1 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.electronic_order_book, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.electronic_order_book, buffer(offset, 1))
 
   -- Unused 5: 5 Bit
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.unused_5, buffer(offset, 1))
 end
 
 -- Dissect: Allowed Book Types
@@ -2876,7 +2876,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.allowed_book_types = function(buffer, of
   local size = 1
   local range = buffer(offset, size)
   local display = lseg_turquoise_level2_gtp_v24_4_display.allowed_book_types(range, packet, parent)
-  local element = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.allowed_book_types, range, display)
+  local element = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.allowed_book_types, range, display)
 
   if show.allowed_book_types then
     lseg_turquoise_level2_gtp_v24_4_dissect.allowed_book_types_bits(buffer, offset, packet, element)
@@ -2900,7 +2900,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.isin = function(buffer, offset, packet, 
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_level2_gtp_v24_4_display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.isin, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -2998,7 +2998,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3034,7 +3034,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.event_code = function(buffer, offset, pa
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.event_code, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -3077,7 +3077,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3219,7 +3219,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.payload = function(buffer, offset, packe
   -- Dissect Element
   local range = buffer(offset, size)
   local display = lseg_turquoise_level2_gtp_v24_4_display.payload(buffer, packet, parent)
-  local element = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.payload, range, display)
+  local element = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.payload, range, display)
 
   return lseg_turquoise_level2_gtp_v24_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -3276,7 +3276,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.message_type = function(buffer, offset, 
   local value = range:uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_type, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3296,7 +3296,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.message_length = function(buffer, offset
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_length, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -3334,7 +3334,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3373,7 +3373,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.message_fields = function(buffer, offset
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_index, message_index)
+    local iteration = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -3396,7 +3396,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.message = function(buffer, offset, packe
     local length = lseg_turquoise_level2_gtp_v24_4_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = lseg_turquoise_level2_gtp_v24_4_display.message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message, range, display)
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.message, range, display)
   end
 
   return lseg_turquoise_level2_gtp_v24_4_dissect.message_fields(buffer, offset, packet, parent)
@@ -3417,7 +3417,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.sequence_number = function(buffer, offse
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.sequence_number, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3437,7 +3437,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.market_data_group = function(buffer, off
   local value = range:string()
   local display = lseg_turquoise_level2_gtp_v24_4_display.market_data_group(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.market_data_group, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
@@ -3457,7 +3457,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.message_count = function(buffer, offset,
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_count, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3477,7 +3477,7 @@ lseg_turquoise_level2_gtp_v24_4_dissect.length = function(buffer, offset, packet
   local value = range:le_uint()
   local display = lseg_turquoise_level2_gtp_v24_4_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_level2_gtp_v24_4.fields.length, range, value, display)
+  parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -3525,7 +3525,7 @@ end
 lseg_turquoise_level2_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
     local index = lseg_turquoise_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3563,23 +3563,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function lseg_turquoise_level2_gtp_v24_4.init()
+function omi_lseg_turquoise_level2_gtp_v24_4.init()
 end
 
 -- Dissector for Lseg Turquoise Level2 Gtp 24.4
-function lseg_turquoise_level2_gtp_v24_4.dissector(buffer, packet, parent)
+function omi_lseg_turquoise_level2_gtp_v24_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = lseg_turquoise_level2_gtp_v24_4.name
+  packet.cols.protocol = omi_lseg_turquoise_level2_gtp_v24_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(lseg_turquoise_level2_gtp_v24_4, buffer(), lseg_turquoise_level2_gtp_v24_4.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_lseg_turquoise_level2_gtp_v24_4, buffer(), omi_lseg_turquoise_level2_gtp_v24_4.description, "("..buffer:len().." Bytes)")
   return lseg_turquoise_level2_gtp_v24_4_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, lseg_turquoise_level2_gtp_v24_4)
+udp_table:add(65333, omi_lseg_turquoise_level2_gtp_v24_4)
 
 
 -----------------------------------------------------------------------
@@ -3587,25 +3587,25 @@ udp_table:add(65333, lseg_turquoise_level2_gtp_v24_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.lseg_turquoise_level2_gtp_v24_4_packet_size = function(buffer)
+verify.omi_lseg_turquoise_level2_gtp_v24_4_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Lseg Turquoise Level2 Gtp 24.4
-local function lseg_turquoise_level2_gtp_v24_4_heuristic(buffer, packet, parent)
+local function omi_lseg_turquoise_level2_gtp_v24_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.lseg_turquoise_level2_gtp_v24_4_packet_size(buffer) then return false end
+  if not verify.omi_lseg_turquoise_level2_gtp_v24_4_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = lseg_turquoise_level2_gtp_v24_4
-  lseg_turquoise_level2_gtp_v24_4.dissector(buffer, packet, parent)
+  packet.conversation = omi_lseg_turquoise_level2_gtp_v24_4
+  omi_lseg_turquoise_level2_gtp_v24_4.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Lseg Turquoise Level2 Gtp 24.4
-lseg_turquoise_level2_gtp_v24_4:register_heuristic("udp", lseg_turquoise_level2_gtp_v24_4_heuristic)
+omi_lseg_turquoise_level2_gtp_v24_4:register_heuristic("udp", omi_lseg_turquoise_level2_gtp_v24_4_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

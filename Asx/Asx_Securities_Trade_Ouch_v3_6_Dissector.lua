@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Asx Securities Trade Ouch 3.6 Protocol
-local asx_securities_trade_ouch_v3_6 = Proto("Asx.Securities.Trade.Ouch.v3.6.Lua", "Asx Securities Trade Ouch 3.6")
+local omi_asx_securities_trade_ouch_v3_6 = Proto("Asx.Securities.Trade.Ouch.v3.6.Lua", "Asx Securities Trade Ouch 3.6")
 
 -- Component Tables
 local show = {}
@@ -21,68 +21,68 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Asx Securities Trade Ouch 3.6 Fields
-asx_securities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.securities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.client_account = ProtoField.new("Client Account", "asx.securities.trade.ouch.v3.6.clientaccount", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.securities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
-asx_securities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.securities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
-asx_securities_trade_ouch_v3_6.fields.debug_packet = ProtoField.new("Debug Packet", "asx.securities.trade.ouch.v3.6.debugpacket", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.exchange_info = ProtoField.new("Exchange Info", "asx.securities.trade.ouch.v3.6.exchangeinfo", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.existing_order_token = ProtoField.new("Existing Order Token", "asx.securities.trade.ouch.v3.6.existingordertoken", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.securities.trade.ouch.v3.6.loginacceptedpacket", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.securities.trade.ouch.v3.6.loginrejectedpacket", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.securities.trade.ouch.v3.6.loginrequestpacket", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.ouch.v3.6.matchid", ftypes.BYTES)
-asx_securities_trade_ouch_v3_6.fields.minimum_acceptable_quantity = ProtoField.new("Minimum Acceptable Quantity", "asx.securities.trade.ouch.v3.6.minimumacceptablequantity", ftypes.UINT64)
-asx_securities_trade_ouch_v3_6.fields.open_close = ProtoField.new("Open Close", "asx.securities.trade.ouch.v3.6.openclose", ftypes.UINT8)
-asx_securities_trade_ouch_v3_6.fields.order_book_id = ProtoField.new("Order Book Id", "asx.securities.trade.ouch.v3.6.orderbookid", ftypes.UINT32)
-asx_securities_trade_ouch_v3_6.fields.order_id = ProtoField.new("Order Id", "asx.securities.trade.ouch.v3.6.orderid", ftypes.UINT64)
-asx_securities_trade_ouch_v3_6.fields.order_state = ProtoField.new("Order State", "asx.securities.trade.ouch.v3.6.orderstate", ftypes.UINT8)
-asx_securities_trade_ouch_v3_6.fields.order_token = ProtoField.new("Order Token", "asx.securities.trade.ouch.v3.6.ordertoken", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.ouch_order_type = ProtoField.new("Ouch Order Type", "asx.securities.trade.ouch.v3.6.ouchordertype", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.packet = ProtoField.new("Packet", "asx.securities.trade.ouch.v3.6.packet", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.ouch.v3.6.packetheader", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.packet_length = ProtoField.new("Packet Length", "asx.securities.trade.ouch.v3.6.packetlength", ftypes.UINT16)
-asx_securities_trade_ouch_v3_6.fields.packet_type = ProtoField.new("Packet Type", "asx.securities.trade.ouch.v3.6.packettype", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.password = ProtoField.new("Password", "asx.securities.trade.ouch.v3.6.password", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.payload = ProtoField.new("Payload", "asx.securities.trade.ouch.v3.6.payload", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.previous_order_token = ProtoField.new("Previous Order Token", "asx.securities.trade.ouch.v3.6.previousordertoken", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.price = ProtoField.new("Price", "asx.securities.trade.ouch.v3.6.price", ftypes.DOUBLE)
-asx_securities_trade_ouch_v3_6.fields.quantity = ProtoField.new("Quantity", "asx.securities.trade.ouch.v3.6.quantity", ftypes.UINT64)
-asx_securities_trade_ouch_v3_6.fields.reason = ProtoField.new("Reason", "asx.securities.trade.ouch.v3.6.reason", ftypes.UINT8)
-asx_securities_trade_ouch_v3_6.fields.reject_code = ProtoField.new("Reject Code", "asx.securities.trade.ouch.v3.6.rejectcode", ftypes.UINT32)
-asx_securities_trade_ouch_v3_6.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "asx.securities.trade.ouch.v3.6.rejectreasoncode", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "asx.securities.trade.ouch.v3.6.replacementordertoken", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.securities.trade.ouch.v3.6.requestedsequencenumber", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.requested_session = ProtoField.new("Requested Session", "asx.securities.trade.ouch.v3.6.requestedsession", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.ouch.v3.6.sequencenumber", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.securities.trade.ouch.v3.6.sequenceddatapacket", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "asx.securities.trade.ouch.v3.6.sequencedmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "asx.securities.trade.ouch.v3.6.sequencedmessagetype", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.session = ProtoField.new("Session", "asx.securities.trade.ouch.v3.6.session", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.short_sell_quantity = ProtoField.new("Short Sell Quantity", "asx.securities.trade.ouch.v3.6.shortsellquantity", ftypes.UINT64)
-asx_securities_trade_ouch_v3_6.fields.side = ProtoField.new("Side", "asx.securities.trade.ouch.v3.6.side", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.securities.trade.ouch.v3.6.soupbintcppacket", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.text = ProtoField.new("Text", "asx.securities.trade.ouch.v3.6.text", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.time_in_force = ProtoField.new("Time In Force", "asx.securities.trade.ouch.v3.6.timeinforce", ftypes.UINT8)
-asx_securities_trade_ouch_v3_6.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.ouch.v3.6.timestampnanoseconds", ftypes.UINT64)
-asx_securities_trade_ouch_v3_6.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.ouch.v3.6.tradeprice", ftypes.DOUBLE)
-asx_securities_trade_ouch_v3_6.fields.traded_quantity = ProtoField.new("Traded Quantity", "asx.securities.trade.ouch.v3.6.tradedquantity", ftypes.UINT64)
-asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.securities.trade.ouch.v3.6.unsequenceddatapacket", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "asx.securities.trade.ouch.v3.6.unsequencedmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.securities.trade.ouch.v3.6.unsequencedmessagetype", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.username = ProtoField.new("Username", "asx.securities.trade.ouch.v3.6.username", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.securities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.client_account = ProtoField.new("Client Account", "asx.securities.trade.ouch.v3.6.clientaccount", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.securities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
+omi_asx_securities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.securities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
+omi_asx_securities_trade_ouch_v3_6.fields.debug_packet = ProtoField.new("Debug Packet", "asx.securities.trade.ouch.v3.6.debugpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.exchange_info = ProtoField.new("Exchange Info", "asx.securities.trade.ouch.v3.6.exchangeinfo", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.existing_order_token = ProtoField.new("Existing Order Token", "asx.securities.trade.ouch.v3.6.existingordertoken", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.securities.trade.ouch.v3.6.loginacceptedpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.securities.trade.ouch.v3.6.loginrejectedpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.securities.trade.ouch.v3.6.loginrequestpacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.ouch.v3.6.matchid", ftypes.BYTES)
+omi_asx_securities_trade_ouch_v3_6.fields.minimum_acceptable_quantity = ProtoField.new("Minimum Acceptable Quantity", "asx.securities.trade.ouch.v3.6.minimumacceptablequantity", ftypes.UINT64)
+omi_asx_securities_trade_ouch_v3_6.fields.open_close = ProtoField.new("Open Close", "asx.securities.trade.ouch.v3.6.openclose", ftypes.UINT8)
+omi_asx_securities_trade_ouch_v3_6.fields.order_book_id = ProtoField.new("Order Book Id", "asx.securities.trade.ouch.v3.6.orderbookid", ftypes.UINT32)
+omi_asx_securities_trade_ouch_v3_6.fields.order_id = ProtoField.new("Order Id", "asx.securities.trade.ouch.v3.6.orderid", ftypes.UINT64)
+omi_asx_securities_trade_ouch_v3_6.fields.order_state = ProtoField.new("Order State", "asx.securities.trade.ouch.v3.6.orderstate", ftypes.UINT8)
+omi_asx_securities_trade_ouch_v3_6.fields.order_token = ProtoField.new("Order Token", "asx.securities.trade.ouch.v3.6.ordertoken", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.ouch_order_type = ProtoField.new("Ouch Order Type", "asx.securities.trade.ouch.v3.6.ouchordertype", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.packet = ProtoField.new("Packet", "asx.securities.trade.ouch.v3.6.packet", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.ouch.v3.6.packetheader", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.packet_length = ProtoField.new("Packet Length", "asx.securities.trade.ouch.v3.6.packetlength", ftypes.UINT16)
+omi_asx_securities_trade_ouch_v3_6.fields.packet_type = ProtoField.new("Packet Type", "asx.securities.trade.ouch.v3.6.packettype", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.password = ProtoField.new("Password", "asx.securities.trade.ouch.v3.6.password", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.payload = ProtoField.new("Payload", "asx.securities.trade.ouch.v3.6.payload", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.previous_order_token = ProtoField.new("Previous Order Token", "asx.securities.trade.ouch.v3.6.previousordertoken", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.price = ProtoField.new("Price", "asx.securities.trade.ouch.v3.6.price", ftypes.DOUBLE)
+omi_asx_securities_trade_ouch_v3_6.fields.quantity = ProtoField.new("Quantity", "asx.securities.trade.ouch.v3.6.quantity", ftypes.UINT64)
+omi_asx_securities_trade_ouch_v3_6.fields.reason = ProtoField.new("Reason", "asx.securities.trade.ouch.v3.6.reason", ftypes.UINT8)
+omi_asx_securities_trade_ouch_v3_6.fields.reject_code = ProtoField.new("Reject Code", "asx.securities.trade.ouch.v3.6.rejectcode", ftypes.UINT32)
+omi_asx_securities_trade_ouch_v3_6.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "asx.securities.trade.ouch.v3.6.rejectreasoncode", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "asx.securities.trade.ouch.v3.6.replacementordertoken", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.securities.trade.ouch.v3.6.requestedsequencenumber", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.requested_session = ProtoField.new("Requested Session", "asx.securities.trade.ouch.v3.6.requestedsession", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.ouch.v3.6.sequencenumber", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.securities.trade.ouch.v3.6.sequenceddatapacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "asx.securities.trade.ouch.v3.6.sequencedmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "asx.securities.trade.ouch.v3.6.sequencedmessagetype", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.session = ProtoField.new("Session", "asx.securities.trade.ouch.v3.6.session", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.short_sell_quantity = ProtoField.new("Short Sell Quantity", "asx.securities.trade.ouch.v3.6.shortsellquantity", ftypes.UINT64)
+omi_asx_securities_trade_ouch_v3_6.fields.side = ProtoField.new("Side", "asx.securities.trade.ouch.v3.6.side", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.securities.trade.ouch.v3.6.soupbintcppacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.text = ProtoField.new("Text", "asx.securities.trade.ouch.v3.6.text", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.time_in_force = ProtoField.new("Time In Force", "asx.securities.trade.ouch.v3.6.timeinforce", ftypes.UINT8)
+omi_asx_securities_trade_ouch_v3_6.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.ouch.v3.6.timestampnanoseconds", ftypes.UINT64)
+omi_asx_securities_trade_ouch_v3_6.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.ouch.v3.6.tradeprice", ftypes.DOUBLE)
+omi_asx_securities_trade_ouch_v3_6.fields.traded_quantity = ProtoField.new("Traded Quantity", "asx.securities.trade.ouch.v3.6.tradedquantity", ftypes.UINT64)
+omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.securities.trade.ouch.v3.6.unsequenceddatapacket", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "asx.securities.trade.ouch.v3.6.unsequencedmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.securities.trade.ouch.v3.6.unsequencedmessagetype", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.username = ProtoField.new("Username", "asx.securities.trade.ouch.v3.6.username", ftypes.STRING)
 
 -- Asx Securities Trade Ouch 3.6 messages
-asx_securities_trade_ouch_v3_6.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.securities.trade.ouch.v3.6.cancelbyorderidmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.securities.trade.ouch.v3.6.cancelordermessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.enter_order_message = ProtoField.new("Enter Order Message", "asx.securities.trade.ouch.v3.6.enterordermessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "asx.securities.trade.ouch.v3.6.orderacceptedmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "asx.securities.trade.ouch.v3.6.ordercancelledmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.order_executed_message = ProtoField.new("Order Executed Message", "asx.securities.trade.ouch.v3.6.orderexecutedmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "asx.securities.trade.ouch.v3.6.orderrejectedmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.securities.trade.ouch.v3.6.orderreplacedmessage", ftypes.STRING)
-asx_securities_trade_ouch_v3_6.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.securities.trade.ouch.v3.6.replaceordermessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.securities.trade.ouch.v3.6.cancelbyorderidmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.securities.trade.ouch.v3.6.cancelordermessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.enter_order_message = ProtoField.new("Enter Order Message", "asx.securities.trade.ouch.v3.6.enterordermessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "asx.securities.trade.ouch.v3.6.orderacceptedmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "asx.securities.trade.ouch.v3.6.ordercancelledmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.order_executed_message = ProtoField.new("Order Executed Message", "asx.securities.trade.ouch.v3.6.orderexecutedmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "asx.securities.trade.ouch.v3.6.orderrejectedmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.securities.trade.ouch.v3.6.orderreplacedmessage", ftypes.STRING)
+omi_asx_securities_trade_ouch_v3_6.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.securities.trade.ouch.v3.6.replaceordermessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -112,115 +112,115 @@ show.sequenced_message = false
 show.unsequenced_message = false
 
 -- Register Asx Securities Trade Ouch 3.6 Show Options
-asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message = Pref.bool("Show Cancel By Order Id Message", show.cancel_by_order_id_message, "Parse and add Cancel By Order Id Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message = Pref.bool("Show Cancel By Order Id Message", show.cancel_by_order_id_message, "Parse and add Cancel By Order Id Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
-function asx_securities_trade_ouch_v3_6.prefs_changed()
+function omi_asx_securities_trade_ouch_v3_6.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_by_order_id_message ~= asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message then
-    show.cancel_by_order_id_message = asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message
+  if show.cancel_by_order_id_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message then
+    show.cancel_by_order_id_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message
     changed = true
   end
-  if show.cancel_order_message ~= asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message then
-    show.cancel_order_message = asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message then
+    show.cancel_order_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message
     changed = true
   end
-  if show.debug_packet ~= asx_securities_trade_ouch_v3_6.prefs.show_debug_packet then
-    show.debug_packet = asx_securities_trade_ouch_v3_6.prefs.show_debug_packet
+  if show.debug_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_debug_packet then
+    show.debug_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_debug_packet
     changed = true
   end
-  if show.enter_order_message ~= asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message then
-    show.enter_order_message = asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message
+  if show.enter_order_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message then
+    show.enter_order_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message
     changed = true
   end
-  if show.login_accepted_packet ~= asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet
+  if show.login_accepted_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet then
+    show.login_accepted_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet
     changed = true
   end
-  if show.login_rejected_packet ~= asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet
+  if show.login_rejected_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet then
+    show.login_rejected_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet
     changed = true
   end
-  if show.login_request_packet ~= asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet then
-    show.login_request_packet = asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet
+  if show.login_request_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet then
+    show.login_request_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet
     changed = true
   end
-  if show.order_accepted_message ~= asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message then
-    show.order_accepted_message = asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message
+  if show.order_accepted_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message then
+    show.order_accepted_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message
     changed = true
   end
-  if show.order_cancelled_message ~= asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message then
-    show.order_cancelled_message = asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message
+  if show.order_cancelled_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message then
+    show.order_cancelled_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message
     changed = true
   end
-  if show.order_executed_message ~= asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message then
-    show.order_executed_message = asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message then
+    show.order_executed_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_rejected_message ~= asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message then
-    show.order_rejected_message = asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message
+  if show.order_rejected_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message then
+    show.order_rejected_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message
     changed = true
   end
-  if show.order_replaced_message ~= asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message then
-    show.order_replaced_message = asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message
+  if show.order_replaced_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message then
+    show.order_replaced_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message
     changed = true
   end
-  if show.packet ~= asx_securities_trade_ouch_v3_6.prefs.show_packet then
-    show.packet = asx_securities_trade_ouch_v3_6.prefs.show_packet
+  if show.packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_packet then
+    show.packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= asx_securities_trade_ouch_v3_6.prefs.show_packet_header then
-    show.packet_header = asx_securities_trade_ouch_v3_6.prefs.show_packet_header
+  if show.packet_header ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_packet_header then
+    show.packet_header = omi_asx_securities_trade_ouch_v3_6.prefs.show_packet_header
     changed = true
   end
-  if show.replace_order_message ~= asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message then
-    show.replace_order_message = asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message
+  if show.replace_order_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message then
+    show.replace_order_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message
     changed = true
   end
-  if show.sequenced_data_packet ~= asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet
+  if show.sequenced_data_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet then
+    show.sequenced_data_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.soup_bin_tcp_packet ~= asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet
+  if show.soup_bin_tcp_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet then
+    show.soup_bin_tcp_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet
     changed = true
   end
-  if show.unsequenced_data_packet ~= asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet
+  if show.unsequenced_data_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet then
+    show.unsequenced_data_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= asx_securities_trade_ouch_v3_6.prefs.show_payload then
-    show.payload = asx_securities_trade_ouch_v3_6.prefs.show_payload
+  if show.payload ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_payload then
+    show.payload = omi_asx_securities_trade_ouch_v3_6.prefs.show_payload
     changed = true
   end
-  if show.sequenced_message ~= asx_securities_trade_ouch_v3_6.prefs.show_sequenced_message then
-    show.sequenced_message = asx_securities_trade_ouch_v3_6.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_message then
+    show.sequenced_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_message
     changed = true
   end
-  if show.unsequenced_message ~= asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_message then
-    show.unsequenced_message = asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -268,7 +268,7 @@ asx_securities_trade_ouch_v3_6_dissect.order_id = function(buffer, offset, packe
   local value = range:uint64()
   local display = asx_securities_trade_ouch_v3_6_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.order_id, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -301,7 +301,7 @@ asx_securities_trade_ouch_v3_6_dissect.side = function(buffer, offset, packet, p
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.side, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -321,7 +321,7 @@ asx_securities_trade_ouch_v3_6_dissect.order_book_id = function(buffer, offset, 
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.order_book_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.order_book_id, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_book_id, range, value, display)
 
   return offset + length, value
 end
@@ -364,7 +364,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.cancel_by_order_id_message = function(buffer, offset, packet, parent)
   if show.cancel_by_order_id_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.cancel_by_order_id_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.cancel_by_order_id_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.cancel_by_order_id_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -393,7 +393,7 @@ asx_securities_trade_ouch_v3_6_dissect.order_token = function(buffer, offset, pa
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_ouch_v3_6_display.order_token(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.order_token, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_token, range, value, display)
 
   return offset + length, value
 end
@@ -426,7 +426,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.cancel_order_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -455,7 +455,7 @@ asx_securities_trade_ouch_v3_6_dissect.minimum_acceptable_quantity = function(bu
   local value = range:uint64()
   local display = asx_securities_trade_ouch_v3_6_display.minimum_acceptable_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.minimum_acceptable_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.minimum_acceptable_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -475,7 +475,7 @@ asx_securities_trade_ouch_v3_6_dissect.short_sell_quantity = function(buffer, of
   local value = range:uint64()
   local display = asx_securities_trade_ouch_v3_6_display.short_sell_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.short_sell_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.short_sell_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -495,7 +495,7 @@ asx_securities_trade_ouch_v3_6_dissect.exchange_info = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_ouch_v3_6_display.exchange_info(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.exchange_info, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.exchange_info, range, value, display)
 
   return offset + length, value
 end
@@ -515,7 +515,7 @@ asx_securities_trade_ouch_v3_6_dissect.customer_info = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_ouch_v3_6_display.customer_info(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.customer_info, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.customer_info, range, value, display)
 
   return offset + length, value
 end
@@ -535,7 +535,7 @@ asx_securities_trade_ouch_v3_6_dissect.client_account = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_ouch_v3_6_display.client_account(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.client_account, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.client_account, range, value, display)
 
   return offset + length, value
 end
@@ -555,7 +555,7 @@ asx_securities_trade_ouch_v3_6_dissect.open_close = function(buffer, offset, pac
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.open_close(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.open_close, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.open_close, range, value, display)
 
   return offset + length, value
 end
@@ -581,7 +581,7 @@ asx_securities_trade_ouch_v3_6_dissect.price = function(buffer, offset, packet, 
   local value = translate.price(raw)
   local display = asx_securities_trade_ouch_v3_6_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.price, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -601,7 +601,7 @@ asx_securities_trade_ouch_v3_6_dissect.quantity = function(buffer, offset, packe
   local value = range:uint64()
   local display = asx_securities_trade_ouch_v3_6_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -621,7 +621,7 @@ asx_securities_trade_ouch_v3_6_dissect.replacement_order_token = function(buffer
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_ouch_v3_6_display.replacement_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.replacement_order_token, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.replacement_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -641,7 +641,7 @@ asx_securities_trade_ouch_v3_6_dissect.existing_order_token = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_ouch_v3_6_display.existing_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.existing_order_token, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.existing_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -724,7 +724,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.replace_order_message = function(buffer, offset, packet, parent)
   if show.replace_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.replace_order_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.replace_order_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.replace_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -784,7 +784,7 @@ asx_securities_trade_ouch_v3_6_dissect.ouch_order_type = function(buffer, offset
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.ouch_order_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.ouch_order_type, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.ouch_order_type, range, value, display)
 
   return offset + length, value
 end
@@ -804,7 +804,7 @@ asx_securities_trade_ouch_v3_6_dissect.crossing_key = function(buffer, offset, p
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.crossing_key(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.crossing_key, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.crossing_key, range, value, display)
 
   return offset + length, value
 end
@@ -824,7 +824,7 @@ asx_securities_trade_ouch_v3_6_dissect.clearing_participant = function(buffer, o
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.clearing_participant(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.clearing_participant, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.clearing_participant, range, value, display)
 
   return offset + length, value
 end
@@ -854,7 +854,7 @@ asx_securities_trade_ouch_v3_6_dissect.time_in_force = function(buffer, offset, 
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.time_in_force, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -962,7 +962,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.enter_order_message = function(buffer, offset, packet, parent)
   if show.enter_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.enter_order_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.enter_order_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.enter_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1040,7 +1040,7 @@ asx_securities_trade_ouch_v3_6_dissect.unsequenced_message = function(buffer, of
   -- Dissect Element
   local range = buffer(offset, size)
   local display = asx_securities_trade_ouch_v3_6_display.unsequenced_message(buffer, packet, parent)
-  local element = parent:add(asx_securities_trade_ouch_v3_6.fields.unsequenced_message, range, display)
+  local element = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_message, range, display)
 
   return asx_securities_trade_ouch_v3_6_dissect.unsequenced_message_branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -1073,7 +1073,7 @@ asx_securities_trade_ouch_v3_6_dissect.unsequenced_message_type = function(buffe
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.unsequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.unsequenced_message_type, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1115,7 +1115,7 @@ asx_securities_trade_ouch_v3_6_dissect.unsequenced_data_packet = function(buffer
   if show.unsequenced_data_packet then
     local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = asx_securities_trade_ouch_v3_6_display.unsequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet, range, display)
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet, range, display)
   end
 
   asx_securities_trade_ouch_v3_6_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
@@ -1138,7 +1138,7 @@ asx_securities_trade_ouch_v3_6_dissect.requested_sequence_number = function(buff
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.requested_sequence_number, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1158,7 +1158,7 @@ asx_securities_trade_ouch_v3_6_dissect.requested_session = function(buffer, offs
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.requested_session(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.requested_session, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -1178,7 +1178,7 @@ asx_securities_trade_ouch_v3_6_dissect.password = function(buffer, offset, packe
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.password, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -1198,7 +1198,7 @@ asx_securities_trade_ouch_v3_6_dissect.username = function(buffer, offset, packe
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.username, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -1246,7 +1246,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.login_request_packet, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.login_request_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1315,7 +1315,7 @@ asx_securities_trade_ouch_v3_6_dissect.deal_source = function(buffer, offset, pa
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.deal_source(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.deal_source, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.deal_source, range, value, display)
 
   return offset + length, value
 end
@@ -1335,7 +1335,7 @@ asx_securities_trade_ouch_v3_6_dissect.match_id = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = asx_securities_trade_ouch_v3_6_display.match_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.match_id, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.match_id, range, value, display)
 
   return offset + length, value
 end
@@ -1361,7 +1361,7 @@ asx_securities_trade_ouch_v3_6_dissect.trade_price = function(buffer, offset, pa
   local value = translate.trade_price(raw)
   local display = asx_securities_trade_ouch_v3_6_display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.trade_price, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -1381,7 +1381,7 @@ asx_securities_trade_ouch_v3_6_dissect.traded_quantity = function(buffer, offset
   local value = range:uint64()
   local display = asx_securities_trade_ouch_v3_6_display.traded_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.traded_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.traded_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1401,7 +1401,7 @@ asx_securities_trade_ouch_v3_6_dissect.timestamp_nanoseconds = function(buffer, 
   local value = range:uint64()
   local display = asx_securities_trade_ouch_v3_6_display.timestamp_nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.timestamp_nanoseconds, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.timestamp_nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -1469,7 +1469,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_executed_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1520,7 +1520,7 @@ asx_securities_trade_ouch_v3_6_dissect.reason = function(buffer, offset, packet,
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.reason, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -1578,7 +1578,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   if show.order_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.order_cancelled_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_cancelled_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1614,7 +1614,7 @@ asx_securities_trade_ouch_v3_6_dissect.order_state = function(buffer, offset, pa
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.order_state(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.order_state, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_state, range, value, display)
 
   return offset + length, value
 end
@@ -1634,7 +1634,7 @@ asx_securities_trade_ouch_v3_6_dissect.previous_order_token = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_ouch_v3_6_display.previous_order_token(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.previous_order_token, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.previous_order_token, range, value, display)
 
   return offset + length, value
 end
@@ -1762,7 +1762,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.order_replaced_message = function(buffer, offset, packet, parent)
   if show.order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.order_replaced_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_replaced_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1791,7 +1791,7 @@ asx_securities_trade_ouch_v3_6_dissect.reject_code = function(buffer, offset, pa
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.reject_code, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -1834,7 +1834,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.order_rejected_message = function(buffer, offset, packet, parent)
   if show.order_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.order_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_rejected_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1966,7 +1966,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.order_accepted_message = function(buffer, offset, packet, parent)
   if show.order_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.order_accepted_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_accepted_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2052,7 +2052,7 @@ asx_securities_trade_ouch_v3_6_dissect.sequenced_message = function(buffer, offs
   -- Dissect Element
   local range = buffer(offset, size)
   local display = asx_securities_trade_ouch_v3_6_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(asx_securities_trade_ouch_v3_6.fields.sequenced_message, range, display)
+  local element = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message, range, display)
 
   return asx_securities_trade_ouch_v3_6_dissect.sequenced_message_branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -2088,7 +2088,7 @@ asx_securities_trade_ouch_v3_6_dissect.sequenced_message_type = function(buffer,
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.sequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.sequenced_message_type, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2130,7 +2130,7 @@ asx_securities_trade_ouch_v3_6_dissect.sequenced_data_packet = function(buffer, 
   if show.sequenced_data_packet then
     local range = buffer(offset, size_of_sequenced_data_packet)
     local display = asx_securities_trade_ouch_v3_6_display.sequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.sequenced_data_packet, range, display)
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.sequenced_data_packet, range, display)
   end
 
   asx_securities_trade_ouch_v3_6_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
@@ -2153,7 +2153,7 @@ asx_securities_trade_ouch_v3_6_dissect.reject_reason_code = function(buffer, off
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.reject_reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.reject_reason_code, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -2186,7 +2186,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.login_rejected_packet, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.login_rejected_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2215,7 +2215,7 @@ asx_securities_trade_ouch_v3_6_dissect.sequence_number = function(buffer, offset
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.sequence_number, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2235,7 +2235,7 @@ asx_securities_trade_ouch_v3_6_dissect.session = function(buffer, offset, packet
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.session, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2273,7 +2273,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.login_accepted_packet, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.login_accepted_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2302,7 +2302,7 @@ asx_securities_trade_ouch_v3_6_dissect.text = function(buffer, offset, packet, p
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.text, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2335,7 +2335,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.debug_packet, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.debug_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2429,7 +2429,7 @@ asx_securities_trade_ouch_v3_6_dissect.payload = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = asx_securities_trade_ouch_v3_6_display.payload(buffer, packet, parent)
-  local element = parent:add(asx_securities_trade_ouch_v3_6.fields.payload, range, display)
+  local element = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.payload, range, display)
 
   return asx_securities_trade_ouch_v3_6_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -2480,7 +2480,7 @@ asx_securities_trade_ouch_v3_6_dissect.packet_type = function(buffer, offset, pa
   local value = range:string()
   local display = asx_securities_trade_ouch_v3_6_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.packet_type, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2500,7 +2500,7 @@ asx_securities_trade_ouch_v3_6_dissect.packet_length = function(buffer, offset, 
   local value = range:uint()
   local display = asx_securities_trade_ouch_v3_6_display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_ouch_v3_6.fields.packet_length, range, value, display)
+  parent:add(omi_asx_securities_trade_ouch_v3_6.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -2538,7 +2538,7 @@ end
 asx_securities_trade_ouch_v3_6_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.packet_header, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2579,7 +2579,7 @@ asx_securities_trade_ouch_v3_6_dissect.soup_bin_tcp_packet = function(buffer, of
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    parent = parent:add(asx_securities_trade_ouch_v3_6.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = asx_securities_trade_ouch_v3_6_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)
     local display = asx_securities_trade_ouch_v3_6_display.soup_bin_tcp_packet(buffer, packet, parent)
@@ -2648,23 +2648,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function asx_securities_trade_ouch_v3_6.init()
+function omi_asx_securities_trade_ouch_v3_6.init()
 end
 
 -- Dissector for Asx Securities Trade Ouch 3.6
-function asx_securities_trade_ouch_v3_6.dissector(buffer, packet, parent)
+function omi_asx_securities_trade_ouch_v3_6.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = asx_securities_trade_ouch_v3_6.name
+  packet.cols.protocol = omi_asx_securities_trade_ouch_v3_6.name
 
   -- Dissect protocol
-  local protocol = parent:add(asx_securities_trade_ouch_v3_6, buffer(), asx_securities_trade_ouch_v3_6.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_asx_securities_trade_ouch_v3_6, buffer(), omi_asx_securities_trade_ouch_v3_6.description, "("..buffer:len().." Bytes)")
   return asx_securities_trade_ouch_v3_6_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, asx_securities_trade_ouch_v3_6)
+tcp_table:add(65333, omi_asx_securities_trade_ouch_v3_6)
 
 
 -----------------------------------------------------------------------
@@ -2672,25 +2672,25 @@ tcp_table:add(65333, asx_securities_trade_ouch_v3_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.asx_securities_trade_ouch_v3_6_packet_size = function(buffer)
+verify.omi_asx_securities_trade_ouch_v3_6_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Asx Securities Trade Ouch 3.6
-local function asx_securities_trade_ouch_v3_6_heuristic(buffer, packet, parent)
+local function omi_asx_securities_trade_ouch_v3_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.asx_securities_trade_ouch_v3_6_packet_size(buffer) then return false end
+  if not verify.omi_asx_securities_trade_ouch_v3_6_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = asx_securities_trade_ouch_v3_6
-  asx_securities_trade_ouch_v3_6.dissector(buffer, packet, parent)
+  packet.conversation = omi_asx_securities_trade_ouch_v3_6
+  omi_asx_securities_trade_ouch_v3_6.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Asx Securities Trade Ouch 3.6
-asx_securities_trade_ouch_v3_6:register_heuristic("tcp", asx_securities_trade_ouch_v3_6_heuristic)
+omi_asx_securities_trade_ouch_v3_6:register_heuristic("tcp", omi_asx_securities_trade_ouch_v3_6_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

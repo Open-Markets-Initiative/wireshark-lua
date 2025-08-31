@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Mifid Gtp 24.4 Protocol
-local lseg_turquoise_mifid_gtp_v24_4 = Proto("Lseg.Turquoise.Mifid.Gtp.v24.4.Lua", "Lseg Turquoise Mifid Gtp 24.4")
+local omi_lseg_turquoise_mifid_gtp_v24_4 = Proto("Lseg.Turquoise.Mifid.Gtp.v24.4.Lua", "Lseg Turquoise Mifid Gtp 24.4")
 
 -- Component Tables
 local show = {}
@@ -21,88 +21,88 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Mifid Gtp 24.4 Fields
-lseg_turquoise_mifid_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.turquoise.mifid.gtp.v24.4.agencycrossindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.turquoise.mifid.gtp.v24.4.algorithmicindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.mifid.gtp.v24.4.allowedbooktypes", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.auction_type = ProtoField.new("Auction Type", "lseg.turquoise.mifid.gtp.v24.4.auctiontype", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.cross_id = ProtoField.new("Cross Id", "lseg.turquoise.mifid.gtp.v24.4.crossid", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.cross_type = ProtoField.new("Cross Type", "lseg.turquoise.mifid.gtp.v24.4.crosstype", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.turquoise.mifid.gtp.v24.4.currency", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.deferral_enrichment_type = ProtoField.new("Deferral Enrichment Type", "lseg.turquoise.mifid.gtp.v24.4.deferralenrichmenttype", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "lseg.turquoise.mifid.gtp.v24.4.duplicativeindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.turquoise.mifid.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
-lseg_turquoise_mifid_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.mifid.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
-lseg_turquoise_mifid_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.mifid.gtp.v24.4.eventcode", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.mifid.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "lseg.turquoise.mifid.gtp.v24.4.instrumentidentificationcode", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "lseg.turquoise.mifid.gtp.v24.4.instrumentidentificationcodetype", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.mifid.gtp.v24.4.isin", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.turquoise.mifid.gtp.v24.4.length", ftypes.UINT16)
-lseg_turquoise_mifid_gtp_v24_4.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.turquoise.mifid.gtp.v24.4.marketclosingpriceflag", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.mifid.gtp.v24.4.marketdatagroup", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.turquoise.mifid.gtp.v24.4.marketmechanism", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid.gtp.v24.4.message", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.mifid.gtp.v24.4.messagecount", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid.gtp.v24.4.messageheader", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.mifid.gtp.v24.4.messagelength", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.mifid.gtp.v24.4.messagetype", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.turquoise.mifid.gtp.v24.4.mifidprice", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.turquoise.mifid.gtp.v24.4.mifidquantity", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.turquoise.mifid.gtp.v24.4.modificationindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.turquoise.mifid.gtp.v24.4.negotiationindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.mifid.gtp.v24.4.newendtime", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.turquoise.mifid.gtp.v24.4.notionalamount", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.turquoise.mifid.gtp.v24.4.notionalcurrency", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.nt_pre_trade_waiver_flag = ProtoField.new("Nt Pre Trade Waiver Flag", "lseg.turquoise.mifid.gtp.v24.4.ntpretradewaiverflag", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.turquoise.mifid.gtp.v24.4.offbookautomatedindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.mifid.gtp.v24.4.orderbooktype", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid.gtp.v24.4.packet", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.turquoise.mifid.gtp.v24.4.payload", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.turquoise.mifid.gtp.v24.4.posttradedeferralreason", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.mifid.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
-lseg_turquoise_mifid_gtp_v24_4.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.turquoise.mifid.gtp.v24.4.priceformationindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.price_major_currency = ProtoField.new("Price Major Currency", "lseg.turquoise.mifid.gtp.v24.4.pricemajorcurrency", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.price_notation = ProtoField.new("Price Notation", "lseg.turquoise.mifid.gtp.v24.4.pricenotation", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.pt_algo_trade = ProtoField.new("Pt Algo Trade", "lseg.turquoise.mifid.gtp.v24.4.ptalgotrade", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.pt_amendment_flag = ProtoField.new("Pt Amendment Flag", "lseg.turquoise.mifid.gtp.v24.4.ptamendmentflag", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.pt_cancellation_flag = ProtoField.new("Pt Cancellation Flag", "lseg.turquoise.mifid.gtp.v24.4.ptcancellationflag", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.pt_ref_price_waiver_flag = ProtoField.new("Pt Ref Price Waiver Flag", "lseg.turquoise.mifid.gtp.v24.4.ptrefpricewaiverflag", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.turquoise.mifid.gtp.v24.4.publicationdateandtime", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.turquoise.mifid.gtp.v24.4.referencepriceindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.mifid.gtp.v24.4.reserved23", ftypes.BYTES)
-lseg_turquoise_mifid_gtp_v24_4.fields.reserved_28 = ProtoField.new("Reserved 28", "lseg.turquoise.mifid.gtp.v24.4.reserved28", ftypes.BYTES)
-lseg_turquoise_mifid_gtp_v24_4.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.mifid.gtp.v24.4.reserved38", ftypes.BYTES)
-lseg_turquoise_mifid_gtp_v24_4.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.turquoise.mifid.gtp.v24.4.reserved4", ftypes.BYTES)
-lseg_turquoise_mifid_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.turquoise.mifid.gtp.v24.4.segment", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.turquoise.mifid.gtp.v24.4.sequencenumber", ftypes.UINT32)
-lseg_turquoise_mifid_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.turquoise.mifid.gtp.v24.4.sessionchangereason", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.mifid.gtp.v24.4.sourcevenue", ftypes.UINT16)
-lseg_turquoise_mifid_gtp_v24_4.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.turquoise.mifid.gtp.v24.4.specialdividendindicator", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.mifid.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_turquoise_mifid_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.mifid.gtp.v24.4.tickid", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.mifid.gtp.v24.4.timestamp", ftypes.UINT64)
-lseg_turquoise_mifid_gtp_v24_4.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.mifid.gtp.v24.4.tradequalifier", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.trade_type = ProtoField.new("Trade Type", "lseg.turquoise.mifid.gtp.v24.4.tradetype", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "lseg.turquoise.mifid.gtp.v24.4.tradingdateandtime", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.turquoise.mifid.gtp.v24.4.tradingmode", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.mifid.gtp.v24.4.tradingstatus", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.turquoise.mifid.gtp.v24.4.transactioncategory", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.turquoise.mifid.gtp.v24.4.transactionidentificationcode", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid.gtp.v24.4.unitheader", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.unused_2 = ProtoField.new("Unused 2", "lseg.turquoise.mifid.gtp.v24.4.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
-lseg_turquoise_mifid_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.mifid.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
-lseg_turquoise_mifid_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid.gtp.v24.4.venueinstrumentid", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.mifid.gtp.v24.4.venueofexecution", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.turquoise.mifid.gtp.v24.4.agencycrossindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.turquoise.mifid.gtp.v24.4.algorithmicindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.mifid.gtp.v24.4.allowedbooktypes", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.auction_type = ProtoField.new("Auction Type", "lseg.turquoise.mifid.gtp.v24.4.auctiontype", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.cross_id = ProtoField.new("Cross Id", "lseg.turquoise.mifid.gtp.v24.4.crossid", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.cross_type = ProtoField.new("Cross Type", "lseg.turquoise.mifid.gtp.v24.4.crosstype", ftypes.UINT8)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.turquoise.mifid.gtp.v24.4.currency", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.deferral_enrichment_type = ProtoField.new("Deferral Enrichment Type", "lseg.turquoise.mifid.gtp.v24.4.deferralenrichmenttype", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "lseg.turquoise.mifid.gtp.v24.4.duplicativeindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.turquoise.mifid.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.mifid.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.mifid.gtp.v24.4.eventcode", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.mifid.gtp.v24.4.instrument", ftypes.UINT64)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "lseg.turquoise.mifid.gtp.v24.4.instrumentidentificationcode", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "lseg.turquoise.mifid.gtp.v24.4.instrumentidentificationcodetype", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.mifid.gtp.v24.4.isin", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.turquoise.mifid.gtp.v24.4.length", ftypes.UINT16)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.turquoise.mifid.gtp.v24.4.marketclosingpriceflag", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.mifid.gtp.v24.4.marketdatagroup", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.turquoise.mifid.gtp.v24.4.marketmechanism", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.mifid.gtp.v24.4.messagecount", ftypes.UINT8)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.mifid.gtp.v24.4.messagelength", ftypes.UINT8)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.mifid.gtp.v24.4.messagetype", ftypes.UINT8)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.turquoise.mifid.gtp.v24.4.mifidprice", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.turquoise.mifid.gtp.v24.4.mifidquantity", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.turquoise.mifid.gtp.v24.4.modificationindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.turquoise.mifid.gtp.v24.4.negotiationindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.mifid.gtp.v24.4.newendtime", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.turquoise.mifid.gtp.v24.4.notionalamount", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.turquoise.mifid.gtp.v24.4.notionalcurrency", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.nt_pre_trade_waiver_flag = ProtoField.new("Nt Pre Trade Waiver Flag", "lseg.turquoise.mifid.gtp.v24.4.ntpretradewaiverflag", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.turquoise.mifid.gtp.v24.4.offbookautomatedindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.mifid.gtp.v24.4.orderbooktype", ftypes.UINT8)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.turquoise.mifid.gtp.v24.4.payload", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.turquoise.mifid.gtp.v24.4.posttradedeferralreason", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.mifid.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.turquoise.mifid.gtp.v24.4.priceformationindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_major_currency = ProtoField.new("Price Major Currency", "lseg.turquoise.mifid.gtp.v24.4.pricemajorcurrency", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_notation = ProtoField.new("Price Notation", "lseg.turquoise.mifid.gtp.v24.4.pricenotation", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_algo_trade = ProtoField.new("Pt Algo Trade", "lseg.turquoise.mifid.gtp.v24.4.ptalgotrade", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_amendment_flag = ProtoField.new("Pt Amendment Flag", "lseg.turquoise.mifid.gtp.v24.4.ptamendmentflag", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_cancellation_flag = ProtoField.new("Pt Cancellation Flag", "lseg.turquoise.mifid.gtp.v24.4.ptcancellationflag", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_ref_price_waiver_flag = ProtoField.new("Pt Ref Price Waiver Flag", "lseg.turquoise.mifid.gtp.v24.4.ptrefpricewaiverflag", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.turquoise.mifid.gtp.v24.4.publicationdateandtime", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.turquoise.mifid.gtp.v24.4.referencepriceindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.mifid.gtp.v24.4.reserved23", ftypes.BYTES)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_28 = ProtoField.new("Reserved 28", "lseg.turquoise.mifid.gtp.v24.4.reserved28", ftypes.BYTES)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.mifid.gtp.v24.4.reserved38", ftypes.BYTES)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.turquoise.mifid.gtp.v24.4.reserved4", ftypes.BYTES)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.turquoise.mifid.gtp.v24.4.segment", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.turquoise.mifid.gtp.v24.4.sequencenumber", ftypes.UINT32)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.turquoise.mifid.gtp.v24.4.sessionchangereason", ftypes.UINT8)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.mifid.gtp.v24.4.sourcevenue", ftypes.UINT16)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.turquoise.mifid.gtp.v24.4.specialdividendindicator", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.mifid.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.mifid.gtp.v24.4.tickid", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.mifid.gtp.v24.4.timestamp", ftypes.UINT64)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.mifid.gtp.v24.4.tradequalifier", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.trade_type = ProtoField.new("Trade Type", "lseg.turquoise.mifid.gtp.v24.4.tradetype", ftypes.UINT8)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "lseg.turquoise.mifid.gtp.v24.4.tradingdateandtime", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.turquoise.mifid.gtp.v24.4.tradingmode", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.mifid.gtp.v24.4.tradingstatus", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.turquoise.mifid.gtp.v24.4.transactioncategory", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.turquoise.mifid.gtp.v24.4.transactionidentificationcode", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid.gtp.v24.4.unitheader", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.unused_2 = ProtoField.new("Unused 2", "lseg.turquoise.mifid.gtp.v24.4.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.mifid.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid.gtp.v24.4.venueinstrumentid", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.mifid.gtp.v24.4.venueofexecution", ftypes.STRING)
 
 -- Lseg Turquoise Mifid Gtp 24.4 messages
-lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message = ProtoField.new("Mi Fid Ii Trade Cross Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitradecrossmessage", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message = ProtoField.new("Mifid Ii Trade Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitrademessage", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.mifid.gtp.v24.4.systemeventmessage", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message = ProtoField.new("Mi Fid Ii Trade Cross Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitradecrossmessage", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message = ProtoField.new("Mifid Ii Trade Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitrademessage", ftypes.STRING)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.mifid.gtp.v24.4.systemeventmessage", ftypes.STRING)
 
 -- Lseg Turquoise Mifid Gtp 24.4 generated fields
-lseg_turquoise_mifid_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.mifid.gtp.v24.4.messageindex", ftypes.UINT16)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.mifid.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -122,65 +122,65 @@ show.unit_header = true
 show.payload = false
 
 -- Register Lseg Turquoise Mifid Gtp 24.4 Show Options
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_status_message = Pref.bool("Show Instrument Status Message", show.instrument_status_message, "Parse and add Instrument Status Message to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_mi_fid_ii_trade_cross_message = Pref.bool("Show Mi Fid Ii Trade Cross Message", show.mi_fid_ii_trade_cross_message, "Parse and add Mi Fid Ii Trade Cross Message to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_message = Pref.bool("Show Mifid Ii Trade Message", show.mifid_ii_trade_message, "Parse and add Mifid Ii Trade Message to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-lseg_turquoise_mifid_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_status_message = Pref.bool("Show Instrument Status Message", show.instrument_status_message, "Parse and add Instrument Status Message to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_mi_fid_ii_trade_cross_message = Pref.bool("Show Mi Fid Ii Trade Cross Message", show.mi_fid_ii_trade_cross_message, "Parse and add Mi Fid Ii Trade Cross Message to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_message = Pref.bool("Show Mifid Ii Trade Message", show.mifid_ii_trade_message, "Parse and add Mifid Ii Trade Message to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function lseg_turquoise_mifid_gtp_v24_4.prefs_changed()
+function omi_lseg_turquoise_mifid_gtp_v24_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.allowed_book_types ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_allowed_book_types then
-    show.allowed_book_types = lseg_turquoise_mifid_gtp_v24_4.prefs.show_allowed_book_types
+  if show.allowed_book_types ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_allowed_book_types then
+    show.allowed_book_types = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_allowed_book_types
     changed = true
   end
-  if show.instrument_directory_message ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_directory_message
+  if show.instrument_directory_message ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_directory_message then
+    show.instrument_directory_message = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_directory_message
     changed = true
   end
-  if show.instrument_status_message ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_status_message then
-    show.instrument_status_message = lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_status_message
+  if show.instrument_status_message ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_status_message then
+    show.instrument_status_message = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_instrument_status_message
     changed = true
   end
-  if show.message ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_message then
-    show.message = lseg_turquoise_mifid_gtp_v24_4.prefs.show_message
+  if show.message ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_message then
+    show.message = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_message
     changed = true
   end
-  if show.message_header ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_message_header then
-    show.message_header = lseg_turquoise_mifid_gtp_v24_4.prefs.show_message_header
+  if show.message_header ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_message_header then
+    show.message_header = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_message_header
     changed = true
   end
-  if show.mi_fid_ii_trade_cross_message ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_mi_fid_ii_trade_cross_message then
-    show.mi_fid_ii_trade_cross_message = lseg_turquoise_mifid_gtp_v24_4.prefs.show_mi_fid_ii_trade_cross_message
+  if show.mi_fid_ii_trade_cross_message ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_mi_fid_ii_trade_cross_message then
+    show.mi_fid_ii_trade_cross_message = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_mi_fid_ii_trade_cross_message
     changed = true
   end
-  if show.mifid_ii_trade_message ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_message then
-    show.mifid_ii_trade_message = lseg_turquoise_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_message
+  if show.mifid_ii_trade_message ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_message then
+    show.mifid_ii_trade_message = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_mifid_ii_trade_message
     changed = true
   end
-  if show.packet ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_packet then
-    show.packet = lseg_turquoise_mifid_gtp_v24_4.prefs.show_packet
+  if show.packet ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_packet then
+    show.packet = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_packet
     changed = true
   end
-  if show.system_event_message ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_system_event_message then
-    show.system_event_message = lseg_turquoise_mifid_gtp_v24_4.prefs.show_system_event_message
+  if show.system_event_message ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_system_event_message then
+    show.system_event_message = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_system_event_message
     changed = true
   end
-  if show.unit_header ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_unit_header then
-    show.unit_header = lseg_turquoise_mifid_gtp_v24_4.prefs.show_unit_header
+  if show.unit_header ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_unit_header then
+    show.unit_header = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_unit_header
     changed = true
   end
-  if show.payload ~= lseg_turquoise_mifid_gtp_v24_4.prefs.show_payload then
-    show.payload = lseg_turquoise_mifid_gtp_v24_4.prefs.show_payload
+  if show.payload ~= omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_payload then
+    show.payload = omi_lseg_turquoise_mifid_gtp_v24_4.prefs.show_payload
     changed = true
   end
 
@@ -232,7 +232,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.duplicative_indicator = function(buffer, 
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.duplicative_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.duplicative_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.duplicative_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -256,7 +256,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.deferral_enrichment_type = function(buffe
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.deferral_enrichment_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.deferral_enrichment_type, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.deferral_enrichment_type, range, value, display)
 
   return offset + length, value
 end
@@ -280,7 +280,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.post_trade_deferral_reason = function(buf
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.post_trade_deferral_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.post_trade_deferral_reason, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.post_trade_deferral_reason, range, value, display)
 
   return offset + length, value
 end
@@ -307,7 +307,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.algorithmic_indicator = function(buffer, 
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.algorithmic_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.algorithmic_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.algorithmic_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -331,7 +331,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.price_formation_indicator = function(buff
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.price_formation_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.price_formation_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_formation_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -355,7 +355,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.off_book_automated_indicator = function(b
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.off_book_automated_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.off_book_automated_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.off_book_automated_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -379,7 +379,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.special_dividend_indicator = function(buf
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.special_dividend_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.special_dividend_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.special_dividend_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -409,7 +409,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.reference_price_indicator = function(buff
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.reference_price_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.reference_price_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.reference_price_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -439,7 +439,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.modification_indicator = function(buffer,
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.modification_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.modification_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.modification_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -463,7 +463,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.agency_cross_indicator = function(buffer,
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.agency_cross_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.agency_cross_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.agency_cross_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -487,7 +487,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.negotiation_indicator = function(buffer, 
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.negotiation_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.negotiation_indicator, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.negotiation_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -514,7 +514,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.transaction_category = function(buffer, o
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.transaction_category(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.transaction_category, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.transaction_category, range, value, display)
 
   return offset + length, value
 end
@@ -547,7 +547,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.trading_mode = function(buffer, offset, p
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.trading_mode(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.trading_mode, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.trading_mode, range, value, display)
 
   return offset + length, value
 end
@@ -577,7 +577,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.market_mechanism = function(buffer, offse
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.market_mechanism(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.market_mechanism, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.market_mechanism, range, value, display)
 
   return offset + length, value
 end
@@ -597,7 +597,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.reserved_28 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_mifid_gtp_v24_4_display.reserved_28(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.reserved_28, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_28, range, value, display)
 
   return offset + length, value
 end
@@ -617,7 +617,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.pt_amendment_flag = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.pt_amendment_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.pt_amendment_flag, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_amendment_flag, range, value, display)
 
   return offset + length, value
 end
@@ -637,7 +637,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.pt_cancellation_flag = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.pt_cancellation_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.pt_cancellation_flag, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_cancellation_flag, range, value, display)
 
   return offset + length, value
 end
@@ -657,7 +657,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.reserved_4 = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_mifid_gtp_v24_4_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.reserved_4, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -677,7 +677,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.pt_algo_trade = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.pt_algo_trade(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.pt_algo_trade, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_algo_trade, range, value, display)
 
   return offset + length, value
 end
@@ -697,7 +697,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.nt_pre_trade_waiver_flag = function(buffe
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.nt_pre_trade_waiver_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.nt_pre_trade_waiver_flag, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.nt_pre_trade_waiver_flag, range, value, display)
 
   return offset + length, value
 end
@@ -717,7 +717,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.publication_date_and_time = function(buff
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.publication_date_and_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.publication_date_and_time, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.publication_date_and_time, range, value, display)
 
   return offset + length, value
 end
@@ -737,7 +737,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.venue_of_execution = function(buffer, off
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.venue_of_execution(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.venue_of_execution, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.venue_of_execution, range, value, display)
 
   return offset + length, value
 end
@@ -757,7 +757,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.notional_currency = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.notional_currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.notional_currency, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.notional_currency, range, value, display)
 
   return offset + length, value
 end
@@ -777,7 +777,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.notional_amount = function(buffer, offset
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.notional_amount(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.notional_amount, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.notional_amount, range, value, display)
 
   return offset + length, value
 end
@@ -797,7 +797,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.price_major_currency = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.price_major_currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.price_major_currency, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_major_currency, range, value, display)
 
   return offset + length, value
 end
@@ -817,7 +817,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.price_notation = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.price_notation(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.price_notation, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_notation, range, value, display)
 
   return offset + length, value
 end
@@ -837,7 +837,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_identification_code = function
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.instrument_identification_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code, range, value, display)
 
   return offset + length, value
 end
@@ -857,7 +857,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_identification_code_type = fun
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.instrument_identification_code_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code_type, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code_type, range, value, display)
 
   return offset + length, value
 end
@@ -877,7 +877,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.trading_date_and_time = function(buffer, 
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.trading_date_and_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.trading_date_and_time, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.trading_date_and_time, range, value, display)
 
   return offset + length, value
 end
@@ -897,7 +897,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_quantity = function(buffer, offset
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.mi_fid_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_quantity, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -917,7 +917,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_price = function(buffer, offset, p
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.mi_fid_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_price, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_price, range, value, display)
 
   return offset + length, value
 end
@@ -944,7 +944,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.cross_type = function(buffer, offset, pac
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.cross_type, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -964,7 +964,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.cross_id = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.cross_id, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -984,7 +984,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.transaction_identification_code = functio
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.transaction_identification_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.transaction_identification_code, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.transaction_identification_code, range, value, display)
 
   return offset + length, value
 end
@@ -1004,7 +1004,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.instrument = function(buffer, offset, pac
   local value = range:le_uint64()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.instrument(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument, range, value, display)
 
   return offset + length, value
 end
@@ -1043,7 +1043,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.source_venue = function(buffer, offset, p
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.source_venue(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.source_venue, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.source_venue, range, value, display)
 
   return offset + length, value
 end
@@ -1067,7 +1067,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.timestamp = function(buffer, offset, pack
   local value = range:le_uint64()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.timestamp, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1285,7 +1285,7 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_ii_trade_cross_message = function(buffer, offset, packet, parent)
   if show.mi_fid_ii_trade_cross_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message, buffer(offset, 0))
     local index = lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_ii_trade_cross_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1321,7 +1321,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.trade_qualifier = function(buffer, offset
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.trade_qualifier(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.trade_qualifier, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.trade_qualifier, range, value, display)
 
   return offset + length, value
 end
@@ -1341,7 +1341,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.market_closing_price_flag = function(buff
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.market_closing_price_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.market_closing_price_flag, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.market_closing_price_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1361,7 +1361,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.pt_ref_price_waiver_flag = function(buffe
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.pt_ref_price_waiver_flag(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.pt_ref_price_waiver_flag, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.pt_ref_price_waiver_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1381,7 +1381,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.auction_type = function(buffer, offset, p
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.auction_type, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -1411,7 +1411,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.trade_type = function(buffer, offset, pac
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.trade_type, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.trade_type, range, value, display)
 
   return offset + length, value
 end
@@ -1634,7 +1634,7 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.mifid_ii_trade_message = function(buffer, offset, packet, parent)
   if show.mifid_ii_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message, buffer(offset, 0))
     local index = lseg_turquoise_mifid_gtp_v24_4_dissect.mifid_ii_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1667,7 +1667,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.order_book_type = function(buffer, offset
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.order_book_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.order_book_type, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.order_book_type, range, value, display)
 
   return offset + length, value
 end
@@ -1687,7 +1687,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.new_end_time = function(buffer, offset, p
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.new_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.new_end_time, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.new_end_time, range, value, display)
 
   return offset + length, value
 end
@@ -1729,7 +1729,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.session_change_reason = function(buffer, 
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.session_change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.session_change_reason, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1777,7 +1777,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.trading_status = function(buffer, offset,
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.trading_status, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1840,7 +1840,7 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_status_message = function(buffer, offset, packet, parent)
   if show.instrument_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
     local index = lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1869,7 +1869,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.reserved_38 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_mifid_gtp_v24_4_display.reserved_38(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.reserved_38, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_38, range, value, display)
 
   return offset + length, value
 end
@@ -1889,7 +1889,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.currency = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.currency, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -1909,7 +1909,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.reserved_23 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_mifid_gtp_v24_4_display.reserved_23(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.reserved_23, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_23, range, value, display)
 
   return offset + length, value
 end
@@ -1929,7 +1929,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.segment = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.segment(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.segment, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.segment, range, value, display)
 
   return offset + length, value
 end
@@ -1955,7 +1955,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.static_circuit_breaker_tolerances = funct
   local value = translate.static_circuit_breaker_tolerances(raw)
   local display = lseg_turquoise_mifid_gtp_v24_4_display.static_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -1981,7 +1981,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.dynamic_circuit_breaker_tolerances = func
   local value = translate.dynamic_circuit_breaker_tolerances(raw)
   local display = lseg_turquoise_mifid_gtp_v24_4_display.dynamic_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2007,7 +2007,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.price_band_tolerances = function(buffer, 
   local value = translate.price_band_tolerances(raw)
   local display = lseg_turquoise_mifid_gtp_v24_4_display.price_band_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.price_band_tolerances, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_band_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2027,7 +2027,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.tick_id = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.tick_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.tick_id, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.tick_id, range, value, display)
 
   return offset + length, value
 end
@@ -2047,7 +2047,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.venue_instrument_id = function(buffer, of
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.venue_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.venue_instrument_id, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.venue_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -2071,13 +2071,13 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.allowed_book_types_bits = function(buffer, offset, packet, parent)
 
   -- Unused 2: 2 Bit
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.unused_2, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.unused_2, buffer(offset, 1))
 
   -- Electronic Order Book: 1 Bit
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.electronic_order_book, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.electronic_order_book, buffer(offset, 1))
 
   -- Unused 5: 5 Bit
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.unused_5, buffer(offset, 1))
 end
 
 -- Dissect: Allowed Book Types
@@ -2085,7 +2085,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.allowed_book_types = function(buffer, off
   local size = 1
   local range = buffer(offset, size)
   local display = lseg_turquoise_mifid_gtp_v24_4_display.allowed_book_types(range, packet, parent)
-  local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.allowed_book_types, range, display)
+  local element = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.allowed_book_types, range, display)
 
   if show.allowed_book_types then
     lseg_turquoise_mifid_gtp_v24_4_dissect.allowed_book_types_bits(buffer, offset, packet, element)
@@ -2109,7 +2109,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.isin = function(buffer, offset, packet, p
   local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid_gtp_v24_4_display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.isin, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -2207,7 +2207,7 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
     local index = lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2243,7 +2243,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.event_code = function(buffer, offset, pac
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.event_code, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -2286,7 +2286,7 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
     local index = lseg_turquoise_mifid_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2372,7 +2372,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.payload = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = lseg_turquoise_mifid_gtp_v24_4_display.payload(buffer, packet, parent)
-  local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.payload, range, display)
+  local element = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.payload, range, display)
 
   return lseg_turquoise_mifid_gtp_v24_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2408,7 +2408,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.message_type = function(buffer, offset, p
   local value = range:uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message_type, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2428,7 +2428,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.message_length = function(buffer, offset,
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message_length, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2466,7 +2466,7 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
     local index = lseg_turquoise_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2505,7 +2505,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.message_fields = function(buffer, offset,
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message_index, message_index)
+    local iteration = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2528,7 +2528,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.message = function(buffer, offset, packet
     local length = lseg_turquoise_mifid_gtp_v24_4_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message, range, display)
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.message, range, display)
   end
 
   return lseg_turquoise_mifid_gtp_v24_4_dissect.message_fields(buffer, offset, packet, parent)
@@ -2549,7 +2549,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.sequence_number = function(buffer, offset
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.sequence_number, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2569,7 +2569,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.market_data_group = function(buffer, offs
   local value = range:string()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.market_data_group(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.market_data_group, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
@@ -2589,7 +2589,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.message_count = function(buffer, offset, 
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message_count, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2609,7 +2609,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.length = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = lseg_turquoise_mifid_gtp_v24_4_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.length, range, value, display)
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -2657,7 +2657,7 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
     local index = lseg_turquoise_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2695,23 +2695,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function lseg_turquoise_mifid_gtp_v24_4.init()
+function omi_lseg_turquoise_mifid_gtp_v24_4.init()
 end
 
 -- Dissector for Lseg Turquoise Mifid Gtp 24.4
-function lseg_turquoise_mifid_gtp_v24_4.dissector(buffer, packet, parent)
+function omi_lseg_turquoise_mifid_gtp_v24_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = lseg_turquoise_mifid_gtp_v24_4.name
+  packet.cols.protocol = omi_lseg_turquoise_mifid_gtp_v24_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(lseg_turquoise_mifid_gtp_v24_4, buffer(), lseg_turquoise_mifid_gtp_v24_4.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_lseg_turquoise_mifid_gtp_v24_4, buffer(), omi_lseg_turquoise_mifid_gtp_v24_4.description, "("..buffer:len().." Bytes)")
   return lseg_turquoise_mifid_gtp_v24_4_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, lseg_turquoise_mifid_gtp_v24_4)
+udp_table:add(65333, omi_lseg_turquoise_mifid_gtp_v24_4)
 
 
 -----------------------------------------------------------------------
@@ -2719,25 +2719,25 @@ udp_table:add(65333, lseg_turquoise_mifid_gtp_v24_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.lseg_turquoise_mifid_gtp_v24_4_packet_size = function(buffer)
+verify.omi_lseg_turquoise_mifid_gtp_v24_4_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Lseg Turquoise Mifid Gtp 24.4
-local function lseg_turquoise_mifid_gtp_v24_4_heuristic(buffer, packet, parent)
+local function omi_lseg_turquoise_mifid_gtp_v24_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.lseg_turquoise_mifid_gtp_v24_4_packet_size(buffer) then return false end
+  if not verify.omi_lseg_turquoise_mifid_gtp_v24_4_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = lseg_turquoise_mifid_gtp_v24_4
-  lseg_turquoise_mifid_gtp_v24_4.dissector(buffer, packet, parent)
+  packet.conversation = omi_lseg_turquoise_mifid_gtp_v24_4
+  omi_lseg_turquoise_mifid_gtp_v24_4.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Lseg Turquoise Mifid Gtp 24.4
-lseg_turquoise_mifid_gtp_v24_4:register_heuristic("udp", lseg_turquoise_mifid_gtp_v24_4_heuristic)
+omi_lseg_turquoise_mifid_gtp_v24_4:register_heuristic("udp", omi_lseg_turquoise_mifid_gtp_v24_4_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

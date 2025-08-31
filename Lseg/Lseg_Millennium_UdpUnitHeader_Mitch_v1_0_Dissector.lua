@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Protocol
-local lseg_millennium_udpunitheader_mitch_v1_0 = Proto("Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Lua", "Lseg Millennium UdpUnitHeader Mitch 1.0")
+local omi_lseg_millennium_udpunitheader_mitch_v1_0 = Proto("Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Lua", "Lseg Millennium UdpUnitHeader Mitch 1.0")
 
 -- Component Tables
 local show = {}
@@ -20,20 +20,20 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Fields
-lseg_millennium_udpunitheader_mitch_v1_0.fields.length = ProtoField.new("Length", "lseg.millennium.udpunitheader.mitch.v1.0.length", ftypes.UINT16)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.udpunitheader.mitch.v1.0.marketdatagroup", ftypes.STRING)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.message = ProtoField.new("Message", "lseg.millennium.udpunitheader.mitch.v1.0.message", ftypes.STRING)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.message_count = ProtoField.new("Message Count", "lseg.millennium.udpunitheader.mitch.v1.0.messagecount", ftypes.UINT8)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.udpunitheader.mitch.v1.0.messageheader", ftypes.STRING)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.udpunitheader.mitch.v1.0.messagelength", ftypes.UINT8)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.udpunitheader.mitch.v1.0.messagetype", ftypes.UINT8)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.packet = ProtoField.new("Packet", "lseg.millennium.udpunitheader.mitch.v1.0.packet", ftypes.STRING)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.payload = ProtoField.new("Payload", "lseg.millennium.udpunitheader.mitch.v1.0.payload", ftypes.BYTES)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.udpunitheader.mitch.v1.0.sequencenumber", ftypes.UINT32)
-lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.udpunitheader.mitch.v1.0.unitheader", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.length = ProtoField.new("Length", "lseg.millennium.udpunitheader.mitch.v1.0.length", ftypes.UINT16)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.udpunitheader.mitch.v1.0.marketdatagroup", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message = ProtoField.new("Message", "lseg.millennium.udpunitheader.mitch.v1.0.message", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_count = ProtoField.new("Message Count", "lseg.millennium.udpunitheader.mitch.v1.0.messagecount", ftypes.UINT8)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.udpunitheader.mitch.v1.0.messageheader", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.udpunitheader.mitch.v1.0.messagelength", ftypes.UINT8)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.udpunitheader.mitch.v1.0.messagetype", ftypes.UINT8)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.packet = ProtoField.new("Packet", "lseg.millennium.udpunitheader.mitch.v1.0.packet", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload = ProtoField.new("Payload", "lseg.millennium.udpunitheader.mitch.v1.0.payload", ftypes.BYTES)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.udpunitheader.mitch.v1.0.sequencenumber", ftypes.UINT32)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.udpunitheader.mitch.v1.0.unitheader", ftypes.STRING)
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 generated fields
-lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.udpunitheader.mitch.v1.0.messageindex", ftypes.UINT16)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.udpunitheader.mitch.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -46,30 +46,30 @@ show.packet = true
 show.unit_header = true
 
 -- Register Lseg Millennium UdpUnitHeader Mitch 1.0 Show Options
-lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
 
 -- Handle changed preferences
-function lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()
+function omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.message ~= lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message then
-    show.message = lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message
+  if show.message ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message then
+    show.message = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header then
-    show.message_header = lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header
+  if show.message_header ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header then
+    show.message_header = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet then
-    show.packet = lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet
+  if show.packet ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet then
+    show.packet = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet
     changed = true
   end
-  if show.unit_header ~= lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header then
-    show.unit_header = lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header
+  if show.unit_header ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header then
+    show.unit_header = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header
     changed = true
   end
 
@@ -99,7 +99,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.payload = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_udpunitheader_mitch_v1_0_display.payload(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.payload, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload, range, value, display)
 
   return offset + length, value
 end
@@ -119,7 +119,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_type = function(buffer,
   local value = range:uint()
   local display = lseg_millennium_udpunitheader_mitch_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_type, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -139,7 +139,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_length = function(buffe
   local value = range:le_uint()
   local display = lseg_millennium_udpunitheader_mitch_v1_0_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -177,7 +177,7 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -213,7 +213,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields = function(buffe
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index, message_index)
+    local iteration = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -230,7 +230,7 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0_dissect.message = function(buffer, offset, packet, parent, message_index)
   if show.message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields(buffer, offset, packet, parent, message_index)
     local length = index - offset
     parent:set_len(length)
@@ -259,7 +259,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.sequence_number = function(buff
   local value = range:le_uint()
   local display = lseg_millennium_udpunitheader_mitch_v1_0_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.sequence_number, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -279,7 +279,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.market_data_group = function(bu
   local value = range:string()
   local display = lseg_millennium_udpunitheader_mitch_v1_0_display.market_data_group(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.market_data_group, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
@@ -299,7 +299,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_count = function(buffer
   local value = range:le_uint()
   local display = lseg_millennium_udpunitheader_mitch_v1_0_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_count, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -319,7 +319,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.length = function(buffer, offse
   local value = range:le_uint()
   local display = lseg_millennium_udpunitheader_mitch_v1_0_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.length, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -367,7 +367,7 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -405,23 +405,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function lseg_millennium_udpunitheader_mitch_v1_0.init()
+function omi_lseg_millennium_udpunitheader_mitch_v1_0.init()
 end
 
 -- Dissector for Lseg Millennium UdpUnitHeader Mitch 1.0
-function lseg_millennium_udpunitheader_mitch_v1_0.dissector(buffer, packet, parent)
+function omi_lseg_millennium_udpunitheader_mitch_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = lseg_millennium_udpunitheader_mitch_v1_0.name
+  packet.cols.protocol = omi_lseg_millennium_udpunitheader_mitch_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(lseg_millennium_udpunitheader_mitch_v1_0, buffer(), lseg_millennium_udpunitheader_mitch_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0, buffer(), omi_lseg_millennium_udpunitheader_mitch_v1_0.description, "("..buffer:len().." Bytes)")
   return lseg_millennium_udpunitheader_mitch_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, lseg_millennium_udpunitheader_mitch_v1_0)
+udp_table:add(65333, omi_lseg_millennium_udpunitheader_mitch_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -429,25 +429,25 @@ udp_table:add(65333, lseg_millennium_udpunitheader_mitch_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.lseg_millennium_udpunitheader_mitch_v1_0_packet_size = function(buffer)
+verify.omi_lseg_millennium_udpunitheader_mitch_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Lseg Millennium UdpUnitHeader Mitch 1.0
-local function lseg_millennium_udpunitheader_mitch_v1_0_heuristic(buffer, packet, parent)
+local function omi_lseg_millennium_udpunitheader_mitch_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.lseg_millennium_udpunitheader_mitch_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_lseg_millennium_udpunitheader_mitch_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = lseg_millennium_udpunitheader_mitch_v1_0
-  lseg_millennium_udpunitheader_mitch_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_lseg_millennium_udpunitheader_mitch_v1_0
+  omi_lseg_millennium_udpunitheader_mitch_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Lseg Millennium UdpUnitHeader Mitch 1.0
-lseg_millennium_udpunitheader_mitch_v1_0:register_heuristic("udp", lseg_millennium_udpunitheader_mitch_v1_0_heuristic)
+omi_lseg_millennium_udpunitheader_mitch_v1_0:register_heuristic("udp", omi_lseg_millennium_udpunitheader_mitch_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

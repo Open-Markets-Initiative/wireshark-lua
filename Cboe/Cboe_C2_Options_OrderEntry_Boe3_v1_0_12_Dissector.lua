@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe C2 Options OrderEntry Boe3 1.0.12 Protocol
-local cboe_c2_options_orderentry_boe3_v1_0_12 = Proto("Cboe.C2.Options.OrderEntry.Boe3.v1.0.12.Lua", "Cboe C2 Options OrderEntry Boe3 1.0.12")
+local omi_cboe_c2_options_orderentry_boe3_v1_0_12 = Proto("Cboe.C2.Options.OrderEntry.Boe3.v1.0.12.Lua", "Cboe C2 Options OrderEntry Boe3 1.0.12")
 
 -- Component Tables
 local show = {}
@@ -21,189 +21,189 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Cboe C2 Options OrderEntry Boe3 1.0.12 Fields
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.account = ProtoField.new("Account", "cboe.c2.options.orderentry.boe3.v1.0.12.account", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.acknowledgement_style = ProtoField.new("Acknowledgement Style", "cboe.c2.options.orderentry.boe3.v1.0.12.acknowledgementstyle", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.attributed_quote = ProtoField.new("Attributed Quote", "cboe.c2.options.orderentry.boe3.v1.0.12.attributedquote", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.auction_id = ProtoField.new("Auction Id", "cboe.c2.options.orderentry.boe3.v1.0.12.auctionid", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.base_liquidity_indicator = ProtoField.new("Base Liquidity Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.baseliquidityindicator", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_orig_on_reject = ProtoField.new("Cancel Orig On Reject", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelorigonreject", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reason = ProtoField.new("Cancel Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reject_reason = ProtoField.new("Cancel Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelrejectreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_sub_reason = ProtoField.new("Cancel Sub Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelsubreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancelled_order_count = ProtoField.new("Cancelled Order Count", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelledordercount", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.capacity = ProtoField.new("Capacity", "cboe.c2.options.orderentry.boe3.v1.0.12.capacity", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cfi_code = ProtoField.new("Cfi Code", "cboe.c2.options.orderentry.boe3.v1.0.12.cficode", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cboe.c2.options.orderentry.boe3.v1.0.12.clordid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_account = ProtoField.new("Clearing Account", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingaccount", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm = ProtoField.new("Clearing Firm", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingfirm", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm_filter = ProtoField.new("Clearing Firm Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingfirmfilter", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_optional_data = ProtoField.new("Clearing Optional Data", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingoptionaldata", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_id_attr = ProtoField.new("Client Id Attr", "cboe.c2.options.orderentry.boe3.v1.0.12.clientidattr", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_sequence = ProtoField.new("Client Sequence", "cboe.c2.options.orderentry.boe3.v1.0.12.clientsequence", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.c2.options.orderentry.boe3.v1.0.12.cmtanumber", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg = ProtoField.new("Complex Leg", "cboe.c2.options.orderentry.boe3.v1.0.12.complexleg", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.c2.options.orderentry.boe3.v1.0.12.contrabroker", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_capacity = ProtoField.new("Contra Capacity", "cboe.c2.options.orderentry.boe3.v1.0.12.contracapacity", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_trader = ProtoField.new("Contra Trader", "cboe.c2.options.orderentry.boe3.v1.0.12.contratrader", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.c2.options.orderentry.boe3.v1.0.12.correctedprice", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_size = ProtoField.new("Corrected Size", "cboe.c2.options.orderentry.boe3.v1.0.12.correctedsize", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.cumqty", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupid", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupidcnt", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.displayindicator", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_price = ProtoField.new("Display Price", "cboe.c2.options.orderentry.boe3.v1.0.12.displayprice", ftypes.DOUBLE)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_range = ProtoField.new("Display Range", "cboe.c2.options.orderentry.boe3.v1.0.12.displayrange", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.drill_thru_protection = ProtoField.new("Drill Thru Protection", "cboe.c2.options.orderentry.boe3.v1.0.12.drillthruprotection", ftypes.DOUBLE)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.ex_destination = ProtoField.new("Ex Destination", "cboe.c2.options.orderentry.boe3.v1.0.12.exdestination", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_id = ProtoField.new("Exec Id", "cboe.c2.options.orderentry.boe3.v1.0.12.execid", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.execinst", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.c2.options.orderentry.boe3.v1.0.12.execrefid", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.c2.options.orderentry.boe3.v1.0.12.expiretime", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.fee_code = ProtoField.new("Fee Code", "cboe.c2.options.orderentry.boe3.v1.0.12.feecode", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.gtc_order_filter = ProtoField.new("Gtc Order Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.gtcorderfilter", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.in_flight = ProtoField.new("In Flight", "cboe.c2.options.orderentry.boe3.v1.0.12.inflight", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.instruction_details = ProtoField.new("Instruction Details", "cboe.c2.options.orderentry.boe3.v1.0.12.instructiondetails", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.instrument_type_filter = ProtoField.new("Instrument Type Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.instrumenttypefilter", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_px = ProtoField.new("Last Px", "cboe.c2.options.orderentry.boe3.v1.0.12.lastpx", ftypes.DOUBLE)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_shares = ProtoField.new("Last Shares", "cboe.c2.options.orderentry.boe3.v1.0.12.lastshares", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.leaves_qty = ProtoField.new("Leaves Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.leavesqty", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_cnt = ProtoField.new("Leg Cnt", "cboe.c2.options.orderentry.boe3.v1.0.12.legcnt", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_position_effect = ProtoField.new("Leg Position Effect", "cboe.c2.options.orderentry.boe3.v1.0.12.legpositioneffect", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.lockout_instruction = ProtoField.new("Lockout Instruction", "cboe.c2.options.orderentry.boe3.v1.0.12.lockoutinstruction", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.c2.options.orderentry.boe3.v1.0.12.loginrequestmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.c2.options.orderentry.boe3.v1.0.12.loginresponsemessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.c2.options.orderentry.boe3.v1.0.12.loginresponsestatus", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_text = ProtoField.new("Login Response Text", "cboe.c2.options.orderentry.boe3.v1.0.12.loginresponsetext", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutreasontext", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutresponsemessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelinst", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_lockout = ProtoField.new("Mass Cancel Lockout", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancellockout", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelrejectreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.matchingunit", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.c2.options.orderentry.boe3.v1.0.12.maturitydate", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.max_floor = ProtoField.new("Max Floor", "cboe.c2.options.orderentry.boe3.v1.0.12.maxfloor", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.message = ProtoField.new("Message", "cboe.c2.options.orderentry.boe3.v1.0.12.message", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_header = ProtoField.new("Message Header", "cboe.c2.options.orderentry.boe3.v1.0.12.messageheader", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_length = ProtoField.new("Message Length", "cboe.c2.options.orderentry.boe3.v1.0.12.messagelength", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_type = ProtoField.new("Message Type", "cboe.c2.options.orderentry.boe3.v1.0.12.messagetype", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.min_qty = ProtoField.new("Min Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.minqty", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.modifyrejectreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mtp_modifier = ProtoField.new("Mtp Modifier", "cboe.c2.options.orderentry.boe3.v1.0.12.mtpmodifier", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "cboe.c2.options.orderentry.boe3.v1.0.12.multilegreportingtype", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.no_of_securities = ProtoField.new("No Of Securities", "cboe.c2.options.orderentry.boe3.v1.0.12.noofsecurities", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.c2.options.orderentry.boe3.v1.0.12.numberofunits", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.open_close = ProtoField.new("Open Close", "cboe.c2.options.orderentry.boe3.v1.0.12.openclose", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.ord_type = ProtoField.new("Ord Type", "cboe.c2.options.orderentry.boe3.v1.0.12.ordtype", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_id = ProtoField.new("Order Id", "cboe.c2.options.orderentry.boe3.v1.0.12.orderid", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty = ProtoField.new("Order Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.orderqty", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty_short = ProtoField.new("Order Qty Short", "cboe.c2.options.orderentry.boe3.v1.0.12.orderqtyshort", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrejectreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restatement_reason = ProtoField.new("Order Restatement Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrestatementreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.c2.options.orderentry.boe3.v1.0.12.origclordid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_time = ProtoField.new("Orig Time", "cboe.c2.options.orderentry.boe3.v1.0.12.origtime", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.packet = ProtoField.new("Packet", "cboe.c2.options.orderentry.boe3.v1.0.12.packet", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.password = ProtoField.new("Password", "cboe.c2.options.orderentry.boe3.v1.0.12.password", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.posting_instruction = ProtoField.new("Posting Instruction", "cboe.c2.options.orderentry.boe3.v1.0.12.postinginstruction", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.c2.options.orderentry.boe3.v1.0.12.preventmatch", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.price_short = ProtoField.new("Price Short", "cboe.c2.options.orderentry.boe3.v1.0.12.priceshort", ftypes.DOUBLE)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.purgerejectreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.c2.options.orderentry.boe3.v1.0.12.putorcall", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote = ProtoField.new("Quote", "cboe.c2.options.orderentry.boe3.v1.0.12.quote", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement = ProtoField.new("Quote Acknowledgement", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteacknowledgement", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cnt = ProtoField.new("Quote Cnt", "cboe.c2.options.orderentry.boe3.v1.0.12.quotecnt", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.quoterejectreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_sub_reason = ProtoField.new("Quote Reject Sub Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.quoterejectsubreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_result = ProtoField.new("Quote Result", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteresult", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short = ProtoField.new("Quote Short", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteshort", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_symbol = ProtoField.new("Quote Symbol", "cboe.c2.options.orderentry.boe3.v1.0.12.quotesymbol", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdateid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.ratio_qty = ProtoField.new("Ratio Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.ratioqty", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.replayunspecifiedunit", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.c2.options.orderentry.boe3.v1.0.12.requestreceivedtime", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.c2.options.orderentry.boe3.v1.0.12.reservedfield", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.restatementreason", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.c2.options.orderentry.boe3.v1.0.12.riskreset", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.c2.options.orderentry.boe3.v1.0.12.riskresetresult", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_root = ProtoField.new("Risk Root", "cboe.c2.options.orderentry.boe3.v1.0.12.riskroot", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.c2.options.orderentry.boe3.v1.0.12.riskstatusid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.c2.options.orderentry.boe3.v1.0.12.routstrategy", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.route_delivery_method = ProtoField.new("Route Delivery Method", "cboe.c2.options.orderentry.boe3.v1.0.12.routedeliverymethod", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "cboe.c2.options.orderentry.boe3.v1.0.12.routingfirmid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.routinginst", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.scratch_pad = ProtoField.new("Scratch Pad", "cboe.c2.options.orderentry.boe3.v1.0.12.scratchpad", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.c2.options.orderentry.boe3.v1.0.12.secondaryexecid", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.c2.options.orderentry.boe3.v1.0.12.secondaryorderid", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.send_time = ProtoField.new("Send Time", "cboe.c2.options.orderentry.boe3.v1.0.12.sendtime", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.c2.options.orderentry.boe3.v1.0.12.sequencenumber", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_id = ProtoField.new("Session Id", "cboe.c2.options.orderentry.boe3.v1.0.12.sessionid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.c2.options.orderentry.boe3.v1.0.12.sessionsubid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.side = ProtoField.new("Side", "cboe.c2.options.orderentry.boe3.v1.0.12.side", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.size_modifier = ProtoField.new("Size Modifier", "cboe.c2.options.orderentry.boe3.v1.0.12.sizemodifier", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.source_matching_unit = ProtoField.new("Source Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.sourcematchingunit", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.c2.options.orderentry.boe3.v1.0.12.startofmessage", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.stop_px = ProtoField.new("Stop Px", "cboe.c2.options.orderentry.boe3.v1.0.12.stoppx", ftypes.DOUBLE)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.strike_price = ProtoField.new("Strike Price", "cboe.c2.options.orderentry.boe3.v1.0.12.strikeprice", ftypes.DOUBLE)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.subliquidityindicator", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.symbol = ProtoField.new("Symbol", "cboe.c2.options.orderentry.boe3.v1.0.12.symbol", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.target_matching_unit = ProtoField.new("Target Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.targetmatchingunit", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.text = ProtoField.new("Text", "cboe.c2.options.orderentry.boe3.v1.0.12.text", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.time_in_force = ProtoField.new("Time In Force", "cboe.c2.options.orderentry.boe3.v1.0.12.timeinforce", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_date = ProtoField.new("Trade Date", "cboe.c2.options.orderentry.boe3.v1.0.12.tradedate", ftypes.UINT32)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.trading_group_id = ProtoField.new("Trading Group Id", "cboe.c2.options.orderentry.boe3.v1.0.12.tradinggroupid", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.c2.options.orderentry.boe3.v1.0.12.transactiontime", ftypes.UINT64)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.unique_id_level = ProtoField.new("Unique Id Level", "cboe.c2.options.orderentry.boe3.v1.0.12.uniqueidlevel", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_number = ProtoField.new("Unit Number", "cboe.c2.options.orderentry.boe3.v1.0.12.unitnumber", ftypes.UINT8)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.c2.options.orderentry.boe3.v1.0.12.unitsequence", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.working_price = ProtoField.new("Working Price", "cboe.c2.options.orderentry.boe3.v1.0.12.workingprice", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.account = ProtoField.new("Account", "cboe.c2.options.orderentry.boe3.v1.0.12.account", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.acknowledgement_style = ProtoField.new("Acknowledgement Style", "cboe.c2.options.orderentry.boe3.v1.0.12.acknowledgementstyle", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.attributed_quote = ProtoField.new("Attributed Quote", "cboe.c2.options.orderentry.boe3.v1.0.12.attributedquote", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.auction_id = ProtoField.new("Auction Id", "cboe.c2.options.orderentry.boe3.v1.0.12.auctionid", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.base_liquidity_indicator = ProtoField.new("Base Liquidity Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.baseliquidityindicator", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_orig_on_reject = ProtoField.new("Cancel Orig On Reject", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelorigonreject", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reason = ProtoField.new("Cancel Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reject_reason = ProtoField.new("Cancel Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelrejectreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_sub_reason = ProtoField.new("Cancel Sub Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelsubreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancelled_order_count = ProtoField.new("Cancelled Order Count", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelledordercount", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.capacity = ProtoField.new("Capacity", "cboe.c2.options.orderentry.boe3.v1.0.12.capacity", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cfi_code = ProtoField.new("Cfi Code", "cboe.c2.options.orderentry.boe3.v1.0.12.cficode", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cboe.c2.options.orderentry.boe3.v1.0.12.clordid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_account = ProtoField.new("Clearing Account", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingaccount", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm = ProtoField.new("Clearing Firm", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingfirm", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm_filter = ProtoField.new("Clearing Firm Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingfirmfilter", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_optional_data = ProtoField.new("Clearing Optional Data", "cboe.c2.options.orderentry.boe3.v1.0.12.clearingoptionaldata", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_id_attr = ProtoField.new("Client Id Attr", "cboe.c2.options.orderentry.boe3.v1.0.12.clientidattr", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_sequence = ProtoField.new("Client Sequence", "cboe.c2.options.orderentry.boe3.v1.0.12.clientsequence", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.c2.options.orderentry.boe3.v1.0.12.cmtanumber", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg = ProtoField.new("Complex Leg", "cboe.c2.options.orderentry.boe3.v1.0.12.complexleg", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.c2.options.orderentry.boe3.v1.0.12.contrabroker", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_capacity = ProtoField.new("Contra Capacity", "cboe.c2.options.orderentry.boe3.v1.0.12.contracapacity", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_trader = ProtoField.new("Contra Trader", "cboe.c2.options.orderentry.boe3.v1.0.12.contratrader", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.c2.options.orderentry.boe3.v1.0.12.correctedprice", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_size = ProtoField.new("Corrected Size", "cboe.c2.options.orderentry.boe3.v1.0.12.correctedsize", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.cumqty", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupid", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupidcnt", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.displayindicator", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_price = ProtoField.new("Display Price", "cboe.c2.options.orderentry.boe3.v1.0.12.displayprice", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_range = ProtoField.new("Display Range", "cboe.c2.options.orderentry.boe3.v1.0.12.displayrange", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.drill_thru_protection = ProtoField.new("Drill Thru Protection", "cboe.c2.options.orderentry.boe3.v1.0.12.drillthruprotection", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ex_destination = ProtoField.new("Ex Destination", "cboe.c2.options.orderentry.boe3.v1.0.12.exdestination", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_id = ProtoField.new("Exec Id", "cboe.c2.options.orderentry.boe3.v1.0.12.execid", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.execinst", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.c2.options.orderentry.boe3.v1.0.12.execrefid", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.c2.options.orderentry.boe3.v1.0.12.expiretime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.fee_code = ProtoField.new("Fee Code", "cboe.c2.options.orderentry.boe3.v1.0.12.feecode", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.gtc_order_filter = ProtoField.new("Gtc Order Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.gtcorderfilter", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.in_flight = ProtoField.new("In Flight", "cboe.c2.options.orderentry.boe3.v1.0.12.inflight", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.instruction_details = ProtoField.new("Instruction Details", "cboe.c2.options.orderentry.boe3.v1.0.12.instructiondetails", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.instrument_type_filter = ProtoField.new("Instrument Type Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.instrumenttypefilter", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_px = ProtoField.new("Last Px", "cboe.c2.options.orderentry.boe3.v1.0.12.lastpx", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_shares = ProtoField.new("Last Shares", "cboe.c2.options.orderentry.boe3.v1.0.12.lastshares", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.leaves_qty = ProtoField.new("Leaves Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.leavesqty", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_cnt = ProtoField.new("Leg Cnt", "cboe.c2.options.orderentry.boe3.v1.0.12.legcnt", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_position_effect = ProtoField.new("Leg Position Effect", "cboe.c2.options.orderentry.boe3.v1.0.12.legpositioneffect", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.lockout_instruction = ProtoField.new("Lockout Instruction", "cboe.c2.options.orderentry.boe3.v1.0.12.lockoutinstruction", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.c2.options.orderentry.boe3.v1.0.12.loginrequestmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.c2.options.orderentry.boe3.v1.0.12.loginresponsemessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.c2.options.orderentry.boe3.v1.0.12.loginresponsestatus", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_text = ProtoField.new("Login Response Text", "cboe.c2.options.orderentry.boe3.v1.0.12.loginresponsetext", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutreasontext", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutresponsemessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelinst", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_lockout = ProtoField.new("Mass Cancel Lockout", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancellockout", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelrejectreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.matchingunit", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.c2.options.orderentry.boe3.v1.0.12.maturitydate", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.max_floor = ProtoField.new("Max Floor", "cboe.c2.options.orderentry.boe3.v1.0.12.maxfloor", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message = ProtoField.new("Message", "cboe.c2.options.orderentry.boe3.v1.0.12.message", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_header = ProtoField.new("Message Header", "cboe.c2.options.orderentry.boe3.v1.0.12.messageheader", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_length = ProtoField.new("Message Length", "cboe.c2.options.orderentry.boe3.v1.0.12.messagelength", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_type = ProtoField.new("Message Type", "cboe.c2.options.orderentry.boe3.v1.0.12.messagetype", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.min_qty = ProtoField.new("Min Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.minqty", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.modifyrejectreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mtp_modifier = ProtoField.new("Mtp Modifier", "cboe.c2.options.orderentry.boe3.v1.0.12.mtpmodifier", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "cboe.c2.options.orderentry.boe3.v1.0.12.multilegreportingtype", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.no_of_securities = ProtoField.new("No Of Securities", "cboe.c2.options.orderentry.boe3.v1.0.12.noofsecurities", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.c2.options.orderentry.boe3.v1.0.12.numberofunits", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.open_close = ProtoField.new("Open Close", "cboe.c2.options.orderentry.boe3.v1.0.12.openclose", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ord_type = ProtoField.new("Ord Type", "cboe.c2.options.orderentry.boe3.v1.0.12.ordtype", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_id = ProtoField.new("Order Id", "cboe.c2.options.orderentry.boe3.v1.0.12.orderid", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty = ProtoField.new("Order Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.orderqty", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty_short = ProtoField.new("Order Qty Short", "cboe.c2.options.orderentry.boe3.v1.0.12.orderqtyshort", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrejectreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restatement_reason = ProtoField.new("Order Restatement Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrestatementreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.c2.options.orderentry.boe3.v1.0.12.origclordid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_time = ProtoField.new("Orig Time", "cboe.c2.options.orderentry.boe3.v1.0.12.origtime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.packet = ProtoField.new("Packet", "cboe.c2.options.orderentry.boe3.v1.0.12.packet", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.password = ProtoField.new("Password", "cboe.c2.options.orderentry.boe3.v1.0.12.password", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.posting_instruction = ProtoField.new("Posting Instruction", "cboe.c2.options.orderentry.boe3.v1.0.12.postinginstruction", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.c2.options.orderentry.boe3.v1.0.12.preventmatch", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.price_short = ProtoField.new("Price Short", "cboe.c2.options.orderentry.boe3.v1.0.12.priceshort", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.purgerejectreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.c2.options.orderentry.boe3.v1.0.12.putorcall", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote = ProtoField.new("Quote", "cboe.c2.options.orderentry.boe3.v1.0.12.quote", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement = ProtoField.new("Quote Acknowledgement", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteacknowledgement", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cnt = ProtoField.new("Quote Cnt", "cboe.c2.options.orderentry.boe3.v1.0.12.quotecnt", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.quoterejectreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_sub_reason = ProtoField.new("Quote Reject Sub Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.quoterejectsubreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_result = ProtoField.new("Quote Result", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteresult", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short = ProtoField.new("Quote Short", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteshort", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_symbol = ProtoField.new("Quote Symbol", "cboe.c2.options.orderentry.boe3.v1.0.12.quotesymbol", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdateid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ratio_qty = ProtoField.new("Ratio Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.ratioqty", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.replayunspecifiedunit", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.c2.options.orderentry.boe3.v1.0.12.requestreceivedtime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.c2.options.orderentry.boe3.v1.0.12.reservedfield", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.restatementreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.c2.options.orderentry.boe3.v1.0.12.riskreset", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.c2.options.orderentry.boe3.v1.0.12.riskresetresult", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_root = ProtoField.new("Risk Root", "cboe.c2.options.orderentry.boe3.v1.0.12.riskroot", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.c2.options.orderentry.boe3.v1.0.12.riskstatusid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.c2.options.orderentry.boe3.v1.0.12.routstrategy", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.route_delivery_method = ProtoField.new("Route Delivery Method", "cboe.c2.options.orderentry.boe3.v1.0.12.routedeliverymethod", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "cboe.c2.options.orderentry.boe3.v1.0.12.routingfirmid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.routinginst", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.scratch_pad = ProtoField.new("Scratch Pad", "cboe.c2.options.orderentry.boe3.v1.0.12.scratchpad", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.c2.options.orderentry.boe3.v1.0.12.secondaryexecid", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.c2.options.orderentry.boe3.v1.0.12.secondaryorderid", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.send_time = ProtoField.new("Send Time", "cboe.c2.options.orderentry.boe3.v1.0.12.sendtime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.c2.options.orderentry.boe3.v1.0.12.sequencenumber", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_id = ProtoField.new("Session Id", "cboe.c2.options.orderentry.boe3.v1.0.12.sessionid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.c2.options.orderentry.boe3.v1.0.12.sessionsubid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.side = ProtoField.new("Side", "cboe.c2.options.orderentry.boe3.v1.0.12.side", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.size_modifier = ProtoField.new("Size Modifier", "cboe.c2.options.orderentry.boe3.v1.0.12.sizemodifier", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.source_matching_unit = ProtoField.new("Source Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.sourcematchingunit", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.c2.options.orderentry.boe3.v1.0.12.startofmessage", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.stop_px = ProtoField.new("Stop Px", "cboe.c2.options.orderentry.boe3.v1.0.12.stoppx", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.strike_price = ProtoField.new("Strike Price", "cboe.c2.options.orderentry.boe3.v1.0.12.strikeprice", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.subliquidityindicator", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.symbol = ProtoField.new("Symbol", "cboe.c2.options.orderentry.boe3.v1.0.12.symbol", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.target_matching_unit = ProtoField.new("Target Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.targetmatchingunit", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.text = ProtoField.new("Text", "cboe.c2.options.orderentry.boe3.v1.0.12.text", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.time_in_force = ProtoField.new("Time In Force", "cboe.c2.options.orderentry.boe3.v1.0.12.timeinforce", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_date = ProtoField.new("Trade Date", "cboe.c2.options.orderentry.boe3.v1.0.12.tradedate", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trading_group_id = ProtoField.new("Trading Group Id", "cboe.c2.options.orderentry.boe3.v1.0.12.tradinggroupid", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.c2.options.orderentry.boe3.v1.0.12.transactiontime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unique_id_level = ProtoField.new("Unique Id Level", "cboe.c2.options.orderentry.boe3.v1.0.12.uniqueidlevel", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_number = ProtoField.new("Unit Number", "cboe.c2.options.orderentry.boe3.v1.0.12.unitnumber", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.c2.options.orderentry.boe3.v1.0.12.unitsequence", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.working_price = ProtoField.new("Working Price", "cboe.c2.options.orderentry.boe3.v1.0.12.workingprice", ftypes.DOUBLE)
 
 -- Cboe C2 Options OrderEntry Boe3 1.0.12 messages
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelordermessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelrejectedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.carried_restatement_message = ProtoField.new("Carried Restatement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.carriedrestatementmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.done_for_day_message = ProtoField.new("Done For Day Message", "cboe.c2.options.orderentry.boe3.v1.0.12.donefordaymessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_acknowledgment_message = ProtoField.new("Mass Cancel Acknowledgment Message", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelacknowledgmentmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelordermessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_rejected_message = ProtoField.new("Mass Cancel Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelrejectedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_order_message = ProtoField.new("Modify Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.modifyordermessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_rejected_message = ProtoField.new("Modify Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.modifyrejectedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_accepted_message = ProtoField.new("New Complex Instrument Accepted Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexinstrumentacceptedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_message = ProtoField.new("New Complex Instrument Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexinstrumentmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_rejected_message = ProtoField.new("New Complex Instrument Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexinstrumentrejectedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_message = ProtoField.new("New Complex Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexordermessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_short_message = ProtoField.new("New Complex Order Short Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexordershortmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_message = ProtoField.new("New Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newordermessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_short_message = ProtoField.new("New Order Short Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newordershortmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_acknowledgement_message = ProtoField.new("Order Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderacknowledgementmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "cboe.c2.options.orderentry.boe3.v1.0.12.ordercancelledmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_execution_message = ProtoField.new("Order Execution Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderexecutionmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_modified_message = ProtoField.new("Order Modified Message", "cboe.c2.options.orderentry.boe3.v1.0.12.ordermodifiedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrejectedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restated_message = ProtoField.new("Order Restated Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrestatedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_acknowledgement_message = ProtoField.new("Purge Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgeacknowledgementmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_notification_message = ProtoField.new("Purge Notification Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgenotificationmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_orders_message = ProtoField.new("Purge Orders Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgeordersmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_rejected_message = ProtoField.new("Purge Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgerejectedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cancelled_message = ProtoField.new("Quote Cancelled Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quotecancelledmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_execution_message = ProtoField.new("Quote Execution Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteexecutionmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_restated_message = ProtoField.new("Quote Restated Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoterestatedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_acknowledgement_message = ProtoField.new("Quote Update Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdateacknowledgementmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_message = ProtoField.new("Quote Update Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdatemessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_rejected_message = ProtoField.new("Quote Update Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdaterejectedmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_short_message = ProtoField.new("Quote Update Short Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdateshortmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_message = ProtoField.new("Reset Risk Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.resetriskacknowledgementmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_message = ProtoField.new("Reset Risk Message", "cboe.c2.options.orderentry.boe3.v1.0.12.resetriskmessage", ftypes.STRING)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_cancel_correct_message = ProtoField.new("Trade Cancel Correct Message", "cboe.c2.options.orderentry.boe3.v1.0.12.tradecancelcorrectmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelordermessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.cancelrejectedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.carried_restatement_message = ProtoField.new("Carried Restatement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.carriedrestatementmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.done_for_day_message = ProtoField.new("Done For Day Message", "cboe.c2.options.orderentry.boe3.v1.0.12.donefordaymessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_acknowledgment_message = ProtoField.new("Mass Cancel Acknowledgment Message", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelacknowledgmentmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelordermessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_rejected_message = ProtoField.new("Mass Cancel Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelrejectedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_order_message = ProtoField.new("Modify Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.modifyordermessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_rejected_message = ProtoField.new("Modify Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.modifyrejectedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_accepted_message = ProtoField.new("New Complex Instrument Accepted Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexinstrumentacceptedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_message = ProtoField.new("New Complex Instrument Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexinstrumentmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_rejected_message = ProtoField.new("New Complex Instrument Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexinstrumentrejectedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_message = ProtoField.new("New Complex Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexordermessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_short_message = ProtoField.new("New Complex Order Short Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newcomplexordershortmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_message = ProtoField.new("New Order Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newordermessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_short_message = ProtoField.new("New Order Short Message", "cboe.c2.options.orderentry.boe3.v1.0.12.newordershortmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_acknowledgement_message = ProtoField.new("Order Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderacknowledgementmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "cboe.c2.options.orderentry.boe3.v1.0.12.ordercancelledmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_execution_message = ProtoField.new("Order Execution Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderexecutionmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_modified_message = ProtoField.new("Order Modified Message", "cboe.c2.options.orderentry.boe3.v1.0.12.ordermodifiedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrejectedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restated_message = ProtoField.new("Order Restated Message", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrestatedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_acknowledgement_message = ProtoField.new("Purge Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgeacknowledgementmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_notification_message = ProtoField.new("Purge Notification Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgenotificationmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_orders_message = ProtoField.new("Purge Orders Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgeordersmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_rejected_message = ProtoField.new("Purge Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.purgerejectedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cancelled_message = ProtoField.new("Quote Cancelled Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quotecancelledmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_execution_message = ProtoField.new("Quote Execution Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteexecutionmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_restated_message = ProtoField.new("Quote Restated Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoterestatedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_acknowledgement_message = ProtoField.new("Quote Update Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdateacknowledgementmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_message = ProtoField.new("Quote Update Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdatemessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_rejected_message = ProtoField.new("Quote Update Rejected Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdaterejectedmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_short_message = ProtoField.new("Quote Update Short Message", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteupdateshortmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_message = ProtoField.new("Reset Risk Acknowledgement Message", "cboe.c2.options.orderentry.boe3.v1.0.12.resetriskacknowledgementmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_message = ProtoField.new("Reset Risk Message", "cboe.c2.options.orderentry.boe3.v1.0.12.resetriskmessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_cancel_correct_message = ProtoField.new("Trade Cancel Correct Message", "cboe.c2.options.orderentry.boe3.v1.0.12.tradecancelcorrectmessage", ftypes.STRING)
 
 -- Cboe C2 Options OrderEntry Boe3 1.0.12 generated fields
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.c2.options.orderentry.boe3.v1.0.12.complexlegindex", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id_index = ProtoField.new("Custom Group Id Index", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupidindex", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_position_effect_index = ProtoField.new("Leg Position Effect Index", "cboe.c2.options.orderentry.boe3.v1.0.12.legpositioneffectindex", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_index = ProtoField.new("Quote Index", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteindex", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement_index = ProtoField.new("Quote Acknowledgement Index", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteacknowledgementindex", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short_index = ProtoField.new("Quote Short Index", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteshortindex", ftypes.UINT16)
-cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index = ProtoField.new("Unit Sequence Index", "cboe.c2.options.orderentry.boe3.v1.0.12.unitsequenceindex", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.c2.options.orderentry.boe3.v1.0.12.complexlegindex", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id_index = ProtoField.new("Custom Group Id Index", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupidindex", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_position_effect_index = ProtoField.new("Leg Position Effect Index", "cboe.c2.options.orderentry.boe3.v1.0.12.legpositioneffectindex", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_index = ProtoField.new("Quote Index", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteindex", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement_index = ProtoField.new("Quote Acknowledgement Index", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteacknowledgementindex", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short_index = ProtoField.new("Quote Short Index", "cboe.c2.options.orderentry.boe3.v1.0.12.quoteshortindex", ftypes.UINT16)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index = ProtoField.new("Unit Sequence Index", "cboe.c2.options.orderentry.boe3.v1.0.12.unitsequenceindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -261,255 +261,255 @@ show.unit_sequence = true
 show.message = false
 
 -- Register Cboe C2 Options OrderEntry Boe3 1.0.12 Show Options
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message = Pref.bool("Show Cancel Rejected Message", show.cancel_rejected_message, "Parse and add Cancel Rejected Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_carried_restatement_message = Pref.bool("Show Carried Restatement Message", show.carried_restatement_message, "Parse and add Carried Restatement Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_done_for_day_message = Pref.bool("Show Done For Day Message", show.done_for_day_message, "Parse and add Done For Day Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_response_message = Pref.bool("Show Login Response Message", show.login_response_message, "Parse and add Login Response Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_logout_response_message = Pref.bool("Show Logout Response Message", show.logout_response_message, "Parse and add Logout Response Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message = Pref.bool("Show Mass Cancel Acknowledgment Message", show.mass_cancel_acknowledgment_message, "Parse and add Mass Cancel Acknowledgment Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message = Pref.bool("Show Mass Cancel Rejected Message", show.mass_cancel_rejected_message, "Parse and add Mass Cancel Rejected Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_rejected_message = Pref.bool("Show Modify Rejected Message", show.modify_rejected_message, "Parse and add Modify Rejected Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message = Pref.bool("Show New Complex Instrument Accepted Message", show.new_complex_instrument_accepted_message, "Parse and add New Complex Instrument Accepted Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message = Pref.bool("Show New Complex Instrument Message", show.new_complex_instrument_message, "Parse and add New Complex Instrument Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message = Pref.bool("Show New Complex Instrument Rejected Message", show.new_complex_instrument_rejected_message, "Parse and add New Complex Instrument Rejected Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_message = Pref.bool("Show New Complex Order Message", show.new_complex_order_message, "Parse and add New Complex Order Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message = Pref.bool("Show New Complex Order Short Message", show.new_complex_order_short_message, "Parse and add New Complex Order Short Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_short_message = Pref.bool("Show New Order Short Message", show.new_order_short_message, "Parse and add New Order Short Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message = Pref.bool("Show Order Acknowledgement Message", show.order_acknowledgement_message, "Parse and add Order Acknowledgement Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_restated_message = Pref.bool("Show Order Restated Message", show.order_restated_message, "Parse and add Order Restated Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_prevent_match = Pref.bool("Show Prevent Match", show.prevent_match, "Parse and add Prevent Match to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message = Pref.bool("Show Purge Acknowledgement Message", show.purge_acknowledgement_message, "Parse and add Purge Acknowledgement Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_notification_message = Pref.bool("Show Purge Notification Message", show.purge_notification_message, "Parse and add Purge Notification Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_orders_message = Pref.bool("Show Purge Orders Message", show.purge_orders_message, "Parse and add Purge Orders Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_rejected_message = Pref.bool("Show Purge Rejected Message", show.purge_rejected_message, "Parse and add Purge Rejected Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement = Pref.bool("Show Quote Acknowledgement", show.quote_acknowledgement, "Parse and add Quote Acknowledgement to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message = Pref.bool("Show Quote Cancelled Message", show.quote_cancelled_message, "Parse and add Quote Cancelled Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_execution_message = Pref.bool("Show Quote Execution Message", show.quote_execution_message, "Parse and add Quote Execution Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_restated_message = Pref.bool("Show Quote Restated Message", show.quote_restated_message, "Parse and add Quote Restated Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_short = Pref.bool("Show Quote Short", show.quote_short, "Parse and add Quote Short to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message = Pref.bool("Show Quote Update Acknowledgement Message", show.quote_update_acknowledgement_message, "Parse and add Quote Update Acknowledgement Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message = Pref.bool("Show Quote Update Rejected Message", show.quote_update_rejected_message, "Parse and add Quote Update Rejected Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_short_message = Pref.bool("Show Quote Update Short Message", show.quote_update_short_message, "Parse and add Quote Update Short Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message = Pref.bool("Show Reset Risk Acknowledgement Message", show.reset_risk_acknowledgement_message, "Parse and add Reset Risk Acknowledgement Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_message = Pref.bool("Show Reset Risk Message", show.reset_risk_message, "Parse and add Reset Risk Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message = Pref.bool("Show Trade Cancel Correct Message", show.trade_cancel_correct_message, "Parse and add Trade Cancel Correct Message to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_unit_sequence = Pref.bool("Show Unit Sequence", show.unit_sequence, "Parse and add Unit Sequence to protocol tree")
-cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message = Pref.bool("Show Cancel Rejected Message", show.cancel_rejected_message, "Parse and add Cancel Rejected Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_carried_restatement_message = Pref.bool("Show Carried Restatement Message", show.carried_restatement_message, "Parse and add Carried Restatement Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_done_for_day_message = Pref.bool("Show Done For Day Message", show.done_for_day_message, "Parse and add Done For Day Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_response_message = Pref.bool("Show Login Response Message", show.login_response_message, "Parse and add Login Response Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_logout_response_message = Pref.bool("Show Logout Response Message", show.logout_response_message, "Parse and add Logout Response Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message = Pref.bool("Show Mass Cancel Acknowledgment Message", show.mass_cancel_acknowledgment_message, "Parse and add Mass Cancel Acknowledgment Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message = Pref.bool("Show Mass Cancel Rejected Message", show.mass_cancel_rejected_message, "Parse and add Mass Cancel Rejected Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_rejected_message = Pref.bool("Show Modify Rejected Message", show.modify_rejected_message, "Parse and add Modify Rejected Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message = Pref.bool("Show New Complex Instrument Accepted Message", show.new_complex_instrument_accepted_message, "Parse and add New Complex Instrument Accepted Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message = Pref.bool("Show New Complex Instrument Message", show.new_complex_instrument_message, "Parse and add New Complex Instrument Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message = Pref.bool("Show New Complex Instrument Rejected Message", show.new_complex_instrument_rejected_message, "Parse and add New Complex Instrument Rejected Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_message = Pref.bool("Show New Complex Order Message", show.new_complex_order_message, "Parse and add New Complex Order Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message = Pref.bool("Show New Complex Order Short Message", show.new_complex_order_short_message, "Parse and add New Complex Order Short Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_short_message = Pref.bool("Show New Order Short Message", show.new_order_short_message, "Parse and add New Order Short Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message = Pref.bool("Show Order Acknowledgement Message", show.order_acknowledgement_message, "Parse and add Order Acknowledgement Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_restated_message = Pref.bool("Show Order Restated Message", show.order_restated_message, "Parse and add Order Restated Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_prevent_match = Pref.bool("Show Prevent Match", show.prevent_match, "Parse and add Prevent Match to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message = Pref.bool("Show Purge Acknowledgement Message", show.purge_acknowledgement_message, "Parse and add Purge Acknowledgement Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_notification_message = Pref.bool("Show Purge Notification Message", show.purge_notification_message, "Parse and add Purge Notification Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_orders_message = Pref.bool("Show Purge Orders Message", show.purge_orders_message, "Parse and add Purge Orders Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_rejected_message = Pref.bool("Show Purge Rejected Message", show.purge_rejected_message, "Parse and add Purge Rejected Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement = Pref.bool("Show Quote Acknowledgement", show.quote_acknowledgement, "Parse and add Quote Acknowledgement to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message = Pref.bool("Show Quote Cancelled Message", show.quote_cancelled_message, "Parse and add Quote Cancelled Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_execution_message = Pref.bool("Show Quote Execution Message", show.quote_execution_message, "Parse and add Quote Execution Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_restated_message = Pref.bool("Show Quote Restated Message", show.quote_restated_message, "Parse and add Quote Restated Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_short = Pref.bool("Show Quote Short", show.quote_short, "Parse and add Quote Short to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message = Pref.bool("Show Quote Update Acknowledgement Message", show.quote_update_acknowledgement_message, "Parse and add Quote Update Acknowledgement Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message = Pref.bool("Show Quote Update Rejected Message", show.quote_update_rejected_message, "Parse and add Quote Update Rejected Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_short_message = Pref.bool("Show Quote Update Short Message", show.quote_update_short_message, "Parse and add Quote Update Short Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message = Pref.bool("Show Reset Risk Acknowledgement Message", show.reset_risk_acknowledgement_message, "Parse and add Reset Risk Acknowledgement Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_message = Pref.bool("Show Reset Risk Message", show.reset_risk_message, "Parse and add Reset Risk Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message = Pref.bool("Show Trade Cancel Correct Message", show.trade_cancel_correct_message, "Parse and add Trade Cancel Correct Message to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_unit_sequence = Pref.bool("Show Unit Sequence", show.unit_sequence, "Parse and add Unit Sequence to protocol tree")
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 
 -- Handle changed preferences
-function cboe_c2_options_orderentry_boe3_v1_0_12.prefs_changed()
+function omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message then
-    show.cancel_order_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message then
+    show.cancel_order_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message
     changed = true
   end
-  if show.cancel_rejected_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message then
-    show.cancel_rejected_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message
+  if show.cancel_rejected_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message then
+    show.cancel_rejected_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message
     changed = true
   end
-  if show.carried_restatement_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_carried_restatement_message then
-    show.carried_restatement_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_carried_restatement_message
+  if show.carried_restatement_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_carried_restatement_message then
+    show.carried_restatement_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_carried_restatement_message
     changed = true
   end
-  if show.complex_leg ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_complex_leg then
-    show.complex_leg = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_complex_leg
+  if show.complex_leg ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_complex_leg then
+    show.complex_leg = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_complex_leg
     changed = true
   end
-  if show.done_for_day_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_done_for_day_message then
-    show.done_for_day_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_done_for_day_message
+  if show.done_for_day_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_done_for_day_message then
+    show.done_for_day_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_done_for_day_message
     changed = true
   end
-  if show.login_request_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_request_message then
-    show.login_request_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_request_message
+  if show.login_request_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_request_message then
+    show.login_request_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_request_message
     changed = true
   end
-  if show.login_response_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_response_message then
-    show.login_response_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_response_message
+  if show.login_response_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_response_message then
+    show.login_response_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_login_response_message
     changed = true
   end
-  if show.logout_response_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_logout_response_message then
-    show.logout_response_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_logout_response_message
+  if show.logout_response_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_logout_response_message then
+    show.logout_response_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_logout_response_message
     changed = true
   end
-  if show.mass_cancel_acknowledgment_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message then
-    show.mass_cancel_acknowledgment_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message
+  if show.mass_cancel_acknowledgment_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message then
+    show.mass_cancel_acknowledgment_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message
     changed = true
   end
-  if show.mass_cancel_inst ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst then
-    show.mass_cancel_inst = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst
+  if show.mass_cancel_inst ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst then
+    show.mass_cancel_inst = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst
     changed = true
   end
-  if show.mass_cancel_order_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message then
-    show.mass_cancel_order_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message
+  if show.mass_cancel_order_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message then
+    show.mass_cancel_order_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message
     changed = true
   end
-  if show.mass_cancel_rejected_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message then
-    show.mass_cancel_rejected_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message
+  if show.mass_cancel_rejected_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message then
+    show.mass_cancel_rejected_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message
     changed = true
   end
-  if show.message_header ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message_header then
-    show.message_header = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message_header
+  if show.message_header ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message_header then
+    show.message_header = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message_header
     changed = true
   end
-  if show.modify_order_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_order_message then
-    show.modify_order_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_order_message
+  if show.modify_order_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_order_message then
+    show.modify_order_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_order_message
     changed = true
   end
-  if show.modify_rejected_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_rejected_message then
-    show.modify_rejected_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_rejected_message
+  if show.modify_rejected_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_rejected_message then
+    show.modify_rejected_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_modify_rejected_message
     changed = true
   end
-  if show.new_complex_instrument_accepted_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message then
-    show.new_complex_instrument_accepted_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message
+  if show.new_complex_instrument_accepted_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message then
+    show.new_complex_instrument_accepted_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message
     changed = true
   end
-  if show.new_complex_instrument_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message then
-    show.new_complex_instrument_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message
+  if show.new_complex_instrument_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message then
+    show.new_complex_instrument_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message
     changed = true
   end
-  if show.new_complex_instrument_rejected_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message then
-    show.new_complex_instrument_rejected_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message
+  if show.new_complex_instrument_rejected_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message then
+    show.new_complex_instrument_rejected_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message
     changed = true
   end
-  if show.new_complex_order_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_message then
-    show.new_complex_order_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_message
+  if show.new_complex_order_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_message then
+    show.new_complex_order_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_message
     changed = true
   end
-  if show.new_complex_order_short_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message then
-    show.new_complex_order_short_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message
+  if show.new_complex_order_short_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message then
+    show.new_complex_order_short_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message
     changed = true
   end
-  if show.new_order_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_message then
-    show.new_order_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_message
+  if show.new_order_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_message then
+    show.new_order_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_message
     changed = true
   end
-  if show.new_order_short_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_short_message then
-    show.new_order_short_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_short_message
+  if show.new_order_short_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_short_message then
+    show.new_order_short_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_new_order_short_message
     changed = true
   end
-  if show.order_acknowledgement_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message then
-    show.order_acknowledgement_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message
+  if show.order_acknowledgement_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message then
+    show.order_acknowledgement_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message
     changed = true
   end
-  if show.order_cancelled_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_cancelled_message then
-    show.order_cancelled_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_cancelled_message
+  if show.order_cancelled_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_cancelled_message then
+    show.order_cancelled_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_cancelled_message
     changed = true
   end
-  if show.order_execution_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_execution_message then
-    show.order_execution_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_execution_message
+  if show.order_execution_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_execution_message then
+    show.order_execution_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_execution_message
     changed = true
   end
-  if show.order_modified_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_modified_message then
-    show.order_modified_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_modified_message
+  if show.order_modified_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_modified_message then
+    show.order_modified_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_modified_message
     changed = true
   end
-  if show.order_rejected_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_rejected_message then
-    show.order_rejected_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_rejected_message
+  if show.order_rejected_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_rejected_message then
+    show.order_rejected_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_rejected_message
     changed = true
   end
-  if show.order_restated_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_restated_message then
-    show.order_restated_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_restated_message
+  if show.order_restated_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_restated_message then
+    show.order_restated_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_order_restated_message
     changed = true
   end
-  if show.packet ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_packet then
-    show.packet = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_packet
+  if show.packet ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_packet then
+    show.packet = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_packet
     changed = true
   end
-  if show.prevent_match ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_prevent_match then
-    show.prevent_match = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_prevent_match
+  if show.prevent_match ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_prevent_match then
+    show.prevent_match = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_prevent_match
     changed = true
   end
-  if show.purge_acknowledgement_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message then
-    show.purge_acknowledgement_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message
+  if show.purge_acknowledgement_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message then
+    show.purge_acknowledgement_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message
     changed = true
   end
-  if show.purge_notification_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_notification_message then
-    show.purge_notification_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_notification_message
+  if show.purge_notification_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_notification_message then
+    show.purge_notification_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_notification_message
     changed = true
   end
-  if show.purge_orders_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_orders_message then
-    show.purge_orders_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_orders_message
+  if show.purge_orders_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_orders_message then
+    show.purge_orders_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_orders_message
     changed = true
   end
-  if show.purge_rejected_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_rejected_message then
-    show.purge_rejected_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_rejected_message
+  if show.purge_rejected_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_rejected_message then
+    show.purge_rejected_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_purge_rejected_message
     changed = true
   end
-  if show.quote ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote then
-    show.quote = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote
+  if show.quote ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote then
+    show.quote = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote
     changed = true
   end
-  if show.quote_acknowledgement ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement then
-    show.quote_acknowledgement = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement
+  if show.quote_acknowledgement ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement then
+    show.quote_acknowledgement = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement
     changed = true
   end
-  if show.quote_cancelled_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message then
-    show.quote_cancelled_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message
+  if show.quote_cancelled_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message then
+    show.quote_cancelled_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message
     changed = true
   end
-  if show.quote_execution_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_execution_message then
-    show.quote_execution_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_execution_message
+  if show.quote_execution_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_execution_message then
+    show.quote_execution_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_execution_message
     changed = true
   end
-  if show.quote_restated_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_restated_message then
-    show.quote_restated_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_restated_message
+  if show.quote_restated_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_restated_message then
+    show.quote_restated_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_restated_message
     changed = true
   end
-  if show.quote_short ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_short then
-    show.quote_short = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_short
+  if show.quote_short ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_short then
+    show.quote_short = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_short
     changed = true
   end
-  if show.quote_update_acknowledgement_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message then
-    show.quote_update_acknowledgement_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message
+  if show.quote_update_acknowledgement_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message then
+    show.quote_update_acknowledgement_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message
     changed = true
   end
-  if show.quote_update_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_message then
-    show.quote_update_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_message
+  if show.quote_update_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_message then
+    show.quote_update_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_message
     changed = true
   end
-  if show.quote_update_rejected_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message then
-    show.quote_update_rejected_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message
+  if show.quote_update_rejected_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message then
+    show.quote_update_rejected_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message
     changed = true
   end
-  if show.quote_update_short_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_short_message then
-    show.quote_update_short_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_short_message
+  if show.quote_update_short_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_short_message then
+    show.quote_update_short_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_quote_update_short_message
     changed = true
   end
-  if show.reset_risk_acknowledgement_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message then
-    show.reset_risk_acknowledgement_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message
+  if show.reset_risk_acknowledgement_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message then
+    show.reset_risk_acknowledgement_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message
     changed = true
   end
-  if show.reset_risk_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_message then
-    show.reset_risk_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_message
+  if show.reset_risk_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_message then
+    show.reset_risk_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_reset_risk_message
     changed = true
   end
-  if show.trade_cancel_correct_message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message then
-    show.trade_cancel_correct_message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message
+  if show.trade_cancel_correct_message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message then
+    show.trade_cancel_correct_message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message
     changed = true
   end
-  if show.unit_sequence ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_unit_sequence then
-    show.unit_sequence = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_unit_sequence
+  if show.unit_sequence ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_unit_sequence then
+    show.unit_sequence = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_unit_sequence
     changed = true
   end
-  if show.message ~= cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message then
-    show.message = cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message
+  if show.message ~= omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message then
+    show.message = omi_cboe_c2_options_orderentry_boe3_v1_0_12.prefs.show_message
     changed = true
   end
 
@@ -539,7 +539,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol = function(buffer, offset
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.symbol, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -559,7 +559,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id = function(buffe
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.routing_firm_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_firm_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_firm_id, range, value, display)
 
   return offset + length, value
 end
@@ -579,7 +579,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.clearing_firm(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm, range, value, display)
 
   return offset + length, value
 end
@@ -599,7 +599,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id = function(buffer, off
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cl_ord_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -619,7 +619,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time = function(buff
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.transaction_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.transaction_time, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.transaction_time, range, value, display)
 
   return offset + length, value
 end
@@ -639,7 +639,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight = function(buffer, off
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.in_flight(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.in_flight, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.in_flight, range, value, display)
 
   return offset + length, value
 end
@@ -697,7 +697,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message = function(buffer, offset, packet, parent)
   if show.done_for_day_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.done_for_day_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.done_for_day_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -726,7 +726,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.client_id_attr = function(buffer
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.client_id_attr(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_id_attr, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_id_attr, range, value, display)
 
   return offset + length, value
 end
@@ -752,7 +752,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.drill_thru_protection = function
   local value = translate.drill_thru_protection(raw)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.drill_thru_protection(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.drill_thru_protection, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.drill_thru_protection, range, value, display)
 
   return offset + length, value
 end
@@ -772,7 +772,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cum_qty = function(buffer, offse
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cum_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cum_qty, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
@@ -792,7 +792,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_optional_data = functio
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.clearing_optional_data(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_optional_data, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_optional_data, range, value, display)
 
   return offset + length, value
 end
@@ -812,7 +812,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number = function(buffer, o
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cmta_number(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cmta_number, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cmta_number, range, value, display)
 
   return offset + length, value
 end
@@ -832,7 +832,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.auction_id = function(buffer, of
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.auction_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -907,7 +907,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ex_destination = function(buffer
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.ex_destination(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.ex_destination, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ex_destination, range, value, display)
 
   return offset + length, value
 end
@@ -934,7 +934,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.route_delivery_method = function
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.route_delivery_method(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.route_delivery_method, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.route_delivery_method, range, value, display)
 
   return offset + length, value
 end
@@ -954,7 +954,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.rout_strategy = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.rout_strategy(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.rout_strategy, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.rout_strategy, range, value, display)
 
   return offset + length, value
 end
@@ -974,7 +974,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_inst = function(buffer, 
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.routing_inst(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_inst, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.routing_inst, range, value, display)
 
   return offset + length, value
 end
@@ -1000,7 +1000,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.stop_px = function(buffer, offse
   local value = translate.stop_px(raw)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.stop_px(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.stop_px, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.stop_px, range, value, display)
 
   return offset + length, value
 end
@@ -1033,7 +1033,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.attributed_quote = function(buff
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.attributed_quote(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.attributed_quote, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.attributed_quote, range, value, display)
 
   return offset + length, value
 end
@@ -1053,7 +1053,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.expire_time = function(buffer, o
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.expire_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.expire_time, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.expire_time, range, value, display)
 
   return offset + length, value
 end
@@ -1079,7 +1079,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.working_price = function(buffer,
   local value = translate.working_price(raw)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.working_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.working_price, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.working_price, range, value, display)
 
   return offset + length, value
 end
@@ -1105,7 +1105,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_price = function(buffer,
   local value = translate.display_price(raw)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.display_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_price, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_price, range, value, display)
 
   return offset + length, value
 end
@@ -1125,7 +1125,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty = function(buffer, of
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.leaves_qty, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1155,7 +1155,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.open_close = function(buffer, of
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.open_close(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.open_close, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.open_close, range, value, display)
 
   return offset + length, value
 end
@@ -1182,7 +1182,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.put_or_call = function(buffer, o
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.put_or_call, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.put_or_call, range, value, display)
 
   return offset + length, value
 end
@@ -1208,7 +1208,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.strike_price = function(buffer, 
   local value = translate.strike_price(raw)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.strike_price, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -1228,7 +1228,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.maturity_date = function(buffer,
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.maturity_date(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.maturity_date, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -1248,7 +1248,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trading_group_id = function(buff
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.trading_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.trading_group_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trading_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -1268,7 +1268,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.unique_id_level = function(buffe
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.unique_id_level(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.unique_id_level, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unique_id_level, range, value, display)
 
   return offset + length, value
 end
@@ -1288,7 +1288,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mtp_modifier = function(buffer, 
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.mtp_modifier(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mtp_modifier, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mtp_modifier, range, value, display)
 
   return offset + length, value
 end
@@ -1331,7 +1331,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match = function(buffer, offset, packet, parent)
   if show.prevent_match then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.prevent_match, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.prevent_match, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1360,7 +1360,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty = function(buffer, off
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.order_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1380,7 +1380,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor = function(buffer, off
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.max_floor(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.max_floor, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.max_floor, range, value, display)
 
   return offset + length, value
 end
@@ -1413,7 +1413,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_indicator = function(buf
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.display_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_indicator, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1433,7 +1433,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account = function(buff
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.clearing_account(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_account, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_account, range, value, display)
 
   return offset + length, value
 end
@@ -1453,7 +1453,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.account = function(buffer, offse
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.account(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.account, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.account, range, value, display)
 
   return offset + length, value
 end
@@ -1498,7 +1498,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.capacity = function(buffer, offs
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.capacity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.capacity, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.capacity, range, value, display)
 
   return offset + length, value
 end
@@ -1518,7 +1518,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.min_qty = function(buffer, offse
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.min_qty, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.min_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1560,7 +1560,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.time_in_force = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.time_in_force, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -1593,7 +1593,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type = function(buffer, offs
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.ord_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.ord_type, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ord_type, range, value, display)
 
   return offset + length, value
 end
@@ -1620,7 +1620,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_inst = function(buffer, off
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.exec_inst(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_inst, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_inst, range, value, display)
 
   return offset + length, value
 end
@@ -1647,7 +1647,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side = function(buffer, offset, 
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.side, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1667,7 +1667,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id = function(buffer, offs
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1955,7 +1955,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message = function(buffer, offset, packet, parent)
   if show.carried_restatement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.carried_restatement_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.carried_restatement_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1984,7 +1984,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.text = function(buffer, offset, 
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.text, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2004,7 +2004,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_reject_reason = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.order_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_reject_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2024,7 +2024,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.no_of_securities = function(buff
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.no_of_securities(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.no_of_securities, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.no_of_securities, range, value, display)
 
   return offset + length, value
 end
@@ -2082,7 +2082,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message = function(buffer, offset, packet, parent)
   if show.new_complex_instrument_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_rejected_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2111,7 +2111,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ratio_qty = function(buffer, off
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.ratio_qty, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2135,7 +2135,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cfi_code = function(buffer, offs
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cfi_code(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cfi_code, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cfi_code, range, value, display)
 
   return offset + length, value
 end
@@ -2170,7 +2170,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields = function(bu
 
   -- Implicit Complex Leg Index
   if complex_leg_index ~= nil then
-    local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg_index, complex_leg_index)
+    local iteration = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg_index, complex_leg_index)
     iteration:set_generated()
   end
 
@@ -2199,7 +2199,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.complex_leg = function(buffer, offset, packet, parent, complex_leg_index)
   if show.complex_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields(buffer, offset, packet, parent, complex_leg_index)
     local length = index - offset
     parent:set_len(length)
@@ -2228,7 +2228,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_cnt = function(buffer, offse
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.leg_cnt(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_cnt, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_cnt, range, value, display)
 
   return offset + length, value
 end
@@ -2298,7 +2298,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_accepted_
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.new_complex_instrument_accepted_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.new_complex_instrument_accepted_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_accepted_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_accepted_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_accepted_message_fields(buffer, offset, packet, parent)
@@ -2326,7 +2326,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_lockout = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.mass_cancel_lockout(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_lockout, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_lockout, range, value, display)
 
   return offset + length, value
 end
@@ -2346,7 +2346,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_root = function(buffer, off
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.risk_root(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_root, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_root, range, value, display)
 
   return offset + length, value
 end
@@ -2366,7 +2366,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.source_matching_unit = function(
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.source_matching_unit(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.source_matching_unit, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.source_matching_unit, range, value, display)
 
   return offset + length, value
 end
@@ -2386,7 +2386,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancelled_order_count = function
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cancelled_order_count(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancelled_order_count, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancelled_order_count, range, value, display)
 
   return offset + length, value
 end
@@ -2406,7 +2406,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id = function(buffer
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.mass_cancel_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_id, range, value, display)
 
   return offset + length, value
 end
@@ -2474,7 +2474,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message = function(buffer, offset, packet, parent)
   if show.purge_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_notification_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_notification_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2503,7 +2503,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time = function
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.request_received_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.request_received_time, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.request_received_time, range, value, display)
 
   return offset + length, value
 end
@@ -2561,7 +2561,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.purge_acknowledgement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_acknowledgement_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_acknowledgement_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2590,7 +2590,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_reject_reason = func
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.mass_cancel_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_reject_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2643,7 +2643,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_rejected_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2705,7 +2705,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_acknowledgment_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_acknowledgment_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_acknowledgment_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2771,7 +2771,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_reset_result = function(buf
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.risk_reset_result(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset_result, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset_result, range, value, display)
 
   return offset + length, value
 end
@@ -2791,7 +2791,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_status_id = function(buffer
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.risk_status_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_status_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_status_id, range, value, display)
 
   return offset + length, value
 end
@@ -2839,7 +2839,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.reset_risk_acknowledgement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2868,7 +2868,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_reject_reason = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.purge_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_reject_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2921,7 +2921,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message = function(buffer, offset, packet, parent)
   if show.purge_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_rejected_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2950,7 +2950,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.orig_time = function(buffer, off
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.orig_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_time, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_time, range, value, display)
 
   return offset + length, value
 end
@@ -2970,7 +2970,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.corrected_size = function(buffer
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.corrected_size(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_size, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_size, range, value, display)
 
   return offset + length, value
 end
@@ -2990,7 +2990,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.corrected_price = function(buffe
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.corrected_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_price, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_price, range, value, display)
 
   return offset + length, value
 end
@@ -3016,7 +3016,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_px = function(buffer, offse
   local value = translate.last_px(raw)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.last_px(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_px, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -3036,7 +3036,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_shares = function(buffer, o
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.last_shares(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_shares, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.last_shares, range, value, display)
 
   return offset + length, value
 end
@@ -3069,7 +3069,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.sub_liquidity_indicator = functi
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.sub_liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.sub_liquidity_indicator, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sub_liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3102,7 +3102,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.base_liquidity_indicator = funct
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.base_liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.base_liquidity_indicator, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.base_liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3122,7 +3122,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_ref_id = function(buffer, o
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.exec_ref_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_ref_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_ref_id, range, value, display)
 
   return offset + length, value
 end
@@ -3270,7 +3270,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_correct_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_cancel_correct_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_cancel_correct_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3299,7 +3299,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trade_date = function(buffer, of
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_date, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -3319,7 +3319,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.fee_code = function(buffer, offs
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.fee_code(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.fee_code, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.fee_code, range, value, display)
 
   return offset + length, value
 end
@@ -3339,7 +3339,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_capacity = function(buffe
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.contra_capacity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_capacity, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -3359,7 +3359,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_trader = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.contra_trader(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_trader, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_trader, range, value, display)
 
   return offset + length, value
 end
@@ -3379,7 +3379,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_symbol = function(buffer, 
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_symbol, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3399,7 +3399,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_id = function(buffer, offse
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -3419,7 +3419,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id = function(buffe
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_update_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_id, range, value, display)
 
   return offset + length, value
 end
@@ -3537,7 +3537,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message = function(buffer, offset, packet, parent)
   if show.quote_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_execution_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_execution_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3566,7 +3566,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.secondary_exec_id = function(buf
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.secondary_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_exec_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -3599,7 +3599,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.multileg_reporting_type = functi
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.multileg_reporting_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.multileg_reporting_type, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.multileg_reporting_type, range, value, display)
 
   return offset + length, value
 end
@@ -3619,7 +3619,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_broker = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.contra_broker(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_broker, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_broker, range, value, display)
 
   return offset + length, value
 end
@@ -3792,7 +3792,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_execution_message = function(buffer, offset, packet, parent)
   if show.order_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_execution_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_execution_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_execution_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3821,7 +3821,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_reject_reason = function(
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cancel_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reject_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3884,7 +3884,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
   if show.cancel_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_rejected_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3913,7 +3913,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_sub_reason = function(buf
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cancel_sub_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_sub_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_sub_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3933,7 +3933,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_reason = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cancel_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4001,7 +4001,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message = function(buffer, offset, packet, parent)
   if show.quote_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cancelled_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cancelled_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4083,7 +4083,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   if show.order_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_cancelled_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_cancelled_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4112,7 +4112,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_reject_reason = function(
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.modify_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_reject_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4132,7 +4132,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.orig_cl_ord_id = function(buffer
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_cl_ord_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -4200,7 +4200,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message = function(buffer, offset, packet, parent)
   if show.modify_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_rejected_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4236,7 +4236,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.restatement_reason = function(bu
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.restatement_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.restatement_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.restatement_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4309,7 +4309,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message = function(buffer, offset, packet, parent)
   if show.quote_restated_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_restated_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_restated_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4338,7 +4338,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.secondary_order_id = function(bu
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.secondary_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_order_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -4377,7 +4377,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_restatement_reason = funct
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.order_restatement_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restatement_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restatement_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4490,7 +4490,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_restated_message = function(buffer, offset, packet, parent)
   if show.order_restated_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restated_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restated_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_restated_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4622,7 +4622,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_modified_message = function(buffer, offset, packet, parent)
   if show.order_modified_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_modified_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_modified_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_modified_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4651,7 +4651,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_reject_reason = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4699,7 +4699,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message = function(buffer, offset, packet, parent)
   if show.quote_update_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_rejected_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4771,7 +4771,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message = function(buffer, offset, packet, parent)
   if show.order_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_rejected_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4800,7 +4800,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_reject_sub_reason = functi
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_reject_sub_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_sub_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_reject_sub_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4878,7 +4878,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_result = function(buffer, 
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_result(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_result, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_result, range, value, display)
 
   return offset + length, value
 end
@@ -4909,7 +4909,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields = f
 
   -- Implicit Quote Acknowledgement Index
   if quote_acknowledgement_index ~= nil then
-    local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement_index, quote_acknowledgement_index)
+    local iteration = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement_index, quote_acknowledgement_index)
     iteration:set_generated()
   end
 
@@ -4932,7 +4932,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement = function(buffer, offset, packet, parent, quote_acknowledgement_index)
   if show.quote_acknowledgement then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields(buffer, offset, packet, parent, quote_acknowledgement_index)
     local length = index - offset
     parent:set_len(length)
@@ -4961,7 +4961,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_cnt = function(buffer, off
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_cnt(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cnt, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_cnt, range, value, display)
 
   return offset + length, value
 end
@@ -5026,7 +5026,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_acknowledgement_mes
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.quote_update_acknowledgement_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_update_acknowledgement_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_acknowledgement_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_acknowledgement_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_acknowledgement_message_fields(buffer, offset, packet, parent)
@@ -5177,7 +5177,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.message_type = function(buffer, 
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_type, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -5285,7 +5285,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.order_acknowledgement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_acknowledgement_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_acknowledgement_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5314,7 +5314,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad = function(buffer, o
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.scratch_pad(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.scratch_pad, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.scratch_pad, range, value, display)
 
   return offset + length, value
 end
@@ -5334,7 +5334,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id = function(buffe
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.custom_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -5354,7 +5354,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.target_matching_unit = function(
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.target_matching_unit(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.target_matching_unit, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.target_matching_unit, range, value, display)
 
   return offset + length, value
 end
@@ -5374,7 +5374,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_reset = function(buffer, of
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.risk_reset(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset, range, value, display)
 
   return offset + length, value
 end
@@ -5437,7 +5437,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message = function(buffer, offset, packet, parent)
   if show.reset_risk_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reset_risk_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5466,7 +5466,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id_cnt = function(b
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.custom_group_id_cnt(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id_cnt, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id_cnt, range, value, display)
 
   return offset + length, value
 end
@@ -5486,7 +5486,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.send_time = function(buffer, off
   local value = range:le_uint64()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.send_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.send_time, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.send_time, range, value, display)
 
   return offset + length, value
 end
@@ -5506,7 +5506,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.instruction_details = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.instruction_details(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.instruction_details, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.instruction_details, range, value, display)
 
   return offset + length, value
 end
@@ -5526,7 +5526,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.gtc_order_filter = function(buff
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.gtc_order_filter(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.gtc_order_filter, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.gtc_order_filter, range, value, display)
 
   return offset + length, value
 end
@@ -5546,7 +5546,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.instrument_type_filter = functio
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.instrument_type_filter(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.instrument_type_filter, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.instrument_type_filter, range, value, display)
 
   return offset + length, value
 end
@@ -5566,7 +5566,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.lockout_instruction = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.lockout_instruction(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.lockout_instruction, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.lockout_instruction, range, value, display)
 
   return offset + length, value
 end
@@ -5586,7 +5586,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_style = function
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.acknowledgement_style(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.acknowledgement_style, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.acknowledgement_style, range, value, display)
 
   return offset + length, value
 end
@@ -5606,7 +5606,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm_filter = function(
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.clearing_firm_filter(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm_filter, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_firm_filter, range, value, display)
 
   return offset + length, value
 end
@@ -5664,7 +5664,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst = function(buffer, offset, packet, parent)
   if show.mass_cancel_inst then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_inst, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_inst, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5753,7 +5753,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_orders_message = function(
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.purge_orders_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.purge_orders_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_orders_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_orders_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_orders_message_fields(buffer, offset, packet, parent)
@@ -5774,7 +5774,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty_short = function(buffe
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.order_qty_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty_short, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty_short, range, value, display)
 
   return offset + length, value
 end
@@ -5800,7 +5800,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price_short = function(buffer, o
   local value = translate.price_short(raw)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.price_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.price_short, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.price_short, range, value, display)
 
   return offset + length, value
 end
@@ -5835,7 +5835,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields = function(bu
 
   -- Implicit Quote Short Index
   if quote_short_index ~= nil then
-    local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short_index, quote_short_index)
+    local iteration = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short_index, quote_short_index)
     iteration:set_generated()
   end
 
@@ -5864,7 +5864,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_short = function(buffer, offset, packet, parent, quote_short_index)
   if show.quote_short then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields(buffer, offset, packet, parent, quote_short_index)
     local length = index - offset
     parent:set_len(length)
@@ -5900,7 +5900,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.size_modifier = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.size_modifier(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.size_modifier, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.size_modifier, range, value, display)
 
   return offset + length, value
 end
@@ -5969,7 +5969,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.posting_instruction = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.posting_instruction(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.posting_instruction, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.posting_instruction, range, value, display)
 
   return offset + length, value
 end
@@ -6059,7 +6059,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_short_message = fun
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.quote_update_short_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_update_short_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_short_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_short_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_short_message_fields(buffer, offset, packet, parent)
@@ -6095,7 +6095,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_fields = function(buffer, 
 
   -- Implicit Quote Index
   if quote_index ~= nil then
-    local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_index, quote_index)
+    local iteration = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_index, quote_index)
     iteration:set_generated()
   end
 
@@ -6124,7 +6124,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote = function(buffer, offset, packet, parent, quote_index)
   if show.quote then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_fields(buffer, offset, packet, parent, quote_index)
     local length = index - offset
     parent:set_len(length)
@@ -6233,7 +6233,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_message = function(
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.quote_update_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.quote_update_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_message_fields(buffer, offset, packet, parent)
@@ -6261,7 +6261,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_orig_on_reject = function
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.cancel_orig_on_reject(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_orig_on_reject, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_orig_on_reject, range, value, display)
 
   return offset + length, value
 end
@@ -6349,7 +6349,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_order_message = function(buffer, offset, packet, parent)
   if show.modify_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_order_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.modify_order_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6421,7 +6421,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_order_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6478,7 +6478,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cancel_order_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6517,7 +6517,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.leg_position_effect(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_position_effect, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.leg_position_effect, range, value, display)
 
   return offset + length, value
 end
@@ -6692,7 +6692,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_short_message 
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.new_complex_order_short_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.new_complex_order_short_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_short_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_short_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_short_message_fields(buffer, offset, packet, parent)
@@ -6713,7 +6713,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_range = function(buffer,
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.display_range(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_range, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_range, range, value, display)
 
   return offset + length, value
 end
@@ -6968,7 +6968,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_message = func
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.new_complex_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.new_complex_order_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_order_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_message_fields(buffer, offset, packet, parent)
@@ -7029,7 +7029,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_message =
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.new_complex_instrument_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.new_complex_instrument_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_message_fields(buffer, offset, packet, parent)
@@ -7193,7 +7193,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message = function(buffer, offset, packet, parent)
   if show.new_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_short_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_short_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7455,7 +7455,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_message = function(buffer, offset, packet, parent)
   if show.new_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.new_order_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7484,7 +7484,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.logout_reason_text = function(bu
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.logout_reason_text(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason_text, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason_text, range, value, display)
 
   return offset + length, value
 end
@@ -7514,7 +7514,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.logout_reason = function(buffer,
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.logout_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason, range, value, display)
 
   return offset + length, value
 end
@@ -7552,7 +7552,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.logout_response_message = function(buffer, offset, packet, parent)
   if show.logout_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_response_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_response_message, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.logout_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -7581,7 +7581,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.sequence_number = function(buffe
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.sequence_number, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -7601,7 +7601,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.unit_number = function(buffer, o
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.unit_number(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_number, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_number, range, value, display)
 
   return offset + length, value
 end
@@ -7628,7 +7628,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.unit_sequence_fields = function(
 
   -- Implicit Unit Sequence Index
   if unit_sequence_index ~= nil then
-    local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
+    local iteration = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()
   end
 
@@ -7645,7 +7645,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.unit_sequence = function(buffer, offset, packet, parent, unit_sequence_index)
   if show.unit_sequence then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.unit_sequence_fields(buffer, offset, packet, parent, unit_sequence_index)
     local length = index - offset
     parent:set_len(length)
@@ -7674,7 +7674,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.number_of_units = function(buffe
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.number_of_units(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.number_of_units, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.number_of_units, range, value, display)
 
   return offset + length, value
 end
@@ -7694,7 +7694,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.client_sequence = function(buffe
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.client_sequence(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_sequence, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_sequence, range, value, display)
 
   return offset + length, value
 end
@@ -7714,7 +7714,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.login_response_text = function(b
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.login_response_text(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_text, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_text, range, value, display)
 
   return offset + length, value
 end
@@ -7759,7 +7759,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.login_response_status = function
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.login_response_status(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_status, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_status, range, value, display)
 
   return offset + length, value
 end
@@ -7819,7 +7819,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.login_response_message = functio
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.login_response_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.login_response_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.login_response_message_fields(buffer, offset, packet, parent)
@@ -7850,7 +7850,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.replay_unspecified_unit = functi
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.replay_unspecified_unit(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.replay_unspecified_unit, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.replay_unspecified_unit, range, value, display)
 
   return offset + length, value
 end
@@ -7870,7 +7870,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.password = function(buffer, offs
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.password, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -7890,7 +7890,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_sub_id = function(buffer
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.session_sub_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_sub_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_sub_id, range, value, display)
 
   return offset + length, value
 end
@@ -7910,7 +7910,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_id = function(buffer, of
   local value = range:string()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_id, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -7975,7 +7975,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.login_request_message = function
     local length = cboe_c2_options_orderentry_boe3_v1_0_12_size_of.login_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.login_request_message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_request_message, range, display)
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_request_message, range, display)
   end
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.login_request_message_fields(buffer, offset, packet, parent)
@@ -8353,7 +8353,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.message = function(buffer, offse
   -- Dissect Element
   local range = buffer(offset, size)
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.message(buffer, packet, parent)
-  local element = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.message, range, display)
+  local element = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message, range, display)
 
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.message_branches(buffer, offset, packet, parent, message_type)
 end
@@ -8373,7 +8373,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reserved_field = function(buffer
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.reserved_field(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.reserved_field, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reserved_field, range, value, display)
 
   return offset + length, value
 end
@@ -8393,7 +8393,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.matching_unit = function(buffer,
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.matching_unit(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.matching_unit, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.matching_unit, range, value, display)
 
   return offset + length, value
 end
@@ -8413,7 +8413,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.message_length = function(buffer
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_length, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -8433,7 +8433,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.start_of_message = function(buff
   local value = range:le_uint()
   local display = cboe_c2_options_orderentry_boe3_v1_0_12_display.start_of_message(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.start_of_message, range, value, display)
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.start_of_message, range, value, display)
 
   return offset + length, value
 end
@@ -8491,7 +8491,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.message_header, buffer(offset, 0))
     local index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -8527,23 +8527,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cboe_c2_options_orderentry_boe3_v1_0_12.init()
+function omi_cboe_c2_options_orderentry_boe3_v1_0_12.init()
 end
 
 -- Dissector for Cboe C2 Options OrderEntry Boe3 1.0.12
-function cboe_c2_options_orderentry_boe3_v1_0_12.dissector(buffer, packet, parent)
+function omi_cboe_c2_options_orderentry_boe3_v1_0_12.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cboe_c2_options_orderentry_boe3_v1_0_12.name
+  packet.cols.protocol = omi_cboe_c2_options_orderentry_boe3_v1_0_12.name
 
   -- Dissect protocol
-  local protocol = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12, buffer(), cboe_c2_options_orderentry_boe3_v1_0_12.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12, buffer(), omi_cboe_c2_options_orderentry_boe3_v1_0_12.description, "("..buffer:len().." Bytes)")
   return cboe_c2_options_orderentry_boe3_v1_0_12_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, cboe_c2_options_orderentry_boe3_v1_0_12)
+tcp_table:add(65333, omi_cboe_c2_options_orderentry_boe3_v1_0_12)
 
 
 -----------------------------------------------------------------------
@@ -8551,25 +8551,25 @@ tcp_table:add(65333, cboe_c2_options_orderentry_boe3_v1_0_12)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cboe_c2_options_orderentry_boe3_v1_0_12_packet_size = function(buffer)
+verify.omi_cboe_c2_options_orderentry_boe3_v1_0_12_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Cboe C2 Options OrderEntry Boe3 1.0.12
-local function cboe_c2_options_orderentry_boe3_v1_0_12_heuristic(buffer, packet, parent)
+local function omi_cboe_c2_options_orderentry_boe3_v1_0_12_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cboe_c2_options_orderentry_boe3_v1_0_12_packet_size(buffer) then return false end
+  if not verify.omi_cboe_c2_options_orderentry_boe3_v1_0_12_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cboe_c2_options_orderentry_boe3_v1_0_12
-  cboe_c2_options_orderentry_boe3_v1_0_12.dissector(buffer, packet, parent)
+  packet.conversation = omi_cboe_c2_options_orderentry_boe3_v1_0_12
+  omi_cboe_c2_options_orderentry_boe3_v1_0_12.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Cboe C2 Options OrderEntry Boe3 1.0.12
-cboe_c2_options_orderentry_boe3_v1_0_12:register_heuristic("tcp", cboe_c2_options_orderentry_boe3_v1_0_12_heuristic)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12:register_heuristic("tcp", omi_cboe_c2_options_orderentry_boe3_v1_0_12_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

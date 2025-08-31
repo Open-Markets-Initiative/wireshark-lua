@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Coinbase Derivatives OrdersApi Sbe 1.4 Protocol
-local coinbase_derivatives_ordersapi_sbe_v1_4 = Proto("Coinbase.Derivatives.OrdersApi.Sbe.v1.4.Lua", "Coinbase Derivatives OrdersApi Sbe 1.4")
+local omi_coinbase_derivatives_ordersapi_sbe_v1_4 = Proto("Coinbase.Derivatives.OrdersApi.Sbe.v1.4.Lua", "Coinbase Derivatives OrdersApi Sbe 1.4")
 
 -- Component Tables
 local show = {}
@@ -21,124 +21,124 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Coinbase Derivatives OrdersApi Sbe 1.4 Fields
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.account = ProtoField.new("Account", "coinbase.derivatives.ordersapi.sbe.v1.4.account", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.available_qty = ProtoField.new("Available Qty", "coinbase.derivatives.ordersapi.sbe.v1.4.availableqty", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.beginexecid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.block_length = ProtoField.new("Block Length", "coinbase.derivatives.ordersapi.sbe.v1.4.blocklength", ftypes.UINT16)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_details = ProtoField.new("Cancel Order Reject Details", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectdetails", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_reason = ProtoField.new("Cancel Order Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectreason", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelreason", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.canceled_count = ProtoField.new("Canceled Count", "coinbase.derivatives.ordersapi.sbe.v1.4.canceledcount", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.client_order_id = ProtoField.new("Client Order Id", "coinbase.derivatives.ordersapi.sbe.v1.4.clientorderid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.derivatives.ordersapi.sbe.v1.4.correlationid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.current_session_only = ProtoField.new("Current Session Only", "coinbase.derivatives.ordersapi.sbe.v1.4.currentsessiononly", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.data = ProtoField.new("Data", "coinbase.derivatives.ordersapi.sbe.v1.4.data", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_length = ProtoField.new("Data Length", "coinbase.derivatives.ordersapi.sbe.v1.4.datalength", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_value = ProtoField.new("Data Value", "coinbase.derivatives.ordersapi.sbe.v1.4.datavalue", ftypes.BYTES)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.end_exec_id = ProtoField.new("End Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.endexecid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.error_message = ProtoField.new("Error Message", "coinbase.derivatives.ordersapi.sbe.v1.4.errormessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_details = ProtoField.new("Event Resend Reject Details", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrejectdetails", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.execid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_price = ProtoField.new("Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.fillprice", ftypes.DOUBLE)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_qty = ProtoField.new("Fill Qty", "coinbase.derivatives.ordersapi.sbe.v1.4.fillqty", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Filled Vwap", "coinbase.derivatives.ordersapi.sbe.v1.4.filledvwap", ftypes.DOUBLE)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "coinbase.derivatives.ordersapi.sbe.v1.4.flags", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.fromsequencenumber", ftypes.UINT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillpadding", ftypes.UINT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatintervalseconds", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentid", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_status = ProtoField.new("Instrument Status", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentstatus", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_aggressor = ProtoField.new("Is Aggressor", "coinbase.derivatives.ordersapi.sbe.v1.4.isaggressor", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_last_message = ProtoField.new("Is Last Message", "coinbase.derivatives.ordersapi.sbe.v1.4.islastmessage", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id = ProtoField.new("Last Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "coinbase.derivatives.ordersapi.sbe.v1.4.lastprocessedfillid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.derivatives.ordersapi.sbe.v1.4.lastprocessedseqno", ftypes.UINT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.leg1fillprice", ftypes.DOUBLE)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.leg2fillprice", ftypes.DOUBLE)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.limit_price = ProtoField.new("Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.limitprice", ftypes.DOUBLE)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.match_id = ProtoField.new("Match Id", "coinbase.derivatives.ordersapi.sbe.v1.4.matchid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "coinbase.derivatives.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_length = ProtoField.new("Message Length", "coinbase.derivatives.ordersapi.sbe.v1.4.messagelength", ftypes.UINT16)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_limit_price = ProtoField.new("New Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.newlimitprice", ftypes.DOUBLE)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_quantity = ProtoField.new("New Quantity", "coinbase.derivatives.ordersapi.sbe.v1.4.newquantity", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.newsequencenumber", ftypes.UINT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.num_users_affected = ProtoField.new("Num Users Affected", "coinbase.derivatives.ordersapi.sbe.v1.4.numusersaffected", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.only_current_session = ProtoField.new("Only Current Session", "coinbase.derivatives.ordersapi.sbe.v1.4.onlycurrentsession", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id = ProtoField.new("Order Id", "coinbase.derivatives.ordersapi.sbe.v1.4.orderid", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id_optional = ProtoField.new("Order Id Optional", "coinbase.derivatives.ordersapi.sbe.v1.4.orderidoptional", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_details = ProtoField.new("Order Reject Details", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectdetails", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectreason", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.ordersapi.sbe.v1.4.packet", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.padding", ftypes.BYTES)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.password = ProtoField.new("Password", "coinbase.derivatives.ordersapi.sbe.v1.4.password", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.ordersapi.sbe.v1.4.payload", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.derivatives.ordersapi.sbe.v1.4.protocolid", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.ordersapi.sbe.v1.4.quantity", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.reason = ProtoField.new("Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.reason", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.receive_time = ProtoField.new("Receive Time", "coinbase.derivatives.ordersapi.sbe.v1.4.receivetime", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_time = ProtoField.new("Request Time", "coinbase.derivatives.ordersapi.sbe.v1.4.requesttime", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "coinbase.derivatives.ordersapi.sbe.v1.4.requesttradinglock", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_reject_reason = ProtoField.new("Resend Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.resendrejectreason", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.resent_event_count = ProtoField.new("Resent Event Count", "coinbase.derivatives.ordersapi.sbe.v1.4.resenteventcount", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved = ProtoField.new("Reserved", "coinbase.derivatives.ordersapi.sbe.v1.4.reserved", ftypes.UINT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved_byte = ProtoField.new("Reserved Byte", "coinbase.derivatives.ordersapi.sbe.v1.4.reservedbyte", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.derivatives.ordersapi.sbe.v1.4.resetseqnum", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.derivatives.ordersapi.sbe.v1.4.sbemessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.schema_id = ProtoField.new("Schema Id", "coinbase.derivatives.ordersapi.sbe.v1.4.schemaid", ftypes.UINT16)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.security_type = ProtoField.new("Security Type", "coinbase.derivatives.ordersapi.sbe.v1.4.securitytype", ftypes.UINT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.derivatives.ordersapi.sbe.v1.4.sendtimeepochnanos", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.sequencenumber", ftypes.UINT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.server_time = ProtoField.new("Server Time", "coinbase.derivatives.ordersapi.sbe.v1.4.servertime", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.side = ProtoField.new("Side", "coinbase.derivatives.ordersapi.sbe.v1.4.side", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.symbol = ProtoField.new("Symbol", "coinbase.derivatives.ordersapi.sbe.v1.4.symbol", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.template_id = ProtoField.new("Template Id", "coinbase.derivatives.ordersapi.sbe.v1.4.templateid", ftypes.UINT16)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.timestamp = ProtoField.new("Timestamp", "coinbase.derivatives.ordersapi.sbe.v1.4.timestamp", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.tosequencenumber", ftypes.UINT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.total_filled = ProtoField.new("Total Filled", "coinbase.derivatives.ordersapi.sbe.v1.4.totalfilled", ftypes.INT32)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.trader = ProtoField.new("Trader", "coinbase.derivatives.ordersapi.sbe.v1.4.trader", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_instrument_status = ProtoField.new("Trading Instrument Status", "coinbase.derivatives.ordersapi.sbe.v1.4.tradinginstrumentstatus", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "coinbase.derivatives.ordersapi.sbe.v1.4.tradinglockapplied", ftypes.INT8)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.username = ProtoField.new("Username", "coinbase.derivatives.ordersapi.sbe.v1.4.username", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.version = ProtoField.new("Version", "coinbase.derivatives.ordersapi.sbe.v1.4.version", ftypes.UINT16)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.account = ProtoField.new("Account", "coinbase.derivatives.ordersapi.sbe.v1.4.account", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.available_qty = ProtoField.new("Available Qty", "coinbase.derivatives.ordersapi.sbe.v1.4.availableqty", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.beginexecid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.block_length = ProtoField.new("Block Length", "coinbase.derivatives.ordersapi.sbe.v1.4.blocklength", ftypes.UINT16)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_details = ProtoField.new("Cancel Order Reject Details", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectdetails", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_reason = ProtoField.new("Cancel Order Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectreason", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelreason", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.canceled_count = ProtoField.new("Canceled Count", "coinbase.derivatives.ordersapi.sbe.v1.4.canceledcount", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.client_order_id = ProtoField.new("Client Order Id", "coinbase.derivatives.ordersapi.sbe.v1.4.clientorderid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.derivatives.ordersapi.sbe.v1.4.correlationid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.current_session_only = ProtoField.new("Current Session Only", "coinbase.derivatives.ordersapi.sbe.v1.4.currentsessiononly", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data = ProtoField.new("Data", "coinbase.derivatives.ordersapi.sbe.v1.4.data", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_length = ProtoField.new("Data Length", "coinbase.derivatives.ordersapi.sbe.v1.4.datalength", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_value = ProtoField.new("Data Value", "coinbase.derivatives.ordersapi.sbe.v1.4.datavalue", ftypes.BYTES)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.end_exec_id = ProtoField.new("End Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.endexecid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.error_message = ProtoField.new("Error Message", "coinbase.derivatives.ordersapi.sbe.v1.4.errormessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_details = ProtoField.new("Event Resend Reject Details", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrejectdetails", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.execid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_price = ProtoField.new("Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.fillprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_qty = ProtoField.new("Fill Qty", "coinbase.derivatives.ordersapi.sbe.v1.4.fillqty", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Filled Vwap", "coinbase.derivatives.ordersapi.sbe.v1.4.filledvwap", ftypes.DOUBLE)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "coinbase.derivatives.ordersapi.sbe.v1.4.flags", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.fromsequencenumber", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillpadding", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatintervalseconds", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentid", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_status = ProtoField.new("Instrument Status", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentstatus", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_aggressor = ProtoField.new("Is Aggressor", "coinbase.derivatives.ordersapi.sbe.v1.4.isaggressor", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_last_message = ProtoField.new("Is Last Message", "coinbase.derivatives.ordersapi.sbe.v1.4.islastmessage", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id = ProtoField.new("Last Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "coinbase.derivatives.ordersapi.sbe.v1.4.lastprocessedfillid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.derivatives.ordersapi.sbe.v1.4.lastprocessedseqno", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.leg1fillprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.leg2fillprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.limit_price = ProtoField.new("Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.limitprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.match_id = ProtoField.new("Match Id", "coinbase.derivatives.ordersapi.sbe.v1.4.matchid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "coinbase.derivatives.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_length = ProtoField.new("Message Length", "coinbase.derivatives.ordersapi.sbe.v1.4.messagelength", ftypes.UINT16)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_limit_price = ProtoField.new("New Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.newlimitprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_quantity = ProtoField.new("New Quantity", "coinbase.derivatives.ordersapi.sbe.v1.4.newquantity", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.newsequencenumber", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.num_users_affected = ProtoField.new("Num Users Affected", "coinbase.derivatives.ordersapi.sbe.v1.4.numusersaffected", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.only_current_session = ProtoField.new("Only Current Session", "coinbase.derivatives.ordersapi.sbe.v1.4.onlycurrentsession", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id = ProtoField.new("Order Id", "coinbase.derivatives.ordersapi.sbe.v1.4.orderid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id_optional = ProtoField.new("Order Id Optional", "coinbase.derivatives.ordersapi.sbe.v1.4.orderidoptional", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_details = ProtoField.new("Order Reject Details", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectdetails", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectreason", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.ordersapi.sbe.v1.4.packet", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.padding", ftypes.BYTES)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.password = ProtoField.new("Password", "coinbase.derivatives.ordersapi.sbe.v1.4.password", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.ordersapi.sbe.v1.4.payload", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.derivatives.ordersapi.sbe.v1.4.protocolid", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.ordersapi.sbe.v1.4.quantity", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reason = ProtoField.new("Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.reason", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.receive_time = ProtoField.new("Receive Time", "coinbase.derivatives.ordersapi.sbe.v1.4.receivetime", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_time = ProtoField.new("Request Time", "coinbase.derivatives.ordersapi.sbe.v1.4.requesttime", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "coinbase.derivatives.ordersapi.sbe.v1.4.requesttradinglock", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_reject_reason = ProtoField.new("Resend Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.resendrejectreason", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.resent_event_count = ProtoField.new("Resent Event Count", "coinbase.derivatives.ordersapi.sbe.v1.4.resenteventcount", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved = ProtoField.new("Reserved", "coinbase.derivatives.ordersapi.sbe.v1.4.reserved", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved_byte = ProtoField.new("Reserved Byte", "coinbase.derivatives.ordersapi.sbe.v1.4.reservedbyte", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.derivatives.ordersapi.sbe.v1.4.resetseqnum", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.derivatives.ordersapi.sbe.v1.4.sbemessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.schema_id = ProtoField.new("Schema Id", "coinbase.derivatives.ordersapi.sbe.v1.4.schemaid", ftypes.UINT16)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.security_type = ProtoField.new("Security Type", "coinbase.derivatives.ordersapi.sbe.v1.4.securitytype", ftypes.UINT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.derivatives.ordersapi.sbe.v1.4.sendtimeepochnanos", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.sequencenumber", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.server_time = ProtoField.new("Server Time", "coinbase.derivatives.ordersapi.sbe.v1.4.servertime", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.side = ProtoField.new("Side", "coinbase.derivatives.ordersapi.sbe.v1.4.side", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.symbol = ProtoField.new("Symbol", "coinbase.derivatives.ordersapi.sbe.v1.4.symbol", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.template_id = ProtoField.new("Template Id", "coinbase.derivatives.ordersapi.sbe.v1.4.templateid", ftypes.UINT16)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.timestamp = ProtoField.new("Timestamp", "coinbase.derivatives.ordersapi.sbe.v1.4.timestamp", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.tosequencenumber", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.total_filled = ProtoField.new("Total Filled", "coinbase.derivatives.ordersapi.sbe.v1.4.totalfilled", ftypes.INT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.trader = ProtoField.new("Trader", "coinbase.derivatives.ordersapi.sbe.v1.4.trader", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_instrument_status = ProtoField.new("Trading Instrument Status", "coinbase.derivatives.ordersapi.sbe.v1.4.tradinginstrumentstatus", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "coinbase.derivatives.ordersapi.sbe.v1.4.tradinglockapplied", ftypes.INT8)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.username = ProtoField.new("Username", "coinbase.derivatives.ordersapi.sbe.v1.4.username", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.version = ProtoField.new("Version", "coinbase.derivatives.ordersapi.sbe.v1.4.version", ftypes.UINT16)
 
 -- Coinbase Derivatives OrdersApi Sbe 1.4 messages
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelordermessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendcompletemessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_message = ProtoField.new("Event Resend Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrejectmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_request_message = ProtoField.new("Event Resend Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrequestmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentinfomessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_request_message = ProtoField.new("Instrument Info Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentinforequestmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_message = ProtoField.new("Last Exec Id Message", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecidmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_request_message = ProtoField.new("Last Exec Id Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecidrequestmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.logged_out_message = ProtoField.new("Logged Out Message", "coinbase.derivatives.ordersapi.sbe.v1.4.loggedoutmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logonconfmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_message = ProtoField.new("Logon Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logonmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.logout_message = ProtoField.new("Logout Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logoutmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message = ProtoField.new("Mass Cancel Order Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelorderackmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelordermessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message = ProtoField.new("Mass Cancel Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelorderrejectmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_order_message = ProtoField.new("New Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.newordermessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.ordercanceledmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_entered_message = ProtoField.new("Order Entered Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderenteredmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_filled_message = ProtoField.new("Order Filled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderfilledmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_message = ProtoField.new("Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderreplacedmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.ping_message = ProtoField.new("Ping Message", "coinbase.derivatives.ordersapi.sbe.v1.4.pingmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.pong_message = ProtoField.new("Pong Message", "coinbase.derivatives.ordersapi.sbe.v1.4.pongmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.replaceordermessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_request_message = ProtoField.new("Resend Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.resendrequestmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_account_message = ProtoField.new("Set Account Message", "coinbase.derivatives.ordersapi.sbe.v1.4.setaccountmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_ack_message = ProtoField.new("Set Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.setackmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_trader_message = ProtoField.new("Set Trader Message", "coinbase.derivatives.ordersapi.sbe.v1.4.settradermessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.spread_order_filled_message = ProtoField.new("Spread Order Filled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.spreadorderfilledmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.stream_order_message = ProtoField.new("Stream Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.streamordermessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.test_request_message = ProtoField.new("Test Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.testrequestmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message = ProtoField.new("Unlock Trading Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingackmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingmessage", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingrejectmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelordermessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendcompletemessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_message = ProtoField.new("Event Resend Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrejectmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_request_message = ProtoField.new("Event Resend Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrequestmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentinfomessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_request_message = ProtoField.new("Instrument Info Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentinforequestmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_message = ProtoField.new("Last Exec Id Message", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecidmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_request_message = ProtoField.new("Last Exec Id Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecidrequestmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logged_out_message = ProtoField.new("Logged Out Message", "coinbase.derivatives.ordersapi.sbe.v1.4.loggedoutmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logonconfmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_message = ProtoField.new("Logon Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logonmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logout_message = ProtoField.new("Logout Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logoutmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message = ProtoField.new("Mass Cancel Order Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelorderackmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelordermessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message = ProtoField.new("Mass Cancel Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelorderrejectmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_order_message = ProtoField.new("New Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.newordermessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.ordercanceledmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_entered_message = ProtoField.new("Order Entered Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderenteredmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_filled_message = ProtoField.new("Order Filled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderfilledmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_message = ProtoField.new("Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderreplacedmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.ping_message = ProtoField.new("Ping Message", "coinbase.derivatives.ordersapi.sbe.v1.4.pingmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.pong_message = ProtoField.new("Pong Message", "coinbase.derivatives.ordersapi.sbe.v1.4.pongmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.replaceordermessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_request_message = ProtoField.new("Resend Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.resendrequestmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_account_message = ProtoField.new("Set Account Message", "coinbase.derivatives.ordersapi.sbe.v1.4.setaccountmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_ack_message = ProtoField.new("Set Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.setackmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_trader_message = ProtoField.new("Set Trader Message", "coinbase.derivatives.ordersapi.sbe.v1.4.settradermessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.spread_order_filled_message = ProtoField.new("Spread Order Filled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.spreadorderfilledmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.stream_order_message = ProtoField.new("Stream Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.streamordermessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.test_request_message = ProtoField.new("Test Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.testrequestmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message = ProtoField.new("Unlock Trading Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingackmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingmessage", ftypes.STRING)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingrejectmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -189,220 +189,220 @@ show.unlock_trading_reject_message = true
 show.payload = false
 
 -- Register Coinbase Derivatives OrdersApi Sbe 1.4 Show Options
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message = Pref.bool("Show Heartbeat Message", show.heartbeat_message, "Parse and add Heartbeat Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message = Pref.bool("Show Logged Out Message", show.logged_out_message, "Parse and add Logged Out Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message = Pref.bool("Show Logon Conf Message", show.logon_conf_message, "Parse and add Logon Conf Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message = Pref.bool("Show Order Entered Message", show.order_entered_message, "Parse and add Order Entered Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message = Pref.bool("Show Order Filled Message", show.order_filled_message, "Parse and add Order Filled Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message = Pref.bool("Show Order Reject Message", show.order_reject_message, "Parse and add Order Reject Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
-coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message = Pref.bool("Show Heartbeat Message", show.heartbeat_message, "Parse and add Heartbeat Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message = Pref.bool("Show Logged Out Message", show.logged_out_message, "Parse and add Logged Out Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message = Pref.bool("Show Logon Conf Message", show.logon_conf_message, "Parse and add Logon Conf Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message = Pref.bool("Show Order Entered Message", show.order_entered_message, "Parse and add Order Entered Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message = Pref.bool("Show Order Filled Message", show.order_filled_message, "Parse and add Order Filled Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message = Pref.bool("Show Order Reject Message", show.order_reject_message, "Parse and add Order Reject Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function coinbase_derivatives_ordersapi_sbe_v1_4.prefs_changed()
+function omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message then
-    show.cancel_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message then
+    show.cancel_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message
     changed = true
   end
-  if show.cancel_order_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message then
-    show.cancel_order_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message
+  if show.cancel_order_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message then
+    show.cancel_order_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message
     changed = true
   end
-  if show.data ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data then
-    show.data = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data
+  if show.data ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data then
+    show.data = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data
     changed = true
   end
-  if show.event_resend_complete_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message then
-    show.event_resend_complete_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message
+  if show.event_resend_complete_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message then
+    show.event_resend_complete_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message
     changed = true
   end
-  if show.event_resend_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message then
-    show.event_resend_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message
+  if show.event_resend_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message then
+    show.event_resend_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message
     changed = true
   end
-  if show.event_resend_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message then
-    show.event_resend_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message
+  if show.event_resend_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message then
+    show.event_resend_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message
     changed = true
   end
-  if show.gap_fill_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message then
-    show.gap_fill_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message
+  if show.gap_fill_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message then
+    show.gap_fill_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message
     changed = true
   end
-  if show.heartbeat_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message then
-    show.heartbeat_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message
+  if show.heartbeat_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message then
+    show.heartbeat_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message
     changed = true
   end
-  if show.instrument_info_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message then
-    show.instrument_info_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message
+  if show.instrument_info_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message then
+    show.instrument_info_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message
     changed = true
   end
-  if show.instrument_info_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message then
-    show.instrument_info_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message
+  if show.instrument_info_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message then
+    show.instrument_info_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message
     changed = true
   end
-  if show.last_exec_id_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message then
-    show.last_exec_id_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message
+  if show.last_exec_id_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message then
+    show.last_exec_id_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message
     changed = true
   end
-  if show.last_exec_id_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message then
-    show.last_exec_id_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message
+  if show.last_exec_id_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message then
+    show.last_exec_id_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message
     changed = true
   end
-  if show.logged_out_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message then
-    show.logged_out_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message
+  if show.logged_out_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message then
+    show.logged_out_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message
     changed = true
   end
-  if show.logon_conf_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message then
-    show.logon_conf_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message
+  if show.logon_conf_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message then
+    show.logon_conf_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message
     changed = true
   end
-  if show.logon_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message then
-    show.logon_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message
+  if show.logon_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message then
+    show.logon_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message
     changed = true
   end
-  if show.logout_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message then
-    show.logout_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message
+  if show.logout_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message then
+    show.logout_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message
     changed = true
   end
-  if show.mass_cancel_order_ack_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message then
-    show.mass_cancel_order_ack_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message
+  if show.mass_cancel_order_ack_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message then
+    show.mass_cancel_order_ack_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message
     changed = true
   end
-  if show.mass_cancel_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message then
-    show.mass_cancel_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message
+  if show.mass_cancel_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message then
+    show.mass_cancel_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message
     changed = true
   end
-  if show.mass_cancel_order_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message then
-    show.mass_cancel_order_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message
+  if show.mass_cancel_order_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message then
+    show.mass_cancel_order_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message
     changed = true
   end
-  if show.message_header ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header then
-    show.message_header = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header
+  if show.message_header ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header then
+    show.message_header = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header
     changed = true
   end
-  if show.new_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message then
-    show.new_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message
+  if show.new_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message then
+    show.new_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message
     changed = true
   end
-  if show.order_canceled_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message then
-    show.order_canceled_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message
+  if show.order_canceled_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message then
+    show.order_canceled_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message
     changed = true
   end
-  if show.order_entered_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message then
-    show.order_entered_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message
+  if show.order_entered_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message then
+    show.order_entered_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message
     changed = true
   end
-  if show.order_filled_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message then
-    show.order_filled_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message
+  if show.order_filled_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message then
+    show.order_filled_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message
     changed = true
   end
-  if show.order_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message then
-    show.order_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message
+  if show.order_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message then
+    show.order_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message
     changed = true
   end
-  if show.order_replaced_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message then
-    show.order_replaced_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message
+  if show.order_replaced_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message then
+    show.order_replaced_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message
     changed = true
   end
-  if show.packet ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet then
-    show.packet = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet
+  if show.packet ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet then
+    show.packet = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet
     changed = true
   end
-  if show.ping_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message then
-    show.ping_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message
+  if show.ping_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message then
+    show.ping_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message
     changed = true
   end
-  if show.pong_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message then
-    show.pong_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message
+  if show.pong_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message then
+    show.pong_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message
     changed = true
   end
-  if show.replace_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message then
-    show.replace_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message
+  if show.replace_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message then
+    show.replace_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message
     changed = true
   end
-  if show.resend_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message then
-    show.resend_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message
+  if show.resend_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message then
+    show.resend_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message
     changed = true
   end
-  if show.sbe_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message then
-    show.sbe_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message
+  if show.sbe_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message then
+    show.sbe_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message
     changed = true
   end
-  if show.set_account_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message then
-    show.set_account_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message
+  if show.set_account_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message then
+    show.set_account_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message
     changed = true
   end
-  if show.set_ack_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message then
-    show.set_ack_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message
+  if show.set_ack_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message then
+    show.set_ack_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message
     changed = true
   end
-  if show.set_trader_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message then
-    show.set_trader_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message
+  if show.set_trader_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message then
+    show.set_trader_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message
     changed = true
   end
-  if show.spread_order_filled_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message then
-    show.spread_order_filled_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message
+  if show.spread_order_filled_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message then
+    show.spread_order_filled_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message
     changed = true
   end
-  if show.stream_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message then
-    show.stream_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message
+  if show.stream_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message then
+    show.stream_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message
     changed = true
   end
-  if show.test_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message then
-    show.test_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message
+  if show.test_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message then
+    show.test_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message
     changed = true
   end
-  if show.unlock_trading_ack_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message then
-    show.unlock_trading_ack_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message
+  if show.unlock_trading_ack_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message then
+    show.unlock_trading_ack_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message
     changed = true
   end
-  if show.unlock_trading_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message then
-    show.unlock_trading_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message
+  if show.unlock_trading_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message then
+    show.unlock_trading_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message
     changed = true
   end
-  if show.unlock_trading_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message then
-    show.unlock_trading_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message
+  if show.unlock_trading_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message then
+    show.unlock_trading_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message
     changed = true
   end
-  if show.payload ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload then
-    show.payload = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload
+  if show.payload ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload then
+    show.payload = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload
     changed = true
   end
 
@@ -428,7 +428,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.padding = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.padding(value, buffer, offset, packet, parent, size)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding, range, value, display)
 
   return offset + size
 end
@@ -464,7 +464,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.event_resend_reject_details = fu
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.event_resend_reject_details(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_details, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_details, range, value, display)
 
   return offset + length, value
 end
@@ -500,7 +500,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.resend_reject_reason = function(
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.resend_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_reject_reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -520,7 +520,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.correlation_id = function(buffer
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.correlation_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.correlation_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.correlation_id, range, value, display)
 
   return offset + length, value
 end
@@ -563,7 +563,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.event_resend_reject_message = function(buffer, offset, packet, parent)
   if show.event_resend_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.event_resend_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -592,7 +592,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.resent_event_count = function(bu
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.resent_event_count(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.resent_event_count, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.resent_event_count, range, value, display)
 
   return offset + length, value
 end
@@ -630,7 +630,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.event_resend_complete_message = function(buffer, offset, packet, parent)
   if show.event_resend_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_complete_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.event_resend_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -659,7 +659,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.end_exec_id = function(buffer, o
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.end_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.end_exec_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.end_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -679,7 +679,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.begin_exec_id = function(buffer,
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.begin_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.begin_exec_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.begin_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -722,7 +722,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.event_resend_request_message = function(buffer, offset, packet, parent)
   if show.event_resend_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_request_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.event_resend_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -751,7 +751,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.last_exec_id = function(buffer, 
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.last_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -771,7 +771,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.timestamp = function(buffer, off
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.timestamp, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -814,7 +814,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.last_exec_id_message = function(buffer, offset, packet, parent)
   if show.last_exec_id_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.last_exec_id_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -856,7 +856,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.last_exec_id_request_message = function(buffer, offset, packet, parent)
   if show.last_exec_id_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_request_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.last_exec_id_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -892,7 +892,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.is_aggressor = function(buffer, 
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.is_aggressor(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_aggressor, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_aggressor, range, value, display)
 
   return offset + length, value
 end
@@ -912,7 +912,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.instrument_id = function(buffer,
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -932,7 +932,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.fill_qty = function(buffer, offs
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.fill_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_qty, range, value, display)
 
   return offset + length, value
 end
@@ -958,7 +958,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.leg_2_fill_price = function(buff
   local value = translate.leg_2_fill_price(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.leg_2_fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_2_fill_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_2_fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -984,7 +984,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.leg_1_fill_price = function(buff
   local value = translate.leg_1_fill_price(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.leg_1_fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_1_fill_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_1_fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -1010,7 +1010,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.fill_price = function(buffer, of
   local value = translate.fill_price(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -1030,7 +1030,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.available_qty = function(buffer,
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.available_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.available_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.available_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1050,7 +1050,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.total_filled = function(buffer, 
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.total_filled(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.total_filled, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.total_filled, range, value, display)
 
   return offset + length, value
 end
@@ -1076,7 +1076,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.filled_vwap = function(buffer, o
   local value = translate.filled_vwap(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.filled_vwap(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap, range, value, display)
 
   return offset + length, value
 end
@@ -1096,7 +1096,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_id = function(buffer, offs
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1116,7 +1116,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.client_order_id = function(buffe
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.client_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.client_order_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.client_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1136,7 +1136,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.match_id = function(buffer, offs
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.match_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.match_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.match_id, range, value, display)
 
   return offset + length, value
 end
@@ -1156,7 +1156,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.exec_id = function(buffer, offse
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.exec_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -1259,7 +1259,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.spread_order_filled_message = function(buffer, offset, packet, parent)
   if show.spread_order_filled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.spread_order_filled_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.spread_order_filled_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.spread_order_filled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1361,7 +1361,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_filled_message = function(buffer, offset, packet, parent)
   if show.order_filled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_filled_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_filled_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_filled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1406,7 +1406,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.error_message = function(buffer,
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.error_message(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.error_message, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.error_message, range, value, display)
 
   return offset + length, value
 end
@@ -1449,7 +1449,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.unlock_trading_reject_message = function(buffer, offset, packet, parent)
   if show.unlock_trading_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.unlock_trading_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1478,7 +1478,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.num_users_affected = function(bu
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.num_users_affected(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.num_users_affected, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.num_users_affected, range, value, display)
 
   return offset + length, value
 end
@@ -1521,7 +1521,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.unlock_trading_ack_message = function(buffer, offset, packet, parent)
   if show.unlock_trading_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.unlock_trading_ack_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1557,7 +1557,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.current_session_only = function(
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.current_session_only(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.current_session_only, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.current_session_only, range, value, display)
 
   return offset + length, value
 end
@@ -1595,7 +1595,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.unlock_trading_message = function(buffer, offset, packet, parent)
   if show.unlock_trading_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.unlock_trading_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1647,7 +1647,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.mass_cancel_order_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_order_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.mass_cancel_order_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1683,7 +1683,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.trading_lock_applied = function(
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.trading_lock_applied(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied, range, value, display)
 
   return offset + length, value
 end
@@ -1710,7 +1710,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.only_current_session = function(
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.only_current_session(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.only_current_session, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.only_current_session, range, value, display)
 
   return offset + length, value
 end
@@ -1730,7 +1730,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.canceled_count = function(buffer
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.canceled_count(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.canceled_count, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.canceled_count, range, value, display)
 
   return offset + length, value
 end
@@ -1788,7 +1788,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.mass_cancel_order_ack_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_order_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.mass_cancel_order_ack_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1824,7 +1824,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.request_trading_lock = function(
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.request_trading_lock(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_trading_lock, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_trading_lock, range, value, display)
 
   return offset + length, value
 end
@@ -1851,7 +1851,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.side = function(buffer, offset, 
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.side, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1877,7 +1877,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.limit_price = function(buffer, o
   local value = translate.limit_price(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.limit_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -1935,7 +1935,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1980,7 +1980,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.cancel_order_reject_details = fu
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.cancel_order_reject_details(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_details, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_details, range, value, display)
 
   return offset + length, value
 end
@@ -2010,7 +2010,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.cancel_order_reject_reason = fun
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.cancel_order_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2035,7 +2035,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_id_optional = function(buf
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.order_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id_optional, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2093,7 +2093,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.cancel_order_reject_message = function(buffer, offset, packet, parent)
   if show.cancel_order_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.cancel_order_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2150,7 +2150,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.cancel_reason = function(buffer,
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.cancel_reason(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2174,7 +2174,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.receive_time = function(buffer, 
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.receive_time(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.receive_time, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.receive_time, range, value, display)
 
   return offset + length, value
 end
@@ -2247,7 +2247,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_canceled_message = function(buffer, offset, packet, parent)
   if show.order_canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_canceled_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_canceled_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2299,7 +2299,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2381,7 +2381,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_replaced_message = function(buffer, offset, packet, parent)
   if show.order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_replaced_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_replaced_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2426,7 +2426,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_reject_details = function(
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.order_reject_details(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_details, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_details, range, value, display)
 
   return offset + length, value
 end
@@ -2462,7 +2462,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_reject_reason = function(b
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.order_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2520,7 +2520,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_reject_message = function(buffer, offset, packet, parent)
   if show.order_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2549,7 +2549,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.quantity = function(buffer, offs
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.quantity, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2574,7 +2574,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.last_processed_fill_id = functio
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.last_processed_fill_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_fill_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_fill_id, range, value, display)
 
   return offset + length, value
 end
@@ -2637,7 +2637,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.stream_order_message = function(buffer, offset, packet, parent)
   if show.stream_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.stream_order_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.stream_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.stream_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2671,7 +2671,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.new_quantity = function(buffer, 
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.new_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_quantity, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2707,7 +2707,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.new_limit_price = function(buffe
   local value = translate.new_limit_price(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.new_limit_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_limit_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -2760,7 +2760,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.replace_order_message = function(buffer, offset, packet, parent)
   if show.replace_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.replace_order_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.replace_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.replace_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2827,7 +2827,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_entered_message = function(buffer, offset, packet, parent)
   if show.order_entered_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_entered_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_entered_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.order_entered_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2894,7 +2894,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.new_order_message = function(buffer, offset, packet, parent)
   if show.new_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_order_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.new_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2936,7 +2936,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.set_ack_message = function(buffer, offset, packet, parent)
   if show.set_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_ack_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_ack_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.set_ack_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2981,7 +2981,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.trader = function(buffer, offset
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.trader(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.trader, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.trader, range, value, display)
 
   return offset + length, value
 end
@@ -3019,7 +3019,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.set_trader_message = function(buffer, offset, packet, parent)
   if show.set_trader_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_trader_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_trader_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.set_trader_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3064,7 +3064,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.account = function(buffer, offse
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.account(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.account, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.account, range, value, display)
 
   return offset + length, value
 end
@@ -3102,7 +3102,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.set_account_message = function(buffer, offset, packet, parent)
   if show.set_account_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_account_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_account_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.set_account_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3147,7 +3147,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.symbol = function(buffer, offset
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.symbol, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3167,7 +3167,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.reserved_byte = function(buffer,
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.reserved_byte(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved_byte, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved_byte, range, value, display)
 
   return offset + length, value
 end
@@ -3194,7 +3194,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.is_last_message = function(buffe
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.is_last_message(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_last_message, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_last_message, range, value, display)
 
   return offset + length, value
 end
@@ -3233,7 +3233,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.instrument_status = function(buf
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.instrument_status(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_status, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_status, range, value, display)
 
   return offset + length, value
 end
@@ -3260,7 +3260,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.security_type = function(buffer,
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.security_type, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -3323,7 +3323,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.instrument_info_message = function(buffer, offset, packet, parent)
   if show.instrument_info_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.instrument_info_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3365,7 +3365,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.instrument_info_request_message = function(buffer, offset, packet, parent)
   if show.instrument_info_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_request_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3390,7 +3390,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.data_value = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.data_value(value, buffer, offset, packet, parent, size)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_value, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_value, range, value, display)
 
   return offset + size
 end
@@ -3410,7 +3410,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.data_length = function(buffer, o
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.data_length(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_length, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data_length, range, value, display)
 
   return offset + length, value
 end
@@ -3452,7 +3452,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.data = function(buffer, offset, 
     local length = coinbase_derivatives_ordersapi_sbe_v1_4_size_of.data(buffer, offset)
     local range = buffer(offset, length)
     local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.data(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.data, range, display)
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.data, range, display)
   end
 
   return coinbase_derivatives_ordersapi_sbe_v1_4_dissect.data_fields(buffer, offset, packet, parent)
@@ -3483,7 +3483,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.trading_instrument_status = func
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.trading_instrument_status(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_instrument_status, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_instrument_status, range, value, display)
 
   return offset + length, value
 end
@@ -3507,7 +3507,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.server_time = function(buffer, o
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.server_time(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.server_time, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.server_time, range, value, display)
 
   return offset + length, value
 end
@@ -3531,7 +3531,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.request_time = function(buffer, 
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.request_time(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_time, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_time, range, value, display)
 
   return offset + length, value
 end
@@ -3587,7 +3587,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.pong_message = function(buffer, 
     local length = coinbase_derivatives_ordersapi_sbe_v1_4_size_of.pong_message(buffer, offset)
     local range = buffer(offset, length)
     local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.pong_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.pong_message, range, display)
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.pong_message, range, display)
   end
 
   return coinbase_derivatives_ordersapi_sbe_v1_4_dissect.pong_message_fields(buffer, offset, packet, parent)
@@ -3634,7 +3634,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.ping_message = function(buffer, 
     local length = coinbase_derivatives_ordersapi_sbe_v1_4_size_of.ping_message(buffer, offset)
     local range = buffer(offset, length)
     local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.ping_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.ping_message, range, display)
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.ping_message, range, display)
   end
 
   return coinbase_derivatives_ordersapi_sbe_v1_4_dissect.ping_message_fields(buffer, offset, packet, parent)
@@ -3655,7 +3655,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.gap_fill_padding = function(buff
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.gap_fill_padding(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_padding, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_padding, range, value, display)
 
   return offset + length, value
 end
@@ -3675,7 +3675,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.new_sequence_number = function(b
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.new_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_sequence_number, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3713,7 +3713,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.gap_fill_message = function(buffer, offset, packet, parent)
   if show.gap_fill_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.gap_fill_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3742,7 +3742,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.to_sequence_number = function(bu
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.to_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.to_sequence_number, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.to_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3762,7 +3762,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.from_sequence_number = function(
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.from_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3800,7 +3800,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.resend_request_message = function(buffer, offset, packet, parent)
   if show.resend_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_request_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.resend_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3842,7 +3842,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.test_request_message = function(buffer, offset, packet, parent)
   if show.test_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.test_request_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.test_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.test_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3884,7 +3884,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.heartbeat_message = function(buffer, offset, packet, parent)
   if show.heartbeat_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.heartbeat_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3929,7 +3929,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.reason = function(buffer, offset
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -3962,7 +3962,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logged_out_message = function(buffer, offset, packet, parent)
   if show.logged_out_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logged_out_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logged_out_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logged_out_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4004,7 +4004,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logout_message = function(buffer, offset, packet, parent)
   if show.logout_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logout_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logout_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logout_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4033,7 +4033,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.heartbeat_interval_seconds = fun
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.heartbeat_interval_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -4066,7 +4066,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logon_conf_message = function(buffer, offset, packet, parent)
   if show.logon_conf_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_conf_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_conf_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logon_conf_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4102,7 +4102,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.reset_seq_num = function(buffer,
   local value = range:le_int()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.reset_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reset_seq_num, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reset_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -4138,7 +4138,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.password = function(buffer, offs
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.password, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -4174,7 +4174,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.username = function(buffer, offs
 
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.username, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -4217,7 +4217,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logon_message = function(buffer, offset, packet, parent)
   if show.logon_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.logon_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4559,7 +4559,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.payload = function(buffer, offse
   -- Dissect Element
   local range = buffer(offset, size)
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.payload(buffer, packet, parent)
-  local element = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.payload, range, display)
+  local element = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.payload, range, display)
 
   return coinbase_derivatives_ordersapi_sbe_v1_4_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -4579,7 +4579,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.version = function(buffer, offse
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.version, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -4599,7 +4599,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.schema_id = function(buffer, off
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.schema_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -4731,7 +4731,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.template_id = function(buffer, o
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.template_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -4751,7 +4751,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.block_length = function(buffer, 
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.block_length, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -4775,7 +4775,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.send_time_epoch_nanos = function
   local value = range:le_int64()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.send_time_epoch_nanos(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos, range, value, display)
 
   return offset + length, value
 end
@@ -4795,7 +4795,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.reserved = function(buffer, offs
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -4815,7 +4815,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.last_processed_seq_no = function
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.last_processed_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_seq_no, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -4835,7 +4835,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.sequence_number = function(buffe
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.sequence_number, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -4855,7 +4855,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.message_length = function(buffer
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_length, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -4875,7 +4875,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.flags = function(buffer, offset,
   local value = range:uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.flags(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags, range, value, display)
 
   return offset + length, value
 end
@@ -4895,7 +4895,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.protocol_id = function(buffer, o
   local value = range:le_uint()
   local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.protocol_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.protocol_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.protocol_id, range, value, display)
 
   return offset + length, value
 end
@@ -4978,7 +4978,7 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_header, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5028,7 +5028,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.sbe_message = function(buffer, o
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message, buffer(offset, 0))
     local current = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
     local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.sbe_message(buffer, packet, parent)
@@ -5097,23 +5097,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function coinbase_derivatives_ordersapi_sbe_v1_4.init()
+function omi_coinbase_derivatives_ordersapi_sbe_v1_4.init()
 end
 
 -- Dissector for Coinbase Derivatives OrdersApi Sbe 1.4
-function coinbase_derivatives_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
+function omi_coinbase_derivatives_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = coinbase_derivatives_ordersapi_sbe_v1_4.name
+  packet.cols.protocol = omi_coinbase_derivatives_ordersapi_sbe_v1_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4, buffer(), coinbase_derivatives_ordersapi_sbe_v1_4.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4, buffer(), omi_coinbase_derivatives_ordersapi_sbe_v1_4.description, "("..buffer:len().." Bytes)")
   return coinbase_derivatives_ordersapi_sbe_v1_4_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, coinbase_derivatives_ordersapi_sbe_v1_4)
+tcp_table:add(65333, omi_coinbase_derivatives_ordersapi_sbe_v1_4)
 
 
 -----------------------------------------------------------------------
@@ -5121,7 +5121,7 @@ tcp_table:add(65333, coinbase_derivatives_ordersapi_sbe_v1_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.coinbase_derivatives_ordersapi_sbe_v1_4_packet_size = function(buffer)
+verify.omi_coinbase_derivatives_ordersapi_sbe_v1_4_packet_size = function(buffer)
 
   return true
 end
@@ -5159,9 +5159,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Coinbase Derivatives OrdersApi Sbe 1.4
-local function coinbase_derivatives_ordersapi_sbe_v1_4_heuristic(buffer, packet, parent)
+local function omi_coinbase_derivatives_ordersapi_sbe_v1_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.coinbase_derivatives_ordersapi_sbe_v1_4_packet_size(buffer) then return false end
+  if not verify.omi_coinbase_derivatives_ordersapi_sbe_v1_4_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -5170,14 +5170,14 @@ local function coinbase_derivatives_ordersapi_sbe_v1_4_heuristic(buffer, packet,
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = coinbase_derivatives_ordersapi_sbe_v1_4
-  coinbase_derivatives_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
+  packet.conversation = omi_coinbase_derivatives_ordersapi_sbe_v1_4
+  omi_coinbase_derivatives_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Coinbase Derivatives OrdersApi Sbe 1.4
-coinbase_derivatives_ordersapi_sbe_v1_4:register_heuristic("tcp", coinbase_derivatives_ordersapi_sbe_v1_4_heuristic)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4:register_heuristic("tcp", omi_coinbase_derivatives_ordersapi_sbe_v1_4_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

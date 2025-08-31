@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Iex Equities UdpHeader IexTp 1.0 Protocol
-local iex_equities_udpheader_iextp_v1_0 = Proto("Iex.Equities.UdpHeader.IexTp.v1.0.Lua", "Iex Equities UdpHeader IexTp 1.0")
+local omi_iex_equities_udpheader_iextp_v1_0 = Proto("Iex.Equities.UdpHeader.IexTp.v1.0.Lua", "Iex Equities UdpHeader IexTp 1.0")
 
 -- Component Tables
 local show = {}
@@ -20,26 +20,26 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Iex Equities UdpHeader IexTp 1.0 Fields
-iex_equities_udpheader_iextp_v1_0.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.udpheader.iextp.v1.0.channelid", ftypes.UINT32)
-iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.udpheader.iextp.v1.0.firstmessagesequencenumber", ftypes.UINT64)
-iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.equities.udpheader.iextp.v1.0.iextpheader", ftypes.STRING)
-iex_equities_udpheader_iextp_v1_0.fields.message = ProtoField.new("Message", "iex.equities.udpheader.iextp.v1.0.message", ftypes.STRING)
-iex_equities_udpheader_iextp_v1_0.fields.message_count = ProtoField.new("Message Count", "iex.equities.udpheader.iextp.v1.0.messagecount", ftypes.UINT16)
-iex_equities_udpheader_iextp_v1_0.fields.message_data = ProtoField.new("Message Data", "iex.equities.udpheader.iextp.v1.0.messagedata", ftypes.BYTES)
-iex_equities_udpheader_iextp_v1_0.fields.message_header = ProtoField.new("Message Header", "iex.equities.udpheader.iextp.v1.0.messageheader", ftypes.STRING)
-iex_equities_udpheader_iextp_v1_0.fields.message_length = ProtoField.new("Message Length", "iex.equities.udpheader.iextp.v1.0.messagelength", ftypes.UINT16)
-iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.equities.udpheader.iextp.v1.0.messageprotocolid", ftypes.UINT16)
-iex_equities_udpheader_iextp_v1_0.fields.message_type = ProtoField.new("Message Type", "iex.equities.udpheader.iextp.v1.0.messagetype", ftypes.STRING)
-iex_equities_udpheader_iextp_v1_0.fields.packet = ProtoField.new("Packet", "iex.equities.udpheader.iextp.v1.0.packet", ftypes.STRING)
-iex_equities_udpheader_iextp_v1_0.fields.payload_length = ProtoField.new("Payload Length", "iex.equities.udpheader.iextp.v1.0.payloadlength", ftypes.UINT16)
-iex_equities_udpheader_iextp_v1_0.fields.reserved = ProtoField.new("Reserved", "iex.equities.udpheader.iextp.v1.0.reserved", ftypes.BYTES)
-iex_equities_udpheader_iextp_v1_0.fields.send_time = ProtoField.new("Send Time", "iex.equities.udpheader.iextp.v1.0.sendtime", ftypes.UINT64)
-iex_equities_udpheader_iextp_v1_0.fields.session_id = ProtoField.new("Session Id", "iex.equities.udpheader.iextp.v1.0.sessionid", ftypes.UINT32)
-iex_equities_udpheader_iextp_v1_0.fields.stream_offset = ProtoField.new("Stream Offset", "iex.equities.udpheader.iextp.v1.0.streamoffset", ftypes.UINT64)
-iex_equities_udpheader_iextp_v1_0.fields.version = ProtoField.new("Version", "iex.equities.udpheader.iextp.v1.0.version", ftypes.UINT8)
+omi_iex_equities_udpheader_iextp_v1_0.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.udpheader.iextp.v1.0.channelid", ftypes.UINT32)
+omi_iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.udpheader.iextp.v1.0.firstmessagesequencenumber", ftypes.UINT64)
+omi_iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.equities.udpheader.iextp.v1.0.iextpheader", ftypes.STRING)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message = ProtoField.new("Message", "iex.equities.udpheader.iextp.v1.0.message", ftypes.STRING)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message_count = ProtoField.new("Message Count", "iex.equities.udpheader.iextp.v1.0.messagecount", ftypes.UINT16)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message_data = ProtoField.new("Message Data", "iex.equities.udpheader.iextp.v1.0.messagedata", ftypes.BYTES)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message_header = ProtoField.new("Message Header", "iex.equities.udpheader.iextp.v1.0.messageheader", ftypes.STRING)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message_length = ProtoField.new("Message Length", "iex.equities.udpheader.iextp.v1.0.messagelength", ftypes.UINT16)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.equities.udpheader.iextp.v1.0.messageprotocolid", ftypes.UINT16)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message_type = ProtoField.new("Message Type", "iex.equities.udpheader.iextp.v1.0.messagetype", ftypes.STRING)
+omi_iex_equities_udpheader_iextp_v1_0.fields.packet = ProtoField.new("Packet", "iex.equities.udpheader.iextp.v1.0.packet", ftypes.STRING)
+omi_iex_equities_udpheader_iextp_v1_0.fields.payload_length = ProtoField.new("Payload Length", "iex.equities.udpheader.iextp.v1.0.payloadlength", ftypes.UINT16)
+omi_iex_equities_udpheader_iextp_v1_0.fields.reserved = ProtoField.new("Reserved", "iex.equities.udpheader.iextp.v1.0.reserved", ftypes.BYTES)
+omi_iex_equities_udpheader_iextp_v1_0.fields.send_time = ProtoField.new("Send Time", "iex.equities.udpheader.iextp.v1.0.sendtime", ftypes.UINT64)
+omi_iex_equities_udpheader_iextp_v1_0.fields.session_id = ProtoField.new("Session Id", "iex.equities.udpheader.iextp.v1.0.sessionid", ftypes.UINT32)
+omi_iex_equities_udpheader_iextp_v1_0.fields.stream_offset = ProtoField.new("Stream Offset", "iex.equities.udpheader.iextp.v1.0.streamoffset", ftypes.UINT64)
+omi_iex_equities_udpheader_iextp_v1_0.fields.version = ProtoField.new("Version", "iex.equities.udpheader.iextp.v1.0.version", ftypes.UINT8)
 
 -- Iex Equities UdpHeader IexTp 1.0 generated fields
-iex_equities_udpheader_iextp_v1_0.fields.message_index = ProtoField.new("Message Index", "iex.equities.udpheader.iextp.v1.0.messageindex", ftypes.UINT16)
+omi_iex_equities_udpheader_iextp_v1_0.fields.message_index = ProtoField.new("Message Index", "iex.equities.udpheader.iextp.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -52,30 +52,30 @@ show.message_header = true
 show.packet = true
 
 -- Register Iex Equities UdpHeader IexTp 1.0 Show Options
-iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header = Pref.bool("Show Iex Tp Header", show.iex_tp_header, "Parse and add Iex Tp Header to protocol tree")
-iex_equities_udpheader_iextp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-iex_equities_udpheader_iextp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-iex_equities_udpheader_iextp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header = Pref.bool("Show Iex Tp Header", show.iex_tp_header, "Parse and add Iex Tp Header to protocol tree")
+omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_iex_equities_udpheader_iextp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
 -- Handle changed preferences
-function iex_equities_udpheader_iextp_v1_0.prefs_changed()
+function omi_iex_equities_udpheader_iextp_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.iex_tp_header ~= iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header then
-    show.iex_tp_header = iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header
+  if show.iex_tp_header ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header then
+    show.iex_tp_header = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iex_tp_header
     changed = true
   end
-  if show.message ~= iex_equities_udpheader_iextp_v1_0.prefs.show_message then
-    show.message = iex_equities_udpheader_iextp_v1_0.prefs.show_message
+  if show.message ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message then
+    show.message = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= iex_equities_udpheader_iextp_v1_0.prefs.show_message_header then
-    show.message_header = iex_equities_udpheader_iextp_v1_0.prefs.show_message_header
+  if show.message_header ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_header then
+    show.message_header = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= iex_equities_udpheader_iextp_v1_0.prefs.show_packet then
-    show.packet = iex_equities_udpheader_iextp_v1_0.prefs.show_packet
+  if show.packet ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_packet then
+    show.packet = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_packet
     changed = true
   end
 
@@ -101,7 +101,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_data = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = iex_equities_udpheader_iextp_v1_0_display.message_data(value, buffer, offset, packet, parent, size)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_data, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_data, range, value, display)
 
   return offset + size
 end
@@ -121,7 +121,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_type = function(buffer, offset
   local value = range:string()
   local display = iex_equities_udpheader_iextp_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_type, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -141,7 +141,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_length = function(buffer, offs
   local value = range:le_uint()
   local display = iex_equities_udpheader_iextp_v1_0_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_length, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -179,7 +179,7 @@ end
 iex_equities_udpheader_iextp_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_header, buffer(offset, 0))
     local index = iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -204,7 +204,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_fields = function(buffer, offs
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_index, message_index)
+    local iteration = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -229,7 +229,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message = function(buffer, offset, pac
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message, buffer(offset, 0))
     local current = iex_equities_udpheader_iextp_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = iex_equities_udpheader_iextp_v1_0_display.message(buffer, packet, parent)
@@ -263,7 +263,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.send_time = function(buffer, offset, p
   local value = range:le_uint64()
   local display = iex_equities_udpheader_iextp_v1_0_display.send_time(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.send_time, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.send_time, range, value, display)
 
   return offset + length, value
 end
@@ -283,7 +283,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.first_message_sequence_number = functi
   local value = range:le_uint64()
   local display = iex_equities_udpheader_iextp_v1_0_display.first_message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -303,7 +303,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.stream_offset = function(buffer, offse
   local value = range:le_uint64()
   local display = iex_equities_udpheader_iextp_v1_0_display.stream_offset(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.stream_offset, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.stream_offset, range, value, display)
 
   return offset + length, value
 end
@@ -323,7 +323,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_count = function(buffer, offse
   local value = range:le_uint()
   local display = iex_equities_udpheader_iextp_v1_0_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_count, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -343,7 +343,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.payload_length = function(buffer, offs
   local value = range:le_uint()
   local display = iex_equities_udpheader_iextp_v1_0_display.payload_length(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.payload_length, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.payload_length, range, value, display)
 
   return offset + length, value
 end
@@ -363,7 +363,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.session_id = function(buffer, offset, 
   local value = range:le_uint()
   local display = iex_equities_udpheader_iextp_v1_0_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.session_id, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -383,7 +383,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.channel_id = function(buffer, offset, 
   local value = range:le_uint()
   local display = iex_equities_udpheader_iextp_v1_0_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.channel_id, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -403,7 +403,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_protocol_id = function(buffer,
   local value = range:le_uint()
   local display = iex_equities_udpheader_iextp_v1_0_display.message_protocol_id(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id, range, value, display)
 
   return offset + length, value
 end
@@ -423,7 +423,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.reserved = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = iex_equities_udpheader_iextp_v1_0_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.reserved, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -443,7 +443,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.version = function(buffer, offset, pac
   local value = range:le_uint()
   local display = iex_equities_udpheader_iextp_v1_0_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_udpheader_iextp_v1_0.fields.version, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -521,7 +521,7 @@ end
 iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header = function(buffer, offset, packet, parent)
   if show.iex_tp_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, buffer(offset, 0))
+    parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, buffer(offset, 0))
     local index = iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -567,23 +567,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function iex_equities_udpheader_iextp_v1_0.init()
+function omi_iex_equities_udpheader_iextp_v1_0.init()
 end
 
 -- Dissector for Iex Equities UdpHeader IexTp 1.0
-function iex_equities_udpheader_iextp_v1_0.dissector(buffer, packet, parent)
+function omi_iex_equities_udpheader_iextp_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = iex_equities_udpheader_iextp_v1_0.name
+  packet.cols.protocol = omi_iex_equities_udpheader_iextp_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(iex_equities_udpheader_iextp_v1_0, buffer(), iex_equities_udpheader_iextp_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_iex_equities_udpheader_iextp_v1_0, buffer(), omi_iex_equities_udpheader_iextp_v1_0.description, "("..buffer:len().." Bytes)")
   return iex_equities_udpheader_iextp_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, iex_equities_udpheader_iextp_v1_0)
+udp_table:add(65333, omi_iex_equities_udpheader_iextp_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -591,25 +591,25 @@ udp_table:add(65333, iex_equities_udpheader_iextp_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.iex_equities_udpheader_iextp_v1_0_packet_size = function(buffer)
+verify.omi_iex_equities_udpheader_iextp_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Iex Equities UdpHeader IexTp 1.0
-local function iex_equities_udpheader_iextp_v1_0_heuristic(buffer, packet, parent)
+local function omi_iex_equities_udpheader_iextp_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.iex_equities_udpheader_iextp_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_iex_equities_udpheader_iextp_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = iex_equities_udpheader_iextp_v1_0
-  iex_equities_udpheader_iextp_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_iex_equities_udpheader_iextp_v1_0
+  omi_iex_equities_udpheader_iextp_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Iex Equities UdpHeader IexTp 1.0
-iex_equities_udpheader_iextp_v1_0:register_heuristic("udp", iex_equities_udpheader_iextp_v1_0_heuristic)
+omi_iex_equities_udpheader_iextp_v1_0:register_heuristic("udp", omi_iex_equities_udpheader_iextp_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

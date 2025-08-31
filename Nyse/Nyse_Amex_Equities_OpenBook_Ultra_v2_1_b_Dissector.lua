@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Amex Equities OpenBook Ultra 2.1.b Protocol
-local nyse_amex_equities_openbook_ultra_v2_1_b = Proto("Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Lua", "Nyse Amex Equities OpenBook Ultra 2.1.b")
+local omi_nyse_amex_equities_openbook_ultra_v2_1_b = Proto("Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Lua", "Nyse Amex Equities OpenBook Ultra 2.1.b")
 
 -- Component Tables
 local show = {}
@@ -20,50 +20,50 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nyse Amex Equities OpenBook Ultra 2.1.b Fields
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty = ProtoField.new("Chg Qty", "nyse.amex.equities.openbook.ultra.v2.1.b.chgqty", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_price_point = ProtoField.new("Delta Price Point", "nyse.amex.equities.openbook.ultra.v2.1.b.deltapricepoint", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size = ProtoField.new("Delta Size", "nyse.amex.equities.openbook.ultra.v2.1.b.deltasize", ftypes.INT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_messages = ProtoField.new("Delta Update Messages", "nyse.amex.equities.openbook.ultra.v2.1.b.deltaupdatemessages", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_price_point = ProtoField.new("Full Price Point", "nyse.amex.equities.openbook.ultra.v2.1.b.fullpricepoint", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_messages = ProtoField.new("Full Update Messages", "nyse.amex.equities.openbook.ultra.v2.1.b.fullupdatemessages", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag = ProtoField.new("Link Flag", "nyse.amex.equities.openbook.ultra.v2.1.b.linkflag", ftypes.UINT8)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1 = ProtoField.new("Link Id 1", "nyse.amex.equities.openbook.ultra.v2.1.b.linkid1", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_2 = ProtoField.new("Link Id 2", "nyse.amex.equities.openbook.ultra.v2.1.b.linkid2", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3 = ProtoField.new("Link Id 3", "nyse.amex.equities.openbook.ultra.v2.1.b.linkid3", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count = ProtoField.new("Message Count", "nyse.amex.equities.openbook.ultra.v2.1.b.messagecount", ftypes.UINT8)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type = ProtoField.new("Message Type", "nyse.amex.equities.openbook.ultra.v2.1.b.messagetype", ftypes.UINT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv = ProtoField.new("Mpv", "nyse.amex.equities.openbook.ultra.v2.1.b.mpv", ftypes.INT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "nyse.amex.equities.openbook.ultra.v2.1.b.nextsequencenumber", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders = ProtoField.new("Num Orders", "nyse.amex.equities.openbook.ultra.v2.1.b.numorders", ftypes.INT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet = ProtoField.new("Packet", "nyse.amex.equities.openbook.ultra.v2.1.b.packet", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.amex.equities.openbook.ultra.v2.1.b.packetheader", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size = ProtoField.new("Packet Size", "nyse.amex.equities.openbook.ultra.v2.1.b.packetsize", ftypes.UINT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.payload = ProtoField.new("Payload", "nyse.amex.equities.openbook.ultra.v2.1.b.payload", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator = ProtoField.new("Price Numerator", "nyse.amex.equities.openbook.ultra.v2.1.b.pricenumerator", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amex.equities.openbook.ultra.v2.1.b.pricescalecode", ftypes.INT8)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id = ProtoField.new("Product Id", "nyse.amex.equities.openbook.ultra.v2.1.b.productid", ftypes.UINT8)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.amex.equities.openbook.ultra.v2.1.b.quotecondition", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.reason_code = ProtoField.new("Reason Code", "nyse.amex.equities.openbook.ultra.v2.1.b.reasoncode", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amex.equities.openbook.ultra.v2.1.b.reserved1", ftypes.BYTES)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag = ProtoField.new("Retransmission Flag", "nyse.amex.equities.openbook.ultra.v2.1.b.retransmissionflag", ftypes.UINT8)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumber", ftypes.UINT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.side = ProtoField.new("Side", "nyse.amex.equities.openbook.ultra.v2.1.b.side", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num = ProtoField.new("Source Seq Num", "nyse.amex.equities.openbook.ultra.v2.1.b.sourceseqnum", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id = ProtoField.new("Source Session Id", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcesessionid", ftypes.INT8)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time = ProtoField.new("Source Time", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcetime", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs = ProtoField.new("Source Time Micro Secs", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcetimemicrosecs", ftypes.INT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol = ProtoField.new("Symbol", "nyse.amex.equities.openbook.ultra.v2.1.b.symbol", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amex.equities.openbook.ultra.v2.1.b.symbolindex", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amex.equities.openbook.ultra.v2.1.b.symbolseqnum", ftypes.INT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp = ProtoField.new("Timestamp", "nyse.amex.equities.openbook.ultra.v2.1.b.timestamp", ftypes.UINT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status = ProtoField.new("Trading Status", "nyse.amex.equities.openbook.ultra.v2.1.b.tradingstatus", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size = ProtoField.new("Update Size", "nyse.amex.equities.openbook.ultra.v2.1.b.updatesize", ftypes.INT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.volume = ProtoField.new("Volume", "nyse.amex.equities.openbook.ultra.v2.1.b.volume", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty = ProtoField.new("Chg Qty", "nyse.amex.equities.openbook.ultra.v2.1.b.chgqty", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_price_point = ProtoField.new("Delta Price Point", "nyse.amex.equities.openbook.ultra.v2.1.b.deltapricepoint", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size = ProtoField.new("Delta Size", "nyse.amex.equities.openbook.ultra.v2.1.b.deltasize", ftypes.INT16)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_messages = ProtoField.new("Delta Update Messages", "nyse.amex.equities.openbook.ultra.v2.1.b.deltaupdatemessages", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_price_point = ProtoField.new("Full Price Point", "nyse.amex.equities.openbook.ultra.v2.1.b.fullpricepoint", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_messages = ProtoField.new("Full Update Messages", "nyse.amex.equities.openbook.ultra.v2.1.b.fullupdatemessages", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag = ProtoField.new("Link Flag", "nyse.amex.equities.openbook.ultra.v2.1.b.linkflag", ftypes.UINT8)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1 = ProtoField.new("Link Id 1", "nyse.amex.equities.openbook.ultra.v2.1.b.linkid1", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_2 = ProtoField.new("Link Id 2", "nyse.amex.equities.openbook.ultra.v2.1.b.linkid2", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3 = ProtoField.new("Link Id 3", "nyse.amex.equities.openbook.ultra.v2.1.b.linkid3", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count = ProtoField.new("Message Count", "nyse.amex.equities.openbook.ultra.v2.1.b.messagecount", ftypes.UINT8)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type = ProtoField.new("Message Type", "nyse.amex.equities.openbook.ultra.v2.1.b.messagetype", ftypes.UINT16)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv = ProtoField.new("Mpv", "nyse.amex.equities.openbook.ultra.v2.1.b.mpv", ftypes.INT16)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "nyse.amex.equities.openbook.ultra.v2.1.b.nextsequencenumber", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders = ProtoField.new("Num Orders", "nyse.amex.equities.openbook.ultra.v2.1.b.numorders", ftypes.INT16)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet = ProtoField.new("Packet", "nyse.amex.equities.openbook.ultra.v2.1.b.packet", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.amex.equities.openbook.ultra.v2.1.b.packetheader", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size = ProtoField.new("Packet Size", "nyse.amex.equities.openbook.ultra.v2.1.b.packetsize", ftypes.UINT16)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.payload = ProtoField.new("Payload", "nyse.amex.equities.openbook.ultra.v2.1.b.payload", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator = ProtoField.new("Price Numerator", "nyse.amex.equities.openbook.ultra.v2.1.b.pricenumerator", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amex.equities.openbook.ultra.v2.1.b.pricescalecode", ftypes.INT8)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id = ProtoField.new("Product Id", "nyse.amex.equities.openbook.ultra.v2.1.b.productid", ftypes.UINT8)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.amex.equities.openbook.ultra.v2.1.b.quotecondition", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.reason_code = ProtoField.new("Reason Code", "nyse.amex.equities.openbook.ultra.v2.1.b.reasoncode", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amex.equities.openbook.ultra.v2.1.b.reserved1", ftypes.BYTES)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag = ProtoField.new("Retransmission Flag", "nyse.amex.equities.openbook.ultra.v2.1.b.retransmissionflag", ftypes.UINT8)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumber", ftypes.UINT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.side = ProtoField.new("Side", "nyse.amex.equities.openbook.ultra.v2.1.b.side", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num = ProtoField.new("Source Seq Num", "nyse.amex.equities.openbook.ultra.v2.1.b.sourceseqnum", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id = ProtoField.new("Source Session Id", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcesessionid", ftypes.INT8)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time = ProtoField.new("Source Time", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcetime", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs = ProtoField.new("Source Time Micro Secs", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcetimemicrosecs", ftypes.INT16)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol = ProtoField.new("Symbol", "nyse.amex.equities.openbook.ultra.v2.1.b.symbol", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amex.equities.openbook.ultra.v2.1.b.symbolindex", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amex.equities.openbook.ultra.v2.1.b.symbolseqnum", ftypes.INT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp = ProtoField.new("Timestamp", "nyse.amex.equities.openbook.ultra.v2.1.b.timestamp", ftypes.UINT32)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status = ProtoField.new("Trading Status", "nyse.amex.equities.openbook.ultra.v2.1.b.tradingstatus", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size = ProtoField.new("Update Size", "nyse.amex.equities.openbook.ultra.v2.1.b.updatesize", ftypes.INT16)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.volume = ProtoField.new("Volume", "nyse.amex.equities.openbook.ultra.v2.1.b.volume", ftypes.INT32)
 
 -- Nyse Amex Equities OpenBook Ultra 2.1.b messages
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.deltaupdatemessage", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.fullupdatemessage", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.deltaupdatemessage", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.fullupdatemessage", ftypes.STRING)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumberresetmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -82,60 +82,60 @@ show.sequence_number_reset_message = true
 show.payload = false
 
 -- Register Nyse Amex Equities OpenBook Ultra 2.1.b Show Options
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point = Pref.bool("Show Delta Price Point", show.delta_price_point, "Parse and add Delta Price Point to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message = Pref.bool("Show Delta Update Message", show.delta_update_message, "Parse and add Delta Update Message to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages = Pref.bool("Show Delta Update Messages", show.delta_update_messages, "Parse and add Delta Update Messages to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point = Pref.bool("Show Full Price Point", show.full_price_point, "Parse and add Full Price Point to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message = Pref.bool("Show Full Update Message", show.full_update_message, "Parse and add Full Update Message to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages = Pref.bool("Show Full Update Messages", show.full_update_messages, "Parse and add Full Update Messages to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point = Pref.bool("Show Delta Price Point", show.delta_price_point, "Parse and add Delta Price Point to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message = Pref.bool("Show Delta Update Message", show.delta_update_message, "Parse and add Delta Update Message to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages = Pref.bool("Show Delta Update Messages", show.delta_update_messages, "Parse and add Delta Update Messages to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point = Pref.bool("Show Full Price Point", show.full_price_point, "Parse and add Full Price Point to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message = Pref.bool("Show Full Update Message", show.full_update_message, "Parse and add Full Update Message to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages = Pref.bool("Show Full Update Messages", show.full_update_messages, "Parse and add Full Update Messages to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
+function omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.delta_price_point ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point then
-    show.delta_price_point = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point
+  if show.delta_price_point ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point then
+    show.delta_price_point = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point
     changed = true
   end
-  if show.delta_update_message ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message then
-    show.delta_update_message = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message
+  if show.delta_update_message ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message then
+    show.delta_update_message = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message
     changed = true
   end
-  if show.delta_update_messages ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages then
-    show.delta_update_messages = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages
+  if show.delta_update_messages ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages then
+    show.delta_update_messages = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages
     changed = true
   end
-  if show.full_price_point ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point then
-    show.full_price_point = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point
+  if show.full_price_point ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point then
+    show.full_price_point = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point
     changed = true
   end
-  if show.full_update_message ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message then
-    show.full_update_message = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message
+  if show.full_update_message ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message then
+    show.full_update_message = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message
     changed = true
   end
-  if show.full_update_messages ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages then
-    show.full_update_messages = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages
+  if show.full_update_messages ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages then
+    show.full_update_messages = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages
     changed = true
   end
-  if show.packet ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet then
-    show.packet = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet
+  if show.packet ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet then
+    show.packet = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header then
-    show.packet_header = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header
+  if show.packet_header ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header then
+    show.packet_header = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header
     changed = true
   end
-  if show.sequence_number_reset_message ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.payload ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload then
-    show.payload = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload
+  if show.payload ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload then
+    show.payload = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload
     changed = true
   end
 
@@ -165,7 +165,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.next_sequence_number = function
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.next_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -198,7 +198,7 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -227,7 +227,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.link_id_3 = function(buffer, of
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.link_id_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3, range, value, display)
 
   return offset + length, value
 end
@@ -247,7 +247,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.link_id_2 = function(buffer, of
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.link_id_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_2, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_2, range, value, display)
 
   return offset + length, value
 end
@@ -267,7 +267,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.link_id_1 = function(buffer, of
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.link_id_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1, range, value, display)
 
   return offset + length, value
 end
@@ -300,7 +300,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.reason_code = function(buffer, 
   local value = range:string()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.reason_code, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -327,7 +327,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.side = function(buffer, offset,
   local value = range:string()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.side, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -347,7 +347,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.num_orders = function(buffer, o
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.num_orders(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders, range, value, display)
 
   return offset + length, value
 end
@@ -367,7 +367,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.chg_qty = function(buffer, offs
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.chg_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty, range, value, display)
 
   return offset + length, value
 end
@@ -387,7 +387,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.volume = function(buffer, offse
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.volume, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -407,7 +407,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.price_numerator = function(buff
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.price_numerator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator, range, value, display)
 
   return offset + length, value
 end
@@ -480,7 +480,7 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_price_point = function(buffer, offset, packet, parent)
   if show.delta_price_point then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
     local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -509,7 +509,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.price_scale_code = function(buf
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.price_scale_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code, range, value, display)
 
   return offset + length, value
 end
@@ -548,7 +548,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.trading_status = function(buffe
   local value = range:string()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -575,7 +575,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.quote_condition = function(buff
   local value = range:string()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.quote_condition, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -595,7 +595,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.source_session_id = function(bu
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.source_session_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id, range, value, display)
 
   return offset + length, value
 end
@@ -615,7 +615,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.source_seq_num = function(buffe
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.source_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -635,7 +635,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.source_time_micro_secs = functi
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.source_time_micro_secs(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs, range, value, display)
 
   return offset + length, value
 end
@@ -655,7 +655,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.source_time = function(buffer, 
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -675,7 +675,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.symbol_index = function(buffer,
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
@@ -695,7 +695,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_size = function(buffer, o
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.delta_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size, range, value, display)
 
   return offset + length, value
 end
@@ -753,7 +753,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_message = function
 
   -- Optionally add group/struct element to protocol tree
   if show.delta_update_message then
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message, buffer(offset, 0))
     local current = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
     parent:set_len(size_of_delta_update_message)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.delta_update_message(buffer, packet, parent)
@@ -805,7 +805,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages = functio
     local length = nyse_amex_equities_openbook_ultra_v2_1_b_size_of.delta_update_messages(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.delta_update_messages(buffer, packet, parent)
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_messages, range, display)
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_messages, range, display)
   end
 
   return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages_fields(buffer, offset, packet, parent)
@@ -826,7 +826,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.reserved_1 = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -879,7 +879,7 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_price_point = function(buffer, offset, packet, parent)
   if show.full_price_point then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
     local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -908,7 +908,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.mpv = function(buffer, offset, 
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -928,7 +928,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.symbol = function(buffer, offse
   local value = range:string()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -948,7 +948,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.symbol_seq_num = function(buffe
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -968,7 +968,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.update_size = function(buffer, 
   local value = range:int()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.update_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size, range, value, display)
 
   return offset + length, value
 end
@@ -1035,7 +1035,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_message = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.full_update_message then
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message, buffer(offset, 0))
     local current = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)
     parent:set_len(size_of_full_update_message)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.full_update_message(buffer, packet, parent)
@@ -1087,7 +1087,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_messages = function
     local length = nyse_amex_equities_openbook_ultra_v2_1_b_size_of.full_update_messages(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.full_update_messages(buffer, packet, parent)
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_messages, range, display)
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_messages, range, display)
   end
 
   return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_messages_fields(buffer, offset, packet, parent)
@@ -1156,7 +1156,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.payload = function(buffer, offs
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.payload, range, display)
+  local element = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.payload, range, display)
 
   return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1176,7 +1176,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.link_flag = function(buffer, of
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.link_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1196,7 +1196,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.message_count = function(buffer
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1216,7 +1216,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.retransmission_flag = function(
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.retransmission_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1236,7 +1236,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.product_id = function(buffer, o
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -1256,7 +1256,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.timestamp = function(buffer, of
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1276,7 +1276,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number = function(buff
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1309,7 +1309,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.message_type = function(buffer,
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1329,7 +1329,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_size = function(buffer, 
   local value = range:uint()
   local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -1397,7 +1397,7 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
     local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1433,23 +1433,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_amex_equities_openbook_ultra_v2_1_b.init()
+function omi_nyse_amex_equities_openbook_ultra_v2_1_b.init()
 end
 
 -- Dissector for Nyse Amex Equities OpenBook Ultra 2.1.b
-function nyse_amex_equities_openbook_ultra_v2_1_b.dissector(buffer, packet, parent)
+function omi_nyse_amex_equities_openbook_ultra_v2_1_b.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_amex_equities_openbook_ultra_v2_1_b.name
+  packet.cols.protocol = omi_nyse_amex_equities_openbook_ultra_v2_1_b.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b, buffer(), nyse_amex_equities_openbook_ultra_v2_1_b.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b, buffer(), omi_nyse_amex_equities_openbook_ultra_v2_1_b.description, "("..buffer:len().." Bytes)")
   return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_amex_equities_openbook_ultra_v2_1_b)
+udp_table:add(65333, omi_nyse_amex_equities_openbook_ultra_v2_1_b)
 
 
 -----------------------------------------------------------------------
@@ -1457,7 +1457,7 @@ udp_table:add(65333, nyse_amex_equities_openbook_ultra_v2_1_b)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_amex_equities_openbook_ultra_v2_1_b_packet_size = function(buffer)
+verify.omi_nyse_amex_equities_openbook_ultra_v2_1_b_packet_size = function(buffer)
 
   return true
 end
@@ -1475,22 +1475,22 @@ verify.product_id = function(buffer)
 end
 
 -- Dissector Heuristic for Nyse Amex Equities OpenBook Ultra 2.1.b
-local function nyse_amex_equities_openbook_ultra_v2_1_b_heuristic(buffer, packet, parent)
+local function omi_nyse_amex_equities_openbook_ultra_v2_1_b_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_amex_equities_openbook_ultra_v2_1_b_packet_size(buffer) then return false end
+  if not verify.omi_nyse_amex_equities_openbook_ultra_v2_1_b_packet_size(buffer) then return false end
 
   -- Verify Product Id
   if not verify.product_id(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_amex_equities_openbook_ultra_v2_1_b
-  nyse_amex_equities_openbook_ultra_v2_1_b.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_amex_equities_openbook_ultra_v2_1_b
+  omi_nyse_amex_equities_openbook_ultra_v2_1_b.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Amex Equities OpenBook Ultra 2.1.b
-nyse_amex_equities_openbook_ultra_v2_1_b:register_heuristic("udp", nyse_amex_equities_openbook_ultra_v2_1_b_heuristic)
+omi_nyse_amex_equities_openbook_ultra_v2_1_b:register_heuristic("udp", omi_nyse_amex_equities_openbook_ultra_v2_1_b_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

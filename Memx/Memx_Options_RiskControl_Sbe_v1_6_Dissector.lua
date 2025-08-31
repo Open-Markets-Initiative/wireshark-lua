@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx Options RiskControl Sbe 1.6 Protocol
-local memx_options_riskcontrol_sbe_v1_6 = Proto("Memx.Options.RiskControl.Sbe.v1.6.Lua", "Memx Options RiskControl Sbe 1.6")
+local omi_memx_options_riskcontrol_sbe_v1_6 = Proto("Memx.Options.RiskControl.Sbe.v1.6.Lua", "Memx Options RiskControl Sbe 1.6")
 
 -- Component Tables
 local show = {}
@@ -21,136 +21,136 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Memx Options RiskControl Sbe 1.6 Fields
-memx_options_riskcontrol_sbe_v1_6.fields.allow_iso_orders = ProtoField.new("Allow Iso Orders", "memx.options.riskcontrol.sbe.v1.6.allowisoorders", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.allow_orders = ProtoField.new("Allow Orders", "memx.options.riskcontrol.sbe.v1.6.alloworders", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.block_length = ProtoField.new("Block Length", "memx.options.riskcontrol.sbe.v1.6.blocklength", ftypes.UINT16)
-memx_options_riskcontrol_sbe_v1_6.fields.breach_id = ProtoField.new("Breach Id", "memx.options.riskcontrol.sbe.v1.6.breachid", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.breach_id_optional = ProtoField.new("Breach Id Optional", "memx.options.riskcontrol.sbe.v1.6.breachidoptional", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.clordid = ProtoField.new("ClOrdId", "memx.options.riskcontrol.sbe.v1.6.clordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "memx.options.riskcontrol.sbe.v1.6.clordidoptional", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.common_header = ProtoField.new("Common Header", "memx.options.riskcontrol.sbe.v1.6.commonheader", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.count = ProtoField.new("Count", "memx.options.riskcontrol.sbe.v1.6.count", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.data = ProtoField.new("Data", "memx.options.riskcontrol.sbe.v1.6.data", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.efid = ProtoField.new("Efid", "memx.options.riskcontrol.sbe.v1.6.efid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.efid_optional = ProtoField.new("Efid Optional", "memx.options.riskcontrol.sbe.v1.6.efidoptional", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.last_px = ProtoField.new("Last Px", "memx.options.riskcontrol.sbe.v1.6.lastpx", ftypes.DOUBLE)
-memx_options_riskcontrol_sbe_v1_6.fields.last_qty = ProtoField.new("Last Qty", "memx.options.riskcontrol.sbe.v1.6.lastqty", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.latest_percentage = ProtoField.new("Latest Percentage", "memx.options.riskcontrol.sbe.v1.6.latestpercentage", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.options.riskcontrol.sbe.v1.6.loginacceptedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.options.riskcontrol.sbe.v1.6.loginrejectcode", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.options.riskcontrol.sbe.v1.6.loginrejectedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.login_request_message = ProtoField.new("Login Request Message", "memx.options.riskcontrol.sbe.v1.6.loginrequestmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.max_contracts = ProtoField.new("Max Contracts", "memx.options.riskcontrol.sbe.v1.6.maxcontracts", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.max_dup_orders = ProtoField.new("Max Dup Orders", "memx.options.riskcontrol.sbe.v1.6.maxduporders", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.max_notional_in_dollars = ProtoField.new("Max Notional In Dollars", "memx.options.riskcontrol.sbe.v1.6.maxnotionalindollars", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.max_order_msgs = ProtoField.new("Max Order Msgs", "memx.options.riskcontrol.sbe.v1.6.maxordermsgs", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.message_count = ProtoField.new("Message Count", "memx.options.riskcontrol.sbe.v1.6.messagecount", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.message_length = ProtoField.new("Message Length", "memx.options.riskcontrol.sbe.v1.6.messagelength", ftypes.UINT16)
-memx_options_riskcontrol_sbe_v1_6.fields.message_type = ProtoField.new("Message Type", "memx.options.riskcontrol.sbe.v1.6.messagetype", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.options.riskcontrol.sbe.v1.6.nextsequencenumber", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.number_msgs_sent = ProtoField.new("Number Msgs Sent", "memx.options.riskcontrol.sbe.v1.6.numbermsgssent", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.option_security_id = ProtoField.new("Option Security Id", "memx.options.riskcontrol.sbe.v1.6.optionsecurityid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.order_id = ProtoField.new("Order Id", "memx.options.riskcontrol.sbe.v1.6.orderid", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.options.riskcontrol.sbe.v1.6.packet", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.payload = ProtoField.new("Payload", "memx.options.riskcontrol.sbe.v1.6.payload", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.riskcontrol.sbe.v1.6.pendingmessagecount", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.percent = ProtoField.new("Percent", "memx.options.riskcontrol.sbe.v1.6.percent", ftypes.INT32)
-memx_options_riskcontrol_sbe_v1_6.fields.period_in_milli_seconds = ProtoField.new("Period In Milli Seconds", "memx.options.riskcontrol.sbe.v1.6.periodinmilliseconds", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.price_in_dollars = ProtoField.new("Price In Dollars", "memx.options.riskcontrol.sbe.v1.6.priceindollars", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.quantity = ProtoField.new("Quantity", "memx.options.riskcontrol.sbe.v1.6.quantity", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.reject_reason = ProtoField.new("Reject Reason", "memx.options.riskcontrol.sbe.v1.6.rejectreason", ftypes.UINT16)
-memx_options_riskcontrol_sbe_v1_6.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.options.riskcontrol.sbe.v1.6.replayallrequestmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.options.riskcontrol.sbe.v1.6.replaybeginmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.options.riskcontrol.sbe.v1.6.replaycompletemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "memx.options.riskcontrol.sbe.v1.6.replayrejectcode", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.options.riskcontrol.sbe.v1.6.replayrejectedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.options.riskcontrol.sbe.v1.6.replayrequestmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.options.riskcontrol.sbe.v1.6.riskgroupid", ftypes.UINT16)
-memx_options_riskcontrol_sbe_v1_6.fields.risk_type = ProtoField.new("Risk Type", "memx.options.riskcontrol.sbe.v1.6.risktype", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.rule_type = ProtoField.new("Rule Type", "memx.options.riskcontrol.sbe.v1.6.ruletype", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.riskcontrol.sbe.v1.6.sbeheader", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.riskcontrol.sbe.v1.6.sbemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.schema_id = ProtoField.new("Schema Id", "memx.options.riskcontrol.sbe.v1.6.schemaid", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.send_cancels = ProtoField.new("Send Cancels", "memx.options.riskcontrol.sbe.v1.6.sendcancels", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.sending_time = ProtoField.new("Sending Time", "memx.options.riskcontrol.sbe.v1.6.sendingtime", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.riskcontrol.sbe.v1.6.sequencedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.session_id = ProtoField.new("Session Id", "memx.options.riskcontrol.sbe.v1.6.sessionid", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.side = ProtoField.new("Side", "memx.options.riskcontrol.sbe.v1.6.side", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.options.riskcontrol.sbe.v1.6.startofsessionmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.options.riskcontrol.sbe.v1.6.streambeginmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.options.riskcontrol.sbe.v1.6.streamcompletemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.options.riskcontrol.sbe.v1.6.streamrejectcode", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.options.riskcontrol.sbe.v1.6.streamrejectedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.options.riskcontrol.sbe.v1.6.streamrequestmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.options.riskcontrol.sbe.v1.6.supportedrequestmode", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.template_id = ProtoField.new("Template Id", "memx.options.riskcontrol.sbe.v1.6.templateid", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.threshold_quantity = ProtoField.new("Threshold Quantity", "memx.options.riskcontrol.sbe.v1.6.thresholdquantity", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.token = ProtoField.new("Token", "memx.options.riskcontrol.sbe.v1.6.token", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.token_type = ProtoField.new("Token Type", "memx.options.riskcontrol.sbe.v1.6.tokentype", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "memx.options.riskcontrol.sbe.v1.6.totalaffectedorders", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.total_executions = ProtoField.new("Total Executions", "memx.options.riskcontrol.sbe.v1.6.totalexecutions", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.options.riskcontrol.sbe.v1.6.totalsequencecount", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.transact_time = ProtoField.new("Transact Time", "memx.options.riskcontrol.sbe.v1.6.transacttime", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.riskcontrol.sbe.v1.6.trdmatchid", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_6.fields.unacked_quantity = ProtoField.new("Unacked Quantity", "memx.options.riskcontrol.sbe.v1.6.unackedquantity", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_6.fields.underlier = ProtoField.new("Underlier", "memx.options.riskcontrol.sbe.v1.6.underlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.underlier_optional = ProtoField.new("Underlier Optional", "memx.options.riskcontrol.sbe.v1.6.underlieroptional", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.options.riskcontrol.sbe.v1.6.unsequencedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check = ProtoField.new("Use Order Price In Dup Check", "memx.options.riskcontrol.sbe.v1.6.useorderpriceindupcheck", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check_optional = ProtoField.new("Use Order Price In Dup Check Optional", "memx.options.riskcontrol.sbe.v1.6.useorderpriceindupcheckoptional", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_6.fields.version = ProtoField.new("Version", "memx.options.riskcontrol.sbe.v1.6.version", ftypes.UINT16)
-memx_options_riskcontrol_sbe_v1_6.fields.volume = ProtoField.new("Volume", "memx.options.riskcontrol.sbe.v1.6.volume", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_iso_orders = ProtoField.new("Allow Iso Orders", "memx.options.riskcontrol.sbe.v1.6.allowisoorders", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_orders = ProtoField.new("Allow Orders", "memx.options.riskcontrol.sbe.v1.6.alloworders", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.block_length = ProtoField.new("Block Length", "memx.options.riskcontrol.sbe.v1.6.blocklength", ftypes.UINT16)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id = ProtoField.new("Breach Id", "memx.options.riskcontrol.sbe.v1.6.breachid", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id_optional = ProtoField.new("Breach Id Optional", "memx.options.riskcontrol.sbe.v1.6.breachidoptional", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid = ProtoField.new("ClOrdId", "memx.options.riskcontrol.sbe.v1.6.clordid", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "memx.options.riskcontrol.sbe.v1.6.clordidoptional", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.common_header = ProtoField.new("Common Header", "memx.options.riskcontrol.sbe.v1.6.commonheader", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.count = ProtoField.new("Count", "memx.options.riskcontrol.sbe.v1.6.count", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.data = ProtoField.new("Data", "memx.options.riskcontrol.sbe.v1.6.data", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.efid = ProtoField.new("Efid", "memx.options.riskcontrol.sbe.v1.6.efid", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.efid_optional = ProtoField.new("Efid Optional", "memx.options.riskcontrol.sbe.v1.6.efidoptional", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.last_px = ProtoField.new("Last Px", "memx.options.riskcontrol.sbe.v1.6.lastpx", ftypes.DOUBLE)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.last_qty = ProtoField.new("Last Qty", "memx.options.riskcontrol.sbe.v1.6.lastqty", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.latest_percentage = ProtoField.new("Latest Percentage", "memx.options.riskcontrol.sbe.v1.6.latestpercentage", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.options.riskcontrol.sbe.v1.6.loginacceptedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.options.riskcontrol.sbe.v1.6.loginrejectcode", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.options.riskcontrol.sbe.v1.6.loginrejectedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.login_request_message = ProtoField.new("Login Request Message", "memx.options.riskcontrol.sbe.v1.6.loginrequestmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.max_contracts = ProtoField.new("Max Contracts", "memx.options.riskcontrol.sbe.v1.6.maxcontracts", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.max_dup_orders = ProtoField.new("Max Dup Orders", "memx.options.riskcontrol.sbe.v1.6.maxduporders", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.max_notional_in_dollars = ProtoField.new("Max Notional In Dollars", "memx.options.riskcontrol.sbe.v1.6.maxnotionalindollars", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.max_order_msgs = ProtoField.new("Max Order Msgs", "memx.options.riskcontrol.sbe.v1.6.maxordermsgs", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.message_count = ProtoField.new("Message Count", "memx.options.riskcontrol.sbe.v1.6.messagecount", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.message_length = ProtoField.new("Message Length", "memx.options.riskcontrol.sbe.v1.6.messagelength", ftypes.UINT16)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.message_type = ProtoField.new("Message Type", "memx.options.riskcontrol.sbe.v1.6.messagetype", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.options.riskcontrol.sbe.v1.6.nextsequencenumber", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.number_msgs_sent = ProtoField.new("Number Msgs Sent", "memx.options.riskcontrol.sbe.v1.6.numbermsgssent", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.option_security_id = ProtoField.new("Option Security Id", "memx.options.riskcontrol.sbe.v1.6.optionsecurityid", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.order_id = ProtoField.new("Order Id", "memx.options.riskcontrol.sbe.v1.6.orderid", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.options.riskcontrol.sbe.v1.6.packet", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.payload = ProtoField.new("Payload", "memx.options.riskcontrol.sbe.v1.6.payload", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.riskcontrol.sbe.v1.6.pendingmessagecount", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.percent = ProtoField.new("Percent", "memx.options.riskcontrol.sbe.v1.6.percent", ftypes.INT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.period_in_milli_seconds = ProtoField.new("Period In Milli Seconds", "memx.options.riskcontrol.sbe.v1.6.periodinmilliseconds", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.price_in_dollars = ProtoField.new("Price In Dollars", "memx.options.riskcontrol.sbe.v1.6.priceindollars", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.quantity = ProtoField.new("Quantity", "memx.options.riskcontrol.sbe.v1.6.quantity", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.reject_reason = ProtoField.new("Reject Reason", "memx.options.riskcontrol.sbe.v1.6.rejectreason", ftypes.UINT16)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.options.riskcontrol.sbe.v1.6.replayallrequestmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.options.riskcontrol.sbe.v1.6.replaybeginmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.options.riskcontrol.sbe.v1.6.replaycompletemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "memx.options.riskcontrol.sbe.v1.6.replayrejectcode", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.options.riskcontrol.sbe.v1.6.replayrejectedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.options.riskcontrol.sbe.v1.6.replayrequestmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.options.riskcontrol.sbe.v1.6.riskgroupid", ftypes.UINT16)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_type = ProtoField.new("Risk Type", "memx.options.riskcontrol.sbe.v1.6.risktype", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.rule_type = ProtoField.new("Rule Type", "memx.options.riskcontrol.sbe.v1.6.ruletype", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.riskcontrol.sbe.v1.6.sbeheader", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.riskcontrol.sbe.v1.6.sbemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.schema_id = ProtoField.new("Schema Id", "memx.options.riskcontrol.sbe.v1.6.schemaid", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.send_cancels = ProtoField.new("Send Cancels", "memx.options.riskcontrol.sbe.v1.6.sendcancels", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.sending_time = ProtoField.new("Sending Time", "memx.options.riskcontrol.sbe.v1.6.sendingtime", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.riskcontrol.sbe.v1.6.sequencedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.session_id = ProtoField.new("Session Id", "memx.options.riskcontrol.sbe.v1.6.sessionid", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.side = ProtoField.new("Side", "memx.options.riskcontrol.sbe.v1.6.side", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.options.riskcontrol.sbe.v1.6.startofsessionmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.options.riskcontrol.sbe.v1.6.streambeginmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.options.riskcontrol.sbe.v1.6.streamcompletemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.options.riskcontrol.sbe.v1.6.streamrejectcode", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.options.riskcontrol.sbe.v1.6.streamrejectedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.options.riskcontrol.sbe.v1.6.streamrequestmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.options.riskcontrol.sbe.v1.6.supportedrequestmode", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.template_id = ProtoField.new("Template Id", "memx.options.riskcontrol.sbe.v1.6.templateid", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.threshold_quantity = ProtoField.new("Threshold Quantity", "memx.options.riskcontrol.sbe.v1.6.thresholdquantity", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.token = ProtoField.new("Token", "memx.options.riskcontrol.sbe.v1.6.token", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.token_type = ProtoField.new("Token Type", "memx.options.riskcontrol.sbe.v1.6.tokentype", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "memx.options.riskcontrol.sbe.v1.6.totalaffectedorders", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.total_executions = ProtoField.new("Total Executions", "memx.options.riskcontrol.sbe.v1.6.totalexecutions", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.options.riskcontrol.sbe.v1.6.totalsequencecount", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.transact_time = ProtoField.new("Transact Time", "memx.options.riskcontrol.sbe.v1.6.transacttime", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.riskcontrol.sbe.v1.6.trdmatchid", ftypes.UINT64)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.unacked_quantity = ProtoField.new("Unacked Quantity", "memx.options.riskcontrol.sbe.v1.6.unackedquantity", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.underlier = ProtoField.new("Underlier", "memx.options.riskcontrol.sbe.v1.6.underlier", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.underlier_optional = ProtoField.new("Underlier Optional", "memx.options.riskcontrol.sbe.v1.6.underlieroptional", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.options.riskcontrol.sbe.v1.6.unsequencedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check = ProtoField.new("Use Order Price In Dup Check", "memx.options.riskcontrol.sbe.v1.6.useorderpriceindupcheck", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check_optional = ProtoField.new("Use Order Price In Dup Check Optional", "memx.options.riskcontrol.sbe.v1.6.useorderpriceindupcheckoptional", ftypes.UINT8)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.version = ProtoField.new("Version", "memx.options.riskcontrol.sbe.v1.6.version", ftypes.UINT16)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.volume = ProtoField.new("Volume", "memx.options.riskcontrol.sbe.v1.6.volume", ftypes.UINT64)
 
 -- Memx Options RiskControl Sbe 1.6 messages
-memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledge_rej_message = ProtoField.new("Active Risk Acknowledge Rej Message", "memx.options.riskcontrol.sbe.v1.6.activeriskacknowledgerejmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledged_message = ProtoField.new("Active Risk Acknowledged Message", "memx.options.riskcontrol.sbe.v1.6.activeriskacknowledgedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledgement_req_message = ProtoField.new("Active Risk Acknowledgement Req Message", "memx.options.riskcontrol.sbe.v1.6.activeriskacknowledgementreqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.active_risk_quantity_update_notification_message = ProtoField.new("Active Risk Quantity Update Notification Message", "memx.options.riskcontrol.sbe.v1.6.activeriskquantityupdatenotificationmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_rej_message = ProtoField.new("Active Risk Threshold Change Rej Message", "memx.options.riskcontrol.sbe.v1.6.activeriskthresholdchangerejmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_req_message = ProtoField.new("Active Risk Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.activeriskthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_state_message = ProtoField.new("Active Risk Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.activeriskthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.breach_clear_rej_message = ProtoField.new("Breach Clear Rej Message", "memx.options.riskcontrol.sbe.v1.6.breachclearrejmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.breach_cleared_message = ProtoField.new("Breach Cleared Message", "memx.options.riskcontrol.sbe.v1.6.breachclearedmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_change_req_message = ProtoField.new("Cp Breach Count Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpbreachcountthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_state_message = ProtoField.new("Cp Breach Count Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpbreachcountthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_clear_breach_req_message = ProtoField.new("Cp Clear Breach Req Message", "memx.options.riskcontrol.sbe.v1.6.cpclearbreachreqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_change_req_message = ProtoField.new("Cp Duplicate Order Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpduplicateorderthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_state_message = ProtoField.new("Cp Duplicate Order Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpduplicateorderthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_change_req_message = ProtoField.new("Cp Executed Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpexecutednotionalthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_state_message = ProtoField.new("Cp Executed Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpexecutednotionalthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_change_req_message = ProtoField.new("Cp Gross Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpgrossnotionalthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_state_message = ProtoField.new("Cp Gross Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpgrossnotionalthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_change_req_message = ProtoField.new("Cp Market Order Gross Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordergrossnotionalthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_state_message = ProtoField.new("Cp Market Order Gross Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordergrossnotionalthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_change_req_message = ProtoField.new("Cp Market Order Net Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordernetnotionalthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_state_message = ProtoField.new("Cp Market Order Net Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordernetnotionalthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_change_req_message = ProtoField.new("Cp Net Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpnetnotionalthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_state_message = ProtoField.new("Cp Net Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpnetnotionalthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_change_req_message = ProtoField.new("Cp Order Rate Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cporderratethresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_state_message = ProtoField.new("Cp Order Rate Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cporderratethresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_change_req_message = ProtoField.new("Cp Percent Outstanding Contracts Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cppercentoutstandingcontractsthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_state_message = ProtoField.new("Cp Percent Outstanding Contracts Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cppercentoutstandingcontractsthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_change_req_message = ProtoField.new("Cp Total Executions Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cptotalexecutionsthresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_state_message = ProtoField.new("Cp Total Executions Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cptotalexecutionsthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_change_req_message = ProtoField.new("Cp Volume Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpvolumethresholdchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_state_message = ProtoField.new("Cp Volume Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpvolumethresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_done_message = ProtoField.new("Manual Cp Breach Trigger Done Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerdonemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_pending_message = ProtoField.new("Manual Cp Breach Trigger Pending Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerpendingmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_rej_message = ProtoField.new("Manual Cp Breach Trigger Rej Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerrejmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_req_message = ProtoField.new("Manual Cp Breach Trigger Req Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerreqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.passive_risk_threshold_notification_message = ProtoField.new("Passive Risk Threshold Notification Message", "memx.options.riskcontrol.sbe.v1.6.passiveriskthresholdnotificationmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_done_message = ProtoField.new("Risk Settings Query Done Message", "memx.options.riskcontrol.sbe.v1.6.risksettingsquerydonemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_message = ProtoField.new("Risk Settings Query Message", "memx.options.riskcontrol.sbe.v1.6.risksettingsquerymessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_rej_message = ProtoField.new("Risk Settings Query Rej Message", "memx.options.riskcontrol.sbe.v1.6.risksettingsqueryrejmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.risk_threshold_update_rej_message = ProtoField.new("Risk Threshold Update Rej Message", "memx.options.riskcontrol.sbe.v1.6.riskthresholdupdaterejmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_change_req_message = ProtoField.new("Single Order Allow Iso Orders Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowisoorderschangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_state_message = ProtoField.new("Single Order Allow Iso Orders State Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowisoordersstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_change_req_message = ProtoField.new("Single Order Allow Orders In Crossed Market Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowordersincrossedmarketchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_state_message = ProtoField.new("Single Order Allow Orders In Crossed Market State Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowordersincrossedmarketstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_change_req_message = ProtoField.new("Single Order Max Contracts Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxcontractschangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_threshold_state_message = ProtoField.new("Single Order Max Contracts Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxcontractsthresholdstatemessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_change_req_message = ProtoField.new("Single Order Max Notional Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxnotionalchangereqmessage", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_threshold_state_message = ProtoField.new("Single Order Max Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxnotionalthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledge_rej_message = ProtoField.new("Active Risk Acknowledge Rej Message", "memx.options.riskcontrol.sbe.v1.6.activeriskacknowledgerejmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledged_message = ProtoField.new("Active Risk Acknowledged Message", "memx.options.riskcontrol.sbe.v1.6.activeriskacknowledgedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledgement_req_message = ProtoField.new("Active Risk Acknowledgement Req Message", "memx.options.riskcontrol.sbe.v1.6.activeriskacknowledgementreqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_quantity_update_notification_message = ProtoField.new("Active Risk Quantity Update Notification Message", "memx.options.riskcontrol.sbe.v1.6.activeriskquantityupdatenotificationmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_rej_message = ProtoField.new("Active Risk Threshold Change Rej Message", "memx.options.riskcontrol.sbe.v1.6.activeriskthresholdchangerejmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_req_message = ProtoField.new("Active Risk Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.activeriskthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_state_message = ProtoField.new("Active Risk Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.activeriskthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_clear_rej_message = ProtoField.new("Breach Clear Rej Message", "memx.options.riskcontrol.sbe.v1.6.breachclearrejmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_cleared_message = ProtoField.new("Breach Cleared Message", "memx.options.riskcontrol.sbe.v1.6.breachclearedmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_change_req_message = ProtoField.new("Cp Breach Count Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpbreachcountthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_state_message = ProtoField.new("Cp Breach Count Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpbreachcountthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_clear_breach_req_message = ProtoField.new("Cp Clear Breach Req Message", "memx.options.riskcontrol.sbe.v1.6.cpclearbreachreqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_change_req_message = ProtoField.new("Cp Duplicate Order Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpduplicateorderthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_state_message = ProtoField.new("Cp Duplicate Order Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpduplicateorderthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_change_req_message = ProtoField.new("Cp Executed Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpexecutednotionalthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_state_message = ProtoField.new("Cp Executed Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpexecutednotionalthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_change_req_message = ProtoField.new("Cp Gross Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpgrossnotionalthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_state_message = ProtoField.new("Cp Gross Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpgrossnotionalthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_change_req_message = ProtoField.new("Cp Market Order Gross Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordergrossnotionalthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_state_message = ProtoField.new("Cp Market Order Gross Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordergrossnotionalthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_change_req_message = ProtoField.new("Cp Market Order Net Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordernetnotionalthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_state_message = ProtoField.new("Cp Market Order Net Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpmarketordernetnotionalthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_change_req_message = ProtoField.new("Cp Net Notional Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpnetnotionalthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_state_message = ProtoField.new("Cp Net Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpnetnotionalthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_change_req_message = ProtoField.new("Cp Order Rate Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cporderratethresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_state_message = ProtoField.new("Cp Order Rate Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cporderratethresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_change_req_message = ProtoField.new("Cp Percent Outstanding Contracts Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cppercentoutstandingcontractsthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_state_message = ProtoField.new("Cp Percent Outstanding Contracts Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cppercentoutstandingcontractsthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_change_req_message = ProtoField.new("Cp Total Executions Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cptotalexecutionsthresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_state_message = ProtoField.new("Cp Total Executions Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cptotalexecutionsthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_change_req_message = ProtoField.new("Cp Volume Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpvolumethresholdchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_state_message = ProtoField.new("Cp Volume Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpvolumethresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_done_message = ProtoField.new("Manual Cp Breach Trigger Done Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerdonemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_pending_message = ProtoField.new("Manual Cp Breach Trigger Pending Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerpendingmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_rej_message = ProtoField.new("Manual Cp Breach Trigger Rej Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerrejmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_req_message = ProtoField.new("Manual Cp Breach Trigger Req Message", "memx.options.riskcontrol.sbe.v1.6.manualcpbreachtriggerreqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.passive_risk_threshold_notification_message = ProtoField.new("Passive Risk Threshold Notification Message", "memx.options.riskcontrol.sbe.v1.6.passiveriskthresholdnotificationmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_done_message = ProtoField.new("Risk Settings Query Done Message", "memx.options.riskcontrol.sbe.v1.6.risksettingsquerydonemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_message = ProtoField.new("Risk Settings Query Message", "memx.options.riskcontrol.sbe.v1.6.risksettingsquerymessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_rej_message = ProtoField.new("Risk Settings Query Rej Message", "memx.options.riskcontrol.sbe.v1.6.risksettingsqueryrejmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_threshold_update_rej_message = ProtoField.new("Risk Threshold Update Rej Message", "memx.options.riskcontrol.sbe.v1.6.riskthresholdupdaterejmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_change_req_message = ProtoField.new("Single Order Allow Iso Orders Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowisoorderschangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_state_message = ProtoField.new("Single Order Allow Iso Orders State Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowisoordersstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_change_req_message = ProtoField.new("Single Order Allow Orders In Crossed Market Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowordersincrossedmarketchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_state_message = ProtoField.new("Single Order Allow Orders In Crossed Market State Message", "memx.options.riskcontrol.sbe.v1.6.singleorderallowordersincrossedmarketstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_change_req_message = ProtoField.new("Single Order Max Contracts Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxcontractschangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_threshold_state_message = ProtoField.new("Single Order Max Contracts Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxcontractsthresholdstatemessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_change_req_message = ProtoField.new("Single Order Max Notional Change Req Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxnotionalchangereqmessage", ftypes.STRING)
+omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_threshold_state_message = ProtoField.new("Single Order Max Notional Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.singleordermaxnotionalthresholdstatemessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -229,360 +229,360 @@ show.data = false
 show.payload = false
 
 -- Register Memx Options RiskControl Sbe 1.6 Show Options
-memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledge_rej_message = Pref.bool("Show Active Risk Acknowledge Rej Message", show.active_risk_acknowledge_rej_message, "Parse and add Active Risk Acknowledge Rej Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledged_message = Pref.bool("Show Active Risk Acknowledged Message", show.active_risk_acknowledged_message, "Parse and add Active Risk Acknowledged Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledgement_req_message = Pref.bool("Show Active Risk Acknowledgement Req Message", show.active_risk_acknowledgement_req_message, "Parse and add Active Risk Acknowledgement Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_quantity_update_notification_message = Pref.bool("Show Active Risk Quantity Update Notification Message", show.active_risk_quantity_update_notification_message, "Parse and add Active Risk Quantity Update Notification Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_rej_message = Pref.bool("Show Active Risk Threshold Change Rej Message", show.active_risk_threshold_change_rej_message, "Parse and add Active Risk Threshold Change Rej Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_req_message = Pref.bool("Show Active Risk Threshold Change Req Message", show.active_risk_threshold_change_req_message, "Parse and add Active Risk Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_state_message = Pref.bool("Show Active Risk Threshold State Message", show.active_risk_threshold_state_message, "Parse and add Active Risk Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_clear_rej_message = Pref.bool("Show Breach Clear Rej Message", show.breach_clear_rej_message, "Parse and add Breach Clear Rej Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_cleared_message = Pref.bool("Show Breach Cleared Message", show.breach_cleared_message, "Parse and add Breach Cleared Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_change_req_message = Pref.bool("Show Cp Breach Count Threshold Change Req Message", show.cp_breach_count_threshold_change_req_message, "Parse and add Cp Breach Count Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_state_message = Pref.bool("Show Cp Breach Count Threshold State Message", show.cp_breach_count_threshold_state_message, "Parse and add Cp Breach Count Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_clear_breach_req_message = Pref.bool("Show Cp Clear Breach Req Message", show.cp_clear_breach_req_message, "Parse and add Cp Clear Breach Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_change_req_message = Pref.bool("Show Cp Duplicate Order Threshold Change Req Message", show.cp_duplicate_order_threshold_change_req_message, "Parse and add Cp Duplicate Order Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_state_message = Pref.bool("Show Cp Duplicate Order Threshold State Message", show.cp_duplicate_order_threshold_state_message, "Parse and add Cp Duplicate Order Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_change_req_message = Pref.bool("Show Cp Executed Notional Threshold Change Req Message", show.cp_executed_notional_threshold_change_req_message, "Parse and add Cp Executed Notional Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_state_message = Pref.bool("Show Cp Executed Notional Threshold State Message", show.cp_executed_notional_threshold_state_message, "Parse and add Cp Executed Notional Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_change_req_message = Pref.bool("Show Cp Gross Notional Threshold Change Req Message", show.cp_gross_notional_threshold_change_req_message, "Parse and add Cp Gross Notional Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_state_message = Pref.bool("Show Cp Gross Notional Threshold State Message", show.cp_gross_notional_threshold_state_message, "Parse and add Cp Gross Notional Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_change_req_message = Pref.bool("Show Cp Market Order Gross Notional Threshold Change Req Message", show.cp_market_order_gross_notional_threshold_change_req_message, "Parse and add Cp Market Order Gross Notional Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_state_message = Pref.bool("Show Cp Market Order Gross Notional Threshold State Message", show.cp_market_order_gross_notional_threshold_state_message, "Parse and add Cp Market Order Gross Notional Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_change_req_message = Pref.bool("Show Cp Market Order Net Notional Threshold Change Req Message", show.cp_market_order_net_notional_threshold_change_req_message, "Parse and add Cp Market Order Net Notional Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_state_message = Pref.bool("Show Cp Market Order Net Notional Threshold State Message", show.cp_market_order_net_notional_threshold_state_message, "Parse and add Cp Market Order Net Notional Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_change_req_message = Pref.bool("Show Cp Net Notional Threshold Change Req Message", show.cp_net_notional_threshold_change_req_message, "Parse and add Cp Net Notional Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_state_message = Pref.bool("Show Cp Net Notional Threshold State Message", show.cp_net_notional_threshold_state_message, "Parse and add Cp Net Notional Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_change_req_message = Pref.bool("Show Cp Order Rate Threshold Change Req Message", show.cp_order_rate_threshold_change_req_message, "Parse and add Cp Order Rate Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_state_message = Pref.bool("Show Cp Order Rate Threshold State Message", show.cp_order_rate_threshold_state_message, "Parse and add Cp Order Rate Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_change_req_message = Pref.bool("Show Cp Percent Outstanding Contracts Threshold Change Req Message", show.cp_percent_outstanding_contracts_threshold_change_req_message, "Parse and add Cp Percent Outstanding Contracts Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_state_message = Pref.bool("Show Cp Percent Outstanding Contracts Threshold State Message", show.cp_percent_outstanding_contracts_threshold_state_message, "Parse and add Cp Percent Outstanding Contracts Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_change_req_message = Pref.bool("Show Cp Total Executions Threshold Change Req Message", show.cp_total_executions_threshold_change_req_message, "Parse and add Cp Total Executions Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_state_message = Pref.bool("Show Cp Total Executions Threshold State Message", show.cp_total_executions_threshold_state_message, "Parse and add Cp Total Executions Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_change_req_message = Pref.bool("Show Cp Volume Threshold Change Req Message", show.cp_volume_threshold_change_req_message, "Parse and add Cp Volume Threshold Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_state_message = Pref.bool("Show Cp Volume Threshold State Message", show.cp_volume_threshold_state_message, "Parse and add Cp Volume Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_done_message = Pref.bool("Show Manual Cp Breach Trigger Done Message", show.manual_cp_breach_trigger_done_message, "Parse and add Manual Cp Breach Trigger Done Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_pending_message = Pref.bool("Show Manual Cp Breach Trigger Pending Message", show.manual_cp_breach_trigger_pending_message, "Parse and add Manual Cp Breach Trigger Pending Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_rej_message = Pref.bool("Show Manual Cp Breach Trigger Rej Message", show.manual_cp_breach_trigger_rej_message, "Parse and add Manual Cp Breach Trigger Rej Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_req_message = Pref.bool("Show Manual Cp Breach Trigger Req Message", show.manual_cp_breach_trigger_req_message, "Parse and add Manual Cp Breach Trigger Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_passive_risk_threshold_notification_message = Pref.bool("Show Passive Risk Threshold Notification Message", show.passive_risk_threshold_notification_message, "Parse and add Passive Risk Threshold Notification Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_done_message = Pref.bool("Show Risk Settings Query Done Message", show.risk_settings_query_done_message, "Parse and add Risk Settings Query Done Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_message = Pref.bool("Show Risk Settings Query Message", show.risk_settings_query_message, "Parse and add Risk Settings Query Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_rej_message = Pref.bool("Show Risk Settings Query Rej Message", show.risk_settings_query_rej_message, "Parse and add Risk Settings Query Rej Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_threshold_update_rej_message = Pref.bool("Show Risk Threshold Update Rej Message", show.risk_threshold_update_rej_message, "Parse and add Risk Threshold Update Rej Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_change_req_message = Pref.bool("Show Single Order Allow Iso Orders Change Req Message", show.single_order_allow_iso_orders_change_req_message, "Parse and add Single Order Allow Iso Orders Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_state_message = Pref.bool("Show Single Order Allow Iso Orders State Message", show.single_order_allow_iso_orders_state_message, "Parse and add Single Order Allow Iso Orders State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_change_req_message = Pref.bool("Show Single Order Allow Orders In Crossed Market Change Req Message", show.single_order_allow_orders_in_crossed_market_change_req_message, "Parse and add Single Order Allow Orders In Crossed Market Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_state_message = Pref.bool("Show Single Order Allow Orders In Crossed Market State Message", show.single_order_allow_orders_in_crossed_market_state_message, "Parse and add Single Order Allow Orders In Crossed Market State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_change_req_message = Pref.bool("Show Single Order Max Contracts Change Req Message", show.single_order_max_contracts_change_req_message, "Parse and add Single Order Max Contracts Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_threshold_state_message = Pref.bool("Show Single Order Max Contracts Threshold State Message", show.single_order_max_contracts_threshold_state_message, "Parse and add Single Order Max Contracts Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_change_req_message = Pref.bool("Show Single Order Max Notional Change Req Message", show.single_order_max_notional_change_req_message, "Parse and add Single Order Max Notional Change Req Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_threshold_state_message = Pref.bool("Show Single Order Max Notional Threshold State Message", show.single_order_max_notional_threshold_state_message, "Parse and add Single Order Max Notional Threshold State Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-memx_options_riskcontrol_sbe_v1_6.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledge_rej_message = Pref.bool("Show Active Risk Acknowledge Rej Message", show.active_risk_acknowledge_rej_message, "Parse and add Active Risk Acknowledge Rej Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledged_message = Pref.bool("Show Active Risk Acknowledged Message", show.active_risk_acknowledged_message, "Parse and add Active Risk Acknowledged Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledgement_req_message = Pref.bool("Show Active Risk Acknowledgement Req Message", show.active_risk_acknowledgement_req_message, "Parse and add Active Risk Acknowledgement Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_quantity_update_notification_message = Pref.bool("Show Active Risk Quantity Update Notification Message", show.active_risk_quantity_update_notification_message, "Parse and add Active Risk Quantity Update Notification Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_rej_message = Pref.bool("Show Active Risk Threshold Change Rej Message", show.active_risk_threshold_change_rej_message, "Parse and add Active Risk Threshold Change Rej Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_req_message = Pref.bool("Show Active Risk Threshold Change Req Message", show.active_risk_threshold_change_req_message, "Parse and add Active Risk Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_state_message = Pref.bool("Show Active Risk Threshold State Message", show.active_risk_threshold_state_message, "Parse and add Active Risk Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_clear_rej_message = Pref.bool("Show Breach Clear Rej Message", show.breach_clear_rej_message, "Parse and add Breach Clear Rej Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_cleared_message = Pref.bool("Show Breach Cleared Message", show.breach_cleared_message, "Parse and add Breach Cleared Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_change_req_message = Pref.bool("Show Cp Breach Count Threshold Change Req Message", show.cp_breach_count_threshold_change_req_message, "Parse and add Cp Breach Count Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_state_message = Pref.bool("Show Cp Breach Count Threshold State Message", show.cp_breach_count_threshold_state_message, "Parse and add Cp Breach Count Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_clear_breach_req_message = Pref.bool("Show Cp Clear Breach Req Message", show.cp_clear_breach_req_message, "Parse and add Cp Clear Breach Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_change_req_message = Pref.bool("Show Cp Duplicate Order Threshold Change Req Message", show.cp_duplicate_order_threshold_change_req_message, "Parse and add Cp Duplicate Order Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_state_message = Pref.bool("Show Cp Duplicate Order Threshold State Message", show.cp_duplicate_order_threshold_state_message, "Parse and add Cp Duplicate Order Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_change_req_message = Pref.bool("Show Cp Executed Notional Threshold Change Req Message", show.cp_executed_notional_threshold_change_req_message, "Parse and add Cp Executed Notional Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_state_message = Pref.bool("Show Cp Executed Notional Threshold State Message", show.cp_executed_notional_threshold_state_message, "Parse and add Cp Executed Notional Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_change_req_message = Pref.bool("Show Cp Gross Notional Threshold Change Req Message", show.cp_gross_notional_threshold_change_req_message, "Parse and add Cp Gross Notional Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_state_message = Pref.bool("Show Cp Gross Notional Threshold State Message", show.cp_gross_notional_threshold_state_message, "Parse and add Cp Gross Notional Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_change_req_message = Pref.bool("Show Cp Market Order Gross Notional Threshold Change Req Message", show.cp_market_order_gross_notional_threshold_change_req_message, "Parse and add Cp Market Order Gross Notional Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_state_message = Pref.bool("Show Cp Market Order Gross Notional Threshold State Message", show.cp_market_order_gross_notional_threshold_state_message, "Parse and add Cp Market Order Gross Notional Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_change_req_message = Pref.bool("Show Cp Market Order Net Notional Threshold Change Req Message", show.cp_market_order_net_notional_threshold_change_req_message, "Parse and add Cp Market Order Net Notional Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_state_message = Pref.bool("Show Cp Market Order Net Notional Threshold State Message", show.cp_market_order_net_notional_threshold_state_message, "Parse and add Cp Market Order Net Notional Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_change_req_message = Pref.bool("Show Cp Net Notional Threshold Change Req Message", show.cp_net_notional_threshold_change_req_message, "Parse and add Cp Net Notional Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_state_message = Pref.bool("Show Cp Net Notional Threshold State Message", show.cp_net_notional_threshold_state_message, "Parse and add Cp Net Notional Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_change_req_message = Pref.bool("Show Cp Order Rate Threshold Change Req Message", show.cp_order_rate_threshold_change_req_message, "Parse and add Cp Order Rate Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_state_message = Pref.bool("Show Cp Order Rate Threshold State Message", show.cp_order_rate_threshold_state_message, "Parse and add Cp Order Rate Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_change_req_message = Pref.bool("Show Cp Percent Outstanding Contracts Threshold Change Req Message", show.cp_percent_outstanding_contracts_threshold_change_req_message, "Parse and add Cp Percent Outstanding Contracts Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_state_message = Pref.bool("Show Cp Percent Outstanding Contracts Threshold State Message", show.cp_percent_outstanding_contracts_threshold_state_message, "Parse and add Cp Percent Outstanding Contracts Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_change_req_message = Pref.bool("Show Cp Total Executions Threshold Change Req Message", show.cp_total_executions_threshold_change_req_message, "Parse and add Cp Total Executions Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_state_message = Pref.bool("Show Cp Total Executions Threshold State Message", show.cp_total_executions_threshold_state_message, "Parse and add Cp Total Executions Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_change_req_message = Pref.bool("Show Cp Volume Threshold Change Req Message", show.cp_volume_threshold_change_req_message, "Parse and add Cp Volume Threshold Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_state_message = Pref.bool("Show Cp Volume Threshold State Message", show.cp_volume_threshold_state_message, "Parse and add Cp Volume Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_done_message = Pref.bool("Show Manual Cp Breach Trigger Done Message", show.manual_cp_breach_trigger_done_message, "Parse and add Manual Cp Breach Trigger Done Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_pending_message = Pref.bool("Show Manual Cp Breach Trigger Pending Message", show.manual_cp_breach_trigger_pending_message, "Parse and add Manual Cp Breach Trigger Pending Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_rej_message = Pref.bool("Show Manual Cp Breach Trigger Rej Message", show.manual_cp_breach_trigger_rej_message, "Parse and add Manual Cp Breach Trigger Rej Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_req_message = Pref.bool("Show Manual Cp Breach Trigger Req Message", show.manual_cp_breach_trigger_req_message, "Parse and add Manual Cp Breach Trigger Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_passive_risk_threshold_notification_message = Pref.bool("Show Passive Risk Threshold Notification Message", show.passive_risk_threshold_notification_message, "Parse and add Passive Risk Threshold Notification Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_done_message = Pref.bool("Show Risk Settings Query Done Message", show.risk_settings_query_done_message, "Parse and add Risk Settings Query Done Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_message = Pref.bool("Show Risk Settings Query Message", show.risk_settings_query_message, "Parse and add Risk Settings Query Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_rej_message = Pref.bool("Show Risk Settings Query Rej Message", show.risk_settings_query_rej_message, "Parse and add Risk Settings Query Rej Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_threshold_update_rej_message = Pref.bool("Show Risk Threshold Update Rej Message", show.risk_threshold_update_rej_message, "Parse and add Risk Threshold Update Rej Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_change_req_message = Pref.bool("Show Single Order Allow Iso Orders Change Req Message", show.single_order_allow_iso_orders_change_req_message, "Parse and add Single Order Allow Iso Orders Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_state_message = Pref.bool("Show Single Order Allow Iso Orders State Message", show.single_order_allow_iso_orders_state_message, "Parse and add Single Order Allow Iso Orders State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_change_req_message = Pref.bool("Show Single Order Allow Orders In Crossed Market Change Req Message", show.single_order_allow_orders_in_crossed_market_change_req_message, "Parse and add Single Order Allow Orders In Crossed Market Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_state_message = Pref.bool("Show Single Order Allow Orders In Crossed Market State Message", show.single_order_allow_orders_in_crossed_market_state_message, "Parse and add Single Order Allow Orders In Crossed Market State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_change_req_message = Pref.bool("Show Single Order Max Contracts Change Req Message", show.single_order_max_contracts_change_req_message, "Parse and add Single Order Max Contracts Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_threshold_state_message = Pref.bool("Show Single Order Max Contracts Threshold State Message", show.single_order_max_contracts_threshold_state_message, "Parse and add Single Order Max Contracts Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_change_req_message = Pref.bool("Show Single Order Max Notional Change Req Message", show.single_order_max_notional_change_req_message, "Parse and add Single Order Max Notional Change Req Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_threshold_state_message = Pref.bool("Show Single Order Max Notional Threshold State Message", show.single_order_max_notional_threshold_state_message, "Parse and add Single Order Max Notional Threshold State Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function memx_options_riskcontrol_sbe_v1_6.prefs_changed()
+function omi_memx_options_riskcontrol_sbe_v1_6.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.active_risk_acknowledge_rej_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledge_rej_message then
-    show.active_risk_acknowledge_rej_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledge_rej_message
+  if show.active_risk_acknowledge_rej_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledge_rej_message then
+    show.active_risk_acknowledge_rej_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledge_rej_message
     changed = true
   end
-  if show.active_risk_acknowledged_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledged_message then
-    show.active_risk_acknowledged_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledged_message
+  if show.active_risk_acknowledged_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledged_message then
+    show.active_risk_acknowledged_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledged_message
     changed = true
   end
-  if show.active_risk_acknowledgement_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledgement_req_message then
-    show.active_risk_acknowledgement_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledgement_req_message
+  if show.active_risk_acknowledgement_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledgement_req_message then
+    show.active_risk_acknowledgement_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_acknowledgement_req_message
     changed = true
   end
-  if show.active_risk_quantity_update_notification_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_quantity_update_notification_message then
-    show.active_risk_quantity_update_notification_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_quantity_update_notification_message
+  if show.active_risk_quantity_update_notification_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_quantity_update_notification_message then
+    show.active_risk_quantity_update_notification_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_quantity_update_notification_message
     changed = true
   end
-  if show.active_risk_threshold_change_rej_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_rej_message then
-    show.active_risk_threshold_change_rej_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_rej_message
+  if show.active_risk_threshold_change_rej_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_rej_message then
+    show.active_risk_threshold_change_rej_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_rej_message
     changed = true
   end
-  if show.active_risk_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_req_message then
-    show.active_risk_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_req_message
+  if show.active_risk_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_req_message then
+    show.active_risk_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_change_req_message
     changed = true
   end
-  if show.active_risk_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_state_message then
-    show.active_risk_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_state_message
+  if show.active_risk_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_state_message then
+    show.active_risk_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_active_risk_threshold_state_message
     changed = true
   end
-  if show.breach_clear_rej_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_clear_rej_message then
-    show.breach_clear_rej_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_clear_rej_message
+  if show.breach_clear_rej_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_clear_rej_message then
+    show.breach_clear_rej_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_clear_rej_message
     changed = true
   end
-  if show.breach_cleared_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_cleared_message then
-    show.breach_cleared_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_cleared_message
+  if show.breach_cleared_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_cleared_message then
+    show.breach_cleared_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_breach_cleared_message
     changed = true
   end
-  if show.common_header ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_common_header then
-    show.common_header = memx_options_riskcontrol_sbe_v1_6.prefs.show_common_header
+  if show.common_header ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_common_header then
+    show.common_header = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_common_header
     changed = true
   end
-  if show.cp_breach_count_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_change_req_message then
-    show.cp_breach_count_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_change_req_message
+  if show.cp_breach_count_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_change_req_message then
+    show.cp_breach_count_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_change_req_message
     changed = true
   end
-  if show.cp_breach_count_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_state_message then
-    show.cp_breach_count_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_state_message
+  if show.cp_breach_count_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_state_message then
+    show.cp_breach_count_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_breach_count_threshold_state_message
     changed = true
   end
-  if show.cp_clear_breach_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_clear_breach_req_message then
-    show.cp_clear_breach_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_clear_breach_req_message
+  if show.cp_clear_breach_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_clear_breach_req_message then
+    show.cp_clear_breach_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_clear_breach_req_message
     changed = true
   end
-  if show.cp_duplicate_order_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_change_req_message then
-    show.cp_duplicate_order_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_change_req_message
+  if show.cp_duplicate_order_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_change_req_message then
+    show.cp_duplicate_order_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_change_req_message
     changed = true
   end
-  if show.cp_duplicate_order_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_state_message then
-    show.cp_duplicate_order_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_state_message
+  if show.cp_duplicate_order_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_state_message then
+    show.cp_duplicate_order_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_duplicate_order_threshold_state_message
     changed = true
   end
-  if show.cp_executed_notional_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_change_req_message then
-    show.cp_executed_notional_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_change_req_message
+  if show.cp_executed_notional_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_change_req_message then
+    show.cp_executed_notional_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_change_req_message
     changed = true
   end
-  if show.cp_executed_notional_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_state_message then
-    show.cp_executed_notional_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_state_message
+  if show.cp_executed_notional_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_state_message then
+    show.cp_executed_notional_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_executed_notional_threshold_state_message
     changed = true
   end
-  if show.cp_gross_notional_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_change_req_message then
-    show.cp_gross_notional_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_change_req_message
+  if show.cp_gross_notional_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_change_req_message then
+    show.cp_gross_notional_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_change_req_message
     changed = true
   end
-  if show.cp_gross_notional_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_state_message then
-    show.cp_gross_notional_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_state_message
+  if show.cp_gross_notional_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_state_message then
+    show.cp_gross_notional_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_gross_notional_threshold_state_message
     changed = true
   end
-  if show.cp_market_order_gross_notional_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_change_req_message then
-    show.cp_market_order_gross_notional_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_change_req_message
+  if show.cp_market_order_gross_notional_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_change_req_message then
+    show.cp_market_order_gross_notional_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_change_req_message
     changed = true
   end
-  if show.cp_market_order_gross_notional_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_state_message then
-    show.cp_market_order_gross_notional_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_state_message
+  if show.cp_market_order_gross_notional_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_state_message then
+    show.cp_market_order_gross_notional_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_gross_notional_threshold_state_message
     changed = true
   end
-  if show.cp_market_order_net_notional_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_change_req_message then
-    show.cp_market_order_net_notional_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_change_req_message
+  if show.cp_market_order_net_notional_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_change_req_message then
+    show.cp_market_order_net_notional_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_change_req_message
     changed = true
   end
-  if show.cp_market_order_net_notional_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_state_message then
-    show.cp_market_order_net_notional_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_state_message
+  if show.cp_market_order_net_notional_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_state_message then
+    show.cp_market_order_net_notional_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_market_order_net_notional_threshold_state_message
     changed = true
   end
-  if show.cp_net_notional_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_change_req_message then
-    show.cp_net_notional_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_change_req_message
+  if show.cp_net_notional_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_change_req_message then
+    show.cp_net_notional_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_change_req_message
     changed = true
   end
-  if show.cp_net_notional_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_state_message then
-    show.cp_net_notional_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_state_message
+  if show.cp_net_notional_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_state_message then
+    show.cp_net_notional_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_net_notional_threshold_state_message
     changed = true
   end
-  if show.cp_order_rate_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_change_req_message then
-    show.cp_order_rate_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_change_req_message
+  if show.cp_order_rate_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_change_req_message then
+    show.cp_order_rate_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_change_req_message
     changed = true
   end
-  if show.cp_order_rate_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_state_message then
-    show.cp_order_rate_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_state_message
+  if show.cp_order_rate_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_state_message then
+    show.cp_order_rate_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_order_rate_threshold_state_message
     changed = true
   end
-  if show.cp_percent_outstanding_contracts_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_change_req_message then
-    show.cp_percent_outstanding_contracts_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_change_req_message
+  if show.cp_percent_outstanding_contracts_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_change_req_message then
+    show.cp_percent_outstanding_contracts_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_change_req_message
     changed = true
   end
-  if show.cp_percent_outstanding_contracts_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_state_message then
-    show.cp_percent_outstanding_contracts_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_state_message
+  if show.cp_percent_outstanding_contracts_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_state_message then
+    show.cp_percent_outstanding_contracts_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_percent_outstanding_contracts_threshold_state_message
     changed = true
   end
-  if show.cp_total_executions_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_change_req_message then
-    show.cp_total_executions_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_change_req_message
+  if show.cp_total_executions_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_change_req_message then
+    show.cp_total_executions_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_change_req_message
     changed = true
   end
-  if show.cp_total_executions_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_state_message then
-    show.cp_total_executions_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_state_message
+  if show.cp_total_executions_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_state_message then
+    show.cp_total_executions_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_total_executions_threshold_state_message
     changed = true
   end
-  if show.cp_volume_threshold_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_change_req_message then
-    show.cp_volume_threshold_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_change_req_message
+  if show.cp_volume_threshold_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_change_req_message then
+    show.cp_volume_threshold_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_change_req_message
     changed = true
   end
-  if show.cp_volume_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_state_message then
-    show.cp_volume_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_state_message
+  if show.cp_volume_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_state_message then
+    show.cp_volume_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_cp_volume_threshold_state_message
     changed = true
   end
-  if show.login_accepted_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_login_accepted_message then
-    show.login_accepted_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_login_accepted_message
+  if show.login_accepted_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_accepted_message then
+    show.login_accepted_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_accepted_message
     changed = true
   end
-  if show.login_rejected_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_login_rejected_message then
-    show.login_rejected_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_login_rejected_message
+  if show.login_rejected_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_rejected_message then
+    show.login_rejected_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_rejected_message
     changed = true
   end
-  if show.login_request_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_login_request_message then
-    show.login_request_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_login_request_message
+  if show.login_request_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_request_message then
+    show.login_request_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_login_request_message
     changed = true
   end
-  if show.manual_cp_breach_trigger_done_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_done_message then
-    show.manual_cp_breach_trigger_done_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_done_message
+  if show.manual_cp_breach_trigger_done_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_done_message then
+    show.manual_cp_breach_trigger_done_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_done_message
     changed = true
   end
-  if show.manual_cp_breach_trigger_pending_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_pending_message then
-    show.manual_cp_breach_trigger_pending_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_pending_message
+  if show.manual_cp_breach_trigger_pending_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_pending_message then
+    show.manual_cp_breach_trigger_pending_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_pending_message
     changed = true
   end
-  if show.manual_cp_breach_trigger_rej_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_rej_message then
-    show.manual_cp_breach_trigger_rej_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_rej_message
+  if show.manual_cp_breach_trigger_rej_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_rej_message then
+    show.manual_cp_breach_trigger_rej_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_rej_message
     changed = true
   end
-  if show.manual_cp_breach_trigger_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_req_message then
-    show.manual_cp_breach_trigger_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_req_message
+  if show.manual_cp_breach_trigger_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_req_message then
+    show.manual_cp_breach_trigger_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_manual_cp_breach_trigger_req_message
     changed = true
   end
-  if show.packet ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_packet then
-    show.packet = memx_options_riskcontrol_sbe_v1_6.prefs.show_packet
+  if show.packet ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_packet then
+    show.packet = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_packet
     changed = true
   end
-  if show.passive_risk_threshold_notification_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_passive_risk_threshold_notification_message then
-    show.passive_risk_threshold_notification_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_passive_risk_threshold_notification_message
+  if show.passive_risk_threshold_notification_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_passive_risk_threshold_notification_message then
+    show.passive_risk_threshold_notification_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_passive_risk_threshold_notification_message
     changed = true
   end
-  if show.replay_all_request_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_all_request_message then
-    show.replay_all_request_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_all_request_message
+  if show.replay_all_request_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_all_request_message then
+    show.replay_all_request_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_all_request_message
     changed = true
   end
-  if show.replay_begin_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_begin_message then
-    show.replay_begin_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_begin_message
+  if show.replay_begin_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_begin_message then
+    show.replay_begin_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_begin_message
     changed = true
   end
-  if show.replay_complete_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_complete_message then
-    show.replay_complete_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_complete_message
+  if show.replay_complete_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_complete_message then
+    show.replay_complete_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_complete_message
     changed = true
   end
-  if show.replay_rejected_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_rejected_message then
-    show.replay_rejected_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_rejected_message
+  if show.replay_rejected_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_rejected_message then
+    show.replay_rejected_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_rejected_message
     changed = true
   end
-  if show.replay_request_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_request_message then
-    show.replay_request_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_request_message
+  if show.replay_request_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_request_message then
+    show.replay_request_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_replay_request_message
     changed = true
   end
-  if show.risk_settings_query_done_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_done_message then
-    show.risk_settings_query_done_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_done_message
+  if show.risk_settings_query_done_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_done_message then
+    show.risk_settings_query_done_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_done_message
     changed = true
   end
-  if show.risk_settings_query_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_message then
-    show.risk_settings_query_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_message
+  if show.risk_settings_query_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_message then
+    show.risk_settings_query_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_message
     changed = true
   end
-  if show.risk_settings_query_rej_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_rej_message then
-    show.risk_settings_query_rej_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_rej_message
+  if show.risk_settings_query_rej_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_rej_message then
+    show.risk_settings_query_rej_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_settings_query_rej_message
     changed = true
   end
-  if show.risk_threshold_update_rej_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_threshold_update_rej_message then
-    show.risk_threshold_update_rej_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_threshold_update_rej_message
+  if show.risk_threshold_update_rej_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_threshold_update_rej_message then
+    show.risk_threshold_update_rej_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_risk_threshold_update_rej_message
     changed = true
   end
-  if show.sbe_header ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_header then
-    show.sbe_header = memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_header
+  if show.sbe_header ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_header then
+    show.sbe_header = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_header
     changed = true
   end
-  if show.sbe_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_message then
-    show.sbe_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_message
+  if show.sbe_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_message then
+    show.sbe_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sbe_message
     changed = true
   end
-  if show.sequenced_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_sequenced_message then
-    show.sequenced_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sequenced_message then
+    show.sequenced_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_sequenced_message
     changed = true
   end
-  if show.single_order_allow_iso_orders_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_change_req_message then
-    show.single_order_allow_iso_orders_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_change_req_message
+  if show.single_order_allow_iso_orders_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_change_req_message then
+    show.single_order_allow_iso_orders_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_change_req_message
     changed = true
   end
-  if show.single_order_allow_iso_orders_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_state_message then
-    show.single_order_allow_iso_orders_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_state_message
+  if show.single_order_allow_iso_orders_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_state_message then
+    show.single_order_allow_iso_orders_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_iso_orders_state_message
     changed = true
   end
-  if show.single_order_allow_orders_in_crossed_market_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_change_req_message then
-    show.single_order_allow_orders_in_crossed_market_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_change_req_message
+  if show.single_order_allow_orders_in_crossed_market_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_change_req_message then
+    show.single_order_allow_orders_in_crossed_market_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_change_req_message
     changed = true
   end
-  if show.single_order_allow_orders_in_crossed_market_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_state_message then
-    show.single_order_allow_orders_in_crossed_market_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_state_message
+  if show.single_order_allow_orders_in_crossed_market_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_state_message then
+    show.single_order_allow_orders_in_crossed_market_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_allow_orders_in_crossed_market_state_message
     changed = true
   end
-  if show.single_order_max_contracts_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_change_req_message then
-    show.single_order_max_contracts_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_change_req_message
+  if show.single_order_max_contracts_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_change_req_message then
+    show.single_order_max_contracts_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_change_req_message
     changed = true
   end
-  if show.single_order_max_contracts_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_threshold_state_message then
-    show.single_order_max_contracts_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_threshold_state_message
+  if show.single_order_max_contracts_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_threshold_state_message then
+    show.single_order_max_contracts_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_contracts_threshold_state_message
     changed = true
   end
-  if show.single_order_max_notional_change_req_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_change_req_message then
-    show.single_order_max_notional_change_req_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_change_req_message
+  if show.single_order_max_notional_change_req_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_change_req_message then
+    show.single_order_max_notional_change_req_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_change_req_message
     changed = true
   end
-  if show.single_order_max_notional_threshold_state_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_threshold_state_message then
-    show.single_order_max_notional_threshold_state_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_threshold_state_message
+  if show.single_order_max_notional_threshold_state_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_threshold_state_message then
+    show.single_order_max_notional_threshold_state_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_single_order_max_notional_threshold_state_message
     changed = true
   end
-  if show.start_of_session_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_start_of_session_message then
-    show.start_of_session_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_start_of_session_message
+  if show.start_of_session_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_start_of_session_message then
+    show.start_of_session_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_start_of_session_message
     changed = true
   end
-  if show.stream_begin_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_begin_message then
-    show.stream_begin_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_begin_message
+  if show.stream_begin_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_begin_message then
+    show.stream_begin_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_begin_message
     changed = true
   end
-  if show.stream_complete_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_complete_message then
-    show.stream_complete_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_complete_message
+  if show.stream_complete_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_complete_message then
+    show.stream_complete_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_complete_message
     changed = true
   end
-  if show.stream_rejected_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_rejected_message then
-    show.stream_rejected_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_rejected_message
+  if show.stream_rejected_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_rejected_message then
+    show.stream_rejected_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_rejected_message
     changed = true
   end
-  if show.stream_request_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_request_message then
-    show.stream_request_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_request_message
+  if show.stream_request_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_request_message then
+    show.stream_request_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_stream_request_message
     changed = true
   end
-  if show.unsequenced_message ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_unsequenced_message then
-    show.unsequenced_message = memx_options_riskcontrol_sbe_v1_6.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_unsequenced_message
     changed = true
   end
-  if show.data ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_data then
-    show.data = memx_options_riskcontrol_sbe_v1_6.prefs.show_data
+  if show.data ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_data then
+    show.data = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_data
     changed = true
   end
-  if show.payload ~= memx_options_riskcontrol_sbe_v1_6.prefs.show_payload then
-    show.payload = memx_options_riskcontrol_sbe_v1_6.prefs.show_payload
+  if show.payload ~= omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_payload then
+    show.payload = omi_memx_options_riskcontrol_sbe_v1_6.prefs.show_payload
     changed = true
   end
 
@@ -612,7 +612,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.period_in_milli_seconds = function(buf
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.period_in_milli_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.period_in_milli_seconds, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.period_in_milli_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -632,7 +632,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.max_order_msgs = function(buffer, offs
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.max_order_msgs(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.max_order_msgs, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_order_msgs, range, value, display)
 
   return offset + length, value
 end
@@ -657,7 +657,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.risk_group_id = function(buffer, offse
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.risk_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_group_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -693,7 +693,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.efid_optional = function(buffer, offse
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.efid_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.efid_optional, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.efid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -729,7 +729,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.underlier_optional = function(buffer, 
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.underlier_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.underlier_optional, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.underlier_optional, range, value, display)
 
   return offset + length, value
 end
@@ -765,7 +765,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.clordid_optional = function(buffer, of
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.clordid_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.clordid_optional, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -823,7 +823,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_order_rate_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -859,7 +859,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.use_order_price_in_dup_check = functio
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.use_order_price_in_dup_check(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check, range, value, display)
 
   return offset + length, value
 end
@@ -879,7 +879,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.max_dup_orders = function(buffer, offs
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.max_dup_orders(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.max_dup_orders, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_dup_orders, range, value, display)
 
   return offset + length, value
 end
@@ -942,7 +942,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_duplicate_order_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -971,7 +971,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.price_in_dollars = function(buffer, of
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.price_in_dollars(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.price_in_dollars, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.price_in_dollars, range, value, display)
 
   return offset + length, value
 end
@@ -1024,7 +1024,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_market_order_net_notional_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1086,7 +1086,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_net_notional_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1148,7 +1148,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_market_order_gross_notional_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1210,7 +1210,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_gross_notional_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1244,7 +1244,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.breach_id_optional = function(buffer, 
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.breach_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_id_optional, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1282,7 +1282,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.breach_cleared_message = function(buffer, offset, packet, parent)
   if show.breach_cleared_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_cleared_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_cleared_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.breach_cleared_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1462,7 +1462,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.reject_reason = function(buffer, offse
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.reject_reason, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1498,7 +1498,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.clordid = function(buffer, offset, pac
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.clordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.clordid, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -1541,7 +1541,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.breach_clear_rej_message = function(buffer, offset, packet, parent)
   if show.breach_clear_rej_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_clear_rej_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_clear_rej_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.breach_clear_rej_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1603,7 +1603,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_rej_message = function(buffer, offset, packet, parent)
   if show.manual_cp_breach_trigger_rej_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_rej_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_rej_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_rej_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1650,7 +1650,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_rej_message = function(buffer, offset, packet, parent)
   if show.risk_settings_query_rej_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_rej_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_rej_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_rej_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1679,7 +1679,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.number_msgs_sent = function(buffer, of
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.number_msgs_sent(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.number_msgs_sent, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.number_msgs_sent, range, value, display)
 
   return offset + length, value
 end
@@ -1717,7 +1717,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_done_message = function(buffer, offset, packet, parent)
   if show.risk_settings_query_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_done_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_done_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_done_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1746,7 +1746,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.max_contracts = function(buffer, offse
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.max_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.max_contracts, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -1799,7 +1799,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_threshold_state_message = function(buffer, offset, packet, parent)
   if show.single_order_max_contracts_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1828,7 +1828,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.max_notional_in_dollars = function(buf
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.max_notional_in_dollars(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.max_notional_in_dollars, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_notional_in_dollars, range, value, display)
 
   return offset + length, value
 end
@@ -1881,7 +1881,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_threshold_state_message = function(buffer, offset, packet, parent)
   if show.single_order_max_notional_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1917,7 +1917,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.allow_orders = function(buffer, offset
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.allow_orders(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.allow_orders, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_orders, range, value, display)
 
   return offset + length, value
 end
@@ -1970,7 +1970,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_state_message = function(buffer, offset, packet, parent)
   if show.single_order_allow_orders_in_crossed_market_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2006,7 +2006,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.allow_iso_orders = function(buffer, of
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.allow_iso_orders(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.allow_iso_orders, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_iso_orders, range, value, display)
 
   return offset + length, value
 end
@@ -2059,7 +2059,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_message = function(buffer, offset, packet, parent)
   if show.single_order_allow_iso_orders_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2088,7 +2088,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.transact_time = function(buffer, offse
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.transact_time, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -2108,7 +2108,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.latest_percentage = function(buffer, o
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.latest_percentage(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.latest_percentage, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.latest_percentage, range, value, display)
 
   return offset + length, value
 end
@@ -2177,7 +2177,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.rule_type = function(buffer, offset, p
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.rule_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.rule_type, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.rule_type, range, value, display)
 
   return offset + length, value
 end
@@ -2240,7 +2240,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_message = function(buffer, offset, packet, parent)
   if show.passive_risk_threshold_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.passive_risk_threshold_notification_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.passive_risk_threshold_notification_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2318,7 +2318,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.risk_type = function(buffer, offset, p
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.risk_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_type, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_type, range, value, display)
 
   return offset + length, value
 end
@@ -2361,7 +2361,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_threshold_update_rej_message = function(buffer, offset, packet, parent)
   if show.risk_threshold_update_rej_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_threshold_update_rej_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_threshold_update_rej_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_threshold_update_rej_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2390,7 +2390,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.total_affected_orders = function(buffe
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.total_affected_orders(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.total_affected_orders, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_affected_orders, range, value, display)
 
   return offset + length, value
 end
@@ -2410,7 +2410,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.breach_id = function(buffer, offset, p
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.breach_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id, range, value, display)
 
   return offset + length, value
 end
@@ -2468,7 +2468,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_done_message = function(buffer, offset, packet, parent)
   if show.manual_cp_breach_trigger_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_done_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_done_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_done_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2530,7 +2530,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_pending_message = function(buffer, offset, packet, parent)
   if show.manual_cp_breach_trigger_pending_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_pending_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_pending_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_pending_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2559,7 +2559,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.count = function(buffer, offset, packe
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.count, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -2617,7 +2617,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_breach_count_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2646,7 +2646,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.percent = function(buffer, offset, pac
   local value = range:int()
   local display = memx_options_riskcontrol_sbe_v1_6_display.percent(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.percent, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.percent, range, value, display)
 
   return offset + length, value
 end
@@ -2699,7 +2699,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_percent_outstanding_contracts_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2728,7 +2728,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.total_executions = function(buffer, of
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.total_executions(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.total_executions, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_executions, range, value, display)
 
   return offset + length, value
 end
@@ -2786,7 +2786,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_total_executions_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2853,7 +2853,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_executed_notional_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2882,7 +2882,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.volume = function(buffer, offset, pack
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.volume, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -2940,7 +2940,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message = function(buffer, offset, packet, parent)
   if show.cp_volume_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2969,7 +2969,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.unacked_quantity = function(buffer, of
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.unacked_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.unacked_quantity, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.unacked_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2989,7 +2989,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.last_qty = function(buffer, offset, pa
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.last_qty, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3015,7 +3015,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.last_px = function(buffer, offset, pac
   local value = translate.last_px(raw)
   local display = memx_options_riskcontrol_sbe_v1_6_display.last_px(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.last_px, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -3055,7 +3055,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.side = function(buffer, offset, packet
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.side, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -3091,7 +3091,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.option_security_id = function(buffer, 
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.option_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.option_security_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.option_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -3127,7 +3127,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.underlier = function(buffer, offset, p
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.underlier(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.underlier, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.underlier, range, value, display)
 
   return offset + length, value
 end
@@ -3163,7 +3163,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.efid = function(buffer, offset, packet
 
   local display = memx_options_riskcontrol_sbe_v1_6_display.efid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.efid, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.efid, range, value, display)
 
   return offset + length, value
 end
@@ -3183,7 +3183,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.trd_match_id = function(buffer, offset
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.trd_match_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.trd_match_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.trd_match_id, range, value, display)
 
   return offset + length, value
 end
@@ -3203,7 +3203,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.order_id = function(buffer, offset, pa
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.order_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3223,7 +3223,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.sending_time = function(buffer, offset
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.sending_time, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -3306,7 +3306,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notification_message = function(buffer, offset, packet, parent)
   if show.active_risk_quantity_update_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_quantity_update_notification_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_quantity_update_notification_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3335,7 +3335,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.threshold_quantity = function(buffer, 
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.threshold_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.threshold_quantity, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.threshold_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -3388,7 +3388,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledge_rej_message = function(buffer, offset, packet, parent)
   if show.active_risk_acknowledge_rej_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledge_rej_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledge_rej_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledge_rej_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3417,7 +3417,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.quantity = function(buffer, offset, pa
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.quantity, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -3470,7 +3470,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledged_message = function(buffer, offset, packet, parent)
   if show.active_risk_acknowledged_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledged_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledged_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledged_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3532,7 +3532,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_rej_message = function(buffer, offset, packet, parent)
   if show.active_risk_threshold_change_rej_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_rej_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_rej_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_rej_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3594,7 +3594,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_state_message = function(buffer, offset, packet, parent)
   if show.active_risk_threshold_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_state_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_state_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3661,7 +3661,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_order_rate_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3700,7 +3700,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.use_order_price_in_dup_check_optional 
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.use_order_price_in_dup_check_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check_optional, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3763,7 +3763,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_duplicate_order_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3825,7 +3825,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_market_order_net_notional_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3887,7 +3887,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_net_notional_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3949,7 +3949,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_market_order_gross_notional_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4011,7 +4011,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_gross_notional_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4073,7 +4073,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_change_req_message = function(buffer, offset, packet, parent)
   if show.single_order_max_contracts_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4135,7 +4135,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_change_req_message = function(buffer, offset, packet, parent)
   if show.single_order_max_notional_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4197,7 +4197,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_change_req_message = function(buffer, offset, packet, parent)
   if show.single_order_allow_orders_in_crossed_market_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4259,7 +4259,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_change_req_message = function(buffer, offset, packet, parent)
   if show.single_order_allow_iso_orders_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4306,7 +4306,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_clear_breach_req_message = function(buffer, offset, packet, parent)
   if show.cp_clear_breach_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_clear_breach_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_clear_breach_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_clear_breach_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4345,7 +4345,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.send_cancels = function(buffer, offset
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.send_cancels(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.send_cancels, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.send_cancels, range, value, display)
 
   return offset + length, value
 end
@@ -4398,7 +4398,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_req_message = function(buffer, offset, packet, parent)
   if show.manual_cp_breach_trigger_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4465,7 +4465,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_breach_count_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4527,7 +4527,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_percent_outstanding_contracts_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4594,7 +4594,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_total_executions_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4661,7 +4661,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_executed_notional_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4728,7 +4728,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.cp_volume_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4785,7 +4785,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledgement_req_message = function(buffer, offset, packet, parent)
   if show.active_risk_acknowledgement_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledgement_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledgement_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledgement_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4842,7 +4842,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_req_message = function(buffer, offset, packet, parent)
   if show.active_risk_threshold_change_req_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_req_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_req_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_req_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4884,7 +4884,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_message = function(buffer, offset, packet, parent)
   if show.risk_settings_query_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5322,7 +5322,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.payload = function(buffer, offset, pac
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_options_riskcontrol_sbe_v1_6_display.payload(buffer, packet, parent)
-  local element = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.payload, range, display)
+  local element = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.payload, range, display)
 
   return memx_options_riskcontrol_sbe_v1_6_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -5342,7 +5342,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.version = function(buffer, offset, pac
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.version, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -5362,7 +5362,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.schema_id = function(buffer, offset, p
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.schema_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -5530,7 +5530,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.template_id = function(buffer, offset,
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.template_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -5550,7 +5550,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.block_length = function(buffer, offset
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.block_length, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -5598,7 +5598,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.sbe_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.sbe_header, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5654,7 +5654,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.sbe_message = function(buffer, offset,
     local length = memx_options_riskcontrol_sbe_v1_6_size_of.sbe_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_riskcontrol_sbe_v1_6_display.sbe_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.sbe_message, range, display)
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.sbe_message, range, display)
   end
 
   return memx_options_riskcontrol_sbe_v1_6_dissect.sbe_message_fields(buffer, offset, packet, parent)
@@ -5691,7 +5691,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.sequenced_message = function(buffer, o
     local length = memx_options_riskcontrol_sbe_v1_6_size_of.sequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_riskcontrol_sbe_v1_6_display.sequenced_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.sequenced_message, range, display)
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.sequenced_message, range, display)
   end
 
   return memx_options_riskcontrol_sbe_v1_6_dissect.sequenced_message_fields(buffer, offset, packet, parent)
@@ -5712,7 +5712,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.total_sequence_count = function(buffer
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.total_sequence_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.total_sequence_count, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_sequence_count, range, value, display)
 
   return offset + length, value
 end
@@ -5745,7 +5745,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_complete_message = function(buffer, offset, packet, parent)
   if show.stream_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_complete_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5784,7 +5784,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.stream_reject_code = function(buffer, 
   local value = range:string()
   local display = memx_options_riskcontrol_sbe_v1_6_display.stream_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_reject_code, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -5817,7 +5817,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
   if show.stream_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_rejected_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5846,7 +5846,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.next_sequence_number = function(buffer
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.next_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.next_sequence_number, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.next_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -5884,7 +5884,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_begin_message = function(buffer, offset, packet, parent)
   if show.stream_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_begin_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_begin_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5913,7 +5913,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.message_count = function(buffer, offse
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.message_count, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -5946,7 +5946,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_complete_message = function(buffer, offset, packet, parent)
   if show.replay_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_complete_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5988,7 +5988,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.replay_reject_code = function(buffer, 
   local value = range:string()
   local display = memx_options_riskcontrol_sbe_v1_6_display.replay_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_reject_code, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -6021,7 +6021,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
   if show.replay_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_rejected_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6050,7 +6050,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.pending_message_count = function(buffe
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.pending_message_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.pending_message_count, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.pending_message_count, range, value, display)
 
   return offset + length, value
 end
@@ -6088,7 +6088,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_begin_message = function(buffer, offset, packet, parent)
   if show.replay_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_begin_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_begin_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6117,7 +6117,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.session_id = function(buffer, offset, 
   local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_6_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.session_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -6150,7 +6150,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.start_of_session_message = function(buffer, offset, packet, parent)
   if show.start_of_session_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.start_of_session_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.start_of_session_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6192,7 +6192,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.login_reject_code = function(buffer, o
   local value = range:string()
   local display = memx_options_riskcontrol_sbe_v1_6_display.login_reject_code(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_reject_code, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.login_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -6225,7 +6225,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.login_rejected_message = function(buffer, offset, packet, parent)
   if show.login_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_rejected_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.login_rejected_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6264,7 +6264,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.supported_request_mode = function(buff
   local value = range:string()
   local display = memx_options_riskcontrol_sbe_v1_6_display.supported_request_mode(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.supported_request_mode, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.supported_request_mode, range, value, display)
 
   return offset + length, value
 end
@@ -6297,7 +6297,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.login_accepted_message = function(buffer, offset, packet, parent)
   if show.login_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_accepted_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.login_accepted_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6342,7 +6342,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.unsequenced_message = function(buffer,
     local length = memx_options_riskcontrol_sbe_v1_6_size_of.unsequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_options_riskcontrol_sbe_v1_6_display.unsequenced_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.unsequenced_message, range, display)
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.unsequenced_message, range, display)
   end
 
   return memx_options_riskcontrol_sbe_v1_6_dissect.unsequenced_message_fields(buffer, offset, packet, parent)
@@ -6381,7 +6381,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_request_message = function(buffer, offset, packet, parent)
   if show.stream_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_request_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6423,7 +6423,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
   if show.replay_all_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_all_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_all_request_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6475,7 +6475,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_request_message = function(buffer, offset, packet, parent)
   if show.replay_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_request_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6504,7 +6504,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.token = function(buffer, offset, packe
   local value = range:string()
   local display = memx_options_riskcontrol_sbe_v1_6_display.token(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.token, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.token, range, value, display)
 
   return offset + length, value
 end
@@ -6524,7 +6524,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.token_type = function(buffer, offset, 
   local value = range:string()
   local display = memx_options_riskcontrol_sbe_v1_6_display.token_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.token_type, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.token_type, range, value, display)
 
   return offset + length, value
 end
@@ -6562,7 +6562,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.login_request_message = function(buffer, offset, packet, parent)
   if show.login_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_request_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.login_request_message, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.login_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6728,7 +6728,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.data = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_options_riskcontrol_sbe_v1_6_display.data(buffer, packet, parent)
-  local element = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.data, range, display)
+  local element = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.data, range, display)
 
   return memx_options_riskcontrol_sbe_v1_6_dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
@@ -6748,7 +6748,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.message_length = function(buffer, offs
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.message_length, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -6817,7 +6817,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.message_type = function(buffer, offset
   local value = range:uint()
   local display = memx_options_riskcontrol_sbe_v1_6_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.message_type, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -6855,7 +6855,7 @@ end
 memx_options_riskcontrol_sbe_v1_6_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.common_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.common_header, buffer(offset, 0))
     local index = memx_options_riskcontrol_sbe_v1_6_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -6891,23 +6891,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function memx_options_riskcontrol_sbe_v1_6.init()
+function omi_memx_options_riskcontrol_sbe_v1_6.init()
 end
 
 -- Dissector for Memx Options RiskControl Sbe 1.6
-function memx_options_riskcontrol_sbe_v1_6.dissector(buffer, packet, parent)
+function omi_memx_options_riskcontrol_sbe_v1_6.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = memx_options_riskcontrol_sbe_v1_6.name
+  packet.cols.protocol = omi_memx_options_riskcontrol_sbe_v1_6.name
 
   -- Dissect protocol
-  local protocol = parent:add(memx_options_riskcontrol_sbe_v1_6, buffer(), memx_options_riskcontrol_sbe_v1_6.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_memx_options_riskcontrol_sbe_v1_6, buffer(), omi_memx_options_riskcontrol_sbe_v1_6.description, "("..buffer:len().." Bytes)")
   return memx_options_riskcontrol_sbe_v1_6_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, memx_options_riskcontrol_sbe_v1_6)
+tcp_table:add(65333, omi_memx_options_riskcontrol_sbe_v1_6)
 
 
 -----------------------------------------------------------------------
@@ -6915,7 +6915,7 @@ tcp_table:add(65333, memx_options_riskcontrol_sbe_v1_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.memx_options_riskcontrol_sbe_v1_6_packet_size = function(buffer)
+verify.omi_memx_options_riskcontrol_sbe_v1_6_packet_size = function(buffer)
 
   return true
 end
@@ -6969,9 +6969,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Memx Options RiskControl Sbe 1.6
-local function memx_options_riskcontrol_sbe_v1_6_heuristic(buffer, packet, parent)
+local function omi_memx_options_riskcontrol_sbe_v1_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.memx_options_riskcontrol_sbe_v1_6_packet_size(buffer) then return false end
+  if not verify.omi_memx_options_riskcontrol_sbe_v1_6_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -6986,14 +6986,14 @@ local function memx_options_riskcontrol_sbe_v1_6_heuristic(buffer, packet, paren
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = memx_options_riskcontrol_sbe_v1_6
-  memx_options_riskcontrol_sbe_v1_6.dissector(buffer, packet, parent)
+  packet.conversation = omi_memx_options_riskcontrol_sbe_v1_6
+  omi_memx_options_riskcontrol_sbe_v1_6.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Memx Options RiskControl Sbe 1.6
-memx_options_riskcontrol_sbe_v1_6:register_heuristic("tcp", memx_options_riskcontrol_sbe_v1_6_heuristic)
+omi_memx_options_riskcontrol_sbe_v1_6:register_heuristic("tcp", omi_memx_options_riskcontrol_sbe_v1_6_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

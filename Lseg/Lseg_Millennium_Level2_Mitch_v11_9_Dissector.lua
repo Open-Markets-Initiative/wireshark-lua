@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Millennium Level2 Mitch 11.9 Protocol
-local lseg_millennium_level2_mitch_v11_9 = Proto("Lseg.Millennium.Level2.Mitch.v11.9.Lua", "Lseg Millennium Level2 Mitch 11.9")
+local omi_lseg_millennium_level2_mitch_v11_9 = Proto("Lseg.Millennium.Level2.Mitch.v11.9.Lua", "Lseg Millennium Level2 Mitch 11.9")
 
 -- Component Tables
 local show = {}
@@ -20,89 +20,89 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Lseg Millennium Level2 Mitch 11.9 Fields
-lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message = ProtoField.new("Add Attributed Order Message", "lseg.millennium.level2.mitch.v11.9.addattributedordermessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.add_order_message = ProtoField.new("Add Order Message", "lseg.millennium.level2.mitch.v11.9.addordermessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.amnd = ProtoField.new("Amnd", "lseg.millennium.level2.mitch.v11.9.amnd", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-lseg_millennium_level2_mitch_v11_9.fields.attribution = ProtoField.new("Attribution", "lseg.millennium.level2.mitch.v11.9.attribution", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.auction_info_message = ProtoField.new("Auction Info Message", "lseg.millennium.level2.mitch.v11.9.auctioninfomessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "lseg.millennium.level2.mitch.v11.9.auctiontrademessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.auction_type = ProtoField.new("Auction Type", "lseg.millennium.level2.mitch.v11.9.auctiontype", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.book_type = ProtoField.new("Book Type", "lseg.millennium.level2.mitch.v11.9.booktype", ftypes.UINT8)
-lseg_millennium_level2_mitch_v11_9.fields.buy_limit_price = ProtoField.new("Buy Limit Price", "lseg.millennium.level2.mitch.v11.9.buylimitprice", ftypes.INT64)
-lseg_millennium_level2_mitch_v11_9.fields.buy_limit_size = ProtoField.new("Buy Limit Size", "lseg.millennium.level2.mitch.v11.9.buylimitsize", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.canc = ProtoField.new("Canc", "lseg.millennium.level2.mitch.v11.9.canc", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-lseg_millennium_level2_mitch_v11_9.fields.cross_type = ProtoField.new("Cross Type", "lseg.millennium.level2.mitch.v11.9.crosstype", ftypes.UINT8)
-lseg_millennium_level2_mitch_v11_9.fields.currency = ProtoField.new("Currency", "lseg.millennium.level2.mitch.v11.9.currency", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.display_quantity = ProtoField.new("Display Quantity", "lseg.millennium.level2.mitch.v11.9.displayquantity", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.event_code = ProtoField.new("Event Code", "lseg.millennium.level2.mitch.v11.9.eventcode", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.executed_quantity = ProtoField.new("Executed Quantity", "lseg.millennium.level2.mitch.v11.9.executedquantity", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.firm_quote = ProtoField.new("Firm Quote", "lseg.millennium.level2.mitch.v11.9.firmquote", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-lseg_millennium_level2_mitch_v11_9.fields.flags = ProtoField.new("Flags", "lseg.millennium.level2.mitch.v11.9.flags", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.instrument_id = ProtoField.new("Instrument Id", "lseg.millennium.level2.mitch.v11.9.instrumentid", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.isin = ProtoField.new("Isin", "lseg.millennium.level2.mitch.v11.9.isin", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.length = ProtoField.new("Length", "lseg.millennium.level2.mitch.v11.9.length", ftypes.UINT16)
-lseg_millennium_level2_mitch_v11_9.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.level2.mitch.v11.9.marketdatagroup", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.market_order = ProtoField.new("Market Order", "lseg.millennium.level2.mitch.v11.9.marketorder", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-lseg_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lseg.millennium.level2.mitch.v11.9.message", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.message_count = ProtoField.new("Message Count", "lseg.millennium.level2.mitch.v11.9.messagecount", ftypes.UINT8)
-lseg_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.level2.mitch.v11.9.messagelength", ftypes.UINT8)
-lseg_millennium_level2_mitch_v11_9.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.level2.mitch.v11.9.messagetype", ftypes.UINT8)
-lseg_millennium_level2_mitch_v11_9.fields.nanosecond = ProtoField.new("Nanosecond", "lseg.millennium.level2.mitch.v11.9.nanosecond", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.new_end_time = ProtoField.new("New End Time", "lseg.millennium.level2.mitch.v11.9.newendtime", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.new_price = ProtoField.new("New Price", "lseg.millennium.level2.mitch.v11.9.newprice", ftypes.INT64)
-lseg_millennium_level2_mitch_v11_9.fields.new_quantity = ProtoField.new("New Quantity", "lseg.millennium.level2.mitch.v11.9.newquantity", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.open_close_price_indicator = ProtoField.new("Open Close Price Indicator", "lseg.millennium.level2.mitch.v11.9.openclosepriceindicator", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.millennium.level2.mitch.v11.9.orderbookclearmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "lseg.millennium.level2.mitch.v11.9.orderdeletedmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.order_executed_message = ProtoField.new("Order Executed Message", "lseg.millennium.level2.mitch.v11.9.orderexecutedmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message = ProtoField.new("Order Executed With Price Size Message", "lseg.millennium.level2.mitch.v11.9.orderexecutedwithpricesizemessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.order_id = ProtoField.new("Order Id", "lseg.millennium.level2.mitch.v11.9.orderid", ftypes.UINT64)
-lseg_millennium_level2_mitch_v11_9.fields.order_modified_message = ProtoField.new("Order Modified Message", "lseg.millennium.level2.mitch.v11.9.ordermodifiedmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lseg.millennium.level2.mitch.v11.9.packet", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.paired_quantity = ProtoField.new("Paired Quantity", "lseg.millennium.level2.mitch.v11.9.pairedquantity", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.payload = ProtoField.new("Payload", "lseg.millennium.level2.mitch.v11.9.payload", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.previous_close_price = ProtoField.new("Previous Close Price", "lseg.millennium.level2.mitch.v11.9.previouscloseprice", ftypes.INT64)
-lseg_millennium_level2_mitch_v11_9.fields.price = ProtoField.new("Price", "lseg.millennium.level2.mitch.v11.9.price", ftypes.INT64)
-lseg_millennium_level2_mitch_v11_9.fields.printable = ProtoField.new("Printable", "lseg.millennium.level2.mitch.v11.9.printable", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.priority_flag = ProtoField.new("Priority Flag", "lseg.millennium.level2.mitch.v11.9.priorityflag", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-lseg_millennium_level2_mitch_v11_9.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.millennium.level2.mitch.v11.9.privaterfq", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-lseg_millennium_level2_mitch_v11_9.fields.pt_mod_flags = ProtoField.new("Pt Mod Flags", "lseg.millennium.level2.mitch.v11.9.ptmodflags", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.quantity = ProtoField.new("Quantity", "lseg.millennium.level2.mitch.v11.9.quantity", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.reason = ProtoField.new("Reason", "lseg.millennium.level2.mitch.v11.9.reason", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lseg.millennium.level2.mitch.v11.9.reserveda", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.reserved_alpha = ProtoField.new("Reserved Alpha", "lseg.millennium.level2.mitch.v11.9.reservedalpha", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lseg.millennium.level2.mitch.v11.9.reservedb", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lseg.millennium.level2.mitch.v11.9.reservedbyte", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.reserved_uint_32 = ProtoField.new("Reserved Uint 32", "lseg.millennium.level2.mitch.v11.9.reserveduint32", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.level2.mitch.v11.9.seconds", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lseg.millennium.level2.mitch.v11.9.sedol", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lseg.millennium.level2.mitch.v11.9.segment", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.sell_limit_price = ProtoField.new("Sell Limit Price", "lseg.millennium.level2.mitch.v11.9.selllimitprice", ftypes.INT64)
-lseg_millennium_level2_mitch_v11_9.fields.sell_limit_size = ProtoField.new("Sell Limit Size", "lseg.millennium.level2.mitch.v11.9.selllimitsize", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.level2.mitch.v11.9.sequencenumber", ftypes.UINT32)
-lseg_millennium_level2_mitch_v11_9.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.millennium.level2.mitch.v11.9.sessionchangereason", ftypes.UINT8)
-lseg_millennium_level2_mitch_v11_9.fields.side = ProtoField.new("Side", "lseg.millennium.level2.mitch.v11.9.side", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.millennium.level2.mitch.v11.9.statistictype", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.statistics_message = ProtoField.new("Statistics Message", "lseg.millennium.level2.mitch.v11.9.statisticsmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.sub_book = ProtoField.new("Sub Book", "lseg.millennium.level2.mitch.v11.9.subbook", ftypes.UINT8)
-lseg_millennium_level2_mitch_v11_9.fields.symbol_directory_message = ProtoField.new("Symbol Directory Message", "lseg.millennium.level2.mitch.v11.9.symboldirectorymessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.symbol_status = ProtoField.new("Symbol Status", "lseg.millennium.level2.mitch.v11.9.symbolstatus", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "lseg.millennium.level2.mitch.v11.9.symbolstatusmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.system_event_message = ProtoField.new("System Event Message", "lseg.millennium.level2.mitch.v11.9.systemeventmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.time_message = ProtoField.new("Time Message", "lseg.millennium.level2.mitch.v11.9.timemessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "lseg.millennium.level2.mitch.v11.9.topofbookmessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.trade_match_id = ProtoField.new("Trade Match Id", "lseg.millennium.level2.mitch.v11.9.tradematchid", ftypes.UINT64)
-lseg_millennium_level2_mitch_v11_9.fields.trade_message = ProtoField.new("Trade Message", "lseg.millennium.level2.mitch.v11.9.trademessage", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.trading_status = ProtoField.new("Trading Status", "lseg.millennium.level2.mitch.v11.9.tradingstatus", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.underlying = ProtoField.new("Underlying", "lseg.millennium.level2.mitch.v11.9.underlying", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.level2.mitch.v11.9.unitheader", ftypes.STRING)
-lseg_millennium_level2_mitch_v11_9.fields.unused_1 = ProtoField.new("Unused 1", "lseg.millennium.level2.mitch.v11.9.unused1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-lseg_millennium_level2_mitch_v11_9.fields.unused_3 = ProtoField.new("Unused 3", "lseg.millennium.level2.mitch.v11.9.unused3", ftypes.UINT8, nil, base.DEC, 0x70)
-lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
+omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message = ProtoField.new("Add Attributed Order Message", "lseg.millennium.level2.mitch.v11.9.addattributedordermessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.add_order_message = ProtoField.new("Add Order Message", "lseg.millennium.level2.mitch.v11.9.addordermessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.amnd = ProtoField.new("Amnd", "lseg.millennium.level2.mitch.v11.9.amnd", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_lseg_millennium_level2_mitch_v11_9.fields.attribution = ProtoField.new("Attribution", "lseg.millennium.level2.mitch.v11.9.attribution", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.auction_info_message = ProtoField.new("Auction Info Message", "lseg.millennium.level2.mitch.v11.9.auctioninfomessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "lseg.millennium.level2.mitch.v11.9.auctiontrademessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.auction_type = ProtoField.new("Auction Type", "lseg.millennium.level2.mitch.v11.9.auctiontype", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.book_type = ProtoField.new("Book Type", "lseg.millennium.level2.mitch.v11.9.booktype", ftypes.UINT8)
+omi_lseg_millennium_level2_mitch_v11_9.fields.buy_limit_price = ProtoField.new("Buy Limit Price", "lseg.millennium.level2.mitch.v11.9.buylimitprice", ftypes.INT64)
+omi_lseg_millennium_level2_mitch_v11_9.fields.buy_limit_size = ProtoField.new("Buy Limit Size", "lseg.millennium.level2.mitch.v11.9.buylimitsize", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.canc = ProtoField.new("Canc", "lseg.millennium.level2.mitch.v11.9.canc", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_lseg_millennium_level2_mitch_v11_9.fields.cross_type = ProtoField.new("Cross Type", "lseg.millennium.level2.mitch.v11.9.crosstype", ftypes.UINT8)
+omi_lseg_millennium_level2_mitch_v11_9.fields.currency = ProtoField.new("Currency", "lseg.millennium.level2.mitch.v11.9.currency", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.display_quantity = ProtoField.new("Display Quantity", "lseg.millennium.level2.mitch.v11.9.displayquantity", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.event_code = ProtoField.new("Event Code", "lseg.millennium.level2.mitch.v11.9.eventcode", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.executed_quantity = ProtoField.new("Executed Quantity", "lseg.millennium.level2.mitch.v11.9.executedquantity", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.firm_quote = ProtoField.new("Firm Quote", "lseg.millennium.level2.mitch.v11.9.firmquote", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_lseg_millennium_level2_mitch_v11_9.fields.flags = ProtoField.new("Flags", "lseg.millennium.level2.mitch.v11.9.flags", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.instrument_id = ProtoField.new("Instrument Id", "lseg.millennium.level2.mitch.v11.9.instrumentid", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.isin = ProtoField.new("Isin", "lseg.millennium.level2.mitch.v11.9.isin", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.length = ProtoField.new("Length", "lseg.millennium.level2.mitch.v11.9.length", ftypes.UINT16)
+omi_lseg_millennium_level2_mitch_v11_9.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.level2.mitch.v11.9.marketdatagroup", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.market_order = ProtoField.new("Market Order", "lseg.millennium.level2.mitch.v11.9.marketorder", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lseg.millennium.level2.mitch.v11.9.message", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message_count = ProtoField.new("Message Count", "lseg.millennium.level2.mitch.v11.9.messagecount", ftypes.UINT8)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.level2.mitch.v11.9.messagelength", ftypes.UINT8)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.level2.mitch.v11.9.messagetype", ftypes.UINT8)
+omi_lseg_millennium_level2_mitch_v11_9.fields.nanosecond = ProtoField.new("Nanosecond", "lseg.millennium.level2.mitch.v11.9.nanosecond", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.new_end_time = ProtoField.new("New End Time", "lseg.millennium.level2.mitch.v11.9.newendtime", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.new_price = ProtoField.new("New Price", "lseg.millennium.level2.mitch.v11.9.newprice", ftypes.INT64)
+omi_lseg_millennium_level2_mitch_v11_9.fields.new_quantity = ProtoField.new("New Quantity", "lseg.millennium.level2.mitch.v11.9.newquantity", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.open_close_price_indicator = ProtoField.new("Open Close Price Indicator", "lseg.millennium.level2.mitch.v11.9.openclosepriceindicator", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.millennium.level2.mitch.v11.9.orderbookclearmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "lseg.millennium.level2.mitch.v11.9.orderdeletedmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.order_executed_message = ProtoField.new("Order Executed Message", "lseg.millennium.level2.mitch.v11.9.orderexecutedmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message = ProtoField.new("Order Executed With Price Size Message", "lseg.millennium.level2.mitch.v11.9.orderexecutedwithpricesizemessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.order_id = ProtoField.new("Order Id", "lseg.millennium.level2.mitch.v11.9.orderid", ftypes.UINT64)
+omi_lseg_millennium_level2_mitch_v11_9.fields.order_modified_message = ProtoField.new("Order Modified Message", "lseg.millennium.level2.mitch.v11.9.ordermodifiedmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lseg.millennium.level2.mitch.v11.9.packet", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.paired_quantity = ProtoField.new("Paired Quantity", "lseg.millennium.level2.mitch.v11.9.pairedquantity", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.payload = ProtoField.new("Payload", "lseg.millennium.level2.mitch.v11.9.payload", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.previous_close_price = ProtoField.new("Previous Close Price", "lseg.millennium.level2.mitch.v11.9.previouscloseprice", ftypes.INT64)
+omi_lseg_millennium_level2_mitch_v11_9.fields.price = ProtoField.new("Price", "lseg.millennium.level2.mitch.v11.9.price", ftypes.INT64)
+omi_lseg_millennium_level2_mitch_v11_9.fields.printable = ProtoField.new("Printable", "lseg.millennium.level2.mitch.v11.9.printable", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.priority_flag = ProtoField.new("Priority Flag", "lseg.millennium.level2.mitch.v11.9.priorityflag", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_lseg_millennium_level2_mitch_v11_9.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.millennium.level2.mitch.v11.9.privaterfq", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_lseg_millennium_level2_mitch_v11_9.fields.pt_mod_flags = ProtoField.new("Pt Mod Flags", "lseg.millennium.level2.mitch.v11.9.ptmodflags", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.quantity = ProtoField.new("Quantity", "lseg.millennium.level2.mitch.v11.9.quantity", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reason = ProtoField.new("Reason", "lseg.millennium.level2.mitch.v11.9.reason", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lseg.millennium.level2.mitch.v11.9.reserveda", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_alpha = ProtoField.new("Reserved Alpha", "lseg.millennium.level2.mitch.v11.9.reservedalpha", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lseg.millennium.level2.mitch.v11.9.reservedb", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lseg.millennium.level2.mitch.v11.9.reservedbyte", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_uint_32 = ProtoField.new("Reserved Uint 32", "lseg.millennium.level2.mitch.v11.9.reserveduint32", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.level2.mitch.v11.9.seconds", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lseg.millennium.level2.mitch.v11.9.sedol", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lseg.millennium.level2.mitch.v11.9.segment", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.sell_limit_price = ProtoField.new("Sell Limit Price", "lseg.millennium.level2.mitch.v11.9.selllimitprice", ftypes.INT64)
+omi_lseg_millennium_level2_mitch_v11_9.fields.sell_limit_size = ProtoField.new("Sell Limit Size", "lseg.millennium.level2.mitch.v11.9.selllimitsize", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.level2.mitch.v11.9.sequencenumber", ftypes.UINT32)
+omi_lseg_millennium_level2_mitch_v11_9.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.millennium.level2.mitch.v11.9.sessionchangereason", ftypes.UINT8)
+omi_lseg_millennium_level2_mitch_v11_9.fields.side = ProtoField.new("Side", "lseg.millennium.level2.mitch.v11.9.side", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.millennium.level2.mitch.v11.9.statistictype", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.statistics_message = ProtoField.new("Statistics Message", "lseg.millennium.level2.mitch.v11.9.statisticsmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.sub_book = ProtoField.new("Sub Book", "lseg.millennium.level2.mitch.v11.9.subbook", ftypes.UINT8)
+omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_directory_message = ProtoField.new("Symbol Directory Message", "lseg.millennium.level2.mitch.v11.9.symboldirectorymessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status = ProtoField.new("Symbol Status", "lseg.millennium.level2.mitch.v11.9.symbolstatus", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "lseg.millennium.level2.mitch.v11.9.symbolstatusmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.system_event_message = ProtoField.new("System Event Message", "lseg.millennium.level2.mitch.v11.9.systemeventmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.time_message = ProtoField.new("Time Message", "lseg.millennium.level2.mitch.v11.9.timemessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "lseg.millennium.level2.mitch.v11.9.topofbookmessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.trade_match_id = ProtoField.new("Trade Match Id", "lseg.millennium.level2.mitch.v11.9.tradematchid", ftypes.UINT64)
+omi_lseg_millennium_level2_mitch_v11_9.fields.trade_message = ProtoField.new("Trade Message", "lseg.millennium.level2.mitch.v11.9.trademessage", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.trading_status = ProtoField.new("Trading Status", "lseg.millennium.level2.mitch.v11.9.tradingstatus", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.underlying = ProtoField.new("Underlying", "lseg.millennium.level2.mitch.v11.9.underlying", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.level2.mitch.v11.9.unitheader", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unused_1 = ProtoField.new("Unused 1", "lseg.millennium.level2.mitch.v11.9.unused1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unused_3 = ProtoField.new("Unused 3", "lseg.millennium.level2.mitch.v11.9.unused3", ftypes.UINT8, nil, base.DEC, 0x70)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
 
 -- Lseg Millennium Level2 Mitch 11.9 generated fields
-lseg_millennium_level2_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2.mitch.v11.9.messageindex", ftypes.UINT16)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2.mitch.v11.9.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -134,125 +134,125 @@ show.unit_header = true
 show.payload = false
 
 -- Register Lseg Millennium Level2 Mitch 11.9 Show Options
-lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message = Pref.bool("Show Add Attributed Order Message", show.add_attributed_order_message, "Parse and add Add Attributed Order Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_auction_info_message = Pref.bool("Show Auction Info Message", show.auction_info_message, "Parse and add Auction Info Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message = Pref.bool("Show Order Book Clear Message", show.order_book_clear_message, "Parse and add Order Book Clear Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message = Pref.bool("Show Order Executed With Price Size Message", show.order_executed_with_price_size_message, "Parse and add Order Executed With Price Size Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags = Pref.bool("Show Pt Mod Flags", show.pt_mod_flags, "Parse and add Pt Mod Flags to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_statistics_message = Pref.bool("Show Statistics Message", show.statistics_message, "Parse and add Statistics Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message = Pref.bool("Show Symbol Directory Message", show.symbol_directory_message, "Parse and add Symbol Directory Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message = Pref.bool("Show Top Of Book Message", show.top_of_book_message, "Parse and add Top Of Book Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-lseg_millennium_level2_mitch_v11_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message = Pref.bool("Show Add Attributed Order Message", show.add_attributed_order_message, "Parse and add Add Attributed Order Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_auction_info_message = Pref.bool("Show Auction Info Message", show.auction_info_message, "Parse and add Auction Info Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message = Pref.bool("Show Order Book Clear Message", show.order_book_clear_message, "Parse and add Order Book Clear Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message = Pref.bool("Show Order Executed With Price Size Message", show.order_executed_with_price_size_message, "Parse and add Order Executed With Price Size Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags = Pref.bool("Show Pt Mod Flags", show.pt_mod_flags, "Parse and add Pt Mod Flags to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_statistics_message = Pref.bool("Show Statistics Message", show.statistics_message, "Parse and add Statistics Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message = Pref.bool("Show Symbol Directory Message", show.symbol_directory_message, "Parse and add Symbol Directory Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message = Pref.bool("Show Top Of Book Message", show.top_of_book_message, "Parse and add Top Of Book Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function lseg_millennium_level2_mitch_v11_9.prefs_changed()
+function omi_lseg_millennium_level2_mitch_v11_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_attributed_order_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message then
-    show.add_attributed_order_message = lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message
+  if show.add_attributed_order_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message then
+    show.add_attributed_order_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message
     changed = true
   end
-  if show.add_order_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_message then
-    show.add_order_message = lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_message
+  if show.add_order_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_message then
+    show.add_order_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_message
     changed = true
   end
-  if show.auction_info_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_auction_info_message then
-    show.auction_info_message = lseg_millennium_level2_mitch_v11_9.prefs.show_auction_info_message
+  if show.auction_info_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_auction_info_message then
+    show.auction_info_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_auction_info_message
     changed = true
   end
-  if show.auction_trade_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message then
-    show.auction_trade_message = lseg_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message
+  if show.auction_trade_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message then
+    show.auction_trade_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message
     changed = true
   end
-  if show.flags ~= lseg_millennium_level2_mitch_v11_9.prefs.show_flags then
-    show.flags = lseg_millennium_level2_mitch_v11_9.prefs.show_flags
+  if show.flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_flags then
+    show.flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_flags
     changed = true
   end
-  if show.message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_message then
-    show.message = lseg_millennium_level2_mitch_v11_9.prefs.show_message
+  if show.message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message then
+    show.message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message
     changed = true
   end
-  if show.message_header ~= lseg_millennium_level2_mitch_v11_9.prefs.show_message_header then
-    show.message_header = lseg_millennium_level2_mitch_v11_9.prefs.show_message_header
+  if show.message_header ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header then
+    show.message_header = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header
     changed = true
   end
-  if show.order_book_clear_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message then
-    show.order_book_clear_message = lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message
+  if show.order_book_clear_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message then
+    show.order_book_clear_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message
     changed = true
   end
-  if show.order_deleted_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message then
-    show.order_deleted_message = lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message
+  if show.order_deleted_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message then
+    show.order_deleted_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message
     changed = true
   end
-  if show.order_executed_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_message then
-    show.order_executed_message = lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_message then
+    show.order_executed_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_executed_with_price_size_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message then
-    show.order_executed_with_price_size_message = lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message
+  if show.order_executed_with_price_size_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message then
+    show.order_executed_with_price_size_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message
     changed = true
   end
-  if show.order_modified_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_message then
-    show.order_modified_message = lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_message
+  if show.order_modified_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_message then
+    show.order_modified_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_message
     changed = true
   end
-  if show.packet ~= lseg_millennium_level2_mitch_v11_9.prefs.show_packet then
-    show.packet = lseg_millennium_level2_mitch_v11_9.prefs.show_packet
+  if show.packet ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet then
+    show.packet = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet
     changed = true
   end
-  if show.pt_mod_flags ~= lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags then
-    show.pt_mod_flags = lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags
+  if show.pt_mod_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags then
+    show.pt_mod_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags
     changed = true
   end
-  if show.statistics_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_statistics_message then
-    show.statistics_message = lseg_millennium_level2_mitch_v11_9.prefs.show_statistics_message
+  if show.statistics_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_statistics_message then
+    show.statistics_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_statistics_message
     changed = true
   end
-  if show.symbol_directory_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message then
-    show.symbol_directory_message = lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message
+  if show.symbol_directory_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message then
+    show.symbol_directory_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message
     changed = true
   end
-  if show.symbol_status_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message then
-    show.symbol_status_message = lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message
+  if show.symbol_status_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message then
+    show.symbol_status_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message
     changed = true
   end
-  if show.system_event_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_system_event_message then
-    show.system_event_message = lseg_millennium_level2_mitch_v11_9.prefs.show_system_event_message
+  if show.system_event_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_system_event_message then
+    show.system_event_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_system_event_message
     changed = true
   end
-  if show.time_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_time_message then
-    show.time_message = lseg_millennium_level2_mitch_v11_9.prefs.show_time_message
+  if show.time_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_time_message then
+    show.time_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_time_message
     changed = true
   end
-  if show.top_of_book_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message then
-    show.top_of_book_message = lseg_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message
+  if show.top_of_book_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message then
+    show.top_of_book_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message
     changed = true
   end
-  if show.trade_message ~= lseg_millennium_level2_mitch_v11_9.prefs.show_trade_message then
-    show.trade_message = lseg_millennium_level2_mitch_v11_9.prefs.show_trade_message
+  if show.trade_message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_trade_message then
+    show.trade_message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_trade_message
     changed = true
   end
-  if show.unit_header ~= lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header then
-    show.unit_header = lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header
+  if show.unit_header ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header then
+    show.unit_header = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header
     changed = true
   end
-  if show.payload ~= lseg_millennium_level2_mitch_v11_9.prefs.show_payload then
-    show.payload = lseg_millennium_level2_mitch_v11_9.prefs.show_payload
+  if show.payload ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_payload then
+    show.payload = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_payload
     changed = true
   end
 
@@ -282,7 +282,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.sell_limit_size = function(buffer, of
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.sell_limit_size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.sell_limit_size, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.sell_limit_size, range, value, display)
 
   return offset + length, value
 end
@@ -302,7 +302,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.sell_limit_price = function(buffer, o
   local value = range:le_int64()
   local display = lseg_millennium_level2_mitch_v11_9_display.sell_limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.sell_limit_price, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.sell_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -322,7 +322,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.buy_limit_size = function(buffer, off
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.buy_limit_size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.buy_limit_size, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.buy_limit_size, range, value, display)
 
   return offset + length, value
 end
@@ -342,7 +342,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.buy_limit_price = function(buffer, of
   local value = range:le_int64()
   local display = lseg_millennium_level2_mitch_v11_9_display.buy_limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.buy_limit_price, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.buy_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -362,7 +362,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.instrument_id = function(buffer, offs
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.instrument_id, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -382,7 +382,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.nanosecond = function(buffer, offset,
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.nanosecond(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.nanosecond, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.nanosecond, range, value, display)
 
   return offset + length, value
 end
@@ -440,7 +440,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.top_of_book_message = function(buffer, offset, packet, parent)
   if show.top_of_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.top_of_book_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.top_of_book_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.top_of_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -469,7 +469,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.reserved_byte = function(buffer, offs
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.reserved_byte(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)
 
   return offset + length, value
 end
@@ -514,7 +514,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.open_close_price_indicator = function
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.open_close_price_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.open_close_price_indicator, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.open_close_price_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -534,7 +534,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.price = function(buffer, offset, pack
   local value = range:le_int64()
   local display = lseg_millennium_level2_mitch_v11_9_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.price, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -561,7 +561,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.statistic_type = function(buffer, off
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.statistic_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.statistic_type, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.statistic_type, range, value, display)
 
   return offset + length, value
 end
@@ -581,7 +581,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.reserved_b = function(buffer, offset,
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.reserved_b(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.reserved_b, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_b, range, value, display)
 
   return offset + length, value
 end
@@ -601,7 +601,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.reserved_a = function(buffer, offset,
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.reserved_a(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.reserved_a, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_a, range, value, display)
 
   return offset + length, value
 end
@@ -669,7 +669,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.statistics_message = function(buffer, offset, packet, parent)
   if show.statistics_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.statistics_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.statistics_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.statistics_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -720,7 +720,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.auction_type = function(buffer, offse
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.auction_type, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -740,7 +740,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.reserved_uint_32 = function(buffer, o
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.reserved_uint_32(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.reserved_uint_32, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_uint_32, range, value, display)
 
   return offset + length, value
 end
@@ -760,7 +760,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.paired_quantity = function(buffer, of
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.paired_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.paired_quantity, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.paired_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -833,7 +833,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.auction_info_message = function(buffer, offset, packet, parent)
   if show.auction_info_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.auction_info_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.auction_info_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.auction_info_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -870,13 +870,13 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.pt_mod_flags_bits = function(buffer, offset, packet, parent)
 
   -- Canc: 1 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.canc, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.canc, buffer(offset, 1))
 
   -- Amnd: 1 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.amnd, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.amnd, buffer(offset, 1))
 
   -- Unused 6: 6 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.unused_6, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6, buffer(offset, 1))
 end
 
 -- Dissect: Pt Mod Flags
@@ -884,7 +884,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.pt_mod_flags = function(buffer, offse
   local size = 1
   local range = buffer(offset, size)
   local display = lseg_millennium_level2_mitch_v11_9_display.pt_mod_flags(range, packet, parent)
-  local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.pt_mod_flags, range, display)
+  local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.pt_mod_flags, range, display)
 
   if show.pt_mod_flags then
     lseg_millennium_level2_mitch_v11_9_dissect.pt_mod_flags_bits(buffer, offset, packet, element)
@@ -908,7 +908,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.trade_match_id = function(buffer, off
   local value = range:le_uint64()
   local display = lseg_millennium_level2_mitch_v11_9_display.trade_match_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.trade_match_id, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.trade_match_id, range, value, display)
 
   return offset + length, value
 end
@@ -928,7 +928,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.quantity = function(buffer, offset, p
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.quantity, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1001,7 +1001,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.auction_trade_message = function(buffer, offset, packet, parent)
   if show.auction_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.auction_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.auction_trade_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1037,7 +1037,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.sub_book = function(buffer, offset, p
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.sub_book(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.sub_book, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.sub_book, range, value, display)
 
   return offset + length, value
 end
@@ -1073,7 +1073,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.cross_type = function(buffer, offset,
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.cross_type, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -1093,7 +1093,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.executed_quantity = function(buffer, 
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.executed_quantity, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1171,7 +1171,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.trade_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1207,7 +1207,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.printable = function(buffer, offset, 
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.printable, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.printable, range, value, display)
 
   return offset + length, value
 end
@@ -1227,7 +1227,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.display_quantity = function(buffer, o
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.display_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.display_quantity, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.display_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1247,7 +1247,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.order_id = function(buffer, offset, p
   local value = range:le_uint64()
   local display = lseg_millennium_level2_mitch_v11_9_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_id, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1310,7 +1310,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message = function(buffer, offset, packet, parent)
   if show.order_executed_with_price_size_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1367,7 +1367,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_executed_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1416,22 +1416,22 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.flags_bits = function(buffer, offset, packet, parent)
 
   -- Priority Flag: 1 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.priority_flag, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.priority_flag, buffer(offset, 1))
 
   -- Unused 3: 3 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.unused_3, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_3, buffer(offset, 1))
 
   -- Market Order: 1 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.market_order, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.market_order, buffer(offset, 1))
 
   -- Firm Quote: 1 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.firm_quote, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.firm_quote, buffer(offset, 1))
 
   -- Private Rfq: 1 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.private_rfq, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.private_rfq, buffer(offset, 1))
 
   -- Unused 1: 1 Bit
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.unused_1, buffer(offset, 1))
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_1, buffer(offset, 1))
 end
 
 -- Dissect: Flags
@@ -1439,7 +1439,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.flags = function(buffer, offset, pack
   local size = 1
   local range = buffer(offset, size)
   local display = lseg_millennium_level2_mitch_v11_9_display.flags(range, packet, parent)
-  local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.flags, range, display)
+  local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.flags, range, display)
 
   if show.flags then
     lseg_millennium_level2_mitch_v11_9_dissect.flags_bits(buffer, offset, packet, element)
@@ -1496,7 +1496,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_book_clear_message = function(buffer, offset, packet, parent)
   if show.order_book_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1525,7 +1525,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.new_price = function(buffer, offset, 
   local value = range:le_int64()
   local display = lseg_millennium_level2_mitch_v11_9_display.new_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.new_price, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.new_price, range, value, display)
 
   return offset + length, value
 end
@@ -1545,7 +1545,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.new_quantity = function(buffer, offse
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.new_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.new_quantity, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.new_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1598,7 +1598,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_modified_message = function(buffer, offset, packet, parent)
   if show.order_modified_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_modified_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_modified_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.order_modified_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1655,7 +1655,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_deleted_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_deleted_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1684,7 +1684,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.attribution = function(buffer, offset
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.attribution(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.attribution, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.attribution, range, value, display)
 
   return offset + length, value
 end
@@ -1711,7 +1711,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.side = function(buffer, offset, packe
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.side, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1789,7 +1789,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message = function(buffer, offset, packet, parent)
   if show.add_attributed_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1818,7 +1818,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.reserved_alpha = function(buffer, off
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.reserved_alpha(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.reserved_alpha, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_alpha, range, value, display)
 
   return offset + length, value
 end
@@ -1896,7 +1896,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.add_order_message = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.add_order_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.add_order_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.add_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1935,7 +1935,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.book_type = function(buffer, offset, 
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.book_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.book_type, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.book_type, range, value, display)
 
   return offset + length, value
 end
@@ -1955,7 +1955,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.new_end_time = function(buffer, offse
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.new_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.new_end_time, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.new_end_time, range, value, display)
 
   return offset + length, value
 end
@@ -1994,7 +1994,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.session_change_reason = function(buff
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.session_change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.session_change_reason, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2014,7 +2014,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.reason = function(buffer, offset, pac
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.reason, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -2098,7 +2098,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.trading_status = function(buffer, off
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.trading_status, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -2176,7 +2176,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.symbol_status_message = function(buffer, offset, packet, parent)
   if show.symbol_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.symbol_status_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2205,7 +2205,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.previous_close_price = function(buffe
   local value = range:le_int64()
   local display = lseg_millennium_level2_mitch_v11_9_display.previous_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.previous_close_price, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.previous_close_price, range, value, display)
 
   return offset + length, value
 end
@@ -2225,7 +2225,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.currency = function(buffer, offset, p
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.currency, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -2245,7 +2245,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.underlying = function(buffer, offset,
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.underlying(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.underlying, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.underlying, range, value, display)
 
   return offset + length, value
 end
@@ -2265,7 +2265,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.segment = function(buffer, offset, pa
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.segment(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.segment, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.segment, range, value, display)
 
   return offset + length, value
 end
@@ -2285,7 +2285,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.sedol = function(buffer, offset, pack
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.sedol(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.sedol, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.sedol, range, value, display)
 
   return offset + length, value
 end
@@ -2305,7 +2305,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.isin = function(buffer, offset, packe
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.isin, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -2338,7 +2338,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.symbol_status = function(buffer, offs
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.symbol_status(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.symbol_status, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status, range, value, display)
 
   return offset + length, value
 end
@@ -2431,7 +2431,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.symbol_directory_message = function(buffer, offset, packet, parent)
   if show.symbol_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.symbol_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_directory_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.symbol_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2467,7 +2467,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.event_code = function(buffer, offset,
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.event_code, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -2505,7 +2505,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.system_event_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2534,7 +2534,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.seconds = function(buffer, offset, pa
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.seconds, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -2567,7 +2567,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.time_message = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.time_message, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.time_message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.time_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2741,7 +2741,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.payload = function(buffer, offset, pa
   -- Dissect Element
   local range = buffer(offset, size)
   local display = lseg_millennium_level2_mitch_v11_9_display.payload(buffer, packet, parent)
-  local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.payload, range, display)
+  local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.payload, range, display)
 
   return lseg_millennium_level2_mitch_v11_9_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2810,7 +2810,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.message_type = function(buffer, offse
   local value = range:uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.message_type, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2830,7 +2830,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.message_length = function(buffer, off
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.message_length, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2868,7 +2868,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_header, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2907,7 +2907,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.message_fields = function(buffer, off
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(lseg_millennium_level2_mitch_v11_9.fields.message_index, message_index)
+    local iteration = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2930,7 +2930,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.message = function(buffer, offset, pa
     local length = lseg_millennium_level2_mitch_v11_9_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = lseg_millennium_level2_mitch_v11_9_display.message(buffer, packet, parent)
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.message, range, display)
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message, range, display)
   end
 
   return lseg_millennium_level2_mitch_v11_9_dissect.message_fields(buffer, offset, packet, parent)
@@ -2951,7 +2951,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.sequence_number = function(buffer, of
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.sequence_number, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2971,7 +2971,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.market_data_group = function(buffer, 
   local value = range:string()
   local display = lseg_millennium_level2_mitch_v11_9_display.market_data_group(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.market_data_group, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
@@ -2991,7 +2991,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.message_count = function(buffer, offs
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.message_count, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3011,7 +3011,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.length = function(buffer, offset, pac
   local value = range:le_uint()
   local display = lseg_millennium_level2_mitch_v11_9_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_millennium_level2_mitch_v11_9.fields.length, range, value, display)
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -3059,7 +3059,7 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.unit_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3097,23 +3097,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function lseg_millennium_level2_mitch_v11_9.init()
+function omi_lseg_millennium_level2_mitch_v11_9.init()
 end
 
 -- Dissector for Lseg Millennium Level2 Mitch 11.9
-function lseg_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
+function omi_lseg_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = lseg_millennium_level2_mitch_v11_9.name
+  packet.cols.protocol = omi_lseg_millennium_level2_mitch_v11_9.name
 
   -- Dissect protocol
-  local protocol = parent:add(lseg_millennium_level2_mitch_v11_9, buffer(), lseg_millennium_level2_mitch_v11_9.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_lseg_millennium_level2_mitch_v11_9, buffer(), omi_lseg_millennium_level2_mitch_v11_9.description, "("..buffer:len().." Bytes)")
   return lseg_millennium_level2_mitch_v11_9_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, lseg_millennium_level2_mitch_v11_9)
+udp_table:add(65333, omi_lseg_millennium_level2_mitch_v11_9)
 
 
 -----------------------------------------------------------------------
@@ -3121,25 +3121,25 @@ udp_table:add(65333, lseg_millennium_level2_mitch_v11_9)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.lseg_millennium_level2_mitch_v11_9_packet_size = function(buffer)
+verify.omi_lseg_millennium_level2_mitch_v11_9_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Lseg Millennium Level2 Mitch 11.9
-local function lseg_millennium_level2_mitch_v11_9_heuristic(buffer, packet, parent)
+local function omi_lseg_millennium_level2_mitch_v11_9_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.lseg_millennium_level2_mitch_v11_9_packet_size(buffer) then return false end
+  if not verify.omi_lseg_millennium_level2_mitch_v11_9_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = lseg_millennium_level2_mitch_v11_9
-  lseg_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
+  packet.conversation = omi_lseg_millennium_level2_mitch_v11_9
+  omi_lseg_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Lseg Millennium Level2 Mitch 11.9
-lseg_millennium_level2_mitch_v11_9:register_heuristic("udp", lseg_millennium_level2_mitch_v11_9_heuristic)
+omi_lseg_millennium_level2_mitch_v11_9:register_heuristic("udp", omi_lseg_millennium_level2_mitch_v11_9_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

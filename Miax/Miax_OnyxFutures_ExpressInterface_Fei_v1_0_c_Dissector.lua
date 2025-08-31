@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Protocol
-local miax_onyxfutures_expressinterface_fei_v1_0_c = Proto("Miax.OnyxFutures.ExpressInterface.Fei.v1.0.c.Lua", "Miax OnyxFutures ExpressInterface Fei 1.0.c")
+local omi_miax_onyxfutures_expressinterface_fei_v1_0_c = Proto("Miax.OnyxFutures.ExpressInterface.Fei.v1.0.c.Lua", "Miax OnyxFutures ExpressInterface Fei 1.0.c")
 
 -- Component Tables
 local show = {}
@@ -21,126 +21,126 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Fields
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.account = ProtoField.new("Account", "miax.onyxfutures.expressinterface.fei.v1.0.c.account", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.action = ProtoField.new("Action", "miax.onyxfutures.expressinterface.fei.v1.0.c.action", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.additional_order_indicators = ProtoField.new("Additional Order Indicators", "miax.onyxfutures.expressinterface.fei.v1.0.c.additionalorderindicators", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.application_protocol = ProtoField.new("Application Protocol", "miax.onyxfutures.expressinterface.fei.v1.0.c.applicationprotocol", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreason", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_order_id = ProtoField.new("Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.clientorderid", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time = ProtoField.new("Client Send Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.clientsendtime", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_trade_id = ProtoField.new("Complex Trade Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.complextradeid", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.computer_id = ProtoField.new("Computer Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.computerid", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.correction_number = ProtoField.new("Correction Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.correctionnumber", ftypes.UINT8)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cti_code = ProtoField.new("Cti Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.cticode", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation = ProtoField.new("Customer Of Firm Designation", "miax.onyxfutures.expressinterface.fei.v1.0.c.customeroffirmdesignation", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_order_handling_instruction = ProtoField.new("Customer Order Handling Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.customerorderhandlinginstruction", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.endsequencenumber", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.execution_id = ProtoField.new("Execution Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.executionid", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.goodbyepacket", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.highestsequencenumber", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_binary_u_4 = ProtoField.new("Instrument Id Binary U 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.instrumentidbinaryu4", ftypes.UINT32)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_string_20 = ProtoField.new("Instrument Id String 20", "miax.onyxfutures.expressinterface.fei.v1.0.c.instrumentidstring20", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_net_price = ProtoField.new("Last Net Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastnetprice", ftypes.DOUBLE)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_price = ProtoField.new("Last Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastprice", ftypes.DOUBLE)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_size = ProtoField.new("Last Size", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastsize", ftypes.UINT32)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leaves_qty = ProtoField.new("Leaves Qty", "miax.onyxfutures.expressinterface.fei.v1.0.c.leavesqty", ftypes.UINT32)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leg_ratio = ProtoField.new("Leg Ratio", "miax.onyxfutures.expressinterface.fei.v1.0.c.legratio", ftypes.INT32)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.liquidityindicator", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request = ProtoField.new("Login Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginrequest", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response = ProtoField.new("Login Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginresponse", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_status = ProtoField.new("Login Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginstatus", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_reason = ProtoField.new("Logout Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutreason", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request = ProtoField.new("Logout Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutrequest", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_text = ProtoField.new("Logout Text", "miax.onyxfutures.expressinterface.fei.v1.0.c.logouttext", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.manualorderindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine = ProtoField.new("Matching Engine", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingengine", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time = ProtoField.new("Matching Engine Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingenginetime", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.min_qty = ProtoField.new("Min Qty", "miax.onyxfutures.expressinterface.fei.v1.0.c.minqty", ftypes.UINT32)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mp_id = ProtoField.new("Mp Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.mpid", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.onyxfutures.expressinterface.fei.v1.0.c.numberoflegs", ftypes.UINT8)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator = ProtoField.new("Open Close Position Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.openclosepositionindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_id = ProtoField.new("Operator Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorid", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_location = ProtoField.new("Operator Location", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorlocation", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_expiry_date = ProtoField.new("Order Expiry Date", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderexpirydate", ftypes.UINT16)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_id = ProtoField.new("Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderid", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions = ProtoField.new("Order Instructions", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderinstructions", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.ordertype", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order = ProtoField.new("Original Client Order", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorder", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorderid", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header = ProtoField.new("Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetheader", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetlength", ftypes.UINT16)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.packettype", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.expressinterface.fei.v1.0.c.payload", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price = ProtoField.new("Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.price", ftypes.DOUBLE)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.productgroupcode", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type = ProtoField.new("Product Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.producttype", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.purge_group = ProtoField.new("Purge Group", "miax.onyxfutures.expressinterface.fei.v1.0.c.purgegroup", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.requestedsequencenumber", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_session = ProtoField.new("Requested Session", "miax.onyxfutures.expressinterface.fei.v1.0.c.requestedsession", ftypes.UINT8)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved10", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved16", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_32 = ProtoField.new("Reserved 32", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved32", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved8", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved9", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.retransmissionrequest", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.scope = ProtoField.new("Scope", "miax.onyxfutures.expressinterface.fei.v1.0.c.scope", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection = ProtoField.new("Self Trade Protection", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotection", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_group = ProtoField.new("Self Trade Protection Group", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectiongroup", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction = ProtoField.new("Self Trade Protection Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectioninstruction", ftypes.UINT8, nil, base.DEC, 0x38)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level = ProtoField.new("Self Trade Protection Level", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectionlevel", ftypes.UINT8, nil, base.DEC, 0x07)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencenumber", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequenceddatapacket", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message = ProtoField.new("Sequenced Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessage", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessagetype", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmversion", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.sessionid", ftypes.UINT8)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side = ProtoField.new("Side", "miax.onyxfutures.expressinterface.fei.v1.0.c.side", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_trade_id = ProtoField.new("Simple Trade Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.simpletradeid", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_s_4 = ProtoField.new("Size Binary S 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinarys4", ftypes.INT32)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_u_4 = ProtoField.new("Size Binary U 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinaryu4", ftypes.UINT32)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.startsequencenumber", ftypes.UINT64)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.status = ProtoField.new("Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.status", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.stop_order_trigger_price = ProtoField.new("Stop Order Trigger Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.stopordertriggerprice", ftypes.DOUBLE)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg = ProtoField.new("Strategy Leg", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategyleg", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_status = ProtoField.new("System Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.systemstatus", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.text_memo = ProtoField.new("Text Memo", "miax.onyxfutures.expressinterface.fei.v1.0.c.textmemo", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.time_in_force = ProtoField.new("Time In Force", "miax.onyxfutures.expressinterface.fei.v1.0.c.timeinforce", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_date = ProtoField.new("Trade Date", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradedate", ftypes.UINT16)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_status = ProtoField.new("Trade Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradestatus", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trading_collar_dollar_value = ProtoField.new("Trading Collar Dollar Value", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradingcollardollarvalue", ftypes.DOUBLE)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequenceddatapacket", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequencedmessage", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequencedmessagetype", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_15 = ProtoField.new("Unused 15", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_2 = ProtoField.new("Unused 2", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_5 = ProtoField.new("Unused 5", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status = ProtoField.new("Update Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.updatestatus", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username = ProtoField.new("Username", "miax.onyxfutures.expressinterface.fei.v1.0.c.username", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version = ProtoField.new("Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.version", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.account = ProtoField.new("Account", "miax.onyxfutures.expressinterface.fei.v1.0.c.account", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.action = ProtoField.new("Action", "miax.onyxfutures.expressinterface.fei.v1.0.c.action", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.additional_order_indicators = ProtoField.new("Additional Order Indicators", "miax.onyxfutures.expressinterface.fei.v1.0.c.additionalorderindicators", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.application_protocol = ProtoField.new("Application Protocol", "miax.onyxfutures.expressinterface.fei.v1.0.c.applicationprotocol", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreason", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_order_id = ProtoField.new("Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.clientorderid", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time = ProtoField.new("Client Send Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.clientsendtime", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_trade_id = ProtoField.new("Complex Trade Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.complextradeid", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.computer_id = ProtoField.new("Computer Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.computerid", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.correction_number = ProtoField.new("Correction Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.correctionnumber", ftypes.UINT8)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cti_code = ProtoField.new("Cti Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.cticode", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation = ProtoField.new("Customer Of Firm Designation", "miax.onyxfutures.expressinterface.fei.v1.0.c.customeroffirmdesignation", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_order_handling_instruction = ProtoField.new("Customer Order Handling Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.customerorderhandlinginstruction", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.endsequencenumber", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.execution_id = ProtoField.new("Execution Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.executionid", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.goodbyepacket", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.highestsequencenumber", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_binary_u_4 = ProtoField.new("Instrument Id Binary U 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.instrumentidbinaryu4", ftypes.UINT32)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_string_20 = ProtoField.new("Instrument Id String 20", "miax.onyxfutures.expressinterface.fei.v1.0.c.instrumentidstring20", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_net_price = ProtoField.new("Last Net Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastnetprice", ftypes.DOUBLE)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_price = ProtoField.new("Last Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastprice", ftypes.DOUBLE)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_size = ProtoField.new("Last Size", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastsize", ftypes.UINT32)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leaves_qty = ProtoField.new("Leaves Qty", "miax.onyxfutures.expressinterface.fei.v1.0.c.leavesqty", ftypes.UINT32)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leg_ratio = ProtoField.new("Leg Ratio", "miax.onyxfutures.expressinterface.fei.v1.0.c.legratio", ftypes.INT32)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.liquidityindicator", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request = ProtoField.new("Login Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginrequest", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response = ProtoField.new("Login Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginresponse", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_status = ProtoField.new("Login Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginstatus", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_reason = ProtoField.new("Logout Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutreason", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request = ProtoField.new("Logout Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutrequest", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_text = ProtoField.new("Logout Text", "miax.onyxfutures.expressinterface.fei.v1.0.c.logouttext", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.manualorderindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine = ProtoField.new("Matching Engine", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingengine", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time = ProtoField.new("Matching Engine Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingenginetime", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.min_qty = ProtoField.new("Min Qty", "miax.onyxfutures.expressinterface.fei.v1.0.c.minqty", ftypes.UINT32)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mp_id = ProtoField.new("Mp Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.mpid", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.onyxfutures.expressinterface.fei.v1.0.c.numberoflegs", ftypes.UINT8)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator = ProtoField.new("Open Close Position Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.openclosepositionindicator", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_id = ProtoField.new("Operator Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorid", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_location = ProtoField.new("Operator Location", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorlocation", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_expiry_date = ProtoField.new("Order Expiry Date", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderexpirydate", ftypes.UINT16)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_id = ProtoField.new("Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderid", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions = ProtoField.new("Order Instructions", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderinstructions", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.ordertype", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order = ProtoField.new("Original Client Order", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorder", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorderid", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header = ProtoField.new("Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetheader", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetlength", ftypes.UINT16)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.packettype", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.expressinterface.fei.v1.0.c.payload", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price = ProtoField.new("Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.price", ftypes.DOUBLE)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.productgroupcode", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type = ProtoField.new("Product Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.producttype", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.purge_group = ProtoField.new("Purge Group", "miax.onyxfutures.expressinterface.fei.v1.0.c.purgegroup", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.requestedsequencenumber", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_session = ProtoField.new("Requested Session", "miax.onyxfutures.expressinterface.fei.v1.0.c.requestedsession", ftypes.UINT8)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved10", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved16", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_32 = ProtoField.new("Reserved 32", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved32", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved8", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved9", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.retransmissionrequest", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.scope = ProtoField.new("Scope", "miax.onyxfutures.expressinterface.fei.v1.0.c.scope", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection = ProtoField.new("Self Trade Protection", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotection", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_group = ProtoField.new("Self Trade Protection Group", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectiongroup", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction = ProtoField.new("Self Trade Protection Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectioninstruction", ftypes.UINT8, nil, base.DEC, 0x38)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level = ProtoField.new("Self Trade Protection Level", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectionlevel", ftypes.UINT8, nil, base.DEC, 0x07)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencenumber", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequenceddatapacket", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message = ProtoField.new("Sequenced Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessagetype", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmversion", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.sessionid", ftypes.UINT8)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side = ProtoField.new("Side", "miax.onyxfutures.expressinterface.fei.v1.0.c.side", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_trade_id = ProtoField.new("Simple Trade Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.simpletradeid", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_s_4 = ProtoField.new("Size Binary S 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinarys4", ftypes.INT32)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_u_4 = ProtoField.new("Size Binary U 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinaryu4", ftypes.UINT32)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.startsequencenumber", ftypes.UINT64)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.status = ProtoField.new("Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.status", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.stop_order_trigger_price = ProtoField.new("Stop Order Trigger Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.stopordertriggerprice", ftypes.DOUBLE)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg = ProtoField.new("Strategy Leg", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategyleg", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_status = ProtoField.new("System Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.systemstatus", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.text_memo = ProtoField.new("Text Memo", "miax.onyxfutures.expressinterface.fei.v1.0.c.textmemo", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.time_in_force = ProtoField.new("Time In Force", "miax.onyxfutures.expressinterface.fei.v1.0.c.timeinforce", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_date = ProtoField.new("Trade Date", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradedate", ftypes.UINT16)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_status = ProtoField.new("Trade Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradestatus", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trading_collar_dollar_value = ProtoField.new("Trading Collar Dollar Value", "miax.onyxfutures.expressinterface.fei.v1.0.c.tradingcollardollarvalue", ftypes.DOUBLE)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequenceddatapacket", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequencedmessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.unsequencedmessagetype", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_15 = ProtoField.new("Unused 15", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_2 = ProtoField.new("Unused 2", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_5 = ProtoField.new("Unused 5", "miax.onyxfutures.expressinterface.fei.v1.0.c.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status = ProtoField.new("Update Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.updatestatus", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username = ProtoField.new("Username", "miax.onyxfutures.expressinterface.fei.v1.0.c.username", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version = ProtoField.new("Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.version", ftypes.STRING)
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c messages
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message = ProtoField.new("Cancel Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderrequestmessage", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response = ProtoField.new("Cancel Order Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderresponse", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification = ProtoField.new("Cancel Reduce Size Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreducesizeordernotification", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_execution_notification = ProtoField.new("Complex Execution Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.complexexecutionnotification", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_request = ProtoField.new("Mass Cancel Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.masscancelrequest", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_response = ProtoField.new("Mass Cancel Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.masscancelresponse", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_notification = ProtoField.new("Modify Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.modifyordernotification", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_request_message = ProtoField.new("Modify Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.modifyorderrequestmessage", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_response = ProtoField.new("Modify Order Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.modifyorderresponse", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_notification = ProtoField.new("New Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.newordernotification", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_request_message = ProtoField.new("New Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.neworderrequestmessage", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_response_message = ProtoField.new("New Order Response Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.neworderresponsemessage", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status_update_notification = ProtoField.new("Order Status Update Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderstatusupdatenotification", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_execution_notification = ProtoField.new("Simple Execution Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.simpleexecutionnotification", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request = ProtoField.new("Strategy Creation Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategycreationrequest", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message = ProtoField.new("Strategy Creation Response Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategycreationresponsemessage", ftypes.STRING)
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message = ProtoField.new("System State Notification Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.systemstatenotificationmessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message = ProtoField.new("Cancel Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderrequestmessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response = ProtoField.new("Cancel Order Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderresponse", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification = ProtoField.new("Cancel Reduce Size Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreducesizeordernotification", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_execution_notification = ProtoField.new("Complex Execution Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.complexexecutionnotification", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_request = ProtoField.new("Mass Cancel Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.masscancelrequest", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_response = ProtoField.new("Mass Cancel Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.masscancelresponse", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_notification = ProtoField.new("Modify Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.modifyordernotification", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_request_message = ProtoField.new("Modify Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.modifyorderrequestmessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_response = ProtoField.new("Modify Order Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.modifyorderresponse", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_notification = ProtoField.new("New Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.newordernotification", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_request_message = ProtoField.new("New Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.neworderrequestmessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_response_message = ProtoField.new("New Order Response Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.neworderresponsemessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status_update_notification = ProtoField.new("Order Status Update Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderstatusupdatenotification", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_execution_notification = ProtoField.new("Simple Execution Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.simpleexecutionnotification", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request = ProtoField.new("Strategy Creation Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategycreationrequest", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message = ProtoField.new("Strategy Creation Response Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategycreationresponsemessage", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message = ProtoField.new("System State Notification Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.systemstatenotificationmessage", ftypes.STRING)
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c generated fields
-miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index = ProtoField.new("Strategy Leg Index", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategylegindex", ftypes.UINT16)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index = ProtoField.new("Strategy Leg Index", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategylegindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -183,180 +183,180 @@ show.sequenced_message = false
 show.unsequenced_message = false
 
 -- Register Miax OnyxFutures ExpressInterface Fei 1.0.c Show Options
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators = Pref.bool("Show Additional Order Indicators", show.additional_order_indicators, "Parse and add Additional Order Indicators to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message = Pref.bool("Show Cancel Order Request Message", show.cancel_order_request_message, "Parse and add Cancel Order Request Message to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response = Pref.bool("Show Cancel Order Response", show.cancel_order_response, "Parse and add Cancel Order Response to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification = Pref.bool("Show Cancel Reduce Size Order Notification", show.cancel_reduce_size_order_notification, "Parse and add Cancel Reduce Size Order Notification to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification = Pref.bool("Show Complex Execution Notification", show.complex_execution_notification, "Parse and add Complex Execution Notification to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request = Pref.bool("Show Mass Cancel Request", show.mass_cancel_request, "Parse and add Mass Cancel Request to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response = Pref.bool("Show Mass Cancel Response", show.mass_cancel_response, "Parse and add Mass Cancel Response to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification = Pref.bool("Show Modify Order Notification", show.modify_order_notification, "Parse and add Modify Order Notification to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message = Pref.bool("Show Modify Order Request Message", show.modify_order_request_message, "Parse and add Modify Order Request Message to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response = Pref.bool("Show Modify Order Response", show.modify_order_response, "Parse and add Modify Order Response to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification = Pref.bool("Show New Order Notification", show.new_order_notification, "Parse and add New Order Notification to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message = Pref.bool("Show New Order Request Message", show.new_order_request_message, "Parse and add New Order Request Message to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message = Pref.bool("Show New Order Response Message", show.new_order_response_message, "Parse and add New Order Response Message to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification = Pref.bool("Show Order Status Update Notification", show.order_status_update_notification, "Parse and add Order Status Update Notification to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification = Pref.bool("Show Simple Execution Notification", show.simple_execution_notification, "Parse and add Simple Execution Notification to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request = Pref.bool("Show Strategy Creation Request", show.strategy_creation_request, "Parse and add Strategy Creation Request to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message = Pref.bool("Show Strategy Creation Response Message", show.strategy_creation_response_message, "Parse and add Strategy Creation Response Message to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.bool("Show Strategy Leg", show.strategy_leg, "Parse and add Strategy Leg to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message = Pref.bool("Show System State Notification Message", show.system_state_notification_message, "Parse and add System State Notification Message to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators = Pref.bool("Show Additional Order Indicators", show.additional_order_indicators, "Parse and add Additional Order Indicators to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message = Pref.bool("Show Cancel Order Request Message", show.cancel_order_request_message, "Parse and add Cancel Order Request Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response = Pref.bool("Show Cancel Order Response", show.cancel_order_response, "Parse and add Cancel Order Response to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification = Pref.bool("Show Cancel Reduce Size Order Notification", show.cancel_reduce_size_order_notification, "Parse and add Cancel Reduce Size Order Notification to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification = Pref.bool("Show Complex Execution Notification", show.complex_execution_notification, "Parse and add Complex Execution Notification to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request = Pref.bool("Show Mass Cancel Request", show.mass_cancel_request, "Parse and add Mass Cancel Request to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response = Pref.bool("Show Mass Cancel Response", show.mass_cancel_response, "Parse and add Mass Cancel Response to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification = Pref.bool("Show Modify Order Notification", show.modify_order_notification, "Parse and add Modify Order Notification to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message = Pref.bool("Show Modify Order Request Message", show.modify_order_request_message, "Parse and add Modify Order Request Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response = Pref.bool("Show Modify Order Response", show.modify_order_response, "Parse and add Modify Order Response to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification = Pref.bool("Show New Order Notification", show.new_order_notification, "Parse and add New Order Notification to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message = Pref.bool("Show New Order Request Message", show.new_order_request_message, "Parse and add New Order Request Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message = Pref.bool("Show New Order Response Message", show.new_order_response_message, "Parse and add New Order Response Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification = Pref.bool("Show Order Status Update Notification", show.order_status_update_notification, "Parse and add Order Status Update Notification to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification = Pref.bool("Show Simple Execution Notification", show.simple_execution_notification, "Parse and add Simple Execution Notification to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request = Pref.bool("Show Strategy Creation Request", show.strategy_creation_request, "Parse and add Strategy Creation Request to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message = Pref.bool("Show Strategy Creation Response Message", show.strategy_creation_response_message, "Parse and add Strategy Creation Response Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.bool("Show Strategy Leg", show.strategy_leg, "Parse and add Strategy Leg to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message = Pref.bool("Show System State Notification Message", show.system_state_notification_message, "Parse and add System State Notification Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 -- Handle changed preferences
-function miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
+function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.additional_order_indicators ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators then
-    show.additional_order_indicators = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators
+  if show.additional_order_indicators ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators then
+    show.additional_order_indicators = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators
     changed = true
   end
-  if show.cancel_order_request_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message then
-    show.cancel_order_request_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message
+  if show.cancel_order_request_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message then
+    show.cancel_order_request_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message
     changed = true
   end
-  if show.cancel_order_response ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response then
-    show.cancel_order_response = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response
+  if show.cancel_order_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response then
+    show.cancel_order_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response
     changed = true
   end
-  if show.cancel_reduce_size_order_notification ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification then
-    show.cancel_reduce_size_order_notification = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification
+  if show.cancel_reduce_size_order_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification then
+    show.cancel_reduce_size_order_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification
     changed = true
   end
-  if show.complex_execution_notification ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification then
-    show.complex_execution_notification = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification
+  if show.complex_execution_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification then
+    show.complex_execution_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification
     changed = true
   end
-  if show.goodbye_packet ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet then
-    show.goodbye_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet
+  if show.goodbye_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet then
+    show.goodbye_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet
     changed = true
   end
-  if show.login_request ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request then
-    show.login_request = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request
+  if show.login_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request then
+    show.login_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request
     changed = true
   end
-  if show.login_response ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response then
-    show.login_response = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response
+  if show.login_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response then
+    show.login_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response
     changed = true
   end
-  if show.logout_request ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request then
-    show.logout_request = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request
+  if show.logout_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request then
+    show.logout_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request
     changed = true
   end
-  if show.mass_cancel_request ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request then
-    show.mass_cancel_request = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request
+  if show.mass_cancel_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request then
+    show.mass_cancel_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request
     changed = true
   end
-  if show.mass_cancel_response ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response then
-    show.mass_cancel_response = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response
+  if show.mass_cancel_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response then
+    show.mass_cancel_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response
     changed = true
   end
-  if show.modify_order_notification ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification then
-    show.modify_order_notification = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification
+  if show.modify_order_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification then
+    show.modify_order_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification
     changed = true
   end
-  if show.modify_order_request_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message then
-    show.modify_order_request_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message
+  if show.modify_order_request_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message then
+    show.modify_order_request_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message
     changed = true
   end
-  if show.modify_order_response ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response then
-    show.modify_order_response = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response
+  if show.modify_order_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response then
+    show.modify_order_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response
     changed = true
   end
-  if show.new_order_notification ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification then
-    show.new_order_notification = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification
+  if show.new_order_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification then
+    show.new_order_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification
     changed = true
   end
-  if show.new_order_request_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message then
-    show.new_order_request_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message
+  if show.new_order_request_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message then
+    show.new_order_request_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message
     changed = true
   end
-  if show.new_order_response_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message then
-    show.new_order_response_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message
+  if show.new_order_response_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message then
+    show.new_order_response_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message
     changed = true
   end
-  if show.order_instructions ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions then
-    show.order_instructions = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions
+  if show.order_instructions ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions then
+    show.order_instructions = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions
     changed = true
   end
-  if show.order_status_update_notification ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification then
-    show.order_status_update_notification = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification
+  if show.order_status_update_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification then
+    show.order_status_update_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification
     changed = true
   end
-  if show.packet ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet then
-    show.packet = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet
+  if show.packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet then
+    show.packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header then
-    show.packet_header = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header
+  if show.packet_header ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header then
+    show.packet_header = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header
     changed = true
   end
-  if show.retransmission_request ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request then
-    show.retransmission_request = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request
+  if show.retransmission_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request then
+    show.retransmission_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request
     changed = true
   end
-  if show.self_trade_protection ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection then
-    show.self_trade_protection = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection
+  if show.self_trade_protection ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection then
+    show.self_trade_protection = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection
     changed = true
   end
-  if show.sequenced_data_packet ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet
+  if show.sequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet then
+    show.sequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.sesm_tcp_packet ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet then
-    show.sesm_tcp_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet
+  if show.sesm_tcp_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet then
+    show.sesm_tcp_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet
     changed = true
   end
-  if show.simple_execution_notification ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification then
-    show.simple_execution_notification = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification
+  if show.simple_execution_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification then
+    show.simple_execution_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification
     changed = true
   end
-  if show.strategy_creation_request ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request then
-    show.strategy_creation_request = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request
+  if show.strategy_creation_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request then
+    show.strategy_creation_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request
     changed = true
   end
-  if show.strategy_creation_response_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message then
-    show.strategy_creation_response_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message
+  if show.strategy_creation_response_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message then
+    show.strategy_creation_response_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message
     changed = true
   end
-  if show.strategy_leg ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg then
-    show.strategy_leg = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg
+  if show.strategy_leg ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg then
+    show.strategy_leg = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg
     changed = true
   end
-  if show.system_state_notification_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message then
-    show.system_state_notification_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message
+  if show.system_state_notification_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message then
+    show.system_state_notification_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message
     changed = true
   end
-  if show.unsequenced_data_packet ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet
+  if show.unsequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet then
+    show.unsequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload then
-    show.payload = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload
+  if show.payload ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload then
+    show.payload = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_payload
     changed = true
   end
-  if show.sequenced_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message then
-    show.sequenced_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message then
+    show.sequenced_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_message
     changed = true
   end
-  if show.unsequenced_message ~= miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message then
-    show.unsequenced_message = miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message
+  if show.unsequenced_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message then
+    show.unsequenced_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_message
     changed = true
   end
 
@@ -400,7 +400,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_text = function(buff
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.logout_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_text, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_text, range, value, display)
 
   return offset + size
 end
@@ -433,7 +433,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_reason = function(bu
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.logout_reason(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_reason, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_reason, range, value, display)
 
   return offset + length, value
 end
@@ -481,7 +481,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.goodbye_packet = function(b
     local length = miax_onyxfutures_expressinterface_fei_v1_0_c_size_of.goodbye_packet(buffer, offset)
     local range = buffer(offset, length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.goodbye_packet(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet, range, display)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet, range, display)
   end
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.goodbye_packet_fields(buffer, offset, packet, parent)
@@ -530,7 +530,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_request = function(b
     local length = miax_onyxfutures_expressinterface_fei_v1_0_c_size_of.logout_request(buffer, offset)
     local range = buffer(offset, length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.logout_request(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request, range, display)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request, range, display)
   end
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_request_fields(buffer, offset, packet, parent)
@@ -551,7 +551,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.end_sequence_number = funct
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.end_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.end_sequence_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.end_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -571,7 +571,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.start_sequence_number = fun
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.start_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.start_sequence_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.start_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -609,7 +609,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.retransmission_request = function(buffer, offset, packet, parent)
   if show.retransmission_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.retransmission_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -638,7 +638,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.highest_sequence_number = f
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.highest_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.highest_sequence_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.highest_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -658,7 +658,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.session_id = function(buffe
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -700,7 +700,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_status = function(buf
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.login_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_status, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_status, range, value, display)
 
   return offset + length, value
 end
@@ -743,7 +743,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response = function(buffer, offset, packet, parent)
   if show.login_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -772,7 +772,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.requested_sequence_number =
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_sequence_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -792,7 +792,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.requested_session = functio
   local value = range:uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.requested_session(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_session, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -812,7 +812,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.application_protocol = func
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.application_protocol(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.application_protocol, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.application_protocol, range, value, display)
 
   return offset + length, value
 end
@@ -832,7 +832,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.computer_id = function(buff
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.computer_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.computer_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.computer_id, range, value, display)
 
   return offset + length, value
 end
@@ -852,7 +852,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.username = function(buffer,
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -872,7 +872,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_version = function(buf
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sesm_version(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version, range, value, display)
 
   return offset + length, value
 end
@@ -930,7 +930,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_request = function(buffer, offset, packet, parent)
   if show.login_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -959,7 +959,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_16 = function(buff
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.reserved_16(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_16, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_16, range, value, display)
 
   return offset + length, value
 end
@@ -979,7 +979,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.status = function(buffer, o
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.status, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -1015,7 +1015,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_string_20 = f
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.instrument_id_string_20(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_string_20, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_string_20, range, value, display)
 
   return offset + length, value
 end
@@ -1051,7 +1051,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id = function(
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.client_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_order_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1071,7 +1071,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id = function(buffer, of
   local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.mp_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mp_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mp_id, range, value, display)
 
   return offset + length, value
 end
@@ -1095,7 +1095,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time = func
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.matching_engine_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time, range, value, display)
 
   return offset + length, value
 end
@@ -1153,7 +1153,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message = function(buffer, offset, packet, parent)
   if show.strategy_creation_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1182,7 +1182,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_8 = function(buffe
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.reserved_8(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -1202,7 +1202,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.leg_ratio = function(buffer
   local value = range:le_int()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leg_ratio, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leg_ratio, range, value, display)
 
   return offset + length, value
 end
@@ -1222,7 +1222,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4 = 
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.instrument_id_binary_u_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_binary_u_4, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_binary_u_4, range, value, display)
 
   return offset + length, value
 end
@@ -1251,7 +1251,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields = funct
 
   -- Implicit Strategy Leg Index
   if strategy_leg_index ~= nil then
-    local iteration = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
+    local iteration = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
     iteration:set_generated()
   end
 
@@ -1271,7 +1271,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg = function(buffer, offset, packet, parent, strategy_leg_index)
   if show.strategy_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields(buffer, offset, packet, parent, strategy_leg_index)
     local length = index - offset
     parent:set_len(length)
@@ -1300,7 +1300,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.number_of_legs = function(b
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.number_of_legs(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs, range, value, display)
 
   return offset + length, value
 end
@@ -1336,7 +1336,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location = functio
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.operator_location(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_location, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_location, range, value, display)
 
   return offset + length, value
 end
@@ -1372,7 +1372,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id = function(buff
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.operator_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_id, range, value, display)
 
   return offset + length, value
 end
@@ -1396,7 +1396,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time = function
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.client_send_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time, range, value, display)
 
   return offset + length, value
 end
@@ -1471,7 +1471,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_request =
     local length = miax_onyxfutures_expressinterface_fei_v1_0_c_size_of.strategy_creation_request(buffer, offset)
     local range = buffer(offset, length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.strategy_creation_request(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request, range, display)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request, range, display)
   end
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_request_fields(buffer, offset, packet, parent)
@@ -1492,7 +1492,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_10 = function(buff
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.reserved_10(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_10, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_10, range, value, display)
 
   return offset + length, value
 end
@@ -1545,7 +1545,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response = function(buffer, offset, packet, parent)
   if show.mass_cancel_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_response, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1574,7 +1574,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_9 = function(buffe
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.reserved_9(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_9, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_9, range, value, display)
 
   return offset + length, value
 end
@@ -1594,7 +1594,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.purge_group = function(buff
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.purge_group(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.purge_group, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.purge_group, range, value, display)
 
   return offset + length, value
 end
@@ -1614,7 +1614,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.product_type = function(buf
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.product_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type, range, value, display)
 
   return offset + length, value
 end
@@ -1650,7 +1650,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.product_group_code = functi
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.product_group_code(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code, range, value, display)
 
   return offset + length, value
 end
@@ -1670,7 +1670,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.action = function(buffer, o
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.action(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.action, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.action, range, value, display)
 
   return offset + length, value
 end
@@ -1690,7 +1690,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.scope = function(buffer, of
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.scope(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.scope, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.scope, range, value, display)
 
   return offset + length, value
 end
@@ -1778,7 +1778,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request = function(buffer, offset, packet, parent)
   if show.mass_cancel_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_request, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1807,7 +1807,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id = function(buffer,
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1843,7 +1843,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.original_client_order = fun
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.original_client_order(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order, range, value, display)
 
   return offset + length, value
 end
@@ -1906,7 +1906,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response = function(buffer, offset, packet, parent)
   if show.cancel_order_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1951,7 +1951,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.original_client_order_id = 
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.original_client_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -2024,7 +2024,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message = function(buffer, offset, packet, parent)
   if show.cancel_order_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2053,7 +2053,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.leaves_qty = function(buffe
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leaves_qty, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2126,7 +2126,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response = function(buffer, offset, packet, parent)
   if show.modify_order_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_response, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2155,7 +2155,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32 = function(buff
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.reserved_32(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_32, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_32, range, value, display)
 
   return offset + length, value
 end
@@ -2187,16 +2187,16 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.additional_order_indicators_bits = function(buffer, offset, packet, parent)
 
   -- Unused 5: 5 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_5, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_5, buffer(offset, 1))
 
   -- Open Close Position Indicator: 1 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator, buffer(offset, 1))
 
   -- Manual Order Indicator: 1 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator, buffer(offset, 1))
 
   -- Customer Of Firm Designation: 1 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation, buffer(offset, 1))
 end
 
 -- Dissect: Additional Order Indicators
@@ -2204,7 +2204,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.additional_order_indicators
   local size = 1
   local range = buffer(offset, size)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.additional_order_indicators(range, packet, parent)
-  local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.additional_order_indicators, range, display)
+  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.additional_order_indicators, range, display)
 
   if show.additional_order_indicators then
     miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.additional_order_indicators_bits(buffer, offset, packet, element)
@@ -2228,7 +2228,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.customer_order_handling_ins
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.customer_order_handling_instruction(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_order_handling_instruction, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_order_handling_instruction, range, value, display)
 
   return offset + length, value
 end
@@ -2264,7 +2264,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection_group
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.self_trade_protection_group(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_group, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_group, range, value, display)
 
   return offset + length, value
 end
@@ -2284,7 +2284,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_expiry_date = functio
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.order_expiry_date(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_expiry_date, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_expiry_date, range, value, display)
 
   return offset + length, value
 end
@@ -2304,7 +2304,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.size_binary_s_4 = function(
   local value = range:le_int()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.size_binary_s_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_s_4, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_s_4, range, value, display)
 
   return offset + length, value
 end
@@ -2330,7 +2330,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.stop_order_trigger_price = 
   local value = translate.stop_order_trigger_price(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.stop_order_trigger_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.stop_order_trigger_price, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.stop_order_trigger_price, range, value, display)
 
   return offset + length, value
 end
@@ -2356,7 +2356,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.price = function(buffer, of
   local value = translate.price(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -2464,7 +2464,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message = function(buffer, offset, packet, parent)
   if show.modify_order_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_request_message, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_request_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2497,7 +2497,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine = function(
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.matching_engine(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine, range, value, display)
 
   return offset + length, value
 end
@@ -2560,7 +2560,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message = function(buffer, offset, packet, parent)
   if show.new_order_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_response_message, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_response_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2605,7 +2605,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.text_memo = function(buffer
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.text_memo(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.text_memo, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.text_memo, range, value, display)
 
   return offset + length, value
 end
@@ -2625,7 +2625,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cti_code = function(buffer,
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.cti_code(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cti_code, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cti_code, range, value, display)
 
   return offset + length, value
 end
@@ -2651,7 +2651,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trading_collar_dollar_value
   local value = translate.trading_collar_dollar_value(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.trading_collar_dollar_value(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trading_collar_dollar_value, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trading_collar_dollar_value, range, value, display)
 
   return offset + length, value
 end
@@ -2671,7 +2671,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.min_qty = function(buffer, 
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.min_qty, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.min_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2691,13 +2691,13 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection_bits = function(buffer, offset, packet, parent)
 
   -- Unused 2: 2 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_2, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_2, buffer(offset, 1))
 
   -- Self Trade Protection Instruction: 3 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction, buffer(offset, 1))
 
   -- Self Trade Protection Level: 3 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level, buffer(offset, 1))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level, buffer(offset, 1))
 end
 
 -- Dissect: Self Trade Protection
@@ -2705,7 +2705,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection = fun
   local size = 1
   local range = buffer(offset, size)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.self_trade_protection(range, packet, parent)
-  local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection, range, display)
+  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection, range, display)
 
   if show.self_trade_protection then
     miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection_bits(buffer, offset, packet, element)
@@ -2729,7 +2729,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_type = function(buffe
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.order_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type, range, value, display)
 
   return offset + length, value
 end
@@ -2765,7 +2765,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.time_in_force = function(bu
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.time_in_force, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -2789,10 +2789,10 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_instructions_bits = function(buffer, offset, packet, parent)
 
   -- Unused 15: 15 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_15, buffer(offset, 2))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unused_15, buffer(offset, 2))
 
   -- Side: 1 Bit
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side, buffer(offset, 2))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side, buffer(offset, 2))
 end
 
 -- Dissect: Order Instructions
@@ -2800,7 +2800,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_instructions = functi
   local size = 2
   local range = buffer(offset, size)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.order_instructions(range, packet, parent)
-  local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions, range, display)
+  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions, range, display)
 
   if show.order_instructions then
     miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_instructions_bits(buffer, offset, packet, element)
@@ -2824,7 +2824,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.size_binary_u_4 = function(
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.size_binary_u_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_u_4, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_u_4, range, value, display)
 
   return offset + length, value
 end
@@ -2860,7 +2860,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.account = function(buffer, 
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.account(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.account, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.account, range, value, display)
 
   return offset + length, value
 end
@@ -3008,7 +3008,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message = function(buffer, offset, packet, parent)
   if show.new_order_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_request_message, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_request_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3134,7 +3134,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.unsequenced_message = funct
   -- Dissect Element
   local range = buffer(offset, size)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.unsequenced_message(buffer, packet, parent)
-  local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message, range, display)
+  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message, range, display)
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.unsequenced_message_branches(buffer, offset, packet, parent, unsequenced_message_type)
 end
@@ -3185,7 +3185,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.unsequenced_message_type = 
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.unsequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message_type, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3227,7 +3227,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.unsequenced_data_packet = f
   if show.unsequenced_data_packet then
     local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.unsequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet, range, display)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet, range, display)
   end
 
   miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
@@ -3250,7 +3250,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_size = function(buffer
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.last_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_size, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_size, range, value, display)
 
   return offset + length, value
 end
@@ -3276,7 +3276,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_net_price = function(b
   local value = translate.last_net_price(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.last_net_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_net_price, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_net_price, range, value, display)
 
   return offset + length, value
 end
@@ -3296,7 +3296,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trade_date = function(buffe
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_date, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -3316,7 +3316,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_trade_id = function
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.complex_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_trade_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -3394,7 +3394,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification = function(buffer, offset, packet, parent)
   if show.complex_execution_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_execution_notification, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_execution_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3439,7 +3439,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.liquidity_indicator = funct
 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.liquidity_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.liquidity_indicator, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3465,7 +3465,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_price = function(buffe
   local value = translate.last_price(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.last_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_price, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_price, range, value, display)
 
   return offset + length, value
 end
@@ -3485,7 +3485,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trade_status = function(buf
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.trade_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_status, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trade_status, range, value, display)
 
   return offset + length, value
 end
@@ -3505,7 +3505,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.correction_number = functio
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.correction_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.correction_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.correction_number, range, value, display)
 
   return offset + length, value
 end
@@ -3525,7 +3525,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.execution_id = function(buf
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.execution_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.execution_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
@@ -3545,7 +3545,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_trade_id = function(
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.simple_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_trade_id, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -3673,7 +3673,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification = function(buffer, offset, packet, parent)
   if show.simple_execution_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_execution_notification, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_execution_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3702,7 +3702,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.update_status = function(bu
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.update_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status, range, value, display)
 
   return offset + length, value
 end
@@ -3755,7 +3755,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification = function(buffer, offset, packet, parent)
   if show.order_status_update_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status_update_notification, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status_update_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3784,7 +3784,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reason = function(bu
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.cancel_reason(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reason, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -3877,7 +3877,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification = function(buffer, offset, packet, parent)
   if show.cancel_reduce_size_order_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4009,7 +4009,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification = function(buffer, offset, packet, parent)
   if show.modify_order_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_notification, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4176,7 +4176,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification = function(buffer, offset, packet, parent)
   if show.new_order_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_notification, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4205,7 +4205,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_status = function(bu
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.system_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_status, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_status, range, value, display)
 
   return offset + length, value
 end
@@ -4225,7 +4225,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.version = function(buffer, 
   local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -4278,7 +4278,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message = function(buffer, offset, packet, parent)
   if show.system_state_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4420,7 +4420,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sequenced_message = functio
   -- Dissect Element
   local range = buffer(offset, size)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message, range, display)
+  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message, range, display)
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sequenced_message_branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -4477,7 +4477,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sequenced_message_type = fu
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -4497,7 +4497,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sequence_number = function(
   local value = range:le_uint64()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -4542,7 +4542,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sequenced_data_packet = fun
   if show.sequenced_data_packet then
     local range = buffer(offset, size_of_sequenced_data_packet)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet, range, display)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet, range, display)
   end
 
   miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
@@ -4666,7 +4666,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.payload = function(buffer, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.payload(buffer, packet, parent)
-  local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.payload, range, display)
+  local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.payload, range, display)
 
   return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -4720,7 +4720,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_type = function(buff
   local value = range:string()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_type, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -4740,7 +4740,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_length = function(bu
   local value = range:le_uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_length, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -4778,7 +4778,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4819,7 +4819,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.sesm_tcp_packet then
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet, buffer(offset, 0))
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet, buffer(offset, 0))
     local current = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
     parent:set_len(size_of_sesm_tcp_packet)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sesm_tcp_packet(buffer, packet, parent)
@@ -4888,23 +4888,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function miax_onyxfutures_expressinterface_fei_v1_0_c.init()
+function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.init()
 end
 
 -- Dissector for Miax OnyxFutures ExpressInterface Fei 1.0.c
-function miax_onyxfutures_expressinterface_fei_v1_0_c.dissector(buffer, packet, parent)
+function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = miax_onyxfutures_expressinterface_fei_v1_0_c.name
+  packet.cols.protocol = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.name
 
   -- Dissect protocol
-  local protocol = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c, buffer(), miax_onyxfutures_expressinterface_fei_v1_0_c.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c, buffer(), omi_miax_onyxfutures_expressinterface_fei_v1_0_c.description, "("..buffer:len().." Bytes)")
   return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, miax_onyxfutures_expressinterface_fei_v1_0_c)
+tcp_table:add(65333, omi_miax_onyxfutures_expressinterface_fei_v1_0_c)
 
 
 -----------------------------------------------------------------------
@@ -4912,25 +4912,25 @@ tcp_table:add(65333, miax_onyxfutures_expressinterface_fei_v1_0_c)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.miax_onyxfutures_expressinterface_fei_v1_0_c_packet_size = function(buffer)
+verify.omi_miax_onyxfutures_expressinterface_fei_v1_0_c_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c
-local function miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic(buffer, packet, parent)
+local function omi_miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.miax_onyxfutures_expressinterface_fei_v1_0_c_packet_size(buffer) then return false end
+  if not verify.omi_miax_onyxfutures_expressinterface_fei_v1_0_c_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = miax_onyxfutures_expressinterface_fei_v1_0_c
-  miax_onyxfutures_expressinterface_fei_v1_0_c.dissector(buffer, packet, parent)
+  packet.conversation = omi_miax_onyxfutures_expressinterface_fei_v1_0_c
+  omi_miax_onyxfutures_expressinterface_fei_v1_0_c.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c
-miax_onyxfutures_expressinterface_fei_v1_0_c:register_heuristic("tcp", miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c:register_heuristic("tcp", omi_miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

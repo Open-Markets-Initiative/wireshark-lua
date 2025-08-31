@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities Bbo Itch 2.1 Protocol
-local nasdaq_psxequities_bbo_itch_v2_1 = Proto("Nasdaq.PsxEquities.Bbo.Itch.v2.1.Lua", "Nasdaq PsxEquities Bbo Itch 2.1")
+local omi_nasdaq_psxequities_bbo_itch_v2_1 = Proto("Nasdaq.PsxEquities.Bbo.Itch.v2.1.Lua", "Nasdaq PsxEquities Bbo Itch 2.1")
 
 -- Component Tables
 local show = {}
@@ -21,63 +21,63 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities Bbo Itch 2.1 Fields
-nasdaq_psxequities_bbo_itch_v2_1.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.bbo.itch.v2.1.authenticity", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.bbo.itch.v2.1.breachedlevel", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psxequities.bbo.itch.v2.1.currenttradingstate", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.psxequities.bbo.itch.v2.1.etpflag", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.psxequities.bbo.itch.v2.1.etpleveragefactor", ftypes.UINT32)
-nasdaq_psxequities_bbo_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.psxequities.bbo.itch.v2.1.eventcode", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.psxequities.bbo.itch.v2.1.financialstatusindicator", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.psxequities.bbo.itch.v2.1.inverseindicator", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.psxequities.bbo.itch.v2.1.ipoflag", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psxequities.bbo.itch.v2.1.issueclassification", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psxequities.bbo.itch.v2.1.issuesubtype", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psxequities.bbo.itch.v2.1.level1", ftypes.DOUBLE)
-nasdaq_psxequities_bbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psxequities.bbo.itch.v2.1.level2", ftypes.DOUBLE)
-nasdaq_psxequities_bbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psxequities.bbo.itch.v2.1.level3", ftypes.DOUBLE)
-nasdaq_psxequities_bbo_itch_v2_1.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psxequities.bbo.itch.v2.1.luldreferencepricetier", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.bbo.itch.v2.1.marketcategory", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.psxequities.bbo.itch.v2.1.marketcode", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.psxequities.bbo.itch.v2.1.message", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.bbo.itch.v2.1.messagecount", ftypes.UINT16)
-nasdaq_psxequities_bbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.bbo.itch.v2.1.messageheader", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.itch.v2.1.messagelength", ftypes.UINT16)
-nasdaq_psxequities_bbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.itch.v2.1.messagetype", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psxequities.bbo.itch.v2.1.nasdaqbestbid", ftypes.DOUBLE)
-nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psxequities.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psxequities.bbo.itch.v2.1.operationalhaltaction", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.packet", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.packetheader", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.payload = ProtoField.new("Payload", "nasdaq.psxequities.bbo.itch.v2.1.payload", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.itch.v2.1.psxbestbidprice", ftypes.DOUBLE)
-nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.itch.v2.1.psxbestbidsize", ftypes.UINT32)
-nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psxequities.bbo.itch.v2.1.psxbestofferprice", ftypes.DOUBLE)
-nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psxequities.bbo.itch.v2.1.psxbestoffersize", ftypes.UINT32)
-nasdaq_psxequities_bbo_itch_v2_1.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.bbo.itch.v2.1.reason", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.bbo.itch.v2.1.regshoaction", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.bbo.itch.v2.1.roundlotsize", ftypes.UINT32)
-nasdaq_psxequities_bbo_itch_v2_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.bbo.itch.v2.1.roundlotsonly", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.security_class = ProtoField.new("Security Class", "nasdaq.psxequities.bbo.itch.v2.1.securityclass", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.bbo.itch.v2.1.sequencenumber", ftypes.UINT64)
-nasdaq_psxequities_bbo_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.psxequities.bbo.itch.v2.1.session", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.psxequities.bbo.itch.v2.1.shortsalethresholdindicator", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.bbo.itch.v2.1.stock", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.itch.v2.1.timestamp", ftypes.UINT64)
-nasdaq_psxequities_bbo_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psxequities.bbo.itch.v2.1.trackingnumber", ftypes.UINT16)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.bbo.itch.v2.1.authenticity", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.bbo.itch.v2.1.breachedlevel", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psxequities.bbo.itch.v2.1.currenttradingstate", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.psxequities.bbo.itch.v2.1.etpflag", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.psxequities.bbo.itch.v2.1.etpleveragefactor", ftypes.UINT32)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.psxequities.bbo.itch.v2.1.eventcode", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.psxequities.bbo.itch.v2.1.financialstatusindicator", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.psxequities.bbo.itch.v2.1.inverseindicator", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.psxequities.bbo.itch.v2.1.ipoflag", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psxequities.bbo.itch.v2.1.issueclassification", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psxequities.bbo.itch.v2.1.issuesubtype", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psxequities.bbo.itch.v2.1.level1", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psxequities.bbo.itch.v2.1.level2", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psxequities.bbo.itch.v2.1.level3", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psxequities.bbo.itch.v2.1.luldreferencepricetier", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.bbo.itch.v2.1.marketcategory", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.psxequities.bbo.itch.v2.1.marketcode", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.psxequities.bbo.itch.v2.1.message", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.bbo.itch.v2.1.messagecount", ftypes.UINT16)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.bbo.itch.v2.1.messageheader", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.itch.v2.1.messagelength", ftypes.UINT16)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.itch.v2.1.messagetype", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psxequities.bbo.itch.v2.1.nasdaqbestbid", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psxequities.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psxequities.bbo.itch.v2.1.operationalhaltaction", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.packet", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.packetheader", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.payload = ProtoField.new("Payload", "nasdaq.psxequities.bbo.itch.v2.1.payload", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.itch.v2.1.psxbestbidprice", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.itch.v2.1.psxbestbidsize", ftypes.UINT32)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psxequities.bbo.itch.v2.1.psxbestofferprice", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psxequities.bbo.itch.v2.1.psxbestoffersize", ftypes.UINT32)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.bbo.itch.v2.1.reason", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.bbo.itch.v2.1.regshoaction", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.bbo.itch.v2.1.roundlotsize", ftypes.UINT32)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.bbo.itch.v2.1.roundlotsonly", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.security_class = ProtoField.new("Security Class", "nasdaq.psxequities.bbo.itch.v2.1.securityclass", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.bbo.itch.v2.1.sequencenumber", ftypes.UINT64)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.psxequities.bbo.itch.v2.1.session", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.psxequities.bbo.itch.v2.1.shortsalethresholdindicator", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.bbo.itch.v2.1.stock", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.itch.v2.1.timestamp", ftypes.UINT64)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psxequities.bbo.itch.v2.1.trackingnumber", ftypes.UINT16)
 
 -- Nasdaq PsxEquities Bbo Itch 2.1 messages
-nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psxequities.bbo.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_status_message = ProtoField.new("Mwcb Status Message", "nasdaq.psxequities.bbo.itch.v2.1.mwcbstatusmessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_quotation_message = ProtoField.new("Next Shares Quotation Message", "nasdaq.psxequities.bbo.itch.v2.1.nextsharesquotationmessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.psxequities.bbo.itch.v2.1.operationalhaltmessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.quotation_message = ProtoField.new("Quotation Message", "nasdaq.psxequities.bbo.itch.v2.1.quotationmessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.psxequities.bbo.itch.v2.1.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.psxequities.bbo.itch.v2.1.stockdirectorymessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.psxequities.bbo.itch.v2.1.stocktradingactionmessage", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.bbo.itch.v2.1.systemeventmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psxequities.bbo.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_status_message = ProtoField.new("Mwcb Status Message", "nasdaq.psxequities.bbo.itch.v2.1.mwcbstatusmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_quotation_message = ProtoField.new("Next Shares Quotation Message", "nasdaq.psxequities.bbo.itch.v2.1.nextsharesquotationmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.psxequities.bbo.itch.v2.1.operationalhaltmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.quotation_message = ProtoField.new("Quotation Message", "nasdaq.psxequities.bbo.itch.v2.1.quotationmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.psxequities.bbo.itch.v2.1.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.psxequities.bbo.itch.v2.1.stockdirectorymessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.psxequities.bbo.itch.v2.1.stocktradingactionmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.bbo.itch.v2.1.systemeventmessage", ftypes.STRING)
 
 -- Nasdaq PsxEquities Bbo Itch 2.1 generated fields
-nasdaq_psxequities_bbo_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.bbo.itch.v2.1.messageindex", ftypes.UINT16)
+omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.bbo.itch.v2.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -100,80 +100,80 @@ show.system_event_message = true
 show.payload = false
 
 -- Register Nasdaq PsxEquities Bbo Itch 2.1 Show Options
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_status_message = Pref.bool("Show Mwcb Status Message", show.mwcb_status_message, "Parse and add Mwcb Status Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_next_shares_quotation_message = Pref.bool("Show Next Shares Quotation Message", show.next_shares_quotation_message, "Parse and add Next Shares Quotation Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_operational_halt_message = Pref.bool("Show Operational Halt Message", show.operational_halt_message, "Parse and add Operational Halt Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_quotation_message = Pref.bool("Show Quotation Message", show.quotation_message, "Parse and add Quotation Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_status_message = Pref.bool("Show Mwcb Status Message", show.mwcb_status_message, "Parse and add Mwcb Status Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_next_shares_quotation_message = Pref.bool("Show Next Shares Quotation Message", show.next_shares_quotation_message, "Parse and add Next Shares Quotation Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_operational_halt_message = Pref.bool("Show Operational Halt Message", show.operational_halt_message, "Parse and add Operational Halt Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_quotation_message = Pref.bool("Show Quotation Message", show.quotation_message, "Parse and add Quotation Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_psxequities_bbo_itch_v2_1.prefs_changed()
+function omi_nasdaq_psxequities_bbo_itch_v2_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message then
-    show.message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message
+  if show.message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message then
+    show.message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message_header then
-    show.message_header = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message_header then
+    show.message_header = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_message_header
     changed = true
   end
-  if show.mwcb_decline_level_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message then
-    show.mwcb_decline_level_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message
+  if show.mwcb_decline_level_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message then
+    show.mwcb_decline_level_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message
     changed = true
   end
-  if show.mwcb_status_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_status_message then
-    show.mwcb_status_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_status_message
+  if show.mwcb_status_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_status_message then
+    show.mwcb_status_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_mwcb_status_message
     changed = true
   end
-  if show.next_shares_quotation_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_next_shares_quotation_message then
-    show.next_shares_quotation_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_next_shares_quotation_message
+  if show.next_shares_quotation_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_next_shares_quotation_message then
+    show.next_shares_quotation_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_next_shares_quotation_message
     changed = true
   end
-  if show.operational_halt_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_operational_halt_message then
-    show.operational_halt_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_operational_halt_message
+  if show.operational_halt_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_operational_halt_message then
+    show.operational_halt_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_operational_halt_message
     changed = true
   end
-  if show.packet ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet then
-    show.packet = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet
+  if show.packet ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet then
+    show.packet = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet_header then
-    show.packet_header = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_packet_header
     changed = true
   end
-  if show.quotation_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_quotation_message then
-    show.quotation_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_quotation_message
+  if show.quotation_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_quotation_message then
+    show.quotation_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_quotation_message
     changed = true
   end
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
-    show.reg_sho_short_sale_price_test_restricted_indicator_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
+  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
+    show.reg_sho_short_sale_price_test_restricted_indicator_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
     changed = true
   end
-  if show.stock_directory_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_directory_message then
-    show.stock_directory_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_directory_message
+  if show.stock_directory_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_directory_message then
+    show.stock_directory_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_directory_message
     changed = true
   end
-  if show.stock_trading_action_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_trading_action_message then
-    show.stock_trading_action_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_trading_action_message
+  if show.stock_trading_action_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_trading_action_message then
+    show.stock_trading_action_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_stock_trading_action_message
     changed = true
   end
-  if show.system_event_message ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message
+  if show.system_event_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message then
+    show.system_event_message = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_system_event_message
     changed = true
   end
-  if show.payload ~= nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload then
-    show.payload = nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload
+  if show.payload ~= omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload then
+    show.payload = omi_nasdaq_psxequities_bbo_itch_v2_1.prefs.show_payload
     changed = true
   end
 
@@ -227,7 +227,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.nasdaq_best_bid = function(buffer, offs
   local value = translate.nasdaq_best_bid(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.nasdaq_best_bid(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.nasdaq_best_bid, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.nasdaq_best_bid, range, value, display)
 
   return offset + length, value
 end
@@ -269,7 +269,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.security_class = function(buffer, offse
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.security_class(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.security_class, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.security_class, range, value, display)
 
   return offset + length, value
 end
@@ -289,7 +289,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.next_shares_symbol = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.next_shares_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_symbol, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -309,7 +309,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.timestamp = function(buffer, offset, pa
   local value = range:uint64()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.timestamp, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -329,7 +329,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.tracking_number = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.tracking_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.tracking_number, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.tracking_number, range, value, display)
 
   return offset + length, value
 end
@@ -382,7 +382,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.next_shares_quotation_message = function(buffer, offset, packet, parent)
   if show.next_shares_quotation_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_quotation_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_quotation_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.next_shares_quotation_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -411,7 +411,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.psx_best_offer_size = function(buffer, 
   local value = range:uint()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.psx_best_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_size, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -437,7 +437,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.psx_best_offer_price = function(buffer,
   local value = translate.psx_best_offer_price(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.psx_best_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_price, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -457,7 +457,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.psx_best_bid_size = function(buffer, of
   local value = range:uint()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.psx_best_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_size, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -483,7 +483,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.psx_best_bid_price = function(buffer, o
   local value = translate.psx_best_bid_price(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.psx_best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_price, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -503,7 +503,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.stock = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.stock(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.stock, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.stock, range, value, display)
 
   return offset + length, value
 end
@@ -571,7 +571,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.quotation_message = function(buffer, offset, packet, parent)
   if show.quotation_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.quotation_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.quotation_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.quotation_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -607,7 +607,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.operational_halt_action = function(buff
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.operational_halt_action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_action, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_action, range, value, display)
 
   return offset + length, value
 end
@@ -637,7 +637,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.market_code = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.market_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.market_code, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.market_code, range, value, display)
 
   return offset + length, value
 end
@@ -690,7 +690,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.operational_halt_message = function(buffer, offset, packet, parent)
   if show.operational_halt_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.operational_halt_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.operational_halt_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -729,7 +729,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.breached_level = function(buffer, offse
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.breached_level(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.breached_level, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.breached_level, range, value, display)
 
   return offset + length, value
 end
@@ -772,7 +772,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.mwcb_status_message = function(buffer, offset, packet, parent)
   if show.mwcb_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_status_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_status_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.mwcb_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -807,7 +807,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.level_3 = function(buffer, offset, pack
   local value = translate.level_3(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.level_3(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.level_3, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_3, range, value, display)
 
   return offset + length, value
 end
@@ -833,7 +833,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.level_2 = function(buffer, offset, pack
   local value = translate.level_2(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.level_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.level_2, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_2, range, value, display)
 
   return offset + length, value
 end
@@ -859,7 +859,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.level_1 = function(buffer, offset, pack
   local value = translate.level_1(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.level_1(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.level_1, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_1, range, value, display)
 
   return offset + length, value
 end
@@ -912,7 +912,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   if show.mwcb_decline_level_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_decline_level_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.mwcb_decline_level_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -951,7 +951,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.reg_sho_action = function(buffer, offse
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.reg_sho_action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_action, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_action, range, value, display)
 
   return offset + length, value
 end
@@ -999,7 +999,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1028,7 +1028,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.reason = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.reason, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -1061,7 +1061,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.current_trading_state = function(buffer
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.current_trading_state, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -1119,7 +1119,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
   if show.stock_trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.stock_trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.stock_trading_action_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1155,7 +1155,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.inverse_indicator = function(buffer, of
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.inverse_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.inverse_indicator, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.inverse_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1175,7 +1175,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.etp_leverage_factor = function(buffer, 
   local value = range:uint()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.etp_leverage_factor(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.etp_leverage_factor, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.etp_leverage_factor, range, value, display)
 
   return offset + length, value
 end
@@ -1205,7 +1205,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.etp_flag = function(buffer, offset, pac
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.etp_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.etp_flag, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.etp_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1235,7 +1235,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.luld_reference_price_tier = function(bu
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.luld_reference_price_tier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.luld_reference_price_tier, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.luld_reference_price_tier, range, value, display)
 
   return offset + length, value
 end
@@ -1265,7 +1265,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.ipo_flag = function(buffer, offset, pac
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.ipo_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.ipo_flag, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.ipo_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1295,7 +1295,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.short_sale_threshold_indicator = functi
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.short_sale_threshold_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.short_sale_threshold_indicator, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.short_sale_threshold_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1322,7 +1322,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.authenticity = function(buffer, offset,
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.authenticity(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.authenticity, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.authenticity, range, value, display)
 
   return offset + length, value
 end
@@ -1342,7 +1342,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.issue_sub_type = function(buffer, offse
   local value = trim_right_spaces(range:string())
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.issue_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.issue_sub_type, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.issue_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -1362,7 +1362,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.issue_classification = function(buffer,
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.issue_classification(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.issue_classification, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.issue_classification, range, value, display)
 
   return offset + length, value
 end
@@ -1389,7 +1389,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.round_lots_only = function(buffer, offs
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.round_lots_only(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.round_lots_only, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.round_lots_only, range, value, display)
 
   return offset + length, value
 end
@@ -1409,7 +1409,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.round_lot_size = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.round_lot_size, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -1463,7 +1463,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.financial_status_indicator = function(b
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.financial_status_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.financial_status_indicator, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.financial_status_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1511,7 +1511,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.market_category = function(buffer, offs
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.market_category(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.market_category, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.market_category, range, value, display)
 
   return offset + length, value
 end
@@ -1619,7 +1619,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.stock_directory_message = function(buffer, offset, packet, parent)
   if show.stock_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.stock_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.stock_directory_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1667,7 +1667,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.event_code = function(buffer, offset, p
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.event_code, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -1710,7 +1710,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1828,7 +1828,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.payload = function(buffer, offset, pack
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.payload, range, display)
 
   return nasdaq_psxequities_bbo_itch_v2_1_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1876,7 +1876,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.message_type = function(buffer, offset,
   local value = range:string()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1896,7 +1896,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.message_length = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1934,7 +1934,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_header, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1959,7 +1959,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.message_fields = function(buffer, offse
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -1981,7 +1981,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.message = function(buffer, offset, pack
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message, buffer(offset, 0))
     local current = nasdaq_psxequities_bbo_itch_v2_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_psxequities_bbo_itch_v2_1_display.message(buffer, packet, parent)
@@ -2011,7 +2011,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.message_count = function(buffer, offset
   local value = range:uint()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message_count, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2031,7 +2031,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.sequence_number = function(buffer, offs
   local value = range:uint64()
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2067,7 +2067,7 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.session = function(buffer, offset, pack
 
   local display = nasdaq_psxequities_bbo_itch_v2_1_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.session, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2110,7 +2110,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2156,23 +2156,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_psxequities_bbo_itch_v2_1.init()
+function omi_nasdaq_psxequities_bbo_itch_v2_1.init()
 end
 
 -- Dissector for Nasdaq PsxEquities Bbo Itch 2.1
-function nasdaq_psxequities_bbo_itch_v2_1.dissector(buffer, packet, parent)
+function omi_nasdaq_psxequities_bbo_itch_v2_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_psxequities_bbo_itch_v2_1.name
+  packet.cols.protocol = omi_nasdaq_psxequities_bbo_itch_v2_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_psxequities_bbo_itch_v2_1, buffer(), nasdaq_psxequities_bbo_itch_v2_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1, buffer(), omi_nasdaq_psxequities_bbo_itch_v2_1.description, "("..buffer:len().." Bytes)")
   return nasdaq_psxequities_bbo_itch_v2_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_psxequities_bbo_itch_v2_1)
+udp_table:add(65333, omi_nasdaq_psxequities_bbo_itch_v2_1)
 
 
 -----------------------------------------------------------------------
@@ -2180,25 +2180,25 @@ udp_table:add(65333, nasdaq_psxequities_bbo_itch_v2_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_psxequities_bbo_itch_v2_1_packet_size = function(buffer)
+verify.omi_nasdaq_psxequities_bbo_itch_v2_1_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq PsxEquities Bbo Itch 2.1
-local function nasdaq_psxequities_bbo_itch_v2_1_heuristic(buffer, packet, parent)
+local function omi_nasdaq_psxequities_bbo_itch_v2_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_psxequities_bbo_itch_v2_1_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_psxequities_bbo_itch_v2_1_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_psxequities_bbo_itch_v2_1
-  nasdaq_psxequities_bbo_itch_v2_1.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_psxequities_bbo_itch_v2_1
+  omi_nasdaq_psxequities_bbo_itch_v2_1.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq PsxEquities Bbo Itch 2.1
-nasdaq_psxequities_bbo_itch_v2_1:register_heuristic("udp", nasdaq_psxequities_bbo_itch_v2_1_heuristic)
+omi_nasdaq_psxequities_bbo_itch_v2_1:register_heuristic("udp", omi_nasdaq_psxequities_bbo_itch_v2_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

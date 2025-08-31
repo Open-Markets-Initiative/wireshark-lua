@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx Equities MemoirDepthFeed Sbe 1.3 Protocol
-local memx_equities_memoirdepthfeed_sbe_v1_3 = Proto("Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Lua", "Memx Equities MemoirDepthFeed Sbe 1.3")
+local omi_memx_equities_memoirdepthfeed_sbe_v1_3 = Proto("Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Lua", "Memx Equities MemoirDepthFeed Sbe 1.3")
 
 -- Component Tables
 local show = {}
@@ -21,61 +21,61 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Memx Equities MemoirDepthFeed Sbe 1.3 Fields
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.equities.memoirdepthfeed.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "memx.equities.memoirdepthfeed.sbe.v1.3.blocklength", ftypes.UINT16)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.equities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedprice", ftypes.DOUBLE)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedquantity", ftypes.UINT32)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "memx.equities.memoirdepthfeed.sbe.v1.3.headerlength", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.equities.memoirdepthfeed.sbe.v1.3.istestsymbol", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.message = ProtoField.new("Message", "memx.equities.memoirdepthfeed.sbe.v1.3.message", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "memx.equities.memoirdepthfeed.sbe.v1.3.messagecount", ftypes.UINT16)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "memx.equities.memoirdepthfeed.sbe.v1.3.messagelength", ftypes.UINT16)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "memx.equities.memoirdepthfeed.sbe.v1.3.messagetype", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirdepthfeed.sbe.v1.3.mpv", ftypes.DOUBLE)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "memx.equities.memoirdepthfeed.sbe.v1.3.orderid", ftypes.UINT64)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "memx.equities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.DOUBLE)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.equities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.equities.memoirdepthfeed.sbe.v1.3.payload", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.equities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "memx.equities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "memx.equities.memoirdepthfeed.sbe.v1.3.roundlot", ftypes.UINT32)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.equities.memoirdepthfeed.sbe.v1.3.sbeheader", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.equities.memoirdepthfeed.sbe.v1.3.sbemessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.equities.memoirdepthfeed.sbe.v1.3.schemaid", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.equities.memoirdepthfeed.sbe.v1.3.securityid", ftypes.UINT16)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatus", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatusreason", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "memx.equities.memoirdepthfeed.sbe.v1.3.sequencenumber", ftypes.UINT64)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.equities.memoirdepthfeed.sbe.v1.3.sequencedmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "memx.equities.memoirdepthfeed.sbe.v1.3.sequencedmessages", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "memx.equities.memoirdepthfeed.sbe.v1.3.sessionid", ftypes.UINT64)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "memx.equities.memoirdepthfeed.sbe.v1.3.shortsalerestriction", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.side = ProtoField.new("Side", "memx.equities.memoirdepthfeed.sbe.v1.3.side", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "memx.equities.memoirdepthfeed.sbe.v1.3.symbol", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "memx.equities.memoirdepthfeed.sbe.v1.3.symbolsfx", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "memx.equities.memoirdepthfeed.sbe.v1.3.templateid", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "memx.equities.memoirdepthfeed.sbe.v1.3.timestamp", ftypes.UINT64)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "memx.equities.memoirdepthfeed.sbe.v1.3.tradeid", ftypes.UINT64)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "memx.equities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.equities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.equities.memoirdepthfeed.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "memx.equities.memoirdepthfeed.sbe.v1.3.blocklength", ftypes.UINT16)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.equities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedprice", ftypes.DOUBLE)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedquantity", ftypes.UINT32)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "memx.equities.memoirdepthfeed.sbe.v1.3.headerlength", ftypes.UINT8)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.equities.memoirdepthfeed.sbe.v1.3.istestsymbol", ftypes.UINT8)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message = ProtoField.new("Message", "memx.equities.memoirdepthfeed.sbe.v1.3.message", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "memx.equities.memoirdepthfeed.sbe.v1.3.messagecount", ftypes.UINT16)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "memx.equities.memoirdepthfeed.sbe.v1.3.messagelength", ftypes.UINT16)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "memx.equities.memoirdepthfeed.sbe.v1.3.messagetype", ftypes.UINT8)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirdepthfeed.sbe.v1.3.mpv", ftypes.DOUBLE)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "memx.equities.memoirdepthfeed.sbe.v1.3.orderid", ftypes.UINT64)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "memx.equities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.DOUBLE)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.equities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.equities.memoirdepthfeed.sbe.v1.3.payload", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.equities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "memx.equities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.UINT8)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "memx.equities.memoirdepthfeed.sbe.v1.3.roundlot", ftypes.UINT32)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.equities.memoirdepthfeed.sbe.v1.3.sbeheader", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.equities.memoirdepthfeed.sbe.v1.3.sbemessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.equities.memoirdepthfeed.sbe.v1.3.schemaid", ftypes.UINT8)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.equities.memoirdepthfeed.sbe.v1.3.securityid", ftypes.UINT16)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatus", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatusreason", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "memx.equities.memoirdepthfeed.sbe.v1.3.sequencenumber", ftypes.UINT64)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.equities.memoirdepthfeed.sbe.v1.3.sequencedmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_messages = ProtoField.new("Sequenced Messages", "memx.equities.memoirdepthfeed.sbe.v1.3.sequencedmessages", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "memx.equities.memoirdepthfeed.sbe.v1.3.sessionid", ftypes.UINT64)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "memx.equities.memoirdepthfeed.sbe.v1.3.shortsalerestriction", ftypes.UINT8)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.side = ProtoField.new("Side", "memx.equities.memoirdepthfeed.sbe.v1.3.side", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "memx.equities.memoirdepthfeed.sbe.v1.3.symbol", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "memx.equities.memoirdepthfeed.sbe.v1.3.symbolsfx", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "memx.equities.memoirdepthfeed.sbe.v1.3.templateid", ftypes.UINT8)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "memx.equities.memoirdepthfeed.sbe.v1.3.timestamp", ftypes.UINT64)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "memx.equities.memoirdepthfeed.sbe.v1.3.tradeid", ftypes.UINT64)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "memx.equities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.equities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
 -- Memx Equities MemoirDepthFeed Sbe 1.3 messages
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.equities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedtrademessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.equities.memoirdepthfeed.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_added_message = ProtoField.new("Order Added Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderaddedmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderdeletedmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_executed_message = ProtoField.new("Order Executed Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderexecutedmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message = ProtoField.new("Order Reduced Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderreducedmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.equities.memoirdepthfeed.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.equities.memoirdepthfeed.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.trademessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.equities.memoirdepthfeed.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.equities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedtrademessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.equities.memoirdepthfeed.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_added_message = ProtoField.new("Order Added Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderaddedmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderdeletedmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_executed_message = ProtoField.new("Order Executed Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderexecutedmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message = ProtoField.new("Order Reduced Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderreducedmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.equities.memoirdepthfeed.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.equities.memoirdepthfeed.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.trademessage", ftypes.STRING)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.equities.memoirdepthfeed.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -105,115 +105,115 @@ show.payload = false
 show.sequenced_messages = false
 
 -- Register Memx Equities MemoirDepthFeed Sbe 1.3 Show Options
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_corrected_trade_message = Pref.bool("Show Corrected Trade Message", show.corrected_trade_message, "Parse and add Corrected Trade Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_added_message = Pref.bool("Show Order Added Message", show.order_added_message, "Parse and add Order Added Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_reduced_message = Pref.bool("Show Order Reduced Message", show.order_reduced_message, "Parse and add Order Reduced Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_corrected_trade_message = Pref.bool("Show Corrected Trade Message", show.corrected_trade_message, "Parse and add Corrected Trade Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_added_message = Pref.bool("Show Order Added Message", show.order_added_message, "Parse and add Order Added Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_reduced_message = Pref.bool("Show Order Reduced Message", show.order_reduced_message, "Parse and add Order Reduced Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_messages = Pref.bool("Show Sequenced Messages", show.sequenced_messages, "Parse and add Sequenced Messages to protocol tree")
 
 -- Handle changed preferences
-function memx_equities_memoirdepthfeed_sbe_v1_3.prefs_changed()
+function omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.broken_trade_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_broken_trade_message then
-    show.broken_trade_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_broken_trade_message
+  if show.broken_trade_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_broken_trade_message then
+    show.broken_trade_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_broken_trade_message
     changed = true
   end
-  if show.clear_book_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_clear_book_message then
-    show.clear_book_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_clear_book_message
+  if show.clear_book_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_clear_book_message then
+    show.clear_book_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_clear_book_message
     changed = true
   end
-  if show.common_header ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header then
-    show.common_header = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header
+  if show.common_header ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header then
+    show.common_header = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header
     changed = true
   end
-  if show.corrected_trade_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_corrected_trade_message then
-    show.corrected_trade_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_corrected_trade_message
+  if show.corrected_trade_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_corrected_trade_message then
+    show.corrected_trade_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_corrected_trade_message
     changed = true
   end
-  if show.instrument_directory_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_instrument_directory_message
+  if show.instrument_directory_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_instrument_directory_message then
+    show.instrument_directory_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_instrument_directory_message
     changed = true
   end
-  if show.message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_message then
-    show.message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_message
+  if show.message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_message then
+    show.message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_message
     changed = true
   end
-  if show.order_added_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_added_message then
-    show.order_added_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_added_message
+  if show.order_added_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_added_message then
+    show.order_added_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_added_message
     changed = true
   end
-  if show.order_deleted_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_deleted_message then
-    show.order_deleted_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_deleted_message
+  if show.order_deleted_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_deleted_message then
+    show.order_deleted_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_deleted_message
     changed = true
   end
-  if show.order_executed_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_executed_message then
-    show.order_executed_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_executed_message then
+    show.order_executed_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_reduced_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_reduced_message then
-    show.order_reduced_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_reduced_message
+  if show.order_reduced_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_reduced_message then
+    show.order_reduced_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_order_reduced_message
     changed = true
   end
-  if show.packet ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_packet then
-    show.packet = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_packet
+  if show.packet ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_packet then
+    show.packet = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_packet
     changed = true
   end
-  if show.reg_sho_restriction_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_reg_sho_restriction_message then
-    show.reg_sho_restriction_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_reg_sho_restriction_message
+  if show.reg_sho_restriction_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_reg_sho_restriction_message then
+    show.reg_sho_restriction_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_reg_sho_restriction_message
     changed = true
   end
-  if show.sbe_header ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header then
-    show.sbe_header = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header
+  if show.sbe_header ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header then
+    show.sbe_header = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header
     changed = true
   end
-  if show.sbe_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message then
-    show.sbe_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message
+  if show.sbe_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message then
+    show.sbe_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message
     changed = true
   end
-  if show.security_trading_status_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_security_trading_status_message then
-    show.security_trading_status_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_security_trading_status_message
+  if show.security_trading_status_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_security_trading_status_message then
+    show.security_trading_status_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_security_trading_status_message
     changed = true
   end
-  if show.sequenced_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message then
-    show.sequenced_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message then
+    show.sequenced_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message
     changed = true
   end
-  if show.snapshot_complete_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message then
-    show.snapshot_complete_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message
+  if show.snapshot_complete_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message then
+    show.snapshot_complete_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_snapshot_complete_message
     changed = true
   end
-  if show.trade_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message then
-    show.trade_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message
+  if show.trade_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message then
+    show.trade_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trade_message
     changed = true
   end
-  if show.trading_session_status_message ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trading_session_status_message then
-    show.trading_session_status_message = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trading_session_status_message
+  if show.trading_session_status_message ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trading_session_status_message then
+    show.trading_session_status_message = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_trading_session_status_message
     changed = true
   end
-  if show.payload ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_payload then
-    show.payload = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_payload
+  if show.payload ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_payload then
+    show.payload = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_payload
     changed = true
   end
-  if show.sequenced_messages ~= memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_messages then
-    show.sequenced_messages = memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_messages
+  if show.sequenced_messages ~= omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_messages then
+    show.sequenced_messages = omi_memx_equities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_messages
     changed = true
   end
 
@@ -243,7 +243,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.as_of_sequence_number = function(
   local value = range:uint64()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.as_of_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -267,7 +267,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp = function(buffer, offs
   local value = range:uint64()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -305,7 +305,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.snapshot_complete_message = function(buffer, offset, packet, parent)
   if show.snapshot_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -334,7 +334,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_id = function(buffer, of
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_id, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -372,7 +372,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message = function(buffer, offset, packet, parent)
   if show.clear_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -407,7 +407,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_price = function(buffer
   local value = translate.corrected_price(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.corrected_price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_price, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_price, range, value, display)
 
   return offset + length, value
 end
@@ -427,7 +427,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_quantity = function(buf
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.corrected_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -453,7 +453,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price = function(buffer,
   local value = translate.original_price(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.original_price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_price, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_price, range, value, display)
 
   return offset + length, value
 end
@@ -473,7 +473,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.original_quantity = function(buff
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.original_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_quantity, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -493,7 +493,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_id = function(buffer, offse
   local value = range:uint64()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -556,7 +556,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message = function(buffer, offset, packet, parent)
   if show.corrected_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -618,7 +618,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -653,7 +653,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.price = function(buffer, offset, 
   local value = translate.price(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.price, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -673,7 +673,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity = function(buffer, offse
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.quantity, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -726,7 +726,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -755,7 +755,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_id = function(buffer, offse
   local value = range:uint64()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_id, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -813,7 +813,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_executed_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -870,7 +870,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message = function(buffer, offset, packet, parent)
   if show.order_reduced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -922,7 +922,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_deleted_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_deleted_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -971,7 +971,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.side = function(buffer, offset, p
 
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.side, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1029,7 +1029,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message = function(buffer, offset, packet, parent)
   if show.order_added_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_added_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_added_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1084,7 +1084,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session = function(buffer
 
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.trading_session(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session, range, value, display)
 
   return offset + length, value
 end
@@ -1122,7 +1122,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
   if show.trading_session_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1174,7 +1174,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_reason = 
 
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1220,7 +1220,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status = functio
 
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1268,7 +1268,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
   if show.security_trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1304,7 +1304,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.short_sale_restriction = function
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.short_sale_restriction(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.short_sale_restriction, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.short_sale_restriction, range, value, display)
 
   return offset + length, value
 end
@@ -1347,7 +1347,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   if show.reg_sho_restriction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1382,7 +1382,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.mpv = function(buffer, offset, pa
   local value = translate.mpv(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -1409,7 +1409,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.is_test_symbol = function(buffer,
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.is_test_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.is_test_symbol, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.is_test_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1429,7 +1429,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.reserved = function(buffer, offse
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.reserved, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -1449,7 +1449,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.round_lot = function(buffer, offs
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.round_lot, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
@@ -1485,7 +1485,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.symbol_sfx = function(buffer, off
 
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.symbol_sfx(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx, range, value, display)
 
   return offset + length, value
 end
@@ -1521,7 +1521,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.symbol = function(buffer, offset,
 
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1589,7 +1589,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1739,7 +1739,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.payload = function(buffer, offset
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.payload(buffer, packet, parent)
-  local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.payload, range, display)
+  local element = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.payload, range, display)
 
   return memx_equities_memoirdepthfeed_sbe_v1_3_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -1759,7 +1759,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.version = function(buffer, offset
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.version, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1779,7 +1779,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.schema_id = function(buffer, offs
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.schema_id, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -1839,7 +1839,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.template_id = function(buffer, of
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.template_id, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -1859,7 +1859,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.block_length = function(buffer, o
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.block_length, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -1907,7 +1907,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1963,7 +1963,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message = function(buffer, of
     local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.sbe_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_message, range, display)
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_message, range, display)
   end
 
   return memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent)
@@ -1984,7 +1984,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.message_length = function(buffer,
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_length, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2025,7 +2025,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.message = function(buffer, offset
     local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.message, range, display)
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message, range, display)
   end
 
   return memx_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent)
@@ -2046,7 +2046,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.message_count = function(buffer, 
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_count, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2088,7 +2088,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sequenced_message = function(buff
     local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.sequenced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.sequenced_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_message, range, display)
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_message, range, display)
   end
 
   return memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sequenced_message_fields(buffer, offset, packet, parent)
@@ -2134,7 +2134,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sequenced_messages = function(buf
   -- Dissect Element
   local range = buffer(offset, size)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.sequenced_messages(buffer, packet, parent)
-  local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_messages, range, display)
+  local element = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequenced_messages, range, display)
 
   return memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sequenced_messages_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2154,7 +2154,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.sequence_number = function(buffer
   local value = range:uint64()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequence_number, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2174,7 +2174,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.session_id = function(buffer, off
   local value = range:uint64()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.session_id, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -2194,7 +2194,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.header_length = function(buffer, 
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.header_length(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.header_length, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.header_length, range, value, display)
 
   return offset + length, value
 end
@@ -2224,7 +2224,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.message_type = function(buffer, o
   local value = range:uint()
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_type, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2272,7 +2272,7 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.common_header, buffer(offset, 0))
     local index = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2308,23 +2308,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function memx_equities_memoirdepthfeed_sbe_v1_3.init()
+function omi_memx_equities_memoirdepthfeed_sbe_v1_3.init()
 end
 
 -- Dissector for Memx Equities MemoirDepthFeed Sbe 1.3
-function memx_equities_memoirdepthfeed_sbe_v1_3.dissector(buffer, packet, parent)
+function omi_memx_equities_memoirdepthfeed_sbe_v1_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = memx_equities_memoirdepthfeed_sbe_v1_3.name
+  packet.cols.protocol = omi_memx_equities_memoirdepthfeed_sbe_v1_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(memx_equities_memoirdepthfeed_sbe_v1_3, buffer(), memx_equities_memoirdepthfeed_sbe_v1_3.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3, buffer(), omi_memx_equities_memoirdepthfeed_sbe_v1_3.description, "("..buffer:len().." Bytes)")
   return memx_equities_memoirdepthfeed_sbe_v1_3_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, memx_equities_memoirdepthfeed_sbe_v1_3)
+udp_table:add(65333, omi_memx_equities_memoirdepthfeed_sbe_v1_3)
 
 
 -----------------------------------------------------------------------
@@ -2332,7 +2332,7 @@ udp_table:add(65333, memx_equities_memoirdepthfeed_sbe_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.memx_equities_memoirdepthfeed_sbe_v1_3_packet_size = function(buffer)
+verify.omi_memx_equities_memoirdepthfeed_sbe_v1_3_packet_size = function(buffer)
 
   return true
 end
@@ -2362,9 +2362,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Memx Equities MemoirDepthFeed Sbe 1.3
-local function memx_equities_memoirdepthfeed_sbe_v1_3_heuristic(buffer, packet, parent)
+local function omi_memx_equities_memoirdepthfeed_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.memx_equities_memoirdepthfeed_sbe_v1_3_packet_size(buffer) then return false end
+  if not verify.omi_memx_equities_memoirdepthfeed_sbe_v1_3_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -2373,14 +2373,14 @@ local function memx_equities_memoirdepthfeed_sbe_v1_3_heuristic(buffer, packet, 
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = memx_equities_memoirdepthfeed_sbe_v1_3
-  memx_equities_memoirdepthfeed_sbe_v1_3.dissector(buffer, packet, parent)
+  packet.conversation = omi_memx_equities_memoirdepthfeed_sbe_v1_3
+  omi_memx_equities_memoirdepthfeed_sbe_v1_3.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Memx Equities MemoirDepthFeed Sbe 1.3
-memx_equities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", memx_equities_memoirdepthfeed_sbe_v1_3_heuristic)
+omi_memx_equities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", omi_memx_equities_memoirdepthfeed_sbe_v1_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

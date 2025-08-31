@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg TradeEcho Level2 Gtp 24.4 Protocol
-local lseg_tradeecho_level2_gtp_v24_4 = Proto("Lseg.TradeEcho.Level2.Gtp.v24.4.Lua", "Lseg TradeEcho Level2 Gtp 24.4")
+local omi_lseg_tradeecho_level2_gtp_v24_4 = Proto("Lseg.TradeEcho.Level2.Gtp.v24.4.Lua", "Lseg TradeEcho Level2 Gtp 24.4")
 
 -- Component Tables
 local show = {}
@@ -21,63 +21,63 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Lseg TradeEcho Level2 Gtp 24.4 Fields
-lseg_tradeecho_level2_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.tradeecho.level2.gtp.v24.4.allowedbooktypes", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.average_daily_turnover = ProtoField.new("Average Daily Turnover", "lseg.tradeecho.level2.gtp.v24.4.averagedailyturnover", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.tradeecho.level2.gtp.v24.4.currency", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.tradeecho.level2.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.tradeecho.level2.gtp.v24.4.eventcode", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.tradeecho.level2.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_tradeecho_level2_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.level2.gtp.v24.4.isin", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.level2.gtp.v24.4.length", ftypes.UINT16)
-lseg_tradeecho_level2_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.level2.gtp.v24.4.marketdatagroup", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2.gtp.v24.4.message", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.level2.gtp.v24.4.messagecount", ftypes.UINT8)
-lseg_tradeecho_level2_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2.gtp.v24.4.messageheader", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.level2.gtp.v24.4.messagelength", ftypes.UINT8)
-lseg_tradeecho_level2_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.level2.gtp.v24.4.messagetype", ftypes.UINT8)
-lseg_tradeecho_level2_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.level2.gtp.v24.4.newendtime", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.level2.gtp.v24.4.offbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-lseg_tradeecho_level2_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.level2.gtp.v24.4.orderbooktype", ftypes.UINT8)
-lseg_tradeecho_level2_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.tradeecho.level2.gtp.v24.4.orderid", ftypes.UINT64)
-lseg_tradeecho_level2_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2.gtp.v24.4.packet", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.tradeecho.level2.gtp.v24.4.participant", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.tradeecho.level2.gtp.v24.4.payload", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.previous_price = ProtoField.new("Previous Price", "lseg.tradeecho.level2.gtp.v24.4.previousprice", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.tradeecho.level2.gtp.v24.4.previousquantity", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.price = ProtoField.new("Price", "lseg.tradeecho.level2.gtp.v24.4.price", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.level2.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.tradeecho.level2.gtp.v24.4.reserved10", ftypes.BYTES)
-lseg_tradeecho_level2_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.tradeecho.level2.gtp.v24.4.reserved23", ftypes.BYTES)
-lseg_tradeecho_level2_gtp_v24_4.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.level2.gtp.v24.4.reserved25", ftypes.BYTES)
-lseg_tradeecho_level2_gtp_v24_4.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.level2.gtp.v24.4.reserved5", ftypes.BYTES)
-lseg_tradeecho_level2_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.level2.gtp.v24.4.segment", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.tradeecho.level2.gtp.v24.4.sequencenumber", ftypes.UINT32)
-lseg_tradeecho_level2_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.tradeecho.level2.gtp.v24.4.sessionchangereason", ftypes.UINT8)
-lseg_tradeecho_level2_gtp_v24_4.fields.si_quote_book = ProtoField.new("Si Quote Book", "lseg.tradeecho.level2.gtp.v24.4.siquotebook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
-lseg_tradeecho_level2_gtp_v24_4.fields.side = ProtoField.new("Side", "lseg.tradeecho.level2.gtp.v24.4.side", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.size = ProtoField.new("Size", "lseg.tradeecho.level2.gtp.v24.4.size", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.level2.gtp.v24.4.sourcevenue", ftypes.UINT16)
-lseg_tradeecho_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.level2.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2.gtp.v24.4.tickid", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2.gtp.v24.4.timestamp", ftypes.UINT64)
-lseg_tradeecho_level2_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2.gtp.v24.4.tradingstatus", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.tradeecho.level2.gtp.v24.4.transactiontime", ftypes.UINT64)
-lseg_tradeecho_level2_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2.gtp.v24.4.unitheader", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.unused_6 = ProtoField.new("Unused 6", "lseg.tradeecho.level2.gtp.v24.4.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
-lseg_tradeecho_level2_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2.gtp.v24.4.venueinstrumentid", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.level2.gtp.v24.4.venueofpublication", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.yield = ProtoField.new("Yield", "lseg.tradeecho.level2.gtp.v24.4.yield", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.tradeecho.level2.gtp.v24.4.allowedbooktypes", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.average_daily_turnover = ProtoField.new("Average Daily Turnover", "lseg.tradeecho.level2.gtp.v24.4.averagedailyturnover", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.tradeecho.level2.gtp.v24.4.currency", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.tradeecho.level2.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.tradeecho.level2.gtp.v24.4.eventcode", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.tradeecho.level2.gtp.v24.4.instrument", ftypes.UINT64)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.level2.gtp.v24.4.isin", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.level2.gtp.v24.4.length", ftypes.UINT16)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.level2.gtp.v24.4.marketdatagroup", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.level2.gtp.v24.4.messagecount", ftypes.UINT8)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.level2.gtp.v24.4.messagelength", ftypes.UINT8)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.level2.gtp.v24.4.messagetype", ftypes.UINT8)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.level2.gtp.v24.4.newendtime", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.level2.gtp.v24.4.offbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.level2.gtp.v24.4.orderbooktype", ftypes.UINT8)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.tradeecho.level2.gtp.v24.4.orderid", ftypes.UINT64)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.tradeecho.level2.gtp.v24.4.participant", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.tradeecho.level2.gtp.v24.4.payload", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.previous_price = ProtoField.new("Previous Price", "lseg.tradeecho.level2.gtp.v24.4.previousprice", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.tradeecho.level2.gtp.v24.4.previousquantity", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.price = ProtoField.new("Price", "lseg.tradeecho.level2.gtp.v24.4.price", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.level2.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.tradeecho.level2.gtp.v24.4.reserved10", ftypes.BYTES)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.tradeecho.level2.gtp.v24.4.reserved23", ftypes.BYTES)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.level2.gtp.v24.4.reserved25", ftypes.BYTES)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.level2.gtp.v24.4.reserved5", ftypes.BYTES)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.level2.gtp.v24.4.segment", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.tradeecho.level2.gtp.v24.4.sequencenumber", ftypes.UINT32)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.tradeecho.level2.gtp.v24.4.sessionchangereason", ftypes.UINT8)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.si_quote_book = ProtoField.new("Si Quote Book", "lseg.tradeecho.level2.gtp.v24.4.siquotebook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.side = ProtoField.new("Side", "lseg.tradeecho.level2.gtp.v24.4.side", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.size = ProtoField.new("Size", "lseg.tradeecho.level2.gtp.v24.4.size", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.level2.gtp.v24.4.sourcevenue", ftypes.UINT16)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.level2.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2.gtp.v24.4.tickid", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2.gtp.v24.4.timestamp", ftypes.UINT64)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2.gtp.v24.4.tradingstatus", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.tradeecho.level2.gtp.v24.4.transactiontime", ftypes.UINT64)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2.gtp.v24.4.unitheader", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.unused_6 = ProtoField.new("Unused 6", "lseg.tradeecho.level2.gtp.v24.4.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2.gtp.v24.4.venueinstrumentid", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.level2.gtp.v24.4.venueofpublication", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.yield = ProtoField.new("Yield", "lseg.tradeecho.level2.gtp.v24.4.yield", ftypes.DOUBLE)
 
 -- Lseg TradeEcho Level2 Gtp 24.4 messages
-lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.level2.gtp.v24.4.instrumentdirectory", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.level2.gtp.v24.4.instrumentstatus", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear = ProtoField.new("Order Book Clear", "lseg.tradeecho.level2.gtp.v24.4.orderbookclear", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.order_delete = ProtoField.new("Order Delete", "lseg.tradeecho.level2.gtp.v24.4.orderdelete", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.level2.gtp.v24.4.systemevent", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes = ProtoField.new("Systematic Internaliser Quotes", "lseg.tradeecho.level2.gtp.v24.4.systematicinternaliserquotes", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.level2.gtp.v24.4.instrumentdirectory", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.level2.gtp.v24.4.instrumentstatus", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear = ProtoField.new("Order Book Clear", "lseg.tradeecho.level2.gtp.v24.4.orderbookclear", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_delete = ProtoField.new("Order Delete", "lseg.tradeecho.level2.gtp.v24.4.orderdelete", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.level2.gtp.v24.4.systemevent", ftypes.STRING)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes = ProtoField.new("Systematic Internaliser Quotes", "lseg.tradeecho.level2.gtp.v24.4.systematicinternaliserquotes", ftypes.STRING)
 
 -- Lseg TradeEcho Level2 Gtp 24.4 generated fields
-lseg_tradeecho_level2_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.level2.gtp.v24.4.messageindex", ftypes.UINT16)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.level2.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -98,70 +98,70 @@ show.unit_header = true
 show.payload = false
 
 -- Register Lseg TradeEcho Level2 Gtp 24.4 Show Options
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_directory = Pref.bool("Show Instrument Directory", show.instrument_directory, "Parse and add Instrument Directory to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_status = Pref.bool("Show Instrument Status", show.instrument_status, "Parse and add Instrument Status to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_book_clear = Pref.bool("Show Order Book Clear", show.order_book_clear, "Parse and add Order Book Clear to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_delete = Pref.bool("Show Order Delete", show.order_delete, "Parse and add Order Delete to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_system_event = Pref.bool("Show System Event", show.system_event, "Parse and add System Event to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_systematic_internaliser_quotes = Pref.bool("Show Systematic Internaliser Quotes", show.systematic_internaliser_quotes, "Parse and add Systematic Internaliser Quotes to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-lseg_tradeecho_level2_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_directory = Pref.bool("Show Instrument Directory", show.instrument_directory, "Parse and add Instrument Directory to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_status = Pref.bool("Show Instrument Status", show.instrument_status, "Parse and add Instrument Status to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_book_clear = Pref.bool("Show Order Book Clear", show.order_book_clear, "Parse and add Order Book Clear to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_delete = Pref.bool("Show Order Delete", show.order_delete, "Parse and add Order Delete to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_system_event = Pref.bool("Show System Event", show.system_event, "Parse and add System Event to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_systematic_internaliser_quotes = Pref.bool("Show Systematic Internaliser Quotes", show.systematic_internaliser_quotes, "Parse and add Systematic Internaliser Quotes to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function lseg_tradeecho_level2_gtp_v24_4.prefs_changed()
+function omi_lseg_tradeecho_level2_gtp_v24_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.allowed_book_types ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types then
-    show.allowed_book_types = lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types
+  if show.allowed_book_types ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types then
+    show.allowed_book_types = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types
     changed = true
   end
-  if show.instrument_directory ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_directory then
-    show.instrument_directory = lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_directory
+  if show.instrument_directory ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_directory then
+    show.instrument_directory = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_directory
     changed = true
   end
-  if show.instrument_status ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_status then
-    show.instrument_status = lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_status
+  if show.instrument_status ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_status then
+    show.instrument_status = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_instrument_status
     changed = true
   end
-  if show.message ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_message then
-    show.message = lseg_tradeecho_level2_gtp_v24_4.prefs.show_message
+  if show.message ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_message then
+    show.message = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_message
     changed = true
   end
-  if show.message_header ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_message_header then
-    show.message_header = lseg_tradeecho_level2_gtp_v24_4.prefs.show_message_header
+  if show.message_header ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_message_header then
+    show.message_header = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_message_header
     changed = true
   end
-  if show.order_book_clear ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_book_clear then
-    show.order_book_clear = lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_book_clear
+  if show.order_book_clear ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_book_clear then
+    show.order_book_clear = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_book_clear
     changed = true
   end
-  if show.order_delete ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_delete then
-    show.order_delete = lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_delete
+  if show.order_delete ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_delete then
+    show.order_delete = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_order_delete
     changed = true
   end
-  if show.packet ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_packet then
-    show.packet = lseg_tradeecho_level2_gtp_v24_4.prefs.show_packet
+  if show.packet ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_packet then
+    show.packet = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_packet
     changed = true
   end
-  if show.system_event ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_system_event then
-    show.system_event = lseg_tradeecho_level2_gtp_v24_4.prefs.show_system_event
+  if show.system_event ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_system_event then
+    show.system_event = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_system_event
     changed = true
   end
-  if show.systematic_internaliser_quotes ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_systematic_internaliser_quotes then
-    show.systematic_internaliser_quotes = lseg_tradeecho_level2_gtp_v24_4.prefs.show_systematic_internaliser_quotes
+  if show.systematic_internaliser_quotes ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_systematic_internaliser_quotes then
+    show.systematic_internaliser_quotes = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_systematic_internaliser_quotes
     changed = true
   end
-  if show.unit_header ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_unit_header then
-    show.unit_header = lseg_tradeecho_level2_gtp_v24_4.prefs.show_unit_header
+  if show.unit_header ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_unit_header then
+    show.unit_header = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_unit_header
     changed = true
   end
-  if show.payload ~= lseg_tradeecho_level2_gtp_v24_4.prefs.show_payload then
-    show.payload = lseg_tradeecho_level2_gtp_v24_4.prefs.show_payload
+  if show.payload ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_payload then
+    show.payload = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_payload
     changed = true
   end
 
@@ -216,7 +216,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.venue_of_publication = function(buffer, 
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.venue_of_publication(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.venue_of_publication, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.venue_of_publication, range, value, display)
 
   return offset + length, value
 end
@@ -236,7 +236,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.currency = function(buffer, offset, pack
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.currency, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -256,7 +256,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_10 = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_10(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.reserved_10, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_10, range, value, display)
 
   return offset + length, value
 end
@@ -283,7 +283,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type = function(buffer, offse
   local value = range:le_uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.order_book_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_book_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_book_type, range, value, display)
 
   return offset + length, value
 end
@@ -303,7 +303,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.participant = function(buffer, offset, p
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.participant(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.participant, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.participant, range, value, display)
 
   return offset + length, value
 end
@@ -323,7 +323,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue = function(buffer, offset, 
   local value = range:le_uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.source_venue(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.source_venue, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.source_venue, range, value, display)
 
   return offset + length, value
 end
@@ -349,7 +349,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.yield = function(buffer, offset, packet,
   local value = translate.yield(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.yield(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.yield, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.yield, range, value, display)
 
   return offset + length, value
 end
@@ -375,7 +375,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.price = function(buffer, offset, packet,
   local value = translate.price(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.price, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -395,7 +395,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.instrument = function(buffer, offset, pa
   local value = range:le_uint64()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.instrument(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.instrument, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument, range, value, display)
 
   return offset + length, value
 end
@@ -421,7 +421,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.size = function(buffer, offset, packet, 
   local value = translate.size(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.size(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.size, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -448,7 +448,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.side = function(buffer, offset, packet, 
   local value = range:string()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.side, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -468,7 +468,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.order_id = function(buffer, offset, pack
   local value = range:le_uint64()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_id, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -492,7 +492,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp = function(buffer, offset, pac
   local value = range:le_uint64()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.timestamp, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -590,7 +590,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes = function(buffer, offset, packet, parent)
   if show.systematic_internaliser_quotes then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -647,7 +647,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear = function(buffer, offset, packet, parent)
   if show.order_book_clear then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -680,7 +680,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.transaction_time = function(buffer, offs
   local value = range:le_uint64()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.transaction_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.transaction_time, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.transaction_time, range, value, display)
 
   return offset + length, value
 end
@@ -706,7 +706,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.previous_quantity = function(buffer, off
   local value = translate.previous_quantity(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.previous_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.previous_quantity, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.previous_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -732,7 +732,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.previous_price = function(buffer, offset
   local value = translate.previous_price(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.previous_price(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.previous_price, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.previous_price, range, value, display)
 
   return offset + length, value
 end
@@ -805,7 +805,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete = function(buffer, offset, packet, parent)
   if show.order_delete then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_delete, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_delete, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -834,7 +834,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.new_end_time = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.new_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.new_end_time, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.new_end_time, range, value, display)
 
   return offset + length, value
 end
@@ -858,7 +858,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.session_change_reason = function(buffer,
   local value = range:le_uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.session_change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.session_change_reason, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -891,7 +891,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.trading_status = function(buffer, offset
   local value = range:string()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.trading_status, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -954,7 +954,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status = function(buffer, offset, packet, parent)
   if show.instrument_status then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -983,7 +983,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_25 = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_25(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.reserved_25, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_25, range, value, display)
 
   return offset + length, value
 end
@@ -1009,7 +1009,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.average_daily_turnover = function(buffer
   local value = translate.average_daily_turnover(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.average_daily_turnover(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.average_daily_turnover, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.average_daily_turnover, range, value, display)
 
   return offset + length, value
 end
@@ -1029,7 +1029,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_5 = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_5(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.reserved_5, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_5, range, value, display)
 
   return offset + length, value
 end
@@ -1049,7 +1049,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_23 = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_23(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.reserved_23, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_23, range, value, display)
 
   return offset + length, value
 end
@@ -1069,7 +1069,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.segment = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.segment(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.segment, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.segment, range, value, display)
 
   return offset + length, value
 end
@@ -1095,7 +1095,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.static_circuit_breaker_tolerances = func
   local value = translate.static_circuit_breaker_tolerances(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.static_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -1121,7 +1121,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.dynamic_circuit_breaker_tolerances = fun
   local value = translate.dynamic_circuit_breaker_tolerances(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.dynamic_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -1147,7 +1147,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.price_band_tolerances = function(buffer,
   local value = translate.price_band_tolerances(raw)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.price_band_tolerances(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.price_band_tolerances, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.price_band_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -1167,7 +1167,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.tick_id = function(buffer, offset, packe
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.tick_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.tick_id, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.tick_id, range, value, display)
 
   return offset + length, value
 end
@@ -1187,7 +1187,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.venue_instrument_id = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.venue_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.venue_instrument_id, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.venue_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -1215,13 +1215,13 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types_bits = function(buffer, offset, packet, parent)
 
   -- Si Quote Book: 1 Bit
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.si_quote_book, buffer(offset, 1))
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.si_quote_book, buffer(offset, 1))
 
   -- Off Book: 1 Bit
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.off_book, buffer(offset, 1))
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.off_book, buffer(offset, 1))
 
   -- Unused 6: 6 Bit
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.unused_6, buffer(offset, 1))
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.unused_6, buffer(offset, 1))
 end
 
 -- Dissect: Allowed Book Types
@@ -1229,7 +1229,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types = function(buffer, of
   local size = 1
   local range = buffer(offset, size)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.allowed_book_types(range, packet, parent)
-  local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.allowed_book_types, range, display)
+  local element = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.allowed_book_types, range, display)
 
   if show.allowed_book_types then
     lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types_bits(buffer, offset, packet, element)
@@ -1253,7 +1253,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.isin = function(buffer, offset, packet, 
   local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2_gtp_v24_4_display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.isin, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -1361,7 +1361,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory = function(buffer, offset, packet, parent)
   if show.instrument_directory then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1400,7 +1400,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.event_code = function(buffer, offset, pa
   local value = range:string()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.event_code, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -1443,7 +1443,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.system_event = function(buffer, offset, packet, parent)
   if show.system_event then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.system_event, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.system_event, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1537,7 +1537,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.payload = function(buffer, offset, packe
   -- Dissect Element
   local range = buffer(offset, size)
   local display = lseg_tradeecho_level2_gtp_v24_4_display.payload(buffer, packet, parent)
-  local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.payload, range, display)
+  local element = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.payload, range, display)
 
   return lseg_tradeecho_level2_gtp_v24_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -1576,7 +1576,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.message_type = function(buffer, offset, 
   local value = range:uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message_type, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1596,7 +1596,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.message_length = function(buffer, offset
   local value = range:le_uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message_length, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1634,7 +1634,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1673,7 +1673,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.message_fields = function(buffer, offset
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message_index, message_index)
+    local iteration = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -1696,7 +1696,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.message = function(buffer, offset, packe
     local length = lseg_tradeecho_level2_gtp_v24_4_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.message(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message, range, display)
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message, range, display)
   end
 
   return lseg_tradeecho_level2_gtp_v24_4_dissect.message_fields(buffer, offset, packet, parent)
@@ -1717,7 +1717,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.sequence_number = function(buffer, offse
   local value = range:le_uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.sequence_number, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1737,7 +1737,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.market_data_group = function(buffer, off
   local value = range:string()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.market_data_group(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.market_data_group, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
@@ -1757,7 +1757,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.message_count = function(buffer, offset,
   local value = range:le_uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message_count, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1777,7 +1777,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.length = function(buffer, offset, packet
   local value = range:le_uint()
   local display = lseg_tradeecho_level2_gtp_v24_4_display.length(value, buffer, offset, packet, parent)
 
-  parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.length, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -1825,7 +1825,7 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
     local index = lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1863,23 +1863,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function lseg_tradeecho_level2_gtp_v24_4.init()
+function omi_lseg_tradeecho_level2_gtp_v24_4.init()
 end
 
 -- Dissector for Lseg TradeEcho Level2 Gtp 24.4
-function lseg_tradeecho_level2_gtp_v24_4.dissector(buffer, packet, parent)
+function omi_lseg_tradeecho_level2_gtp_v24_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = lseg_tradeecho_level2_gtp_v24_4.name
+  packet.cols.protocol = omi_lseg_tradeecho_level2_gtp_v24_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(lseg_tradeecho_level2_gtp_v24_4, buffer(), lseg_tradeecho_level2_gtp_v24_4.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4, buffer(), omi_lseg_tradeecho_level2_gtp_v24_4.description, "("..buffer:len().." Bytes)")
   return lseg_tradeecho_level2_gtp_v24_4_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, lseg_tradeecho_level2_gtp_v24_4)
+udp_table:add(65333, omi_lseg_tradeecho_level2_gtp_v24_4)
 
 
 -----------------------------------------------------------------------
@@ -1887,25 +1887,25 @@ udp_table:add(65333, lseg_tradeecho_level2_gtp_v24_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.lseg_tradeecho_level2_gtp_v24_4_packet_size = function(buffer)
+verify.omi_lseg_tradeecho_level2_gtp_v24_4_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Lseg TradeEcho Level2 Gtp 24.4
-local function lseg_tradeecho_level2_gtp_v24_4_heuristic(buffer, packet, parent)
+local function omi_lseg_tradeecho_level2_gtp_v24_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.lseg_tradeecho_level2_gtp_v24_4_packet_size(buffer) then return false end
+  if not verify.omi_lseg_tradeecho_level2_gtp_v24_4_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = lseg_tradeecho_level2_gtp_v24_4
-  lseg_tradeecho_level2_gtp_v24_4.dissector(buffer, packet, parent)
+  packet.conversation = omi_lseg_tradeecho_level2_gtp_v24_4
+  omi_lseg_tradeecho_level2_gtp_v24_4.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Lseg TradeEcho Level2 Gtp 24.4
-lseg_tradeecho_level2_gtp_v24_4:register_heuristic("udp", lseg_tradeecho_level2_gtp_v24_4_heuristic)
+omi_lseg_tradeecho_level2_gtp_v24_4:register_heuristic("udp", omi_lseg_tradeecho_level2_gtp_v24_4_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

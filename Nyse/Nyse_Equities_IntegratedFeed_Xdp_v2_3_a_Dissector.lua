@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Equities IntegratedFeed Xdp 2.3.a Protocol
-local nyse_equities_integratedfeed_xdp_v2_3_a = Proto("Nyse.Equities.IntegratedFeed.Xdp.v2.3.a.Lua", "Nyse Equities IntegratedFeed Xdp 2.3.a")
+local omi_nyse_equities_integratedfeed_xdp_v2_3_a = Proto("Nyse.Equities.IntegratedFeed.Xdp.v2.3.a.Lua", "Nyse Equities IntegratedFeed Xdp 2.3.a")
 
 -- Component Tables
 local show = {}
@@ -20,128 +20,128 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nyse Equities IntegratedFeed Xdp 2.3.a Fields
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.addordermessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.equities.integratedfeed.xdp.v2.3.a.addorderrefreshmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_status = ProtoField.new("Auction Status", "nyse.equities.integratedfeed.xdp.v2.3.a.auctionstatus", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_time = ProtoField.new("Auction Time", "nyse.equities.integratedfeed.xdp.v2.3.a.auctiontime", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_type = ProtoField.new("Auction Type", "nyse.equities.integratedfeed.xdp.v2.3.a.auctiontype", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.beginseqnum", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.integratedfeed.xdp.v2.3.a.channelid", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.close = ProtoField.new("Close", "nyse.equities.integratedfeed.xdp.v2.3.a.close", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.equities.integratedfeed.xdp.v2.3.a.closingonlyclearingprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.equities.integratedfeed.xdp.v2.3.a.continuousbookclearingprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_correction_message = ProtoField.new("Cross Correction Message", "nyse.equities.integratedfeed.xdp.v2.3.a.crosscorrectionmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_id = ProtoField.new("Cross Id", "nyse.equities.integratedfeed.xdp.v2.3.a.crossid", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nyse.equities.integratedfeed.xdp.v2.3.a.crosstrademessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_type = ProtoField.new("Cross Type", "nyse.equities.integratedfeed.xdp.v2.3.a.crosstype", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.integratedfeed.xdp.v2.3.a.currentrefreshpkt", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.db_exec_id = ProtoField.new("Db Exec Id", "nyse.equities.integratedfeed.xdp.v2.3.a.dbexecid", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.delete_order_message = ProtoField.new("Delete Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.deleteordermessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.integratedfeed.xdp.v2.3.a.deliveryflag", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.endseqnum", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.integratedfeed.xdp.v2.3.a.exchangecode", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.firm_id = ProtoField.new("Firm Id", "nyse.equities.integratedfeed.xdp.v2.3.a.firmid", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.equities.integratedfeed.xdp.v2.3.a.freezestatus", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.integratedfeed.xdp.v2.3.a.haltcondition", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.integratedfeed.xdp.v2.3.a.heartbeatresponsemessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.high_price = ProtoField.new("High Price", "nyse.equities.integratedfeed.xdp.v2.3.a.highprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.id = ProtoField.new("Id", "nyse.equities.integratedfeed.xdp.v2.3.a.id", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.equities.integratedfeed.xdp.v2.3.a.imbalancemessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.equities.integratedfeed.xdp.v2.3.a.imbalanceside", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.equities.integratedfeed.xdp.v2.3.a.indicativematchprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.lastseqnum", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.lastsymbolseqnum", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.lot_size = ProtoField.new("Lot Size", "nyse.equities.integratedfeed.xdp.v2.3.a.lotsize", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.low_price = ProtoField.new("Low Price", "nyse.equities.integratedfeed.xdp.v2.3.a.lowprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.equities.integratedfeed.xdp.v2.3.a.lowercollar", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.equities.integratedfeed.xdp.v2.3.a.marketid", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.equities.integratedfeed.xdp.v2.3.a.marketimbalanceqty", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_state = ProtoField.new("Market State", "nyse.equities.integratedfeed.xdp.v2.3.a.marketstate", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.message = ProtoField.new("Message", "nyse.equities.integratedfeed.xdp.v2.3.a.message", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.equities.integratedfeed.xdp.v2.3.a.messagecount", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.equities.integratedfeed.xdp.v2.3.a.messageheader", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.equities.integratedfeed.xdp.v2.3.a.messagesize", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.equities.integratedfeed.xdp.v2.3.a.messagetype", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.integratedfeed.xdp.v2.3.a.messageunavailablemessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.modify_order_message = ProtoField.new("Modify Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.modifyordermessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.mpv = ProtoField.new("Mpv", "nyse.equities.integratedfeed.xdp.v2.3.a.mpv", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.integratedfeed.xdp.v2.3.a.nanoseconds", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_order_id = ProtoField.new("New Order Id", "nyse.equities.integratedfeed.xdp.v2.3.a.neworderid", ftypes.UINT64)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_price_parity_splits = ProtoField.new("New Price Parity Splits", "nyse.equities.integratedfeed.xdp.v2.3.a.newpriceparitysplits", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.nextsourceseqnum", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.non_displayed_trade_message = ProtoField.new("Non Displayed Trade Message", "nyse.equities.integratedfeed.xdp.v2.3.a.nondisplayedtrademessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.equities.integratedfeed.xdp.v2.3.a.numextensions", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_parity_splits = ProtoField.new("Num Parity Splits", "nyse.equities.integratedfeed.xdp.v2.3.a.numparitysplits", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.open = ProtoField.new("Open", "nyse.equities.integratedfeed.xdp.v2.3.a.open", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_execution_message = ProtoField.new("Order Execution Message", "nyse.equities.integratedfeed.xdp.v2.3.a.orderexecutionmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_id = ProtoField.new("Order Id", "nyse.equities.integratedfeed.xdp.v2.3.a.orderid", ftypes.UINT64)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet = ProtoField.new("Packet", "nyse.equities.integratedfeed.xdp.v2.3.a.packet", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.integratedfeed.xdp.v2.3.a.packetheader", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.integratedfeed.xdp.v2.3.a.packetsize", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.integratedfeed.xdp.v2.3.a.pairedqty", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.payload = ProtoField.new("Payload", "nyse.equities.integratedfeed.xdp.v2.3.a.payload", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.position_change = ProtoField.new("Position Change", "nyse.equities.integratedfeed.xdp.v2.3.a.positionchange", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.integratedfeed.xdp.v2.3.a.prevcloseprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.prevclosevolume", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_price_parity_splits = ProtoField.new("Prev Price Parity Splits", "nyse.equities.integratedfeed.xdp.v2.3.a.prevpriceparitysplits", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.price = ProtoField.new("Price", "nyse.equities.integratedfeed.xdp.v2.3.a.price", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.integratedfeed.xdp.v2.3.a.price1", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_2 = ProtoField.new("Price 2", "nyse.equities.integratedfeed.xdp.v2.3.a.price2", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.equities.integratedfeed.xdp.v2.3.a.priceresolution", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.equities.integratedfeed.xdp.v2.3.a.pricescalecode", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.equities.integratedfeed.xdp.v2.3.a.printableflag", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.equities.integratedfeed.xdp.v2.3.a.productid", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.reference_price = ProtoField.new("Reference Price", "nyse.equities.integratedfeed.xdp.v2.3.a.referenceprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.integratedfeed.xdp.v2.3.a.refreshheadermessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.integratedfeed.xdp.v2.3.a.refreshrequestmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.replace_order_message = ProtoField.new("Replace Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.replaceordermessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.integratedfeed.xdp.v2.3.a.requestresponsemessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.requestseqnum", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.integratedfeed.xdp.v2.3.a.reserved1", ftypes.BYTES)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.integratedfeed.xdp.v2.3.a.reserved2", ftypes.BYTES)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.integratedfeed.xdp.v2.3.a.reserved4", ftypes.BYTES)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "nyse.equities.integratedfeed.xdp.v2.3.a.retailpriceimprovementmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.integratedfeed.xdp.v2.3.a.retransmissionrequestmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.integratedfeed.xdp.v2.3.a.retransmitmethod", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.integratedfeed.xdp.v2.3.a.roundlot", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.integratedfeed.xdp.v2.3.a.rpiindicator", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.equities.integratedfeed.xdp.v2.3.a.securitystatus", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.equities.integratedfeed.xdp.v2.3.a.securitystatusmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_type = ProtoField.new("Security Type", "nyse.equities.integratedfeed.xdp.v2.3.a.securitytype", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.integratedfeed.xdp.v2.3.a.sequencenumber", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.integratedfeed.xdp.v2.3.a.sequencenumberresetmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.session_state = ProtoField.new("Session State", "nyse.equities.integratedfeed.xdp.v2.3.a.sessionstate", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.side = ProtoField.new("Side", "nyse.equities.integratedfeed.xdp.v2.3.a.side", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_id = ProtoField.new("Source Id", "nyse.equities.integratedfeed.xdp.v2.3.a.sourceid", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.equities.integratedfeed.xdp.v2.3.a.sourcetime", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.integratedfeed.xdp.v2.3.a.sourcetimens", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.equities.integratedfeed.xdp.v2.3.a.sourcetimereferencemessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrfilingprice", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_state = ProtoField.new("Ssr State", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrstate", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrtriggeringvolume", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.status = ProtoField.new("Status", "nyse.equities.integratedfeed.xdp.v2.3.a.status", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.stock_summary_message = ProtoField.new("Stock Summary Message", "nyse.equities.integratedfeed.xdp.v2.3.a.stocksummarymessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol = ProtoField.new("Symbol", "nyse.equities.integratedfeed.xdp.v2.3.a.symbol", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolclearmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolindex", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolindexmappingmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolindexmappingrequestmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolseqnum", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.system_id = ProtoField.new("System Id", "nyse.equities.integratedfeed.xdp.v2.3.a.systemid", ftypes.UINT8)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.time = ProtoField.new("Time", "nyse.equities.integratedfeed.xdp.v2.3.a.time", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.integratedfeed.xdp.v2.3.a.timestamp", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.equities.integratedfeed.xdp.v2.3.a.totalimbalanceqty", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.integratedfeed.xdp.v2.3.a.totalrefreshpkts", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.totalvolume", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.equities.integratedfeed.xdp.v2.3.a.tradecancelmessage", ftypes.STRING)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.equities.integratedfeed.xdp.v2.3.a.tradeid", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.integratedfeed.xdp.v2.3.a.unitoftrade", ftypes.UINT16)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.equities.integratedfeed.xdp.v2.3.a.uppercollar", ftypes.UINT32)
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.volume = ProtoField.new("Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.volume", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.addordermessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.equities.integratedfeed.xdp.v2.3.a.addorderrefreshmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_status = ProtoField.new("Auction Status", "nyse.equities.integratedfeed.xdp.v2.3.a.auctionstatus", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_time = ProtoField.new("Auction Time", "nyse.equities.integratedfeed.xdp.v2.3.a.auctiontime", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_type = ProtoField.new("Auction Type", "nyse.equities.integratedfeed.xdp.v2.3.a.auctiontype", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.beginseqnum", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.integratedfeed.xdp.v2.3.a.channelid", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.close = ProtoField.new("Close", "nyse.equities.integratedfeed.xdp.v2.3.a.close", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.equities.integratedfeed.xdp.v2.3.a.closingonlyclearingprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.equities.integratedfeed.xdp.v2.3.a.continuousbookclearingprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_correction_message = ProtoField.new("Cross Correction Message", "nyse.equities.integratedfeed.xdp.v2.3.a.crosscorrectionmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_id = ProtoField.new("Cross Id", "nyse.equities.integratedfeed.xdp.v2.3.a.crossid", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nyse.equities.integratedfeed.xdp.v2.3.a.crosstrademessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_type = ProtoField.new("Cross Type", "nyse.equities.integratedfeed.xdp.v2.3.a.crosstype", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.integratedfeed.xdp.v2.3.a.currentrefreshpkt", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.db_exec_id = ProtoField.new("Db Exec Id", "nyse.equities.integratedfeed.xdp.v2.3.a.dbexecid", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.delete_order_message = ProtoField.new("Delete Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.deleteordermessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.integratedfeed.xdp.v2.3.a.deliveryflag", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.endseqnum", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.integratedfeed.xdp.v2.3.a.exchangecode", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.firm_id = ProtoField.new("Firm Id", "nyse.equities.integratedfeed.xdp.v2.3.a.firmid", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.equities.integratedfeed.xdp.v2.3.a.freezestatus", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.integratedfeed.xdp.v2.3.a.haltcondition", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.integratedfeed.xdp.v2.3.a.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.high_price = ProtoField.new("High Price", "nyse.equities.integratedfeed.xdp.v2.3.a.highprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.id = ProtoField.new("Id", "nyse.equities.integratedfeed.xdp.v2.3.a.id", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.equities.integratedfeed.xdp.v2.3.a.imbalancemessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.equities.integratedfeed.xdp.v2.3.a.imbalanceside", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.equities.integratedfeed.xdp.v2.3.a.indicativematchprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.lastseqnum", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.lastsymbolseqnum", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.lot_size = ProtoField.new("Lot Size", "nyse.equities.integratedfeed.xdp.v2.3.a.lotsize", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.low_price = ProtoField.new("Low Price", "nyse.equities.integratedfeed.xdp.v2.3.a.lowprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.equities.integratedfeed.xdp.v2.3.a.lowercollar", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.equities.integratedfeed.xdp.v2.3.a.marketid", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.equities.integratedfeed.xdp.v2.3.a.marketimbalanceqty", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_state = ProtoField.new("Market State", "nyse.equities.integratedfeed.xdp.v2.3.a.marketstate", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message = ProtoField.new("Message", "nyse.equities.integratedfeed.xdp.v2.3.a.message", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.equities.integratedfeed.xdp.v2.3.a.messagecount", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.equities.integratedfeed.xdp.v2.3.a.messageheader", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.equities.integratedfeed.xdp.v2.3.a.messagesize", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.equities.integratedfeed.xdp.v2.3.a.messagetype", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.integratedfeed.xdp.v2.3.a.messageunavailablemessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.modify_order_message = ProtoField.new("Modify Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.modifyordermessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.mpv = ProtoField.new("Mpv", "nyse.equities.integratedfeed.xdp.v2.3.a.mpv", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.integratedfeed.xdp.v2.3.a.nanoseconds", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_order_id = ProtoField.new("New Order Id", "nyse.equities.integratedfeed.xdp.v2.3.a.neworderid", ftypes.UINT64)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_price_parity_splits = ProtoField.new("New Price Parity Splits", "nyse.equities.integratedfeed.xdp.v2.3.a.newpriceparitysplits", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.nextsourceseqnum", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.non_displayed_trade_message = ProtoField.new("Non Displayed Trade Message", "nyse.equities.integratedfeed.xdp.v2.3.a.nondisplayedtrademessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.equities.integratedfeed.xdp.v2.3.a.numextensions", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_parity_splits = ProtoField.new("Num Parity Splits", "nyse.equities.integratedfeed.xdp.v2.3.a.numparitysplits", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.open = ProtoField.new("Open", "nyse.equities.integratedfeed.xdp.v2.3.a.open", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_execution_message = ProtoField.new("Order Execution Message", "nyse.equities.integratedfeed.xdp.v2.3.a.orderexecutionmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_id = ProtoField.new("Order Id", "nyse.equities.integratedfeed.xdp.v2.3.a.orderid", ftypes.UINT64)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet = ProtoField.new("Packet", "nyse.equities.integratedfeed.xdp.v2.3.a.packet", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.integratedfeed.xdp.v2.3.a.packetheader", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.integratedfeed.xdp.v2.3.a.packetsize", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.integratedfeed.xdp.v2.3.a.pairedqty", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.payload = ProtoField.new("Payload", "nyse.equities.integratedfeed.xdp.v2.3.a.payload", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.position_change = ProtoField.new("Position Change", "nyse.equities.integratedfeed.xdp.v2.3.a.positionchange", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.integratedfeed.xdp.v2.3.a.prevcloseprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.prevclosevolume", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_price_parity_splits = ProtoField.new("Prev Price Parity Splits", "nyse.equities.integratedfeed.xdp.v2.3.a.prevpriceparitysplits", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price = ProtoField.new("Price", "nyse.equities.integratedfeed.xdp.v2.3.a.price", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.integratedfeed.xdp.v2.3.a.price1", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_2 = ProtoField.new("Price 2", "nyse.equities.integratedfeed.xdp.v2.3.a.price2", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.equities.integratedfeed.xdp.v2.3.a.priceresolution", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.equities.integratedfeed.xdp.v2.3.a.pricescalecode", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.equities.integratedfeed.xdp.v2.3.a.printableflag", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.equities.integratedfeed.xdp.v2.3.a.productid", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reference_price = ProtoField.new("Reference Price", "nyse.equities.integratedfeed.xdp.v2.3.a.referenceprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.integratedfeed.xdp.v2.3.a.refreshheadermessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.integratedfeed.xdp.v2.3.a.refreshrequestmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.replace_order_message = ProtoField.new("Replace Order Message", "nyse.equities.integratedfeed.xdp.v2.3.a.replaceordermessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.integratedfeed.xdp.v2.3.a.requestresponsemessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.requestseqnum", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.integratedfeed.xdp.v2.3.a.reserved1", ftypes.BYTES)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.integratedfeed.xdp.v2.3.a.reserved2", ftypes.BYTES)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.integratedfeed.xdp.v2.3.a.reserved4", ftypes.BYTES)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "nyse.equities.integratedfeed.xdp.v2.3.a.retailpriceimprovementmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.integratedfeed.xdp.v2.3.a.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.integratedfeed.xdp.v2.3.a.retransmitmethod", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.integratedfeed.xdp.v2.3.a.roundlot", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.integratedfeed.xdp.v2.3.a.rpiindicator", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.equities.integratedfeed.xdp.v2.3.a.securitystatus", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.equities.integratedfeed.xdp.v2.3.a.securitystatusmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_type = ProtoField.new("Security Type", "nyse.equities.integratedfeed.xdp.v2.3.a.securitytype", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.integratedfeed.xdp.v2.3.a.sequencenumber", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.integratedfeed.xdp.v2.3.a.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.session_state = ProtoField.new("Session State", "nyse.equities.integratedfeed.xdp.v2.3.a.sessionstate", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.side = ProtoField.new("Side", "nyse.equities.integratedfeed.xdp.v2.3.a.side", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_id = ProtoField.new("Source Id", "nyse.equities.integratedfeed.xdp.v2.3.a.sourceid", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.equities.integratedfeed.xdp.v2.3.a.sourcetime", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.integratedfeed.xdp.v2.3.a.sourcetimens", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.equities.integratedfeed.xdp.v2.3.a.sourcetimereferencemessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrfilingprice", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_state = ProtoField.new("Ssr State", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrstate", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrtriggeringexchangeid", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.ssrtriggeringvolume", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.status = ProtoField.new("Status", "nyse.equities.integratedfeed.xdp.v2.3.a.status", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.stock_summary_message = ProtoField.new("Stock Summary Message", "nyse.equities.integratedfeed.xdp.v2.3.a.stocksummarymessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol = ProtoField.new("Symbol", "nyse.equities.integratedfeed.xdp.v2.3.a.symbol", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolclearmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolindex", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolindexmappingrequestmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.integratedfeed.xdp.v2.3.a.symbolseqnum", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.system_id = ProtoField.new("System Id", "nyse.equities.integratedfeed.xdp.v2.3.a.systemid", ftypes.UINT8)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.time = ProtoField.new("Time", "nyse.equities.integratedfeed.xdp.v2.3.a.time", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.integratedfeed.xdp.v2.3.a.timestamp", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.equities.integratedfeed.xdp.v2.3.a.totalimbalanceqty", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.integratedfeed.xdp.v2.3.a.totalrefreshpkts", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.totalvolume", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.equities.integratedfeed.xdp.v2.3.a.tradecancelmessage", ftypes.STRING)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.equities.integratedfeed.xdp.v2.3.a.tradeid", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.integratedfeed.xdp.v2.3.a.unitoftrade", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.equities.integratedfeed.xdp.v2.3.a.uppercollar", ftypes.UINT32)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.volume = ProtoField.new("Volume", "nyse.equities.integratedfeed.xdp.v2.3.a.volume", ftypes.UINT32)
 
 -- Nyse Equities IntegratedFeed Xdp 2.3.a generated fields
-nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.equities.integratedfeed.xdp.v2.3.a.messageindex", ftypes.UINT16)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.equities.integratedfeed.xdp.v2.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -180,160 +180,160 @@ show.trade_cancel_message = true
 show.payload = false
 
 -- Register Nyse Equities IntegratedFeed Xdp 2.3.a Show Options
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_refresh_message = Pref.bool("Show Add Order Refresh Message", show.add_order_refresh_message, "Parse and add Add Order Refresh Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_correction_message = Pref.bool("Show Cross Correction Message", show.cross_correction_message, "Parse and add Cross Correction Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_imbalance_message = Pref.bool("Show Imbalance Message", show.imbalance_message, "Parse and add Imbalance Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_non_displayed_trade_message = Pref.bool("Show Non Displayed Trade Message", show.non_displayed_trade_message, "Parse and add Non Displayed Trade Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retail_price_improvement_message = Pref.bool("Show Retail Price Improvement Message", show.retail_price_improvement_message, "Parse and add Retail Price Improvement Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_stock_summary_message = Pref.bool("Show Stock Summary Message", show.stock_summary_message, "Parse and add Stock Summary Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_refresh_message = Pref.bool("Show Add Order Refresh Message", show.add_order_refresh_message, "Parse and add Add Order Refresh Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_correction_message = Pref.bool("Show Cross Correction Message", show.cross_correction_message, "Parse and add Cross Correction Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_imbalance_message = Pref.bool("Show Imbalance Message", show.imbalance_message, "Parse and add Imbalance Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_non_displayed_trade_message = Pref.bool("Show Non Displayed Trade Message", show.non_displayed_trade_message, "Parse and add Non Displayed Trade Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retail_price_improvement_message = Pref.bool("Show Retail Price Improvement Message", show.retail_price_improvement_message, "Parse and add Retail Price Improvement Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_stock_summary_message = Pref.bool("Show Stock Summary Message", show.stock_summary_message, "Parse and add Stock Summary Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
+omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_equities_integratedfeed_xdp_v2_3_a.prefs_changed()
+function omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message then
-    show.add_order_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message
+  if show.add_order_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message then
+    show.add_order_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message
     changed = true
   end
-  if show.add_order_refresh_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_refresh_message then
-    show.add_order_refresh_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_refresh_message
+  if show.add_order_refresh_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_refresh_message then
+    show.add_order_refresh_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_refresh_message
     changed = true
   end
-  if show.cross_correction_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_correction_message then
-    show.cross_correction_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_correction_message
+  if show.cross_correction_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_correction_message then
+    show.cross_correction_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_correction_message
     changed = true
   end
-  if show.cross_trade_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_trade_message then
-    show.cross_trade_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_trade_message
+  if show.cross_trade_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_trade_message then
+    show.cross_trade_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_cross_trade_message
     changed = true
   end
-  if show.delete_order_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_delete_order_message then
-    show.delete_order_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_delete_order_message
+  if show.delete_order_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_delete_order_message then
+    show.delete_order_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_delete_order_message
     changed = true
   end
-  if show.heartbeat_response_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_heartbeat_response_message
+  if show.heartbeat_response_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_heartbeat_response_message
     changed = true
   end
-  if show.imbalance_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_imbalance_message then
-    show.imbalance_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_imbalance_message
+  if show.imbalance_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_imbalance_message then
+    show.imbalance_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_imbalance_message
     changed = true
   end
-  if show.message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message then
-    show.message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message
+  if show.message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message then
+    show.message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_header then
-    show.message_header = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_header
+  if show.message_header ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_header then
+    show.message_header = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_unavailable_message
+  if show.message_unavailable_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_message_unavailable_message
     changed = true
   end
-  if show.modify_order_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_modify_order_message then
-    show.modify_order_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_modify_order_message
+  if show.modify_order_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_modify_order_message then
+    show.modify_order_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_modify_order_message
     changed = true
   end
-  if show.non_displayed_trade_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_non_displayed_trade_message then
-    show.non_displayed_trade_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_non_displayed_trade_message
+  if show.non_displayed_trade_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_non_displayed_trade_message then
+    show.non_displayed_trade_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_non_displayed_trade_message
     changed = true
   end
-  if show.order_execution_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_order_execution_message then
-    show.order_execution_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_order_execution_message
+  if show.order_execution_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_order_execution_message then
+    show.order_execution_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_order_execution_message
     changed = true
   end
-  if show.packet ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet then
-    show.packet = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet
+  if show.packet ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet then
+    show.packet = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet_header then
-    show.packet_header = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet_header
+  if show.packet_header ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet_header then
+    show.packet_header = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_header_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_header_message then
-    show.refresh_header_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_header_message
+  if show.refresh_header_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_header_message then
+    show.refresh_header_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_header_message
     changed = true
   end
-  if show.refresh_request_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_request_message then
-    show.refresh_request_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_request_message
+  if show.refresh_request_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_request_message then
+    show.refresh_request_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_refresh_request_message
     changed = true
   end
-  if show.replace_order_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_replace_order_message then
-    show.replace_order_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_replace_order_message
+  if show.replace_order_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_replace_order_message then
+    show.replace_order_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_replace_order_message
     changed = true
   end
-  if show.request_response_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_request_response_message then
-    show.request_response_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_request_response_message
+  if show.request_response_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_request_response_message then
+    show.request_response_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_request_response_message
     changed = true
   end
-  if show.retail_price_improvement_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retail_price_improvement_message then
-    show.retail_price_improvement_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retail_price_improvement_message
+  if show.retail_price_improvement_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retail_price_improvement_message then
+    show.retail_price_improvement_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retail_price_improvement_message
     changed = true
   end
-  if show.retransmission_request_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retransmission_request_message
+  if show.retransmission_request_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_retransmission_request_message
     changed = true
   end
-  if show.security_status_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_security_status_message then
-    show.security_status_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_security_status_message
+  if show.security_status_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_security_status_message then
+    show.security_status_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_security_status_message
     changed = true
   end
-  if show.sequence_number_reset_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.source_time_reference_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_source_time_reference_message then
-    show.source_time_reference_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_source_time_reference_message
+  if show.source_time_reference_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_source_time_reference_message then
+    show.source_time_reference_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_source_time_reference_message
     changed = true
   end
-  if show.stock_summary_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_stock_summary_message then
-    show.stock_summary_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_stock_summary_message
+  if show.stock_summary_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_stock_summary_message then
+    show.stock_summary_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_stock_summary_message
     changed = true
   end
-  if show.symbol_clear_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_clear_message
+  if show.symbol_clear_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_clear_message then
+    show.symbol_clear_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_clear_message
     changed = true
   end
-  if show.symbol_index_mapping_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_message
+  if show.symbol_index_mapping_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_message
     changed = true
   end
-  if show.symbol_index_mapping_request_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_request_message
+  if show.symbol_index_mapping_request_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_symbol_index_mapping_request_message
     changed = true
   end
-  if show.trade_cancel_message ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message
+  if show.trade_cancel_message ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message then
+    show.trade_cancel_message = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_trade_cancel_message
     changed = true
   end
-  if show.payload ~= nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload then
-    show.payload = nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload
+  if show.payload ~= omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload then
+    show.payload = omi_nyse_equities_integratedfeed_xdp_v2_3_a.prefs.show_payload
     changed = true
   end
 
@@ -363,7 +363,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.total_volume = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_volume, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -383,7 +383,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.close = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.close, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.close, range, value, display)
 
   return offset + length, value
 end
@@ -403,7 +403,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.open = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.open(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.open, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.open, range, value, display)
 
   return offset + length, value
 end
@@ -423,7 +423,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.low_price = function(buffer, off
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.low_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -443,7 +443,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.high_price = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.high_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -463,7 +463,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_index = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
@@ -483,7 +483,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.source_time_ns = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_ns, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_ns, range, value, display)
 
   return offset + length, value
 end
@@ -503,7 +503,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.source_time = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -571,7 +571,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.stock_summary_message = function(buffer, offset, packet, parent)
   if show.stock_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.stock_summary_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.stock_summary_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.stock_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -600,7 +600,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.db_exec_id = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.db_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.db_exec_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.db_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -627,7 +627,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.printable_flag = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.printable_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.printable_flag, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.printable_flag, range, value, display)
 
   return offset + length, value
 end
@@ -647,7 +647,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.volume = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.volume, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -667,7 +667,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.price = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -687,7 +687,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.trade_id = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -707,7 +707,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_seq_num = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -775,7 +775,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.non_displayed_trade_message = function(buffer, offset, packet, parent)
   if show.non_displayed_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.non_displayed_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.non_displayed_trade_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.non_displayed_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -804,7 +804,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.num_parity_splits = function(buf
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.num_parity_splits(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_parity_splits, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_parity_splits, range, value, display)
 
   return offset + length, value
 end
@@ -824,7 +824,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.order_id = function(buffer, offs
   local value = range:le_uint64()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -902,7 +902,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.order_execution_message = function(buffer, offset, packet, parent)
   if show.order_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_execution_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.order_execution_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.order_execution_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -931,7 +931,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.num_extensions = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.num_extensions(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_extensions, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.num_extensions, range, value, display)
 
   return offset + length, value
 end
@@ -958,7 +958,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.freeze_status = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.freeze_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.freeze_status, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.freeze_status, range, value, display)
 
   return offset + length, value
 end
@@ -991,7 +991,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.auction_status = function(buffer
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.auction_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_status, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_status, range, value, display)
 
   return offset + length, value
 end
@@ -1011,7 +1011,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.lower_collar = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.lower_collar(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.lower_collar, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.lower_collar, range, value, display)
 
   return offset + length, value
 end
@@ -1031,7 +1031,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.upper_collar = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.upper_collar(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.upper_collar, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.upper_collar, range, value, display)
 
   return offset + length, value
 end
@@ -1051,7 +1051,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.indicative_match_price = functio
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.indicative_match_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.indicative_match_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.indicative_match_price, range, value, display)
 
   return offset + length, value
 end
@@ -1071,7 +1071,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.ssr_filing_price = function(buff
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.ssr_filing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_filing_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_filing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1091,7 +1091,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.closing_only_clearing_price = fu
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.closing_only_clearing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.closing_only_clearing_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.closing_only_clearing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1111,7 +1111,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.continuous_book_clearing_price =
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.continuous_book_clearing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.continuous_book_clearing_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.continuous_book_clearing_price, range, value, display)
 
   return offset + length, value
 end
@@ -1141,7 +1141,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.imbalance_side = function(buffer
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_side, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_side, range, value, display)
 
   return offset + length, value
 end
@@ -1177,7 +1177,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.auction_type = function(buffer, 
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_type, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -1197,7 +1197,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.auction_time = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.auction_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_time, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.auction_time, range, value, display)
 
   return offset + length, value
 end
@@ -1217,7 +1217,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.market_imbalance_qty = function(
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.market_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_imbalance_qty, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_imbalance_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1237,7 +1237,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.total_imbalance_qty = function(b
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.total_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_imbalance_qty, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_imbalance_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1257,7 +1257,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.paired_qty = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.paired_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.paired_qty, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.paired_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1277,7 +1277,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.reference_price = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.reference_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -1405,7 +1405,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.imbalance_message = function(buffer, offset, packet, parent)
   if show.imbalance_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.imbalance_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.imbalance_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1434,7 +1434,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.firm_id = function(buffer, offse
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.firm_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.firm_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.firm_id, range, value, display)
 
   return offset + length, value
 end
@@ -1461,7 +1461,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.side = function(buffer, offset, 
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.side, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1539,7 +1539,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.add_order_refresh_message = function(buffer, offset, packet, parent)
   if show.add_order_refresh_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_refresh_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_refresh_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.add_order_refresh_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1581,7 +1581,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.rpi_indicator = function(buffer,
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.rpi_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.rpi_indicator, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.rpi_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1629,7 +1629,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.retail_price_improvement_message = function(buffer, offset, packet, parent)
   if show.retail_price_improvement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.retail_price_improvement_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.retail_price_improvement_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1658,7 +1658,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.cross_id = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -1711,7 +1711,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.cross_correction_message = function(buffer, offset, packet, parent)
   if show.cross_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_correction_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_correction_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.cross_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1753,7 +1753,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.cross_type = function(buffer, of
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_type, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -1816,7 +1816,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.cross_trade_message = function(buffer, offset, packet, parent)
   if show.cross_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_trade_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.cross_trade_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1873,7 +1873,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_cancel_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.trade_cancel_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1935,7 +1935,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.delete_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.delete_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.delete_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1964,7 +1964,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.new_price_parity_splits = functi
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.new_price_parity_splits(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_price_parity_splits, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_price_parity_splits, range, value, display)
 
   return offset + length, value
 end
@@ -1984,7 +1984,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.prev_price_parity_splits = funct
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.prev_price_parity_splits(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_price_parity_splits, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_price_parity_splits, range, value, display)
 
   return offset + length, value
 end
@@ -2004,7 +2004,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.new_order_id = function(buffer, 
   local value = range:le_uint64()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.new_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_order_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.new_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -2077,7 +2077,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.replace_order_message = function(buffer, offset, packet, parent)
   if show.replace_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.replace_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.replace_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.replace_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2113,7 +2113,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.position_change = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.position_change(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.position_change, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.position_change, range, value, display)
 
   return offset + length, value
 end
@@ -2186,7 +2186,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.modify_order_message = function(buffer, offset, packet, parent)
   if show.modify_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.modify_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.modify_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.modify_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2268,7 +2268,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.add_order_message = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.add_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.add_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2297,7 +2297,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.last_symbol_seq_num = function(b
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.last_symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2317,7 +2317,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.last_seq_num = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.last_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.last_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2337,7 +2337,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.total_refresh_pkts = function(bu
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.total_refresh_pkts(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_refresh_pkts, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.total_refresh_pkts, range, value, display)
 
   return offset + length, value
 end
@@ -2357,7 +2357,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.current_refresh_pkt = function(b
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.current_refresh_pkt(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.current_refresh_pkt, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.current_refresh_pkt, range, value, display)
 
   return offset + length, value
 end
@@ -2405,7 +2405,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_header_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2434,7 +2434,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.session_state = function(buffer,
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.session_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.session_state, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.session_state, range, value, display)
 
   return offset + length, value
 end
@@ -2470,7 +2470,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.market_state = function(buffer, 
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.market_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_state, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_state, range, value, display)
 
   return offset + length, value
 end
@@ -2497,7 +2497,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.ssr_state = function(buffer, off
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.ssr_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_state, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_state, range, value, display)
 
   return offset + length, value
 end
@@ -2517,7 +2517,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.time = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.time, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -2537,7 +2537,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.ssr_triggering_volume = function
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_volume, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2612,7 +2612,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.ssr_triggering_exchange_id = fun
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_exchange_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.ssr_triggering_exchange_id, range, value, display)
 
   return offset + length, value
 end
@@ -2632,7 +2632,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.price_2 = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_2, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_2, range, value, display)
 
   return offset + length, value
 end
@@ -2652,7 +2652,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.price_1 = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_1, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_1, range, value, display)
 
   return offset + length, value
 end
@@ -2672,7 +2672,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.reserved_4 = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -2729,7 +2729,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.halt_condition = function(buffer
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.halt_condition, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
@@ -2798,7 +2798,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.security_status = function(buffe
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -2901,7 +2901,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_status_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.security_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2930,7 +2930,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.next_source_seq_num = function(b
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.next_source_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.next_source_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.next_source_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2978,7 +2978,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_clear_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3007,7 +3007,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.channel_id = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.channel_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -3027,7 +3027,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.product_id = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.product_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -3047,7 +3047,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.end_seq_num = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.end_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.end_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.end_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3067,7 +3067,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.begin_seq_num = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.begin_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.begin_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.begin_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3115,7 +3115,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_unavailable_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3144,7 +3144,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.source_id = function(buffer, off
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_id, range, value, display)
 
   return offset + length, value
 end
@@ -3192,7 +3192,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3225,7 +3225,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.retransmit_method = function(buf
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.retransmit_method(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmit_method, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmit_method, range, value, display)
 
   return offset + length, value
 end
@@ -3278,7 +3278,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3320,7 +3320,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.heartbeat_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3380,7 +3380,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.status = function(buffer, offset
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.status, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -3400,7 +3400,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.request_seq_num = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.request_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3463,7 +3463,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.request_response_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3525,7 +3525,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmission_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3554,7 +3554,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.reserved_2 = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -3574,7 +3574,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.unit_of_trade = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.unit_of_trade(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.unit_of_trade, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.unit_of_trade, range, value, display)
 
   return offset + length, value
 end
@@ -3594,7 +3594,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.mpv = function(buffer, offset, p
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.mpv, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -3621,7 +3621,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.round_lot = function(buffer, off
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.round_lot, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
@@ -3651,7 +3651,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.price_resolution = function(buff
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.price_resolution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_resolution, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_resolution, range, value, display)
 
   return offset + length, value
 end
@@ -3671,7 +3671,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.prev_close_volume = function(buf
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.prev_close_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_volume, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3691,7 +3691,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.prev_close_price = function(buff
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.prev_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_price, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.prev_close_price, range, value, display)
 
   return offset + length, value
 end
@@ -3711,7 +3711,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.lot_size = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.lot_size, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -3792,7 +3792,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.security_type = function(buffer,
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_type, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -3812,7 +3812,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.price_scale_code = function(buff
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.price_scale_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_scale_code, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.price_scale_code, range, value, display)
 
   return offset + length, value
 end
@@ -3863,7 +3863,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.exchange_code = function(buffer,
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.exchange_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.exchange_code, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.exchange_code, range, value, display)
 
   return offset + length, value
 end
@@ -3883,7 +3883,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.system_id = function(buffer, off
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.system_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.system_id, range, value, display)
 
   return offset + length, value
 end
@@ -3928,7 +3928,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.market_id = function(buffer, off
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.market_id, range, value, display)
 
   return offset + length, value
 end
@@ -3948,7 +3948,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.reserved_1 = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -3968,7 +3968,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol = function(buffer, offset
   local value = range:string()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -4076,7 +4076,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4105,7 +4105,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.id = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.id, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.id, range, value, display)
 
   return offset + length, value
 end
@@ -4148,7 +4148,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.source_time_reference_message = function(buffer, offset, packet, parent)
   if show.source_time_reference_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_reference_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.source_time_reference_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4205,7 +4205,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4451,7 +4451,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.payload = function(buffer, offse
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.payload, range, display)
+  local element = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.payload, range, display)
 
   return nyse_equities_integratedfeed_xdp_v2_3_a_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -4547,7 +4547,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_type = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_type, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -4567,7 +4567,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_size = function(buffer, 
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_size, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -4605,7 +4605,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_header, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4644,7 +4644,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_fields = function(buffer
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_index, message_index)
+    local iteration = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -4667,7 +4667,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message = function(buffer, offse
     local length = nyse_equities_integratedfeed_xdp_v2_3_a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.message, range, display)
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message, range, display)
   end
 
   return nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_fields(buffer, offset, packet, parent)
@@ -4688,7 +4688,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.nanoseconds = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.nanoseconds, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -4708,7 +4708,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.timestamp = function(buffer, off
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -4728,7 +4728,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.sequence_number = function(buffe
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -4748,7 +4748,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.message_count = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_count, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -4802,7 +4802,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.delivery_flag = function(buffer,
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.delivery_flag, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
@@ -4822,7 +4822,7 @@ nyse_equities_integratedfeed_xdp_v2_3_a_dissect.packet_size = function(buffer, o
   local value = range:le_uint()
   local display = nyse_equities_integratedfeed_xdp_v2_3_a_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -4880,7 +4880,7 @@ end
 nyse_equities_integratedfeed_xdp_v2_3_a_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_xdp_v2_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4918,23 +4918,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_equities_integratedfeed_xdp_v2_3_a.init()
+function omi_nyse_equities_integratedfeed_xdp_v2_3_a.init()
 end
 
 -- Dissector for Nyse Equities IntegratedFeed Xdp 2.3.a
-function nyse_equities_integratedfeed_xdp_v2_3_a.dissector(buffer, packet, parent)
+function omi_nyse_equities_integratedfeed_xdp_v2_3_a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_equities_integratedfeed_xdp_v2_3_a.name
+  packet.cols.protocol = omi_nyse_equities_integratedfeed_xdp_v2_3_a.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_equities_integratedfeed_xdp_v2_3_a, buffer(), nyse_equities_integratedfeed_xdp_v2_3_a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_equities_integratedfeed_xdp_v2_3_a, buffer(), omi_nyse_equities_integratedfeed_xdp_v2_3_a.description, "("..buffer:len().." Bytes)")
   return nyse_equities_integratedfeed_xdp_v2_3_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_equities_integratedfeed_xdp_v2_3_a)
+udp_table:add(65333, omi_nyse_equities_integratedfeed_xdp_v2_3_a)
 
 
 -----------------------------------------------------------------------
@@ -4942,25 +4942,25 @@ udp_table:add(65333, nyse_equities_integratedfeed_xdp_v2_3_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_equities_integratedfeed_xdp_v2_3_a_packet_size = function(buffer)
+verify.omi_nyse_equities_integratedfeed_xdp_v2_3_a_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nyse Equities IntegratedFeed Xdp 2.3.a
-local function nyse_equities_integratedfeed_xdp_v2_3_a_heuristic(buffer, packet, parent)
+local function omi_nyse_equities_integratedfeed_xdp_v2_3_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_equities_integratedfeed_xdp_v2_3_a_packet_size(buffer) then return false end
+  if not verify.omi_nyse_equities_integratedfeed_xdp_v2_3_a_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_equities_integratedfeed_xdp_v2_3_a
-  nyse_equities_integratedfeed_xdp_v2_3_a.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_equities_integratedfeed_xdp_v2_3_a
+  omi_nyse_equities_integratedfeed_xdp_v2_3_a.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Equities IntegratedFeed Xdp 2.3.a
-nyse_equities_integratedfeed_xdp_v2_3_a:register_heuristic("udp", nyse_equities_integratedfeed_xdp_v2_3_a_heuristic)
+omi_nyse_equities_integratedfeed_xdp_v2_3_a:register_heuristic("udp", omi_nyse_equities_integratedfeed_xdp_v2_3_a_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

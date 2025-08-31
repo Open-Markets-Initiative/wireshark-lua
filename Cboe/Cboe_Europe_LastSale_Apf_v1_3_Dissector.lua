@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe Europe LastSale Apf 1.3 Protocol
-local cboe_europe_lastsale_apf_v1_3 = Proto("Cboe.Europe.LastSale.Apf.v1.3.Lua", "Cboe Europe LastSale Apf 1.3")
+local omi_cboe_europe_lastsale_apf_v1_3 = Proto("Cboe.Europe.LastSale.Apf.v1.3.Lua", "Cboe Europe LastSale Apf 1.3")
 
 -- Component Tables
 local show = {}
@@ -20,49 +20,49 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Cboe Europe LastSale Apf 1.3 Fields
-cboe_europe_lastsale_apf_v1_3.fields.agency_cross_trade = ProtoField.new("Agency Cross Trade", "cboe.europe.lastsale.apf.v1.3.agencycrosstrade", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.europe.lastsale.apf.v1.3.algorithmicindicator", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.benchmark_reference_indicator = ProtoField.new("Benchmark Reference Indicator", "cboe.europe.lastsale.apf.v1.3.benchmarkreferenceindicator", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.europe.lastsale.apf.v1.3.debugpacket", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "cboe.europe.lastsale.apf.v1.3.duplicativeindicator", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.europe.lastsale.apf.v1.3.executedshares", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.europe.lastsale.apf.v1.3.executionvenue", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.europe.lastsale.apf.v1.3.loginacceptedpacket", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.europe.lastsale.apf.v1.3.loginrejectedpacket", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.europe.lastsale.apf.v1.3.loginrequestpacket", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.europe.lastsale.apf.v1.3.modificationindicator", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.negotiation_flag = ProtoField.new("Negotiation Flag", "cboe.europe.lastsale.apf.v1.3.negotiationflag", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.packet = ProtoField.new("Packet", "cboe.europe.lastsale.apf.v1.3.packet", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.packet_type = ProtoField.new("Packet Type", "cboe.europe.lastsale.apf.v1.3.packettype", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.password = ProtoField.new("Password", "cboe.europe.lastsale.apf.v1.3.password", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.payload = ProtoField.new("Payload", "cboe.europe.lastsale.apf.v1.3.payload", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "cboe.europe.lastsale.apf.v1.3.posttradedeferralreason", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.price = ProtoField.new("Price", "cboe.europe.lastsale.apf.v1.3.price", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.price_currency = ProtoField.new("Price Currency", "cboe.europe.lastsale.apf.v1.3.pricecurrency", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.price_discovery_process = ProtoField.new("Price Discovery Process", "cboe.europe.lastsale.apf.v1.3.pricediscoveryprocess", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.publication_date_time = ProtoField.new("Publication Date Time", "cboe.europe.lastsale.apf.v1.3.publicationdatetime", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.europe.lastsale.apf.v1.3.rejectreasoncode", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.europe.lastsale.apf.v1.3.requestedsequencenumber", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.requested_session = ProtoField.new("Requested Session", "cboe.europe.lastsale.apf.v1.3.requestedsession", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.europe.lastsale.apf.v1.3.sequencenumber", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.europe.lastsale.apf.v1.3.sequenceddatapacket", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "cboe.europe.lastsale.apf.v1.3.sequencedmessage", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.europe.lastsale.apf.v1.3.sequencedmessageheader", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.europe.lastsale.apf.v1.3.sequencedmessagetype", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.session = ProtoField.new("Session", "cboe.europe.lastsale.apf.v1.3.session", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.europe.lastsale.apf.v1.3.souplf", ftypes.INT8)
-cboe_europe_lastsale_apf_v1_3.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.europe.lastsale.apf.v1.3.specialdividend", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.symbol = ProtoField.new("Symbol", "cboe.europe.lastsale.apf.v1.3.symbol", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.text = ProtoField.new("Text", "cboe.europe.lastsale.apf.v1.3.text", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.timestamp = ProtoField.new("Timestamp", "cboe.europe.lastsale.apf.v1.3.timestamp", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.trade_id = ProtoField.new("Trade Id", "cboe.europe.lastsale.apf.v1.3.tradeid", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.trading_date_time = ProtoField.new("Trading Date Time", "cboe.europe.lastsale.apf.v1.3.tradingdatetime", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.europe.lastsale.apf.v1.3.transactioncategory", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.europe.lastsale.apf.v1.3.unsequenceddatapacket", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.username = ProtoField.new("Username", "cboe.europe.lastsale.apf.v1.3.username", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.agency_cross_trade = ProtoField.new("Agency Cross Trade", "cboe.europe.lastsale.apf.v1.3.agencycrosstrade", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.europe.lastsale.apf.v1.3.algorithmicindicator", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.benchmark_reference_indicator = ProtoField.new("Benchmark Reference Indicator", "cboe.europe.lastsale.apf.v1.3.benchmarkreferenceindicator", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.europe.lastsale.apf.v1.3.debugpacket", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "cboe.europe.lastsale.apf.v1.3.duplicativeindicator", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.europe.lastsale.apf.v1.3.executedshares", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.europe.lastsale.apf.v1.3.executionvenue", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.europe.lastsale.apf.v1.3.loginacceptedpacket", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.europe.lastsale.apf.v1.3.loginrejectedpacket", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.europe.lastsale.apf.v1.3.loginrequestpacket", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.europe.lastsale.apf.v1.3.modificationindicator", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.negotiation_flag = ProtoField.new("Negotiation Flag", "cboe.europe.lastsale.apf.v1.3.negotiationflag", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.packet = ProtoField.new("Packet", "cboe.europe.lastsale.apf.v1.3.packet", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.packet_type = ProtoField.new("Packet Type", "cboe.europe.lastsale.apf.v1.3.packettype", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.password = ProtoField.new("Password", "cboe.europe.lastsale.apf.v1.3.password", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.payload = ProtoField.new("Payload", "cboe.europe.lastsale.apf.v1.3.payload", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "cboe.europe.lastsale.apf.v1.3.posttradedeferralreason", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.price = ProtoField.new("Price", "cboe.europe.lastsale.apf.v1.3.price", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.price_currency = ProtoField.new("Price Currency", "cboe.europe.lastsale.apf.v1.3.pricecurrency", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.price_discovery_process = ProtoField.new("Price Discovery Process", "cboe.europe.lastsale.apf.v1.3.pricediscoveryprocess", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.publication_date_time = ProtoField.new("Publication Date Time", "cboe.europe.lastsale.apf.v1.3.publicationdatetime", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.europe.lastsale.apf.v1.3.rejectreasoncode", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.europe.lastsale.apf.v1.3.requestedsequencenumber", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.requested_session = ProtoField.new("Requested Session", "cboe.europe.lastsale.apf.v1.3.requestedsession", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.europe.lastsale.apf.v1.3.sequencenumber", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.europe.lastsale.apf.v1.3.sequenceddatapacket", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "cboe.europe.lastsale.apf.v1.3.sequencedmessage", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.europe.lastsale.apf.v1.3.sequencedmessageheader", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.europe.lastsale.apf.v1.3.sequencedmessagetype", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.session = ProtoField.new("Session", "cboe.europe.lastsale.apf.v1.3.session", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.europe.lastsale.apf.v1.3.souplf", ftypes.INT8)
+omi_cboe_europe_lastsale_apf_v1_3.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.europe.lastsale.apf.v1.3.specialdividend", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.symbol = ProtoField.new("Symbol", "cboe.europe.lastsale.apf.v1.3.symbol", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.text = ProtoField.new("Text", "cboe.europe.lastsale.apf.v1.3.text", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.timestamp = ProtoField.new("Timestamp", "cboe.europe.lastsale.apf.v1.3.timestamp", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.trade_id = ProtoField.new("Trade Id", "cboe.europe.lastsale.apf.v1.3.tradeid", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.trading_date_time = ProtoField.new("Trading Date Time", "cboe.europe.lastsale.apf.v1.3.tradingdatetime", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.europe.lastsale.apf.v1.3.transactioncategory", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.europe.lastsale.apf.v1.3.unsequenceddatapacket", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.username = ProtoField.new("Username", "cboe.europe.lastsale.apf.v1.3.username", ftypes.STRING)
 
 -- Cboe Europe LastSale Apf 1.3 messages
-cboe_europe_lastsale_apf_v1_3.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.europe.lastsale.apf.v1.3.lastsaleeuropemessage", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_3.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.europe.lastsale.apf.v1.3.lastsaleeuropemessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -82,65 +82,65 @@ show.payload = false
 show.sequenced_message = false
 
 -- Register Cboe Europe LastSale Apf 1.3 Show Options
-cboe_europe_lastsale_apf_v1_3.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_last_sale_europe_message = Pref.bool("Show Last Sale Europe Message", show.last_sale_europe_message, "Parse and add Last Sale Europe Message to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message_header = Pref.bool("Show Sequenced Message Header", show.sequenced_message_header, "Parse and add Sequenced Message Header to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_last_sale_europe_message = Pref.bool("Show Last Sale Europe Message", show.last_sale_europe_message, "Parse and add Last Sale Europe Message to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message_header = Pref.bool("Show Sequenced Message Header", show.sequenced_message_header, "Parse and add Sequenced Message Header to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 
 -- Handle changed preferences
-function cboe_europe_lastsale_apf_v1_3.prefs_changed()
+function omi_cboe_europe_lastsale_apf_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.debug_packet ~= cboe_europe_lastsale_apf_v1_3.prefs.show_debug_packet then
-    show.debug_packet = cboe_europe_lastsale_apf_v1_3.prefs.show_debug_packet
+  if show.debug_packet ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_debug_packet then
+    show.debug_packet = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_debug_packet
     changed = true
   end
-  if show.last_sale_europe_message ~= cboe_europe_lastsale_apf_v1_3.prefs.show_last_sale_europe_message then
-    show.last_sale_europe_message = cboe_europe_lastsale_apf_v1_3.prefs.show_last_sale_europe_message
+  if show.last_sale_europe_message ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_last_sale_europe_message then
+    show.last_sale_europe_message = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_last_sale_europe_message
     changed = true
   end
-  if show.login_accepted_packet ~= cboe_europe_lastsale_apf_v1_3.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = cboe_europe_lastsale_apf_v1_3.prefs.show_login_accepted_packet
+  if show.login_accepted_packet ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_accepted_packet then
+    show.login_accepted_packet = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_accepted_packet
     changed = true
   end
-  if show.login_rejected_packet ~= cboe_europe_lastsale_apf_v1_3.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = cboe_europe_lastsale_apf_v1_3.prefs.show_login_rejected_packet
+  if show.login_rejected_packet ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_rejected_packet then
+    show.login_rejected_packet = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_rejected_packet
     changed = true
   end
-  if show.login_request_packet ~= cboe_europe_lastsale_apf_v1_3.prefs.show_login_request_packet then
-    show.login_request_packet = cboe_europe_lastsale_apf_v1_3.prefs.show_login_request_packet
+  if show.login_request_packet ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_request_packet then
+    show.login_request_packet = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_login_request_packet
     changed = true
   end
-  if show.packet ~= cboe_europe_lastsale_apf_v1_3.prefs.show_packet then
-    show.packet = cboe_europe_lastsale_apf_v1_3.prefs.show_packet
+  if show.packet ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_packet then
+    show.packet = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_packet
     changed = true
   end
-  if show.sequenced_data_packet ~= cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_data_packet
+  if show.sequenced_data_packet ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_data_packet then
+    show.sequenced_data_packet = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.sequenced_message_header ~= cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message_header then
-    show.sequenced_message_header = cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message_header
+  if show.sequenced_message_header ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message_header then
+    show.sequenced_message_header = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message_header
     changed = true
   end
-  if show.unsequenced_data_packet ~= cboe_europe_lastsale_apf_v1_3.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = cboe_europe_lastsale_apf_v1_3.prefs.show_unsequenced_data_packet
+  if show.unsequenced_data_packet ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_unsequenced_data_packet then
+    show.unsequenced_data_packet = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= cboe_europe_lastsale_apf_v1_3.prefs.show_payload then
-    show.payload = cboe_europe_lastsale_apf_v1_3.prefs.show_payload
+  if show.payload ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_payload then
+    show.payload = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_payload
     changed = true
   end
-  if show.sequenced_message ~= cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message then
-    show.sequenced_message = cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message
+  if show.sequenced_message ~= omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message then
+    show.sequenced_message = omi_cboe_europe_lastsale_apf_v1_3.prefs.show_sequenced_message
     changed = true
   end
 
@@ -188,7 +188,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.soup_lf = function(buffer, offset, packet,
   local value = range:int()
   local display = cboe_europe_lastsale_apf_v1_3_display.soup_lf(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.soup_lf, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.soup_lf, range, value, display)
 
   return offset + length, value
 end
@@ -221,7 +221,7 @@ end
 cboe_europe_lastsale_apf_v1_3_dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
   if show.unsequenced_data_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.unsequenced_data_packet, buffer(offset, 0))
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.unsequenced_data_packet, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_3_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -250,7 +250,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.requested_sequence_number = function(buffe
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.requested_sequence_number, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -270,7 +270,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.requested_session = function(buffer, offse
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.requested_session(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.requested_session, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -290,7 +290,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.password = function(buffer, offset, packet
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.password(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.password, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -310,7 +310,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.username = function(buffer, offset, packet
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.username(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.username, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -358,7 +358,7 @@ end
 cboe_europe_lastsale_apf_v1_3_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.login_request_packet, buffer(offset, 0))
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.login_request_packet, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_3_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -391,7 +391,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.duplicative_indicator = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.duplicative_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.duplicative_indicator, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.duplicative_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -421,7 +421,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.post_trade_deferral_reason = function(buff
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.post_trade_deferral_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.post_trade_deferral_reason, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.post_trade_deferral_reason, range, value, display)
 
   return offset + length, value
 end
@@ -445,7 +445,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.algorithmic_indicator = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.algorithmic_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.algorithmic_indicator, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.algorithmic_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -475,7 +475,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.price_discovery_process = function(buffer,
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.price_discovery_process(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.price_discovery_process, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.price_discovery_process, range, value, display)
 
   return offset + length, value
 end
@@ -495,7 +495,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.special_dividend = function(buffer, offset
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.special_dividend(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.special_dividend, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.special_dividend, range, value, display)
 
   return offset + length, value
 end
@@ -522,7 +522,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.benchmark_reference_indicator = function(b
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.benchmark_reference_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.benchmark_reference_indicator, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.benchmark_reference_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -549,7 +549,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.modification_indicator = function(buffer, 
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.modification_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.modification_indicator, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.modification_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -573,7 +573,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.agency_cross_trade = function(buffer, offs
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.agency_cross_trade(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.agency_cross_trade, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.agency_cross_trade, range, value, display)
 
   return offset + length, value
 end
@@ -609,7 +609,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.negotiation_flag = function(buffer, offset
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.negotiation_flag(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.negotiation_flag, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.negotiation_flag, range, value, display)
 
   return offset + length, value
 end
@@ -639,7 +639,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.transaction_category = function(buffer, of
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.transaction_category(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.transaction_category, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.transaction_category, range, value, display)
 
   return offset + length, value
 end
@@ -659,7 +659,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.trade_id = function(buffer, offset, packet
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.trade_id, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -679,7 +679,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.publication_date_time = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.publication_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.publication_date_time, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.publication_date_time, range, value, display)
 
   return offset + length, value
 end
@@ -699,7 +699,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.execution_venue = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.execution_venue(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.execution_venue, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.execution_venue, range, value, display)
 
   return offset + length, value
 end
@@ -724,7 +724,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.executed_shares = function(buffer, offset,
 
   local display = cboe_europe_lastsale_apf_v1_3_display.executed_shares(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.executed_shares, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.executed_shares, range, value, display)
 
   return offset + length, value
 end
@@ -744,7 +744,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.price_currency = function(buffer, offset, 
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.price_currency(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.price_currency, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.price_currency, range, value, display)
 
   return offset + length, value
 end
@@ -769,7 +769,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.price = function(buffer, offset, packet, p
 
   local display = cboe_europe_lastsale_apf_v1_3_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.price, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -789,7 +789,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.symbol = function(buffer, offset, packet, 
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.symbol, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -809,7 +809,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.trading_date_time = function(buffer, offse
   local value = trim_right_spaces(range:string())
   local display = cboe_europe_lastsale_apf_v1_3_display.trading_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.trading_date_time, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.trading_date_time, range, value, display)
 
   return offset + length, value
 end
@@ -927,7 +927,7 @@ end
 cboe_europe_lastsale_apf_v1_3_dissect.last_sale_europe_message = function(buffer, offset, packet, parent)
   if show.last_sale_europe_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.last_sale_europe_message, buffer(offset, 0))
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.last_sale_europe_message, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_3_dissect.last_sale_europe_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -981,7 +981,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.sequenced_message = function(buffer, offse
   -- Dissect Element
   local range = buffer(offset, size)
   local display = cboe_europe_lastsale_apf_v1_3_display.sequenced_message(buffer, packet, parent)
-  local element = parent:add(cboe_europe_lastsale_apf_v1_3.fields.sequenced_message, range, display)
+  local element = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_message, range, display)
 
   return cboe_europe_lastsale_apf_v1_3_dissect.sequenced_message_branches(buffer, offset, packet, parent, sequenced_message_type)
 end
@@ -1005,7 +1005,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.sequenced_message_type = function(buffer, 
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.sequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_type, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1030,7 +1030,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.timestamp = function(buffer, offset, packe
 
   local display = cboe_europe_lastsale_apf_v1_3_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.timestamp, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1068,7 +1068,7 @@ end
 cboe_europe_lastsale_apf_v1_3_dissect.sequenced_message_header = function(buffer, offset, packet, parent)
   if show.sequenced_message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_header, buffer(offset, 0))
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_message_header, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_3_dissect.sequenced_message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1124,7 +1124,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.sequenced_data_packet = function(buffer, o
     local length = cboe_europe_lastsale_apf_v1_3_size_of.sequenced_data_packet(buffer, offset)
     local range = buffer(offset, length)
     local display = cboe_europe_lastsale_apf_v1_3_display.sequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.sequenced_data_packet, range, display)
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.sequenced_data_packet, range, display)
   end
 
   return cboe_europe_lastsale_apf_v1_3_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent)
@@ -1145,7 +1145,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.reject_reason_code = function(buffer, offs
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.reject_reason_code(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.reject_reason_code, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -1178,7 +1178,7 @@ end
 cboe_europe_lastsale_apf_v1_3_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.login_rejected_packet, buffer(offset, 0))
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.login_rejected_packet, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_3_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1207,7 +1207,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.sequence_number = function(buffer, offset,
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.sequence_number, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1227,7 +1227,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.session = function(buffer, offset, packet,
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.session, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -1265,7 +1265,7 @@ end
 cboe_europe_lastsale_apf_v1_3_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.login_accepted_packet, buffer(offset, 0))
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.login_accepted_packet, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_3_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1294,7 +1294,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.text = function(buffer, offset, packet, pa
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.text(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.text, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -1327,7 +1327,7 @@ end
 cboe_europe_lastsale_apf_v1_3_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_lastsale_apf_v1_3.fields.debug_packet, buffer(offset, 0))
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.debug_packet, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_3_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1421,7 +1421,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.payload = function(buffer, offset, packet,
   -- Dissect Element
   local range = buffer(offset, size)
   local display = cboe_europe_lastsale_apf_v1_3_display.payload(buffer, packet, parent)
-  local element = parent:add(cboe_europe_lastsale_apf_v1_3.fields.payload, range, display)
+  local element = parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.payload, range, display)
 
   return cboe_europe_lastsale_apf_v1_3_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -1469,7 +1469,7 @@ cboe_europe_lastsale_apf_v1_3_dissect.packet_type = function(buffer, offset, pac
   local value = range:string()
   local display = cboe_europe_lastsale_apf_v1_3_display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.packet_type, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_3.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -1502,23 +1502,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cboe_europe_lastsale_apf_v1_3.init()
+function omi_cboe_europe_lastsale_apf_v1_3.init()
 end
 
 -- Dissector for Cboe Europe LastSale Apf 1.3
-function cboe_europe_lastsale_apf_v1_3.dissector(buffer, packet, parent)
+function omi_cboe_europe_lastsale_apf_v1_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cboe_europe_lastsale_apf_v1_3.name
+  packet.cols.protocol = omi_cboe_europe_lastsale_apf_v1_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(cboe_europe_lastsale_apf_v1_3, buffer(), cboe_europe_lastsale_apf_v1_3.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_cboe_europe_lastsale_apf_v1_3, buffer(), omi_cboe_europe_lastsale_apf_v1_3.description, "("..buffer:len().." Bytes)")
   return cboe_europe_lastsale_apf_v1_3_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, cboe_europe_lastsale_apf_v1_3)
+tcp_table:add(65333, omi_cboe_europe_lastsale_apf_v1_3)
 
 
 -----------------------------------------------------------------------
@@ -1526,7 +1526,7 @@ tcp_table:add(65333, cboe_europe_lastsale_apf_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cboe_europe_lastsale_apf_v1_3_packet_size = function(buffer)
+verify.omi_cboe_europe_lastsale_apf_v1_3_packet_size = function(buffer)
 
   return true
 end
@@ -1544,22 +1544,22 @@ verify.soup_lf = function(buffer)
 end
 
 -- Dissector Heuristic for Cboe Europe LastSale Apf 1.3
-local function cboe_europe_lastsale_apf_v1_3_heuristic(buffer, packet, parent)
+local function omi_cboe_europe_lastsale_apf_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cboe_europe_lastsale_apf_v1_3_packet_size(buffer) then return false end
+  if not verify.omi_cboe_europe_lastsale_apf_v1_3_packet_size(buffer) then return false end
 
   -- Verify Soup Lf
   if not verify.soup_lf(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cboe_europe_lastsale_apf_v1_3
-  cboe_europe_lastsale_apf_v1_3.dissector(buffer, packet, parent)
+  packet.conversation = omi_cboe_europe_lastsale_apf_v1_3
+  omi_cboe_europe_lastsale_apf_v1_3.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Cboe Europe LastSale Apf 1.3
-cboe_europe_lastsale_apf_v1_3:register_heuristic("tcp", cboe_europe_lastsale_apf_v1_3_heuristic)
+omi_cboe_europe_lastsale_apf_v1_3:register_heuristic("tcp", omi_cboe_europe_lastsale_apf_v1_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

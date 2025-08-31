@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Asx Securities Trade Itch 3.1 Protocol
-local asx_securities_trade_itch_v3_1 = Proto("Asx.Securities.Trade.Itch.v3.1.Lua", "Asx Securities Trade Itch 3.1")
+local omi_asx_securities_trade_itch_v3_1 = Proto("Asx.Securities.Trade.Itch.v3.1.Lua", "Asx Securities Trade Itch 3.1")
 
 -- Component Tables
 local show = {}
@@ -20,91 +20,91 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Asx Securities Trade Itch 3.1 Fields
-asx_securities_trade_itch_v3_1.fields.ask_quantity = ProtoField.new("Ask Quantity", "asx.securities.trade.itch.v3.1.askquantity", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.securities.trade.itch.v3.1.bestaskprice", ftypes.INT32)
-asx_securities_trade_itch_v3_1.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "asx.securities.trade.itch.v3.1.bestaskquantity", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.best_bid_price = ProtoField.new("Best Bid Price", "asx.securities.trade.itch.v3.1.bestbidprice", ftypes.INT32)
-asx_securities_trade_itch_v3_1.fields.best_bid_quantity = ProtoField.new("Best Bid Quantity", "asx.securities.trade.itch.v3.1.bestbidquantity", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.bid_quantity = ProtoField.new("Bid Quantity", "asx.securities.trade.itch.v3.1.bidquantity", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.block_lot_size = ProtoField.new("Block Lot Size", "asx.securities.trade.itch.v3.1.blocklotsize", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.trade.itch.v3.1.equilibriumprice", ftypes.INT32)
-asx_securities_trade_itch_v3_1.fields.event_code = ProtoField.new("Event Code", "asx.securities.trade.itch.v3.1.eventcode", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.exchange_order_type = ProtoField.new("Exchange Order Type", "asx.securities.trade.itch.v3.1.exchangeordertype", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.executed_quantity = ProtoField.new("Executed Quantity", "asx.securities.trade.itch.v3.1.executedquantity", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.financial_product = ProtoField.new("Financial Product", "asx.securities.trade.itch.v3.1.financialproduct", ftypes.UINT8)
-asx_securities_trade_itch_v3_1.fields.implied_order = ProtoField.new("Implied Order", "asx.securities.trade.itch.v3.1.impliedorder", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
-asx_securities_trade_itch_v3_1.fields.isin = ProtoField.new("Isin", "asx.securities.trade.itch.v3.1.isin", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_1 = ProtoField.new("Leg 1", "asx.securities.trade.itch.v3.1.leg1", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_2 = ProtoField.new("Leg 2", "asx.securities.trade.itch.v3.1.leg2", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_3 = ProtoField.new("Leg 3", "asx.securities.trade.itch.v3.1.leg3", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_4 = ProtoField.new("Leg 4", "asx.securities.trade.itch.v3.1.leg4", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "asx.securities.trade.itch.v3.1.legratio", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.leg_side = ProtoField.new("Leg Side", "asx.securities.trade.itch.v3.1.legside", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "asx.securities.trade.itch.v3.1.legsymbol", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.long_name = ProtoField.new("Long Name", "asx.securities.trade.itch.v3.1.longname", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.lot_type = ProtoField.new("Lot Type", "asx.securities.trade.itch.v3.1.lottype", ftypes.UINT8)
-asx_securities_trade_itch_v3_1.fields.market_bid = ProtoField.new("Market Bid", "asx.securities.trade.itch.v3.1.marketbid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x2000)
-asx_securities_trade_itch_v3_1.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.itch.v3.1.matchid", ftypes.BYTES)
-asx_securities_trade_itch_v3_1.fields.message = ProtoField.new("Message", "asx.securities.trade.itch.v3.1.message", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.message_count = ProtoField.new("Message Count", "asx.securities.trade.itch.v3.1.messagecount", ftypes.UINT16)
-asx_securities_trade_itch_v3_1.fields.message_header = ProtoField.new("Message Header", "asx.securities.trade.itch.v3.1.messageheader", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.message_length = ProtoField.new("Message Length", "asx.securities.trade.itch.v3.1.messagelength", ftypes.UINT16)
-asx_securities_trade_itch_v3_1.fields.message_type = ProtoField.new("Message Type", "asx.securities.trade.itch.v3.1.messagetype", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.new_order_book_position = ProtoField.new("New Order Book Position", "asx.securities.trade.itch.v3.1.neworderbookposition", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.nominal_value = ProtoField.new("Nominal Value", "asx.securities.trade.itch.v3.1.nominalvalue", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_nominal_value = ProtoField.new("Number Of Decimals In Nominal Value", "asx.securities.trade.itch.v3.1.numberofdecimalsinnominalvalue", ftypes.UINT16)
-asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_price = ProtoField.new("Number Of Decimals In Price", "asx.securities.trade.itch.v3.1.numberofdecimalsinprice", ftypes.UINT16)
-asx_securities_trade_itch_v3_1.fields.occurred_at_cross = ProtoField.new("Occurred At Cross", "asx.securities.trade.itch.v3.1.occurredatcross", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.odd_lot_size = ProtoField.new("Odd Lot Size", "asx.securities.trade.itch.v3.1.oddlotsize", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.order_book_id = ProtoField.new("Order Book Id", "asx.securities.trade.itch.v3.1.orderbookid", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.order_book_position = ProtoField.new("Order Book Position", "asx.securities.trade.itch.v3.1.orderbookposition", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.order_id = ProtoField.new("Order Id", "asx.securities.trade.itch.v3.1.orderid", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.packet = ProtoField.new("Packet", "asx.securities.trade.itch.v3.1.packet", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.itch.v3.1.packetheader", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.participant_id = ProtoField.new("Participant Id", "asx.securities.trade.itch.v3.1.participantid", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.participant_id_counterparty = ProtoField.new("Participant Id Counterparty", "asx.securities.trade.itch.v3.1.participantidcounterparty", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.participant_id_owner = ProtoField.new("Participant Id Owner", "asx.securities.trade.itch.v3.1.participantidowner", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.payload = ProtoField.new("Payload", "asx.securities.trade.itch.v3.1.payload", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.price = ProtoField.new("Price", "asx.securities.trade.itch.v3.1.price", ftypes.INT32)
-asx_securities_trade_itch_v3_1.fields.price_from = ProtoField.new("Price From", "asx.securities.trade.itch.v3.1.pricefrom", ftypes.INT32)
-asx_securities_trade_itch_v3_1.fields.price_stabilisation = ProtoField.new("Price Stabilisation", "asx.securities.trade.itch.v3.1.pricestabilisation", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
-asx_securities_trade_itch_v3_1.fields.price_to = ProtoField.new("Price To", "asx.securities.trade.itch.v3.1.priceto", ftypes.INT32)
-asx_securities_trade_itch_v3_1.fields.printable = ProtoField.new("Printable", "asx.securities.trade.itch.v3.1.printable", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.quantity = ProtoField.new("Quantity", "asx.securities.trade.itch.v3.1.quantity", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.reserved_2_bits = ProtoField.new("Reserved 2 Bits", "asx.securities.trade.itch.v3.1.reserved2bits", ftypes.UINT16, nil, base.DEC, 0xC000)
-asx_securities_trade_itch_v3_1.fields.reserved_9_bits = ProtoField.new("Reserved 9 Bits", "asx.securities.trade.itch.v3.1.reserved9bits", ftypes.UINT16, nil, base.DEC, 0x03FE)
-asx_securities_trade_itch_v3_1.fields.reserved_bit = ProtoField.new("Reserved Bit", "asx.securities.trade.itch.v3.1.reservedbit", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0800)
-asx_securities_trade_itch_v3_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "asx.securities.trade.itch.v3.1.roundlotsize", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.itch.v3.1.sequencenumber", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.session = ProtoField.new("Session", "asx.securities.trade.itch.v3.1.session", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.side = ProtoField.new("Side", "asx.securities.trade.itch.v3.1.side", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.state_name = ProtoField.new("State Name", "asx.securities.trade.itch.v3.1.statename", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.symbol = ProtoField.new("Symbol", "asx.securities.trade.itch.v3.1.symbol", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.tick_size = ProtoField.new("Tick Size", "asx.securities.trade.itch.v3.1.ticksize", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.itch.v3.1.timestampnanoseconds", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "asx.securities.trade.itch.v3.1.timestampseconds", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.itch.v3.1.tradeprice", ftypes.INT32)
-asx_securities_trade_itch_v3_1.fields.trading_currency = ProtoField.new("Trading Currency", "asx.securities.trade.itch.v3.1.tradingcurrency", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.undisclosed = ProtoField.new("Undisclosed", "asx.securities.trade.itch.v3.1.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
+omi_asx_securities_trade_itch_v3_1.fields.ask_quantity = ProtoField.new("Ask Quantity", "asx.securities.trade.itch.v3.1.askquantity", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.securities.trade.itch.v3.1.bestaskprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "asx.securities.trade.itch.v3.1.bestaskquantity", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.best_bid_price = ProtoField.new("Best Bid Price", "asx.securities.trade.itch.v3.1.bestbidprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.best_bid_quantity = ProtoField.new("Best Bid Quantity", "asx.securities.trade.itch.v3.1.bestbidquantity", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.bid_quantity = ProtoField.new("Bid Quantity", "asx.securities.trade.itch.v3.1.bidquantity", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.block_lot_size = ProtoField.new("Block Lot Size", "asx.securities.trade.itch.v3.1.blocklotsize", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.trade.itch.v3.1.equilibriumprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.event_code = ProtoField.new("Event Code", "asx.securities.trade.itch.v3.1.eventcode", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.exchange_order_type = ProtoField.new("Exchange Order Type", "asx.securities.trade.itch.v3.1.exchangeordertype", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.executed_quantity = ProtoField.new("Executed Quantity", "asx.securities.trade.itch.v3.1.executedquantity", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.financial_product = ProtoField.new("Financial Product", "asx.securities.trade.itch.v3.1.financialproduct", ftypes.UINT8)
+omi_asx_securities_trade_itch_v3_1.fields.implied_order = ProtoField.new("Implied Order", "asx.securities.trade.itch.v3.1.impliedorder", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_asx_securities_trade_itch_v3_1.fields.isin = ProtoField.new("Isin", "asx.securities.trade.itch.v3.1.isin", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.leg_1 = ProtoField.new("Leg 1", "asx.securities.trade.itch.v3.1.leg1", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.leg_2 = ProtoField.new("Leg 2", "asx.securities.trade.itch.v3.1.leg2", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.leg_3 = ProtoField.new("Leg 3", "asx.securities.trade.itch.v3.1.leg3", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.leg_4 = ProtoField.new("Leg 4", "asx.securities.trade.itch.v3.1.leg4", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "asx.securities.trade.itch.v3.1.legratio", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.leg_side = ProtoField.new("Leg Side", "asx.securities.trade.itch.v3.1.legside", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "asx.securities.trade.itch.v3.1.legsymbol", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.long_name = ProtoField.new("Long Name", "asx.securities.trade.itch.v3.1.longname", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.lot_type = ProtoField.new("Lot Type", "asx.securities.trade.itch.v3.1.lottype", ftypes.UINT8)
+omi_asx_securities_trade_itch_v3_1.fields.market_bid = ProtoField.new("Market Bid", "asx.securities.trade.itch.v3.1.marketbid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x2000)
+omi_asx_securities_trade_itch_v3_1.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.itch.v3.1.matchid", ftypes.BYTES)
+omi_asx_securities_trade_itch_v3_1.fields.message = ProtoField.new("Message", "asx.securities.trade.itch.v3.1.message", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.message_count = ProtoField.new("Message Count", "asx.securities.trade.itch.v3.1.messagecount", ftypes.UINT16)
+omi_asx_securities_trade_itch_v3_1.fields.message_header = ProtoField.new("Message Header", "asx.securities.trade.itch.v3.1.messageheader", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.message_length = ProtoField.new("Message Length", "asx.securities.trade.itch.v3.1.messagelength", ftypes.UINT16)
+omi_asx_securities_trade_itch_v3_1.fields.message_type = ProtoField.new("Message Type", "asx.securities.trade.itch.v3.1.messagetype", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.new_order_book_position = ProtoField.new("New Order Book Position", "asx.securities.trade.itch.v3.1.neworderbookposition", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.nominal_value = ProtoField.new("Nominal Value", "asx.securities.trade.itch.v3.1.nominalvalue", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_nominal_value = ProtoField.new("Number Of Decimals In Nominal Value", "asx.securities.trade.itch.v3.1.numberofdecimalsinnominalvalue", ftypes.UINT16)
+omi_asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_price = ProtoField.new("Number Of Decimals In Price", "asx.securities.trade.itch.v3.1.numberofdecimalsinprice", ftypes.UINT16)
+omi_asx_securities_trade_itch_v3_1.fields.occurred_at_cross = ProtoField.new("Occurred At Cross", "asx.securities.trade.itch.v3.1.occurredatcross", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.odd_lot_size = ProtoField.new("Odd Lot Size", "asx.securities.trade.itch.v3.1.oddlotsize", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.order_book_id = ProtoField.new("Order Book Id", "asx.securities.trade.itch.v3.1.orderbookid", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.order_book_position = ProtoField.new("Order Book Position", "asx.securities.trade.itch.v3.1.orderbookposition", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.order_id = ProtoField.new("Order Id", "asx.securities.trade.itch.v3.1.orderid", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.packet = ProtoField.new("Packet", "asx.securities.trade.itch.v3.1.packet", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.packet_header = ProtoField.new("Packet Header", "asx.securities.trade.itch.v3.1.packetheader", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.participant_id = ProtoField.new("Participant Id", "asx.securities.trade.itch.v3.1.participantid", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.participant_id_counterparty = ProtoField.new("Participant Id Counterparty", "asx.securities.trade.itch.v3.1.participantidcounterparty", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.participant_id_owner = ProtoField.new("Participant Id Owner", "asx.securities.trade.itch.v3.1.participantidowner", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.payload = ProtoField.new("Payload", "asx.securities.trade.itch.v3.1.payload", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.price = ProtoField.new("Price", "asx.securities.trade.itch.v3.1.price", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.price_from = ProtoField.new("Price From", "asx.securities.trade.itch.v3.1.pricefrom", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.price_stabilisation = ProtoField.new("Price Stabilisation", "asx.securities.trade.itch.v3.1.pricestabilisation", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
+omi_asx_securities_trade_itch_v3_1.fields.price_to = ProtoField.new("Price To", "asx.securities.trade.itch.v3.1.priceto", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.printable = ProtoField.new("Printable", "asx.securities.trade.itch.v3.1.printable", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.quantity = ProtoField.new("Quantity", "asx.securities.trade.itch.v3.1.quantity", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.reserved_2_bits = ProtoField.new("Reserved 2 Bits", "asx.securities.trade.itch.v3.1.reserved2bits", ftypes.UINT16, nil, base.DEC, 0xC000)
+omi_asx_securities_trade_itch_v3_1.fields.reserved_9_bits = ProtoField.new("Reserved 9 Bits", "asx.securities.trade.itch.v3.1.reserved9bits", ftypes.UINT16, nil, base.DEC, 0x03FE)
+omi_asx_securities_trade_itch_v3_1.fields.reserved_bit = ProtoField.new("Reserved Bit", "asx.securities.trade.itch.v3.1.reservedbit", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0800)
+omi_asx_securities_trade_itch_v3_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "asx.securities.trade.itch.v3.1.roundlotsize", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.trade.itch.v3.1.sequencenumber", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.session = ProtoField.new("Session", "asx.securities.trade.itch.v3.1.session", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.side = ProtoField.new("Side", "asx.securities.trade.itch.v3.1.side", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.state_name = ProtoField.new("State Name", "asx.securities.trade.itch.v3.1.statename", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.symbol = ProtoField.new("Symbol", "asx.securities.trade.itch.v3.1.symbol", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.tick_size = ProtoField.new("Tick Size", "asx.securities.trade.itch.v3.1.ticksize", ftypes.UINT64)
+omi_asx_securities_trade_itch_v3_1.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.itch.v3.1.timestampnanoseconds", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "asx.securities.trade.itch.v3.1.timestampseconds", ftypes.UINT32)
+omi_asx_securities_trade_itch_v3_1.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.itch.v3.1.tradeprice", ftypes.INT32)
+omi_asx_securities_trade_itch_v3_1.fields.trading_currency = ProtoField.new("Trading Currency", "asx.securities.trade.itch.v3.1.tradingcurrency", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.undisclosed = ProtoField.new("Undisclosed", "asx.securities.trade.itch.v3.1.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0400)
 
 -- Asx Securities Trade Itch 3.1 messages
-asx_securities_trade_itch_v3_1.fields.add_order_no_participant_id_message = ProtoField.new("Add Order No Participant Id Message", "asx.securities.trade.itch.v3.1.addordernoparticipantidmessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.add_order_participant_id_message = ProtoField.new("Add Order Participant Id Message", "asx.securities.trade.itch.v3.1.addorderparticipantidmessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.combination_order_book_directory_message = ProtoField.new("Combination Order Book Directory Message", "asx.securities.trade.itch.v3.1.combinationorderbookdirectorymessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.equilibrium_price_update_message = ProtoField.new("Equilibrium Price Update Message", "asx.securities.trade.itch.v3.1.equilibriumpriceupdatemessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.order_book_directory_message = ProtoField.new("Order Book Directory Message", "asx.securities.trade.itch.v3.1.orderbookdirectorymessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.order_book_state_message = ProtoField.new("Order Book State Message", "asx.securities.trade.itch.v3.1.orderbookstatemessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.order_delete_message = ProtoField.new("Order Delete Message", "asx.securities.trade.itch.v3.1.orderdeletemessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.order_executed_message = ProtoField.new("Order Executed Message", "asx.securities.trade.itch.v3.1.orderexecutedmessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.order_executed_with_price_message = ProtoField.new("Order Executed With Price Message", "asx.securities.trade.itch.v3.1.orderexecutedwithpricemessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.order_replace_message = ProtoField.new("Order Replace Message", "asx.securities.trade.itch.v3.1.orderreplacemessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.seconds_message = ProtoField.new("Seconds Message", "asx.securities.trade.itch.v3.1.secondsmessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.system_event_message = ProtoField.new("System Event Message", "asx.securities.trade.itch.v3.1.systemeventmessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.tick_size_table_entry_message = ProtoField.new("Tick Size Table Entry Message", "asx.securities.trade.itch.v3.1.ticksizetableentrymessage", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.trade_message = ProtoField.new("Trade Message", "asx.securities.trade.itch.v3.1.trademessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.add_order_no_participant_id_message = ProtoField.new("Add Order No Participant Id Message", "asx.securities.trade.itch.v3.1.addordernoparticipantidmessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.add_order_participant_id_message = ProtoField.new("Add Order Participant Id Message", "asx.securities.trade.itch.v3.1.addorderparticipantidmessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.combination_order_book_directory_message = ProtoField.new("Combination Order Book Directory Message", "asx.securities.trade.itch.v3.1.combinationorderbookdirectorymessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.equilibrium_price_update_message = ProtoField.new("Equilibrium Price Update Message", "asx.securities.trade.itch.v3.1.equilibriumpriceupdatemessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.order_book_directory_message = ProtoField.new("Order Book Directory Message", "asx.securities.trade.itch.v3.1.orderbookdirectorymessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.order_book_state_message = ProtoField.new("Order Book State Message", "asx.securities.trade.itch.v3.1.orderbookstatemessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.order_delete_message = ProtoField.new("Order Delete Message", "asx.securities.trade.itch.v3.1.orderdeletemessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.order_executed_message = ProtoField.new("Order Executed Message", "asx.securities.trade.itch.v3.1.orderexecutedmessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.order_executed_with_price_message = ProtoField.new("Order Executed With Price Message", "asx.securities.trade.itch.v3.1.orderexecutedwithpricemessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.order_replace_message = ProtoField.new("Order Replace Message", "asx.securities.trade.itch.v3.1.orderreplacemessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.seconds_message = ProtoField.new("Seconds Message", "asx.securities.trade.itch.v3.1.secondsmessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.system_event_message = ProtoField.new("System Event Message", "asx.securities.trade.itch.v3.1.systemeventmessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.tick_size_table_entry_message = ProtoField.new("Tick Size Table Entry Message", "asx.securities.trade.itch.v3.1.ticksizetableentrymessage", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.trade_message = ProtoField.new("Trade Message", "asx.securities.trade.itch.v3.1.trademessage", ftypes.STRING)
 
 -- Asx Securities Trade Itch 3.1 generated fields
-asx_securities_trade_itch_v3_1.fields.message_index = ProtoField.new("Message Index", "asx.securities.trade.itch.v3.1.messageindex", ftypes.UINT16)
+omi_asx_securities_trade_itch_v3_1.fields.message_index = ProtoField.new("Message Index", "asx.securities.trade.itch.v3.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -137,130 +137,130 @@ show.trade_message = true
 show.payload = false
 
 -- Register Asx Securities Trade Itch 3.1 Show Options
-asx_securities_trade_itch_v3_1.prefs.show_add_order_no_participant_id_message = Pref.bool("Show Add Order No Participant Id Message", show.add_order_no_participant_id_message, "Parse and add Add Order No Participant Id Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_add_order_participant_id_message = Pref.bool("Show Add Order Participant Id Message", show.add_order_participant_id_message, "Parse and add Add Order Participant Id Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_combination_order_book_directory_message = Pref.bool("Show Combination Order Book Directory Message", show.combination_order_book_directory_message, "Parse and add Combination Order Book Directory Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message = Pref.bool("Show Equilibrium Price Update Message", show.equilibrium_price_update_message, "Parse and add Equilibrium Price Update Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type = Pref.bool("Show Exchange Order Type", show.exchange_order_type, "Parse and add Exchange Order Type to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_leg_1 = Pref.bool("Show Leg 1", show.leg_1, "Parse and add Leg 1 to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_leg_2 = Pref.bool("Show Leg 2", show.leg_2, "Parse and add Leg 2 to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_leg_3 = Pref.bool("Show Leg 3", show.leg_3, "Parse and add Leg 3 to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_leg_4 = Pref.bool("Show Leg 4", show.leg_4, "Parse and add Leg 4 to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_order_book_directory_message = Pref.bool("Show Order Book Directory Message", show.order_book_directory_message, "Parse and add Order Book Directory Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_order_book_state_message = Pref.bool("Show Order Book State Message", show.order_book_state_message, "Parse and add Order Book State Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message = Pref.bool("Show Tick Size Table Entry Message", show.tick_size_table_entry_message, "Parse and add Tick Size Table Entry Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_add_order_no_participant_id_message = Pref.bool("Show Add Order No Participant Id Message", show.add_order_no_participant_id_message, "Parse and add Add Order No Participant Id Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_add_order_participant_id_message = Pref.bool("Show Add Order Participant Id Message", show.add_order_participant_id_message, "Parse and add Add Order Participant Id Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_combination_order_book_directory_message = Pref.bool("Show Combination Order Book Directory Message", show.combination_order_book_directory_message, "Parse and add Combination Order Book Directory Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message = Pref.bool("Show Equilibrium Price Update Message", show.equilibrium_price_update_message, "Parse and add Equilibrium Price Update Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type = Pref.bool("Show Exchange Order Type", show.exchange_order_type, "Parse and add Exchange Order Type to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_leg_1 = Pref.bool("Show Leg 1", show.leg_1, "Parse and add Leg 1 to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_leg_2 = Pref.bool("Show Leg 2", show.leg_2, "Parse and add Leg 2 to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_leg_3 = Pref.bool("Show Leg 3", show.leg_3, "Parse and add Leg 3 to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_leg_4 = Pref.bool("Show Leg 4", show.leg_4, "Parse and add Leg 4 to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_order_book_directory_message = Pref.bool("Show Order Book Directory Message", show.order_book_directory_message, "Parse and add Order Book Directory Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_order_book_state_message = Pref.bool("Show Order Book State Message", show.order_book_state_message, "Parse and add Order Book State Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message = Pref.bool("Show Tick Size Table Entry Message", show.tick_size_table_entry_message, "Parse and add Tick Size Table Entry Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_asx_securities_trade_itch_v3_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function asx_securities_trade_itch_v3_1.prefs_changed()
+function omi_asx_securities_trade_itch_v3_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_no_participant_id_message ~= asx_securities_trade_itch_v3_1.prefs.show_add_order_no_participant_id_message then
-    show.add_order_no_participant_id_message = asx_securities_trade_itch_v3_1.prefs.show_add_order_no_participant_id_message
+  if show.add_order_no_participant_id_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_add_order_no_participant_id_message then
+    show.add_order_no_participant_id_message = omi_asx_securities_trade_itch_v3_1.prefs.show_add_order_no_participant_id_message
     changed = true
   end
-  if show.add_order_participant_id_message ~= asx_securities_trade_itch_v3_1.prefs.show_add_order_participant_id_message then
-    show.add_order_participant_id_message = asx_securities_trade_itch_v3_1.prefs.show_add_order_participant_id_message
+  if show.add_order_participant_id_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_add_order_participant_id_message then
+    show.add_order_participant_id_message = omi_asx_securities_trade_itch_v3_1.prefs.show_add_order_participant_id_message
     changed = true
   end
-  if show.combination_order_book_directory_message ~= asx_securities_trade_itch_v3_1.prefs.show_combination_order_book_directory_message then
-    show.combination_order_book_directory_message = asx_securities_trade_itch_v3_1.prefs.show_combination_order_book_directory_message
+  if show.combination_order_book_directory_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_combination_order_book_directory_message then
+    show.combination_order_book_directory_message = omi_asx_securities_trade_itch_v3_1.prefs.show_combination_order_book_directory_message
     changed = true
   end
-  if show.equilibrium_price_update_message ~= asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message then
-    show.equilibrium_price_update_message = asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message
+  if show.equilibrium_price_update_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message then
+    show.equilibrium_price_update_message = omi_asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message
     changed = true
   end
-  if show.exchange_order_type ~= asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type then
-    show.exchange_order_type = asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type
+  if show.exchange_order_type ~= omi_asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type then
+    show.exchange_order_type = omi_asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type
     changed = true
   end
-  if show.leg_1 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_1 then
-    show.leg_1 = asx_securities_trade_itch_v3_1.prefs.show_leg_1
+  if show.leg_1 ~= omi_asx_securities_trade_itch_v3_1.prefs.show_leg_1 then
+    show.leg_1 = omi_asx_securities_trade_itch_v3_1.prefs.show_leg_1
     changed = true
   end
-  if show.leg_2 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_2 then
-    show.leg_2 = asx_securities_trade_itch_v3_1.prefs.show_leg_2
+  if show.leg_2 ~= omi_asx_securities_trade_itch_v3_1.prefs.show_leg_2 then
+    show.leg_2 = omi_asx_securities_trade_itch_v3_1.prefs.show_leg_2
     changed = true
   end
-  if show.leg_3 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_3 then
-    show.leg_3 = asx_securities_trade_itch_v3_1.prefs.show_leg_3
+  if show.leg_3 ~= omi_asx_securities_trade_itch_v3_1.prefs.show_leg_3 then
+    show.leg_3 = omi_asx_securities_trade_itch_v3_1.prefs.show_leg_3
     changed = true
   end
-  if show.leg_4 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_4 then
-    show.leg_4 = asx_securities_trade_itch_v3_1.prefs.show_leg_4
+  if show.leg_4 ~= omi_asx_securities_trade_itch_v3_1.prefs.show_leg_4 then
+    show.leg_4 = omi_asx_securities_trade_itch_v3_1.prefs.show_leg_4
     changed = true
   end
-  if show.message ~= asx_securities_trade_itch_v3_1.prefs.show_message then
-    show.message = asx_securities_trade_itch_v3_1.prefs.show_message
+  if show.message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_message then
+    show.message = omi_asx_securities_trade_itch_v3_1.prefs.show_message
     changed = true
   end
-  if show.message_header ~= asx_securities_trade_itch_v3_1.prefs.show_message_header then
-    show.message_header = asx_securities_trade_itch_v3_1.prefs.show_message_header
+  if show.message_header ~= omi_asx_securities_trade_itch_v3_1.prefs.show_message_header then
+    show.message_header = omi_asx_securities_trade_itch_v3_1.prefs.show_message_header
     changed = true
   end
-  if show.order_book_directory_message ~= asx_securities_trade_itch_v3_1.prefs.show_order_book_directory_message then
-    show.order_book_directory_message = asx_securities_trade_itch_v3_1.prefs.show_order_book_directory_message
+  if show.order_book_directory_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_order_book_directory_message then
+    show.order_book_directory_message = omi_asx_securities_trade_itch_v3_1.prefs.show_order_book_directory_message
     changed = true
   end
-  if show.order_book_state_message ~= asx_securities_trade_itch_v3_1.prefs.show_order_book_state_message then
-    show.order_book_state_message = asx_securities_trade_itch_v3_1.prefs.show_order_book_state_message
+  if show.order_book_state_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_order_book_state_message then
+    show.order_book_state_message = omi_asx_securities_trade_itch_v3_1.prefs.show_order_book_state_message
     changed = true
   end
-  if show.order_delete_message ~= asx_securities_trade_itch_v3_1.prefs.show_order_delete_message then
-    show.order_delete_message = asx_securities_trade_itch_v3_1.prefs.show_order_delete_message
+  if show.order_delete_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_order_delete_message then
+    show.order_delete_message = omi_asx_securities_trade_itch_v3_1.prefs.show_order_delete_message
     changed = true
   end
-  if show.order_executed_message ~= asx_securities_trade_itch_v3_1.prefs.show_order_executed_message then
-    show.order_executed_message = asx_securities_trade_itch_v3_1.prefs.show_order_executed_message
+  if show.order_executed_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_order_executed_message then
+    show.order_executed_message = omi_asx_securities_trade_itch_v3_1.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_executed_with_price_message ~= asx_securities_trade_itch_v3_1.prefs.show_order_executed_with_price_message then
-    show.order_executed_with_price_message = asx_securities_trade_itch_v3_1.prefs.show_order_executed_with_price_message
+  if show.order_executed_with_price_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_order_executed_with_price_message then
+    show.order_executed_with_price_message = omi_asx_securities_trade_itch_v3_1.prefs.show_order_executed_with_price_message
     changed = true
   end
-  if show.order_replace_message ~= asx_securities_trade_itch_v3_1.prefs.show_order_replace_message then
-    show.order_replace_message = asx_securities_trade_itch_v3_1.prefs.show_order_replace_message
+  if show.order_replace_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_order_replace_message then
+    show.order_replace_message = omi_asx_securities_trade_itch_v3_1.prefs.show_order_replace_message
     changed = true
   end
-  if show.packet ~= asx_securities_trade_itch_v3_1.prefs.show_packet then
-    show.packet = asx_securities_trade_itch_v3_1.prefs.show_packet
+  if show.packet ~= omi_asx_securities_trade_itch_v3_1.prefs.show_packet then
+    show.packet = omi_asx_securities_trade_itch_v3_1.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= asx_securities_trade_itch_v3_1.prefs.show_packet_header then
-    show.packet_header = asx_securities_trade_itch_v3_1.prefs.show_packet_header
+  if show.packet_header ~= omi_asx_securities_trade_itch_v3_1.prefs.show_packet_header then
+    show.packet_header = omi_asx_securities_trade_itch_v3_1.prefs.show_packet_header
     changed = true
   end
-  if show.seconds_message ~= asx_securities_trade_itch_v3_1.prefs.show_seconds_message then
-    show.seconds_message = asx_securities_trade_itch_v3_1.prefs.show_seconds_message
+  if show.seconds_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_seconds_message then
+    show.seconds_message = omi_asx_securities_trade_itch_v3_1.prefs.show_seconds_message
     changed = true
   end
-  if show.system_event_message ~= asx_securities_trade_itch_v3_1.prefs.show_system_event_message then
-    show.system_event_message = asx_securities_trade_itch_v3_1.prefs.show_system_event_message
+  if show.system_event_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_system_event_message then
+    show.system_event_message = omi_asx_securities_trade_itch_v3_1.prefs.show_system_event_message
     changed = true
   end
-  if show.tick_size_table_entry_message ~= asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message then
-    show.tick_size_table_entry_message = asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message
+  if show.tick_size_table_entry_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message then
+    show.tick_size_table_entry_message = omi_asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message
     changed = true
   end
-  if show.trade_message ~= asx_securities_trade_itch_v3_1.prefs.show_trade_message then
-    show.trade_message = asx_securities_trade_itch_v3_1.prefs.show_trade_message
+  if show.trade_message ~= omi_asx_securities_trade_itch_v3_1.prefs.show_trade_message then
+    show.trade_message = omi_asx_securities_trade_itch_v3_1.prefs.show_trade_message
     changed = true
   end
-  if show.payload ~= asx_securities_trade_itch_v3_1.prefs.show_payload then
-    show.payload = asx_securities_trade_itch_v3_1.prefs.show_payload
+  if show.payload ~= omi_asx_securities_trade_itch_v3_1.prefs.show_payload then
+    show.payload = omi_asx_securities_trade_itch_v3_1.prefs.show_payload
     changed = true
   end
 
@@ -308,7 +308,7 @@ asx_securities_trade_itch_v3_1_dissect.best_ask_quantity = function(buffer, offs
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.best_ask_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.best_ask_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.best_ask_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -328,7 +328,7 @@ asx_securities_trade_itch_v3_1_dissect.best_bid_quantity = function(buffer, offs
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.best_bid_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.best_bid_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.best_bid_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -348,7 +348,7 @@ asx_securities_trade_itch_v3_1_dissect.best_ask_price = function(buffer, offset,
   local value = range:int()
   local display = asx_securities_trade_itch_v3_1_display.best_ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.best_ask_price, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.best_ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -368,7 +368,7 @@ asx_securities_trade_itch_v3_1_dissect.best_bid_price = function(buffer, offset,
   local value = range:int()
   local display = asx_securities_trade_itch_v3_1_display.best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.best_bid_price, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.best_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -388,7 +388,7 @@ asx_securities_trade_itch_v3_1_dissect.equilibrium_price = function(buffer, offs
   local value = range:int()
   local display = asx_securities_trade_itch_v3_1_display.equilibrium_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.equilibrium_price, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.equilibrium_price, range, value, display)
 
   return offset + length, value
 end
@@ -408,7 +408,7 @@ asx_securities_trade_itch_v3_1_dissect.ask_quantity = function(buffer, offset, p
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.ask_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.ask_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.ask_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -428,7 +428,7 @@ asx_securities_trade_itch_v3_1_dissect.bid_quantity = function(buffer, offset, p
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.bid_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.bid_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.bid_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -448,7 +448,7 @@ asx_securities_trade_itch_v3_1_dissect.order_book_id = function(buffer, offset, 
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.order_book_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.order_book_id, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_book_id, range, value, display)
 
   return offset + length, value
 end
@@ -468,7 +468,7 @@ asx_securities_trade_itch_v3_1_dissect.timestamp_nanoseconds = function(buffer, 
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.timestamp_nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.timestamp_nanoseconds, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.timestamp_nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -541,7 +541,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.equilibrium_price_update_message = function(buffer, offset, packet, parent)
   if show.equilibrium_price_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.equilibrium_price_update_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.equilibrium_price_update_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.equilibrium_price_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -577,7 +577,7 @@ asx_securities_trade_itch_v3_1_dissect.occurred_at_cross = function(buffer, offs
   local value = range:string()
   local display = asx_securities_trade_itch_v3_1_display.occurred_at_cross(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.occurred_at_cross, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.occurred_at_cross, range, value, display)
 
   return offset + length, value
 end
@@ -604,7 +604,7 @@ asx_securities_trade_itch_v3_1_dissect.printable = function(buffer, offset, pack
   local value = range:string()
   local display = asx_securities_trade_itch_v3_1_display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.printable, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.printable, range, value, display)
 
   return offset + length, value
 end
@@ -624,7 +624,7 @@ asx_securities_trade_itch_v3_1_dissect.participant_id_counterparty = function(bu
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.participant_id_counterparty(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.participant_id_counterparty, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.participant_id_counterparty, range, value, display)
 
   return offset + length, value
 end
@@ -644,7 +644,7 @@ asx_securities_trade_itch_v3_1_dissect.participant_id_owner = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.participant_id_owner(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.participant_id_owner, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.participant_id_owner, range, value, display)
 
   return offset + length, value
 end
@@ -664,7 +664,7 @@ asx_securities_trade_itch_v3_1_dissect.trade_price = function(buffer, offset, pa
   local value = range:int()
   local display = asx_securities_trade_itch_v3_1_display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.trade_price, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -684,7 +684,7 @@ asx_securities_trade_itch_v3_1_dissect.quantity = function(buffer, offset, packe
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -711,7 +711,7 @@ asx_securities_trade_itch_v3_1_dissect.side = function(buffer, offset, packet, p
   local value = range:string()
   local display = asx_securities_trade_itch_v3_1_display.side(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.side, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -731,7 +731,7 @@ asx_securities_trade_itch_v3_1_dissect.match_id = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = asx_securities_trade_itch_v3_1_display.match_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.match_id, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.match_id, range, value, display)
 
   return offset + length, value
 end
@@ -809,7 +809,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.trade_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -838,7 +838,7 @@ asx_securities_trade_itch_v3_1_dissect.order_id = function(buffer, offset, packe
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.order_id, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -886,7 +886,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.order_delete_message = function(buffer, offset, packet, parent)
   if show.order_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.order_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_delete_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.order_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -935,25 +935,25 @@ end
 asx_securities_trade_itch_v3_1_dissect.exchange_order_type_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 2 Bits: 2 Bit
-  parent:add(asx_securities_trade_itch_v3_1.fields.reserved_2_bits, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_2_bits, buffer(offset, 2))
 
   -- Market Bid: 1 Bit
-  parent:add(asx_securities_trade_itch_v3_1.fields.market_bid, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.market_bid, buffer(offset, 2))
 
   -- Price Stabilisation: 1 Bit
-  parent:add(asx_securities_trade_itch_v3_1.fields.price_stabilisation, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.price_stabilisation, buffer(offset, 2))
 
   -- Reserved Bit: 1 Bit
-  parent:add(asx_securities_trade_itch_v3_1.fields.reserved_bit, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_bit, buffer(offset, 2))
 
   -- Undisclosed: 1 Bit
-  parent:add(asx_securities_trade_itch_v3_1.fields.undisclosed, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.undisclosed, buffer(offset, 2))
 
   -- Reserved 9 Bits: 9 Bit
-  parent:add(asx_securities_trade_itch_v3_1.fields.reserved_9_bits, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.reserved_9_bits, buffer(offset, 2))
 
   -- Implied Order: 1 Bit
-  parent:add(asx_securities_trade_itch_v3_1.fields.implied_order, buffer(offset, 2))
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.implied_order, buffer(offset, 2))
 end
 
 -- Dissect: Exchange Order Type
@@ -961,7 +961,7 @@ asx_securities_trade_itch_v3_1_dissect.exchange_order_type = function(buffer, of
   local size = 2
   local range = buffer(offset, size)
   local display = asx_securities_trade_itch_v3_1_display.exchange_order_type(range, packet, parent)
-  local element = parent:add(asx_securities_trade_itch_v3_1.fields.exchange_order_type, range, display)
+  local element = parent:add(omi_asx_securities_trade_itch_v3_1.fields.exchange_order_type, range, display)
 
   if show.exchange_order_type then
     asx_securities_trade_itch_v3_1_dissect.exchange_order_type_bits(buffer, offset, packet, element)
@@ -985,7 +985,7 @@ asx_securities_trade_itch_v3_1_dissect.price = function(buffer, offset, packet, 
   local value = range:int()
   local display = asx_securities_trade_itch_v3_1_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.price, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1005,7 +1005,7 @@ asx_securities_trade_itch_v3_1_dissect.new_order_book_position = function(buffer
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.new_order_book_position(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.new_order_book_position, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.new_order_book_position, range, value, display)
 
   return offset + length, value
 end
@@ -1073,7 +1073,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.order_replace_message = function(buffer, offset, packet, parent)
   if show.order_replace_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.order_replace_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_replace_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.order_replace_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1102,7 +1102,7 @@ asx_securities_trade_itch_v3_1_dissect.executed_quantity = function(buffer, offs
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.executed_quantity, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1185,7 +1185,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.order_executed_with_price_message = function(buffer, offset, packet, parent)
   if show.order_executed_with_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.order_executed_with_price_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_executed_with_price_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1262,7 +1262,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.order_executed_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_executed_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1291,7 +1291,7 @@ asx_securities_trade_itch_v3_1_dissect.participant_id = function(buffer, offset,
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.participant_id, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1327,7 +1327,7 @@ asx_securities_trade_itch_v3_1_dissect.lot_type = function(buffer, offset, packe
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.lot_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.lot_type, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.lot_type, range, value, display)
 
   return offset + length, value
 end
@@ -1347,7 +1347,7 @@ asx_securities_trade_itch_v3_1_dissect.order_book_position = function(buffer, of
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.order_book_position(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.order_book_position, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_book_position, range, value, display)
 
   return offset + length, value
 end
@@ -1425,7 +1425,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.add_order_participant_id_message = function(buffer, offset, packet, parent)
   if show.add_order_participant_id_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.add_order_participant_id_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.add_order_participant_id_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.add_order_participant_id_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1507,7 +1507,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.add_order_no_participant_id_message = function(buffer, offset, packet, parent)
   if show.add_order_no_participant_id_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.add_order_no_participant_id_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.add_order_no_participant_id_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.add_order_no_participant_id_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1536,7 +1536,7 @@ asx_securities_trade_itch_v3_1_dissect.state_name = function(buffer, offset, pac
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.state_name(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.state_name, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.state_name, range, value, display)
 
   return offset + length, value
 end
@@ -1579,7 +1579,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.order_book_state_message = function(buffer, offset, packet, parent)
   if show.order_book_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.order_book_state_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_book_state_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.order_book_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1615,7 +1615,7 @@ asx_securities_trade_itch_v3_1_dissect.event_code = function(buffer, offset, pac
   local value = range:string()
   local display = asx_securities_trade_itch_v3_1_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.event_code, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -1653,7 +1653,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.system_event_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1682,7 +1682,7 @@ asx_securities_trade_itch_v3_1_dissect.price_to = function(buffer, offset, packe
   local value = range:int()
   local display = asx_securities_trade_itch_v3_1_display.price_to(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.price_to, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.price_to, range, value, display)
 
   return offset + length, value
 end
@@ -1702,7 +1702,7 @@ asx_securities_trade_itch_v3_1_dissect.price_from = function(buffer, offset, pac
   local value = range:int()
   local display = asx_securities_trade_itch_v3_1_display.price_from(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.price_from, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.price_from, range, value, display)
 
   return offset + length, value
 end
@@ -1722,7 +1722,7 @@ asx_securities_trade_itch_v3_1_dissect.tick_size = function(buffer, offset, pack
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.tick_size(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.tick_size, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.tick_size, range, value, display)
 
   return offset + length, value
 end
@@ -1775,7 +1775,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.tick_size_table_entry_message = function(buffer, offset, packet, parent)
   if show.tick_size_table_entry_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.tick_size_table_entry_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.tick_size_table_entry_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.tick_size_table_entry_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1804,7 +1804,7 @@ asx_securities_trade_itch_v3_1_dissect.leg_ratio = function(buffer, offset, pack
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_ratio, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.leg_ratio, range, value, display)
 
   return offset + length, value
 end
@@ -1831,7 +1831,7 @@ asx_securities_trade_itch_v3_1_dissect.leg_side = function(buffer, offset, packe
   local value = range:string()
   local display = asx_securities_trade_itch_v3_1_display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_side, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -1851,7 +1851,7 @@ asx_securities_trade_itch_v3_1_dissect.leg_symbol = function(buffer, offset, pac
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.leg_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_symbol, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1894,7 +1894,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.leg_4 = function(buffer, offset, packet, parent)
   if show.leg_4 then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_4, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.leg_4, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.leg_4_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1946,7 +1946,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.leg_3 = function(buffer, offset, packet, parent)
   if show.leg_3 then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_3, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.leg_3, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.leg_3_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1998,7 +1998,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.leg_2 = function(buffer, offset, packet, parent)
   if show.leg_2 then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_2, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.leg_2, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.leg_2_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2050,7 +2050,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.leg_1 = function(buffer, offset, packet, parent)
   if show.leg_1 then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_1, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.leg_1, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.leg_1_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2079,7 +2079,7 @@ asx_securities_trade_itch_v3_1_dissect.nominal_value = function(buffer, offset, 
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.nominal_value(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.nominal_value, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.nominal_value, range, value, display)
 
   return offset + length, value
 end
@@ -2099,7 +2099,7 @@ asx_securities_trade_itch_v3_1_dissect.block_lot_size = function(buffer, offset,
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.block_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.block_lot_size, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.block_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -2119,7 +2119,7 @@ asx_securities_trade_itch_v3_1_dissect.round_lot_size = function(buffer, offset,
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.round_lot_size, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -2139,7 +2139,7 @@ asx_securities_trade_itch_v3_1_dissect.odd_lot_size = function(buffer, offset, p
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.odd_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.odd_lot_size, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.odd_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -2159,7 +2159,7 @@ asx_securities_trade_itch_v3_1_dissect.number_of_decimals_in_nominal_value = fun
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.number_of_decimals_in_nominal_value(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_nominal_value, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_nominal_value, range, value, display)
 
   return offset + length, value
 end
@@ -2179,7 +2179,7 @@ asx_securities_trade_itch_v3_1_dissect.number_of_decimals_in_price = function(bu
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.number_of_decimals_in_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_price, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_price, range, value, display)
 
   return offset + length, value
 end
@@ -2199,7 +2199,7 @@ asx_securities_trade_itch_v3_1_dissect.trading_currency = function(buffer, offse
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.trading_currency(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.trading_currency, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.trading_currency, range, value, display)
 
   return offset + length, value
 end
@@ -2232,7 +2232,7 @@ asx_securities_trade_itch_v3_1_dissect.financial_product = function(buffer, offs
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.financial_product(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.financial_product, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.financial_product, range, value, display)
 
   return offset + length, value
 end
@@ -2252,7 +2252,7 @@ asx_securities_trade_itch_v3_1_dissect.isin = function(buffer, offset, packet, p
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.isin, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -2272,7 +2272,7 @@ asx_securities_trade_itch_v3_1_dissect.long_name = function(buffer, offset, pack
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.long_name(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.long_name, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.long_name, range, value, display)
 
   return offset + length, value
 end
@@ -2292,7 +2292,7 @@ asx_securities_trade_itch_v3_1_dissect.symbol = function(buffer, offset, packet,
   local value = trim_right_spaces(range:string())
   local display = asx_securities_trade_itch_v3_1_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.symbol, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2405,7 +2405,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.combination_order_book_directory_message = function(buffer, offset, packet, parent)
   if show.combination_order_book_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.combination_order_book_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.combination_order_book_directory_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.combination_order_book_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2507,7 +2507,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.order_book_directory_message = function(buffer, offset, packet, parent)
   if show.order_book_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.order_book_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.order_book_directory_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.order_book_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2536,7 +2536,7 @@ asx_securities_trade_itch_v3_1_dissect.timestamp_seconds = function(buffer, offs
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.timestamp_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.timestamp_seconds, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.timestamp_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -2569,7 +2569,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.seconds_message = function(buffer, offset, packet, parent)
   if show.seconds_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.seconds_message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.seconds_message, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.seconds_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2727,7 +2727,7 @@ asx_securities_trade_itch_v3_1_dissect.payload = function(buffer, offset, packet
   -- Dissect Element
   local range = buffer(offset, size)
   local display = asx_securities_trade_itch_v3_1_display.payload(buffer, packet, parent)
-  local element = parent:add(asx_securities_trade_itch_v3_1.fields.payload, range, display)
+  local element = parent:add(omi_asx_securities_trade_itch_v3_1.fields.payload, range, display)
 
   return asx_securities_trade_itch_v3_1_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2790,7 +2790,7 @@ asx_securities_trade_itch_v3_1_dissect.message_type = function(buffer, offset, p
   local value = range:string()
   local display = asx_securities_trade_itch_v3_1_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.message_type, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2810,7 +2810,7 @@ asx_securities_trade_itch_v3_1_dissect.message_length = function(buffer, offset,
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.message_length, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2848,7 +2848,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.message_header, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2873,7 +2873,7 @@ asx_securities_trade_itch_v3_1_dissect.message_fields = function(buffer, offset,
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(asx_securities_trade_itch_v3_1.fields.message_index, message_index)
+    local iteration = parent:add(omi_asx_securities_trade_itch_v3_1.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2895,7 +2895,7 @@ asx_securities_trade_itch_v3_1_dissect.message = function(buffer, offset, packet
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.message, buffer(offset, 0))
     local current = asx_securities_trade_itch_v3_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = asx_securities_trade_itch_v3_1_display.message(buffer, packet, parent)
@@ -2925,7 +2925,7 @@ asx_securities_trade_itch_v3_1_dissect.message_count = function(buffer, offset, 
   local value = range:uint()
   local display = asx_securities_trade_itch_v3_1_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.message_count, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2945,7 +2945,7 @@ asx_securities_trade_itch_v3_1_dissect.sequence_number = function(buffer, offset
   local value = range:uint64()
   local display = asx_securities_trade_itch_v3_1_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.sequence_number, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2981,7 +2981,7 @@ asx_securities_trade_itch_v3_1_dissect.session = function(buffer, offset, packet
 
   local display = asx_securities_trade_itch_v3_1_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.session, range, value, display)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -3024,7 +3024,7 @@ end
 asx_securities_trade_itch_v3_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.packet_header, buffer(offset, 0))
     local index = asx_securities_trade_itch_v3_1_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3070,23 +3070,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function asx_securities_trade_itch_v3_1.init()
+function omi_asx_securities_trade_itch_v3_1.init()
 end
 
 -- Dissector for Asx Securities Trade Itch 3.1
-function asx_securities_trade_itch_v3_1.dissector(buffer, packet, parent)
+function omi_asx_securities_trade_itch_v3_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = asx_securities_trade_itch_v3_1.name
+  packet.cols.protocol = omi_asx_securities_trade_itch_v3_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(asx_securities_trade_itch_v3_1, buffer(), asx_securities_trade_itch_v3_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_asx_securities_trade_itch_v3_1, buffer(), omi_asx_securities_trade_itch_v3_1.description, "("..buffer:len().." Bytes)")
   return asx_securities_trade_itch_v3_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, asx_securities_trade_itch_v3_1)
+udp_table:add(65333, omi_asx_securities_trade_itch_v3_1)
 
 
 -----------------------------------------------------------------------
@@ -3094,25 +3094,25 @@ udp_table:add(65333, asx_securities_trade_itch_v3_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.asx_securities_trade_itch_v3_1_packet_size = function(buffer)
+verify.omi_asx_securities_trade_itch_v3_1_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Asx Securities Trade Itch 3.1
-local function asx_securities_trade_itch_v3_1_heuristic(buffer, packet, parent)
+local function omi_asx_securities_trade_itch_v3_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.asx_securities_trade_itch_v3_1_packet_size(buffer) then return false end
+  if not verify.omi_asx_securities_trade_itch_v3_1_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = asx_securities_trade_itch_v3_1
-  asx_securities_trade_itch_v3_1.dissector(buffer, packet, parent)
+  packet.conversation = omi_asx_securities_trade_itch_v3_1
+  omi_asx_securities_trade_itch_v3_1.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Asx Securities Trade Itch 3.1
-asx_securities_trade_itch_v3_1:register_heuristic("udp", asx_securities_trade_itch_v3_1_heuristic)
+omi_asx_securities_trade_itch_v3_1:register_heuristic("udp", omi_asx_securities_trade_itch_v3_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

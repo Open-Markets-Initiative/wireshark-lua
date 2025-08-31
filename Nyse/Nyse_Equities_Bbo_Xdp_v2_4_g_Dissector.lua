@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Equities Bbo Xdp 2.4.g Protocol
-local nyse_equities_bbo_xdp_v2_4_g = Proto("Nyse.Equities.Bbo.Xdp.v2.4.g.Lua", "Nyse Equities Bbo Xdp 2.4.g")
+local omi_nyse_equities_bbo_xdp_v2_4_g = Proto("Nyse.Equities.Bbo.Xdp.v2.4.g.Lua", "Nyse Equities Bbo Xdp 2.4.g")
 
 -- Component Tables
 local show = {}
@@ -20,87 +20,87 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nyse Equities Bbo Xdp 2.4.g Fields
-nyse_equities_bbo_xdp_v2_4_g.fields.ask_price = ProtoField.new("Ask Price", "nyse.equities.bbo.xdp.v2.4.g.askprice", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.equities.bbo.xdp.v2.4.g.askvolume", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.equities.bbo.xdp.v2.4.g.beginseqnum", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.bid_price = ProtoField.new("Bid Price", "nyse.equities.bbo.xdp.v2.4.g.bidprice", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.equities.bbo.xdp.v2.4.g.bidvolume", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.bbo.xdp.v2.4.g.channelid", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.bbo.xdp.v2.4.g.currentrefreshpkt", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.bbo.xdp.v2.4.g.deliveryflag", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.bbo.xdp.v2.4.g.endseqnum", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.bbo.xdp.v2.4.g.exchangecode", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.bbo.xdp.v2.4.g.haltcondition", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.bbo.xdp.v2.4.g.heartbeatresponsemessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.id = ProtoField.new("Id", "nyse.equities.bbo.xdp.v2.4.g.id", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.bbo.xdp.v2.4.g.lastseqnum", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.bbo.xdp.v2.4.g.lastsymbolseqnum", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.lot_size = ProtoField.new("Lot Size", "nyse.equities.bbo.xdp.v2.4.g.lotsize", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.market_id = ProtoField.new("Market Id", "nyse.equities.bbo.xdp.v2.4.g.marketid", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.market_state = ProtoField.new("Market State", "nyse.equities.bbo.xdp.v2.4.g.marketstate", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.message = ProtoField.new("Message", "nyse.equities.bbo.xdp.v2.4.g.message", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.message_count = ProtoField.new("Message Count", "nyse.equities.bbo.xdp.v2.4.g.messagecount", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.message_header = ProtoField.new("Message Header", "nyse.equities.bbo.xdp.v2.4.g.messageheader", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.message_size = ProtoField.new("Message Size", "nyse.equities.bbo.xdp.v2.4.g.messagesize", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.message_type = ProtoField.new("Message Type", "nyse.equities.bbo.xdp.v2.4.g.messagetype", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.bbo.xdp.v2.4.g.messageunavailablemessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.mpv = ProtoField.new("Mpv", "nyse.equities.bbo.xdp.v2.4.g.mpv", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.bbo.xdp.v2.4.g.nanoseconds", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.bbo.xdp.v2.4.g.nextsourceseqnum", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.packet = ProtoField.new("Packet", "nyse.equities.bbo.xdp.v2.4.g.packet", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.bbo.xdp.v2.4.g.packetheader", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.bbo.xdp.v2.4.g.packetsize", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.payload = ProtoField.new("Payload", "nyse.equities.bbo.xdp.v2.4.g.payload", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.bbo.xdp.v2.4.g.prevcloseprice", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.bbo.xdp.v2.4.g.prevclosevolume", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.bbo.xdp.v2.4.g.price1", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.price_2 = ProtoField.new("Price 2", "nyse.equities.bbo.xdp.v2.4.g.price2", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.equities.bbo.xdp.v2.4.g.priceresolution", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.equities.bbo.xdp.v2.4.g.pricescalecode", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.product_id = ProtoField.new("Product Id", "nyse.equities.bbo.xdp.v2.4.g.productid", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.equities.bbo.xdp.v2.4.g.quotecondition", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.quote_message = ProtoField.new("Quote Message", "nyse.equities.bbo.xdp.v2.4.g.quotemessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.bbo.xdp.v2.4.g.refreshheadermessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.bbo.xdp.v2.4.g.refreshrequestmessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.bbo.xdp.v2.4.g.requestresponsemessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.bbo.xdp.v2.4.g.requestseqnum", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.bbo.xdp.v2.4.g.reserved1", ftypes.BYTES)
-nyse_equities_bbo_xdp_v2_4_g.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.bbo.xdp.v2.4.g.reserved2", ftypes.BYTES)
-nyse_equities_bbo_xdp_v2_4_g.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.bbo.xdp.v2.4.g.reserved4", ftypes.BYTES)
-nyse_equities_bbo_xdp_v2_4_g.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.bbo.xdp.v2.4.g.retransmissionrequestmessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.bbo.xdp.v2.4.g.retransmitmethod", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.bbo.xdp.v2.4.g.roundlot", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.bbo.xdp.v2.4.g.rpiindicator", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.security_status = ProtoField.new("Security Status", "nyse.equities.bbo.xdp.v2.4.g.securitystatus", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.equities.bbo.xdp.v2.4.g.securitystatusmessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.security_type = ProtoField.new("Security Type", "nyse.equities.bbo.xdp.v2.4.g.securitytype", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.bbo.xdp.v2.4.g.sequencenumber", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.bbo.xdp.v2.4.g.sequencenumberresetmessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.session_state = ProtoField.new("Session State", "nyse.equities.bbo.xdp.v2.4.g.sessionstate", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.source_id = ProtoField.new("Source Id", "nyse.equities.bbo.xdp.v2.4.g.sourceid", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.source_time = ProtoField.new("Source Time", "nyse.equities.bbo.xdp.v2.4.g.sourcetime", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.bbo.xdp.v2.4.g.sourcetimens", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.equities.bbo.xdp.v2.4.g.sourcetimereferencemessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.ssr_state = ProtoField.new("Ssr State", "nyse.equities.bbo.xdp.v2.4.g.ssrstate", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.equities.bbo.xdp.v2.4.g.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.equities.bbo.xdp.v2.4.g.ssrtriggeringvolume", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.status = ProtoField.new("Status", "nyse.equities.bbo.xdp.v2.4.g.status", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.symbol = ProtoField.new("Symbol", "nyse.equities.bbo.xdp.v2.4.g.symbol", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.equities.bbo.xdp.v2.4.g.symbolclearmessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.bbo.xdp.v2.4.g.symbolindex", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.bbo.xdp.v2.4.g.symbolindexmappingmessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.bbo.xdp.v2.4.g.symbolindexmappingrequestmessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.bbo.xdp.v2.4.g.symbolseqnum", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.system_id = ProtoField.new("System Id", "nyse.equities.bbo.xdp.v2.4.g.systemid", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.time = ProtoField.new("Time", "nyse.equities.bbo.xdp.v2.4.g.time", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.bbo.xdp.v2.4.g.timestamp", ftypes.UINT32)
-nyse_equities_bbo_xdp_v2_4_g.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.bbo.xdp.v2.4.g.totalrefreshpkts", ftypes.UINT16)
-nyse_equities_bbo_xdp_v2_4_g.fields.trading_session = ProtoField.new("Trading Session", "nyse.equities.bbo.xdp.v2.4.g.tradingsession", ftypes.UINT8)
-nyse_equities_bbo_xdp_v2_4_g.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.equities.bbo.xdp.v2.4.g.tradingsessionchangemessage", ftypes.STRING)
-nyse_equities_bbo_xdp_v2_4_g.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.bbo.xdp.v2.4.g.unitoftrade", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.ask_price = ProtoField.new("Ask Price", "nyse.equities.bbo.xdp.v2.4.g.askprice", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.equities.bbo.xdp.v2.4.g.askvolume", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.equities.bbo.xdp.v2.4.g.beginseqnum", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.bid_price = ProtoField.new("Bid Price", "nyse.equities.bbo.xdp.v2.4.g.bidprice", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.equities.bbo.xdp.v2.4.g.bidvolume", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.bbo.xdp.v2.4.g.channelid", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.bbo.xdp.v2.4.g.currentrefreshpkt", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.bbo.xdp.v2.4.g.deliveryflag", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.bbo.xdp.v2.4.g.endseqnum", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.bbo.xdp.v2.4.g.exchangecode", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.bbo.xdp.v2.4.g.haltcondition", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.bbo.xdp.v2.4.g.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.id = ProtoField.new("Id", "nyse.equities.bbo.xdp.v2.4.g.id", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.bbo.xdp.v2.4.g.lastseqnum", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.bbo.xdp.v2.4.g.lastsymbolseqnum", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.lot_size = ProtoField.new("Lot Size", "nyse.equities.bbo.xdp.v2.4.g.lotsize", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.market_id = ProtoField.new("Market Id", "nyse.equities.bbo.xdp.v2.4.g.marketid", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.market_state = ProtoField.new("Market State", "nyse.equities.bbo.xdp.v2.4.g.marketstate", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.message = ProtoField.new("Message", "nyse.equities.bbo.xdp.v2.4.g.message", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_count = ProtoField.new("Message Count", "nyse.equities.bbo.xdp.v2.4.g.messagecount", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_header = ProtoField.new("Message Header", "nyse.equities.bbo.xdp.v2.4.g.messageheader", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_size = ProtoField.new("Message Size", "nyse.equities.bbo.xdp.v2.4.g.messagesize", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_type = ProtoField.new("Message Type", "nyse.equities.bbo.xdp.v2.4.g.messagetype", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.bbo.xdp.v2.4.g.messageunavailablemessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.mpv = ProtoField.new("Mpv", "nyse.equities.bbo.xdp.v2.4.g.mpv", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.bbo.xdp.v2.4.g.nanoseconds", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.bbo.xdp.v2.4.g.nextsourceseqnum", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.packet = ProtoField.new("Packet", "nyse.equities.bbo.xdp.v2.4.g.packet", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.bbo.xdp.v2.4.g.packetheader", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.bbo.xdp.v2.4.g.packetsize", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.payload = ProtoField.new("Payload", "nyse.equities.bbo.xdp.v2.4.g.payload", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.bbo.xdp.v2.4.g.prevcloseprice", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.bbo.xdp.v2.4.g.prevclosevolume", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.bbo.xdp.v2.4.g.price1", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_2 = ProtoField.new("Price 2", "nyse.equities.bbo.xdp.v2.4.g.price2", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.equities.bbo.xdp.v2.4.g.priceresolution", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.equities.bbo.xdp.v2.4.g.pricescalecode", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.product_id = ProtoField.new("Product Id", "nyse.equities.bbo.xdp.v2.4.g.productid", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.equities.bbo.xdp.v2.4.g.quotecondition", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.quote_message = ProtoField.new("Quote Message", "nyse.equities.bbo.xdp.v2.4.g.quotemessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.bbo.xdp.v2.4.g.refreshheadermessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.bbo.xdp.v2.4.g.refreshrequestmessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.bbo.xdp.v2.4.g.requestresponsemessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.bbo.xdp.v2.4.g.requestseqnum", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.bbo.xdp.v2.4.g.reserved1", ftypes.BYTES)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.bbo.xdp.v2.4.g.reserved2", ftypes.BYTES)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.bbo.xdp.v2.4.g.reserved4", ftypes.BYTES)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.bbo.xdp.v2.4.g.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.bbo.xdp.v2.4.g.retransmitmethod", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.bbo.xdp.v2.4.g.roundlot", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.equities.bbo.xdp.v2.4.g.rpiindicator", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.security_status = ProtoField.new("Security Status", "nyse.equities.bbo.xdp.v2.4.g.securitystatus", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.equities.bbo.xdp.v2.4.g.securitystatusmessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.security_type = ProtoField.new("Security Type", "nyse.equities.bbo.xdp.v2.4.g.securitytype", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.bbo.xdp.v2.4.g.sequencenumber", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.bbo.xdp.v2.4.g.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.session_state = ProtoField.new("Session State", "nyse.equities.bbo.xdp.v2.4.g.sessionstate", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_id = ProtoField.new("Source Id", "nyse.equities.bbo.xdp.v2.4.g.sourceid", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_time = ProtoField.new("Source Time", "nyse.equities.bbo.xdp.v2.4.g.sourcetime", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.bbo.xdp.v2.4.g.sourcetimens", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.equities.bbo.xdp.v2.4.g.sourcetimereferencemessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.ssr_state = ProtoField.new("Ssr State", "nyse.equities.bbo.xdp.v2.4.g.ssrstate", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.equities.bbo.xdp.v2.4.g.ssrtriggeringexchangeid", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.equities.bbo.xdp.v2.4.g.ssrtriggeringvolume", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.status = ProtoField.new("Status", "nyse.equities.bbo.xdp.v2.4.g.status", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol = ProtoField.new("Symbol", "nyse.equities.bbo.xdp.v2.4.g.symbol", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.equities.bbo.xdp.v2.4.g.symbolclearmessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.bbo.xdp.v2.4.g.symbolindex", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.bbo.xdp.v2.4.g.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.bbo.xdp.v2.4.g.symbolindexmappingrequestmessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.bbo.xdp.v2.4.g.symbolseqnum", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.system_id = ProtoField.new("System Id", "nyse.equities.bbo.xdp.v2.4.g.systemid", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.time = ProtoField.new("Time", "nyse.equities.bbo.xdp.v2.4.g.time", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.bbo.xdp.v2.4.g.timestamp", ftypes.UINT32)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.bbo.xdp.v2.4.g.totalrefreshpkts", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.trading_session = ProtoField.new("Trading Session", "nyse.equities.bbo.xdp.v2.4.g.tradingsession", ftypes.UINT8)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.equities.bbo.xdp.v2.4.g.tradingsessionchangemessage", ftypes.STRING)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.bbo.xdp.v2.4.g.unitoftrade", ftypes.UINT16)
 
 -- Nyse Equities Bbo Xdp 2.4.g generated fields
-nyse_equities_bbo_xdp_v2_4_g.fields.message_index = ProtoField.new("Message Index", "nyse.equities.bbo.xdp.v2.4.g.messageindex", ftypes.UINT16)
+omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_index = ProtoField.new("Message Index", "nyse.equities.bbo.xdp.v2.4.g.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -128,105 +128,105 @@ show.trading_session_change_message = true
 show.payload = false
 
 -- Register Nyse Equities Bbo Xdp 2.4.g Show Options
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message = Pref.bool("Show Trading Session Change Message", show.trading_session_change_message, "Parse and add Trading Session Change Message to protocol tree")
-nyse_equities_bbo_xdp_v2_4_g.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message = Pref.bool("Show Trading Session Change Message", show.trading_session_change_message, "Parse and add Trading Session Change Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_equities_bbo_xdp_v2_4_g.prefs_changed()
+function omi_nyse_equities_bbo_xdp_v2_4_g.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.heartbeat_response_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message
+  if show.heartbeat_response_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message
     changed = true
   end
-  if show.message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_message then
-    show.message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_message
+  if show.message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message then
+    show.message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header then
-    show.message_header = nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header
+  if show.message_header ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header then
+    show.message_header = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message
+  if show.message_unavailable_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message
     changed = true
   end
-  if show.packet ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet then
-    show.packet = nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet
+  if show.packet ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet then
+    show.packet = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header then
-    show.packet_header = nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header
+  if show.packet_header ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header then
+    show.packet_header = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header
     changed = true
   end
-  if show.quote_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message then
-    show.quote_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message
+  if show.quote_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message then
+    show.quote_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message
     changed = true
   end
-  if show.refresh_header_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message then
-    show.refresh_header_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message
+  if show.refresh_header_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message then
+    show.refresh_header_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message
     changed = true
   end
-  if show.refresh_request_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message then
-    show.refresh_request_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message
+  if show.refresh_request_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message then
+    show.refresh_request_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message
     changed = true
   end
-  if show.request_response_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message then
-    show.request_response_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message
+  if show.request_response_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message then
+    show.request_response_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message
     changed = true
   end
-  if show.retransmission_request_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message
+  if show.retransmission_request_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message
     changed = true
   end
-  if show.security_status_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message then
-    show.security_status_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message
+  if show.security_status_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message then
+    show.security_status_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message
     changed = true
   end
-  if show.sequence_number_reset_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.source_time_reference_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message then
-    show.source_time_reference_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message
+  if show.source_time_reference_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message then
+    show.source_time_reference_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message
     changed = true
   end
-  if show.symbol_clear_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message
+  if show.symbol_clear_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message then
+    show.symbol_clear_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message
     changed = true
   end
-  if show.symbol_index_mapping_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message
+  if show.symbol_index_mapping_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message
     changed = true
   end
-  if show.symbol_index_mapping_request_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message
+  if show.symbol_index_mapping_request_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message
     changed = true
   end
-  if show.trading_session_change_message ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message then
-    show.trading_session_change_message = nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message
+  if show.trading_session_change_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message then
+    show.trading_session_change_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message
     changed = true
   end
-  if show.payload ~= nyse_equities_bbo_xdp_v2_4_g.prefs.show_payload then
-    show.payload = nyse_equities_bbo_xdp_v2_4_g.prefs.show_payload
+  if show.payload ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_payload then
+    show.payload = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_payload
     changed = true
   end
 
@@ -269,7 +269,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.rpi_indicator = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.rpi_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.rpi_indicator, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.rpi_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -302,7 +302,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.quote_condition = function(buffer, offset, 
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.quote_condition, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -322,7 +322,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.bid_volume = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.bid_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.bid_volume, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.bid_volume, range, value, display)
 
   return offset + length, value
 end
@@ -342,7 +342,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.bid_price = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.bid_price, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -362,7 +362,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.ask_volume = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.ask_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.ask_volume, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.ask_volume, range, value, display)
 
   return offset + length, value
 end
@@ -382,7 +382,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.ask_price = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.ask_price, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -402,7 +402,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_seq_num = function(buffer, offset, p
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -422,7 +422,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_index = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
@@ -442,7 +442,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.source_time_ns = function(buffer, offset, p
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.source_time_ns, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_time_ns, range, value, display)
 
   return offset + length, value
 end
@@ -515,7 +515,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.quote_message = function(buffer, offset, packet, parent)
   if show.quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.quote_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.quote_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -544,7 +544,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.last_symbol_seq_num = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.last_symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.last_symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.last_symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -564,7 +564,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.last_seq_num = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.last_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.last_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.last_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -584,7 +584,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.total_refresh_pkts = function(buffer, offse
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.total_refresh_pkts(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.total_refresh_pkts, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.total_refresh_pkts, range, value, display)
 
   return offset + length, value
 end
@@ -604,7 +604,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.current_refresh_pkt = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.current_refresh_pkt(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.current_refresh_pkt, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.current_refresh_pkt, range, value, display)
 
   return offset + length, value
 end
@@ -652,7 +652,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.refresh_header_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -681,7 +681,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.session_state = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.session_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.session_state, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.session_state, range, value, display)
 
   return offset + length, value
 end
@@ -701,7 +701,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.market_state = function(buffer, offset, pac
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.market_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.market_state, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.market_state, range, value, display)
 
   return offset + length, value
 end
@@ -721,7 +721,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.ssr_state = function(buffer, offset, packet
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.ssr_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.ssr_state, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.ssr_state, range, value, display)
 
   return offset + length, value
 end
@@ -741,7 +741,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.time = function(buffer, offset, packet, par
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.time, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -761,7 +761,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.ssr_triggering_volume = function(buffer, of
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_volume, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_volume, range, value, display)
 
   return offset + length, value
 end
@@ -836,7 +836,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.ssr_triggering_exchange_id = function(buffe
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_exchange_id, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.ssr_triggering_exchange_id, range, value, display)
 
   return offset + length, value
 end
@@ -856,7 +856,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.price_2 = function(buffer, offset, packet, 
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.price_2, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_2, range, value, display)
 
   return offset + length, value
 end
@@ -876,7 +876,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.price_1 = function(buffer, offset, packet, 
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.price_1, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_1, range, value, display)
 
   return offset + length, value
 end
@@ -896,7 +896,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.reserved_4 = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_bbo_xdp_v2_4_g_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -953,7 +953,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.halt_condition = function(buffer, offset, p
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.halt_condition, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1022,7 +1022,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.security_status = function(buffer, offset, 
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.security_status, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.security_status, range, value, display)
 
   return offset + length, value
 end
@@ -1042,7 +1042,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.source_time = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.source_time, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -1145,7 +1145,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.security_status_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.security_status_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.security_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1174,7 +1174,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.trading_session = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.trading_session(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.trading_session, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.trading_session, range, value, display)
 
   return offset + length, value
 end
@@ -1227,7 +1227,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.trading_session_change_message = function(buffer, offset, packet, parent)
   if show.trading_session_change_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.trading_session_change_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.trading_session_change_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.trading_session_change_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1256,7 +1256,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.next_source_seq_num = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.next_source_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.next_source_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.next_source_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1304,7 +1304,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.symbol_clear_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1333,7 +1333,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.channel_id = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.channel_id, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -1353,7 +1353,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.product_id = function(buffer, offset, packe
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.product_id, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -1373,7 +1373,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.end_seq_num = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.end_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.end_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.end_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1393,7 +1393,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.begin_seq_num = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.begin_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.begin_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.begin_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1441,7 +1441,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.message_unavailable_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1470,7 +1470,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.source_id = function(buffer, offset, packet
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.source_id, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_id, range, value, display)
 
   return offset + length, value
 end
@@ -1518,7 +1518,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.refresh_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1551,7 +1551,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.retransmit_method = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.retransmit_method(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.retransmit_method, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.retransmit_method, range, value, display)
 
   return offset + length, value
 end
@@ -1604,7 +1604,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1646,7 +1646,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.heartbeat_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1675,7 +1675,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.status = function(buffer, offset, packet, p
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.status, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -1695,7 +1695,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.request_seq_num = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.request_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.request_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.request_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1758,7 +1758,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.request_response_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.request_response_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.request_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1820,7 +1820,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.retransmission_request_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1849,7 +1849,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.reserved_2 = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_bbo_xdp_v2_4_g_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -1869,7 +1869,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.unit_of_trade = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.unit_of_trade(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.unit_of_trade, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.unit_of_trade, range, value, display)
 
   return offset + length, value
 end
@@ -1889,7 +1889,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.mpv = function(buffer, offset, packet, pare
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.mpv, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -1909,7 +1909,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.round_lot = function(buffer, offset, packet
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.round_lot, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
@@ -1929,7 +1929,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.price_resolution = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.price_resolution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.price_resolution, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_resolution, range, value, display)
 
   return offset + length, value
 end
@@ -1949,7 +1949,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.prev_close_volume = function(buffer, offset
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.prev_close_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_volume, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1969,7 +1969,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.prev_close_price = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.prev_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_price, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.prev_close_price, range, value, display)
 
   return offset + length, value
 end
@@ -1989,7 +1989,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.lot_size = function(buffer, offset, packet,
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.lot_size, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -2058,7 +2058,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.security_type = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.security_type, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -2078,7 +2078,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.price_scale_code = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.price_scale_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.price_scale_code, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.price_scale_code, range, value, display)
 
   return offset + length, value
 end
@@ -2129,7 +2129,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.exchange_code = function(buffer, offset, pa
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.exchange_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.exchange_code, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.exchange_code, range, value, display)
 
   return offset + length, value
 end
@@ -2149,7 +2149,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.system_id = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.system_id, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.system_id, range, value, display)
 
   return offset + length, value
 end
@@ -2194,7 +2194,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.market_id = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.market_id, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.market_id, range, value, display)
 
   return offset + length, value
 end
@@ -2214,7 +2214,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.reserved_1 = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_equities_bbo_xdp_v2_4_g_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -2234,7 +2234,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.symbol = function(buffer, offset, packet, p
   local value = range:string()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.symbol, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2342,7 +2342,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2371,7 +2371,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.id = function(buffer, offset, packet, paren
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.id, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.id, range, value, display)
 
   return offset + length, value
 end
@@ -2414,7 +2414,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.source_time_reference_message = function(buffer, offset, packet, parent)
   if show.source_time_reference_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.source_time_reference_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.source_time_reference_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2471,7 +2471,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number_reset_message, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2629,7 +2629,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.payload = function(buffer, offset, packet, 
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nyse_equities_bbo_xdp_v2_4_g_display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.payload, range, display)
+  local element = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.payload, range, display)
 
   return nyse_equities_bbo_xdp_v2_4_g_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2692,7 +2692,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.message_type = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.message_type, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2712,7 +2712,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.message_size = function(buffer, offset, pac
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.message_size, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -2750,7 +2750,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_header, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2789,7 +2789,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.message_fields = function(buffer, offset, p
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.message_index, message_index)
+    local iteration = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2812,7 +2812,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.message = function(buffer, offset, packet, 
     local length = nyse_equities_bbo_xdp_v2_4_g_size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = nyse_equities_bbo_xdp_v2_4_g_display.message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.message, range, display)
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message, range, display)
   end
 
   return nyse_equities_bbo_xdp_v2_4_g_dissect.message_fields(buffer, offset, packet, parent)
@@ -2833,7 +2833,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.nanoseconds = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.nanoseconds, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -2853,7 +2853,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.timestamp = function(buffer, offset, packet
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.timestamp, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2873,7 +2873,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.sequence_number = function(buffer, offset, 
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2893,7 +2893,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.message_count = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.message_count, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2947,7 +2947,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.delivery_flag = function(buffer, offset, pa
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.delivery_flag, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
@@ -2967,7 +2967,7 @@ nyse_equities_bbo_xdp_v2_4_g_dissect.packet_size = function(buffer, offset, pack
   local value = range:le_uint()
   local display = nyse_equities_bbo_xdp_v2_4_g_display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.packet_size, range, value, display)
+  parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
@@ -3025,7 +3025,7 @@ end
 nyse_equities_bbo_xdp_v2_4_g_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_xdp_v2_4_g.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.packet_header, buffer(offset, 0))
     local index = nyse_equities_bbo_xdp_v2_4_g_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3063,23 +3063,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_equities_bbo_xdp_v2_4_g.init()
+function omi_nyse_equities_bbo_xdp_v2_4_g.init()
 end
 
 -- Dissector for Nyse Equities Bbo Xdp 2.4.g
-function nyse_equities_bbo_xdp_v2_4_g.dissector(buffer, packet, parent)
+function omi_nyse_equities_bbo_xdp_v2_4_g.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_equities_bbo_xdp_v2_4_g.name
+  packet.cols.protocol = omi_nyse_equities_bbo_xdp_v2_4_g.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_equities_bbo_xdp_v2_4_g, buffer(), nyse_equities_bbo_xdp_v2_4_g.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g, buffer(), omi_nyse_equities_bbo_xdp_v2_4_g.description, "("..buffer:len().." Bytes)")
   return nyse_equities_bbo_xdp_v2_4_g_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_equities_bbo_xdp_v2_4_g)
+udp_table:add(65333, omi_nyse_equities_bbo_xdp_v2_4_g)
 
 
 -----------------------------------------------------------------------
@@ -3087,25 +3087,25 @@ udp_table:add(65333, nyse_equities_bbo_xdp_v2_4_g)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_equities_bbo_xdp_v2_4_g_packet_size = function(buffer)
+verify.omi_nyse_equities_bbo_xdp_v2_4_g_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nyse Equities Bbo Xdp 2.4.g
-local function nyse_equities_bbo_xdp_v2_4_g_heuristic(buffer, packet, parent)
+local function omi_nyse_equities_bbo_xdp_v2_4_g_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_equities_bbo_xdp_v2_4_g_packet_size(buffer) then return false end
+  if not verify.omi_nyse_equities_bbo_xdp_v2_4_g_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_equities_bbo_xdp_v2_4_g
-  nyse_equities_bbo_xdp_v2_4_g.dissector(buffer, packet, parent)
+  packet.conversation = omi_nyse_equities_bbo_xdp_v2_4_g
+  omi_nyse_equities_bbo_xdp_v2_4_g.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nyse Equities Bbo Xdp 2.4.g
-nyse_equities_bbo_xdp_v2_4_g:register_heuristic("udp", nyse_equities_bbo_xdp_v2_4_g_heuristic)
+omi_nyse_equities_bbo_xdp_v2_4_g:register_heuristic("udp", omi_nyse_equities_bbo_xdp_v2_4_g_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

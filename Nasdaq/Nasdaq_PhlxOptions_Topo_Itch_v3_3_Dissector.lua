@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 Protocol
-local nasdaq_phlxoptions_topo_itch_v3_3 = Proto("Nasdaq.PhlxOptions.Topo.Itch.v3.3.Lua", "Nasdaq PhlxOptions Topo Itch 3.3")
+local omi_nasdaq_phlxoptions_topo_itch_v3_3 = Proto("Nasdaq.PhlxOptions.Topo.Itch.v3.3.Lua", "Nasdaq PhlxOptions Topo Itch 3.3")
 
 -- Component Tables
 local show = {}
@@ -21,72 +21,72 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 Fields
-nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.phlxoptions.topo.itch.v3.3.askprice2", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.phlxoptions.topo.itch.v3.3.askprice4", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_2 = ProtoField.new("Ask Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.asksize2", ftypes.UINT16)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_4 = ProtoField.new("Ask Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.asksize4", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_2 = ProtoField.new("Bid Price 2", "nasdaq.phlxoptions.topo.itch.v3.3.bidprice2", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_4 = ProtoField.new("Bid Price 4", "nasdaq.phlxoptions.topo.itch.v3.3.bidprice4", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_2 = ProtoField.new("Bid Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.bidsize2", ftypes.UINT16)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_4 = ProtoField.new("Bid Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.bidsize4", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.phlxoptions.topo.itch.v3.3.crossid", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlxoptions.topo.itch.v3.3.currenttradingstate", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlxoptions.topo.itch.v3.3.eventcode", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.phlxoptions.topo.itch.v3.3.expirationday", ftypes.UINT8)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.phlxoptions.topo.itch.v3.3.expirationmonth", ftypes.UINT8)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.phlxoptions.topo.itch.v3.3.expirationyear", ftypes.UINT8)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.topo.itch.v3.3.message", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.phlxoptions.topo.itch.v3.3.messagecount", ftypes.UINT16)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.topo.itch.v3.3.messageheader", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.phlxoptions.topo.itch.v3.3.messagelength", ftypes.UINT16)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.topo.itch.v3.3.messagetype", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.phlxoptions.topo.itch.v3.3.mpv", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlxoptions.topo.itch.v3.3.nanoseconds", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.open_state = ProtoField.new("Open State", "nasdaq.phlxoptions.topo.itch.v3.3.openstate", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.phlxoptions.topo.itch.v3.3.optionclosingtype", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlxoptions.topo.itch.v3.3.optionid", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlxoptions.topo.itch.v3.3.optiontype", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.phlxoptions.topo.itch.v3.3.originalcrossid", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.original_price = ProtoField.new("Original Price", "nasdaq.phlxoptions.topo.itch.v3.3.originalprice", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.phlxoptions.topo.itch.v3.3.originalvolume", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topo.itch.v3.3.packet", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topo.itch.v3.3.packetheader", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.payload = ProtoField.new("Payload", "nasdaq.phlxoptions.topo.itch.v3.3.payload", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.price_2 = ProtoField.new("Price 2", "nasdaq.phlxoptions.topo.itch.v3.3.price2", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.price_4 = ProtoField.new("Price 4", "nasdaq.phlxoptions.topo.itch.v3.3.price4", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.phlxoptions.topo.itch.v3.3.quotecondition", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.second = ProtoField.new("Second", "nasdaq.phlxoptions.topo.itch.v3.3.second", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.topo.itch.v3.3.securitysymbol", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.phlxoptions.topo.itch.v3.3.sequencenumber", ftypes.UINT64)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.session = ProtoField.new("Session", "nasdaq.phlxoptions.topo.itch.v3.3.session", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.size_2 = ProtoField.new("Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.size2", ftypes.UINT16)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.size_4 = ProtoField.new("Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.size4", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.source = ProtoField.new("Source", "nasdaq.phlxoptions.topo.itch.v3.3.source", ftypes.UINT8)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.phlxoptions.topo.itch.v3.3.strikeprice", ftypes.DOUBLE)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.subversion = ProtoField.new("Subversion", "nasdaq.phlxoptions.topo.itch.v3.3.subversion", ftypes.UINT8)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.tradable = ProtoField.new("Tradable", "nasdaq.phlxoptions.topo.itch.v3.3.tradable", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.phlxoptions.topo.itch.v3.3.tradecondition", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.topo.itch.v3.3.underlyingsymbol", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.version = ProtoField.new("Version", "nasdaq.phlxoptions.topo.itch.v3.3.version", ftypes.UINT8)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.topo.itch.v3.3.volume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.phlxoptions.topo.itch.v3.3.askprice2", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.phlxoptions.topo.itch.v3.3.askprice4", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_2 = ProtoField.new("Ask Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.asksize2", ftypes.UINT16)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_4 = ProtoField.new("Ask Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.asksize4", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_2 = ProtoField.new("Bid Price 2", "nasdaq.phlxoptions.topo.itch.v3.3.bidprice2", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_4 = ProtoField.new("Bid Price 4", "nasdaq.phlxoptions.topo.itch.v3.3.bidprice4", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_2 = ProtoField.new("Bid Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.bidsize2", ftypes.UINT16)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_4 = ProtoField.new("Bid Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.bidsize4", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.phlxoptions.topo.itch.v3.3.crossid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlxoptions.topo.itch.v3.3.currenttradingstate", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlxoptions.topo.itch.v3.3.eventcode", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.phlxoptions.topo.itch.v3.3.expirationday", ftypes.UINT8)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.phlxoptions.topo.itch.v3.3.expirationmonth", ftypes.UINT8)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.phlxoptions.topo.itch.v3.3.expirationyear", ftypes.UINT8)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.topo.itch.v3.3.message", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.phlxoptions.topo.itch.v3.3.messagecount", ftypes.UINT16)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.topo.itch.v3.3.messageheader", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.phlxoptions.topo.itch.v3.3.messagelength", ftypes.UINT16)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.topo.itch.v3.3.messagetype", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.phlxoptions.topo.itch.v3.3.mpv", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlxoptions.topo.itch.v3.3.nanoseconds", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.open_state = ProtoField.new("Open State", "nasdaq.phlxoptions.topo.itch.v3.3.openstate", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.phlxoptions.topo.itch.v3.3.optionclosingtype", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlxoptions.topo.itch.v3.3.optionid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlxoptions.topo.itch.v3.3.optiontype", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.phlxoptions.topo.itch.v3.3.originalcrossid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.original_price = ProtoField.new("Original Price", "nasdaq.phlxoptions.topo.itch.v3.3.originalprice", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.phlxoptions.topo.itch.v3.3.originalvolume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topo.itch.v3.3.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topo.itch.v3.3.packetheader", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.payload = ProtoField.new("Payload", "nasdaq.phlxoptions.topo.itch.v3.3.payload", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.price_2 = ProtoField.new("Price 2", "nasdaq.phlxoptions.topo.itch.v3.3.price2", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.price_4 = ProtoField.new("Price 4", "nasdaq.phlxoptions.topo.itch.v3.3.price4", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.phlxoptions.topo.itch.v3.3.quotecondition", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.second = ProtoField.new("Second", "nasdaq.phlxoptions.topo.itch.v3.3.second", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.topo.itch.v3.3.securitysymbol", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.phlxoptions.topo.itch.v3.3.sequencenumber", ftypes.UINT64)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.session = ProtoField.new("Session", "nasdaq.phlxoptions.topo.itch.v3.3.session", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.size_2 = ProtoField.new("Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.size2", ftypes.UINT16)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.size_4 = ProtoField.new("Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.size4", ftypes.UINT32)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.source = ProtoField.new("Source", "nasdaq.phlxoptions.topo.itch.v3.3.source", ftypes.UINT8)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.phlxoptions.topo.itch.v3.3.strikeprice", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.subversion = ProtoField.new("Subversion", "nasdaq.phlxoptions.topo.itch.v3.3.subversion", ftypes.UINT8)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.tradable = ProtoField.new("Tradable", "nasdaq.phlxoptions.topo.itch.v3.3.tradable", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.phlxoptions.topo.itch.v3.3.tradecondition", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.topo.itch.v3.3.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.version = ProtoField.new("Version", "nasdaq.phlxoptions.topo.itch.v3.3.version", ftypes.UINT8)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.topo.itch.v3.3.volume", ftypes.UINT32)
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 messages
-nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.phlxoptions.topo.itch.v3.3.brokentradereportmessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message = ProtoField.new("Long Best Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestaskupdatemessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message = ProtoField.new("Long Best Bid And Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestbidandaskupdatemessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_update_message = ProtoField.new("Long Best Bid Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestbidupdatemessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.phlxoptions.topo.itch.v3.3.optionsdirectorymessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlxoptions.topo.itch.v3.3.securityopenclosedmessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_ask_update_message = ProtoField.new("Short Best Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.shortbestaskupdatemessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message = ProtoField.new("Short Best Bid And Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.shortbestbidandaskupdatemessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_update_message = ProtoField.new("Short Best Bid Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.shortbestbidupdatemessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.topo.itch.v3.3.systemeventmessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.phlxoptions.topo.itch.v3.3.timestampmessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.phlxoptions.topo.itch.v3.3.tradereportmessage", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.phlxoptions.topo.itch.v3.3.tradingactionmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.phlxoptions.topo.itch.v3.3.brokentradereportmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message = ProtoField.new("Long Best Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestaskupdatemessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message = ProtoField.new("Long Best Bid And Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestbidandaskupdatemessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_update_message = ProtoField.new("Long Best Bid Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.longbestbidupdatemessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.phlxoptions.topo.itch.v3.3.optionsdirectorymessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlxoptions.topo.itch.v3.3.securityopenclosedmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_ask_update_message = ProtoField.new("Short Best Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.shortbestaskupdatemessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message = ProtoField.new("Short Best Bid And Ask Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.shortbestbidandaskupdatemessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_update_message = ProtoField.new("Short Best Bid Update Message", "nasdaq.phlxoptions.topo.itch.v3.3.shortbestbidupdatemessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.topo.itch.v3.3.systemeventmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.phlxoptions.topo.itch.v3.3.timestampmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.phlxoptions.topo.itch.v3.3.tradereportmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.phlxoptions.topo.itch.v3.3.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 generated fields
-nasdaq_phlxoptions_topo_itch_v3_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.topo.itch.v3.3.messageindex", ftypes.UINT16)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.topo.itch.v3.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -113,100 +113,100 @@ show.trading_action_message = true
 show.payload = false
 
 -- Register Nasdaq PhlxOptions Topo Itch 3.3 Show Options
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message = Pref.bool("Show Broken Trade Report Message", show.broken_trade_report_message, "Parse and add Broken Trade Report Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message = Pref.bool("Show Long Best Ask Update Message", show.long_best_ask_update_message, "Parse and add Long Best Ask Update Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message = Pref.bool("Show Long Best Bid And Ask Update Message", show.long_best_bid_and_ask_update_message, "Parse and add Long Best Bid And Ask Update Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message = Pref.bool("Show Long Best Bid Update Message", show.long_best_bid_update_message, "Parse and add Long Best Bid Update Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message = Pref.bool("Show Short Best Ask Update Message", show.short_best_ask_update_message, "Parse and add Short Best Ask Update Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message = Pref.bool("Show Short Best Bid And Ask Update Message", show.short_best_bid_and_ask_update_message, "Parse and add Short Best Bid And Ask Update Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message = Pref.bool("Show Short Best Bid Update Message", show.short_best_bid_update_message, "Parse and add Short Best Bid Update Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message = Pref.bool("Show Timestamp Message", show.timestamp_message, "Parse and add Timestamp Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
-nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message = Pref.bool("Show Broken Trade Report Message", show.broken_trade_report_message, "Parse and add Broken Trade Report Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message = Pref.bool("Show Long Best Ask Update Message", show.long_best_ask_update_message, "Parse and add Long Best Ask Update Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message = Pref.bool("Show Long Best Bid And Ask Update Message", show.long_best_bid_and_ask_update_message, "Parse and add Long Best Bid And Ask Update Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message = Pref.bool("Show Long Best Bid Update Message", show.long_best_bid_update_message, "Parse and add Long Best Bid Update Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message = Pref.bool("Show Short Best Ask Update Message", show.short_best_ask_update_message, "Parse and add Short Best Ask Update Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message = Pref.bool("Show Short Best Bid And Ask Update Message", show.short_best_bid_and_ask_update_message, "Parse and add Short Best Bid And Ask Update Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message = Pref.bool("Show Short Best Bid Update Message", show.short_best_bid_update_message, "Parse and add Short Best Bid Update Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message = Pref.bool("Show Timestamp Message", show.timestamp_message, "Parse and add Timestamp Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_phlxoptions_topo_itch_v3_3.prefs_changed()
+function omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.broken_trade_report_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message then
-    show.broken_trade_report_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message
+  if show.broken_trade_report_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message then
+    show.broken_trade_report_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message
     changed = true
   end
-  if show.long_best_ask_update_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message then
-    show.long_best_ask_update_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message
+  if show.long_best_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message then
+    show.long_best_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message
     changed = true
   end
-  if show.long_best_bid_and_ask_update_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message then
-    show.long_best_bid_and_ask_update_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message
+  if show.long_best_bid_and_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message then
+    show.long_best_bid_and_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message
     changed = true
   end
-  if show.long_best_bid_update_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message then
-    show.long_best_bid_update_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message
+  if show.long_best_bid_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message then
+    show.long_best_bid_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message
     changed = true
   end
-  if show.message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message then
-    show.message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message
+  if show.message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message then
+    show.message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header then
-    show.message_header = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header then
+    show.message_header = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header
     changed = true
   end
-  if show.options_directory_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message then
-    show.options_directory_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message
+  if show.options_directory_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message then
+    show.options_directory_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message
     changed = true
   end
-  if show.packet ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet then
-    show.packet = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet
+  if show.packet ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet then
+    show.packet = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header then
-    show.packet_header = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header
     changed = true
   end
-  if show.security_open_closed_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message then
-    show.security_open_closed_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message
+  if show.security_open_closed_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message then
+    show.security_open_closed_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message
     changed = true
   end
-  if show.short_best_ask_update_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message then
-    show.short_best_ask_update_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message
+  if show.short_best_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message then
+    show.short_best_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message
     changed = true
   end
-  if show.short_best_bid_and_ask_update_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message then
-    show.short_best_bid_and_ask_update_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message
+  if show.short_best_bid_and_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message then
+    show.short_best_bid_and_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message
     changed = true
   end
-  if show.short_best_bid_update_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message then
-    show.short_best_bid_update_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message
+  if show.short_best_bid_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message then
+    show.short_best_bid_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message
     changed = true
   end
-  if show.system_event_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message
+  if show.system_event_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message then
+    show.system_event_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message
     changed = true
   end
-  if show.timestamp_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message then
-    show.timestamp_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message
+  if show.timestamp_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message then
+    show.timestamp_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message
     changed = true
   end
-  if show.trade_report_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message then
-    show.trade_report_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message
+  if show.trade_report_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message then
+    show.trade_report_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message
     changed = true
   end
-  if show.trading_action_message ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message then
-    show.trading_action_message = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message
+  if show.trading_action_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message then
+    show.trading_action_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message
     changed = true
   end
-  if show.payload ~= nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_payload then
-    show.payload = nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_payload
+  if show.payload ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_payload then
+    show.payload = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_payload
     changed = true
   end
 
@@ -254,7 +254,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.original_volume = function(buffer, off
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.original_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.original_volume, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.original_volume, range, value, display)
 
   return offset + length, value
 end
@@ -280,7 +280,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.original_price = function(buffer, offs
   local value = translate.original_price(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.original_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.original_price, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.original_price, range, value, display)
 
   return offset + length, value
 end
@@ -300,7 +300,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.original_cross_id = function(buffer, o
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.original_cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.original_cross_id, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.original_cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -320,7 +320,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.option_id = function(buffer, offset, p
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.option_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.option_id, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.option_id, range, value, display)
 
   return offset + length, value
 end
@@ -340,7 +340,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.nanoseconds = function(buffer, offset,
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.nanoseconds, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -393,7 +393,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.broken_trade_report_message = function(buffer, offset, packet, parent)
   if show.broken_trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -422,7 +422,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.volume = function(buffer, offset, pack
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.volume, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -448,7 +448,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.price_4 = function(buffer, offset, pac
   local value = translate.price_4(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.price_4(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.price_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.price_4, range, value, display)
 
   return offset + length, value
 end
@@ -468,7 +468,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_condition = function(buffer, off
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.trade_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_condition, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_condition, range, value, display)
 
   return offset + length, value
 end
@@ -488,7 +488,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.cross_id = function(buffer, offset, pa
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.cross_id, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -546,7 +546,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_report_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_report_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -575,7 +575,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.size_4 = function(buffer, offset, pack
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.size_4(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.size_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.size_4, range, value, display)
 
   return offset + length, value
 end
@@ -611,7 +611,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.quote_condition = function(buffer, off
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.quote_condition, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -664,7 +664,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_update_message = function(buffer, offset, packet, parent)
   if show.long_best_bid_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -726,7 +726,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_ask_update_message = function(buffer, offset, packet, parent)
   if show.long_best_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -755,7 +755,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.size_2 = function(buffer, offset, pack
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.size_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.size_2, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.size_2, range, value, display)
 
   return offset + length, value
 end
@@ -781,7 +781,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.price_2 = function(buffer, offset, pac
   local value = translate.price_2(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.price_2, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.price_2, range, value, display)
 
   return offset + length, value
 end
@@ -834,7 +834,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_update_message = function(buffer, offset, packet, parent)
   if show.short_best_bid_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -896,7 +896,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_ask_update_message = function(buffer, offset, packet, parent)
   if show.short_best_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_ask_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -925,7 +925,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.ask_size_4 = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.ask_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -951,7 +951,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.ask_price_4 = function(buffer, offset,
   local value = translate.ask_price_4(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.ask_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_4, range, value, display)
 
   return offset + length, value
 end
@@ -971,7 +971,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.bid_size_4 = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.bid_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -997,7 +997,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.bid_price_4 = function(buffer, offset,
   local value = translate.bid_price_4(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.bid_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_4, range, value, display)
 
   return offset + length, value
 end
@@ -1060,7 +1060,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   if show.long_best_bid_and_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1089,7 +1089,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.ask_size_2 = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.ask_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_2, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1115,7 +1115,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.ask_price_2 = function(buffer, offset,
   local value = translate.ask_price_2(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.ask_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_2, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.ask_price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1135,7 +1135,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.bid_size_2 = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.bid_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_2, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1161,7 +1161,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.bid_price_2 = function(buffer, offset,
   local value = translate.bid_price_2(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.bid_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_2, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1224,7 +1224,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   if show.short_best_bid_and_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1260,7 +1260,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.open_state = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.open_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.open_state, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.open_state, range, value, display)
 
   return offset + length, value
 end
@@ -1303,7 +1303,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   if show.security_open_closed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.security_open_closed_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.security_open_closed_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1339,7 +1339,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.current_trading_state = function(buffe
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.current_trading_state, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -1382,7 +1382,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1421,7 +1421,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.mpv = function(buffer, offset, packet,
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.mpv, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.mpv, range, value, display)
 
   return offset + length, value
 end
@@ -1448,7 +1448,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.tradable = function(buffer, offset, pa
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.tradable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.tradable, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.tradable, range, value, display)
 
   return offset + length, value
 end
@@ -1478,7 +1478,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.option_closing_type = function(buffer,
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.option_closing_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.option_closing_type, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.option_closing_type, range, value, display)
 
   return offset + length, value
 end
@@ -1498,7 +1498,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.underlying_symbol = function(buffer, o
   local value = trim_right_spaces(range:string())
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.underlying_symbol, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1518,7 +1518,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.source = function(buffer, offset, pack
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.source(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.source, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.source, range, value, display)
 
   return offset + length, value
 end
@@ -1545,7 +1545,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.option_type = function(buffer, offset,
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.option_type, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -1571,7 +1571,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.strike_price = function(buffer, offset
   local value = translate.strike_price(raw)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.strike_price, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -1591,7 +1591,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.expiration_day = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.expiration_day(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_day, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_day, range, value, display)
 
   return offset + length, value
 end
@@ -1611,7 +1611,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.expiration_month = function(buffer, of
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_month, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -1631,7 +1631,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.expiration_year = function(buffer, off
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_year, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -1651,7 +1651,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_symbol = function(buffer, off
   local value = trim_right_spaces(range:string())
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.security_symbol, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1744,7 +1744,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.options_directory_message = function(buffer, offset, packet, parent)
   if show.options_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.options_directory_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.options_directory_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.options_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1773,7 +1773,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.subversion = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.subversion(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.subversion, range, value, display)
 
   return offset + length, value
 end
@@ -1793,7 +1793,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.version = function(buffer, offset, pac
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.version, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1838,7 +1838,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.event_code = function(buffer, offset, 
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.event_code, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -1886,7 +1886,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.system_event_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1915,7 +1915,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.second = function(buffer, offset, pack
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.second(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.second, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.second, range, value, display)
 
   return offset + length, value
 end
@@ -1948,7 +1948,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.timestamp_message = function(buffer, offset, packet, parent)
   if show.timestamp_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp_message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.timestamp_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2098,7 +2098,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.payload = function(buffer, offset, pac
   -- Dissect Element
   local range = buffer(offset, size)
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.payload, range, display)
+  local element = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.payload, range, display)
 
   return nasdaq_phlxoptions_topo_itch_v3_3_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2158,7 +2158,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_type = function(buffer, offset
   local value = range:string()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2178,7 +2178,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_length = function(buffer, offs
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2216,7 +2216,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_header, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2241,7 +2241,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_fields = function(buffer, offs
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2263,7 +2263,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.message = function(buffer, offset, pac
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message, buffer(offset, 0))
     local current = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.message(buffer, packet, parent)
@@ -2293,7 +2293,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_count = function(buffer, offse
   local value = range:uint()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_count, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2313,7 +2313,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.sequence_number = function(buffer, off
   local value = range:uint64()
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2349,7 +2349,7 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.session = function(buffer, offset, pac
 
   local display = nasdaq_phlxoptions_topo_itch_v3_3_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.session, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2392,7 +2392,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2438,23 +2438,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_phlxoptions_topo_itch_v3_3.init()
+function omi_nasdaq_phlxoptions_topo_itch_v3_3.init()
 end
 
 -- Dissector for Nasdaq PhlxOptions Topo Itch 3.3
-function nasdaq_phlxoptions_topo_itch_v3_3.dissector(buffer, packet, parent)
+function omi_nasdaq_phlxoptions_topo_itch_v3_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_phlxoptions_topo_itch_v3_3.name
+  packet.cols.protocol = omi_nasdaq_phlxoptions_topo_itch_v3_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_phlxoptions_topo_itch_v3_3, buffer(), nasdaq_phlxoptions_topo_itch_v3_3.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3, buffer(), omi_nasdaq_phlxoptions_topo_itch_v3_3.description, "("..buffer:len().." Bytes)")
   return nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_phlxoptions_topo_itch_v3_3)
+udp_table:add(65333, omi_nasdaq_phlxoptions_topo_itch_v3_3)
 
 
 -----------------------------------------------------------------------
@@ -2462,25 +2462,25 @@ udp_table:add(65333, nasdaq_phlxoptions_topo_itch_v3_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_phlxoptions_topo_itch_v3_3_packet_size = function(buffer)
+verify.omi_nasdaq_phlxoptions_topo_itch_v3_3_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq PhlxOptions Topo Itch 3.3
-local function nasdaq_phlxoptions_topo_itch_v3_3_heuristic(buffer, packet, parent)
+local function omi_nasdaq_phlxoptions_topo_itch_v3_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_phlxoptions_topo_itch_v3_3_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_phlxoptions_topo_itch_v3_3_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_phlxoptions_topo_itch_v3_3
-  nasdaq_phlxoptions_topo_itch_v3_3.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_phlxoptions_topo_itch_v3_3
+  omi_nasdaq_phlxoptions_topo_itch_v3_3.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq PhlxOptions Topo Itch 3.3
-nasdaq_phlxoptions_topo_itch_v3_3:register_heuristic("udp", nasdaq_phlxoptions_topo_itch_v3_3_heuristic)
+omi_nasdaq_phlxoptions_topo_itch_v3_3:register_heuristic("udp", omi_nasdaq_phlxoptions_topo_itch_v3_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

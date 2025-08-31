@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq Common Mold64 Udp 1.0 Protocol
-local nasdaq_common_mold64_udp_v1_0 = Proto("Nasdaq.Common.Mold64.Udp.v1.0.Lua", "Nasdaq Common Mold64 Udp 1.0")
+local omi_nasdaq_common_mold64_udp_v1_0 = Proto("Nasdaq.Common.Mold64.Udp.v1.0.Lua", "Nasdaq Common Mold64 Udp 1.0")
 
 -- Component Tables
 local show = {}
@@ -20,19 +20,19 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Common Mold64 Udp 1.0 Fields
-nasdaq_common_mold64_udp_v1_0.fields.message = ProtoField.new("Message", "nasdaq.common.mold64.udp.v1.0.message", ftypes.STRING)
-nasdaq_common_mold64_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.common.mold64.udp.v1.0.messagecount", ftypes.UINT16)
-nasdaq_common_mold64_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.common.mold64.udp.v1.0.messageheader", ftypes.STRING)
-nasdaq_common_mold64_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.common.mold64.udp.v1.0.messagelength", ftypes.UINT16)
-nasdaq_common_mold64_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.common.mold64.udp.v1.0.messagetype", ftypes.STRING)
-nasdaq_common_mold64_udp_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.mold64.udp.v1.0.packet", ftypes.STRING)
-nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.mold64.udp.v1.0.packetheader", ftypes.STRING)
-nasdaq_common_mold64_udp_v1_0.fields.payload = ProtoField.new("Payload", "nasdaq.common.mold64.udp.v1.0.payload", ftypes.BYTES)
-nasdaq_common_mold64_udp_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.mold64.udp.v1.0.sequencenumber", ftypes.UINT64)
-nasdaq_common_mold64_udp_v1_0.fields.session = ProtoField.new("Session", "nasdaq.common.mold64.udp.v1.0.session", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.message = ProtoField.new("Message", "nasdaq.common.mold64.udp.v1.0.message", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.common.mold64.udp.v1.0.messagecount", ftypes.UINT16)
+omi_nasdaq_common_mold64_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.common.mold64.udp.v1.0.messageheader", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.common.mold64.udp.v1.0.messagelength", ftypes.UINT16)
+omi_nasdaq_common_mold64_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.common.mold64.udp.v1.0.messagetype", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.mold64.udp.v1.0.packet", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.mold64.udp.v1.0.packetheader", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.payload = ProtoField.new("Payload", "nasdaq.common.mold64.udp.v1.0.payload", ftypes.BYTES)
+omi_nasdaq_common_mold64_udp_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.mold64.udp.v1.0.sequencenumber", ftypes.UINT64)
+omi_nasdaq_common_mold64_udp_v1_0.fields.session = ProtoField.new("Session", "nasdaq.common.mold64.udp.v1.0.session", ftypes.STRING)
 
 -- Nasdaq Common Mold64 Udp 1.0 generated fields
-nasdaq_common_mold64_udp_v1_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.common.mold64.udp.v1.0.messageindex", ftypes.UINT16)
+omi_nasdaq_common_mold64_udp_v1_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.common.mold64.udp.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -45,30 +45,30 @@ show.packet = true
 show.packet_header = true
 
 -- Register Nasdaq Common Mold64 Udp 1.0 Show Options
-nasdaq_common_mold64_udp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_common_mold64_udp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_common_mold64_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_common_mold64_udp_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_nasdaq_common_mold64_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_nasdaq_common_mold64_udp_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_common_mold64_udp_v1_0.prefs_changed()
+function omi_nasdaq_common_mold64_udp_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.message ~= nasdaq_common_mold64_udp_v1_0.prefs.show_message then
-    show.message = nasdaq_common_mold64_udp_v1_0.prefs.show_message
+  if show.message ~= omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message then
+    show.message = omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_common_mold64_udp_v1_0.prefs.show_message_header then
-    show.message_header = nasdaq_common_mold64_udp_v1_0.prefs.show_message_header
+  if show.message_header ~= omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message_header then
+    show.message_header = omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= nasdaq_common_mold64_udp_v1_0.prefs.show_packet then
-    show.packet = nasdaq_common_mold64_udp_v1_0.prefs.show_packet
+  if show.packet ~= omi_nasdaq_common_mold64_udp_v1_0.prefs.show_packet then
+    show.packet = omi_nasdaq_common_mold64_udp_v1_0.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_common_mold64_udp_v1_0.prefs.show_packet_header then
-    show.packet_header = nasdaq_common_mold64_udp_v1_0.prefs.show_packet_header
+  if show.packet_header ~= omi_nasdaq_common_mold64_udp_v1_0.prefs.show_packet_header then
+    show.packet_header = omi_nasdaq_common_mold64_udp_v1_0.prefs.show_packet_header
     changed = true
   end
 
@@ -94,7 +94,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.payload = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_common_mold64_udp_v1_0_display.payload(value, buffer, offset, packet, parent, size)
 
-  parent:add(nasdaq_common_mold64_udp_v1_0.fields.payload, range, value, display)
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.payload, range, value, display)
 
   return offset + size
 end
@@ -114,7 +114,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.message_type = function(buffer, offset, pa
   local value = range:string()
   local display = nasdaq_common_mold64_udp_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_mold64_udp_v1_0.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -134,7 +134,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.message_length = function(buffer, offset, 
   local value = range:uint()
   local display = nasdaq_common_mold64_udp_v1_0_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_mold64_udp_v1_0.fields.message_length, range, value, display)
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -172,7 +172,7 @@ end
 nasdaq_common_mold64_udp_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_common_mold64_udp_v1_0.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_header, buffer(offset, 0))
     local index = nasdaq_common_mold64_udp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -197,7 +197,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.message_fields = function(buffer, offset, 
 
   -- Implicit Message Index
   if message_index ~= nil then
-    local iteration = parent:add(nasdaq_common_mold64_udp_v1_0.fields.message_index, message_index)
+    local iteration = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -222,7 +222,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.message = function(buffer, offset, packet,
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    parent = parent:add(nasdaq_common_mold64_udp_v1_0.fields.message, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message, buffer(offset, 0))
     local current = nasdaq_common_mold64_udp_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
     local display = nasdaq_common_mold64_udp_v1_0_display.message(buffer, packet, parent)
@@ -252,7 +252,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.message_count = function(buffer, offset, p
   local value = range:uint()
   local display = nasdaq_common_mold64_udp_v1_0_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_mold64_udp_v1_0.fields.message_count, range, value, display)
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -272,7 +272,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.sequence_number = function(buffer, offset,
   local value = range:uint64()
   local display = nasdaq_common_mold64_udp_v1_0_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_mold64_udp_v1_0.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -308,7 +308,7 @@ nasdaq_common_mold64_udp_v1_0_dissect.session = function(buffer, offset, packet,
 
   local display = nasdaq_common_mold64_udp_v1_0_display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_mold64_udp_v1_0.fields.session, range, value, display)
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -351,7 +351,7 @@ end
 nasdaq_common_mold64_udp_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_common_mold64_udp_v1_0.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_common_mold64_udp_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -397,23 +397,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_common_mold64_udp_v1_0.init()
+function omi_nasdaq_common_mold64_udp_v1_0.init()
 end
 
 -- Dissector for Nasdaq Common Mold64 Udp 1.0
-function nasdaq_common_mold64_udp_v1_0.dissector(buffer, packet, parent)
+function omi_nasdaq_common_mold64_udp_v1_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_common_mold64_udp_v1_0.name
+  packet.cols.protocol = omi_nasdaq_common_mold64_udp_v1_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_common_mold64_udp_v1_0, buffer(), nasdaq_common_mold64_udp_v1_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_nasdaq_common_mold64_udp_v1_0, buffer(), omi_nasdaq_common_mold64_udp_v1_0.description, "("..buffer:len().." Bytes)")
   return nasdaq_common_mold64_udp_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_common_mold64_udp_v1_0)
+udp_table:add(65333, omi_nasdaq_common_mold64_udp_v1_0)
 
 
 -----------------------------------------------------------------------
@@ -421,25 +421,25 @@ udp_table:add(65333, nasdaq_common_mold64_udp_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_common_mold64_udp_v1_0_packet_size = function(buffer)
+verify.omi_nasdaq_common_mold64_udp_v1_0_packet_size = function(buffer)
 
   return true
 end
 
 -- Dissector Heuristic for Nasdaq Common Mold64 Udp 1.0
-local function nasdaq_common_mold64_udp_v1_0_heuristic(buffer, packet, parent)
+local function omi_nasdaq_common_mold64_udp_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_common_mold64_udp_v1_0_packet_size(buffer) then return false end
+  if not verify.omi_nasdaq_common_mold64_udp_v1_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_common_mold64_udp_v1_0
-  nasdaq_common_mold64_udp_v1_0.dissector(buffer, packet, parent)
+  packet.conversation = omi_nasdaq_common_mold64_udp_v1_0
+  omi_nasdaq_common_mold64_udp_v1_0.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Nasdaq Common Mold64 Udp 1.0
-nasdaq_common_mold64_udp_v1_0:register_heuristic("udp", nasdaq_common_mold64_udp_v1_0_heuristic)
+omi_nasdaq_common_mold64_udp_v1_0:register_heuristic("udp", omi_nasdaq_common_mold64_udp_v1_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Coinbase Derivatives MarketDataApi Sbe 1.7 Protocol
-local coinbase_derivatives_marketdataapi_sbe_v1_7 = Proto("Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Lua", "Coinbase Derivatives MarketDataApi Sbe 1.7")
+local omi_coinbase_derivatives_marketdataapi_sbe_v1_7 = Proto("Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Lua", "Coinbase Derivatives MarketDataApi Sbe 1.7")
 
 -- Component Tables
 local show = {}
@@ -21,142 +21,142 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Coinbase Derivatives MarketDataApi Sbe 1.7 Fields
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.active_instrument_count = ProtoField.new("Active Instrument Count", "coinbase.derivatives.marketdataapi.sbe.v1.7.activeinstrumentcount", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.aggressororderid", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.aggressorreceivetime", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.beginseqnum", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestaskimpliedprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestaskimpliedqty", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestbidimpliedprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_qty = ProtoField.new("Best Bid Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestbidimpliedqty", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_price = ProtoField.new("Best Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_qty = ProtoField.new("Best Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestqty", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.block_length = ProtoField.new("Block Length", "coinbase.derivatives.marketdataapi.sbe.v1.7.blocklength", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.buy_order_id = ProtoField.new("Buy Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.buyorderid", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.cfi_code = ProtoField.new("Cfi Code", "coinbase.derivatives.marketdataapi.sbe.v1.7.cficode", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.channel_id = ProtoField.new("Channel Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.channelid", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.close_price = ProtoField.new("Close Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.closeprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.contract_size = ProtoField.new("Contract Size", "coinbase.derivatives.marketdataapi.sbe.v1.7.contractsize", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.currency = ProtoField.new("Currency", "coinbase.derivatives.marketdataapi.sbe.v1.7.currency", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_of_month = ProtoField.new("Day Of Month", "coinbase.derivatives.marketdataapi.sbe.v1.7.dayofmonth", ftypes.INT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_open_price = ProtoField.new("Day Open Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.dayopenprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.deepest_price = ProtoField.new("Deepest Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.deepestprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.definition_flags = ProtoField.new("Definition Flags", "coinbase.derivatives.marketdataapi.sbe.v1.7.definitionflags", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.description = ProtoField.new("Description", "coinbase.derivatives.marketdataapi.sbe.v1.7.description", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.details = ProtoField.new("Details", "coinbase.derivatives.marketdataapi.sbe.v1.7.details", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.7.firsttradingsessiondate", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.frame_length = ProtoField.new("Frame Length", "coinbase.derivatives.marketdataapi.sbe.v1.7.framelength", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.high_price = ProtoField.new("High Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.highprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.indicativeopenprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_header = ProtoField.new("Instr Header", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrheader", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_seq_num = ProtoField.new("Instr Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrseqnum", ftypes.UINT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_flags = ProtoField.new("Instrument Flags", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrumentflags", ftypes.UINT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrumentid", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_side = ProtoField.new("Instrument Side", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrumentside", ftypes.INT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_announced = ProtoField.new("Is Announced", "coinbase.derivatives.marketdataapi.sbe.v1.7.isannounced", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_call = ProtoField.new("Is Call", "coinbase.derivatives.marketdataapi.sbe.v1.7.iscall", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "coinbase.derivatives.marketdataapi.sbe.v1.7.ispriorsettlementtheoretical", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_strike_delisted = ProtoField.new("Is Strike Delisted", "coinbase.derivatives.marketdataapi.sbe.v1.7.isstrikedelisted", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick = ProtoField.new("Large Tick", "coinbase.derivatives.marketdataapi.sbe.v1.7.largetick", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick_threshold = ProtoField.new("Large Tick Threshold", "coinbase.derivatives.marketdataapi.sbe.v1.7.largetickthreshold", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.lastinstrseqnum", ftypes.UINT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradeprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradeqty", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradetime", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradingsessiondate", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.leg1instrumentid", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.leg2instrumentid", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_down_price = ProtoField.new("Limit Down Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.limitdownprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_up_price = ProtoField.new("Limit Up Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.limitupprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.logical_expiry = ProtoField.new("Logical Expiry", "coinbase.derivatives.marketdataapi.sbe.v1.7.logicalexpiry", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.low_price = ProtoField.new("Low Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.lowprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.match_id = ProtoField.new("Match Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.matchid", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_count = ProtoField.new("Message Count", "coinbase.derivatives.marketdataapi.sbe.v1.7.messagecount", ftypes.UINT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_header = ProtoField.new("Message Header", "coinbase.derivatives.marketdataapi.sbe.v1.7.messageheader", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.month = ProtoField.new("Month", "coinbase.derivatives.marketdataapi.sbe.v1.7.month", ftypes.INT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.newleg1price", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.newleg2price", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_price = ProtoField.new("New Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.newprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextaskimpliedprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_qty = ProtoField.new("Next Ask Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextaskimpliedqty", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextbidimpliedprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_qty = ProtoField.new("Next Bid Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextbidimpliedqty", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_price = ProtoField.new("Next Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_qty = ProtoField.new("Next Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextqty", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_contract_size = ProtoField.new("Old Contract Size", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldcontractsize", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_1_price = ProtoField.new("Old Leg 1 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldleg1price", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_2_price = ProtoField.new("Old Leg 2 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldleg2price", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_price = ProtoField.new("Old Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest = ProtoField.new("Open Interest", "coinbase.derivatives.marketdataapi.sbe.v1.7.openinterest", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_expiry_type = ProtoField.new("Option Expiry Type", "coinbase.derivatives.marketdataapi.sbe.v1.7.optionexpirytype", ftypes.INT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_count = ProtoField.new("Order Count", "coinbase.derivatives.marketdataapi.sbe.v1.7.ordercount", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_id = ProtoField.new("Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.orderid", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.marketdataapi.sbe.v1.7.packet", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.derivatives.marketdataapi.sbe.v1.7.packetflags", ftypes.UINT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_header = ProtoField.new("Packet Header", "coinbase.derivatives.marketdataapi.sbe.v1.7.packetheader", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.marketdataapi.sbe.v1.7.padding", ftypes.BYTES)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.marketdataapi.sbe.v1.7.payload", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.price = ProtoField.new("Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.price", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.priorsettlementprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price_optional = ProtoField.new("Prior Settlement Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.7.priorsettlementpriceoptional", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_code = ProtoField.new("Product Code", "coinbase.derivatives.marketdataapi.sbe.v1.7.productcode", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_group = ProtoField.new("Product Group", "coinbase.derivatives.marketdataapi.sbe.v1.7.productgroup", ftypes.INT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_id = ProtoField.new("Product Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.productid", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.marketdataapi.sbe.v1.7.quantity", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reason = ProtoField.new("Reason", "coinbase.derivatives.marketdataapi.sbe.v1.7.reason", ftypes.INT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved = ProtoField.new("Reserved", "coinbase.derivatives.marketdataapi.sbe.v1.7.reserved", ftypes.INT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved_12 = ProtoField.new("Reserved 12", "coinbase.derivatives.marketdataapi.sbe.v1.7.reserved12", ftypes.UINT16, nil, base.DEC, 0xFFF0)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.derivatives.marketdataapi.sbe.v1.7.retrydelaynanos", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.sbemessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.schemaid", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sell_order_id = ProtoField.new("Sell Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.sellorderid", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sending_time = ProtoField.new("Sending Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.sendingtime", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.seq_num = ProtoField.new("Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.seqnum", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.settlementprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.small_tick = ProtoField.new("Small Tick", "coinbase.derivatives.marketdataapi.sbe.v1.7.smalltick", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.snapshotinstrumentid", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.snapshotseqnum", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "coinbase.derivatives.marketdataapi.sbe.v1.7.spreadbuyconvention", ftypes.INT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.stat_type = ProtoField.new("Stat Type", "coinbase.derivatives.marketdataapi.sbe.v1.7.stattype", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.strike_price = ProtoField.new("Strike Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.strikeprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.symbol = ProtoField.new("Symbol", "coinbase.derivatives.marketdataapi.sbe.v1.7.symbol", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.template_id = ProtoField.new("Template Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.templateid", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.tick_size = ProtoField.new("Tick Size", "coinbase.derivatives.marketdataapi.sbe.v1.7.ticksize", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_volume = ProtoField.new("Trade Volume", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradevolume", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_session_date = ProtoField.new("Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradingsessiondate", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status = ProtoField.new("Trading Status", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradingstatus", ftypes.INT8)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.transact_time = ProtoField.new("Transact Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.transacttime", ftypes.INT64)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.underlyinginstrumentid", ftypes.INT32)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.version = ProtoField.new("Version", "coinbase.derivatives.marketdataapi.sbe.v1.7.version", ftypes.UINT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.vwapprice", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.7.vwappriceoptional", ftypes.DOUBLE)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.week_of_month = ProtoField.new("Week Of Month", "coinbase.derivatives.marketdataapi.sbe.v1.7.weekofmonth", ftypes.INT16)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.year = ProtoField.new("Year", "coinbase.derivatives.marketdataapi.sbe.v1.7.year", ftypes.INT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.active_instrument_count = ProtoField.new("Active Instrument Count", "coinbase.derivatives.marketdataapi.sbe.v1.7.activeinstrumentcount", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.aggressororderid", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.aggressorreceivetime", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.beginseqnum", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestaskimpliedprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestaskimpliedqty", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestbidimpliedprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_qty = ProtoField.new("Best Bid Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestbidimpliedqty", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_price = ProtoField.new("Best Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_qty = ProtoField.new("Best Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.bestqty", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.block_length = ProtoField.new("Block Length", "coinbase.derivatives.marketdataapi.sbe.v1.7.blocklength", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.buy_order_id = ProtoField.new("Buy Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.buyorderid", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.cfi_code = ProtoField.new("Cfi Code", "coinbase.derivatives.marketdataapi.sbe.v1.7.cficode", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.channel_id = ProtoField.new("Channel Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.channelid", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.close_price = ProtoField.new("Close Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.closeprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.contract_size = ProtoField.new("Contract Size", "coinbase.derivatives.marketdataapi.sbe.v1.7.contractsize", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.currency = ProtoField.new("Currency", "coinbase.derivatives.marketdataapi.sbe.v1.7.currency", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_of_month = ProtoField.new("Day Of Month", "coinbase.derivatives.marketdataapi.sbe.v1.7.dayofmonth", ftypes.INT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_open_price = ProtoField.new("Day Open Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.dayopenprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.deepest_price = ProtoField.new("Deepest Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.deepestprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.definition_flags = ProtoField.new("Definition Flags", "coinbase.derivatives.marketdataapi.sbe.v1.7.definitionflags", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.description = ProtoField.new("Description", "coinbase.derivatives.marketdataapi.sbe.v1.7.description", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.details = ProtoField.new("Details", "coinbase.derivatives.marketdataapi.sbe.v1.7.details", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.7.firsttradingsessiondate", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.frame_length = ProtoField.new("Frame Length", "coinbase.derivatives.marketdataapi.sbe.v1.7.framelength", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.high_price = ProtoField.new("High Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.highprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.indicativeopenprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_header = ProtoField.new("Instr Header", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrheader", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_seq_num = ProtoField.new("Instr Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrseqnum", ftypes.UINT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_flags = ProtoField.new("Instrument Flags", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrumentflags", ftypes.UINT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrumentid", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_side = ProtoField.new("Instrument Side", "coinbase.derivatives.marketdataapi.sbe.v1.7.instrumentside", ftypes.INT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_announced = ProtoField.new("Is Announced", "coinbase.derivatives.marketdataapi.sbe.v1.7.isannounced", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_call = ProtoField.new("Is Call", "coinbase.derivatives.marketdataapi.sbe.v1.7.iscall", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "coinbase.derivatives.marketdataapi.sbe.v1.7.ispriorsettlementtheoretical", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_strike_delisted = ProtoField.new("Is Strike Delisted", "coinbase.derivatives.marketdataapi.sbe.v1.7.isstrikedelisted", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick = ProtoField.new("Large Tick", "coinbase.derivatives.marketdataapi.sbe.v1.7.largetick", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick_threshold = ProtoField.new("Large Tick Threshold", "coinbase.derivatives.marketdataapi.sbe.v1.7.largetickthreshold", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.lastinstrseqnum", ftypes.UINT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradeprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradeqty", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradetime", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.7.lasttradingsessiondate", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.leg1instrumentid", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.leg2instrumentid", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_down_price = ProtoField.new("Limit Down Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.limitdownprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_up_price = ProtoField.new("Limit Up Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.limitupprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.logical_expiry = ProtoField.new("Logical Expiry", "coinbase.derivatives.marketdataapi.sbe.v1.7.logicalexpiry", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.low_price = ProtoField.new("Low Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.lowprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.match_id = ProtoField.new("Match Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.matchid", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_count = ProtoField.new("Message Count", "coinbase.derivatives.marketdataapi.sbe.v1.7.messagecount", ftypes.UINT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_header = ProtoField.new("Message Header", "coinbase.derivatives.marketdataapi.sbe.v1.7.messageheader", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.month = ProtoField.new("Month", "coinbase.derivatives.marketdataapi.sbe.v1.7.month", ftypes.INT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.newleg1price", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.newleg2price", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_price = ProtoField.new("New Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.newprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextaskimpliedprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_qty = ProtoField.new("Next Ask Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextaskimpliedqty", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextbidimpliedprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_qty = ProtoField.new("Next Bid Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextbidimpliedqty", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_price = ProtoField.new("Next Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_qty = ProtoField.new("Next Qty", "coinbase.derivatives.marketdataapi.sbe.v1.7.nextqty", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_contract_size = ProtoField.new("Old Contract Size", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldcontractsize", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_1_price = ProtoField.new("Old Leg 1 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldleg1price", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_2_price = ProtoField.new("Old Leg 2 Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldleg2price", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_price = ProtoField.new("Old Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.oldprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest = ProtoField.new("Open Interest", "coinbase.derivatives.marketdataapi.sbe.v1.7.openinterest", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_expiry_type = ProtoField.new("Option Expiry Type", "coinbase.derivatives.marketdataapi.sbe.v1.7.optionexpirytype", ftypes.INT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_count = ProtoField.new("Order Count", "coinbase.derivatives.marketdataapi.sbe.v1.7.ordercount", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_id = ProtoField.new("Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.orderid", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.marketdataapi.sbe.v1.7.packet", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.derivatives.marketdataapi.sbe.v1.7.packetflags", ftypes.UINT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_header = ProtoField.new("Packet Header", "coinbase.derivatives.marketdataapi.sbe.v1.7.packetheader", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.marketdataapi.sbe.v1.7.padding", ftypes.BYTES)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.marketdataapi.sbe.v1.7.payload", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.price = ProtoField.new("Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.price", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.priorsettlementprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price_optional = ProtoField.new("Prior Settlement Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.7.priorsettlementpriceoptional", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_code = ProtoField.new("Product Code", "coinbase.derivatives.marketdataapi.sbe.v1.7.productcode", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_group = ProtoField.new("Product Group", "coinbase.derivatives.marketdataapi.sbe.v1.7.productgroup", ftypes.INT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_id = ProtoField.new("Product Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.productid", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.marketdataapi.sbe.v1.7.quantity", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reason = ProtoField.new("Reason", "coinbase.derivatives.marketdataapi.sbe.v1.7.reason", ftypes.INT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved = ProtoField.new("Reserved", "coinbase.derivatives.marketdataapi.sbe.v1.7.reserved", ftypes.INT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved_12 = ProtoField.new("Reserved 12", "coinbase.derivatives.marketdataapi.sbe.v1.7.reserved12", ftypes.UINT16, nil, base.DEC, 0xFFF0)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.derivatives.marketdataapi.sbe.v1.7.retrydelaynanos", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.sbemessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.schemaid", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sell_order_id = ProtoField.new("Sell Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.sellorderid", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sending_time = ProtoField.new("Sending Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.sendingtime", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.seq_num = ProtoField.new("Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.seqnum", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.settlementprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.small_tick = ProtoField.new("Small Tick", "coinbase.derivatives.marketdataapi.sbe.v1.7.smalltick", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.snapshotinstrumentid", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.7.snapshotseqnum", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "coinbase.derivatives.marketdataapi.sbe.v1.7.spreadbuyconvention", ftypes.INT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.stat_type = ProtoField.new("Stat Type", "coinbase.derivatives.marketdataapi.sbe.v1.7.stattype", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.strike_price = ProtoField.new("Strike Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.strikeprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.symbol = ProtoField.new("Symbol", "coinbase.derivatives.marketdataapi.sbe.v1.7.symbol", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.template_id = ProtoField.new("Template Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.templateid", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.tick_size = ProtoField.new("Tick Size", "coinbase.derivatives.marketdataapi.sbe.v1.7.ticksize", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_volume = ProtoField.new("Trade Volume", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradevolume", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_session_date = ProtoField.new("Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradingsessiondate", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status = ProtoField.new("Trading Status", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradingstatus", ftypes.INT8)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.transact_time = ProtoField.new("Transact Time", "coinbase.derivatives.marketdataapi.sbe.v1.7.transacttime", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.7.underlyinginstrumentid", ftypes.INT32)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.version = ProtoField.new("Version", "coinbase.derivatives.marketdataapi.sbe.v1.7.version", ftypes.UINT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.derivatives.marketdataapi.sbe.v1.7.vwapprice", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.7.vwappriceoptional", ftypes.DOUBLE)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.week_of_month = ProtoField.new("Week Of Month", "coinbase.derivatives.marketdataapi.sbe.v1.7.weekofmonth", ftypes.INT16)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.year = ProtoField.new("Year", "coinbase.derivatives.marketdataapi.sbe.v1.7.year", ftypes.INT16)
 
 -- Coinbase Derivatives MarketDataApi Sbe 1.7 messages
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_cycle_message = ProtoField.new("End Of Cycle Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.endofcyclemessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.endofsnapshotmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.impliedorderupdatemessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.market_stat_message = ProtoField.new("Market Stat Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.marketstatmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest_message = ProtoField.new("Open Interest Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.openinterestmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_instrument_definition_message = ProtoField.new("Option Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.optioninstrumentdefinitionmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_delete_message = ProtoField.new("Order Delete Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.orderdeletemessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_put_message = ProtoField.new("Order Put Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.orderputmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_snapshot_message = ProtoField.new("Order Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.ordersnapshotmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.outright_instrument_definition_message = ProtoField.new("Outright Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.outrightinstrumentdefinitionmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_reject_message = ProtoField.new("Retransmit Reject Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.retransmitrejectmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_request_message = ProtoField.new("Retransmit Request Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.retransmitrequestmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_instrument_definition_message = ProtoField.new("Spread Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.spreadinstrumentdefinitionmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_trade_amend_message = ProtoField.new("Spread Trade Amend Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.spreadtradeamendmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_option_instrument_snapshot_message = ProtoField.new("Start Of Option Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.startofoptioninstrumentsnapshotmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_outright_instrument_snapshot_message = ProtoField.new("Start Of Outright Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.startofoutrightinstrumentsnapshotmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_spread_instrument_snapshot_message = ProtoField.new("Start Of Spread Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.startofspreadinstrumentsnapshotmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_amend_message = ProtoField.new("Trade Amend Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradeamendmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradebustmessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_message = ProtoField.new("Trade Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.trademessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_session_volume_message = ProtoField.new("Trade Session Volume Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradesessionvolumemessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradesummarymessage", ftypes.STRING)
-coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status_update_message = ProtoField.new("Trading Status Update Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradingstatusupdatemessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_cycle_message = ProtoField.new("End Of Cycle Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.endofcyclemessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.endofsnapshotmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.impliedorderupdatemessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.market_stat_message = ProtoField.new("Market Stat Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.marketstatmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest_message = ProtoField.new("Open Interest Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.openinterestmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_instrument_definition_message = ProtoField.new("Option Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.optioninstrumentdefinitionmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_delete_message = ProtoField.new("Order Delete Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.orderdeletemessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_put_message = ProtoField.new("Order Put Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.orderputmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_snapshot_message = ProtoField.new("Order Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.ordersnapshotmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.outright_instrument_definition_message = ProtoField.new("Outright Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.outrightinstrumentdefinitionmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_reject_message = ProtoField.new("Retransmit Reject Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.retransmitrejectmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_request_message = ProtoField.new("Retransmit Request Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.retransmitrequestmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_instrument_definition_message = ProtoField.new("Spread Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.spreadinstrumentdefinitionmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_trade_amend_message = ProtoField.new("Spread Trade Amend Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.spreadtradeamendmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_option_instrument_snapshot_message = ProtoField.new("Start Of Option Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.startofoptioninstrumentsnapshotmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_outright_instrument_snapshot_message = ProtoField.new("Start Of Outright Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.startofoutrightinstrumentsnapshotmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_spread_instrument_snapshot_message = ProtoField.new("Start Of Spread Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.startofspreadinstrumentsnapshotmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_amend_message = ProtoField.new("Trade Amend Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradeamendmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradebustmessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_message = ProtoField.new("Trade Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.trademessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_session_volume_message = ProtoField.new("Trade Session Volume Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradesessionvolumemessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradesummarymessage", ftypes.STRING)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status_update_message = ProtoField.new("Trading Status Update Message", "coinbase.derivatives.marketdataapi.sbe.v1.7.tradingstatusupdatemessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -196,165 +196,165 @@ show.trading_status_update_message = true
 show.payload = false
 
 -- Register Coinbase Derivatives MarketDataApi Sbe 1.7 Show Options
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_cycle_message = Pref.bool("Show End Of Cycle Message", show.end_of_cycle_message, "Parse and add End Of Cycle Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_implied_order_update_message = Pref.bool("Show Implied Order Update Message", show.implied_order_update_message, "Parse and add Implied Order Update Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_logical_expiry = Pref.bool("Show Logical Expiry", show.logical_expiry, "Parse and add Logical Expiry to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_market_stat_message = Pref.bool("Show Market Stat Message", show.market_stat_message, "Parse and add Market Stat Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_option_instrument_definition_message = Pref.bool("Show Option Instrument Definition Message", show.option_instrument_definition_message, "Parse and add Option Instrument Definition Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_put_message = Pref.bool("Show Order Put Message", show.order_put_message, "Parse and add Order Put Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_snapshot_message = Pref.bool("Show Order Snapshot Message", show.order_snapshot_message, "Parse and add Order Snapshot Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_outright_instrument_definition_message = Pref.bool("Show Outright Instrument Definition Message", show.outright_instrument_definition_message, "Parse and add Outright Instrument Definition Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_reject_message = Pref.bool("Show Retransmit Reject Message", show.retransmit_reject_message, "Parse and add Retransmit Reject Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_request_message = Pref.bool("Show Retransmit Request Message", show.retransmit_request_message, "Parse and add Retransmit Request Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_instrument_definition_message = Pref.bool("Show Spread Instrument Definition Message", show.spread_instrument_definition_message, "Parse and add Spread Instrument Definition Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_trade_amend_message = Pref.bool("Show Spread Trade Amend Message", show.spread_trade_amend_message, "Parse and add Spread Trade Amend Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_option_instrument_snapshot_message = Pref.bool("Show Start Of Option Instrument Snapshot Message", show.start_of_option_instrument_snapshot_message, "Parse and add Start Of Option Instrument Snapshot Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_outright_instrument_snapshot_message = Pref.bool("Show Start Of Outright Instrument Snapshot Message", show.start_of_outright_instrument_snapshot_message, "Parse and add Start Of Outright Instrument Snapshot Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_spread_instrument_snapshot_message = Pref.bool("Show Start Of Spread Instrument Snapshot Message", show.start_of_spread_instrument_snapshot_message, "Parse and add Start Of Spread Instrument Snapshot Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_amend_message = Pref.bool("Show Trade Amend Message", show.trade_amend_message, "Parse and add Trade Amend Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_session_volume_message = Pref.bool("Show Trade Session Volume Message", show.trade_session_volume_message, "Parse and add Trade Session Volume Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message = Pref.bool("Show Trading Status Update Message", show.trading_status_update_message, "Parse and add Trading Status Update Message to protocol tree")
-coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_cycle_message = Pref.bool("Show End Of Cycle Message", show.end_of_cycle_message, "Parse and add End Of Cycle Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_implied_order_update_message = Pref.bool("Show Implied Order Update Message", show.implied_order_update_message, "Parse and add Implied Order Update Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_logical_expiry = Pref.bool("Show Logical Expiry", show.logical_expiry, "Parse and add Logical Expiry to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_market_stat_message = Pref.bool("Show Market Stat Message", show.market_stat_message, "Parse and add Market Stat Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_option_instrument_definition_message = Pref.bool("Show Option Instrument Definition Message", show.option_instrument_definition_message, "Parse and add Option Instrument Definition Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_put_message = Pref.bool("Show Order Put Message", show.order_put_message, "Parse and add Order Put Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_snapshot_message = Pref.bool("Show Order Snapshot Message", show.order_snapshot_message, "Parse and add Order Snapshot Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_outright_instrument_definition_message = Pref.bool("Show Outright Instrument Definition Message", show.outright_instrument_definition_message, "Parse and add Outright Instrument Definition Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_reject_message = Pref.bool("Show Retransmit Reject Message", show.retransmit_reject_message, "Parse and add Retransmit Reject Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_request_message = Pref.bool("Show Retransmit Request Message", show.retransmit_request_message, "Parse and add Retransmit Request Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_instrument_definition_message = Pref.bool("Show Spread Instrument Definition Message", show.spread_instrument_definition_message, "Parse and add Spread Instrument Definition Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_trade_amend_message = Pref.bool("Show Spread Trade Amend Message", show.spread_trade_amend_message, "Parse and add Spread Trade Amend Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_option_instrument_snapshot_message = Pref.bool("Show Start Of Option Instrument Snapshot Message", show.start_of_option_instrument_snapshot_message, "Parse and add Start Of Option Instrument Snapshot Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_outright_instrument_snapshot_message = Pref.bool("Show Start Of Outright Instrument Snapshot Message", show.start_of_outright_instrument_snapshot_message, "Parse and add Start Of Outright Instrument Snapshot Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_spread_instrument_snapshot_message = Pref.bool("Show Start Of Spread Instrument Snapshot Message", show.start_of_spread_instrument_snapshot_message, "Parse and add Start Of Spread Instrument Snapshot Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_amend_message = Pref.bool("Show Trade Amend Message", show.trade_amend_message, "Parse and add Trade Amend Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_session_volume_message = Pref.bool("Show Trade Session Volume Message", show.trade_session_volume_message, "Parse and add Trade Session Volume Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message = Pref.bool("Show Trading Status Update Message", show.trading_status_update_message, "Parse and add Trading Status Update Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function coinbase_derivatives_marketdataapi_sbe_v1_7.prefs_changed()
+function omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.definition_flags ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_definition_flags then
-    show.definition_flags = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_definition_flags
+  if show.definition_flags ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_definition_flags then
+    show.definition_flags = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_definition_flags
     changed = true
   end
-  if show.end_of_cycle_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_cycle_message then
-    show.end_of_cycle_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_cycle_message
+  if show.end_of_cycle_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_cycle_message then
+    show.end_of_cycle_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_cycle_message
     changed = true
   end
-  if show.end_of_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_snapshot_message then
-    show.end_of_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_snapshot_message
+  if show.end_of_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_snapshot_message then
+    show.end_of_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_end_of_snapshot_message
     changed = true
   end
-  if show.implied_order_update_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_implied_order_update_message then
-    show.implied_order_update_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_implied_order_update_message
+  if show.implied_order_update_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_implied_order_update_message then
+    show.implied_order_update_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_implied_order_update_message
     changed = true
   end
-  if show.instr_header ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_instr_header then
-    show.instr_header = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_instr_header
+  if show.instr_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_instr_header then
+    show.instr_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_instr_header
     changed = true
   end
-  if show.logical_expiry ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_logical_expiry then
-    show.logical_expiry = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_logical_expiry
+  if show.logical_expiry ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_logical_expiry then
+    show.logical_expiry = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_logical_expiry
     changed = true
   end
-  if show.market_stat_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_market_stat_message then
-    show.market_stat_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_market_stat_message
+  if show.market_stat_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_market_stat_message then
+    show.market_stat_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_market_stat_message
     changed = true
   end
-  if show.message_header ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_message_header then
-    show.message_header = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_message_header
+  if show.message_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_message_header then
+    show.message_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_message_header
     changed = true
   end
-  if show.open_interest_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_open_interest_message then
-    show.open_interest_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_open_interest_message
+  if show.open_interest_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_open_interest_message then
+    show.open_interest_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_open_interest_message
     changed = true
   end
-  if show.option_instrument_definition_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_option_instrument_definition_message then
-    show.option_instrument_definition_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_option_instrument_definition_message
+  if show.option_instrument_definition_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_option_instrument_definition_message then
+    show.option_instrument_definition_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_option_instrument_definition_message
     changed = true
   end
-  if show.order_delete_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_delete_message then
-    show.order_delete_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_delete_message
+  if show.order_delete_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_delete_message then
+    show.order_delete_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_delete_message
     changed = true
   end
-  if show.order_put_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_put_message then
-    show.order_put_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_put_message
+  if show.order_put_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_put_message then
+    show.order_put_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_put_message
     changed = true
   end
-  if show.order_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_snapshot_message then
-    show.order_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_snapshot_message
+  if show.order_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_snapshot_message then
+    show.order_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_order_snapshot_message
     changed = true
   end
-  if show.outright_instrument_definition_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_outright_instrument_definition_message then
-    show.outright_instrument_definition_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_outright_instrument_definition_message
+  if show.outright_instrument_definition_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_outright_instrument_definition_message then
+    show.outright_instrument_definition_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_outright_instrument_definition_message
     changed = true
   end
-  if show.packet ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet then
-    show.packet = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet
+  if show.packet ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet then
+    show.packet = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet_header then
-    show.packet_header = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet_header
+  if show.packet_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet_header then
+    show.packet_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_packet_header
     changed = true
   end
-  if show.retransmit_reject_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_reject_message then
-    show.retransmit_reject_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_reject_message
+  if show.retransmit_reject_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_reject_message then
+    show.retransmit_reject_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_reject_message
     changed = true
   end
-  if show.retransmit_request_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_request_message then
-    show.retransmit_request_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_request_message
+  if show.retransmit_request_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_request_message then
+    show.retransmit_request_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_retransmit_request_message
     changed = true
   end
-  if show.sbe_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_sbe_message then
-    show.sbe_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_sbe_message
+  if show.sbe_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_sbe_message then
+    show.sbe_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_sbe_message
     changed = true
   end
-  if show.spread_instrument_definition_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_instrument_definition_message then
-    show.spread_instrument_definition_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_instrument_definition_message
+  if show.spread_instrument_definition_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_instrument_definition_message then
+    show.spread_instrument_definition_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_instrument_definition_message
     changed = true
   end
-  if show.spread_trade_amend_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_trade_amend_message then
-    show.spread_trade_amend_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_trade_amend_message
+  if show.spread_trade_amend_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_trade_amend_message then
+    show.spread_trade_amend_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_spread_trade_amend_message
     changed = true
   end
-  if show.start_of_option_instrument_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_option_instrument_snapshot_message then
-    show.start_of_option_instrument_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_option_instrument_snapshot_message
+  if show.start_of_option_instrument_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_option_instrument_snapshot_message then
+    show.start_of_option_instrument_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_option_instrument_snapshot_message
     changed = true
   end
-  if show.start_of_outright_instrument_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_outright_instrument_snapshot_message then
-    show.start_of_outright_instrument_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_outright_instrument_snapshot_message
+  if show.start_of_outright_instrument_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_outright_instrument_snapshot_message then
+    show.start_of_outright_instrument_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_outright_instrument_snapshot_message
     changed = true
   end
-  if show.start_of_spread_instrument_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_spread_instrument_snapshot_message then
-    show.start_of_spread_instrument_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_spread_instrument_snapshot_message
+  if show.start_of_spread_instrument_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_spread_instrument_snapshot_message then
+    show.start_of_spread_instrument_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_start_of_spread_instrument_snapshot_message
     changed = true
   end
-  if show.trade_amend_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_amend_message then
-    show.trade_amend_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_amend_message
+  if show.trade_amend_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_amend_message then
+    show.trade_amend_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_amend_message
     changed = true
   end
-  if show.trade_bust_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_bust_message then
-    show.trade_bust_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_bust_message
+  if show.trade_bust_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_bust_message then
+    show.trade_bust_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_bust_message
     changed = true
   end
-  if show.trade_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_message then
-    show.trade_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_message
+  if show.trade_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_message then
+    show.trade_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_message
     changed = true
   end
-  if show.trade_session_volume_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_session_volume_message then
-    show.trade_session_volume_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_session_volume_message
+  if show.trade_session_volume_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_session_volume_message then
+    show.trade_session_volume_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_session_volume_message
     changed = true
   end
-  if show.trade_summary_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_summary_message then
-    show.trade_summary_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_summary_message
+  if show.trade_summary_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_summary_message then
+    show.trade_summary_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trade_summary_message
     changed = true
   end
-  if show.trading_status_update_message ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message then
-    show.trading_status_update_message = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message
+  if show.trading_status_update_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message then
+    show.trading_status_update_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_trading_status_update_message
     changed = true
   end
-  if show.payload ~= coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload then
-    show.payload = coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload
+  if show.payload ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload then
+    show.payload = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.prefs.show_payload
     changed = true
   end
 
@@ -380,7 +380,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.padding = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.padding(value, buffer, offset, packet, parent, size)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.padding, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.padding, range, value, display)
 
   return offset + size
 end
@@ -413,7 +413,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.reason = function(buffer, of
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -449,7 +449,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.details = function(buffer, o
 
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.details(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.details, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.details, range, value, display)
 
   return offset + length, value
 end
@@ -469,7 +469,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.retry_delay_nanos = function
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.retry_delay_nanos(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retry_delay_nanos, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retry_delay_nanos, range, value, display)
 
   return offset + length, value
 end
@@ -512,7 +512,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.retransmit_reject_message = function(buffer, offset, packet, parent)
   if show.retransmit_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_reject_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.retransmit_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -541,7 +541,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.message_count = function(buf
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_count, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -561,7 +561,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.begin_seq_num = function(buf
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.begin_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.begin_seq_num, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.begin_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -599,7 +599,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.retransmit_request_message = function(buffer, offset, packet, parent)
   if show.retransmit_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_request_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.retransmit_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.retransmit_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -628,7 +628,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.active_instrument_count = fu
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.active_instrument_count(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.active_instrument_count, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.active_instrument_count, range, value, display)
 
   return offset + length, value
 end
@@ -661,7 +661,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.end_of_cycle_message = function(buffer, offset, packet, parent)
   if show.end_of_cycle_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_cycle_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_cycle_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.end_of_cycle_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -706,19 +706,19 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.definition_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 12: 12 Bit
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved_12, buffer(offset, 2))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved_12, buffer(offset, 2))
 
   -- Is Strike Delisted: 1 Bit
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_strike_delisted, buffer(offset, 2))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_strike_delisted, buffer(offset, 2))
 
   -- Is Call: 1 Bit
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_call, buffer(offset, 2))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_call, buffer(offset, 2))
 
   -- Is Announced: 1 Bit
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_announced, buffer(offset, 2))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_announced, buffer(offset, 2))
 
   -- Is Prior Settlement Theoretical: 1 Bit
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_prior_settlement_theoretical, buffer(offset, 2))
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.is_prior_settlement_theoretical, buffer(offset, 2))
 end
 
 -- Dissect: Definition Flags
@@ -726,7 +726,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.definition_flags = function(
   local size = 2
   local range = buffer(offset, size)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.definition_flags(range, packet, parent)
-  local element = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.definition_flags, range, display)
+  local element = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.definition_flags, range, display)
 
   if show.definition_flags then
     coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.definition_flags_bits(buffer, offset, packet, element)
@@ -766,7 +766,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.prior_settlement_price_optio
   local value = translate.prior_settlement_price_optional(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.prior_settlement_price_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price_optional, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -786,7 +786,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.next_ask_implied_qty = funct
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.next_ask_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -806,7 +806,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.next_bid_implied_qty = funct
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.next_bid_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -826,7 +826,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.best_ask_implied_qty = funct
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.best_ask_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -846,7 +846,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.best_bid_implied_qty = funct
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.best_bid_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -866,7 +866,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.open_interest = function(buf
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.open_interest(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest, range, value, display)
 
   return offset + length, value
 end
@@ -886,7 +886,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.last_trade_qty = function(bu
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.last_trade_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_qty, range, value, display)
 
   return offset + length, value
 end
@@ -912,7 +912,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.limit_up_price = function(bu
   local value = translate.limit_up_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.limit_up_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_up_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_up_price, range, value, display)
 
   return offset + length, value
 end
@@ -938,7 +938,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.limit_down_price = function(
   local value = translate.limit_down_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.limit_down_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_down_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.limit_down_price, range, value, display)
 
   return offset + length, value
 end
@@ -974,7 +974,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.next_ask_implied_price = fun
   local value = translate.next_ask_implied_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.next_ask_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_ask_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -1010,7 +1010,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.next_bid_implied_price = fun
   local value = translate.next_bid_implied_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.next_bid_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_bid_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -1046,7 +1046,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.best_ask_implied_price = fun
   local value = translate.best_ask_implied_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.best_ask_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_ask_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -1082,7 +1082,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.best_bid_implied_price = fun
   local value = translate.best_bid_implied_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.best_bid_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_bid_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -1107,7 +1107,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.last_trade_time = function(b
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.last_trade_time(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_time, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_time, range, value, display)
 
   return offset + length, value
 end
@@ -1143,7 +1143,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.last_trade_price = function(
   local value = translate.last_trade_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.last_trade_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -1179,7 +1179,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.settlement_price = function(
   local value = translate.settlement_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.settlement_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.settlement_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.settlement_price, range, value, display)
 
   return offset + length, value
 end
@@ -1215,7 +1215,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.vwap_price_optional = functi
   local value = translate.vwap_price_optional(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.vwap_price_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price_optional, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1251,7 +1251,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.high_price = function(buffer
   local value = translate.high_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.high_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.high_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -1287,7 +1287,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.low_price = function(buffer,
   local value = translate.low_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.low_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.low_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -1323,7 +1323,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.close_price = function(buffe
   local value = translate.close_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.close_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.close_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.close_price, range, value, display)
 
   return offset + length, value
 end
@@ -1359,7 +1359,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.day_open_price = function(bu
   local value = translate.day_open_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.day_open_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_open_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_open_price, range, value, display)
 
   return offset + length, value
 end
@@ -1395,7 +1395,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.indicative_open_price = func
   local value = translate.indicative_open_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.indicative_open_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.indicative_open_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.indicative_open_price, range, value, display)
 
   return offset + length, value
 end
@@ -1415,7 +1415,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_volume = function(buff
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.trade_volume(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_volume, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1435,7 +1435,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.snapshot_seq_num = function(
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.snapshot_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_seq_num, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1588,7 +1588,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.end_of_snapshot_message = function(buffer, offset, packet, parent)
   if show.end_of_snapshot_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_snapshot_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.end_of_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.end_of_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1623,7 +1623,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.price = function(buffer, off
   local value = translate.price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1643,7 +1643,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_id = function(buffer, 
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1663,7 +1663,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.transact_time = function(buf
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.transact_time, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -1683,7 +1683,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.quantity = function(buffer, 
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.quantity, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1736,7 +1736,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_snapshot_message = function(buffer, offset, packet, parent)
   if show.order_snapshot_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_snapshot_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1765,7 +1765,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.day_of_month = function(buff
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.day_of_month(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_of_month, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.day_of_month, range, value, display)
 
   return offset + length, value
 end
@@ -1785,7 +1785,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.week_of_month = function(buf
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.week_of_month(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.week_of_month, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.week_of_month, range, value, display)
 
   return offset + length, value
 end
@@ -1805,7 +1805,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.month = function(buffer, off
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.month(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.month, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.month, range, value, display)
 
   return offset + length, value
 end
@@ -1825,7 +1825,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.year = function(buffer, offs
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.year(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.year, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.year, range, value, display)
 
   return offset + length, value
 end
@@ -1873,7 +1873,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.logical_expiry = function(buffer, offset, packet, parent)
   if show.logical_expiry then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.logical_expiry, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.logical_expiry, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.logical_expiry_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -1909,7 +1909,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.option_expiry_type = functio
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.option_expiry_type(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_expiry_type, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_expiry_type, range, value, display)
 
   return offset + length, value
 end
@@ -1951,7 +1951,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trading_status = function(bu
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1993,7 +1993,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.product_group = function(buf
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.product_group(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_group, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_group, range, value, display)
 
   return offset + length, value
 end
@@ -2013,7 +2013,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trading_session_date = funct
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.trading_session_date(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_session_date, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_session_date, range, value, display)
 
   return offset + length, value
 end
@@ -2033,7 +2033,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.last_trading_session_date = 
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.last_trading_session_date(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trading_session_date, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_trading_session_date, range, value, display)
 
   return offset + length, value
 end
@@ -2053,7 +2053,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.first_trading_session_date =
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.first_trading_session_date(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.first_trading_session_date, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.first_trading_session_date, range, value, display)
 
   return offset + length, value
 end
@@ -2073,7 +2073,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_count = function(buffe
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.order_count(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_count, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_count, range, value, display)
 
   return offset + length, value
 end
@@ -2093,7 +2093,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.underlying_instrument_id = f
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.underlying_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.underlying_instrument_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.underlying_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -2113,7 +2113,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.product_id = function(buffer
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -2139,7 +2139,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.strike_price = function(buff
   local value = translate.strike_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.strike_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2165,7 +2165,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.large_tick_threshold = funct
   local value = translate.large_tick_threshold(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.large_tick_threshold(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick_threshold, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick_threshold, range, value, display)
 
   return offset + length, value
 end
@@ -2191,7 +2191,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.large_tick = function(buffer
   local value = translate.large_tick(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.large_tick(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.large_tick, range, value, display)
 
   return offset + length, value
 end
@@ -2227,7 +2227,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.cfi_code = function(buffer, 
 
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.cfi_code(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.cfi_code, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.cfi_code, range, value, display)
 
   return offset + length, value
 end
@@ -2253,7 +2253,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.small_tick = function(buffer
   local value = translate.small_tick(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.small_tick(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.small_tick, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.small_tick, range, value, display)
 
   return offset + length, value
 end
@@ -2289,7 +2289,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.description = function(buffe
 
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.description(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.description, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.description, range, value, display)
 
   return offset + length, value
 end
@@ -2325,7 +2325,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.product_code = function(buff
 
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.product_code(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_code, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.product_code, range, value, display)
 
   return offset + length, value
 end
@@ -2361,7 +2361,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.symbol = function(buffer, of
 
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.symbol, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2381,7 +2381,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.last_instr_seq_num = functio
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.last_instr_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_instr_seq_num, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.last_instr_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2514,7 +2514,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.start_of_option_instrument_snapshot_message = function(buffer, offset, packet, parent)
   if show.start_of_option_instrument_snapshot_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_option_instrument_snapshot_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_option_instrument_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.start_of_option_instrument_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2550,7 +2550,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.spread_buy_convention = func
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.spread_buy_convention(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_buy_convention, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_buy_convention, range, value, display)
 
   return offset + length, value
 end
@@ -2570,7 +2570,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.leg_2_instrument_id = functi
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.leg_2_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_2_instrument_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_2_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -2590,7 +2590,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.leg_1_instrument_id = functi
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.leg_1_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_1_instrument_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.leg_1_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -2610,7 +2610,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.old_contract_size = function
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.old_contract_size(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_contract_size, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_contract_size, range, value, display)
 
   return offset + length, value
 end
@@ -2646,7 +2646,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.currency = function(buffer, 
 
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.currency, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -2672,7 +2672,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.tick_size = function(buffer,
   local value = translate.tick_size(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.tick_size(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.tick_size, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.tick_size, range, value, display)
 
   return offset + length, value
 end
@@ -2800,7 +2800,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.start_of_spread_instrument_snapshot_message = function(buffer, offset, packet, parent)
   if show.start_of_spread_instrument_snapshot_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_spread_instrument_snapshot_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_spread_instrument_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.start_of_spread_instrument_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2829,7 +2829,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.contract_size = function(buf
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.contract_size(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.contract_size, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.contract_size, range, value, display)
 
   return offset + length, value
 end
@@ -2947,7 +2947,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.start_of_outright_instrument_snapshot_message = function(buffer, offset, packet, parent)
   if show.start_of_outright_instrument_snapshot_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_outright_instrument_snapshot_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.start_of_outright_instrument_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.start_of_outright_instrument_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -2976,7 +2976,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.reserved = function(buffer, 
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2996,7 +2996,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.instr_seq_num = function(buf
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.instr_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_seq_num, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3016,7 +3016,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.instrument_id = function(buf
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -3036,7 +3036,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.instrument_side = function(b
   local value = range:int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.instrument_side(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_side, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_side, range, value, display)
 
   return offset + length, value
 end
@@ -3056,7 +3056,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.instrument_flags = function(
   local value = range:uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.instrument_flags(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_flags, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instrument_flags, range, value, display)
 
   return offset + length, value
 end
@@ -3119,7 +3119,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.instr_header = function(buffer, offset, packet, parent)
   if show.instr_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_header, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.instr_header, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.instr_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3166,7 +3166,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.open_interest_message = function(buffer, offset, packet, parent)
   if show.open_interest_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.open_interest_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.open_interest_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3201,7 +3201,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.vwap_price = function(buffer
   local value = translate.vwap_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.vwap_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.vwap_price, range, value, display)
 
   return offset + length, value
 end
@@ -3244,7 +3244,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_session_volume_message = function(buffer, offset, packet, parent)
   if show.trade_session_volume_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_session_volume_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_session_volume_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_session_volume_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3308,7 +3308,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.stat_type = function(buffer,
 
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.stat_type(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.stat_type, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.stat_type, range, value, display)
 
   return offset + length, value
 end
@@ -3351,7 +3351,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.market_stat_message = function(buffer, offset, packet, parent)
   if show.market_stat_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.market_stat_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.market_stat_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.market_stat_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3385,7 +3385,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.sell_order_id = function(buf
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.sell_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sell_order_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sell_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3410,7 +3410,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.buy_order_id = function(buff
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.buy_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.buy_order_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.buy_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3430,7 +3430,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.match_id = function(buffer, 
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.match_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.match_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.match_id, range, value, display)
 
   return offset + length, value
 end
@@ -3478,7 +3478,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_bust_message = function(buffer, offset, packet, parent)
   if show.trade_bust_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_bust_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_bust_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_bust_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3513,7 +3513,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.new_leg_2_price = function(b
   local value = translate.new_leg_2_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.new_leg_2_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_2_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_2_price, range, value, display)
 
   return offset + length, value
 end
@@ -3539,7 +3539,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.old_leg_2_price = function(b
   local value = translate.old_leg_2_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.old_leg_2_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_2_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_2_price, range, value, display)
 
   return offset + length, value
 end
@@ -3565,7 +3565,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.new_leg_1_price = function(b
   local value = translate.new_leg_1_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.new_leg_1_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_1_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_leg_1_price, range, value, display)
 
   return offset + length, value
 end
@@ -3591,7 +3591,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.old_leg_1_price = function(b
   local value = translate.old_leg_1_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.old_leg_1_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_1_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_leg_1_price, range, value, display)
 
   return offset + length, value
 end
@@ -3617,7 +3617,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.new_price = function(buffer,
   local value = translate.new_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.new_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.new_price, range, value, display)
 
   return offset + length, value
 end
@@ -3643,7 +3643,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.old_price = function(buffer,
   local value = translate.old_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.old_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.old_price, range, value, display)
 
   return offset + length, value
 end
@@ -3721,7 +3721,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.spread_trade_amend_message = function(buffer, offset, packet, parent)
   if show.spread_trade_amend_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_trade_amend_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_trade_amend_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.spread_trade_amend_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3788,7 +3788,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_amend_message = function(buffer, offset, packet, parent)
   if show.trade_amend_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_amend_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_amend_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_amend_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3855,7 +3855,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -3890,7 +3890,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.deepest_price = function(buf
   local value = translate.deepest_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.deepest_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.deepest_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.deepest_price, range, value, display)
 
   return offset + length, value
 end
@@ -3910,7 +3910,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.aggressor_receive_time = fun
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.aggressor_receive_time(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_receive_time, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_receive_time, range, value, display)
 
   return offset + length, value
 end
@@ -3930,7 +3930,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.aggressor_order_id = functio
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.aggressor_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_order_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.aggressor_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3988,7 +3988,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_summary_message = function(buffer, offset, packet, parent)
   if show.trade_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_summary_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trade_summary_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trade_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4017,7 +4017,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.next_qty = function(buffer, 
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.next_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4037,7 +4037,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.best_qty = function(buffer, 
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.best_qty(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_qty, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4073,7 +4073,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.next_price = function(buffer
   local value = translate.next_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.next_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.next_price, range, value, display)
 
   return offset + length, value
 end
@@ -4109,7 +4109,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.best_price = function(buffer
   local value = translate.best_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.best_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.best_price, range, value, display)
 
   return offset + length, value
 end
@@ -4162,7 +4162,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.implied_order_update_message = function(buffer, offset, packet, parent)
   if show.implied_order_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.implied_order_update_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.implied_order_update_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.implied_order_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4209,7 +4209,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_delete_message = function(buffer, offset, packet, parent)
   if show.order_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_delete_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_delete_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_delete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4266,7 +4266,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_put_message = function(buffer, offset, packet, parent)
   if show.order_put_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_put_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.order_put_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.order_put_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4323,7 +4323,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trading_status_update_message = function(buffer, offset, packet, parent)
   if show.trading_status_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status_update_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.trading_status_update_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.trading_status_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4358,7 +4358,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.prior_settlement_price = fun
   local value = translate.prior_settlement_price(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.prior_settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.prior_settlement_price, range, value, display)
 
   return offset + length, value
 end
@@ -4486,7 +4486,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.option_instrument_definition_message = function(buffer, offset, packet, parent)
   if show.option_instrument_definition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_instrument_definition_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.option_instrument_definition_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.option_instrument_definition_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4633,7 +4633,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.spread_instrument_definition_message = function(buffer, offset, packet, parent)
   if show.spread_instrument_definition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_instrument_definition_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.spread_instrument_definition_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.spread_instrument_definition_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -4770,7 +4770,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.outright_instrument_definition_message = function(buffer, offset, packet, parent)
   if show.outright_instrument_definition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.outright_instrument_definition_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.outright_instrument_definition_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.outright_instrument_definition_message_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5000,7 +5000,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.payload = function(buffer, o
   -- Dissect Element
   local range = buffer(offset, size)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.payload(buffer, packet, parent)
-  local element = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.payload, range, display)
+  local element = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.payload, range, display)
 
   return coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -5020,7 +5020,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.version = function(buffer, o
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.version(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.version, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -5040,7 +5040,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.schema_id = function(buffer,
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.schema_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -5130,7 +5130,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.template_id = function(buffe
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.template_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -5150,7 +5150,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.block_length = function(buff
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.block_length, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -5170,7 +5170,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.frame_length = function(buff
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.frame_length(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.frame_length, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.frame_length, range, value, display)
 
   return offset + length, value
 end
@@ -5223,7 +5223,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_header, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.message_header, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5273,7 +5273,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.sbe_message = function(buffe
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sbe_message, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sbe_message, buffer(offset, 0))
     local current = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
     local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.sbe_message(buffer, packet, parent)
@@ -5303,7 +5303,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.snapshot_instrument_id = fun
   local value = range:le_int()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.snapshot_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_instrument_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.snapshot_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -5323,7 +5323,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.packet_flags = function(buff
   local value = range:uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.packet_flags(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_flags, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_flags, range, value, display)
 
   return offset + length, value
 end
@@ -5343,7 +5343,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.channel_id = function(buffer
   local value = range:le_uint()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.channel_id, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -5363,7 +5363,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.seq_num = function(buffer, o
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.seq_num, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -5387,7 +5387,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.sending_time = function(buff
   local value = range:le_int64()
   local display = coinbase_derivatives_marketdataapi_sbe_v1_7_display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sending_time, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -5445,7 +5445,7 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_header, buffer(offset, 0))
+    parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7.fields.packet_header, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
@@ -5488,23 +5488,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function coinbase_derivatives_marketdataapi_sbe_v1_7.init()
+function omi_coinbase_derivatives_marketdataapi_sbe_v1_7.init()
 end
 
 -- Dissector for Coinbase Derivatives MarketDataApi Sbe 1.7
-function coinbase_derivatives_marketdataapi_sbe_v1_7.dissector(buffer, packet, parent)
+function omi_coinbase_derivatives_marketdataapi_sbe_v1_7.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = coinbase_derivatives_marketdataapi_sbe_v1_7.name
+  packet.cols.protocol = omi_coinbase_derivatives_marketdataapi_sbe_v1_7.name
 
   -- Dissect protocol
-  local protocol = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_7, buffer(), coinbase_derivatives_marketdataapi_sbe_v1_7.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_7, buffer(), omi_coinbase_derivatives_marketdataapi_sbe_v1_7.description, "("..buffer:len().." Bytes)")
   return coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, coinbase_derivatives_marketdataapi_sbe_v1_7)
+udp_table:add(65333, omi_coinbase_derivatives_marketdataapi_sbe_v1_7)
 
 
 -----------------------------------------------------------------------
@@ -5512,7 +5512,7 @@ udp_table:add(65333, coinbase_derivatives_marketdataapi_sbe_v1_7)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.coinbase_derivatives_marketdataapi_sbe_v1_7_packet_size = function(buffer)
+verify.omi_coinbase_derivatives_marketdataapi_sbe_v1_7_packet_size = function(buffer)
 
   return true
 end
@@ -5542,9 +5542,9 @@ verify.version = function(buffer)
 end
 
 -- Dissector Heuristic for Coinbase Derivatives MarketDataApi Sbe 1.7
-local function coinbase_derivatives_marketdataapi_sbe_v1_7_heuristic(buffer, packet, parent)
+local function omi_coinbase_derivatives_marketdataapi_sbe_v1_7_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.coinbase_derivatives_marketdataapi_sbe_v1_7_packet_size(buffer) then return false end
+  if not verify.omi_coinbase_derivatives_marketdataapi_sbe_v1_7_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -5553,14 +5553,14 @@ local function coinbase_derivatives_marketdataapi_sbe_v1_7_heuristic(buffer, pac
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = coinbase_derivatives_marketdataapi_sbe_v1_7
-  coinbase_derivatives_marketdataapi_sbe_v1_7.dissector(buffer, packet, parent)
+  packet.conversation = omi_coinbase_derivatives_marketdataapi_sbe_v1_7
+  omi_coinbase_derivatives_marketdataapi_sbe_v1_7.dissector(buffer, packet, parent)
 
   return true
 end
 
 -- Register Heuristic for Coinbase Derivatives MarketDataApi Sbe 1.7
-coinbase_derivatives_marketdataapi_sbe_v1_7:register_heuristic("udp", coinbase_derivatives_marketdataapi_sbe_v1_7_heuristic)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_7:register_heuristic("udp", omi_coinbase_derivatives_marketdataapi_sbe_v1_7_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
