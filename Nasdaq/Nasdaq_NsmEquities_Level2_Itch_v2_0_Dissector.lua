@@ -12,9 +12,6 @@ local nasdaq_nsmequities_level2_itch_v2_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -236,7 +233,7 @@ nasdaq_nsmequities_level2_itch_v2_0.ipo_price.display = function(value)
 end
 
 -- Translate: Ipo Price
-translate.ipo_price = function(raw)
+nasdaq_nsmequities_level2_itch_v2_0.ipo_price.translate = function(raw)
   return raw/10000
 end
 
@@ -245,7 +242,7 @@ nasdaq_nsmequities_level2_itch_v2_0.ipo_price.dissect = function(buffer, offset,
   local length = nasdaq_nsmequities_level2_itch_v2_0.ipo_price.size
   local range = buffer(offset, length)
   local raw = range:bytes():tohex(false, " ")
-  local value = translate.ipo_price(raw)
+  local value = nasdaq_nsmequities_level2_itch_v2_0.ipo_price.translate(raw)
   local display = nasdaq_nsmequities_level2_itch_v2_0.ipo_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_level2_itch_v2_0.fields.ipo_price, range, value, display)
@@ -545,7 +542,7 @@ nasdaq_nsmequities_level2_itch_v2_0.level_3.display = function(value)
 end
 
 -- Translate: Level 3
-translate.level_3 = function(raw)
+nasdaq_nsmequities_level2_itch_v2_0.level_3.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -554,7 +551,7 @@ nasdaq_nsmequities_level2_itch_v2_0.level_3.dissect = function(buffer, offset, p
   local length = nasdaq_nsmequities_level2_itch_v2_0.level_3.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_3(raw)
+  local value = nasdaq_nsmequities_level2_itch_v2_0.level_3.translate(raw)
   local display = nasdaq_nsmequities_level2_itch_v2_0.level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_level2_itch_v2_0.fields.level_3, range, value, display)
@@ -574,7 +571,7 @@ nasdaq_nsmequities_level2_itch_v2_0.level_2.display = function(value)
 end
 
 -- Translate: Level 2
-translate.level_2 = function(raw)
+nasdaq_nsmequities_level2_itch_v2_0.level_2.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -583,7 +580,7 @@ nasdaq_nsmequities_level2_itch_v2_0.level_2.dissect = function(buffer, offset, p
   local length = nasdaq_nsmequities_level2_itch_v2_0.level_2.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_2(raw)
+  local value = nasdaq_nsmequities_level2_itch_v2_0.level_2.translate(raw)
   local display = nasdaq_nsmequities_level2_itch_v2_0.level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_level2_itch_v2_0.fields.level_2, range, value, display)
@@ -603,7 +600,7 @@ nasdaq_nsmequities_level2_itch_v2_0.level_1.display = function(value)
 end
 
 -- Translate: Level 1
-translate.level_1 = function(raw)
+nasdaq_nsmequities_level2_itch_v2_0.level_1.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -612,7 +609,7 @@ nasdaq_nsmequities_level2_itch_v2_0.level_1.dissect = function(buffer, offset, p
   local length = nasdaq_nsmequities_level2_itch_v2_0.level_1.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_1(raw)
+  local value = nasdaq_nsmequities_level2_itch_v2_0.level_1.translate(raw)
   local display = nasdaq_nsmequities_level2_itch_v2_0.level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_level2_itch_v2_0.fields.level_1, range, value, display)
@@ -816,7 +813,7 @@ nasdaq_nsmequities_level2_itch_v2_0.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_nsmequities_level2_itch_v2_0.price.translate = function(raw)
   return raw/10000
 end
 
@@ -825,7 +822,7 @@ nasdaq_nsmequities_level2_itch_v2_0.price.dissect = function(buffer, offset, pac
   local length = nasdaq_nsmequities_level2_itch_v2_0.price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price(raw)
+  local value = nasdaq_nsmequities_level2_itch_v2_0.price.translate(raw)
   local display = nasdaq_nsmequities_level2_itch_v2_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_level2_itch_v2_0.fields.price, range, value, display)
@@ -2963,7 +2960,7 @@ udp_table:add(65333, omi_nasdaq_nsmequities_level2_itch_v2_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_nsmequities_level2_itch_v2_0_packet_size = function(buffer)
+nasdaq_nsmequities_level2_itch_v2_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2971,7 +2968,7 @@ end
 -- Dissector Heuristic for Nasdaq NsmEquities Level2 Itch 2.0
 local function omi_nasdaq_nsmequities_level2_itch_v2_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_nsmequities_level2_itch_v2_0_packet_size(buffer) then return false end
+  if not nasdaq_nsmequities_level2_itch_v2_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_level2_itch_v2_0

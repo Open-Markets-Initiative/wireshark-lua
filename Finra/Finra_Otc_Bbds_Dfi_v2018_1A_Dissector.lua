@@ -12,8 +12,6 @@ local finra_otc_bbds_dfi_v2018_1a = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -2929,7 +2927,7 @@ udp_table:add(65333, omi_finra_otc_bbds_dfi_v2018_1a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_finra_otc_bbds_dfi_v2018_1a_packet_size = function(buffer)
+finra_otc_bbds_dfi_v2018_1a.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2937,7 +2935,7 @@ end
 -- Dissector Heuristic for Finra Otc Bbds Dfi 2018.1A
 local function omi_finra_otc_bbds_dfi_v2018_1a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_finra_otc_bbds_dfi_v2018_1a_packet_size(buffer) then return false end
+  if not finra_otc_bbds_dfi_v2018_1a.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_finra_otc_bbds_dfi_v2018_1a

@@ -12,9 +12,6 @@ local nasdaq_psxequities_bbo_itch_v2_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -218,7 +215,7 @@ nasdaq_psxequities_bbo_itch_v2_1.nasdaq_best_bid.display = function(value)
 end
 
 -- Translate: Nasdaq Best Bid
-translate.nasdaq_best_bid = function(raw)
+nasdaq_psxequities_bbo_itch_v2_1.nasdaq_best_bid.translate = function(raw)
   return raw/10000
 end
 
@@ -227,7 +224,7 @@ nasdaq_psxequities_bbo_itch_v2_1.nasdaq_best_bid.dissect = function(buffer, offs
   local length = nasdaq_psxequities_bbo_itch_v2_1.nasdaq_best_bid.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.nasdaq_best_bid(raw)
+  local value = nasdaq_psxequities_bbo_itch_v2_1.nasdaq_best_bid.translate(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1.nasdaq_best_bid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.nasdaq_best_bid, range, value, display)
@@ -449,7 +446,7 @@ nasdaq_psxequities_bbo_itch_v2_1.psx_best_offer_price.display = function(value)
 end
 
 -- Translate: Psx Best Offer Price
-translate.psx_best_offer_price = function(raw)
+nasdaq_psxequities_bbo_itch_v2_1.psx_best_offer_price.translate = function(raw)
   return raw/10000
 end
 
@@ -458,7 +455,7 @@ nasdaq_psxequities_bbo_itch_v2_1.psx_best_offer_price.dissect = function(buffer,
   local length = nasdaq_psxequities_bbo_itch_v2_1.psx_best_offer_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.psx_best_offer_price(raw)
+  local value = nasdaq_psxequities_bbo_itch_v2_1.psx_best_offer_price.translate(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1.psx_best_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_offer_price, range, value, display)
@@ -501,7 +498,7 @@ nasdaq_psxequities_bbo_itch_v2_1.psx_best_bid_price.display = function(value)
 end
 
 -- Translate: Psx Best Bid Price
-translate.psx_best_bid_price = function(raw)
+nasdaq_psxequities_bbo_itch_v2_1.psx_best_bid_price.translate = function(raw)
   return raw/10000
 end
 
@@ -510,7 +507,7 @@ nasdaq_psxequities_bbo_itch_v2_1.psx_best_bid_price.dissect = function(buffer, o
   local length = nasdaq_psxequities_bbo_itch_v2_1.psx_best_bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.psx_best_bid_price(raw)
+  local value = nasdaq_psxequities_bbo_itch_v2_1.psx_best_bid_price.translate(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1.psx_best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.psx_best_bid_price, range, value, display)
@@ -849,7 +846,7 @@ nasdaq_psxequities_bbo_itch_v2_1.level_3.display = function(value)
 end
 
 -- Translate: Level 3
-translate.level_3 = function(raw)
+nasdaq_psxequities_bbo_itch_v2_1.level_3.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -858,7 +855,7 @@ nasdaq_psxequities_bbo_itch_v2_1.level_3.dissect = function(buffer, offset, pack
   local length = nasdaq_psxequities_bbo_itch_v2_1.level_3.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_3(raw)
+  local value = nasdaq_psxequities_bbo_itch_v2_1.level_3.translate(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1.level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_3, range, value, display)
@@ -878,7 +875,7 @@ nasdaq_psxequities_bbo_itch_v2_1.level_2.display = function(value)
 end
 
 -- Translate: Level 2
-translate.level_2 = function(raw)
+nasdaq_psxequities_bbo_itch_v2_1.level_2.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -887,7 +884,7 @@ nasdaq_psxequities_bbo_itch_v2_1.level_2.dissect = function(buffer, offset, pack
   local length = nasdaq_psxequities_bbo_itch_v2_1.level_2.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_2(raw)
+  local value = nasdaq_psxequities_bbo_itch_v2_1.level_2.translate(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1.level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_2, range, value, display)
@@ -907,7 +904,7 @@ nasdaq_psxequities_bbo_itch_v2_1.level_1.display = function(value)
 end
 
 -- Translate: Level 1
-translate.level_1 = function(raw)
+nasdaq_psxequities_bbo_itch_v2_1.level_1.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -916,7 +913,7 @@ nasdaq_psxequities_bbo_itch_v2_1.level_1.dissect = function(buffer, offset, pack
   local length = nasdaq_psxequities_bbo_itch_v2_1.level_1.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_1(raw)
+  local value = nasdaq_psxequities_bbo_itch_v2_1.level_1.translate(raw)
   local display = nasdaq_psxequities_bbo_itch_v2_1.level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1.fields.level_1, range, value, display)
@@ -2336,7 +2333,7 @@ udp_table:add(65333, omi_nasdaq_psxequities_bbo_itch_v2_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_psxequities_bbo_itch_v2_1_packet_size = function(buffer)
+nasdaq_psxequities_bbo_itch_v2_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2344,7 +2341,7 @@ end
 -- Dissector Heuristic for Nasdaq PsxEquities Bbo Itch 2.1
 local function omi_nasdaq_psxequities_bbo_itch_v2_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_psxequities_bbo_itch_v2_1_packet_size(buffer) then return false end
+  if not nasdaq_psxequities_bbo_itch_v2_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_psxequities_bbo_itch_v2_1

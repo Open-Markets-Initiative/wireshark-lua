@@ -12,8 +12,6 @@ local nyse_equities_openbook_ultra_v2_1_b = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1580,13 +1578,13 @@ udp_table:add(65333, omi_nyse_equities_openbook_ultra_v2_1_b)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nyse_equities_openbook_ultra_v2_1_b_packet_size = function(buffer)
+nyse_equities_openbook_ultra_v2_1_b.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Product Id Field
-verify.product_id = function(buffer)
+nyse_equities_openbook_ultra_v2_1_b.product_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(12, 1):uint()
 
@@ -1600,10 +1598,10 @@ end
 -- Dissector Heuristic for Nyse Equities OpenBook Ultra 2.1.b
 local function omi_nyse_equities_openbook_ultra_v2_1_b_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nyse_equities_openbook_ultra_v2_1_b_packet_size(buffer) then return false end
+  if not nyse_equities_openbook_ultra_v2_1_b.packet.requiredsize(buffer) then return false end
 
   -- Verify Product Id
-  if not verify.product_id(buffer) then return false end
+  if not nyse_equities_openbook_ultra_v2_1_b.product_id.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_equities_openbook_ultra_v2_1_b

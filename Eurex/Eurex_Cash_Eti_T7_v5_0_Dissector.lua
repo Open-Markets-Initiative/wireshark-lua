@@ -12,9 +12,6 @@ local eurex_cash_eti_t7_v5_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -2117,7 +2114,7 @@ eurex_cash_eti_t7_v5_0.stop_px.display = function(raw, value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+eurex_cash_eti_t7_v5_0.stop_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -2131,7 +2128,7 @@ eurex_cash_eti_t7_v5_0.stop_px.dissect = function(buffer, offset, packet, parent
   local length = eurex_cash_eti_t7_v5_0.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.stop_px(raw)
+  local value = eurex_cash_eti_t7_v5_0.stop_px.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.stop_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.stop_px, range, value, display)
@@ -4397,7 +4394,7 @@ eurex_cash_eti_t7_v5_0.settl_curr_fx_rate.display = function(raw, value)
 end
 
 -- Translate: Settl Curr Fx Rate
-translate.settl_curr_fx_rate = function(raw)
+eurex_cash_eti_t7_v5_0.settl_curr_fx_rate.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -4411,7 +4408,7 @@ eurex_cash_eti_t7_v5_0.settl_curr_fx_rate.dissect = function(buffer, offset, pac
   local length = eurex_cash_eti_t7_v5_0.settl_curr_fx_rate.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.settl_curr_fx_rate(raw)
+  local value = eurex_cash_eti_t7_v5_0.settl_curr_fx_rate.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.settl_curr_fx_rate.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.settl_curr_fx_rate, range, value, display)
@@ -4436,7 +4433,7 @@ eurex_cash_eti_t7_v5_0.settl_curr_amt.display = function(raw, value)
 end
 
 -- Translate: Settl Curr Amt
-translate.settl_curr_amt = function(raw)
+eurex_cash_eti_t7_v5_0.settl_curr_amt.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -4450,7 +4447,7 @@ eurex_cash_eti_t7_v5_0.settl_curr_amt.dissect = function(buffer, offset, packet,
   local length = eurex_cash_eti_t7_v5_0.settl_curr_amt.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.settl_curr_amt(raw)
+  local value = eurex_cash_eti_t7_v5_0.settl_curr_amt.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.settl_curr_amt.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.settl_curr_amt, range, value, display)
@@ -4475,7 +4472,7 @@ eurex_cash_eti_t7_v5_0.last_px.display = function(raw, value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+eurex_cash_eti_t7_v5_0.last_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -4489,7 +4486,7 @@ eurex_cash_eti_t7_v5_0.last_px.dissect = function(buffer, offset, packet, parent
   local length = eurex_cash_eti_t7_v5_0.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_px(raw)
+  local value = eurex_cash_eti_t7_v5_0.last_px.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.last_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.last_px, range, value, display)
@@ -4514,7 +4511,7 @@ eurex_cash_eti_t7_v5_0.price.display = function(raw, value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+eurex_cash_eti_t7_v5_0.price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -4528,7 +4525,7 @@ eurex_cash_eti_t7_v5_0.price.dissect = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v5_0.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = eurex_cash_eti_t7_v5_0.price.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.price, range, value, display)
@@ -6980,7 +6977,7 @@ eurex_cash_eti_t7_v5_0.quote_event_px.display = function(raw, value)
 end
 
 -- Translate: Quote Event Px
-translate.quote_event_px = function(raw)
+eurex_cash_eti_t7_v5_0.quote_event_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -6994,7 +6991,7 @@ eurex_cash_eti_t7_v5_0.quote_event_px.dissect = function(buffer, offset, packet,
   local length = eurex_cash_eti_t7_v5_0.quote_event_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.quote_event_px(raw)
+  local value = eurex_cash_eti_t7_v5_0.quote_event_px.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.quote_event_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.quote_event_px, range, value, display)
@@ -8358,7 +8355,7 @@ eurex_cash_eti_t7_v5_0.fill_px.display = function(raw, value)
 end
 
 -- Translate: Fill Px
-translate.fill_px = function(raw)
+eurex_cash_eti_t7_v5_0.fill_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8372,7 +8369,7 @@ eurex_cash_eti_t7_v5_0.fill_px.dissect = function(buffer, offset, packet, parent
   local length = eurex_cash_eti_t7_v5_0.fill_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.fill_px(raw)
+  local value = eurex_cash_eti_t7_v5_0.fill_px.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.fill_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.fill_px, range, value, display)
@@ -9189,7 +9186,7 @@ eurex_cash_eti_t7_v5_0.peg_offset_value_pct.display = function(raw, value)
 end
 
 -- Translate: Peg Offset Value Pct
-translate.peg_offset_value_pct = function(raw)
+eurex_cash_eti_t7_v5_0.peg_offset_value_pct.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -9203,7 +9200,7 @@ eurex_cash_eti_t7_v5_0.peg_offset_value_pct.dissect = function(buffer, offset, p
   local length = eurex_cash_eti_t7_v5_0.peg_offset_value_pct.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.peg_offset_value_pct(raw)
+  local value = eurex_cash_eti_t7_v5_0.peg_offset_value_pct.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.peg_offset_value_pct.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.peg_offset_value_pct, range, value, display)
@@ -9228,7 +9225,7 @@ eurex_cash_eti_t7_v5_0.peg_offset_value_abs.display = function(raw, value)
 end
 
 -- Translate: Peg Offset Value Abs
-translate.peg_offset_value_abs = function(raw)
+eurex_cash_eti_t7_v5_0.peg_offset_value_abs.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -9242,7 +9239,7 @@ eurex_cash_eti_t7_v5_0.peg_offset_value_abs.dissect = function(buffer, offset, p
   local length = eurex_cash_eti_t7_v5_0.peg_offset_value_abs.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.peg_offset_value_abs(raw)
+  local value = eurex_cash_eti_t7_v5_0.peg_offset_value_abs.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.peg_offset_value_abs.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.peg_offset_value_abs, range, value, display)
@@ -11103,7 +11100,7 @@ eurex_cash_eti_t7_v5_0.offer_px.display = function(raw, value)
 end
 
 -- Translate: Offer Px
-translate.offer_px = function(raw)
+eurex_cash_eti_t7_v5_0.offer_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -11117,7 +11114,7 @@ eurex_cash_eti_t7_v5_0.offer_px.dissect = function(buffer, offset, packet, paren
   local length = eurex_cash_eti_t7_v5_0.offer_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.offer_px(raw)
+  local value = eurex_cash_eti_t7_v5_0.offer_px.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.offer_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.offer_px, range, value, display)
@@ -11142,7 +11139,7 @@ eurex_cash_eti_t7_v5_0.bid_px.display = function(raw, value)
 end
 
 -- Translate: Bid Px
-translate.bid_px = function(raw)
+eurex_cash_eti_t7_v5_0.bid_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -11156,7 +11153,7 @@ eurex_cash_eti_t7_v5_0.bid_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v5_0.bid_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.bid_px(raw)
+  local value = eurex_cash_eti_t7_v5_0.bid_px.translate(raw)
   local display = eurex_cash_eti_t7_v5_0.bid_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v5_0.fields.bid_px, range, value, display)
@@ -16298,7 +16295,7 @@ tcp_table:add(65333, omi_eurex_cash_eti_t7_v5_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_eurex_cash_eti_t7_v5_0_packet_size = function(buffer)
+eurex_cash_eti_t7_v5_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -16306,7 +16303,7 @@ end
 -- Dissector Heuristic for Eurex Cash Eti T7 5.0
 local function omi_eurex_cash_eti_t7_v5_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_eurex_cash_eti_t7_v5_0_packet_size(buffer) then return false end
+  if not eurex_cash_eti_t7_v5_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_cash_eti_t7_v5_0

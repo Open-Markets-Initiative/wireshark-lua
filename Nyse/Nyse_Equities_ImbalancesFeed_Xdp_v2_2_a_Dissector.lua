@@ -12,8 +12,6 @@ local nyse_equities_imbalancesfeed_xdp_v2_2_a = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -3286,7 +3284,7 @@ udp_table:add(65333, omi_nyse_equities_imbalancesfeed_xdp_v2_2_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nyse_equities_imbalancesfeed_xdp_v2_2_a_packet_size = function(buffer)
+nyse_equities_imbalancesfeed_xdp_v2_2_a.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3294,7 +3292,7 @@ end
 -- Dissector Heuristic for Nyse Equities ImbalancesFeed Xdp 2.2.a
 local function omi_nyse_equities_imbalancesfeed_xdp_v2_2_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nyse_equities_imbalancesfeed_xdp_v2_2_a_packet_size(buffer) then return false end
+  if not nyse_equities_imbalancesfeed_xdp_v2_2_a.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_equities_imbalancesfeed_xdp_v2_2_a

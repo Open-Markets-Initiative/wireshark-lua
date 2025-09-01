@@ -12,9 +12,6 @@ local memx_equities_memoirdepthfeed_sbe_v1_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -413,7 +410,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.display = function(value)
 end
 
 -- Translate: Corrected Price
-translate.corrected_price = function(raw)
+memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -422,7 +419,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.dissect = function(buffer
   local length = memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.corrected_price(raw)
+  local value = memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.translate(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_1.corrected_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_1.fields.corrected_price, range, value, display)
@@ -465,7 +462,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.original_price.display = function(value)
 end
 
 -- Translate: Original Price
-translate.original_price = function(raw)
+memx_equities_memoirdepthfeed_sbe_v1_1.original_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -474,7 +471,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.original_price.dissect = function(buffer,
   local length = memx_equities_memoirdepthfeed_sbe_v1_1.original_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.original_price(raw)
+  local value = memx_equities_memoirdepthfeed_sbe_v1_1.original_price.translate(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_1.original_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_1.fields.original_price, range, value, display)
@@ -680,7 +677,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+memx_equities_memoirdepthfeed_sbe_v1_1.price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -689,7 +686,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.price.dissect = function(buffer, offset, 
   local length = memx_equities_memoirdepthfeed_sbe_v1_1.price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.price(raw)
+  local value = memx_equities_memoirdepthfeed_sbe_v1_1.price.translate(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_1.fields.price, range, value, display)
@@ -1457,7 +1454,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.mpv.display = function(value)
 end
 
 -- Translate: Mpv
-translate.mpv = function(raw)
+memx_equities_memoirdepthfeed_sbe_v1_1.mpv.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1466,7 +1463,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.mpv.dissect = function(buffer, offset, pa
   local length = memx_equities_memoirdepthfeed_sbe_v1_1.mpv.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.mpv(raw)
+  local value = memx_equities_memoirdepthfeed_sbe_v1_1.mpv.translate(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_1.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_1.fields.mpv, range, value, display)
@@ -2491,13 +2488,13 @@ udp_table:add(65333, omi_memx_equities_memoirdepthfeed_sbe_v1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_memx_equities_memoirdepthfeed_sbe_v1_1_packet_size = function(buffer)
+memx_equities_memoirdepthfeed_sbe_v1_1.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+memx_equities_memoirdepthfeed_sbe_v1_1.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(25, 1):uint()
 
@@ -2509,7 +2506,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+memx_equities_memoirdepthfeed_sbe_v1_1.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(26, 2):uint()
 
@@ -2523,13 +2520,13 @@ end
 -- Dissector Heuristic for Memx Equities MemoirDepthFeed Sbe 1.1
 local function omi_memx_equities_memoirdepthfeed_sbe_v1_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_memx_equities_memoirdepthfeed_sbe_v1_1_packet_size(buffer) then return false end
+  if not memx_equities_memoirdepthfeed_sbe_v1_1.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not memx_equities_memoirdepthfeed_sbe_v1_1.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not memx_equities_memoirdepthfeed_sbe_v1_1.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_equities_memoirdepthfeed_sbe_v1_1

@@ -12,8 +12,6 @@ local nyse_arca_equities_bbo_xdp_v2_4_c = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -3326,7 +3324,7 @@ udp_table:add(65333, omi_nyse_arca_equities_bbo_xdp_v2_4_c)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nyse_arca_equities_bbo_xdp_v2_4_c_packet_size = function(buffer)
+nyse_arca_equities_bbo_xdp_v2_4_c.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3334,7 +3332,7 @@ end
 -- Dissector Heuristic for Nyse Arca Equities Bbo Xdp 2.4.c
 local function omi_nyse_arca_equities_bbo_xdp_v2_4_c_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nyse_arca_equities_bbo_xdp_v2_4_c_packet_size(buffer) then return false end
+  if not nyse_arca_equities_bbo_xdp_v2_4_c.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_arca_equities_bbo_xdp_v2_4_c

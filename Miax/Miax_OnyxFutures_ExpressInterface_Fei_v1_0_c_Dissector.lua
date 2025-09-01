@@ -12,9 +12,6 @@ local miax_onyxfutures_expressinterface_fei_v1_0_c = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -2513,7 +2510,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.display = 
 end
 
 -- Translate: Stop Order Trigger Price
-translate.stop_order_trigger_price = function(raw)
+miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2522,7 +2519,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.dissect = 
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.stop_order_trigger_price(raw)
+  local value = miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.translate(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.stop_order_trigger_price, range, value, display)
@@ -2542,7 +2539,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+miax_onyxfutures_expressinterface_fei_v1_0_c.price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2551,7 +2548,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.price.dissect = function(buffer, of
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = miax_onyxfutures_expressinterface_fei_v1_0_c.price.translate(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price, range, value, display)
@@ -2855,7 +2852,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.display
 end
 
 -- Translate: Trading Collar Dollar Value
-translate.trading_collar_dollar_value = function(raw)
+miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2864,7 +2861,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.dissect
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_collar_dollar_value(raw)
+  local value = miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.translate(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.trading_collar_dollar_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.trading_collar_dollar_value, range, value, display)
@@ -3534,7 +3531,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.display = function(v
 end
 
 -- Translate: Last Net Price
-translate.last_net_price = function(raw)
+miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3543,7 +3540,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.dissect = function(b
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_net_price(raw)
+  local value = miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.translate(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.last_net_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_net_price, range, value, display)
@@ -3738,7 +3735,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.display = function(value
 end
 
 -- Translate: Last Price
-translate.last_price = function(raw)
+miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3747,7 +3744,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.dissect = function(buffe
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_price(raw)
+  local value = miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.translate(raw)
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_price, range, value, display)
@@ -5269,7 +5266,7 @@ tcp_table:add(65333, omi_miax_onyxfutures_expressinterface_fei_v1_0_c)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_miax_onyxfutures_expressinterface_fei_v1_0_c_packet_size = function(buffer)
+miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -5277,7 +5274,7 @@ end
 -- Dissector Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c
 local function omi_miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_miax_onyxfutures_expressinterface_fei_v1_0_c_packet_size(buffer) then return false end
+  if not miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_onyxfutures_expressinterface_fei_v1_0_c

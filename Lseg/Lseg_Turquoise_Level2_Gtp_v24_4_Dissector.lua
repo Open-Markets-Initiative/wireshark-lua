@@ -12,9 +12,6 @@ local lseg_turquoise_level2_gtp_v24_4 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -307,7 +304,7 @@ lseg_turquoise_level2_gtp_v24_4.best_offer_price.display = function(value)
 end
 
 -- Translate: Best Offer Price
-translate.best_offer_price = function(raw)
+lseg_turquoise_level2_gtp_v24_4.best_offer_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -316,7 +313,7 @@ lseg_turquoise_level2_gtp_v24_4.best_offer_price.dissect = function(buffer, offs
   local length = lseg_turquoise_level2_gtp_v24_4.best_offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.best_offer_price(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.best_offer_price.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.best_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_offer_price, range, value, display)
@@ -336,7 +333,7 @@ lseg_turquoise_level2_gtp_v24_4.best_offer_size.display = function(value)
 end
 
 -- Translate: Best Offer Size
-translate.best_offer_size = function(raw)
+lseg_turquoise_level2_gtp_v24_4.best_offer_size.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -345,7 +342,7 @@ lseg_turquoise_level2_gtp_v24_4.best_offer_size.dissect = function(buffer, offse
   local length = lseg_turquoise_level2_gtp_v24_4.best_offer_size.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.best_offer_size(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.best_offer_size.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.best_offer_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_offer_size, range, value, display)
@@ -365,7 +362,7 @@ lseg_turquoise_level2_gtp_v24_4.best_bid_price.display = function(value)
 end
 
 -- Translate: Best Bid Price
-translate.best_bid_price = function(raw)
+lseg_turquoise_level2_gtp_v24_4.best_bid_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -374,7 +371,7 @@ lseg_turquoise_level2_gtp_v24_4.best_bid_price.dissect = function(buffer, offset
   local length = lseg_turquoise_level2_gtp_v24_4.best_bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.best_bid_price(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.best_bid_price.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_bid_price, range, value, display)
@@ -394,7 +391,7 @@ lseg_turquoise_level2_gtp_v24_4.best_bid_size.display = function(value)
 end
 
 -- Translate: Best Bid Size
-translate.best_bid_size = function(raw)
+lseg_turquoise_level2_gtp_v24_4.best_bid_size.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -403,7 +400,7 @@ lseg_turquoise_level2_gtp_v24_4.best_bid_size.dissect = function(buffer, offset,
   local length = lseg_turquoise_level2_gtp_v24_4.best_bid_size.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.best_bid_size(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.best_bid_size.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.best_bid_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.best_bid_size, range, value, display)
@@ -446,7 +443,7 @@ lseg_turquoise_level2_gtp_v24_4.deleted_order_quantity.display = function(value)
 end
 
 -- Translate: Deleted Order Quantity
-translate.deleted_order_quantity = function(raw)
+lseg_turquoise_level2_gtp_v24_4.deleted_order_quantity.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -455,7 +452,7 @@ lseg_turquoise_level2_gtp_v24_4.deleted_order_quantity.dissect = function(buffer
   local length = lseg_turquoise_level2_gtp_v24_4.deleted_order_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.deleted_order_quantity(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.deleted_order_quantity.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.deleted_order_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.deleted_order_quantity, range, value, display)
@@ -475,7 +472,7 @@ lseg_turquoise_level2_gtp_v24_4.total_hidden_executed_quantity.display = functio
 end
 
 -- Translate: Total Hidden Executed Quantity
-translate.total_hidden_executed_quantity = function(raw)
+lseg_turquoise_level2_gtp_v24_4.total_hidden_executed_quantity.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -484,7 +481,7 @@ lseg_turquoise_level2_gtp_v24_4.total_hidden_executed_quantity.dissect = functio
   local length = lseg_turquoise_level2_gtp_v24_4.total_hidden_executed_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.total_hidden_executed_quantity(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.total_hidden_executed_quantity.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.total_hidden_executed_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.total_hidden_executed_quantity, range, value, display)
@@ -504,7 +501,7 @@ lseg_turquoise_level2_gtp_v24_4.total_executed_quantity.display = function(value
 end
 
 -- Translate: Total Executed Quantity
-translate.total_executed_quantity = function(raw)
+lseg_turquoise_level2_gtp_v24_4.total_executed_quantity.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -513,7 +510,7 @@ lseg_turquoise_level2_gtp_v24_4.total_executed_quantity.dissect = function(buffe
   local length = lseg_turquoise_level2_gtp_v24_4.total_executed_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.total_executed_quantity(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.total_executed_quantity.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.total_executed_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.total_executed_quantity, range, value, display)
@@ -533,7 +530,7 @@ lseg_turquoise_level2_gtp_v24_4.far_price.display = function(value)
 end
 
 -- Translate: Far Price
-translate.far_price = function(raw)
+lseg_turquoise_level2_gtp_v24_4.far_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -542,7 +539,7 @@ lseg_turquoise_level2_gtp_v24_4.far_price.dissect = function(buffer, offset, pac
   local length = lseg_turquoise_level2_gtp_v24_4.far_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.far_price(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.far_price.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.far_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.far_price, range, value, display)
@@ -836,7 +833,7 @@ lseg_turquoise_level2_gtp_v24_4.imbalance_quantity.display = function(value)
 end
 
 -- Translate: Imbalance Quantity
-translate.imbalance_quantity = function(raw)
+lseg_turquoise_level2_gtp_v24_4.imbalance_quantity.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -845,7 +842,7 @@ lseg_turquoise_level2_gtp_v24_4.imbalance_quantity.dissect = function(buffer, of
   local length = lseg_turquoise_level2_gtp_v24_4.imbalance_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.imbalance_quantity(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.imbalance_quantity.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.imbalance_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.imbalance_quantity, range, value, display)
@@ -892,7 +889,7 @@ lseg_turquoise_level2_gtp_v24_4.statistic_size.display = function(value)
 end
 
 -- Translate: Statistic Size
-translate.statistic_size = function(raw)
+lseg_turquoise_level2_gtp_v24_4.statistic_size.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -901,7 +898,7 @@ lseg_turquoise_level2_gtp_v24_4.statistic_size.dissect = function(buffer, offset
   local length = lseg_turquoise_level2_gtp_v24_4.statistic_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.statistic_size(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.statistic_size.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.statistic_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_size, range, value, display)
@@ -921,7 +918,7 @@ lseg_turquoise_level2_gtp_v24_4.statistic_price.display = function(value)
 end
 
 -- Translate: Statistic Price
-translate.statistic_price = function(raw)
+lseg_turquoise_level2_gtp_v24_4.statistic_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -930,7 +927,7 @@ lseg_turquoise_level2_gtp_v24_4.statistic_price.dissect = function(buffer, offse
   local length = lseg_turquoise_level2_gtp_v24_4.statistic_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.statistic_price(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.statistic_price.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.statistic_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.statistic_price, range, value, display)
@@ -1085,7 +1082,7 @@ lseg_turquoise_level2_gtp_v24_4.turnover_onbook_only.display = function(value)
 end
 
 -- Translate: Turnover Onbook Only
-translate.turnover_onbook_only = function(raw)
+lseg_turquoise_level2_gtp_v24_4.turnover_onbook_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1094,7 +1091,7 @@ lseg_turquoise_level2_gtp_v24_4.turnover_onbook_only.dissect = function(buffer, 
   local length = lseg_turquoise_level2_gtp_v24_4.turnover_onbook_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.turnover_onbook_only(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.turnover_onbook_only.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.turnover_onbook_only.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.turnover_onbook_only, range, value, display)
@@ -1114,7 +1111,7 @@ lseg_turquoise_level2_gtp_v24_4.turnover.display = function(value)
 end
 
 -- Translate: Turnover
-translate.turnover = function(raw)
+lseg_turquoise_level2_gtp_v24_4.turnover.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1123,7 +1120,7 @@ lseg_turquoise_level2_gtp_v24_4.turnover.dissect = function(buffer, offset, pack
   local length = lseg_turquoise_level2_gtp_v24_4.turnover.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.turnover(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.turnover.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.turnover.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.turnover, range, value, display)
@@ -1189,7 +1186,7 @@ lseg_turquoise_level2_gtp_v24_4.vwap_onbook_only.display = function(value)
 end
 
 -- Translate: Vwap Onbook Only
-translate.vwap_onbook_only = function(raw)
+lseg_turquoise_level2_gtp_v24_4.vwap_onbook_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1198,7 +1195,7 @@ lseg_turquoise_level2_gtp_v24_4.vwap_onbook_only.dissect = function(buffer, offs
   local length = lseg_turquoise_level2_gtp_v24_4.vwap_onbook_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap_onbook_only(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.vwap_onbook_only.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.vwap_onbook_only.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.vwap_onbook_only, range, value, display)
@@ -1218,7 +1215,7 @@ lseg_turquoise_level2_gtp_v24_4.vwap.display = function(value)
 end
 
 -- Translate: Vwap
-translate.vwap = function(raw)
+lseg_turquoise_level2_gtp_v24_4.vwap.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1227,7 +1224,7 @@ lseg_turquoise_level2_gtp_v24_4.vwap.dissect = function(buffer, offset, packet, 
   local length = lseg_turquoise_level2_gtp_v24_4.vwap.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.vwap.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.vwap.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.vwap, range, value, display)
@@ -1247,7 +1244,7 @@ lseg_turquoise_level2_gtp_v24_4.volume_onbook_only.display = function(value)
 end
 
 -- Translate: Volume Onbook Only
-translate.volume_onbook_only = function(raw)
+lseg_turquoise_level2_gtp_v24_4.volume_onbook_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1256,7 +1253,7 @@ lseg_turquoise_level2_gtp_v24_4.volume_onbook_only.dissect = function(buffer, of
   local length = lseg_turquoise_level2_gtp_v24_4.volume_onbook_only.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.volume_onbook_only(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.volume_onbook_only.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.volume_onbook_only.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.volume_onbook_only, range, value, display)
@@ -1276,7 +1273,7 @@ lseg_turquoise_level2_gtp_v24_4.volume.display = function(value)
 end
 
 -- Translate: Volume
-translate.volume = function(raw)
+lseg_turquoise_level2_gtp_v24_4.volume.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1285,7 +1282,7 @@ lseg_turquoise_level2_gtp_v24_4.volume.dissect = function(buffer, offset, packet
   local length = lseg_turquoise_level2_gtp_v24_4.volume.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.volume(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.volume.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.volume, range, value, display)
@@ -1547,7 +1544,7 @@ lseg_turquoise_level2_gtp_v24_4.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+lseg_turquoise_level2_gtp_v24_4.price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1556,7 +1553,7 @@ lseg_turquoise_level2_gtp_v24_4.price.dissect = function(buffer, offset, packet,
   local length = lseg_turquoise_level2_gtp_v24_4.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.price.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.price, range, value, display)
@@ -1576,7 +1573,7 @@ lseg_turquoise_level2_gtp_v24_4.executed_size.display = function(value)
 end
 
 -- Translate: Executed Size
-translate.executed_size = function(raw)
+lseg_turquoise_level2_gtp_v24_4.executed_size.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1585,7 +1582,7 @@ lseg_turquoise_level2_gtp_v24_4.executed_size.dissect = function(buffer, offset,
   local length = lseg_turquoise_level2_gtp_v24_4.executed_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.executed_size(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.executed_size.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.executed_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.executed_size, range, value, display)
@@ -2081,7 +2078,7 @@ lseg_turquoise_level2_gtp_v24_4.previous_quantity.display = function(value)
 end
 
 -- Translate: Previous Quantity
-translate.previous_quantity = function(raw)
+lseg_turquoise_level2_gtp_v24_4.previous_quantity.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2090,7 +2087,7 @@ lseg_turquoise_level2_gtp_v24_4.previous_quantity.dissect = function(buffer, off
   local length = lseg_turquoise_level2_gtp_v24_4.previous_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.previous_quantity(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.previous_quantity.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.previous_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.previous_quantity, range, value, display)
@@ -2110,7 +2107,7 @@ lseg_turquoise_level2_gtp_v24_4.previous_price.display = function(value)
 end
 
 -- Translate: Previous Price
-translate.previous_price = function(raw)
+lseg_turquoise_level2_gtp_v24_4.previous_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2119,7 +2116,7 @@ lseg_turquoise_level2_gtp_v24_4.previous_price.dissect = function(buffer, offset
   local length = lseg_turquoise_level2_gtp_v24_4.previous_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.previous_price(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.previous_price.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.previous_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.previous_price, range, value, display)
@@ -2247,7 +2244,7 @@ lseg_turquoise_level2_gtp_v24_4.new_price.display = function(value)
 end
 
 -- Translate: New Price
-translate.new_price = function(raw)
+lseg_turquoise_level2_gtp_v24_4.new_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2256,7 +2253,7 @@ lseg_turquoise_level2_gtp_v24_4.new_price.dissect = function(buffer, offset, pac
   local length = lseg_turquoise_level2_gtp_v24_4.new_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.new_price(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.new_price.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.new_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.new_price, range, value, display)
@@ -2276,7 +2273,7 @@ lseg_turquoise_level2_gtp_v24_4.new_quantity.display = function(value)
 end
 
 -- Translate: New Quantity
-translate.new_quantity = function(raw)
+lseg_turquoise_level2_gtp_v24_4.new_quantity.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2285,7 +2282,7 @@ lseg_turquoise_level2_gtp_v24_4.new_quantity.dissect = function(buffer, offset, 
   local length = lseg_turquoise_level2_gtp_v24_4.new_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.new_quantity(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.new_quantity.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.new_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.new_quantity, range, value, display)
@@ -2547,7 +2544,7 @@ lseg_turquoise_level2_gtp_v24_4.size.display = function(value)
 end
 
 -- Translate: Size
-translate.size = function(raw)
+lseg_turquoise_level2_gtp_v24_4.size.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2556,7 +2553,7 @@ lseg_turquoise_level2_gtp_v24_4.size.dissect = function(buffer, offset, packet, 
   local length = lseg_turquoise_level2_gtp_v24_4.size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.size(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.size.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.size, range, value, display)
@@ -2962,7 +2959,7 @@ lseg_turquoise_level2_gtp_v24_4.static_circuit_breaker_tolerances.display = func
 end
 
 -- Translate: Static Circuit Breaker Tolerances
-translate.static_circuit_breaker_tolerances = function(raw)
+lseg_turquoise_level2_gtp_v24_4.static_circuit_breaker_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2971,7 +2968,7 @@ lseg_turquoise_level2_gtp_v24_4.static_circuit_breaker_tolerances.dissect = func
   local length = lseg_turquoise_level2_gtp_v24_4.static_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.static_circuit_breaker_tolerances(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.static_circuit_breaker_tolerances.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
@@ -2991,7 +2988,7 @@ lseg_turquoise_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.display = fun
 end
 
 -- Translate: Dynamic Circuit Breaker Tolerances
-translate.dynamic_circuit_breaker_tolerances = function(raw)
+lseg_turquoise_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -3000,7 +2997,7 @@ lseg_turquoise_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect = fun
   local length = lseg_turquoise_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.dynamic_circuit_breaker_tolerances(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
@@ -3020,7 +3017,7 @@ lseg_turquoise_level2_gtp_v24_4.price_band_tolerances.display = function(value)
 end
 
 -- Translate: Price Band Tolerances
-translate.price_band_tolerances = function(raw)
+lseg_turquoise_level2_gtp_v24_4.price_band_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -3029,7 +3026,7 @@ lseg_turquoise_level2_gtp_v24_4.price_band_tolerances.dissect = function(buffer,
   local length = lseg_turquoise_level2_gtp_v24_4.price_band_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_band_tolerances(raw)
+  local value = lseg_turquoise_level2_gtp_v24_4.price_band_tolerances.translate(raw)
   local display = lseg_turquoise_level2_gtp_v24_4.price_band_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2_gtp_v24_4.fields.price_band_tolerances, range, value, display)
@@ -3884,7 +3881,7 @@ udp_table:add(65333, omi_lseg_turquoise_level2_gtp_v24_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_lseg_turquoise_level2_gtp_v24_4_packet_size = function(buffer)
+lseg_turquoise_level2_gtp_v24_4.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3892,7 +3889,7 @@ end
 -- Dissector Heuristic for Lseg Turquoise Level2 Gtp 24.4
 local function omi_lseg_turquoise_level2_gtp_v24_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_lseg_turquoise_level2_gtp_v24_4_packet_size(buffer) then return false end
+  if not lseg_turquoise_level2_gtp_v24_4.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_turquoise_level2_gtp_v24_4

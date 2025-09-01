@@ -12,9 +12,6 @@ local siac_opra_recipient_obi_v6_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1404,7 +1401,7 @@ siac_opra_recipient_obi_v6_2.offer_price_short.display = function(value)
 end
 
 -- Translate: Offer Price Short
-translate.offer_price_short = function(raw)
+siac_opra_recipient_obi_v6_2.offer_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -1413,7 +1410,7 @@ siac_opra_recipient_obi_v6_2.offer_price_short.dissect = function(buffer, offset
   local length = siac_opra_recipient_obi_v6_2.offer_price_short.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.offer_price_short(raw)
+  local value = siac_opra_recipient_obi_v6_2.offer_price_short.translate(raw)
   local display = siac_opra_recipient_obi_v6_2.offer_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_recipient_obi_v6_2.fields.offer_price_short, range, value, display)
@@ -1456,7 +1453,7 @@ siac_opra_recipient_obi_v6_2.bid_price_short.display = function(value)
 end
 
 -- Translate: Bid Price Short
-translate.bid_price_short = function(raw)
+siac_opra_recipient_obi_v6_2.bid_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -1465,7 +1462,7 @@ siac_opra_recipient_obi_v6_2.bid_price_short.dissect = function(buffer, offset, 
   local length = siac_opra_recipient_obi_v6_2.bid_price_short.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price_short(raw)
+  local value = siac_opra_recipient_obi_v6_2.bid_price_short.translate(raw)
   local display = siac_opra_recipient_obi_v6_2.bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_recipient_obi_v6_2.fields.bid_price_short, range, value, display)
@@ -1485,7 +1482,7 @@ siac_opra_recipient_obi_v6_2.strike_price_short.display = function(value)
 end
 
 -- Translate: Strike Price Short
-translate.strike_price_short = function(raw)
+siac_opra_recipient_obi_v6_2.strike_price_short.translate = function(raw)
   return raw/10
 end
 
@@ -1494,7 +1491,7 @@ siac_opra_recipient_obi_v6_2.strike_price_short.dissect = function(buffer, offse
   local length = siac_opra_recipient_obi_v6_2.strike_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.strike_price_short(raw)
+  local value = siac_opra_recipient_obi_v6_2.strike_price_short.translate(raw)
   local display = siac_opra_recipient_obi_v6_2.strike_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_recipient_obi_v6_2.fields.strike_price_short, range, value, display)
@@ -4121,13 +4118,13 @@ udp_table:add(65333, omi_siac_opra_recipient_obi_v6_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_siac_opra_recipient_obi_v6_2_packet_size = function(buffer)
+siac_opra_recipient_obi_v6_2.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+siac_opra_recipient_obi_v6_2.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -4141,10 +4138,10 @@ end
 -- Dissector Heuristic for Siac Opra Recipient Obi 6.2
 local function omi_siac_opra_recipient_obi_v6_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_siac_opra_recipient_obi_v6_2_packet_size(buffer) then return false end
+  if not siac_opra_recipient_obi_v6_2.packet.requiredsize(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not siac_opra_recipient_obi_v6_2.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_opra_recipient_obi_v6_2

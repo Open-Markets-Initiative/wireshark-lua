@@ -12,9 +12,6 @@ local coinbase_derivatives_ordersapi_sbe_v1_5 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1000,7 +997,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.leg_2_fill_price.display = function(valu
 end
 
 -- Translate: Leg 2 Fill Price
-translate.leg_2_fill_price = function(raw)
+coinbase_derivatives_ordersapi_sbe_v1_5.leg_2_fill_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1009,7 +1006,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.leg_2_fill_price.dissect = function(buff
   local length = coinbase_derivatives_ordersapi_sbe_v1_5.leg_2_fill_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.leg_2_fill_price(raw)
+  local value = coinbase_derivatives_ordersapi_sbe_v1_5.leg_2_fill_price.translate(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_5.leg_2_fill_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.leg_2_fill_price, range, value, display)
@@ -1029,7 +1026,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.leg_1_fill_price.display = function(valu
 end
 
 -- Translate: Leg 1 Fill Price
-translate.leg_1_fill_price = function(raw)
+coinbase_derivatives_ordersapi_sbe_v1_5.leg_1_fill_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1038,7 +1035,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.leg_1_fill_price.dissect = function(buff
   local length = coinbase_derivatives_ordersapi_sbe_v1_5.leg_1_fill_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.leg_1_fill_price(raw)
+  local value = coinbase_derivatives_ordersapi_sbe_v1_5.leg_1_fill_price.translate(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_5.leg_1_fill_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.leg_1_fill_price, range, value, display)
@@ -1058,7 +1055,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.fill_price.display = function(value)
 end
 
 -- Translate: Fill Price
-translate.fill_price = function(raw)
+coinbase_derivatives_ordersapi_sbe_v1_5.fill_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1067,7 +1064,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.fill_price.dissect = function(buffer, of
   local length = coinbase_derivatives_ordersapi_sbe_v1_5.fill_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.fill_price(raw)
+  local value = coinbase_derivatives_ordersapi_sbe_v1_5.fill_price.translate(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_5.fill_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.fill_price, range, value, display)
@@ -1133,7 +1130,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.filled_vwap.display = function(value)
 end
 
 -- Translate: Filled Vwap
-translate.filled_vwap = function(raw)
+coinbase_derivatives_ordersapi_sbe_v1_5.filled_vwap.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1142,7 +1139,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.filled_vwap.dissect = function(buffer, o
   local length = coinbase_derivatives_ordersapi_sbe_v1_5.filled_vwap.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.filled_vwap(raw)
+  local value = coinbase_derivatives_ordersapi_sbe_v1_5.filled_vwap.translate(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_5.filled_vwap.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.filled_vwap, range, value, display)
@@ -1994,7 +1991,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.limit_price.display = function(value)
 end
 
 -- Translate: Limit Price
-translate.limit_price = function(raw)
+coinbase_derivatives_ordersapi_sbe_v1_5.limit_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2003,7 +2000,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.limit_price.dissect = function(buffer, o
   local length = coinbase_derivatives_ordersapi_sbe_v1_5.limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.limit_price(raw)
+  local value = coinbase_derivatives_ordersapi_sbe_v1_5.limit_price.translate(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_5.limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.limit_price, range, value, display)
@@ -2873,7 +2870,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.new_limit_price.display = function(raw, 
 end
 
 -- Translate: New Limit Price
-translate.new_limit_price = function(raw)
+coinbase_derivatives_ordersapi_sbe_v1_5.new_limit_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -2887,7 +2884,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.new_limit_price.dissect = function(buffe
   local length = coinbase_derivatives_ordersapi_sbe_v1_5.new_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.new_limit_price(raw)
+  local value = coinbase_derivatives_ordersapi_sbe_v1_5.new_limit_price.translate(raw)
   local display = coinbase_derivatives_ordersapi_sbe_v1_5.new_limit_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.new_limit_price, range, value, display)
@@ -5469,13 +5466,13 @@ tcp_table:add(65333, omi_coinbase_derivatives_ordersapi_sbe_v1_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_coinbase_derivatives_ordersapi_sbe_v1_5_packet_size = function(buffer)
+coinbase_derivatives_ordersapi_sbe_v1_5.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+coinbase_derivatives_ordersapi_sbe_v1_5.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(28, 2):le_uint()
 
@@ -5491,7 +5488,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+coinbase_derivatives_ordersapi_sbe_v1_5.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(30, 2):le_uint()
 
@@ -5509,13 +5506,13 @@ end
 -- Dissector Heuristic for Coinbase Derivatives OrdersApi Sbe 1.5
 local function omi_coinbase_derivatives_ordersapi_sbe_v1_5_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_coinbase_derivatives_ordersapi_sbe_v1_5_packet_size(buffer) then return false end
+  if not coinbase_derivatives_ordersapi_sbe_v1_5.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not coinbase_derivatives_ordersapi_sbe_v1_5.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not coinbase_derivatives_ordersapi_sbe_v1_5.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_coinbase_derivatives_ordersapi_sbe_v1_5

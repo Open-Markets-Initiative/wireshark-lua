@@ -12,9 +12,6 @@ local n24x_equities_memoirlastsale_sbe_v1_3 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -385,7 +382,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.display = function(v
 end
 
 -- Translate: Corrected Trade Price
-translate.corrected_trade_price = function(raw)
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -394,7 +391,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.dissect = function(b
   local length = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.corrected_trade_price(raw)
+  local value = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.translate(raw)
   local display = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_price, range, value, display)
@@ -612,7 +609,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.display = function(va
 end
 
 -- Translate: Original Trade Price
-translate.original_trade_price = function(raw)
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -621,7 +618,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.dissect = function(bu
   local length = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.original_trade_price(raw)
+  local value = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.translate(raw)
   local display = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.original_trade_price, range, value, display)
@@ -1027,7 +1024,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.last_price.display = function(value)
 end
 
 -- Translate: Last Price
-translate.last_price = function(raw)
+n24x_equities_memoirlastsale_sbe_v1_3.last_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1036,7 +1033,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.last_price.dissect = function(buffer, offs
   local length = n24x_equities_memoirlastsale_sbe_v1_3.last_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.last_price(raw)
+  local value = n24x_equities_memoirlastsale_sbe_v1_3.last_price.translate(raw)
   local display = n24x_equities_memoirlastsale_sbe_v1_3.last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.last_price, range, value, display)
@@ -1164,7 +1161,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.trade_price.display = function(value)
 end
 
 -- Translate: Trade Price
-translate.trade_price = function(raw)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1173,7 +1170,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.trade_price.dissect = function(buffer, off
   local length = n24x_equities_memoirlastsale_sbe_v1_3.trade_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.trade_price(raw)
+  local value = n24x_equities_memoirlastsale_sbe_v1_3.trade_price.translate(raw)
   local display = n24x_equities_memoirlastsale_sbe_v1_3.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_price, range, value, display)
@@ -1617,7 +1614,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.mpv.display = function(value)
 end
 
 -- Translate: Mpv
-translate.mpv = function(raw)
+n24x_equities_memoirlastsale_sbe_v1_3.mpv.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1626,7 +1623,7 @@ n24x_equities_memoirlastsale_sbe_v1_3.mpv.dissect = function(buffer, offset, pac
   local length = n24x_equities_memoirlastsale_sbe_v1_3.mpv.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.mpv(raw)
+  local value = n24x_equities_memoirlastsale_sbe_v1_3.mpv.translate(raw)
   local display = n24x_equities_memoirlastsale_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.mpv, range, value, display)
@@ -2570,13 +2567,13 @@ udp_table:add(65333, omi_n24x_equities_memoirlastsale_sbe_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_n24x_equities_memoirlastsale_sbe_v1_3_packet_size = function(buffer)
+n24x_equities_memoirlastsale_sbe_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+n24x_equities_memoirlastsale_sbe_v1_3.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(25, 1):uint()
 
@@ -2588,7 +2585,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+n24x_equities_memoirlastsale_sbe_v1_3.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(26, 2):uint()
 
@@ -2602,13 +2599,13 @@ end
 -- Dissector Heuristic for 24X Equities MemoirLastSale Sbe 1.3
 local function omi_n24x_equities_memoirlastsale_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_n24x_equities_memoirlastsale_sbe_v1_3_packet_size(buffer) then return false end
+  if not n24x_equities_memoirlastsale_sbe_v1_3.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not n24x_equities_memoirlastsale_sbe_v1_3.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not n24x_equities_memoirlastsale_sbe_v1_3.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_n24x_equities_memoirlastsale_sbe_v1_3

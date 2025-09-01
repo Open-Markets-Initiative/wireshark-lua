@@ -12,9 +12,6 @@ local memx_equities_memo_sbe_v1_12 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -525,7 +522,7 @@ memx_equities_memo_sbe_v1_12.higher_than_price.display = function(raw, value)
 end
 
 -- Translate: Higher Than Price
-translate.higher_than_price = function(raw)
+memx_equities_memo_sbe_v1_12.higher_than_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -539,7 +536,7 @@ memx_equities_memo_sbe_v1_12.higher_than_price.dissect = function(buffer, offset
   local length = memx_equities_memo_sbe_v1_12.higher_than_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.higher_than_price(raw)
+  local value = memx_equities_memo_sbe_v1_12.higher_than_price.translate(raw)
   local display = memx_equities_memo_sbe_v1_12.higher_than_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memo_sbe_v1_12.fields.higher_than_price, range, value, display)
@@ -564,7 +561,7 @@ memx_equities_memo_sbe_v1_12.lower_than_price.display = function(raw, value)
 end
 
 -- Translate: Lower Than Price
-translate.lower_than_price = function(raw)
+memx_equities_memo_sbe_v1_12.lower_than_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -578,7 +575,7 @@ memx_equities_memo_sbe_v1_12.lower_than_price.dissect = function(buffer, offset,
   local length = memx_equities_memo_sbe_v1_12.lower_than_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.lower_than_price(raw)
+  local value = memx_equities_memo_sbe_v1_12.lower_than_price.translate(raw)
   local display = memx_equities_memo_sbe_v1_12.lower_than_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memo_sbe_v1_12.fields.lower_than_price, range, value, display)
@@ -1359,7 +1356,7 @@ memx_equities_memo_sbe_v1_12.last_px_optional.display = function(raw, value)
 end
 
 -- Translate: Last Px Optional
-translate.last_px_optional = function(raw)
+memx_equities_memo_sbe_v1_12.last_px_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1373,7 +1370,7 @@ memx_equities_memo_sbe_v1_12.last_px_optional.dissect = function(buffer, offset,
   local length = memx_equities_memo_sbe_v1_12.last_px_optional.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.last_px_optional(raw)
+  local value = memx_equities_memo_sbe_v1_12.last_px_optional.translate(raw)
   local display = memx_equities_memo_sbe_v1_12.last_px_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memo_sbe_v1_12.fields.last_px_optional, range, value, display)
@@ -1813,7 +1810,7 @@ memx_equities_memo_sbe_v1_12.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+memx_equities_memo_sbe_v1_12.last_px.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1822,7 +1819,7 @@ memx_equities_memo_sbe_v1_12.last_px.dissect = function(buffer, offset, packet, 
   local length = memx_equities_memo_sbe_v1_12.last_px.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.last_px(raw)
+  local value = memx_equities_memo_sbe_v1_12.last_px.translate(raw)
   local display = memx_equities_memo_sbe_v1_12.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memo_sbe_v1_12.fields.last_px, range, value, display)
@@ -2055,7 +2052,7 @@ memx_equities_memo_sbe_v1_12.price.display = function(raw, value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+memx_equities_memo_sbe_v1_12.price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -2069,7 +2066,7 @@ memx_equities_memo_sbe_v1_12.price.dissect = function(buffer, offset, packet, pa
   local length = memx_equities_memo_sbe_v1_12.price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.price(raw)
+  local value = memx_equities_memo_sbe_v1_12.price.translate(raw)
   local display = memx_equities_memo_sbe_v1_12.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memo_sbe_v1_12.fields.price, range, value, display)
@@ -4045,7 +4042,7 @@ memx_equities_memo_sbe_v1_12.peg_offset_value.display = function(raw, value)
 end
 
 -- Translate: Peg Offset Value
-translate.peg_offset_value = function(raw)
+memx_equities_memo_sbe_v1_12.peg_offset_value.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -4059,7 +4056,7 @@ memx_equities_memo_sbe_v1_12.peg_offset_value.dissect = function(buffer, offset,
   local length = memx_equities_memo_sbe_v1_12.peg_offset_value.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.peg_offset_value(raw)
+  local value = memx_equities_memo_sbe_v1_12.peg_offset_value.translate(raw)
   local display = memx_equities_memo_sbe_v1_12.peg_offset_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memo_sbe_v1_12.fields.peg_offset_value, range, value, display)
@@ -7059,13 +7056,13 @@ tcp_table:add(65333, omi_memx_equities_memo_sbe_v1_12)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_memx_equities_memo_sbe_v1_12_packet_size = function(buffer)
+memx_equities_memo_sbe_v1_12.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+memx_equities_memo_sbe_v1_12.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(52, 1):uint()
 
@@ -7077,7 +7074,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+memx_equities_memo_sbe_v1_12.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(53, 2):uint()
 
@@ -7089,7 +7086,7 @@ verify.version = function(buffer)
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+memx_equities_memo_sbe_v1_12.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(1559, 1):uint()
 
@@ -7101,7 +7098,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+memx_equities_memo_sbe_v1_12.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(1560, 2):uint()
 
@@ -7115,19 +7112,19 @@ end
 -- Dissector Heuristic for Memx Equities Memo Sbe 1.12
 local function omi_memx_equities_memo_sbe_v1_12_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_memx_equities_memo_sbe_v1_12_packet_size(buffer) then return false end
+  if not memx_equities_memo_sbe_v1_12.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not memx_equities_memo_sbe_v1_12.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not memx_equities_memo_sbe_v1_12.version.verify(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not memx_equities_memo_sbe_v1_12.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not memx_equities_memo_sbe_v1_12.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_equities_memo_sbe_v1_12

@@ -12,8 +12,6 @@ local cboe_options_marketdatafeed_csm_v1_4_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -4659,7 +4657,7 @@ udp_table:add(65333, omi_cboe_options_marketdatafeed_csm_v1_4_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_options_marketdatafeed_csm_v1_4_2_packet_size = function(buffer)
+cboe_options_marketdatafeed_csm_v1_4_2.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -4667,7 +4665,7 @@ end
 -- Dissector Heuristic for Cboe Options MarketDataFeed Csm 1.4.2
 local function omi_cboe_options_marketdatafeed_csm_v1_4_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_options_marketdatafeed_csm_v1_4_2_packet_size(buffer) then return false end
+  if not cboe_options_marketdatafeed_csm_v1_4_2.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_options_marketdatafeed_csm_v1_4_2

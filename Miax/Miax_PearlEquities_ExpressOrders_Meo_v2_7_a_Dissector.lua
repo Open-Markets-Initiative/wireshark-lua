@@ -12,9 +12,6 @@ local miax_pearlequities_expressorders_meo_v2_7_a = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1584,7 +1581,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.last_price.display = function(value)
 end
 
 -- Translate: Last Price
-translate.last_price = function(raw)
+miax_pearlequities_expressorders_meo_v2_7_a.last_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1593,7 +1590,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.last_price.dissect = function(buffer
   local length = miax_pearlequities_expressorders_meo_v2_7_a.last_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_price(raw)
+  local value = miax_pearlequities_expressorders_meo_v2_7_a.last_price.translate(raw)
   local display = miax_pearlequities_expressorders_meo_v2_7_a.last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.last_price, range, value, display)
@@ -2307,7 +2304,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+miax_pearlequities_expressorders_meo_v2_7_a.price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2316,7 +2313,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.price.dissect = function(buffer, off
   local length = miax_pearlequities_expressorders_meo_v2_7_a.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = miax_pearlequities_expressorders_meo_v2_7_a.price.translate(raw)
   local display = miax_pearlequities_expressorders_meo_v2_7_a.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.price, range, value, display)
@@ -4175,7 +4172,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.peg_offset.display = function(value)
 end
 
 -- Translate: Peg Offset
-translate.peg_offset = function(raw)
+miax_pearlequities_expressorders_meo_v2_7_a.peg_offset.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4184,7 +4181,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.peg_offset.dissect = function(buffer
   local length = miax_pearlequities_expressorders_meo_v2_7_a.peg_offset.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.peg_offset(raw)
+  local value = miax_pearlequities_expressorders_meo_v2_7_a.peg_offset.translate(raw)
   local display = miax_pearlequities_expressorders_meo_v2_7_a.peg_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.peg_offset, range, value, display)
@@ -4338,7 +4335,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.trading_collar_dollar_value.display 
 end
 
 -- Translate: Trading Collar Dollar Value
-translate.trading_collar_dollar_value = function(raw)
+miax_pearlequities_expressorders_meo_v2_7_a.trading_collar_dollar_value.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4347,7 +4344,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.trading_collar_dollar_value.dissect 
   local length = miax_pearlequities_expressorders_meo_v2_7_a.trading_collar_dollar_value.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_collar_dollar_value(raw)
+  local value = miax_pearlequities_expressorders_meo_v2_7_a.trading_collar_dollar_value.translate(raw)
   local display = miax_pearlequities_expressorders_meo_v2_7_a.trading_collar_dollar_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.trading_collar_dollar_value, range, value, display)
@@ -5162,7 +5159,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.working_price.display = function(val
 end
 
 -- Translate: Working Price
-translate.working_price = function(raw)
+miax_pearlequities_expressorders_meo_v2_7_a.working_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -5171,7 +5168,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.working_price.dissect = function(buf
   local length = miax_pearlequities_expressorders_meo_v2_7_a.working_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.working_price(raw)
+  local value = miax_pearlequities_expressorders_meo_v2_7_a.working_price.translate(raw)
   local display = miax_pearlequities_expressorders_meo_v2_7_a.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.working_price, range, value, display)
@@ -7089,7 +7086,7 @@ tcp_table:add(65333, omi_miax_pearlequities_expressorders_meo_v2_7_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_miax_pearlequities_expressorders_meo_v2_7_a_packet_size = function(buffer)
+miax_pearlequities_expressorders_meo_v2_7_a.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -7097,7 +7094,7 @@ end
 -- Dissector Heuristic for Miax PearlEquities ExpressOrders Meo 2.7.a
 local function omi_miax_pearlequities_expressorders_meo_v2_7_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_miax_pearlequities_expressorders_meo_v2_7_a_packet_size(buffer) then return false end
+  if not miax_pearlequities_expressorders_meo_v2_7_a.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_expressorders_meo_v2_7_a

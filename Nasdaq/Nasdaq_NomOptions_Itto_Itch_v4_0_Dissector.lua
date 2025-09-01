@@ -12,9 +12,6 @@ local nasdaq_nomoptions_itto_itch_v4_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -417,7 +414,7 @@ nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.display = function(value)
 end
 
 -- Translate: Imbalance Price
-translate.imbalance_price = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.translate = function(raw)
   return raw/10000
 end
 
@@ -426,7 +423,7 @@ nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.dissect = function(buffer, offs
   local length = nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.imbalance_price(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_price, range, value, display)
@@ -851,7 +848,7 @@ nasdaq_nomoptions_itto_itch_v4_0.price_long.display = function(value)
 end
 
 -- Translate: Price Long
-translate.price_long = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.price_long.translate = function(raw)
   return raw/10000
 end
 
@@ -860,7 +857,7 @@ nasdaq_nomoptions_itto_itch_v4_0.price_long.dissect = function(buffer, offset, p
   local length = nasdaq_nomoptions_itto_itch_v4_0.price_long.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price_long(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.price_long.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price_long, range, value, display)
@@ -1229,7 +1226,7 @@ nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.display = function(value)
 end
 
 -- Translate: Ask Price Long
-translate.ask_price_long = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.translate = function(raw)
   return raw/10000
 end
 
@@ -1238,7 +1235,7 @@ nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.dissect = function(buffer, offse
   local length = nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.ask_price_long(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_long, range, value, display)
@@ -1281,7 +1278,7 @@ nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.display = function(value)
 end
 
 -- Translate: Bid Price Long
-translate.bid_price_long = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.translate = function(raw)
   return raw/10000
 end
 
@@ -1290,7 +1287,7 @@ nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.dissect = function(buffer, offse
   local length = nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price_long(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price_long, range, value, display)
@@ -1469,7 +1466,7 @@ nasdaq_nomoptions_itto_itch_v4_0.ask_price.display = function(value)
 end
 
 -- Translate: Ask Price
-translate.ask_price = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.ask_price.translate = function(raw)
   return raw/100
 end
 
@@ -1478,7 +1475,7 @@ nasdaq_nomoptions_itto_itch_v4_0.ask_price.dissect = function(buffer, offset, pa
   local length = nasdaq_nomoptions_itto_itch_v4_0.ask_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.ask_price(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.ask_price.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price, range, value, display)
@@ -1521,7 +1518,7 @@ nasdaq_nomoptions_itto_itch_v4_0.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.bid_price.translate = function(raw)
   return raw/100
 end
 
@@ -1530,7 +1527,7 @@ nasdaq_nomoptions_itto_itch_v4_0.bid_price.dissect = function(buffer, offset, pa
   local length = nasdaq_nomoptions_itto_itch_v4_0.bid_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.bid_price.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price, range, value, display)
@@ -1960,7 +1957,7 @@ nasdaq_nomoptions_itto_itch_v4_0.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.price.translate = function(raw)
   return raw/100
 end
 
@@ -1969,7 +1966,7 @@ nasdaq_nomoptions_itto_itch_v4_0.price.dissect = function(buffer, offset, packet
   local length = nasdaq_nomoptions_itto_itch_v4_0.price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.price.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price, range, value, display)
@@ -3119,7 +3116,7 @@ nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.display = function(value)
 end
 
 -- Translate: Explicit Strike Price
-translate.explicit_strike_price = function(raw)
+nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.translate = function(raw)
   return raw/10000
 end
 
@@ -3128,7 +3125,7 @@ nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.dissect = function(buffer
   local length = nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.explicit_strike_price(raw)
+  local value = nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.explicit_strike_price, range, value, display)
@@ -4067,7 +4064,7 @@ udp_table:add(65333, omi_nasdaq_nomoptions_itto_itch_v4_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_nomoptions_itto_itch_v4_0_packet_size = function(buffer)
+nasdaq_nomoptions_itto_itch_v4_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -4075,7 +4072,7 @@ end
 -- Dissector Heuristic for Nasdaq NomOptions Itto Itch 4.0
 local function omi_nasdaq_nomoptions_itto_itch_v4_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_nomoptions_itto_itch_v4_0_packet_size(buffer) then return false end
+  if not nasdaq_nomoptions_itto_itch_v4_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nomoptions_itto_itch_v4_0

@@ -12,9 +12,6 @@ local lseg_turquoise_mifid_gtp_v24_4 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -2105,7 +2102,7 @@ lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.display = funct
 end
 
 -- Translate: Static Circuit Breaker Tolerances
-translate.static_circuit_breaker_tolerances = function(raw)
+lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2114,7 +2111,7 @@ lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.dissect = funct
   local length = lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.static_circuit_breaker_tolerances(raw)
+  local value = lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.translate(raw)
   local display = lseg_turquoise_mifid_gtp_v24_4.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
@@ -2134,7 +2131,7 @@ lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.display = func
 end
 
 -- Translate: Dynamic Circuit Breaker Tolerances
-translate.dynamic_circuit_breaker_tolerances = function(raw)
+lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2143,7 +2140,7 @@ lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect = func
   local length = lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.dynamic_circuit_breaker_tolerances(raw)
+  local value = lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate(raw)
   local display = lseg_turquoise_mifid_gtp_v24_4.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
@@ -2163,7 +2160,7 @@ lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.display = function(value)
 end
 
 -- Translate: Price Band Tolerances
-translate.price_band_tolerances = function(raw)
+lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2172,7 +2169,7 @@ lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.dissect = function(buffer, 
   local length = lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_band_tolerances(raw)
+  local value = lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.translate(raw)
   local display = lseg_turquoise_mifid_gtp_v24_4.price_band_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.price_band_tolerances, range, value, display)
@@ -2950,7 +2947,7 @@ udp_table:add(65333, omi_lseg_turquoise_mifid_gtp_v24_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_lseg_turquoise_mifid_gtp_v24_4_packet_size = function(buffer)
+lseg_turquoise_mifid_gtp_v24_4.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2958,7 +2955,7 @@ end
 -- Dissector Heuristic for Lseg Turquoise Mifid Gtp 24.4
 local function omi_lseg_turquoise_mifid_gtp_v24_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_lseg_turquoise_mifid_gtp_v24_4_packet_size(buffer) then return false end
+  if not lseg_turquoise_mifid_gtp_v24_4.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_turquoise_mifid_gtp_v24_4

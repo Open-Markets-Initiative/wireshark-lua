@@ -12,8 +12,6 @@ local ice_futures_mdf_impact_v1_1_34 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -12546,7 +12544,7 @@ udp_table:add(65333, omi_ice_futures_mdf_impact_v1_1_34)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_ice_futures_mdf_impact_v1_1_34_packet_size = function(buffer)
+ice_futures_mdf_impact_v1_1_34.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -12554,7 +12552,7 @@ end
 -- Dissector Heuristic for Ice Futures Mdf iMpact 1.1.34
 local function omi_ice_futures_mdf_impact_v1_1_34_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_ice_futures_mdf_impact_v1_1_34_packet_size(buffer) then return false end
+  if not ice_futures_mdf_impact_v1_1_34.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_ice_futures_mdf_impact_v1_1_34

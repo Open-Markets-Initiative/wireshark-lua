@@ -12,9 +12,6 @@ local nasdaq_bxoptions_depthofmarket_itch_v1_3 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -442,7 +439,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.display = function(valu
 end
 
 -- Translate: Imbalance Price
-translate.imbalance_price = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.translate = function(raw)
   return raw/10000
 end
 
@@ -451,7 +448,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.dissect = function(buff
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.imbalance_price(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price, range, value, display)
@@ -843,7 +840,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.display = function(value)
 end
 
 -- Translate: Price Long
-translate.price_long = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.translate = function(raw)
   return raw/10000
 end
 
@@ -852,7 +849,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.dissect = function(buffer, o
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price_long(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long, range, value, display)
@@ -1307,7 +1304,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.display = function(value
 end
 
 -- Translate: Ask Price Long
-translate.ask_price_long = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.translate = function(raw)
   return raw/10000
 end
 
@@ -1316,7 +1313,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.dissect = function(buffe
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.ask_price_long(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price_long, range, value, display)
@@ -1359,7 +1356,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.display = function(value
 end
 
 -- Translate: Bid Price Long
-translate.bid_price_long = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.translate = function(raw)
   return raw/10000
 end
 
@@ -1368,7 +1365,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.dissect = function(buffe
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price_long(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price_long, range, value, display)
@@ -1565,7 +1562,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.display = function(value)
 end
 
 -- Translate: Ask Price
-translate.ask_price = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.translate = function(raw)
   return raw/100
 end
 
@@ -1574,7 +1571,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.dissect = function(buffer, of
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.ask_price(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price, range, value, display)
@@ -1617,7 +1614,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.translate = function(raw)
   return raw/100
 end
 
@@ -1626,7 +1623,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.dissect = function(buffer, of
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price, range, value, display)
@@ -2036,7 +2033,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price.translate = function(raw)
   return raw/100
 end
 
@@ -2045,7 +2042,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.price.dissect = function(buffer, offset
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price, range, value, display)
@@ -3144,7 +3141,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.display = functio
 end
 
 -- Translate: Explicit Strike Price
-translate.explicit_strike_price = function(raw)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.translate = function(raw)
   return raw/10000
 end
 
@@ -3153,7 +3150,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.dissect = functio
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.explicit_strike_price(raw)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.translate(raw)
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price, range, value, display)
@@ -4253,7 +4250,7 @@ udp_table:add(65333, omi_nasdaq_bxoptions_depthofmarket_itch_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_bxoptions_depthofmarket_itch_v1_3_packet_size = function(buffer)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -4261,7 +4258,7 @@ end
 -- Dissector Heuristic for Nasdaq BxOptions DepthOfMarket Itch 1.3
 local function omi_nasdaq_bxoptions_depthofmarket_itch_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_bxoptions_depthofmarket_itch_v1_3_packet_size(buffer) then return false end
+  if not nasdaq_bxoptions_depthofmarket_itch_v1_3.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_bxoptions_depthofmarket_itch_v1_3

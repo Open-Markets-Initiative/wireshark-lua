@@ -12,9 +12,6 @@ local nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -376,7 +373,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.display = function(valu
 end
 
 -- Translate: Last Price
-translate.last_price = function(raw)
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -385,7 +382,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.dissect = function(buff
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.last_price(raw)
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.last_price, range, value, display)
@@ -651,7 +648,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.translate = function(raw)
   return raw/10000
 end
 
@@ -660,7 +657,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.dissect = function(buffer, o
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price(raw)
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.price, range, value, display)
@@ -1028,7 +1025,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.display = function(value
 end
 
 -- Translate: Ask Price
-translate.ask_price = function(raw)
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1037,7 +1034,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.dissect = function(buffe
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.ask_price(raw)
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_price, range, value, display)
@@ -1195,7 +1192,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.display = function(value
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1204,7 +1201,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.dissect = function(buffe
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price(raw)
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_price, range, value, display)
@@ -1608,7 +1605,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.display = fu
 end
 
 -- Translate: Explicit Strike Price
-translate.explicit_strike_price = function(raw)
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1617,7 +1614,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.dissect = fu
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.explicit_strike_price(raw)
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.explicit_strike_price, range, value, display)
@@ -2766,7 +2763,7 @@ udp_table:add(65333, omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0_packet_size = function(buffer)
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2774,7 +2771,7 @@ end
 -- Dissector Heuristic for Nasdaq IseOptions TopComboQuoteFeed Itch 1.0
 local function omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0_packet_size(buffer) then return false end
+  if not nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0

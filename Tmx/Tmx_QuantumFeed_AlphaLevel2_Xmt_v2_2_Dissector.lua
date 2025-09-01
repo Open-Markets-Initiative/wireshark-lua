@@ -12,9 +12,6 @@ local tmx_quantumfeed_alphalevel2_xmt_v2_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -557,7 +554,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_2.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+tmx_quantumfeed_alphalevel2_xmt_v2_2.price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -566,7 +563,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_2.price.dissect = function(buffer, offset, pa
   local length = tmx_quantumfeed_alphalevel2_xmt_v2_2.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = tmx_quantumfeed_alphalevel2_xmt_v2_2.price.translate(raw)
   local display = tmx_quantumfeed_alphalevel2_xmt_v2_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.price, range, value, display)
@@ -2033,7 +2030,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_2.last_sale.display = function(value)
 end
 
 -- Translate: Last Sale
-translate.last_sale = function(raw)
+tmx_quantumfeed_alphalevel2_xmt_v2_2.last_sale.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2042,7 +2039,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_2.last_sale.dissect = function(buffer, offset
   local length = tmx_quantumfeed_alphalevel2_xmt_v2_2.last_sale.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_sale(raw)
+  local value = tmx_quantumfeed_alphalevel2_xmt_v2_2.last_sale.translate(raw)
   local display = tmx_quantumfeed_alphalevel2_xmt_v2_2.last_sale.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.last_sale, range, value, display)
@@ -2062,7 +2059,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_2.face_value.display = function(value)
 end
 
 -- Translate: Face Value
-translate.face_value = function(raw)
+tmx_quantumfeed_alphalevel2_xmt_v2_2.face_value.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2071,7 +2068,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_2.face_value.dissect = function(buffer, offse
   local length = tmx_quantumfeed_alphalevel2_xmt_v2_2.face_value.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.face_value(raw)
+  local value = tmx_quantumfeed_alphalevel2_xmt_v2_2.face_value.translate(raw)
   local display = tmx_quantumfeed_alphalevel2_xmt_v2_2.face_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.face_value, range, value, display)
@@ -3190,7 +3187,7 @@ udp_table:add(65333, omi_tmx_quantumfeed_alphalevel2_xmt_v2_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_tmx_quantumfeed_alphalevel2_xmt_v2_2_packet_size = function(buffer)
+tmx_quantumfeed_alphalevel2_xmt_v2_2.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3198,7 +3195,7 @@ end
 -- Dissector Heuristic for Tmx QuantumFeed AlphaLevel2 Xmt 2.2
 local function omi_tmx_quantumfeed_alphalevel2_xmt_v2_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_tmx_quantumfeed_alphalevel2_xmt_v2_2_packet_size(buffer) then return false end
+  if not tmx_quantumfeed_alphalevel2_xmt_v2_2.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_quantumfeed_alphalevel2_xmt_v2_2

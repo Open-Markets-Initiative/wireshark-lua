@@ -12,9 +12,6 @@ local nasdaq_psxequities_lastsale_itch_v2_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -481,7 +478,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.level_3.display = function(value)
 end
 
 -- Translate: Level 3
-translate.level_3 = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.level_3.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -490,7 +487,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.level_3.dissect = function(buffer, offset,
   local length = nasdaq_psxequities_lastsale_itch_v2_1.level_3.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_3(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.level_3.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.level_3, range, value, display)
@@ -510,7 +507,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.level_2.display = function(value)
 end
 
 -- Translate: Level 2
-translate.level_2 = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.level_2.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -519,7 +516,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.level_2.dissect = function(buffer, offset,
   local length = nasdaq_psxequities_lastsale_itch_v2_1.level_2.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_2(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.level_2.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.level_2, range, value, display)
@@ -539,7 +536,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.level_1.display = function(value)
 end
 
 -- Translate: Level 1
-translate.level_1 = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.level_1.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -548,7 +545,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.level_1.dissect = function(buffer, offset,
   local length = nasdaq_psxequities_lastsale_itch_v2_1.level_1.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_1(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.level_1.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.level_1, range, value, display)
@@ -1792,7 +1789,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.disp
 end
 
 -- Translate: Corrected Nav Premium Discount Amount
-translate.corrected_nav_premium_discount_amount = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.translate = function(raw)
   return raw/10000
 end
 
@@ -1801,7 +1798,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.diss
   local length = nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.corrected_nav_premium_discount_amount(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.corrected_nav_premium_discount_amount, range, value, display)
@@ -1821,7 +1818,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.display = function(v
 end
 
 -- Translate: Corrected Trade Price
-translate.corrected_trade_price = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1830,7 +1827,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.dissect = function(b
   local length = nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.corrected_trade_price(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.corrected_trade_price, range, value, display)
@@ -1919,7 +1916,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.displ
 end
 
 -- Translate: Original Nav Premium Discount Amount
-translate.original_nav_premium_discount_amount = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.translate = function(raw)
   return raw/10000
 end
 
@@ -1928,7 +1925,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.disse
   local length = nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.original_nav_premium_discount_amount(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.original_nav_premium_discount_amount, range, value, display)
@@ -1948,7 +1945,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.display = function(va
 end
 
 -- Translate: Original Trade Price
-translate.original_trade_price = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1957,7 +1954,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.dissect = function(bu
   local length = nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.original_trade_price(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.original_trade_price, range, value, display)
@@ -2568,7 +2565,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.display = func
 end
 
 -- Translate: Nav Premium Discount Amount
-translate.nav_premium_discount_amount = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.translate = function(raw)
   return raw/10000
 end
 
@@ -2577,7 +2574,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.dissect = func
   local length = nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.nav_premium_discount_amount(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.nav_premium_discount_amount, range, value, display)
@@ -2620,7 +2617,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.display = function(value)
 end
 
 -- Translate: Proxy Price
-translate.proxy_price = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2629,7 +2626,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.dissect = function(buffer, off
   local length = nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.proxy_price(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.proxy_price, range, value, display)
@@ -2790,7 +2787,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.trade_price.display = function(value)
 end
 
 -- Translate: Trade Price
-translate.trade_price = function(raw)
+nasdaq_psxequities_lastsale_itch_v2_1.trade_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2799,7 +2796,7 @@ nasdaq_psxequities_lastsale_itch_v2_1.trade_price.dissect = function(buffer, off
   local length = nasdaq_psxequities_lastsale_itch_v2_1.trade_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.trade_price(raw)
+  local value = nasdaq_psxequities_lastsale_itch_v2_1.trade_price.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_price, range, value, display)
@@ -3570,7 +3567,7 @@ udp_table:add(65333, omi_nasdaq_psxequities_lastsale_itch_v2_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_psxequities_lastsale_itch_v2_1_packet_size = function(buffer)
+nasdaq_psxequities_lastsale_itch_v2_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3578,7 +3575,7 @@ end
 -- Dissector Heuristic for Nasdaq PsxEquities LastSale Itch 2.1
 local function omi_nasdaq_psxequities_lastsale_itch_v2_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_psxequities_lastsale_itch_v2_1_packet_size(buffer) then return false end
+  if not nasdaq_psxequities_lastsale_itch_v2_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_psxequities_lastsale_itch_v2_1

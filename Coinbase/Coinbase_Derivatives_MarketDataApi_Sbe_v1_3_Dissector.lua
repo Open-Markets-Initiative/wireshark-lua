@@ -12,9 +12,6 @@ local coinbase_derivatives_marketdataapi_sbe_v1_3 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -700,7 +697,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price_optional.disp
 end
 
 -- Translate: Prior Settlement Price Optional
-translate.prior_settlement_price_optional = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -714,7 +711,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price_optional.diss
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.prior_settlement_price_optional(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price_optional.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price_optional, range, value, display)
@@ -872,7 +869,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.limit_up_price.display = function(va
 end
 
 -- Translate: Limit Up Price
-translate.limit_up_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.limit_up_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -881,7 +878,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.limit_up_price.dissect = function(bu
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.limit_up_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.limit_up_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.limit_up_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.limit_up_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.limit_up_price, range, value, display)
@@ -901,7 +898,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.limit_down_price.display = function(
 end
 
 -- Translate: Limit Down Price
-translate.limit_down_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.limit_down_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -910,7 +907,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.limit_down_price.dissect = function(
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.limit_down_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.limit_down_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.limit_down_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.limit_down_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.limit_down_price, range, value, display)
@@ -935,7 +932,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.next_ask_implied_price.display = fun
 end
 
 -- Translate: Next Ask Implied Price
-translate.next_ask_implied_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.next_ask_implied_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -949,7 +946,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.next_ask_implied_price.dissect = fun
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.next_ask_implied_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.next_ask_implied_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.next_ask_implied_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.next_ask_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_ask_implied_price, range, value, display)
@@ -974,7 +971,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.next_bid_implied_price.display = fun
 end
 
 -- Translate: Next Bid Implied Price
-translate.next_bid_implied_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.next_bid_implied_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -988,7 +985,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.next_bid_implied_price.dissect = fun
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.next_bid_implied_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.next_bid_implied_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.next_bid_implied_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.next_bid_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_bid_implied_price, range, value, display)
@@ -1013,7 +1010,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.best_ask_implied_price.display = fun
 end
 
 -- Translate: Best Ask Implied Price
-translate.best_ask_implied_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.best_ask_implied_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1027,7 +1024,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.best_ask_implied_price.dissect = fun
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.best_ask_implied_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.best_ask_implied_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.best_ask_implied_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.best_ask_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_ask_implied_price, range, value, display)
@@ -1052,7 +1049,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.best_bid_implied_price.display = fun
 end
 
 -- Translate: Best Bid Implied Price
-translate.best_bid_implied_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.best_bid_implied_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1066,7 +1063,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.best_bid_implied_price.dissect = fun
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.best_bid_implied_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.best_bid_implied_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.best_bid_implied_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.best_bid_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_bid_implied_price, range, value, display)
@@ -1119,7 +1116,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.last_trade_price.display = function(
 end
 
 -- Translate: Last Trade Price
-translate.last_trade_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.last_trade_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1133,7 +1130,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.last_trade_price.dissect = function(
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.last_trade_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_trade_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.last_trade_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.last_trade_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trade_price, range, value, display)
@@ -1158,7 +1155,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.settlement_price.display = function(
 end
 
 -- Translate: Settlement Price
-translate.settlement_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.settlement_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1172,7 +1169,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.settlement_price.dissect = function(
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.settlement_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.settlement_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.settlement_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.settlement_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.settlement_price, range, value, display)
@@ -1197,7 +1194,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price_optional.display = functi
 end
 
 -- Translate: Vwap Price Optional
-translate.vwap_price_optional = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1211,7 +1208,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price_optional.dissect = functi
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap_price_optional(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price_optional.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price_optional, range, value, display)
@@ -1236,7 +1233,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.high_price.display = function(raw, v
 end
 
 -- Translate: High Price
-translate.high_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.high_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1250,7 +1247,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.high_price.dissect = function(buffer
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.high_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.high_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.high_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.high_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.high_price, range, value, display)
@@ -1275,7 +1272,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.low_price.display = function(raw, va
 end
 
 -- Translate: Low Price
-translate.low_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.low_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1289,7 +1286,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.low_price.dissect = function(buffer,
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.low_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.low_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.low_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.low_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.low_price, range, value, display)
@@ -1314,7 +1311,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.close_price.display = function(raw, 
 end
 
 -- Translate: Close Price
-translate.close_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.close_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1328,7 +1325,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.close_price.dissect = function(buffe
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.close_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.close_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.close_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.close_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.close_price, range, value, display)
@@ -1353,7 +1350,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.day_open_price.display = function(ra
 end
 
 -- Translate: Day Open Price
-translate.day_open_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.day_open_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1367,7 +1364,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.day_open_price.dissect = function(bu
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.day_open_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.day_open_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.day_open_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.day_open_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.day_open_price, range, value, display)
@@ -1392,7 +1389,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.indicative_open_price.display = func
 end
 
 -- Translate: Indicative Open Price
-translate.indicative_open_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.indicative_open_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1406,7 +1403,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.indicative_open_price.dissect = func
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.indicative_open_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.indicative_open_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.indicative_open_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.indicative_open_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.indicative_open_price, range, value, display)
@@ -1637,7 +1634,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1646,7 +1643,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.price.dissect = function(buffer, off
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price, range, value, display)
@@ -2025,7 +2022,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.strike_price.display = function(valu
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.strike_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2034,7 +2031,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.strike_price.dissect = function(buff
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.strike_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.strike_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.strike_price, range, value, display)
@@ -2054,7 +2051,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick_threshold.display = funct
 end
 
 -- Translate: Large Tick Threshold
-translate.large_tick_threshold = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick_threshold.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2063,7 +2060,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick_threshold.dissect = funct
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick_threshold.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.large_tick_threshold(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick_threshold.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick_threshold.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.large_tick_threshold, range, value, display)
@@ -2083,7 +2080,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick.display = function(value)
 end
 
 -- Translate: Large Tick
-translate.large_tick = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2092,7 +2089,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick.dissect = function(buffer
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.large_tick(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.large_tick.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.large_tick, range, value, display)
@@ -2151,7 +2148,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.small_tick.display = function(value)
 end
 
 -- Translate: Small Tick
-translate.small_tick = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.small_tick.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2160,7 +2157,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.small_tick.dissect = function(buffer
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.small_tick.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.small_tick(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.small_tick.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.small_tick.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.small_tick, range, value, display)
@@ -2593,7 +2590,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.price_increment.display = function(v
 end
 
 -- Translate: Price Increment
-translate.price_increment = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.price_increment.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -2602,7 +2599,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.price_increment.dissect = function(b
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.price_increment.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_increment(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.price_increment.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.price_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price_increment, range, value, display)
@@ -3117,7 +3114,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price.display = function(value)
 end
 
 -- Translate: Vwap Price
-translate.vwap_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3126,7 +3123,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price.dissect = function(buffer
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.vwap_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price, range, value, display)
@@ -3453,7 +3450,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_2_price.display = function(v
 end
 
 -- Translate: New Leg 2 Price
-translate.new_leg_2_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_2_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3462,7 +3459,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_2_price.dissect = function(b
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_2_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.new_leg_2_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_2_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_2_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_leg_2_price, range, value, display)
@@ -3482,7 +3479,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_2_price.display = function(v
 end
 
 -- Translate: Old Leg 2 Price
-translate.old_leg_2_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_2_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3491,7 +3488,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_2_price.dissect = function(b
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_2_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.old_leg_2_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_2_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_2_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_leg_2_price, range, value, display)
@@ -3511,7 +3508,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_1_price.display = function(v
 end
 
 -- Translate: New Leg 1 Price
-translate.new_leg_1_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_1_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3520,7 +3517,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_1_price.dissect = function(b
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_1_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.new_leg_1_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_1_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.new_leg_1_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_leg_1_price, range, value, display)
@@ -3540,7 +3537,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_1_price.display = function(v
 end
 
 -- Translate: Old Leg 1 Price
-translate.old_leg_1_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_1_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3549,7 +3546,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_1_price.dissect = function(b
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_1_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.old_leg_1_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_1_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.old_leg_1_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_leg_1_price, range, value, display)
@@ -3569,7 +3566,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.new_price.display = function(value)
 end
 
 -- Translate: New Price
-translate.new_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.new_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3578,7 +3575,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.new_price.dissect = function(buffer,
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.new_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.new_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.new_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.new_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_price, range, value, display)
@@ -3598,7 +3595,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.old_price.display = function(value)
 end
 
 -- Translate: Old Price
-translate.old_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.old_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3607,7 +3604,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.old_price.dissect = function(buffer,
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.old_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.old_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.old_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.old_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_price, range, value, display)
@@ -3857,7 +3854,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.deepest_price.display = function(val
 end
 
 -- Translate: Deepest Price
-translate.deepest_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.deepest_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -3866,7 +3863,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.deepest_price.dissect = function(buf
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.deepest_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.deepest_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.deepest_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.deepest_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.deepest_price, range, value, display)
@@ -4053,7 +4050,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.next_price.display = function(raw, v
 end
 
 -- Translate: Next Price
-translate.next_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.next_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -4067,7 +4064,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.next_price.dissect = function(buffer
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.next_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.next_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.next_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.next_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_price, range, value, display)
@@ -4092,7 +4089,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.best_price.display = function(raw, v
 end
 
 -- Translate: Best Price
-translate.best_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.best_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -4106,7 +4103,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.best_price.dissect = function(buffer
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.best_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.best_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.best_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.best_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_price, range, value, display)
@@ -4361,7 +4358,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price.display = fun
 end
 
 -- Translate: Prior Settlement Price
-translate.prior_settlement_price = function(raw)
+coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -4370,7 +4367,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price.dissect = fun
   local length = coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.prior_settlement_price(raw)
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_3.prior_settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price, range, value, display)
@@ -5545,13 +5542,13 @@ udp_table:add(65333, omi_coinbase_derivatives_marketdataapi_sbe_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_coinbase_derivatives_marketdataapi_sbe_v1_3_packet_size = function(buffer)
+coinbase_derivatives_marketdataapi_sbe_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+coinbase_derivatives_marketdataapi_sbe_v1_3.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(30, 2):le_uint()
 
@@ -5563,7 +5560,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+coinbase_derivatives_marketdataapi_sbe_v1_3.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(32, 2):le_uint()
 
@@ -5577,13 +5574,13 @@ end
 -- Dissector Heuristic for Coinbase Derivatives MarketDataApi Sbe 1.3
 local function omi_coinbase_derivatives_marketdataapi_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_coinbase_derivatives_marketdataapi_sbe_v1_3_packet_size(buffer) then return false end
+  if not coinbase_derivatives_marketdataapi_sbe_v1_3.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not coinbase_derivatives_marketdataapi_sbe_v1_3.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not coinbase_derivatives_marketdataapi_sbe_v1_3.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_coinbase_derivatives_marketdataapi_sbe_v1_3

@@ -12,9 +12,6 @@ local eurex_derivatives_edci_t7_v13_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1676,7 +1673,7 @@ eurex_derivatives_edci_t7_v13_1.fill_qty.display = function(raw, value)
 end
 
 -- Translate: Fill Qty
-translate.fill_qty = function(raw)
+eurex_derivatives_edci_t7_v13_1.fill_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -1690,7 +1687,7 @@ eurex_derivatives_edci_t7_v13_1.fill_qty.dissect = function(buffer, offset, pack
   local length = eurex_derivatives_edci_t7_v13_1.fill_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.fill_qty(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.fill_qty.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.fill_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.fill_qty, range, value, display)
@@ -1715,7 +1712,7 @@ eurex_derivatives_edci_t7_v13_1.fill_px.display = function(raw, value)
 end
 
 -- Translate: Fill Px
-translate.fill_px = function(raw)
+eurex_derivatives_edci_t7_v13_1.fill_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -1729,7 +1726,7 @@ eurex_derivatives_edci_t7_v13_1.fill_px.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_edci_t7_v13_1.fill_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.fill_px(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.fill_px.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.fill_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.fill_px, range, value, display)
@@ -2825,7 +2822,7 @@ eurex_derivatives_edci_t7_v13_1.order_qty.display = function(raw, value)
 end
 
 -- Translate: Order Qty
-translate.order_qty = function(raw)
+eurex_derivatives_edci_t7_v13_1.order_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -2839,7 +2836,7 @@ eurex_derivatives_edci_t7_v13_1.order_qty.dissect = function(buffer, offset, pac
   local length = eurex_derivatives_edci_t7_v13_1.order_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.order_qty(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.order_qty.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.order_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.order_qty, range, value, display)
@@ -2864,7 +2861,7 @@ eurex_derivatives_edci_t7_v13_1.cxl_qty.display = function(raw, value)
 end
 
 -- Translate: Cxl Qty
-translate.cxl_qty = function(raw)
+eurex_derivatives_edci_t7_v13_1.cxl_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -2878,7 +2875,7 @@ eurex_derivatives_edci_t7_v13_1.cxl_qty.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_edci_t7_v13_1.cxl_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.cxl_qty(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.cxl_qty.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.cxl_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.cxl_qty, range, value, display)
@@ -2903,7 +2900,7 @@ eurex_derivatives_edci_t7_v13_1.cum_qty.display = function(raw, value)
 end
 
 -- Translate: Cum Qty
-translate.cum_qty = function(raw)
+eurex_derivatives_edci_t7_v13_1.cum_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -2917,7 +2914,7 @@ eurex_derivatives_edci_t7_v13_1.cum_qty.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_edci_t7_v13_1.cum_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.cum_qty(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.cum_qty.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.cum_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.cum_qty, range, value, display)
@@ -2942,7 +2939,7 @@ eurex_derivatives_edci_t7_v13_1.leaves_qty.display = function(raw, value)
 end
 
 -- Translate: Leaves Qty
-translate.leaves_qty = function(raw)
+eurex_derivatives_edci_t7_v13_1.leaves_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -2956,7 +2953,7 @@ eurex_derivatives_edci_t7_v13_1.leaves_qty.dissect = function(buffer, offset, pa
   local length = eurex_derivatives_edci_t7_v13_1.leaves_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.leaves_qty(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.leaves_qty.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.leaves_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.leaves_qty, range, value, display)
@@ -2981,7 +2978,7 @@ eurex_derivatives_edci_t7_v13_1.stop_px.display = function(raw, value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+eurex_derivatives_edci_t7_v13_1.stop_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -2995,7 +2992,7 @@ eurex_derivatives_edci_t7_v13_1.stop_px.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_edci_t7_v13_1.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.stop_px(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.stop_px.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.stop_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.stop_px, range, value, display)
@@ -3020,7 +3017,7 @@ eurex_derivatives_edci_t7_v13_1.price.display = function(raw, value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+eurex_derivatives_edci_t7_v13_1.price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -3034,7 +3031,7 @@ eurex_derivatives_edci_t7_v13_1.price.dissect = function(buffer, offset, packet,
   local length = eurex_derivatives_edci_t7_v13_1.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = eurex_derivatives_edci_t7_v13_1.price.translate(raw)
   local display = eurex_derivatives_edci_t7_v13_1.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.price, range, value, display)
@@ -4812,7 +4809,7 @@ tcp_table:add(65333, omi_eurex_derivatives_edci_t7_v13_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_eurex_derivatives_edci_t7_v13_1_packet_size = function(buffer)
+eurex_derivatives_edci_t7_v13_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -4820,7 +4817,7 @@ end
 -- Dissector Heuristic for Eurex Derivatives Edci T7 13.1
 local function omi_eurex_derivatives_edci_t7_v13_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_eurex_derivatives_edci_t7_v13_1_packet_size(buffer) then return false end
+  if not eurex_derivatives_edci_t7_v13_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_derivatives_edci_t7_v13_1

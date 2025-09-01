@@ -12,9 +12,6 @@ local nyse_equities_binarygateway_pillar_v5_8 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -2298,7 +2295,7 @@ nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.display = function(valu
 end
 
 -- Translate: Ssr Filing Price
-translate.ssr_filing_price = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2307,7 +2304,7 @@ nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.dissect = function(buff
   local length = nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.ssr_filing_price(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.ssr_filing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ssr_filing_price, range, value, display)
@@ -2396,7 +2393,7 @@ nyse_equities_binarygateway_pillar_v5_8.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2405,7 +2402,7 @@ nyse_equities_binarygateway_pillar_v5_8.price.dissect = function(buffer, offset,
   local length = nyse_equities_binarygateway_pillar_v5_8.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.price.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.price, range, value, display)
@@ -4657,7 +4654,7 @@ nyse_equities_binarygateway_pillar_v5_8.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.last_px.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -4666,7 +4663,7 @@ nyse_equities_binarygateway_pillar_v5_8.last_px.dissect = function(buffer, offse
   local length = nyse_equities_binarygateway_pillar_v5_8.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_px(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.last_px.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.last_px, range, value, display)
@@ -5514,7 +5511,7 @@ nyse_equities_binarygateway_pillar_v5_8.working_price.display = function(value)
 end
 
 -- Translate: Working Price
-translate.working_price = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.working_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -5523,7 +5520,7 @@ nyse_equities_binarygateway_pillar_v5_8.working_price.dissect = function(buffer,
   local length = nyse_equities_binarygateway_pillar_v5_8.working_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.working_price(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.working_price.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.working_price, range, value, display)
@@ -6056,7 +6053,7 @@ nyse_equities_binarygateway_pillar_v5_8.stop_px.display = function(value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.stop_px.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -6065,7 +6062,7 @@ nyse_equities_binarygateway_pillar_v5_8.stop_px.dissect = function(buffer, offse
   local length = nyse_equities_binarygateway_pillar_v5_8.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.stop_px(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.stop_px.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.stop_px, range, value, display)
@@ -7127,7 +7124,7 @@ nyse_equities_binarygateway_pillar_v5_8.trading_mpv.display = function(value)
 end
 
 -- Translate: Trading Mpv
-translate.trading_mpv = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.trading_mpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7136,7 +7133,7 @@ nyse_equities_binarygateway_pillar_v5_8.trading_mpv.dissect = function(buffer, o
   local length = nyse_equities_binarygateway_pillar_v5_8.trading_mpv.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_mpv(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.trading_mpv.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.trading_mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.trading_mpv, range, value, display)
@@ -7156,7 +7153,7 @@ nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.display = function(value)
 end
 
 -- Translate: Quoting Mpv
-translate.quoting_mpv = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7165,7 +7162,7 @@ nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.dissect = function(buffer, o
   local length = nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.quoting_mpv(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.quoting_mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.quoting_mpv, range, value, display)
@@ -7322,7 +7319,7 @@ nyse_equities_binarygateway_pillar_v5_8.luldmpv.display = function(value)
 end
 
 -- Translate: Luldmpv
-translate.luldmpv = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.luldmpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7331,7 +7328,7 @@ nyse_equities_binarygateway_pillar_v5_8.luldmpv.dissect = function(buffer, offse
   local length = nyse_equities_binarygateway_pillar_v5_8.luldmpv.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.luldmpv(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.luldmpv.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.luldmpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.luldmpv, range, value, display)
@@ -7351,7 +7348,7 @@ nyse_equities_binarygateway_pillar_v5_8.rpimpv.display = function(value)
 end
 
 -- Translate: Rpimpv
-translate.rpimpv = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.rpimpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7360,7 +7357,7 @@ nyse_equities_binarygateway_pillar_v5_8.rpimpv.dissect = function(buffer, offset
   local length = nyse_equities_binarygateway_pillar_v5_8.rpimpv.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.rpimpv(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.rpimpv.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.rpimpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.rpimpv, range, value, display)
@@ -7473,7 +7470,7 @@ nyse_equities_binarygateway_pillar_v5_8.lmocp.display = function(value)
 end
 
 -- Translate: Lmocp
-translate.lmocp = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.lmocp.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7482,7 +7479,7 @@ nyse_equities_binarygateway_pillar_v5_8.lmocp.dissect = function(buffer, offset,
   local length = nyse_equities_binarygateway_pillar_v5_8.lmocp.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.lmocp(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.lmocp.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.lmocp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.lmocp, range, value, display)
@@ -7548,7 +7545,7 @@ nyse_equities_binarygateway_pillar_v5_8.ppp_3.display = function(value)
 end
 
 -- Translate: Ppp 3
-translate.ppp_3 = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.ppp_3.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7557,7 +7554,7 @@ nyse_equities_binarygateway_pillar_v5_8.ppp_3.dissect = function(buffer, offset,
   local length = nyse_equities_binarygateway_pillar_v5_8.ppp_3.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.ppp_3(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.ppp_3.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.ppp_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_3, range, value, display)
@@ -7577,7 +7574,7 @@ nyse_equities_binarygateway_pillar_v5_8.ppp_2.display = function(value)
 end
 
 -- Translate: Ppp 2
-translate.ppp_2 = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.ppp_2.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7586,7 +7583,7 @@ nyse_equities_binarygateway_pillar_v5_8.ppp_2.dissect = function(buffer, offset,
   local length = nyse_equities_binarygateway_pillar_v5_8.ppp_2.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.ppp_2(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.ppp_2.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.ppp_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_2, range, value, display)
@@ -7606,7 +7603,7 @@ nyse_equities_binarygateway_pillar_v5_8.ppp_1.display = function(value)
 end
 
 -- Translate: Ppp 1
-translate.ppp_1 = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.ppp_1.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7615,7 +7612,7 @@ nyse_equities_binarygateway_pillar_v5_8.ppp_1.dissect = function(buffer, offset,
   local length = nyse_equities_binarygateway_pillar_v5_8.ppp_1.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.ppp_1(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.ppp_1.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.ppp_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ppp_1, range, value, display)
@@ -7635,7 +7632,7 @@ nyse_equities_binarygateway_pillar_v5_8.ridge.display = function(value)
 end
 
 -- Translate: Ridge
-translate.ridge = function(raw)
+nyse_equities_binarygateway_pillar_v5_8.ridge.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7644,7 +7641,7 @@ nyse_equities_binarygateway_pillar_v5_8.ridge.dissect = function(buffer, offset,
   local length = nyse_equities_binarygateway_pillar_v5_8.ridge.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.ridge(raw)
+  local value = nyse_equities_binarygateway_pillar_v5_8.ridge.translate(raw)
   local display = nyse_equities_binarygateway_pillar_v5_8.ridge.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_binarygateway_pillar_v5_8.fields.ridge, range, value, display)
@@ -10637,7 +10634,7 @@ tcp_table:add(65333, omi_nyse_equities_binarygateway_pillar_v5_8)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nyse_equities_binarygateway_pillar_v5_8_packet_size = function(buffer)
+nyse_equities_binarygateway_pillar_v5_8.pillar_stream_message.requiredsize = function(buffer)
 
   return true
 end
@@ -10645,7 +10642,7 @@ end
 -- Dissector Heuristic for Nyse Equities BinaryGateway Pillar 5.8
 local function omi_nyse_equities_binarygateway_pillar_v5_8_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nyse_equities_binarygateway_pillar_v5_8_packet_size(buffer) then return false end
+  if not nyse_equities_binarygateway_pillar_v5_8.pillar_stream_message.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_equities_binarygateway_pillar_v5_8

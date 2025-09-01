@@ -12,9 +12,6 @@ local cboe_futures_depthofbook_pitch_v1_1_6 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1297,7 +1294,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.short_price.display = function(value)
 end
 
 -- Translate: Short Price
-translate.short_price = function(raw)
+cboe_futures_depthofbook_pitch_v1_1_6.short_price.translate = function(raw)
   return raw/100
 end
 
@@ -1306,7 +1303,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.short_price.dissect = function(buffer, off
   local length = cboe_futures_depthofbook_pitch_v1_1_6.short_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.short_price(raw)
+  local value = cboe_futures_depthofbook_pitch_v1_1_6.short_price.translate(raw)
   local display = cboe_futures_depthofbook_pitch_v1_1_6.short_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_6.fields.short_price, range, value, display)
@@ -1482,7 +1479,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.long_price.display = function(value)
 end
 
 -- Translate: Long Price
-translate.long_price = function(raw)
+cboe_futures_depthofbook_pitch_v1_1_6.long_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1491,7 +1488,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.long_price.dissect = function(buffer, offs
   local length = cboe_futures_depthofbook_pitch_v1_1_6.long_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.long_price(raw)
+  local value = cboe_futures_depthofbook_pitch_v1_1_6.long_price.translate(raw)
   local display = cboe_futures_depthofbook_pitch_v1_1_6.long_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_6.fields.long_price, range, value, display)
@@ -3833,7 +3830,7 @@ udp_table:add(65333, omi_cboe_futures_depthofbook_pitch_v1_1_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_futures_depthofbook_pitch_v1_1_6_packet_size = function(buffer)
+cboe_futures_depthofbook_pitch_v1_1_6.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3841,7 +3838,7 @@ end
 -- Dissector Heuristic for Cboe Futures DepthOfBook Pitch 1.1.6
 local function omi_cboe_futures_depthofbook_pitch_v1_1_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_futures_depthofbook_pitch_v1_1_6_packet_size(buffer) then return false end
+  if not cboe_futures_depthofbook_pitch_v1_1_6.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_futures_depthofbook_pitch_v1_1_6

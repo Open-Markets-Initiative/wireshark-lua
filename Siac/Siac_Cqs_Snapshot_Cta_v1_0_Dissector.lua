@@ -12,9 +12,6 @@ local siac_cqs_snapshot_cta_v1_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -322,7 +319,7 @@ siac_cqs_snapshot_cta_v1_0.low_indication_price.display = function(value)
 end
 
 -- Translate: Low Indication Price
-translate.low_indication_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.low_indication_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -331,7 +328,7 @@ siac_cqs_snapshot_cta_v1_0.low_indication_price.dissect = function(buffer, offse
   local length = siac_cqs_snapshot_cta_v1_0.low_indication_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.low_indication_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.low_indication_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.low_indication_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.low_indication_price, range, value, display)
@@ -351,7 +348,7 @@ siac_cqs_snapshot_cta_v1_0.high_indication_price.display = function(value)
 end
 
 -- Translate: High Indication Price
-translate.high_indication_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.high_indication_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -360,7 +357,7 @@ siac_cqs_snapshot_cta_v1_0.high_indication_price.dissect = function(buffer, offs
   local length = siac_cqs_snapshot_cta_v1_0.high_indication_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.high_indication_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.high_indication_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.high_indication_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.high_indication_price, range, value, display)
@@ -465,7 +462,7 @@ siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.display = function(value)
 end
 
 -- Translate: Finra Best Offer Price
-translate.finra_best_offer_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -474,7 +471,7 @@ siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.dissect = function(buffer, off
   local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.finra_best_offer_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price, range, value, display)
@@ -606,7 +603,7 @@ siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.display = function(value)
 end
 
 -- Translate: Finra Best Bid Price
-translate.finra_best_bid_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -615,7 +612,7 @@ siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.dissect = function(buffer, offse
   local length = siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.finra_best_bid_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_price, range, value, display)
@@ -1030,7 +1027,7 @@ siac_cqs_snapshot_cta_v1_0.offer_price.display = function(value)
 end
 
 -- Translate: Offer Price
-translate.offer_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.offer_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1039,7 +1036,7 @@ siac_cqs_snapshot_cta_v1_0.offer_price.dissect = function(buffer, offset, packet
   local length = siac_cqs_snapshot_cta_v1_0.offer_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.offer_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.offer_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.offer_price, range, value, display)
@@ -1082,7 +1079,7 @@ siac_cqs_snapshot_cta_v1_0.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1091,7 +1088,7 @@ siac_cqs_snapshot_cta_v1_0.bid_price.dissect = function(buffer, offset, packet, 
   local length = siac_cqs_snapshot_cta_v1_0.bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.bid_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.bid_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price, range, value, display)
@@ -1541,7 +1538,7 @@ siac_cqs_snapshot_cta_v1_0.national_best_offer_price.display = function(value)
 end
 
 -- Translate: National Best Offer Price
-translate.national_best_offer_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.national_best_offer_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1550,7 +1547,7 @@ siac_cqs_snapshot_cta_v1_0.national_best_offer_price.dissect = function(buffer, 
   local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.national_best_offer_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_price, range, value, display)
@@ -1743,7 +1740,7 @@ siac_cqs_snapshot_cta_v1_0.national_best_bid_price.display = function(value)
 end
 
 -- Translate: National Best Bid Price
-translate.national_best_bid_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.national_best_bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1752,7 +1749,7 @@ siac_cqs_snapshot_cta_v1_0.national_best_bid_price.dissect = function(buffer, of
   local length = siac_cqs_snapshot_cta_v1_0.national_best_bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.national_best_bid_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.national_best_bid_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.national_best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_price, range, value, display)
@@ -1945,7 +1942,7 @@ siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.display = functi
 end
 
 -- Translate: Auction Collar Lower Threshold Price
-translate.auction_collar_lower_threshold_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1954,7 +1951,7 @@ siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.dissect = functi
   local length = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.auction_collar_lower_threshold_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_lower_threshold_price, range, value, display)
@@ -1974,7 +1971,7 @@ siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.display = functi
 end
 
 -- Translate: Auction Collar Upper Threshold Price
-translate.auction_collar_upper_threshold_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1983,7 +1980,7 @@ siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.dissect = functi
   local length = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.auction_collar_upper_threshold_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price, range, value, display)
@@ -2003,7 +2000,7 @@ siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.display = function(val
 end
 
 -- Translate: Auction Collar Reference Price
-translate.auction_collar_reference_price = function(raw)
+siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2012,7 +2009,7 @@ siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.dissect = function(buf
   local length = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.auction_collar_reference_price(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price, range, value, display)
@@ -2032,7 +2029,7 @@ siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.display = function(value)
 end
 
 -- Translate: Upper Limit Price Band
-translate.upper_limit_price_band = function(raw)
+siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2041,7 +2038,7 @@ siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.dissect = function(buffer, off
   local length = siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.upper_limit_price_band(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band, range, value, display)
@@ -2061,7 +2058,7 @@ siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.display = function(value)
 end
 
 -- Translate: Lower Limit Price Band
-translate.lower_limit_price_band = function(raw)
+siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2070,7 +2067,7 @@ siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.dissect = function(buffer, off
   local length = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.lower_limit_price_band(raw)
+  local value = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band, range, value, display)
@@ -3213,7 +3210,7 @@ udp_table:add(65333, omi_siac_cqs_snapshot_cta_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_siac_cqs_snapshot_cta_v1_0_packet_size = function(buffer)
+siac_cqs_snapshot_cta_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3221,7 +3218,7 @@ end
 -- Dissector Heuristic for Siac Cqs Snapshot Cta 1.0
 local function omi_siac_cqs_snapshot_cta_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_siac_cqs_snapshot_cta_v1_0_packet_size(buffer) then return false end
+  if not siac_cqs_snapshot_cta_v1_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_snapshot_cta_v1_0

@@ -12,9 +12,6 @@ local b3_equities_binaryumdf_sbe_v1_6 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -812,7 +809,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.display = fun
 end
 
 -- Translate: Md Corporate Offset Price Optional
-translate.md_corporate_offset_price_optional = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -826,7 +823,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.dissect = fun
   local length = b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.md_corporate_offset_price_optional(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.md_corporate_offset_price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.md_corporate_offset_price_optional, range, value, display)
@@ -1262,7 +1259,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_future_price.display = function(value)
 end
 
 -- Translate: Md Future Price
-translate.md_future_price = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.md_future_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1271,7 +1268,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_future_price.dissect = function(buffer, offse
   local length = b3_equities_binaryumdf_sbe_v1_6.md_future_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.md_future_price(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.md_future_price.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.md_future_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.md_future_price, range, value, display)
@@ -1579,7 +1576,7 @@ b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.display = function(raw, value)
 end
 
 -- Translate: Net Chg Prev Day
-translate.net_chg_prev_day = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1593,7 +1590,7 @@ b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.dissect = function(buffer, offs
   local length = b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.net_chg_prev_day(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.net_chg_prev_day.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.net_chg_prev_day, range, value, display)
@@ -1618,7 +1615,7 @@ b3_equities_binaryumdf_sbe_v1_6.vwap_px.display = function(raw, value)
 end
 
 -- Translate: Vwap Px
-translate.vwap_px = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.vwap_px.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1632,7 +1629,7 @@ b3_equities_binaryumdf_sbe_v1_6.vwap_px.dissect = function(buffer, offset, packe
   local length = b3_equities_binaryumdf_sbe_v1_6.vwap_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap_px(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.vwap_px.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.vwap_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.vwap_px, range, value, display)
@@ -1861,7 +1858,7 @@ b3_equities_binaryumdf_sbe_v1_6.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.last_px.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1870,7 +1867,7 @@ b3_equities_binaryumdf_sbe_v1_6.last_px.dissect = function(buffer, offset, packe
   local length = b3_equities_binaryumdf_sbe_v1_6.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_px(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.last_px.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.last_px, range, value, display)
@@ -2143,7 +2140,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.display = function(raw, v
 end
 
 -- Translate: Md Entry Interest Rate
-translate.md_entry_interest_rate = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x00000000) then
     return 0/0
@@ -2157,7 +2154,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.dissect = function(buffer
   local length = b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.md_entry_interest_rate(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.md_entry_interest_rate.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.md_entry_interest_rate, range, value, display)
@@ -3626,7 +3623,7 @@ b3_equities_binaryumdf_sbe_v1_6.trading_reference_price.display = function(raw, 
 end
 
 -- Translate: Trading Reference Price
-translate.trading_reference_price = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.trading_reference_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -3640,7 +3637,7 @@ b3_equities_binaryumdf_sbe_v1_6.trading_reference_price.dissect = function(buffe
   local length = b3_equities_binaryumdf_sbe_v1_6.trading_reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_reference_price(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.trading_reference_price.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.trading_reference_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.trading_reference_price, range, value, display)
@@ -3665,7 +3662,7 @@ b3_equities_binaryumdf_sbe_v1_6.high_limit_price.display = function(raw, value)
 end
 
 -- Translate: High Limit Price
-translate.high_limit_price = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.high_limit_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -3679,7 +3676,7 @@ b3_equities_binaryumdf_sbe_v1_6.high_limit_price.dissect = function(buffer, offs
   local length = b3_equities_binaryumdf_sbe_v1_6.high_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.high_limit_price(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.high_limit_price.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.high_limit_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.high_limit_price, range, value, display)
@@ -3704,7 +3701,7 @@ b3_equities_binaryumdf_sbe_v1_6.low_limit_price.display = function(raw, value)
 end
 
 -- Translate: Low Limit Price
-translate.low_limit_price = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.low_limit_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -3718,7 +3715,7 @@ b3_equities_binaryumdf_sbe_v1_6.low_limit_price.dissect = function(buffer, offse
   local length = b3_equities_binaryumdf_sbe_v1_6.low_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.low_limit_price(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.low_limit_price.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.low_limit_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.low_limit_price, range, value, display)
@@ -4106,7 +4103,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_corporate_price.display = function(value)
 end
 
 -- Translate: Md Corporate Price
-translate.md_corporate_price = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.md_corporate_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -4115,7 +4112,7 @@ b3_equities_binaryumdf_sbe_v1_6.md_corporate_price.dissect = function(buffer, of
   local length = b3_equities_binaryumdf_sbe_v1_6.md_corporate_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.md_corporate_price(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.md_corporate_price.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.md_corporate_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.md_corporate_price, range, value, display)
@@ -5617,7 +5614,7 @@ b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.display = function(value)
 end
 
 -- Translate: Leg Ratio Qty
-translate.leg_ratio_qty = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -5626,7 +5623,7 @@ b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.dissect = function(buffer, offset,
   local length = b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.leg_ratio_qty(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.leg_ratio_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.leg_ratio_qty, range, value, display)
@@ -5836,7 +5833,7 @@ b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.display = function(raw, va
 end
 
 -- Translate: Index Theoretical Qty
-translate.index_theoretical_qty = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -5850,7 +5847,7 @@ b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.dissect = function(buffer,
   local length = b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.index_theoretical_qty(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.index_theoretical_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.index_theoretical_qty, range, value, display)
@@ -5875,7 +5872,7 @@ b3_equities_binaryumdf_sbe_v1_6.index_pct.display = function(raw, value)
 end
 
 -- Translate: Index Pct
-translate.index_pct = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.index_pct.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x00000000) then
     return 0/0
@@ -5889,7 +5886,7 @@ b3_equities_binaryumdf_sbe_v1_6.index_pct.dissect = function(buffer, offset, pac
   local length = b3_equities_binaryumdf_sbe_v1_6.index_pct.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.index_pct(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.index_pct.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.index_pct.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.index_pct, range, value, display)
@@ -7403,7 +7400,7 @@ b3_equities_binaryumdf_sbe_v1_6.price_divisor.display = function(raw, value)
 end
 
 -- Translate: Price Divisor
-translate.price_divisor = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.price_divisor.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -7417,7 +7414,7 @@ b3_equities_binaryumdf_sbe_v1_6.price_divisor.dissect = function(buffer, offset,
   local length = b3_equities_binaryumdf_sbe_v1_6.price_divisor.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_divisor(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.price_divisor.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.price_divisor.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.price_divisor, range, value, display)
@@ -7442,7 +7439,7 @@ b3_equities_binaryumdf_sbe_v1_6.contract_multiplier.display = function(raw, valu
 end
 
 -- Translate: Contract Multiplier
-translate.contract_multiplier = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.contract_multiplier.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -7456,7 +7453,7 @@ b3_equities_binaryumdf_sbe_v1_6.contract_multiplier.dissect = function(buffer, o
   local length = b3_equities_binaryumdf_sbe_v1_6.contract_multiplier.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.contract_multiplier(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.contract_multiplier.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.contract_multiplier.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.contract_multiplier, range, value, display)
@@ -7481,7 +7478,7 @@ b3_equities_binaryumdf_sbe_v1_6.strike_price.display = function(raw, value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.strike_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -7495,7 +7492,7 @@ b3_equities_binaryumdf_sbe_v1_6.strike_price.dissect = function(buffer, offset, 
   local length = b3_equities_binaryumdf_sbe_v1_6.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.strike_price(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.strike_price.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.strike_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.strike_price, range, value, display)
@@ -7520,7 +7517,7 @@ b3_equities_binaryumdf_sbe_v1_6.min_price_increment.display = function(raw, valu
 end
 
 -- Translate: Min Price Increment
-translate.min_price_increment = function(raw)
+b3_equities_binaryumdf_sbe_v1_6.min_price_increment.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -7534,7 +7531,7 @@ b3_equities_binaryumdf_sbe_v1_6.min_price_increment.dissect = function(buffer, o
   local length = b3_equities_binaryumdf_sbe_v1_6.min_price_increment.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.min_price_increment(raw)
+  local value = b3_equities_binaryumdf_sbe_v1_6.min_price_increment.translate(raw)
   local display = b3_equities_binaryumdf_sbe_v1_6.min_price_increment.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_6.fields.min_price_increment, range, value, display)
@@ -9459,13 +9456,13 @@ udp_table:add(65333, omi_b3_equities_binaryumdf_sbe_v1_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_b3_equities_binaryumdf_sbe_v1_6_packet_size = function(buffer)
+b3_equities_binaryumdf_sbe_v1_6.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+b3_equities_binaryumdf_sbe_v1_6.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(24, 2):le_uint()
 
@@ -9477,7 +9474,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+b3_equities_binaryumdf_sbe_v1_6.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(26, 2):le_uint()
 
@@ -9491,13 +9488,13 @@ end
 -- Dissector Heuristic for B3 Equities BinaryUmdf Sbe 1.6
 local function omi_b3_equities_binaryumdf_sbe_v1_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_b3_equities_binaryumdf_sbe_v1_6_packet_size(buffer) then return false end
+  if not b3_equities_binaryumdf_sbe_v1_6.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not b3_equities_binaryumdf_sbe_v1_6.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not b3_equities_binaryumdf_sbe_v1_6.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_b3_equities_binaryumdf_sbe_v1_6

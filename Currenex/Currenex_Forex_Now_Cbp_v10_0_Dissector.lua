@@ -12,9 +12,6 @@ local currenex_forex_now_cbp_v10_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -529,7 +526,7 @@ currenex_forex_now_cbp_v10_0.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+currenex_forex_now_cbp_v10_0.price.translate = function(raw)
   return raw/1000000
 end
 
@@ -538,7 +535,7 @@ currenex_forex_now_cbp_v10_0.price.dissect = function(buffer, offset, packet, pa
   local length = currenex_forex_now_cbp_v10_0.price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price(raw)
+  local value = currenex_forex_now_cbp_v10_0.price.translate(raw)
   local display = currenex_forex_now_cbp_v10_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_forex_now_cbp_v10_0.fields.price, range, value, display)
@@ -723,7 +720,7 @@ currenex_forex_now_cbp_v10_0.rate.display = function(value)
 end
 
 -- Translate: Rate
-translate.rate = function(raw)
+currenex_forex_now_cbp_v10_0.rate.translate = function(raw)
   return raw/100000
 end
 
@@ -732,7 +729,7 @@ currenex_forex_now_cbp_v10_0.rate.dissect = function(buffer, offset, packet, par
   local length = currenex_forex_now_cbp_v10_0.rate.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.rate(raw)
+  local value = currenex_forex_now_cbp_v10_0.rate.translate(raw)
   local display = currenex_forex_now_cbp_v10_0.rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_forex_now_cbp_v10_0.fields.rate, range, value, display)
@@ -2148,13 +2145,13 @@ udp_table:add(65333, omi_currenex_forex_now_cbp_v10_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_currenex_forex_now_cbp_v10_0_packet_size = function(buffer)
+currenex_forex_now_cbp_v10_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Itch Soh Field
-verify.itch_soh = function(buffer)
+currenex_forex_now_cbp_v10_0.itch_soh.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -2168,10 +2165,10 @@ end
 -- Dissector Heuristic for Currenex Forex Now Cbp 10.0
 local function omi_currenex_forex_now_cbp_v10_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_currenex_forex_now_cbp_v10_0_packet_size(buffer) then return false end
+  if not currenex_forex_now_cbp_v10_0.packet.requiredsize(buffer) then return false end
 
   -- Verify Itch Soh
-  if not verify.itch_soh(buffer) then return false end
+  if not currenex_forex_now_cbp_v10_0.itch_soh.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_currenex_forex_now_cbp_v10_0

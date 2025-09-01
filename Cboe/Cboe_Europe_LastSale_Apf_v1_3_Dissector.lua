@@ -12,8 +12,6 @@ local cboe_europe_lastsale_apf_v1_3 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1652,13 +1650,13 @@ tcp_table:add(65333, omi_cboe_europe_lastsale_apf_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_europe_lastsale_apf_v1_3_packet_size = function(buffer)
+cboe_europe_lastsale_apf_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Soup Lf Field
-verify.soup_lf = function(buffer)
+cboe_europe_lastsale_apf_v1_3.soup_lf.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(223, 1):int()
 
@@ -1672,10 +1670,10 @@ end
 -- Dissector Heuristic for Cboe Europe LastSale Apf 1.3
 local function omi_cboe_europe_lastsale_apf_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_europe_lastsale_apf_v1_3_packet_size(buffer) then return false end
+  if not cboe_europe_lastsale_apf_v1_3.packet.requiredsize(buffer) then return false end
 
   -- Verify Soup Lf
-  if not verify.soup_lf(buffer) then return false end
+  if not cboe_europe_lastsale_apf_v1_3.soup_lf.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_europe_lastsale_apf_v1_3

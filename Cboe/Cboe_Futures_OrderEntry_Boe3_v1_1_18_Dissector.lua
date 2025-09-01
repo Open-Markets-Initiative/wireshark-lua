@@ -12,9 +12,6 @@ local cboe_futures_orderentry_boe3_v1_1_18 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1077,7 +1074,7 @@ cboe_futures_orderentry_boe3_v1_1_18.clearing_price.display = function(value)
 end
 
 -- Translate: Clearing Price
-translate.clearing_price = function(raw)
+cboe_futures_orderentry_boe3_v1_1_18.clearing_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1086,7 +1083,7 @@ cboe_futures_orderentry_boe3_v1_1_18.clearing_price.dissect = function(buffer, o
   local length = cboe_futures_orderentry_boe3_v1_1_18.clearing_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.clearing_price(raw)
+  local value = cboe_futures_orderentry_boe3_v1_1_18.clearing_price.translate(raw)
   local display = cboe_futures_orderentry_boe3_v1_1_18.clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.clearing_price, range, value, display)
@@ -1599,7 +1596,7 @@ cboe_futures_orderentry_boe3_v1_1_18.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+cboe_futures_orderentry_boe3_v1_1_18.last_px.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1608,7 +1605,7 @@ cboe_futures_orderentry_boe3_v1_1_18.last_px.dissect = function(buffer, offset, 
   local length = cboe_futures_orderentry_boe3_v1_1_18.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_px(raw)
+  local value = cboe_futures_orderentry_boe3_v1_1_18.last_px.translate(raw)
   local display = cboe_futures_orderentry_boe3_v1_1_18.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.last_px, range, value, display)
@@ -1786,7 +1783,7 @@ cboe_futures_orderentry_boe3_v1_1_18.working_price.display = function(value)
 end
 
 -- Translate: Working Price
-translate.working_price = function(raw)
+cboe_futures_orderentry_boe3_v1_1_18.working_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1795,7 +1792,7 @@ cboe_futures_orderentry_boe3_v1_1_18.working_price.dissect = function(buffer, of
   local length = cboe_futures_orderentry_boe3_v1_1_18.working_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.working_price(raw)
+  local value = cboe_futures_orderentry_boe3_v1_1_18.working_price.translate(raw)
   local display = cboe_futures_orderentry_boe3_v1_1_18.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.working_price, range, value, display)
@@ -2377,7 +2374,7 @@ cboe_futures_orderentry_boe3_v1_1_18.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+cboe_futures_orderentry_boe3_v1_1_18.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2386,7 +2383,7 @@ cboe_futures_orderentry_boe3_v1_1_18.price.dissect = function(buffer, offset, pa
   local length = cboe_futures_orderentry_boe3_v1_1_18.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = cboe_futures_orderentry_boe3_v1_1_18.price.translate(raw)
   local display = cboe_futures_orderentry_boe3_v1_1_18.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.price, range, value, display)
@@ -2641,7 +2638,7 @@ cboe_futures_orderentry_boe3_v1_1_18.corrected_price.display = function(value)
 end
 
 -- Translate: Corrected Price
-translate.corrected_price = function(raw)
+cboe_futures_orderentry_boe3_v1_1_18.corrected_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2650,7 +2647,7 @@ cboe_futures_orderentry_boe3_v1_1_18.corrected_price.dissect = function(buffer, 
   local length = cboe_futures_orderentry_boe3_v1_1_18.corrected_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.corrected_price(raw)
+  local value = cboe_futures_orderentry_boe3_v1_1_18.corrected_price.translate(raw)
   local display = cboe_futures_orderentry_boe3_v1_1_18.corrected_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.corrected_price, range, value, display)
@@ -4230,7 +4227,7 @@ cboe_futures_orderentry_boe3_v1_1_18.stop_px.display = function(value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+cboe_futures_orderentry_boe3_v1_1_18.stop_px.translate = function(raw)
   return raw/10000
 end
 
@@ -4239,7 +4236,7 @@ cboe_futures_orderentry_boe3_v1_1_18.stop_px.dissect = function(buffer, offset, 
   local length = cboe_futures_orderentry_boe3_v1_1_18.stop_px.size
   local range = buffer(offset, length)
   local raw = range:bytes():tohex(false, " ")
-  local value = translate.stop_px(raw)
+  local value = cboe_futures_orderentry_boe3_v1_1_18.stop_px.translate(raw)
   local display = cboe_futures_orderentry_boe3_v1_1_18.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.stop_px, range, value, display)
@@ -8189,7 +8186,7 @@ tcp_table:add(65333, omi_cboe_futures_orderentry_boe3_v1_1_18)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_futures_orderentry_boe3_v1_1_18_packet_size = function(buffer)
+cboe_futures_orderentry_boe3_v1_1_18.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -8197,7 +8194,7 @@ end
 -- Dissector Heuristic for Cboe Futures OrderEntry Boe3 1.1.18
 local function omi_cboe_futures_orderentry_boe3_v1_1_18_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_futures_orderentry_boe3_v1_1_18_packet_size(buffer) then return false end
+  if not cboe_futures_orderentry_boe3_v1_1_18.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_futures_orderentry_boe3_v1_1_18

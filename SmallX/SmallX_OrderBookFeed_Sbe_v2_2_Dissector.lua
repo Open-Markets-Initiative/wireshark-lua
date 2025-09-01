@@ -12,9 +12,6 @@ local smallx_orderbookfeed_sbe_v2_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -431,7 +428,7 @@ smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.display = function(value)
 end
 
 -- Translate: Leg Ratio Quantity
-translate.leg_ratio_quantity = function(raw)
+smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.translate = function(raw)
   return raw:tonumber()
 end
 
@@ -440,7 +437,7 @@ smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.dissect = function(buffer, offs
   local length = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.leg_ratio_quantity(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.leg_ratio_quantity, range, value, display)
@@ -840,7 +837,7 @@ smallx_orderbookfeed_sbe_v2_2.price_multiplier.display = function(value)
 end
 
 -- Translate: Price Multiplier
-translate.price_multiplier = function(raw)
+smallx_orderbookfeed_sbe_v2_2.price_multiplier.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -849,7 +846,7 @@ smallx_orderbookfeed_sbe_v2_2.price_multiplier.dissect = function(buffer, offset
   local length = smallx_orderbookfeed_sbe_v2_2.price_multiplier.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_multiplier(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.price_multiplier.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.price_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_multiplier, range, value, display)
@@ -869,7 +866,7 @@ smallx_orderbookfeed_sbe_v2_2.price_increment.display = function(value)
 end
 
 -- Translate: Price Increment
-translate.price_increment = function(raw)
+smallx_orderbookfeed_sbe_v2_2.price_increment.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -878,7 +875,7 @@ smallx_orderbookfeed_sbe_v2_2.price_increment.dissect = function(buffer, offset,
   local length = smallx_orderbookfeed_sbe_v2_2.price_increment.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_increment(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.price_increment.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.price_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_increment, range, value, display)
@@ -1767,7 +1764,7 @@ smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display = function(value)
 end
 
 -- Translate: Shares Per Contract
-translate.shares_per_contract = function(raw)
+smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate = function(raw)
   return raw:tonumber()
 end
 
@@ -1776,7 +1773,7 @@ smallx_orderbookfeed_sbe_v2_2.shares_per_contract.dissect = function(buffer, off
   local length = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.shares_per_contract(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.shares_per_contract, range, value, display)
@@ -1796,7 +1793,7 @@ smallx_orderbookfeed_sbe_v2_2.strike_price.display = function(value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.strike_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -1805,7 +1802,7 @@ smallx_orderbookfeed_sbe_v2_2.strike_price.dissect = function(buffer, offset, pa
   local length = smallx_orderbookfeed_sbe_v2_2.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.strike_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.strike_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.strike_price, range, value, display)
@@ -2766,7 +2763,7 @@ smallx_orderbookfeed_sbe_v2_2.close_price.display = function(value)
 end
 
 -- Translate: Close Price
-translate.close_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.close_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -2775,7 +2772,7 @@ smallx_orderbookfeed_sbe_v2_2.close_price.dissect = function(buffer, offset, pac
   local length = smallx_orderbookfeed_sbe_v2_2.close_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.close_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.close_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.close_price, range, value, display)
@@ -2795,7 +2792,7 @@ smallx_orderbookfeed_sbe_v2_2.low_price.display = function(value)
 end
 
 -- Translate: Low Price
-translate.low_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.low_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -2804,7 +2801,7 @@ smallx_orderbookfeed_sbe_v2_2.low_price.dissect = function(buffer, offset, packe
   local length = smallx_orderbookfeed_sbe_v2_2.low_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.low_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.low_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.low_price, range, value, display)
@@ -2824,7 +2821,7 @@ smallx_orderbookfeed_sbe_v2_2.high_price.display = function(value)
 end
 
 -- Translate: High Price
-translate.high_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.high_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -2833,7 +2830,7 @@ smallx_orderbookfeed_sbe_v2_2.high_price.dissect = function(buffer, offset, pack
   local length = smallx_orderbookfeed_sbe_v2_2.high_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.high_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.high_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.high_price, range, value, display)
@@ -2853,7 +2850,7 @@ smallx_orderbookfeed_sbe_v2_2.open_price.display = function(value)
 end
 
 -- Translate: Open Price
-translate.open_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.open_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -2862,7 +2859,7 @@ smallx_orderbookfeed_sbe_v2_2.open_price.dissect = function(buffer, offset, pack
   local length = smallx_orderbookfeed_sbe_v2_2.open_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.open_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.open_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_price, range, value, display)
@@ -2905,7 +2902,7 @@ smallx_orderbookfeed_sbe_v2_2.value.display = function(value)
 end
 
 -- Translate: Value
-translate.value = function(raw)
+smallx_orderbookfeed_sbe_v2_2.value.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -2914,7 +2911,7 @@ smallx_orderbookfeed_sbe_v2_2.value.dissect = function(buffer, offset, packet, p
   local length = smallx_orderbookfeed_sbe_v2_2.value.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.value(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.value.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.value, range, value, display)
@@ -3137,7 +3134,7 @@ smallx_orderbookfeed_sbe_v2_2.settlement_price.display = function(value)
 end
 
 -- Translate: Settlement Price
-translate.settlement_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.settlement_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -3146,7 +3143,7 @@ smallx_orderbookfeed_sbe_v2_2.settlement_price.dissect = function(buffer, offset
   local length = smallx_orderbookfeed_sbe_v2_2.settlement_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.settlement_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.settlement_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.settlement_price, range, value, display)
@@ -3166,7 +3163,7 @@ smallx_orderbookfeed_sbe_v2_2.open_interest.display = function(value)
 end
 
 -- Translate: Open Interest
-translate.open_interest = function(raw)
+smallx_orderbookfeed_sbe_v2_2.open_interest.translate = function(raw)
   return raw:tonumber()
 end
 
@@ -3175,7 +3172,7 @@ smallx_orderbookfeed_sbe_v2_2.open_interest.dissect = function(buffer, offset, p
   local length = smallx_orderbookfeed_sbe_v2_2.open_interest.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.open_interest(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.open_interest.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.open_interest.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_interest, range, value, display)
@@ -3241,7 +3238,7 @@ smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display = function(
 end
 
 -- Translate: Total Volume Quantity Optional
-translate.total_volume_quantity_optional = function(raw)
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate = function(raw)
   return raw:tonumber()
 end
 
@@ -3250,7 +3247,7 @@ smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.dissect = function(
   local length = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.total_volume_quantity_optional(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.total_volume_quantity_optional, range, value, display)
@@ -3293,7 +3290,7 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_size.display = function(value)
 end
 
 -- Translate: Last Trade Size
-translate.last_trade_size = function(raw)
+smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate = function(raw)
   return raw:tonumber()
 end
 
@@ -3302,7 +3299,7 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect = function(buffer, offset,
   local length = smallx_orderbookfeed_sbe_v2_2.last_trade_size.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_trade_size(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.last_trade_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_size, range, value, display)
@@ -3322,7 +3319,7 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_price.display = function(value)
 end
 
 -- Translate: Last Trade Price
-translate.last_trade_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -3331,7 +3328,7 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect = function(buffer, offset
   local length = smallx_orderbookfeed_sbe_v2_2.last_trade_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_trade_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.last_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_price, range, value, display)
@@ -3567,7 +3564,7 @@ smallx_orderbookfeed_sbe_v2_2.size.display = function(value)
 end
 
 -- Translate: Size
-translate.size = function(raw)
+smallx_orderbookfeed_sbe_v2_2.size.translate = function(raw)
   return raw:tonumber()
 end
 
@@ -3576,7 +3573,7 @@ smallx_orderbookfeed_sbe_v2_2.size.dissect = function(buffer, offset, packet, pa
   local length = smallx_orderbookfeed_sbe_v2_2.size.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.size(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.size.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.size, range, value, display)
@@ -3596,7 +3593,7 @@ smallx_orderbookfeed_sbe_v2_2.price_price_optional.display = function(value)
 end
 
 -- Translate: Price Price Optional
-translate.price_price_optional = function(raw)
+smallx_orderbookfeed_sbe_v2_2.price_price_optional.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -3605,7 +3602,7 @@ smallx_orderbookfeed_sbe_v2_2.price_price_optional.dissect = function(buffer, of
   local length = smallx_orderbookfeed_sbe_v2_2.price_price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_price_optional(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.price_price_optional.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.price_price_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_price_optional, range, value, display)
@@ -4313,7 +4310,7 @@ smallx_orderbookfeed_sbe_v2_2.price_price.display = function(value)
 end
 
 -- Translate: Price Price
-translate.price_price = function(raw)
+smallx_orderbookfeed_sbe_v2_2.price_price.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -4322,7 +4319,7 @@ smallx_orderbookfeed_sbe_v2_2.price_price.dissect = function(buffer, offset, pac
   local length = smallx_orderbookfeed_sbe_v2_2.price_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_price(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.price_price.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.price_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_price, range, value, display)
@@ -4498,7 +4495,7 @@ smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.display = function(value)
 end
 
 -- Translate: Total Volume Quantity
-translate.total_volume_quantity = function(raw)
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.translate = function(raw)
   return raw:tonumber()
 end
 
@@ -4507,7 +4504,7 @@ smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect = function(buffer, o
   local length = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.total_volume_quantity(raw)
+  local value = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.translate(raw)
   local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.total_volume_quantity, range, value, display)
@@ -5571,13 +5568,13 @@ udp_table:add(65333, omi_smallx_orderbookfeed_sbe_v2_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_smallx_orderbookfeed_sbe_v2_2_packet_size = function(buffer)
+smallx_orderbookfeed_sbe_v2_2.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+smallx_orderbookfeed_sbe_v2_2.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(15, 2):le_uint()
 
@@ -5589,7 +5586,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+smallx_orderbookfeed_sbe_v2_2.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(17, 2):le_uint()
 
@@ -5603,13 +5600,13 @@ end
 -- Dissector Heuristic for SmallX OrderBookFeed Sbe 2.2
 local function omi_smallx_orderbookfeed_sbe_v2_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_smallx_orderbookfeed_sbe_v2_2_packet_size(buffer) then return false end
+  if not smallx_orderbookfeed_sbe_v2_2.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not smallx_orderbookfeed_sbe_v2_2.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not smallx_orderbookfeed_sbe_v2_2.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_smallx_orderbookfeed_sbe_v2_2

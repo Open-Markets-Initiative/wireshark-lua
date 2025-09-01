@@ -12,9 +12,6 @@ local imperative_intelligentcross_mdf_v1_11 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -339,7 +336,7 @@ imperative_intelligentcross_mdf_v1_11.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+imperative_intelligentcross_mdf_v1_11.price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -348,7 +345,7 @@ imperative_intelligentcross_mdf_v1_11.price.dissect = function(buffer, offset, p
   local length = imperative_intelligentcross_mdf_v1_11.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = imperative_intelligentcross_mdf_v1_11.price.translate(raw)
   local display = imperative_intelligentcross_mdf_v1_11.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.price, range, value, display)
@@ -1858,7 +1855,7 @@ udp_table:add(65333, omi_imperative_intelligentcross_mdf_v1_11)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_imperative_intelligentcross_mdf_v1_11_packet_size = function(buffer)
+imperative_intelligentcross_mdf_v1_11.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -1866,7 +1863,7 @@ end
 -- Dissector Heuristic for Imperative IntelligentCross Mdf 1.11
 local function omi_imperative_intelligentcross_mdf_v1_11_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_imperative_intelligentcross_mdf_v1_11_packet_size(buffer) then return false end
+  if not imperative_intelligentcross_mdf_v1_11.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_imperative_intelligentcross_mdf_v1_11

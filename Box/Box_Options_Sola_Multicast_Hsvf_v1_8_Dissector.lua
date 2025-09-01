@@ -12,8 +12,6 @@ local box_options_sola_multicast_hsvf_v1_8 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -7278,13 +7276,13 @@ udp_table:add(65333, omi_box_options_sola_multicast_hsvf_v1_8)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_box_options_sola_multicast_hsvf_v1_8_packet_size = function(buffer)
+box_options_sola_multicast_hsvf_v1_8.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Hsvf Stx Field
-verify.hsvf_stx = function(buffer)
+box_options_sola_multicast_hsvf_v1_8.hsvf_stx.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -7298,10 +7296,10 @@ end
 -- Dissector Heuristic for Box Options Sola Multicast Hsvf 1.8
 local function omi_box_options_sola_multicast_hsvf_v1_8_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_box_options_sola_multicast_hsvf_v1_8_packet_size(buffer) then return false end
+  if not box_options_sola_multicast_hsvf_v1_8.packet.requiredsize(buffer) then return false end
 
   -- Verify Hsvf Stx
-  if not verify.hsvf_stx(buffer) then return false end
+  if not box_options_sola_multicast_hsvf_v1_8.hsvf_stx.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_box_options_sola_multicast_hsvf_v1_8

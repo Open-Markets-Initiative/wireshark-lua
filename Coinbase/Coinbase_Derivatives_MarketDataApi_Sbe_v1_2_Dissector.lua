@@ -12,8 +12,6 @@ local coinbase_derivatives_marketdataapi_sbe_v1_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -4810,13 +4808,13 @@ udp_table:add(65333, omi_coinbase_derivatives_marketdataapi_sbe_v1_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_coinbase_derivatives_marketdataapi_sbe_v1_2_packet_size = function(buffer)
+coinbase_derivatives_marketdataapi_sbe_v1_2.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(30, 2):le_uint()
 
@@ -4828,7 +4826,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+coinbase_derivatives_marketdataapi_sbe_v1_2.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(32, 2):le_uint()
 
@@ -4842,13 +4840,13 @@ end
 -- Dissector Heuristic for Coinbase Derivatives MarketDataApi Sbe 1.2
 local function omi_coinbase_derivatives_marketdataapi_sbe_v1_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_coinbase_derivatives_marketdataapi_sbe_v1_2_packet_size(buffer) then return false end
+  if not coinbase_derivatives_marketdataapi_sbe_v1_2.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not coinbase_derivatives_marketdataapi_sbe_v1_2.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_coinbase_derivatives_marketdataapi_sbe_v1_2

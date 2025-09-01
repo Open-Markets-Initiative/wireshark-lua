@@ -12,9 +12,6 @@ local miax_miaxoptions_complextopofmarket_mach_v1_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -598,7 +595,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.net_price.display = function(value
 end
 
 -- Translate: Net Price
-translate.net_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.net_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -607,7 +604,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.net_price.dissect = function(buffe
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.net_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.net_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.net_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.net_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.net_price, range, value, display)
@@ -839,7 +836,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_price.display = functio
 end
 
 -- Translate: Wide Offer Price
-translate.wide_offer_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -848,7 +845,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_price.dissect = functio
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.wide_offer_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_offer_price, range, value, display)
@@ -996,7 +993,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_price.display = function(
 end
 
 -- Translate: Wide Bid Price
-translate.wide_bid_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1005,7 +1002,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_price.dissect = function(
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.wide_bid_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_bid_price, range, value, display)
@@ -1191,7 +1188,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_price.display = func
 end
 
 -- Translate: Compact Offer Price
-translate.compact_offer_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_price.translate = function(raw)
   return raw/100
 end
 
@@ -1200,7 +1197,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_price.dissect = func
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = translate.compact_offer_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_offer_price, range, value, display)
@@ -1303,7 +1300,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_price.display = functi
 end
 
 -- Translate: Compact Bid Price
-translate.compact_bid_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_price.translate = function(raw)
   return raw/100
 end
 
@@ -1312,7 +1309,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_price.dissect = functi
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = translate.compact_bid_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_bid_price, range, value, display)
@@ -1508,7 +1505,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_price.display = function(valu
 end
 
 -- Translate: Wide Price
-translate.wide_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.wide_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1517,7 +1514,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_price.dissect = function(buff
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.wide_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_price, range, value, display)
@@ -1700,7 +1697,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_price.display = function(v
 end
 
 -- Translate: Compact Price
-translate.compact_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.compact_price.translate = function(raw)
   return raw/100
 end
 
@@ -1709,7 +1706,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_price.dissect = function(b
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_price.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = translate.compact_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_price, range, value, display)
@@ -2430,7 +2427,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.display = fun
 end
 
 -- Translate: Priority Quote Width
-translate.priority_quote_width = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.translate = function(raw)
   return raw/10000
 end
 
@@ -2439,7 +2436,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.dissect = fun
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.priority_quote_width(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.priority_quote_width, range, value, display)
@@ -2736,7 +2733,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.strike_price.display = function(va
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+miax_miaxoptions_complextopofmarket_mach_v1_1.strike_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2745,7 +2742,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.strike_price.dissect = function(bu
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.strike_price(raw)
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_1.strike_price.translate(raw)
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.strike_price, range, value, display)
@@ -3500,7 +3497,7 @@ udp_table:add(65333, omi_miax_miaxoptions_complextopofmarket_mach_v1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_miax_miaxoptions_complextopofmarket_mach_v1_1_packet_size = function(buffer)
+miax_miaxoptions_complextopofmarket_mach_v1_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3508,7 +3505,7 @@ end
 -- Dissector Heuristic for Miax MiaxOptions ComplexTopOfMarket Mach 1.1
 local function omi_miax_miaxoptions_complextopofmarket_mach_v1_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_miax_miaxoptions_complextopofmarket_mach_v1_1_packet_size(buffer) then return false end
+  if not miax_miaxoptions_complextopofmarket_mach_v1_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_miaxoptions_complextopofmarket_mach_v1_1

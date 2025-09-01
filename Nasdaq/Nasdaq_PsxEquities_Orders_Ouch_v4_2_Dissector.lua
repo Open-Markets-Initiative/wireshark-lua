@@ -12,9 +12,6 @@ local nasdaq_psxequities_orders_ouch_v4_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -632,7 +629,7 @@ nasdaq_psxequities_orders_ouch_v4_2.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_psxequities_orders_ouch_v4_2.price.translate = function(raw)
   return raw/10000
 end
 
@@ -641,7 +638,7 @@ nasdaq_psxequities_orders_ouch_v4_2.price.dissect = function(buffer, offset, pac
   local length = nasdaq_psxequities_orders_ouch_v4_2.price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price(raw)
+  local value = nasdaq_psxequities_orders_ouch_v4_2.price.translate(raw)
   local display = nasdaq_psxequities_orders_ouch_v4_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.price, range, value, display)
@@ -3533,7 +3530,7 @@ tcp_table:add(65333, omi_nasdaq_psxequities_orders_ouch_v4_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_psxequities_orders_ouch_v4_2_packet_size = function(buffer)
+nasdaq_psxequities_orders_ouch_v4_2.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3541,7 +3538,7 @@ end
 -- Dissector Heuristic for Nasdaq PsxEquities Orders Ouch 4.2
 local function omi_nasdaq_psxequities_orders_ouch_v4_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_psxequities_orders_ouch_v4_2_packet_size(buffer) then return false end
+  if not nasdaq_psxequities_orders_ouch_v4_2.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_psxequities_orders_ouch_v4_2

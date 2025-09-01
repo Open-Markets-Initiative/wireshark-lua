@@ -12,9 +12,6 @@ local siac_cts_output_cta_v1_91 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -662,7 +659,7 @@ siac_cts_output_cta_v1_91.low_price.display = function(value)
 end
 
 -- Translate: Low Price
-translate.low_price = function(raw)
+siac_cts_output_cta_v1_91.low_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -671,7 +668,7 @@ siac_cts_output_cta_v1_91.low_price.dissect = function(buffer, offset, packet, p
   local length = siac_cts_output_cta_v1_91.low_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.low_price(raw)
+  local value = siac_cts_output_cta_v1_91.low_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.low_price, range, value, display)
@@ -691,7 +688,7 @@ siac_cts_output_cta_v1_91.high_price.display = function(value)
 end
 
 -- Translate: High Price
-translate.high_price = function(raw)
+siac_cts_output_cta_v1_91.high_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -700,7 +697,7 @@ siac_cts_output_cta_v1_91.high_price.dissect = function(buffer, offset, packet, 
   local length = siac_cts_output_cta_v1_91.high_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.high_price(raw)
+  local value = siac_cts_output_cta_v1_91.high_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.high_price, range, value, display)
@@ -720,7 +717,7 @@ siac_cts_output_cta_v1_91.last_price.display = function(value)
 end
 
 -- Translate: Last Price
-translate.last_price = function(raw)
+siac_cts_output_cta_v1_91.last_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -729,7 +726,7 @@ siac_cts_output_cta_v1_91.last_price.dissect = function(buffer, offset, packet, 
   local length = siac_cts_output_cta_v1_91.last_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.last_price(raw)
+  local value = siac_cts_output_cta_v1_91.last_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.last_price, range, value, display)
@@ -1478,7 +1475,7 @@ siac_cts_output_cta_v1_91.trade_price.display = function(value)
 end
 
 -- Translate: Trade Price
-translate.trade_price = function(raw)
+siac_cts_output_cta_v1_91.trade_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1487,7 +1484,7 @@ siac_cts_output_cta_v1_91.trade_price.dissect = function(buffer, offset, packet,
   local length = siac_cts_output_cta_v1_91.trade_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.trade_price(raw)
+  local value = siac_cts_output_cta_v1_91.trade_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.trade_price, range, value, display)
@@ -2247,7 +2244,7 @@ siac_cts_output_cta_v1_91.trade_price_short.display = function(value)
 end
 
 -- Translate: Trade Price Short
-translate.trade_price_short = function(raw)
+siac_cts_output_cta_v1_91.trade_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -2256,7 +2253,7 @@ siac_cts_output_cta_v1_91.trade_price_short.dissect = function(buffer, offset, p
   local length = siac_cts_output_cta_v1_91.trade_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.trade_price_short(raw)
+  local value = siac_cts_output_cta_v1_91.trade_price_short.translate(raw)
   local display = siac_cts_output_cta_v1_91.trade_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.trade_price_short, range, value, display)
@@ -2750,7 +2747,7 @@ siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band.display = 
 end
 
 -- Translate: Low Indication Price Lower Limit Price Band
-translate.low_indication_price_lower_limit_price_band = function(raw)
+siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2759,7 +2756,7 @@ siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band.dissect = 
   local length = siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.low_indication_price_lower_limit_price_band(raw)
+  local value = siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band.translate(raw)
   local display = siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.low_indication_price_lower_limit_price_band, range, value, display)
@@ -2779,7 +2776,7 @@ siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band.display =
 end
 
 -- Translate: High Indication Price Upper Limit Price Band
-translate.high_indication_price_upper_limit_price_band = function(raw)
+siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2788,7 +2785,7 @@ siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band.dissect =
   local length = siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.high_indication_price_upper_limit_price_band(raw)
+  local value = siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band.translate(raw)
   local display = siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.high_indication_price_upper_limit_price_band, range, value, display)
@@ -3420,7 +3417,7 @@ siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.display = functio
 end
 
 -- Translate: Auction Collar Lower Threshold Price
-translate.auction_collar_lower_threshold_price = function(raw)
+siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3429,7 +3426,7 @@ siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.dissect = functio
   local length = siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.auction_collar_lower_threshold_price(raw)
+  local value = siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.auction_collar_lower_threshold_price, range, value, display)
@@ -3452,7 +3449,7 @@ siac_cts_output_cta_v1_91.auction_collar_reference_price.display = function(valu
 end
 
 -- Translate: Auction Collar Reference Price
-translate.auction_collar_reference_price = function(raw)
+siac_cts_output_cta_v1_91.auction_collar_reference_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3461,7 +3458,7 @@ siac_cts_output_cta_v1_91.auction_collar_reference_price.dissect = function(buff
   local length = siac_cts_output_cta_v1_91.auction_collar_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.auction_collar_reference_price(raw)
+  local value = siac_cts_output_cta_v1_91.auction_collar_reference_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.auction_collar_reference_price, range, value, display)
@@ -3746,7 +3743,7 @@ siac_cts_output_cta_v1_91.open_price.display = function(value)
 end
 
 -- Translate: Open Price
-translate.open_price = function(raw)
+siac_cts_output_cta_v1_91.open_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3755,7 +3752,7 @@ siac_cts_output_cta_v1_91.open_price.dissect = function(buffer, offset, packet, 
   local length = siac_cts_output_cta_v1_91.open_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.open_price(raw)
+  local value = siac_cts_output_cta_v1_91.open_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.open_price, range, value, display)
@@ -3978,7 +3975,7 @@ siac_cts_output_cta_v1_91.previous_close_price.display = function(value)
 end
 
 -- Translate: Previous Close Price
-translate.previous_close_price = function(raw)
+siac_cts_output_cta_v1_91.previous_close_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3987,7 +3984,7 @@ siac_cts_output_cta_v1_91.previous_close_price.dissect = function(buffer, offset
   local length = siac_cts_output_cta_v1_91.previous_close_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.previous_close_price(raw)
+  local value = siac_cts_output_cta_v1_91.previous_close_price.translate(raw)
   local display = siac_cts_output_cta_v1_91.previous_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.previous_close_price, range, value, display)
@@ -7404,7 +7401,7 @@ udp_table:add(65333, omi_siac_cts_output_cta_v1_91)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_siac_cts_output_cta_v1_91_packet_size = function(buffer)
+siac_cts_output_cta_v1_91.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -7412,7 +7409,7 @@ end
 -- Dissector Heuristic for Siac Cts Output Cta 1.91
 local function omi_siac_cts_output_cta_v1_91_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_siac_cts_output_cta_v1_91_packet_size(buffer) then return false end
+  if not siac_cts_output_cta_v1_91.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cts_output_cta_v1_91

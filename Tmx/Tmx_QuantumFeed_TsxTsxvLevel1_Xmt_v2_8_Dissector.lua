@@ -12,9 +12,6 @@ local tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -284,7 +281,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.display = function(value)
 end
 
 -- Translate: Ask Price
-translate.ask_price = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -293,7 +290,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.dissect = function(buffer, offs
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.ask_price(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.ask_price, range, value, display)
@@ -336,7 +333,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -345,7 +342,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.dissect = function(buffer, offs
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.bid_price(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.bid_price, range, value, display)
@@ -571,7 +568,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.display = functi
 end
 
 -- Translate: Calculated Closing Price
-translate.calculated_closing_price = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -580,7 +577,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.dissect = functi
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.calculated_closing_price(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.calculated_closing_price, range, value, display)
@@ -756,7 +753,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.display = function(value)
 end
 
 -- Translate: Price Variation
-translate.price_variation = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.translate = function(raw)
   return raw/100
 end
 
@@ -765,7 +762,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.dissect = function(buffer
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.price_variation(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.price_variation, range, value, display)
@@ -785,7 +782,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.display = fu
 end
 
 -- Translate: Far Indicative Closing Price
-translate.far_indicative_closing_price = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -794,7 +791,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.dissect = fu
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.far_indicative_closing_price(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.far_indicative_closing_price, range, value, display)
@@ -814,7 +811,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.display = f
 end
 
 -- Translate: Near Indicative Closing Price
-translate.near_indicative_closing_price = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -823,7 +820,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.dissect = f
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.near_indicative_closing_price(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.near_indicative_closing_price, range, value, display)
@@ -922,7 +919,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.display = funct
 end
 
 -- Translate: Imbalance Reference Price
-translate.imbalance_reference_price = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -931,7 +928,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.dissect = funct
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.imbalance_reference_price(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.imbalance_reference_price, range, value, display)
@@ -1243,7 +1240,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1252,7 +1249,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.dissect = function(buffer, offset, 
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.price, range, value, display)
@@ -1899,7 +1896,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale.display = function(value)
 end
 
 -- Translate: Last Sale
-translate.last_sale = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1908,7 +1905,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale.dissect = function(buffer, offs
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_sale(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.last_sale, range, value, display)
@@ -1928,7 +1925,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.display = function(value)
 end
 
 -- Translate: Face Value
-translate.face_value = function(raw)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1937,7 +1934,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.dissect = function(buffer, off
   local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.face_value(raw)
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.translate(raw)
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.face_value, range, value, display)
@@ -2956,7 +2953,7 @@ udp_table:add(65333, omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_packet_size = function(buffer)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2964,7 +2961,7 @@ end
 -- Dissector Heuristic for Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8
 local function omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_packet_size(buffer) then return false end
+  if not tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8

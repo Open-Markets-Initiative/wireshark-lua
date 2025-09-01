@@ -12,9 +12,6 @@ local lseg_turquoise_analytics_gtp_v24_4 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -194,7 +191,7 @@ lseg_turquoise_analytics_gtp_v24_4.vwap_sell.display = function(value)
 end
 
 -- Translate: Vwap Sell
-translate.vwap_sell = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.vwap_sell.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -203,7 +200,7 @@ lseg_turquoise_analytics_gtp_v24_4.vwap_sell.dissect = function(buffer, offset, 
   local length = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap_sell(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_sell, range, value, display)
@@ -223,7 +220,7 @@ lseg_turquoise_analytics_gtp_v24_4.vwap_buy.display = function(value)
 end
 
 -- Translate: Vwap Buy
-translate.vwap_buy = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.vwap_buy.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -232,7 +229,7 @@ lseg_turquoise_analytics_gtp_v24_4.vwap_buy.dissect = function(buffer, offset, p
   local length = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap_buy(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_buy, range, value, display)
@@ -252,7 +249,7 @@ lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.display = function(value)
 end
 
 -- Translate: Bid Ask Spread
-translate.bid_ask_spread = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -261,7 +258,7 @@ lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.dissect = function(buffer, off
   local length = lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.bid_ask_spread(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.bid_ask_spread, range, value, display)
@@ -419,7 +416,7 @@ lseg_turquoise_analytics_gtp_v24_4.sell_order_size.display = function(value)
 end
 
 -- Translate: Sell Order Size
-translate.sell_order_size = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.sell_order_size.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -428,7 +425,7 @@ lseg_turquoise_analytics_gtp_v24_4.sell_order_size.dissect = function(buffer, of
   local length = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.sell_order_size(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_order_size, range, value, display)
@@ -448,7 +445,7 @@ lseg_turquoise_analytics_gtp_v24_4.buy_order_size.display = function(value)
 end
 
 -- Translate: Buy Order Size
-translate.buy_order_size = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.buy_order_size.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -457,7 +454,7 @@ lseg_turquoise_analytics_gtp_v24_4.buy_order_size.dissect = function(buffer, off
   local length = lseg_turquoise_analytics_gtp_v24_4.buy_order_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.buy_order_size(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.buy_order_size.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.buy_order_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_order_size, range, value, display)
@@ -1112,7 +1109,7 @@ lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.display = f
 end
 
 -- Translate: Static Circuit Breaker Tolerances
-translate.static_circuit_breaker_tolerances = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1121,7 +1118,7 @@ lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.dissect = f
   local length = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.static_circuit_breaker_tolerances(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
@@ -1141,7 +1138,7 @@ lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.display = 
 end
 
 -- Translate: Dynamic Circuit Breaker Tolerances
-translate.dynamic_circuit_breaker_tolerances = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1150,7 +1147,7 @@ lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect = 
   local length = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.dynamic_circuit_breaker_tolerances(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
@@ -1170,7 +1167,7 @@ lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.display = function(valu
 end
 
 -- Translate: Price Band Tolerances
-translate.price_band_tolerances = function(raw)
+lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1179,7 +1176,7 @@ lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.dissect = function(buff
   local length = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_band_tolerances(raw)
+  local value = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.translate(raw)
   local display = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.price_band_tolerances, range, value, display)
@@ -1946,7 +1943,7 @@ udp_table:add(65333, omi_lseg_turquoise_analytics_gtp_v24_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_lseg_turquoise_analytics_gtp_v24_4_packet_size = function(buffer)
+lseg_turquoise_analytics_gtp_v24_4.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -1954,7 +1951,7 @@ end
 -- Dissector Heuristic for Lseg Turquoise Analytics Gtp 24.4
 local function omi_lseg_turquoise_analytics_gtp_v24_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_lseg_turquoise_analytics_gtp_v24_4_packet_size(buffer) then return false end
+  if not lseg_turquoise_analytics_gtp_v24_4.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_turquoise_analytics_gtp_v24_4

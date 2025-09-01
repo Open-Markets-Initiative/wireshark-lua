@@ -12,9 +12,6 @@ local cboe_edgx_options_auctionfeed_pitch_v1_1_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -385,7 +382,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -394,7 +391,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.dissect = function(buffer, offs
   local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.translate(raw)
   local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.price, range, value, display)
@@ -1421,7 +1418,7 @@ udp_table:add(65333, omi_cboe_edgx_options_auctionfeed_pitch_v1_1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_edgx_options_auctionfeed_pitch_v1_1_1_packet_size = function(buffer)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -1429,7 +1426,7 @@ end
 -- Dissector Heuristic for Cboe Edgx Options AuctionFeed Pitch 1.1.1
 local function omi_cboe_edgx_options_auctionfeed_pitch_v1_1_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_edgx_options_auctionfeed_pitch_v1_1_1_packet_size(buffer) then return false end
+  if not cboe_edgx_options_auctionfeed_pitch_v1_1_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_edgx_options_auctionfeed_pitch_v1_1_1

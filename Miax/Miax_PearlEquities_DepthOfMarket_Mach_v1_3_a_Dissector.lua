@@ -12,9 +12,6 @@ local miax_pearlequities_depthofmarket_mach_v1_3_a = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -265,7 +262,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+miax_pearlequities_depthofmarket_mach_v1_3_a.price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -274,7 +271,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.price.dissect = function(buffer, of
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = miax_pearlequities_depthofmarket_mach_v1_3_a.price.translate(raw)
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price, range, value, display)
@@ -2222,7 +2219,7 @@ udp_table:add(65333, omi_miax_pearlequities_depthofmarket_mach_v1_3_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_miax_pearlequities_depthofmarket_mach_v1_3_a_packet_size = function(buffer)
+miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2230,7 +2227,7 @@ end
 -- Dissector Heuristic for Miax PearlEquities DepthOfMarket Mach 1.3.a
 local function omi_miax_pearlequities_depthofmarket_mach_v1_3_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_miax_pearlequities_depthofmarket_mach_v1_3_a_packet_size(buffer) then return false end
+  if not miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_depthofmarket_mach_v1_3_a

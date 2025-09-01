@@ -12,8 +12,6 @@ local tmx_mx_sola_multicast_hsvf_v1_14 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -10822,13 +10820,13 @@ udp_table:add(65333, omi_tmx_mx_sola_multicast_hsvf_v1_14)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_tmx_mx_sola_multicast_hsvf_v1_14_packet_size = function(buffer)
+tmx_mx_sola_multicast_hsvf_v1_14.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Hsvf Stx Field
-verify.hsvf_stx = function(buffer)
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -10842,10 +10840,10 @@ end
 -- Dissector Heuristic for Tmx Mx Sola Multicast Hsvf 1.14
 local function omi_tmx_mx_sola_multicast_hsvf_v1_14_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_tmx_mx_sola_multicast_hsvf_v1_14_packet_size(buffer) then return false end
+  if not tmx_mx_sola_multicast_hsvf_v1_14.packet.requiredsize(buffer) then return false end
 
   -- Verify Hsvf Stx
-  if not verify.hsvf_stx(buffer) then return false end
+  if not tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_mx_sola_multicast_hsvf_v1_14

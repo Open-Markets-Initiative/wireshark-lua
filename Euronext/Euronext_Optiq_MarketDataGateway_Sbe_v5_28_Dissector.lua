@@ -12,8 +12,6 @@ local euronext_optiq_marketdatagateway_sbe_v5_28 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -19235,13 +19233,13 @@ udp_table:add(65333, omi_euronext_optiq_marketdatagateway_sbe_v5_28)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_euronext_optiq_marketdatagateway_sbe_v5_28_packet_size = function(buffer)
+euronext_optiq_marketdatagateway_sbe_v5_28.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+euronext_optiq_marketdatagateway_sbe_v5_28.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -19253,7 +19251,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+euronext_optiq_marketdatagateway_sbe_v5_28.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(24, 2):le_uint()
 
@@ -19267,13 +19265,13 @@ end
 -- Dissector Heuristic for Euronext Optiq MarketDataGateway Sbe 5.28
 local function omi_euronext_optiq_marketdatagateway_sbe_v5_28_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_euronext_optiq_marketdatagateway_sbe_v5_28_packet_size(buffer) then return false end
+  if not euronext_optiq_marketdatagateway_sbe_v5_28.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not euronext_optiq_marketdatagateway_sbe_v5_28.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not euronext_optiq_marketdatagateway_sbe_v5_28.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_euronext_optiq_marketdatagateway_sbe_v5_28

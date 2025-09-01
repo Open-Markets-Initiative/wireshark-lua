@@ -12,9 +12,6 @@ local nyse_amex_options_binarygateway_pillar_v3_15 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -3500,7 +3497,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.last_px.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -3509,7 +3506,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.last_px.dissect = function(buffer, 
   local length = nyse_amex_options_binarygateway_pillar_v3_15.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_px(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.last_px.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.last_px, range, value, display)
@@ -4028,7 +4025,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.stop_px.display = function(value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.stop_px.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -4037,7 +4034,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.stop_px.dissect = function(buffer, 
   local length = nyse_amex_options_binarygateway_pillar_v3_15.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.stop_px(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.stop_px.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.stop_px, range, value, display)
@@ -5200,7 +5197,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.working_price.display = function(va
 end
 
 -- Translate: Working Price
-translate.working_price = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.working_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -5209,7 +5206,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.working_price.dissect = function(bu
   local length = nyse_amex_options_binarygateway_pillar_v3_15.working_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.working_price(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.working_price.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.working_price, range, value, display)
@@ -5492,7 +5489,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.price_price_8.display = function(va
 end
 
 -- Translate: Price Price 8
-translate.price_price_8 = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.price_price_8.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -5501,7 +5498,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.price_price_8.dissect = function(bu
   local length = nyse_amex_options_binarygateway_pillar_v3_15.price_price_8.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_price_8(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.price_price_8.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.price_price_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.price_price_8, range, value, display)
@@ -7311,7 +7308,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.trading_mpv.display = function(valu
 end
 
 -- Translate: Trading Mpv
-translate.trading_mpv = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.trading_mpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7320,7 +7317,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.trading_mpv.dissect = function(buff
   local length = nyse_amex_options_binarygateway_pillar_v3_15.trading_mpv.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.trading_mpv(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.trading_mpv.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.trading_mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.trading_mpv, range, value, display)
@@ -7340,7 +7337,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.quoting_mpv.display = function(valu
 end
 
 -- Translate: Quoting Mpv
-translate.quoting_mpv = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.quoting_mpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7349,7 +7346,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.quoting_mpv.dissect = function(buff
   local length = nyse_amex_options_binarygateway_pillar_v3_15.quoting_mpv.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.quoting_mpv(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.quoting_mpv.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.quoting_mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.quoting_mpv, range, value, display)
@@ -7369,7 +7366,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.price_u_price_8.display = function(
 end
 
 -- Translate: Price U Price 8
-translate.price_u_price_8 = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.price_u_price_8.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7378,7 +7375,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.price_u_price_8.dissect = function(
   local length = nyse_amex_options_binarygateway_pillar_v3_15.price_u_price_8.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price_u_price_8(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.price_u_price_8.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.price_u_price_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.price_u_price_8, range, value, display)
@@ -7538,7 +7535,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.luldmpv.display = function(value)
 end
 
 -- Translate: Luldmpv
-translate.luldmpv = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.luldmpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7547,7 +7544,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.luldmpv.dissect = function(buffer, 
   local length = nyse_amex_options_binarygateway_pillar_v3_15.luldmpv.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.luldmpv(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.luldmpv.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.luldmpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.luldmpv, range, value, display)
@@ -7567,7 +7564,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.rpimpv.display = function(value)
 end
 
 -- Translate: Rpimpv
-translate.rpimpv = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.rpimpv.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7576,7 +7573,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.rpimpv.dissect = function(buffer, o
   local length = nyse_amex_options_binarygateway_pillar_v3_15.rpimpv.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.rpimpv(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.rpimpv.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.rpimpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.rpimpv, range, value, display)
@@ -7810,7 +7807,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.max_order_price.display = function(
 end
 
 -- Translate: Max Order Price
-translate.max_order_price = function(raw)
+nyse_amex_options_binarygateway_pillar_v3_15.max_order_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -7819,7 +7816,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.max_order_price.dissect = function(
   local length = nyse_amex_options_binarygateway_pillar_v3_15.max_order_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.max_order_price(raw)
+  local value = nyse_amex_options_binarygateway_pillar_v3_15.max_order_price.translate(raw)
   local display = nyse_amex_options_binarygateway_pillar_v3_15.max_order_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.max_order_price, range, value, display)
@@ -10896,7 +10893,7 @@ tcp_table:add(65333, omi_nyse_amex_options_binarygateway_pillar_v3_15)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nyse_amex_options_binarygateway_pillar_v3_15_packet_size = function(buffer)
+nyse_amex_options_binarygateway_pillar_v3_15.pillar_stream_message.requiredsize = function(buffer)
 
   return true
 end
@@ -10904,7 +10901,7 @@ end
 -- Dissector Heuristic for Nyse Amex Options BinaryGateway Pillar 3.15
 local function omi_nyse_amex_options_binarygateway_pillar_v3_15_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nyse_amex_options_binarygateway_pillar_v3_15_packet_size(buffer) then return false end
+  if not nyse_amex_options_binarygateway_pillar_v3_15.pillar_stream_message.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_amex_options_binarygateway_pillar_v3_15

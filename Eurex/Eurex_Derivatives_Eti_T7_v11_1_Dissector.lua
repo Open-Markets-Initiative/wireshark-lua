@@ -12,9 +12,6 @@ local eurex_derivatives_eti_t7_v11_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -3186,7 +3183,7 @@ eurex_derivatives_eti_t7_v11_1.leg_qty.display = function(raw, value)
 end
 
 -- Translate: Leg Qty
-translate.leg_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.leg_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -3200,7 +3197,7 @@ eurex_derivatives_eti_t7_v11_1.leg_qty.dissect = function(buffer, offset, packet
   local length = eurex_derivatives_eti_t7_v11_1.leg_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.leg_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.leg_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.leg_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.leg_qty, range, value, display)
@@ -3225,7 +3222,7 @@ eurex_derivatives_eti_t7_v11_1.leg_price.display = function(raw, value)
 end
 
 -- Translate: Leg Price
-translate.leg_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.leg_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -3239,7 +3236,7 @@ eurex_derivatives_eti_t7_v11_1.leg_price.dissect = function(buffer, offset, pack
   local length = eurex_derivatives_eti_t7_v11_1.leg_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.leg_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.leg_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.leg_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.leg_price, range, value, display)
@@ -4238,7 +4235,7 @@ eurex_derivatives_eti_t7_v11_1.alloc_qty.display = function(raw, value)
 end
 
 -- Translate: Alloc Qty
-translate.alloc_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.alloc_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -4252,7 +4249,7 @@ eurex_derivatives_eti_t7_v11_1.alloc_qty.dissect = function(buffer, offset, pack
   local length = eurex_derivatives_eti_t7_v11_1.alloc_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.alloc_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.alloc_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.alloc_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.alloc_qty, range, value, display)
@@ -5417,7 +5414,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_qty.display = function(raw, value)
 end
 
 -- Translate: Underlying Qty
-translate.underlying_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.underlying_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -5431,7 +5428,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_qty.dissect = function(buffer, offset,
   local length = eurex_derivatives_eti_t7_v11_1.underlying_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.underlying_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.underlying_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.underlying_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.underlying_qty, range, value, display)
@@ -5456,7 +5453,7 @@ eurex_derivatives_eti_t7_v11_1.related_trade_quantity.display = function(raw, va
 end
 
 -- Translate: Related Trade Quantity
-translate.related_trade_quantity = function(raw)
+eurex_derivatives_eti_t7_v11_1.related_trade_quantity.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -5470,7 +5467,7 @@ eurex_derivatives_eti_t7_v11_1.related_trade_quantity.dissect = function(buffer,
   local length = eurex_derivatives_eti_t7_v11_1.related_trade_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.related_trade_quantity(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.related_trade_quantity.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.related_trade_quantity.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.related_trade_quantity, range, value, display)
@@ -5495,7 +5492,7 @@ eurex_derivatives_eti_t7_v11_1.related_close_price.display = function(raw, value
 end
 
 -- Translate: Related Close Price
-translate.related_close_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.related_close_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -5509,7 +5506,7 @@ eurex_derivatives_eti_t7_v11_1.related_close_price.dissect = function(buffer, of
   local length = eurex_derivatives_eti_t7_v11_1.related_close_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.related_close_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.related_close_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.related_close_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.related_close_price, range, value, display)
@@ -5534,7 +5531,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_px.display = function(raw, value)
 end
 
 -- Translate: Underlying Px
-translate.underlying_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.underlying_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -5548,7 +5545,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_px.dissect = function(buffer, offset, 
   local length = eurex_derivatives_eti_t7_v11_1.underlying_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.underlying_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.underlying_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.underlying_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.underlying_px, range, value, display)
@@ -5604,7 +5601,7 @@ eurex_derivatives_eti_t7_v11_1.last_px.display = function(raw, value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.last_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -5618,7 +5615,7 @@ eurex_derivatives_eti_t7_v11_1.last_px.dissect = function(buffer, offset, packet
   local length = eurex_derivatives_eti_t7_v11_1.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.last_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.last_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.last_px, range, value, display)
@@ -6321,7 +6318,7 @@ eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_short.display = fun
 end
 
 -- Translate: Remaining Risk Allowance Base Short
-translate.remaining_risk_allowance_base_short = function(raw)
+eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_short.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -6335,7 +6332,7 @@ eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_short.dissect = fun
   local length = eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.remaining_risk_allowance_base_short(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_short.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_short.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.remaining_risk_allowance_base_short, range, value, display)
@@ -6360,7 +6357,7 @@ eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_long.display = func
 end
 
 -- Translate: Remaining Risk Allowance Base Long
-translate.remaining_risk_allowance_base_long = function(raw)
+eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_long.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -6374,7 +6371,7 @@ eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_long.dissect = func
   local length = eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.remaining_risk_allowance_base_long(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_long.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.remaining_risk_allowance_base_long.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.remaining_risk_allowance_base_long, range, value, display)
@@ -8233,7 +8230,7 @@ eurex_derivatives_eti_t7_v11_1.cum_qty.display = function(raw, value)
 end
 
 -- Translate: Cum Qty
-translate.cum_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.cum_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8247,7 +8244,7 @@ eurex_derivatives_eti_t7_v11_1.cum_qty.dissect = function(buffer, offset, packet
   local length = eurex_derivatives_eti_t7_v11_1.cum_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.cum_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.cum_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.cum_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.cum_qty, range, value, display)
@@ -8272,7 +8269,7 @@ eurex_derivatives_eti_t7_v11_1.leaves_qty.display = function(raw, value)
 end
 
 -- Translate: Leaves Qty
-translate.leaves_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.leaves_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8286,7 +8283,7 @@ eurex_derivatives_eti_t7_v11_1.leaves_qty.dissect = function(buffer, offset, pac
   local length = eurex_derivatives_eti_t7_v11_1.leaves_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.leaves_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.leaves_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.leaves_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.leaves_qty, range, value, display)
@@ -8398,7 +8395,7 @@ eurex_derivatives_eti_t7_v11_1.clearing_trade_qty.display = function(raw, value)
 end
 
 -- Translate: Clearing Trade Qty
-translate.clearing_trade_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.clearing_trade_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8412,7 +8409,7 @@ eurex_derivatives_eti_t7_v11_1.clearing_trade_qty.dissect = function(buffer, off
   local length = eurex_derivatives_eti_t7_v11_1.clearing_trade_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.clearing_trade_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.clearing_trade_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.clearing_trade_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.clearing_trade_qty, range, value, display)
@@ -8437,7 +8434,7 @@ eurex_derivatives_eti_t7_v11_1.clearing_trade_price.display = function(raw, valu
 end
 
 -- Translate: Clearing Trade Price
-translate.clearing_trade_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.clearing_trade_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8451,7 +8448,7 @@ eurex_derivatives_eti_t7_v11_1.clearing_trade_price.dissect = function(buffer, o
   local length = eurex_derivatives_eti_t7_v11_1.clearing_trade_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.clearing_trade_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.clearing_trade_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.clearing_trade_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.clearing_trade_price, range, value, display)
@@ -8476,7 +8473,7 @@ eurex_derivatives_eti_t7_v11_1.side_last_qty.display = function(raw, value)
 end
 
 -- Translate: Side Last Qty
-translate.side_last_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.side_last_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8490,7 +8487,7 @@ eurex_derivatives_eti_t7_v11_1.side_last_qty.dissect = function(buffer, offset, 
   local length = eurex_derivatives_eti_t7_v11_1.side_last_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.side_last_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.side_last_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.side_last_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.side_last_qty, range, value, display)
@@ -8515,7 +8512,7 @@ eurex_derivatives_eti_t7_v11_1.side_last_px.display = function(raw, value)
 end
 
 -- Translate: Side Last Px
-translate.side_last_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.side_last_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8529,7 +8526,7 @@ eurex_derivatives_eti_t7_v11_1.side_last_px.dissect = function(buffer, offset, p
   local length = eurex_derivatives_eti_t7_v11_1.side_last_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.side_last_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.side_last_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.side_last_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.side_last_px, range, value, display)
@@ -8554,7 +8551,7 @@ eurex_derivatives_eti_t7_v11_1.last_qty.display = function(raw, value)
 end
 
 -- Translate: Last Qty
-translate.last_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.last_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8568,7 +8565,7 @@ eurex_derivatives_eti_t7_v11_1.last_qty.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_eti_t7_v11_1.last_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.last_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.last_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.last_qty, range, value, display)
@@ -8593,7 +8590,7 @@ eurex_derivatives_eti_t7_v11_1.price.display = function(raw, value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+eurex_derivatives_eti_t7_v11_1.price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -8607,7 +8604,7 @@ eurex_derivatives_eti_t7_v11_1.price.dissect = function(buffer, offset, packet, 
   local length = eurex_derivatives_eti_t7_v11_1.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.price, range, value, display)
@@ -11061,7 +11058,7 @@ eurex_derivatives_eti_t7_v11_1.leg_clearing_trade_price.display = function(raw, 
 end
 
 -- Translate: Leg Clearing Trade Price
-translate.leg_clearing_trade_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.leg_clearing_trade_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -11075,7 +11072,7 @@ eurex_derivatives_eti_t7_v11_1.leg_clearing_trade_price.dissect = function(buffe
   local length = eurex_derivatives_eti_t7_v11_1.leg_clearing_trade_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.leg_clearing_trade_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.leg_clearing_trade_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.leg_clearing_trade_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.leg_clearing_trade_price, range, value, display)
@@ -13659,7 +13656,7 @@ eurex_derivatives_eti_t7_v11_1.order_qty.display = function(raw, value)
 end
 
 -- Translate: Order Qty
-translate.order_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.order_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -13673,7 +13670,7 @@ eurex_derivatives_eti_t7_v11_1.order_qty.dissect = function(buffer, offset, pack
   local length = eurex_derivatives_eti_t7_v11_1.order_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.order_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.order_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.order_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.order_qty, range, value, display)
@@ -13698,7 +13695,7 @@ eurex_derivatives_eti_t7_v11_1.offer_px.display = function(raw, value)
 end
 
 -- Translate: Offer Px
-translate.offer_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.offer_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -13712,7 +13709,7 @@ eurex_derivatives_eti_t7_v11_1.offer_px.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_eti_t7_v11_1.offer_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.offer_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.offer_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.offer_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.offer_px, range, value, display)
@@ -13737,7 +13734,7 @@ eurex_derivatives_eti_t7_v11_1.bid_px.display = function(raw, value)
 end
 
 -- Translate: Bid Px
-translate.bid_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.bid_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -13751,7 +13748,7 @@ eurex_derivatives_eti_t7_v11_1.bid_px.dissect = function(buffer, offset, packet,
   local length = eurex_derivatives_eti_t7_v11_1.bid_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.bid_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.bid_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.bid_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.bid_px, range, value, display)
@@ -13776,7 +13773,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_delta_percentage.display = function(ra
 end
 
 -- Translate: Underlying Delta Percentage
-translate.underlying_delta_percentage = function(raw)
+eurex_derivatives_eti_t7_v11_1.underlying_delta_percentage.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -13790,7 +13787,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_delta_percentage.dissect = function(bu
   local length = eurex_derivatives_eti_t7_v11_1.underlying_delta_percentage.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.underlying_delta_percentage(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.underlying_delta_percentage.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.underlying_delta_percentage.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.underlying_delta_percentage, range, value, display)
@@ -13815,7 +13812,7 @@ eurex_derivatives_eti_t7_v11_1.quote_ref_price.display = function(raw, value)
 end
 
 -- Translate: Quote Ref Price
-translate.quote_ref_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.quote_ref_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -13829,7 +13826,7 @@ eurex_derivatives_eti_t7_v11_1.quote_ref_price.dissect = function(buffer, offset
   local length = eurex_derivatives_eti_t7_v11_1.quote_ref_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.quote_ref_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.quote_ref_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.quote_ref_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.quote_ref_price, range, value, display)
@@ -13973,7 +13970,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_price_stip_value.display = function(ra
 end
 
 -- Translate: Underlying Price Stip Value
-translate.underlying_price_stip_value = function(raw)
+eurex_derivatives_eti_t7_v11_1.underlying_price_stip_value.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -13987,7 +13984,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_price_stip_value.dissect = function(bu
   local length = eurex_derivatives_eti_t7_v11_1.underlying_price_stip_value.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.underlying_price_stip_value(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.underlying_price_stip_value.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.underlying_price_stip_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.underlying_price_stip_value, range, value, display)
@@ -14416,7 +14413,7 @@ eurex_derivatives_eti_t7_v11_1.offer_size.display = function(raw, value)
 end
 
 -- Translate: Offer Size
-translate.offer_size = function(raw)
+eurex_derivatives_eti_t7_v11_1.offer_size.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -14430,7 +14427,7 @@ eurex_derivatives_eti_t7_v11_1.offer_size.dissect = function(buffer, offset, pac
   local length = eurex_derivatives_eti_t7_v11_1.offer_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.offer_size(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.offer_size.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.offer_size.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.offer_size, range, value, display)
@@ -14455,7 +14452,7 @@ eurex_derivatives_eti_t7_v11_1.bid_size.display = function(raw, value)
 end
 
 -- Translate: Bid Size
-translate.bid_size = function(raw)
+eurex_derivatives_eti_t7_v11_1.bid_size.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -14469,7 +14466,7 @@ eurex_derivatives_eti_t7_v11_1.bid_size.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_eti_t7_v11_1.bid_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.bid_size(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.bid_size.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.bid_size.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.bid_size, range, value, display)
@@ -15432,7 +15429,7 @@ eurex_derivatives_eti_t7_v11_1.trade_to_request_ratio.display = function(raw, va
 end
 
 -- Translate: Trade To Request Ratio
-translate.trade_to_request_ratio = function(raw)
+eurex_derivatives_eti_t7_v11_1.trade_to_request_ratio.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -15446,7 +15443,7 @@ eurex_derivatives_eti_t7_v11_1.trade_to_request_ratio.dissect = function(buffer,
   local length = eurex_derivatives_eti_t7_v11_1.trade_to_request_ratio.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.trade_to_request_ratio(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.trade_to_request_ratio.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.trade_to_request_ratio.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.trade_to_request_ratio, range, value, display)
@@ -15853,7 +15850,7 @@ eurex_derivatives_eti_t7_v11_1.trade_to_quote_ratio.display = function(raw, valu
 end
 
 -- Translate: Trade To Quote Ratio
-translate.trade_to_quote_ratio = function(raw)
+eurex_derivatives_eti_t7_v11_1.trade_to_quote_ratio.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -15867,7 +15864,7 @@ eurex_derivatives_eti_t7_v11_1.trade_to_quote_ratio.dissect = function(buffer, o
   local length = eurex_derivatives_eti_t7_v11_1.trade_to_quote_ratio.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.trade_to_quote_ratio(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.trade_to_quote_ratio.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.trade_to_quote_ratio.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.trade_to_quote_ratio, range, value, display)
@@ -18015,7 +18012,7 @@ eurex_derivatives_eti_t7_v11_1.best_offer_size.display = function(raw, value)
 end
 
 -- Translate: Best Offer Size
-translate.best_offer_size = function(raw)
+eurex_derivatives_eti_t7_v11_1.best_offer_size.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -18029,7 +18026,7 @@ eurex_derivatives_eti_t7_v11_1.best_offer_size.dissect = function(buffer, offset
   local length = eurex_derivatives_eti_t7_v11_1.best_offer_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.best_offer_size(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.best_offer_size.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.best_offer_size.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.best_offer_size, range, value, display)
@@ -18054,7 +18051,7 @@ eurex_derivatives_eti_t7_v11_1.best_offer_px.display = function(raw, value)
 end
 
 -- Translate: Best Offer Px
-translate.best_offer_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.best_offer_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -18068,7 +18065,7 @@ eurex_derivatives_eti_t7_v11_1.best_offer_px.dissect = function(buffer, offset, 
   local length = eurex_derivatives_eti_t7_v11_1.best_offer_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.best_offer_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.best_offer_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.best_offer_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.best_offer_px, range, value, display)
@@ -18093,7 +18090,7 @@ eurex_derivatives_eti_t7_v11_1.best_bid_size.display = function(raw, value)
 end
 
 -- Translate: Best Bid Size
-translate.best_bid_size = function(raw)
+eurex_derivatives_eti_t7_v11_1.best_bid_size.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -18107,7 +18104,7 @@ eurex_derivatives_eti_t7_v11_1.best_bid_size.dissect = function(buffer, offset, 
   local length = eurex_derivatives_eti_t7_v11_1.best_bid_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.best_bid_size(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.best_bid_size.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.best_bid_size.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.best_bid_size, range, value, display)
@@ -18132,7 +18129,7 @@ eurex_derivatives_eti_t7_v11_1.best_bid_px.display = function(raw, value)
 end
 
 -- Translate: Best Bid Px
-translate.best_bid_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.best_bid_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -18146,7 +18143,7 @@ eurex_derivatives_eti_t7_v11_1.best_bid_px.dissect = function(buffer, offset, pa
   local length = eurex_derivatives_eti_t7_v11_1.best_bid_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.best_bid_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.best_bid_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.best_bid_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.best_bid_px, range, value, display)
@@ -18285,7 +18282,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_effective_delta_percentage.display = f
 end
 
 -- Translate: Underlying Effective Delta Percentage
-translate.underlying_effective_delta_percentage = function(raw)
+eurex_derivatives_eti_t7_v11_1.underlying_effective_delta_percentage.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -18299,7 +18296,7 @@ eurex_derivatives_eti_t7_v11_1.underlying_effective_delta_percentage.dissect = f
   local length = eurex_derivatives_eti_t7_v11_1.underlying_effective_delta_percentage.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.underlying_effective_delta_percentage(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.underlying_effective_delta_percentage.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.underlying_effective_delta_percentage.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.underlying_effective_delta_percentage, range, value, display)
@@ -19784,7 +19781,7 @@ eurex_derivatives_eti_t7_v11_1.leg_last_qty.display = function(raw, value)
 end
 
 -- Translate: Leg Last Qty
-translate.leg_last_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.leg_last_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -19798,7 +19795,7 @@ eurex_derivatives_eti_t7_v11_1.leg_last_qty.dissect = function(buffer, offset, p
   local length = eurex_derivatives_eti_t7_v11_1.leg_last_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.leg_last_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.leg_last_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.leg_last_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.leg_last_qty, range, value, display)
@@ -19823,7 +19820,7 @@ eurex_derivatives_eti_t7_v11_1.leg_last_px.display = function(raw, value)
 end
 
 -- Translate: Leg Last Px
-translate.leg_last_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.leg_last_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -19837,7 +19834,7 @@ eurex_derivatives_eti_t7_v11_1.leg_last_px.dissect = function(buffer, offset, pa
   local length = eurex_derivatives_eti_t7_v11_1.leg_last_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.leg_last_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.leg_last_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.leg_last_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.leg_last_px, range, value, display)
@@ -20180,7 +20177,7 @@ eurex_derivatives_eti_t7_v11_1.quote_event_qty.display = function(raw, value)
 end
 
 -- Translate: Quote Event Qty
-translate.quote_event_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.quote_event_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -20194,7 +20191,7 @@ eurex_derivatives_eti_t7_v11_1.quote_event_qty.dissect = function(buffer, offset
   local length = eurex_derivatives_eti_t7_v11_1.quote_event_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.quote_event_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.quote_event_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.quote_event_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.quote_event_qty, range, value, display)
@@ -20219,7 +20216,7 @@ eurex_derivatives_eti_t7_v11_1.quote_event_px.display = function(raw, value)
 end
 
 -- Translate: Quote Event Px
-translate.quote_event_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.quote_event_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -20233,7 +20230,7 @@ eurex_derivatives_eti_t7_v11_1.quote_event_px.dissect = function(buffer, offset,
   local length = eurex_derivatives_eti_t7_v11_1.quote_event_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.quote_event_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.quote_event_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.quote_event_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.quote_event_px, range, value, display)
@@ -21070,7 +21067,7 @@ eurex_derivatives_eti_t7_v11_1.risk_limit_qty.display = function(raw, value)
 end
 
 -- Translate: Risk Limit Qty
-translate.risk_limit_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.risk_limit_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -21084,7 +21081,7 @@ eurex_derivatives_eti_t7_v11_1.risk_limit_qty.dissect = function(buffer, offset,
   local length = eurex_derivatives_eti_t7_v11_1.risk_limit_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.risk_limit_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.risk_limit_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.risk_limit_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.risk_limit_qty, range, value, display)
@@ -21259,7 +21256,7 @@ eurex_derivatives_eti_t7_v11_1.quote_weighting_coefficient.display = function(ra
 end
 
 -- Translate: Quote Weighting Coefficient
-translate.quote_weighting_coefficient = function(raw)
+eurex_derivatives_eti_t7_v11_1.quote_weighting_coefficient.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -21273,7 +21270,7 @@ eurex_derivatives_eti_t7_v11_1.quote_weighting_coefficient.dissect = function(bu
   local length = eurex_derivatives_eti_t7_v11_1.quote_weighting_coefficient.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.quote_weighting_coefficient(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.quote_weighting_coefficient.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.quote_weighting_coefficient.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.quote_weighting_coefficient, range, value, display)
@@ -21298,7 +21295,7 @@ eurex_derivatives_eti_t7_v11_1.netting_coefficient.display = function(raw, value
 end
 
 -- Translate: Netting Coefficient
-translate.netting_coefficient = function(raw)
+eurex_derivatives_eti_t7_v11_1.netting_coefficient.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -21312,7 +21309,7 @@ eurex_derivatives_eti_t7_v11_1.netting_coefficient.dissect = function(buffer, of
   local length = eurex_derivatives_eti_t7_v11_1.netting_coefficient.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.netting_coefficient(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.netting_coefficient.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.netting_coefficient.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.netting_coefficient, range, value, display)
@@ -21517,7 +21514,7 @@ eurex_derivatives_eti_t7_v11_1.risk_limit_net_position_qty.display = function(ra
 end
 
 -- Translate: Risk Limit Net Position Qty
-translate.risk_limit_net_position_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.risk_limit_net_position_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -21531,7 +21528,7 @@ eurex_derivatives_eti_t7_v11_1.risk_limit_net_position_qty.dissect = function(bu
   local length = eurex_derivatives_eti_t7_v11_1.risk_limit_net_position_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.risk_limit_net_position_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.risk_limit_net_position_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.risk_limit_net_position_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.risk_limit_net_position_qty, range, value, display)
@@ -21556,7 +21553,7 @@ eurex_derivatives_eti_t7_v11_1.risk_limit_open_qty.display = function(raw, value
 end
 
 -- Translate: Risk Limit Open Qty
-translate.risk_limit_open_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.risk_limit_open_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -21570,7 +21567,7 @@ eurex_derivatives_eti_t7_v11_1.risk_limit_open_qty.dissect = function(buffer, of
   local length = eurex_derivatives_eti_t7_v11_1.risk_limit_open_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.risk_limit_open_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.risk_limit_open_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.risk_limit_open_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.risk_limit_open_qty, range, value, display)
@@ -22267,7 +22264,7 @@ eurex_derivatives_eti_t7_v11_1.order_event_qty.display = function(raw, value)
 end
 
 -- Translate: Order Event Qty
-translate.order_event_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.order_event_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -22281,7 +22278,7 @@ eurex_derivatives_eti_t7_v11_1.order_event_qty.dissect = function(buffer, offset
   local length = eurex_derivatives_eti_t7_v11_1.order_event_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.order_event_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.order_event_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.order_event_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.order_event_qty, range, value, display)
@@ -22306,7 +22303,7 @@ eurex_derivatives_eti_t7_v11_1.order_event_px.display = function(raw, value)
 end
 
 -- Translate: Order Event Px
-translate.order_event_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.order_event_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -22320,7 +22317,7 @@ eurex_derivatives_eti_t7_v11_1.order_event_px.dissect = function(buffer, offset,
   local length = eurex_derivatives_eti_t7_v11_1.order_event_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.order_event_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.order_event_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.order_event_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.order_event_px, range, value, display)
@@ -22626,7 +22623,7 @@ eurex_derivatives_eti_t7_v11_1.fill_qty.display = function(raw, value)
 end
 
 -- Translate: Fill Qty
-translate.fill_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.fill_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -22640,7 +22637,7 @@ eurex_derivatives_eti_t7_v11_1.fill_qty.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_eti_t7_v11_1.fill_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.fill_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.fill_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.fill_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.fill_qty, range, value, display)
@@ -22665,7 +22662,7 @@ eurex_derivatives_eti_t7_v11_1.fill_px.display = function(raw, value)
 end
 
 -- Translate: Fill Px
-translate.fill_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.fill_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -22679,7 +22676,7 @@ eurex_derivatives_eti_t7_v11_1.fill_px.dissect = function(buffer, offset, packet
   local length = eurex_derivatives_eti_t7_v11_1.fill_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.fill_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.fill_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.fill_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.fill_px, range, value, display)
@@ -23159,7 +23156,7 @@ eurex_derivatives_eti_t7_v11_1.cxl_qty.display = function(raw, value)
 end
 
 -- Translate: Cxl Qty
-translate.cxl_qty = function(raw)
+eurex_derivatives_eti_t7_v11_1.cxl_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -23173,7 +23170,7 @@ eurex_derivatives_eti_t7_v11_1.cxl_qty.dissect = function(buffer, offset, packet
   local length = eurex_derivatives_eti_t7_v11_1.cxl_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.cxl_qty(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.cxl_qty.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.cxl_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.cxl_qty, range, value, display)
@@ -23932,7 +23929,7 @@ eurex_derivatives_eti_t7_v11_1.stop_px.display = function(raw, value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+eurex_derivatives_eti_t7_v11_1.stop_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -23946,7 +23943,7 @@ eurex_derivatives_eti_t7_v11_1.stop_px.dissect = function(buffer, offset, packet
   local length = eurex_derivatives_eti_t7_v11_1.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.stop_px(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.stop_px.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.stop_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.stop_px, range, value, display)
@@ -27372,7 +27369,7 @@ eurex_derivatives_eti_t7_v11_1.cxl_size.display = function(raw, value)
 end
 
 -- Translate: Cxl Size
-translate.cxl_size = function(raw)
+eurex_derivatives_eti_t7_v11_1.cxl_size.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -27386,7 +27383,7 @@ eurex_derivatives_eti_t7_v11_1.cxl_size.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_eti_t7_v11_1.cxl_size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.cxl_size(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.cxl_size.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.cxl_size.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.cxl_size, range, value, display)
@@ -27898,7 +27895,7 @@ eurex_derivatives_eti_t7_v11_1.vega.display = function(raw, value)
 end
 
 -- Translate: Vega
-translate.vega = function(raw)
+eurex_derivatives_eti_t7_v11_1.vega.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -27912,7 +27909,7 @@ eurex_derivatives_eti_t7_v11_1.vega.dissect = function(buffer, offset, packet, p
   local length = eurex_derivatives_eti_t7_v11_1.vega.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.vega(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.vega.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.vega.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.vega, range, value, display)
@@ -27937,7 +27934,7 @@ eurex_derivatives_eti_t7_v11_1.delta.display = function(raw, value)
 end
 
 -- Translate: Delta
-translate.delta = function(raw)
+eurex_derivatives_eti_t7_v11_1.delta.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -27951,7 +27948,7 @@ eurex_derivatives_eti_t7_v11_1.delta.dissect = function(buffer, offset, packet, 
   local length = eurex_derivatives_eti_t7_v11_1.delta.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.delta(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.delta.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.delta.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.delta, range, value, display)
@@ -29857,7 +29854,7 @@ eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_short.display = function(
 end
 
 -- Translate: Margin Based Risk Limit Short
-translate.margin_based_risk_limit_short = function(raw)
+eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_short.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -29871,7 +29868,7 @@ eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_short.dissect = function(
   local length = eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.margin_based_risk_limit_short(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_short.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_short.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.margin_based_risk_limit_short, range, value, display)
@@ -29896,7 +29893,7 @@ eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_long.display = function(r
 end
 
 -- Translate: Margin Based Risk Limit Long
-translate.margin_based_risk_limit_long = function(raw)
+eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_long.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -29910,7 +29907,7 @@ eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_long.dissect = function(b
   local length = eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.margin_based_risk_limit_long(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_long.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.margin_based_risk_limit_long.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.margin_based_risk_limit_long, range, value, display)
@@ -31161,7 +31158,7 @@ eurex_derivatives_eti_t7_v11_1.maximum_price.display = function(raw, value)
 end
 
 -- Translate: Maximum Price
-translate.maximum_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.maximum_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -31175,7 +31172,7 @@ eurex_derivatives_eti_t7_v11_1.maximum_price.dissect = function(buffer, offset, 
   local length = eurex_derivatives_eti_t7_v11_1.maximum_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.maximum_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.maximum_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.maximum_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.maximum_price, range, value, display)
@@ -35480,7 +35477,7 @@ eurex_derivatives_eti_t7_v11_1.strike_price.display = function(raw, value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.strike_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -35494,7 +35491,7 @@ eurex_derivatives_eti_t7_v11_1.strike_price.dissect = function(buffer, offset, p
   local length = eurex_derivatives_eti_t7_v11_1.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.strike_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.strike_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.strike_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.strike_price, range, value, display)
@@ -35890,7 +35887,7 @@ eurex_derivatives_eti_t7_v11_1.high_limit_price.display = function(raw, value)
 end
 
 -- Translate: High Limit Price
-translate.high_limit_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.high_limit_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -35904,7 +35901,7 @@ eurex_derivatives_eti_t7_v11_1.high_limit_price.dissect = function(buffer, offse
   local length = eurex_derivatives_eti_t7_v11_1.high_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.high_limit_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.high_limit_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.high_limit_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.high_limit_price, range, value, display)
@@ -35929,7 +35926,7 @@ eurex_derivatives_eti_t7_v11_1.low_limit_price.display = function(raw, value)
 end
 
 -- Translate: Low Limit Price
-translate.low_limit_price = function(raw)
+eurex_derivatives_eti_t7_v11_1.low_limit_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -35943,7 +35940,7 @@ eurex_derivatives_eti_t7_v11_1.low_limit_price.dissect = function(buffer, offset
   local length = eurex_derivatives_eti_t7_v11_1.low_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.low_limit_price(raw)
+  local value = eurex_derivatives_eti_t7_v11_1.low_limit_price.translate(raw)
   local display = eurex_derivatives_eti_t7_v11_1.low_limit_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.low_limit_price, range, value, display)
@@ -38071,7 +38068,7 @@ tcp_table:add(65333, omi_eurex_derivatives_eti_t7_v11_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_eurex_derivatives_eti_t7_v11_1_packet_size = function(buffer)
+eurex_derivatives_eti_t7_v11_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -38079,7 +38076,7 @@ end
 -- Dissector Heuristic for Eurex Derivatives Eti T7 11.1
 local function omi_eurex_derivatives_eti_t7_v11_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_eurex_derivatives_eti_t7_v11_1_packet_size(buffer) then return false end
+  if not eurex_derivatives_eti_t7_v11_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_derivatives_eti_t7_v11_1

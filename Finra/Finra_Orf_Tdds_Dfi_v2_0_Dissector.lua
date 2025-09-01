@@ -12,8 +12,6 @@ local finra_orf_tdds_dfi_v2_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -4226,7 +4224,7 @@ udp_table:add(65333, omi_finra_orf_tdds_dfi_v2_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_finra_orf_tdds_dfi_v2_0_packet_size = function(buffer)
+finra_orf_tdds_dfi_v2_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -4234,7 +4232,7 @@ end
 -- Dissector Heuristic for Finra Orf Tdds Dfi 2.0
 local function omi_finra_orf_tdds_dfi_v2_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_finra_orf_tdds_dfi_v2_0_packet_size(buffer) then return false end
+  if not finra_orf_tdds_dfi_v2_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_finra_orf_tdds_dfi_v2_0

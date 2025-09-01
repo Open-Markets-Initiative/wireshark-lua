@@ -12,9 +12,6 @@ local b3_equities_binaryentrypoint_sbe_v7_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -3278,7 +3275,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.threshold_amount.display = function(raw, v
 end
 
 -- Translate: Threshold Amount
-translate.threshold_amount = function(raw)
+b3_equities_binaryentrypoint_sbe_v7_0.threshold_amount.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -3292,7 +3289,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.threshold_amount.dissect = function(buffer
   local length = b3_equities_binaryentrypoint_sbe_v7_0.threshold_amount.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.threshold_amount(raw)
+  local value = b3_equities_binaryentrypoint_sbe_v7_0.threshold_amount.translate(raw)
   local display = b3_equities_binaryentrypoint_sbe_v7_0.threshold_amount.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.threshold_amount, range, value, display)
@@ -4319,7 +4316,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.price_optional.display = function(raw, val
 end
 
 -- Translate: Price Optional
-translate.price_optional = function(raw)
+b3_equities_binaryentrypoint_sbe_v7_0.price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -4333,7 +4330,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.price_optional.dissect = function(buffer, 
   local length = b3_equities_binaryentrypoint_sbe_v7_0.price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_optional(raw)
+  local value = b3_equities_binaryentrypoint_sbe_v7_0.price_optional.translate(raw)
   local display = b3_equities_binaryentrypoint_sbe_v7_0.price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.price_optional, range, value, display)
@@ -5436,7 +5433,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+b3_equities_binaryentrypoint_sbe_v7_0.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -5445,7 +5442,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.price.dissect = function(buffer, offset, p
   local length = b3_equities_binaryentrypoint_sbe_v7_0.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = b3_equities_binaryentrypoint_sbe_v7_0.price.translate(raw)
   local display = b3_equities_binaryentrypoint_sbe_v7_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.price, range, value, display)
@@ -5934,7 +5931,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.leg_ratio_qty.display = function(value)
 end
 
 -- Translate: Leg Ratio Qty
-translate.leg_ratio_qty = function(raw)
+b3_equities_binaryentrypoint_sbe_v7_0.leg_ratio_qty.translate = function(raw)
   return raw:tonumber()/10000000
 end
 
@@ -5943,7 +5940,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.leg_ratio_qty.dissect = function(buffer, o
   local length = b3_equities_binaryentrypoint_sbe_v7_0.leg_ratio_qty.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.leg_ratio_qty(raw)
+  local value = b3_equities_binaryentrypoint_sbe_v7_0.leg_ratio_qty.translate(raw)
   local display = b3_equities_binaryentrypoint_sbe_v7_0.leg_ratio_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.leg_ratio_qty, range, value, display)
@@ -6702,7 +6699,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+b3_equities_binaryentrypoint_sbe_v7_0.last_px.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -6711,7 +6708,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.last_px.dissect = function(buffer, offset,
   local length = b3_equities_binaryentrypoint_sbe_v7_0.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_px(raw)
+  local value = b3_equities_binaryentrypoint_sbe_v7_0.last_px.translate(raw)
   local display = b3_equities_binaryentrypoint_sbe_v7_0.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.last_px, range, value, display)
@@ -7144,7 +7141,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.stop_px.display = function(raw, value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+b3_equities_binaryentrypoint_sbe_v7_0.stop_px.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -7158,7 +7155,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.stop_px.dissect = function(buffer, offset,
   local length = b3_equities_binaryentrypoint_sbe_v7_0.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.stop_px(raw)
+  local value = b3_equities_binaryentrypoint_sbe_v7_0.stop_px.translate(raw)
   local display = b3_equities_binaryentrypoint_sbe_v7_0.stop_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.stop_px, range, value, display)
@@ -9831,7 +9828,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.protection_price.display = function(raw, v
 end
 
 -- Translate: Protection Price
-translate.protection_price = function(raw)
+b3_equities_binaryentrypoint_sbe_v7_0.protection_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -9845,7 +9842,7 @@ b3_equities_binaryentrypoint_sbe_v7_0.protection_price.dissect = function(buffer
   local length = b3_equities_binaryentrypoint_sbe_v7_0.protection_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.protection_price(raw)
+  local value = b3_equities_binaryentrypoint_sbe_v7_0.protection_price.translate(raw)
   local display = b3_equities_binaryentrypoint_sbe_v7_0.protection_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.protection_price, range, value, display)
@@ -14175,13 +14172,13 @@ tcp_table:add(65333, omi_b3_equities_binaryentrypoint_sbe_v7_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_b3_equities_binaryentrypoint_sbe_v7_0_packet_size = function(buffer)
+b3_equities_binaryentrypoint_sbe_v7_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+b3_equities_binaryentrypoint_sbe_v7_0.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -14193,7 +14190,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+b3_equities_binaryentrypoint_sbe_v7_0.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(10, 2):le_uint()
 
@@ -14207,13 +14204,13 @@ end
 -- Dissector Heuristic for B3 Equities BinaryEntryPoint Sbe 7.0
 local function omi_b3_equities_binaryentrypoint_sbe_v7_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_b3_equities_binaryentrypoint_sbe_v7_0_packet_size(buffer) then return false end
+  if not b3_equities_binaryentrypoint_sbe_v7_0.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not b3_equities_binaryentrypoint_sbe_v7_0.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not b3_equities_binaryentrypoint_sbe_v7_0.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_b3_equities_binaryentrypoint_sbe_v7_0

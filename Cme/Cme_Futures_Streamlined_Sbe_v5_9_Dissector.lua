@@ -12,9 +12,6 @@ local cme_futures_streamlined_sbe_v5_9 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1541,7 +1538,7 @@ cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.display = funct
 end
 
 -- Translate: Notional Percentage Outstanding
-translate.notional_percentage_outstanding = function(raw)
+cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.translate = function(raw)
   -- Check null sentinel value
   if raw == 2147483647 then
     return 0/0
@@ -1555,7 +1552,7 @@ cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.dissect = funct
   local length = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = translate.notional_percentage_outstanding(raw)
+  local value = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.translate(raw)
   local display = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.notional_percentage_outstanding, range, value, display)
@@ -1658,7 +1655,7 @@ cme_futures_streamlined_sbe_v5_9.coupon_rate.display = function(raw, value)
 end
 
 -- Translate: Coupon Rate
-translate.coupon_rate = function(raw)
+cme_futures_streamlined_sbe_v5_9.coupon_rate.translate = function(raw)
   -- Check null sentinel value
   if raw == 2147483647 then
     return 0/0
@@ -1672,7 +1669,7 @@ cme_futures_streamlined_sbe_v5_9.coupon_rate.dissect = function(buffer, offset, 
   local length = cme_futures_streamlined_sbe_v5_9.coupon_rate.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = translate.coupon_rate(raw)
+  local value = cme_futures_streamlined_sbe_v5_9.coupon_rate.translate(raw)
   local display = cme_futures_streamlined_sbe_v5_9.coupon_rate.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.coupon_rate, range, value, display)
@@ -2131,7 +2128,7 @@ cme_futures_streamlined_sbe_v5_9.md_entry_px_9.display = function(raw, value)
 end
 
 -- Translate: Md Entry Px 9
-translate.md_entry_px_9 = function(raw)
+cme_futures_streamlined_sbe_v5_9.md_entry_px_9.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -2145,7 +2142,7 @@ cme_futures_streamlined_sbe_v5_9.md_entry_px_9.dissect = function(buffer, offset
   local length = cme_futures_streamlined_sbe_v5_9.md_entry_px_9.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.md_entry_px_9(raw)
+  local value = cme_futures_streamlined_sbe_v5_9.md_entry_px_9.translate(raw)
   local display = cme_futures_streamlined_sbe_v5_9.md_entry_px_9.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_px_9, range, value, display)
@@ -5311,7 +5308,7 @@ cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.display = function(raw, va
 end
 
 -- Translate: Md Entry Px Optional
-translate.md_entry_px_optional = function(raw)
+cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -5325,7 +5322,7 @@ cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.dissect = function(buffer,
   local length = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.md_entry_px_optional(raw)
+  local value = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.translate(raw)
   local display = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_px_optional, range, value, display)
@@ -6447,7 +6444,7 @@ cme_futures_streamlined_sbe_v5_9.strike_price.display = function(raw, value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+cme_futures_streamlined_sbe_v5_9.strike_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -6461,7 +6458,7 @@ cme_futures_streamlined_sbe_v5_9.strike_price.dissect = function(buffer, offset,
   local length = cme_futures_streamlined_sbe_v5_9.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.strike_price(raw)
+  local value = cme_futures_streamlined_sbe_v5_9.strike_price.translate(raw)
   local display = cme_futures_streamlined_sbe_v5_9.strike_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.strike_price, range, value, display)
@@ -6486,7 +6483,7 @@ cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.display = function
 end
 
 -- Translate: Unit Of Measure Qty Optional
-translate.unit_of_measure_qty_optional = function(raw)
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -6500,7 +6497,7 @@ cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.dissect = function
   local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.unit_of_measure_qty_optional(raw)
+  local value = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.translate(raw)
   local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_optional, range, value, display)
@@ -11105,13 +11102,13 @@ udp_table:add(65333, omi_cme_futures_streamlined_sbe_v5_9)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cme_futures_streamlined_sbe_v5_9_packet_size = function(buffer)
+cme_futures_streamlined_sbe_v5_9.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+cme_futures_streamlined_sbe_v5_9.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(18, 2):le_uint()
 
@@ -11123,7 +11120,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+cme_futures_streamlined_sbe_v5_9.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -11137,13 +11134,13 @@ end
 -- Dissector Heuristic for Cme Futures Streamlined Sbe 5.9
 local function omi_cme_futures_streamlined_sbe_v5_9_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cme_futures_streamlined_sbe_v5_9_packet_size(buffer) then return false end
+  if not cme_futures_streamlined_sbe_v5_9.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not cme_futures_streamlined_sbe_v5_9.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not cme_futures_streamlined_sbe_v5_9.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_futures_streamlined_sbe_v5_9

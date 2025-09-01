@@ -12,9 +12,6 @@ local jnx_equities_pts_ouch_v1_11 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -453,7 +450,7 @@ jnx_equities_pts_ouch_v1_11.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+jnx_equities_pts_ouch_v1_11.price.translate = function(raw)
   return raw/10
 end
 
@@ -462,7 +459,7 @@ jnx_equities_pts_ouch_v1_11.price.dissect = function(buffer, offset, packet, par
   local length = jnx_equities_pts_ouch_v1_11.price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price(raw)
+  local value = jnx_equities_pts_ouch_v1_11.price.translate(raw)
   local display = jnx_equities_pts_ouch_v1_11.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.price, range, value, display)
@@ -1459,7 +1456,7 @@ jnx_equities_pts_ouch_v1_11.execution_price.display = function(value)
 end
 
 -- Translate: Execution Price
-translate.execution_price = function(raw)
+jnx_equities_pts_ouch_v1_11.execution_price.translate = function(raw)
   return raw/10
 end
 
@@ -1468,7 +1465,7 @@ jnx_equities_pts_ouch_v1_11.execution_price.dissect = function(buffer, offset, p
   local length = jnx_equities_pts_ouch_v1_11.execution_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.execution_price(raw)
+  local value = jnx_equities_pts_ouch_v1_11.execution_price.translate(raw)
   local display = jnx_equities_pts_ouch_v1_11.execution_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.execution_price, range, value, display)
@@ -2970,7 +2967,7 @@ tcp_table:add(65333, omi_jnx_equities_pts_ouch_v1_11)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_jnx_equities_pts_ouch_v1_11_packet_size = function(buffer)
+jnx_equities_pts_ouch_v1_11.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2978,7 +2975,7 @@ end
 -- Dissector Heuristic for Jnx Equities Pts Ouch 1.11
 local function omi_jnx_equities_pts_ouch_v1_11_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_jnx_equities_pts_ouch_v1_11_packet_size(buffer) then return false end
+  if not jnx_equities_pts_ouch_v1_11.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jnx_equities_pts_ouch_v1_11

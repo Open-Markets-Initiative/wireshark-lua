@@ -12,9 +12,6 @@ local eurex_derivatives_eobi_t7_v4_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -479,7 +476,7 @@ eurex_derivatives_eobi_t7_v4_0.md_entry_px.display = function(raw, value)
 end
 
 -- Translate: Md Entry Px
-translate.md_entry_px = function(raw)
+eurex_derivatives_eobi_t7_v4_0.md_entry_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -493,7 +490,7 @@ eurex_derivatives_eobi_t7_v4_0.md_entry_px.dissect = function(buffer, offset, pa
   local length = eurex_derivatives_eobi_t7_v4_0.md_entry_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.md_entry_px(raw)
+  local value = eurex_derivatives_eobi_t7_v4_0.md_entry_px.translate(raw)
   local display = eurex_derivatives_eobi_t7_v4_0.md_entry_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eobi_t7_v4_0.fields.md_entry_px, range, value, display)
@@ -666,7 +663,7 @@ eurex_derivatives_eobi_t7_v4_0.last_px.display = function(raw, value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+eurex_derivatives_eobi_t7_v4_0.last_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -680,7 +677,7 @@ eurex_derivatives_eobi_t7_v4_0.last_px.dissect = function(buffer, offset, packet
   local length = eurex_derivatives_eobi_t7_v4_0.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_px(raw)
+  local value = eurex_derivatives_eobi_t7_v4_0.last_px.translate(raw)
   local display = eurex_derivatives_eobi_t7_v4_0.last_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eobi_t7_v4_0.fields.last_px, range, value, display)
@@ -1085,7 +1082,7 @@ eurex_derivatives_eobi_t7_v4_0.offer_px.display = function(raw, value)
 end
 
 -- Translate: Offer Px
-translate.offer_px = function(raw)
+eurex_derivatives_eobi_t7_v4_0.offer_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -1099,7 +1096,7 @@ eurex_derivatives_eobi_t7_v4_0.offer_px.dissect = function(buffer, offset, packe
   local length = eurex_derivatives_eobi_t7_v4_0.offer_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.offer_px(raw)
+  local value = eurex_derivatives_eobi_t7_v4_0.offer_px.translate(raw)
   local display = eurex_derivatives_eobi_t7_v4_0.offer_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eobi_t7_v4_0.fields.offer_px, range, value, display)
@@ -1124,7 +1121,7 @@ eurex_derivatives_eobi_t7_v4_0.bid_px.display = function(raw, value)
 end
 
 -- Translate: Bid Px
-translate.bid_px = function(raw)
+eurex_derivatives_eobi_t7_v4_0.bid_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -1138,7 +1135,7 @@ eurex_derivatives_eobi_t7_v4_0.bid_px.dissect = function(buffer, offset, packet,
   local length = eurex_derivatives_eobi_t7_v4_0.bid_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.bid_px(raw)
+  local value = eurex_derivatives_eobi_t7_v4_0.bid_px.translate(raw)
   local display = eurex_derivatives_eobi_t7_v4_0.bid_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eobi_t7_v4_0.fields.bid_px, range, value, display)
@@ -1223,7 +1220,7 @@ eurex_derivatives_eobi_t7_v4_0.price.display = function(raw, value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+eurex_derivatives_eobi_t7_v4_0.price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -1237,7 +1234,7 @@ eurex_derivatives_eobi_t7_v4_0.price.dissect = function(buffer, offset, packet, 
   local length = eurex_derivatives_eobi_t7_v4_0.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = eurex_derivatives_eobi_t7_v4_0.price.translate(raw)
   local display = eurex_derivatives_eobi_t7_v4_0.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eobi_t7_v4_0.fields.price, range, value, display)
@@ -2140,7 +2137,7 @@ eurex_derivatives_eobi_t7_v4_0.prev_price.display = function(raw, value)
 end
 
 -- Translate: Prev Price
-translate.prev_price = function(raw)
+eurex_derivatives_eobi_t7_v4_0.prev_price.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -2154,7 +2151,7 @@ eurex_derivatives_eobi_t7_v4_0.prev_price.dissect = function(buffer, offset, pac
   local length = eurex_derivatives_eobi_t7_v4_0.prev_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.prev_price(raw)
+  local value = eurex_derivatives_eobi_t7_v4_0.prev_price.translate(raw)
   local display = eurex_derivatives_eobi_t7_v4_0.prev_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eobi_t7_v4_0.fields.prev_price, range, value, display)
@@ -4989,13 +4986,13 @@ udp_table:add(65333, omi_eurex_derivatives_eobi_t7_v4_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_eurex_derivatives_eobi_t7_v4_0_packet_size = function(buffer)
+eurex_derivatives_eobi_t7_v4_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Packet Id Field
-verify.packet_id = function(buffer)
+eurex_derivatives_eobi_t7_v4_0.packet_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(2, 2):le_uint()
 
@@ -5009,10 +5006,10 @@ end
 -- Dissector Heuristic for Eurex Derivatives Eobi T7 4.0
 local function omi_eurex_derivatives_eobi_t7_v4_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_eurex_derivatives_eobi_t7_v4_0_packet_size(buffer) then return false end
+  if not eurex_derivatives_eobi_t7_v4_0.packet.requiredsize(buffer) then return false end
 
   -- Verify Packet Id
-  if not verify.packet_id(buffer) then return false end
+  if not eurex_derivatives_eobi_t7_v4_0.packet_id.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_derivatives_eobi_t7_v4_0

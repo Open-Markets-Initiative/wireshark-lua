@@ -12,9 +12,6 @@ local nasdaq_nsmequities_noi_itch_v3_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -205,7 +202,7 @@ nasdaq_nsmequities_noi_itch_v3_0.ipo_price.display = function(value)
 end
 
 -- Translate: Ipo Price
-translate.ipo_price = function(raw)
+nasdaq_nsmequities_noi_itch_v3_0.ipo_price.translate = function(raw)
   return raw/10000
 end
 
@@ -214,7 +211,7 @@ nasdaq_nsmequities_noi_itch_v3_0.ipo_price.dissect = function(buffer, offset, pa
   local length = nasdaq_nsmequities_noi_itch_v3_0.ipo_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.ipo_price(raw)
+  local value = nasdaq_nsmequities_noi_itch_v3_0.ipo_price.translate(raw)
   local display = nasdaq_nsmequities_noi_itch_v3_0.ipo_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_price, range, value, display)
@@ -482,7 +479,7 @@ nasdaq_nsmequities_noi_itch_v3_0.cross_price.display = function(value)
 end
 
 -- Translate: Cross Price
-translate.cross_price = function(raw)
+nasdaq_nsmequities_noi_itch_v3_0.cross_price.translate = function(raw)
   return raw/10000
 end
 
@@ -491,7 +488,7 @@ nasdaq_nsmequities_noi_itch_v3_0.cross_price.dissect = function(buffer, offset, 
   local length = nasdaq_nsmequities_noi_itch_v3_0.cross_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.cross_price(raw)
+  local value = nasdaq_nsmequities_noi_itch_v3_0.cross_price.translate(raw)
   local display = nasdaq_nsmequities_noi_itch_v3_0.cross_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0.fields.cross_price, range, value, display)
@@ -672,7 +669,7 @@ nasdaq_nsmequities_noi_itch_v3_0.current_reference_price.display = function(valu
 end
 
 -- Translate: Current Reference Price
-translate.current_reference_price = function(raw)
+nasdaq_nsmequities_noi_itch_v3_0.current_reference_price.translate = function(raw)
   return raw/10000
 end
 
@@ -681,7 +678,7 @@ nasdaq_nsmequities_noi_itch_v3_0.current_reference_price.dissect = function(buff
   local length = nasdaq_nsmequities_noi_itch_v3_0.current_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.current_reference_price(raw)
+  local value = nasdaq_nsmequities_noi_itch_v3_0.current_reference_price.translate(raw)
   local display = nasdaq_nsmequities_noi_itch_v3_0.current_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0.fields.current_reference_price, range, value, display)
@@ -701,7 +698,7 @@ nasdaq_nsmequities_noi_itch_v3_0.near_price.display = function(value)
 end
 
 -- Translate: Near Price
-translate.near_price = function(raw)
+nasdaq_nsmequities_noi_itch_v3_0.near_price.translate = function(raw)
   return raw/10000
 end
 
@@ -710,7 +707,7 @@ nasdaq_nsmequities_noi_itch_v3_0.near_price.dissect = function(buffer, offset, p
   local length = nasdaq_nsmequities_noi_itch_v3_0.near_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.near_price(raw)
+  local value = nasdaq_nsmequities_noi_itch_v3_0.near_price.translate(raw)
   local display = nasdaq_nsmequities_noi_itch_v3_0.near_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0.fields.near_price, range, value, display)
@@ -730,7 +727,7 @@ nasdaq_nsmequities_noi_itch_v3_0.far_price.display = function(value)
 end
 
 -- Translate: Far Price
-translate.far_price = function(raw)
+nasdaq_nsmequities_noi_itch_v3_0.far_price.translate = function(raw)
   return raw/10000
 end
 
@@ -739,7 +736,7 @@ nasdaq_nsmequities_noi_itch_v3_0.far_price.dissect = function(buffer, offset, pa
   local length = nasdaq_nsmequities_noi_itch_v3_0.far_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.far_price(raw)
+  local value = nasdaq_nsmequities_noi_itch_v3_0.far_price.translate(raw)
   local display = nasdaq_nsmequities_noi_itch_v3_0.far_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0.fields.far_price, range, value, display)
@@ -2244,7 +2241,7 @@ udp_table:add(65333, omi_nasdaq_nsmequities_noi_itch_v3_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_nsmequities_noi_itch_v3_0_packet_size = function(buffer)
+nasdaq_nsmequities_noi_itch_v3_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2252,7 +2249,7 @@ end
 -- Dissector Heuristic for Nasdaq NsmEquities Noi Itch 3.0
 local function omi_nasdaq_nsmequities_noi_itch_v3_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_nsmequities_noi_itch_v3_0_packet_size(buffer) then return false end
+  if not nasdaq_nsmequities_noi_itch_v3_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_noi_itch_v3_0

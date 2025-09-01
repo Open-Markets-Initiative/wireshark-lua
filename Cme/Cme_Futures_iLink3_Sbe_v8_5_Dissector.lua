@@ -12,9 +12,6 @@ local cme_futures_ilink3_sbe_v8_5 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -3375,7 +3372,7 @@ cme_futures_ilink3_sbe_v8_5.leg_price.display = function(raw, value)
 end
 
 -- Translate: Leg Price
-translate.leg_price = function(raw)
+cme_futures_ilink3_sbe_v8_5.leg_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -3389,7 +3386,7 @@ cme_futures_ilink3_sbe_v8_5.leg_price.dissect = function(buffer, offset, packet,
   local length = cme_futures_ilink3_sbe_v8_5.leg_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.leg_price(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.leg_price.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.leg_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.leg_price, range, value, display)
@@ -4806,7 +4803,7 @@ cme_futures_ilink3_sbe_v8_5.order_event_px.display = function(value)
 end
 
 -- Translate: Order Event Px
-translate.order_event_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.order_event_px.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -4815,7 +4812,7 @@ cme_futures_ilink3_sbe_v8_5.order_event_px.dissect = function(buffer, offset, pa
   local length = cme_futures_ilink3_sbe_v8_5.order_event_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.order_event_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.order_event_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.order_event_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.order_event_px, range, value, display)
@@ -5053,7 +5050,7 @@ cme_futures_ilink3_sbe_v8_5.fill_px.display = function(value)
 end
 
 -- Translate: Fill Px
-translate.fill_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.fill_px.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -5062,7 +5059,7 @@ cme_futures_ilink3_sbe_v8_5.fill_px.dissect = function(buffer, offset, packet, p
   local length = cme_futures_ilink3_sbe_v8_5.fill_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.fill_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.fill_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.fill_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.fill_px, range, value, display)
@@ -5492,7 +5489,7 @@ cme_futures_ilink3_sbe_v8_5.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.last_px.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -5501,7 +5498,7 @@ cme_futures_ilink3_sbe_v8_5.last_px.dissect = function(buffer, offset, packet, p
   local length = cme_futures_ilink3_sbe_v8_5.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.last_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.last_px, range, value, display)
@@ -5994,7 +5991,7 @@ cme_futures_ilink3_sbe_v8_5.leg_last_px.display = function(value)
 end
 
 -- Translate: Leg Last Px
-translate.leg_last_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.leg_last_px.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -6003,7 +6000,7 @@ cme_futures_ilink3_sbe_v8_5.leg_last_px.dissect = function(buffer, offset, packe
   local length = cme_futures_ilink3_sbe_v8_5.leg_last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.leg_last_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.leg_last_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.leg_last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.leg_last_px, range, value, display)
@@ -7764,7 +7761,7 @@ cme_futures_ilink3_sbe_v8_5.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+cme_futures_ilink3_sbe_v8_5.price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -7773,7 +7770,7 @@ cme_futures_ilink3_sbe_v8_5.price.dissect = function(buffer, offset, packet, par
   local length = cme_futures_ilink3_sbe_v8_5.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.price.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.price, range, value, display)
@@ -10437,7 +10434,7 @@ cme_futures_ilink3_sbe_v8_5.stop_px.display = function(raw, value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.stop_px.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -10451,7 +10448,7 @@ cme_futures_ilink3_sbe_v8_5.stop_px.dissect = function(buffer, offset, packet, p
   local length = cme_futures_ilink3_sbe_v8_5.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.stop_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.stop_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.stop_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.stop_px, range, value, display)
@@ -10972,7 +10969,7 @@ cme_futures_ilink3_sbe_v8_5.price_optional.display = function(raw, value)
 end
 
 -- Translate: Price Optional
-translate.price_optional = function(raw)
+cme_futures_ilink3_sbe_v8_5.price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -10986,7 +10983,7 @@ cme_futures_ilink3_sbe_v8_5.price_optional.dissect = function(buffer, offset, pa
   local length = cme_futures_ilink3_sbe_v8_5.price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price_optional(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.price_optional.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.price_optional, range, value, display)
@@ -12555,7 +12552,7 @@ cme_futures_ilink3_sbe_v8_5.underlying_px.display = function(raw, value)
 end
 
 -- Translate: Underlying Px
-translate.underlying_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.underlying_px.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -12569,7 +12566,7 @@ cme_futures_ilink3_sbe_v8_5.underlying_px.dissect = function(buffer, offset, pac
   local length = cme_futures_ilink3_sbe_v8_5.underlying_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.underlying_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.underlying_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.underlying_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.underlying_px, range, value, display)
@@ -15252,7 +15249,7 @@ cme_futures_ilink3_sbe_v8_5.offer_px.display = function(raw, value)
 end
 
 -- Translate: Offer Px
-translate.offer_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.offer_px.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -15266,7 +15263,7 @@ cme_futures_ilink3_sbe_v8_5.offer_px.dissect = function(buffer, offset, packet, 
   local length = cme_futures_ilink3_sbe_v8_5.offer_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.offer_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.offer_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.offer_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.offer_px, range, value, display)
@@ -15291,7 +15288,7 @@ cme_futures_ilink3_sbe_v8_5.bid_px.display = function(raw, value)
 end
 
 -- Translate: Bid Px
-translate.bid_px = function(raw)
+cme_futures_ilink3_sbe_v8_5.bid_px.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -15305,7 +15302,7 @@ cme_futures_ilink3_sbe_v8_5.bid_px.dissect = function(buffer, offset, packet, pa
   local length = cme_futures_ilink3_sbe_v8_5.bid_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.bid_px(raw)
+  local value = cme_futures_ilink3_sbe_v8_5.bid_px.translate(raw)
   local display = cme_futures_ilink3_sbe_v8_5.bid_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_5.fields.bid_px, range, value, display)
@@ -18617,13 +18614,13 @@ tcp_table:add(65333, omi_cme_futures_ilink3_sbe_v8_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cme_futures_ilink3_sbe_v8_5_packet_size = function(buffer)
+cme_futures_ilink3_sbe_v8_5.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+cme_futures_ilink3_sbe_v8_5.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -18635,7 +18632,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+cme_futures_ilink3_sbe_v8_5.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(10, 2):le_uint()
 
@@ -18649,13 +18646,13 @@ end
 -- Dissector Heuristic for Cme Futures iLink3 Sbe 8.5
 local function omi_cme_futures_ilink3_sbe_v8_5_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cme_futures_ilink3_sbe_v8_5_packet_size(buffer) then return false end
+  if not cme_futures_ilink3_sbe_v8_5.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not cme_futures_ilink3_sbe_v8_5.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not cme_futures_ilink3_sbe_v8_5.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_futures_ilink3_sbe_v8_5

@@ -12,9 +12,6 @@ local miax_pearlequities_topofmarket_mach_v1_1_a = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -222,7 +219,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+miax_pearlequities_topofmarket_mach_v1_1_a.price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -231,7 +228,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.price.dissect = function(buffer, offs
   local length = miax_pearlequities_topofmarket_mach_v1_1_a.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = miax_pearlequities_topofmarket_mach_v1_1_a.price.translate(raw)
   local display = miax_pearlequities_topofmarket_mach_v1_1_a.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.price, range, value, display)
@@ -534,7 +531,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.display = function(value)
 end
 
 -- Translate: Offer Price
-translate.offer_price = function(raw)
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.translate = function(raw)
   return raw/100
 end
 
@@ -543,7 +540,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.dissect = function(buffer
   local length = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.offer_price(raw)
+  local value = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.translate(raw)
   local display = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_price, range, value, display)
@@ -586,7 +583,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.translate = function(raw)
   return raw/100
 end
 
@@ -595,7 +592,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.dissect = function(buffer, 
   local length = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.bid_price(raw)
+  local value = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.translate(raw)
   local display = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_price, range, value, display)
@@ -1877,7 +1874,7 @@ udp_table:add(65333, omi_miax_pearlequities_topofmarket_mach_v1_1_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_miax_pearlequities_topofmarket_mach_v1_1_a_packet_size = function(buffer)
+miax_pearlequities_topofmarket_mach_v1_1_a.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -1885,7 +1882,7 @@ end
 -- Dissector Heuristic for Miax PearlEquities TopOfMarket Mach 1.1.a
 local function omi_miax_pearlequities_topofmarket_mach_v1_1_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_miax_pearlequities_topofmarket_mach_v1_1_a_packet_size(buffer) then return false end
+  if not miax_pearlequities_topofmarket_mach_v1_1_a.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_topofmarket_mach_v1_1_a

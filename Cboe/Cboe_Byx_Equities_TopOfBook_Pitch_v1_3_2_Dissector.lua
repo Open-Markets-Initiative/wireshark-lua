@@ -12,9 +12,6 @@ local cboe_byx_equities_topofbook_pitch_v1_3_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -451,7 +448,7 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+cboe_byx_equities_topofbook_pitch_v1_3_2.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -460,7 +457,7 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.price.dissect = function(buffer, offset
   local length = cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = cboe_byx_equities_topofbook_pitch_v1_3_2.price.translate(raw)
   local display = cboe_byx_equities_topofbook_pitch_v1_3_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.price, range, value, display)
@@ -1257,7 +1254,7 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.display = function(value)
 end
 
 -- Translate: Price Short
-translate.price_short = function(raw)
+cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.translate = function(raw)
   return raw/100
 end
 
@@ -1266,7 +1263,7 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.dissect = function(buffer, 
   local length = cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.price_short(raw)
+  local value = cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.translate(raw)
   local display = cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.price_short, range, value, display)
@@ -3054,7 +3051,7 @@ udp_table:add(65333, omi_cboe_byx_equities_topofbook_pitch_v1_3_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_byx_equities_topofbook_pitch_v1_3_2_packet_size = function(buffer)
+cboe_byx_equities_topofbook_pitch_v1_3_2.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3062,7 +3059,7 @@ end
 -- Dissector Heuristic for Cboe Byx Equities TopOfBook Pitch 1.3.2
 local function omi_cboe_byx_equities_topofbook_pitch_v1_3_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_byx_equities_topofbook_pitch_v1_3_2_packet_size(buffer) then return false end
+  if not cboe_byx_equities_topofbook_pitch_v1_3_2.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_byx_equities_topofbook_pitch_v1_3_2

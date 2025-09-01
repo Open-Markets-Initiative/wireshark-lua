@@ -12,9 +12,6 @@ local memx_options_memo_sbe_v1_7 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1630,7 +1627,7 @@ memx_options_memo_sbe_v1_7.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+memx_options_memo_sbe_v1_7.last_px.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1639,7 +1636,7 @@ memx_options_memo_sbe_v1_7.last_px.dissect = function(buffer, offset, packet, pa
   local length = memx_options_memo_sbe_v1_7.last_px.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.last_px(raw)
+  local value = memx_options_memo_sbe_v1_7.last_px.translate(raw)
   local display = memx_options_memo_sbe_v1_7.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memo_sbe_v1_7.fields.last_px, range, value, display)
@@ -4133,7 +4130,7 @@ memx_options_memo_sbe_v1_7.price_optional.display = function(raw, value)
 end
 
 -- Translate: Price Optional
-translate.price_optional = function(raw)
+memx_options_memo_sbe_v1_7.price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return 0/0
@@ -4147,7 +4144,7 @@ memx_options_memo_sbe_v1_7.price_optional.dissect = function(buffer, offset, pac
   local length = memx_options_memo_sbe_v1_7.price_optional.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.price_optional(raw)
+  local value = memx_options_memo_sbe_v1_7.price_optional.translate(raw)
   local display = memx_options_memo_sbe_v1_7.price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memo_sbe_v1_7.fields.price_optional, range, value, display)
@@ -7461,7 +7458,7 @@ memx_options_memo_sbe_v1_7.offer_px.display = function(value)
 end
 
 -- Translate: Offer Px
-translate.offer_px = function(raw)
+memx_options_memo_sbe_v1_7.offer_px.translate = function(raw)
   return raw/100
 end
 
@@ -7470,7 +7467,7 @@ memx_options_memo_sbe_v1_7.offer_px.dissect = function(buffer, offset, packet, p
   local length = memx_options_memo_sbe_v1_7.offer_px.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.offer_px(raw)
+  local value = memx_options_memo_sbe_v1_7.offer_px.translate(raw)
   local display = memx_options_memo_sbe_v1_7.offer_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memo_sbe_v1_7.fields.offer_px, range, value, display)
@@ -7513,7 +7510,7 @@ memx_options_memo_sbe_v1_7.bid_px.display = function(value)
 end
 
 -- Translate: Bid Px
-translate.bid_px = function(raw)
+memx_options_memo_sbe_v1_7.bid_px.translate = function(raw)
   return raw/100
 end
 
@@ -7522,7 +7519,7 @@ memx_options_memo_sbe_v1_7.bid_px.dissect = function(buffer, offset, packet, par
   local length = memx_options_memo_sbe_v1_7.bid_px.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.bid_px(raw)
+  local value = memx_options_memo_sbe_v1_7.bid_px.translate(raw)
   local display = memx_options_memo_sbe_v1_7.bid_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memo_sbe_v1_7.fields.bid_px, range, value, display)
@@ -10169,13 +10166,13 @@ tcp_table:add(65333, omi_memx_options_memo_sbe_v1_7)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_memx_options_memo_sbe_v1_7_packet_size = function(buffer)
+memx_options_memo_sbe_v1_7.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+memx_options_memo_sbe_v1_7.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(52, 1):uint()
 
@@ -10187,7 +10184,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+memx_options_memo_sbe_v1_7.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(53, 2):uint()
 
@@ -10199,7 +10196,7 @@ verify.version = function(buffer)
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+memx_options_memo_sbe_v1_7.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(2534, 1):uint()
 
@@ -10211,7 +10208,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+memx_options_memo_sbe_v1_7.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(2535, 2):uint()
 
@@ -10225,19 +10222,19 @@ end
 -- Dissector Heuristic for Memx Options Memo Sbe 1.7
 local function omi_memx_options_memo_sbe_v1_7_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_memx_options_memo_sbe_v1_7_packet_size(buffer) then return false end
+  if not memx_options_memo_sbe_v1_7.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not memx_options_memo_sbe_v1_7.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not memx_options_memo_sbe_v1_7.version.verify(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not memx_options_memo_sbe_v1_7.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not memx_options_memo_sbe_v1_7.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_options_memo_sbe_v1_7

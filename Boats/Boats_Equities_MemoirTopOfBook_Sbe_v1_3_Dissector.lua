@@ -12,9 +12,6 @@ local boats_equities_memoirtopofbook_sbe_v1_3 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -731,7 +728,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.display = functio
 end
 
 -- Translate: Offer Price Price Type
-translate.offer_price_price_type = function(raw)
+boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -740,7 +737,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.dissect = functio
   local length = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.offer_price_price_type(raw)
+  local value = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.translate(raw)
   local display = boats_equities_memoirtopofbook_sbe_v1_3.offer_price_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_price_type, range, value, display)
@@ -843,7 +840,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.display = function(
 end
 
 -- Translate: Bid Price Price Type
-translate.bid_price_price_type = function(raw)
+boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -852,7 +849,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.dissect = function(
   local length = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.bid_price_price_type(raw)
+  local value = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.translate(raw)
   local display = boats_equities_memoirtopofbook_sbe_v1_3.bid_price_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_price_type, range, value, display)
@@ -1437,7 +1434,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.mpv.display = function(value)
 end
 
 -- Translate: Mpv
-translate.mpv = function(raw)
+boats_equities_memoirtopofbook_sbe_v1_3.mpv.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1446,7 +1443,7 @@ boats_equities_memoirtopofbook_sbe_v1_3.mpv.dissect = function(buffer, offset, p
   local length = boats_equities_memoirtopofbook_sbe_v1_3.mpv.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.mpv(raw)
+  local value = boats_equities_memoirtopofbook_sbe_v1_3.mpv.translate(raw)
   local display = boats_equities_memoirtopofbook_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.mpv, range, value, display)
@@ -2462,13 +2459,13 @@ udp_table:add(65333, omi_boats_equities_memoirtopofbook_sbe_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_boats_equities_memoirtopofbook_sbe_v1_3_packet_size = function(buffer)
+boats_equities_memoirtopofbook_sbe_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+boats_equities_memoirtopofbook_sbe_v1_3.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(25, 1):uint()
 
@@ -2480,7 +2477,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+boats_equities_memoirtopofbook_sbe_v1_3.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(26, 2):uint()
 
@@ -2494,13 +2491,13 @@ end
 -- Dissector Heuristic for Boats Equities MemoirTopOfBook Sbe 1.3
 local function omi_boats_equities_memoirtopofbook_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_boats_equities_memoirtopofbook_sbe_v1_3_packet_size(buffer) then return false end
+  if not boats_equities_memoirtopofbook_sbe_v1_3.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not boats_equities_memoirtopofbook_sbe_v1_3.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not boats_equities_memoirtopofbook_sbe_v1_3.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_boats_equities_memoirtopofbook_sbe_v1_3

@@ -12,9 +12,6 @@ local nasdaq_nsmequities_totalview_itch_v5_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -353,7 +350,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.display = functi
 end
 
 -- Translate: Upper Price Range Collar
-translate.upper_price_range_collar = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.translate = function(raw)
   return raw/10000
 end
 
@@ -362,7 +359,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.dissect = functi
   local length = nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.upper_price_range_collar(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.upper_price_range_collar, range, value, display)
@@ -382,7 +379,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.display = functi
 end
 
 -- Translate: Lower Price Range Collar
-translate.lower_price_range_collar = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.translate = function(raw)
   return raw/10000
 end
 
@@ -391,7 +388,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.dissect = functi
   local length = nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.lower_price_range_collar(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.lower_price_range_collar, range, value, display)
@@ -434,7 +431,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.display = function(v
 end
 
 -- Translate: Near Execution Price
-translate.near_execution_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.translate = function(raw)
   return raw/10000
 end
 
@@ -443,7 +440,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.dissect = function(b
   local length = nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.near_execution_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.near_execution_price, range, value, display)
@@ -463,7 +460,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.display = functio
 end
 
 -- Translate: Maximum Allowable Price
-translate.maximum_allowable_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.translate = function(raw)
   return raw/10000
 end
 
@@ -472,7 +469,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.dissect = functio
   local length = nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.maximum_allowable_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.maximum_allowable_price, range, value, display)
@@ -492,7 +489,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.display = functio
 end
 
 -- Translate: Minimum Allowable Price
-translate.minimum_allowable_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.translate = function(raw)
   return raw/10000
 end
 
@@ -501,7 +498,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.dissect = functio
   local length = nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.minimum_allowable_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.minimum_allowable_price, range, value, display)
@@ -941,7 +938,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.display = functio
 end
 
 -- Translate: Current Reference Price
-translate.current_reference_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.translate = function(raw)
   return raw/10000
 end
 
@@ -950,7 +947,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.dissect = functio
   local length = nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.current_reference_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.current_reference_price, range, value, display)
@@ -970,7 +967,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.near_price.display = function(value)
 end
 
 -- Translate: Near Price
-translate.near_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.near_price.translate = function(raw)
   return raw/10000
 end
 
@@ -979,7 +976,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.near_price.dissect = function(buffer, off
   local length = nasdaq_nsmequities_totalview_itch_v5_0.near_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.near_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.near_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.near_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.near_price, range, value, display)
@@ -999,7 +996,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.far_price.display = function(value)
 end
 
 -- Translate: Far Price
-translate.far_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.far_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1008,7 +1005,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.far_price.dissect = function(buffer, offs
   local length = nasdaq_nsmequities_totalview_itch_v5_0.far_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.far_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.far_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.far_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.far_price, range, value, display)
@@ -1296,7 +1293,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.cross_price.display = function(value)
 end
 
 -- Translate: Cross Price
-translate.cross_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.cross_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1305,7 +1302,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.cross_price.dissect = function(buffer, of
   local length = nasdaq_nsmequities_totalview_itch_v5_0.cross_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.cross_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.cross_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.cross_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.cross_price, range, value, display)
@@ -1428,7 +1425,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.price.translate = function(raw)
   return raw/10000
 end
 
@@ -1437,7 +1434,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.price.dissect = function(buffer, offset, 
   local length = nasdaq_nsmequities_totalview_itch_v5_0.price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.price, range, value, display)
@@ -1887,7 +1884,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.execution_price.display = function(value)
 end
 
 -- Translate: Execution Price
-translate.execution_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.execution_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1896,7 +1893,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.execution_price.dissect = function(buffer
   local length = nasdaq_nsmequities_totalview_itch_v5_0.execution_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.execution_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.execution_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.execution_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.execution_price, range, value, display)
@@ -2463,7 +2460,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.display = func
 end
 
 -- Translate: Lower Auction Collar Price
-translate.lower_auction_collar_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2472,7 +2469,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.dissect = func
   local length = nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.lower_auction_collar_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.lower_auction_collar_price, range, value, display)
@@ -2492,7 +2489,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.display = func
 end
 
 -- Translate: Upper Auction Collar Price
-translate.upper_auction_collar_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2501,7 +2498,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.dissect = func
   local length = nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.upper_auction_collar_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.upper_auction_collar_price, range, value, display)
@@ -2521,7 +2518,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.display = 
 end
 
 -- Translate: Auction Collar Reference Price
-translate.auction_collar_reference_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2530,7 +2527,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.dissect = 
   local length = nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.auction_collar_reference_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.auction_collar_reference_price, range, value, display)
@@ -2630,7 +2627,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.display = function(value)
 end
 
 -- Translate: Ipo Price
-translate.ipo_price = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2639,7 +2636,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.dissect = function(buffer, offs
   local length = nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.ipo_price(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.ipo_price, range, value, display)
@@ -2880,7 +2877,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.level_3.display = function(value)
 end
 
 -- Translate: Level 3
-translate.level_3 = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.level_3.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2889,7 +2886,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.level_3.dissect = function(buffer, offset
   local length = nasdaq_nsmequities_totalview_itch_v5_0.level_3.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_3(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.level_3.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.level_3, range, value, display)
@@ -2909,7 +2906,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.level_2.display = function(value)
 end
 
 -- Translate: Level 2
-translate.level_2 = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.level_2.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2918,7 +2915,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.level_2.dissect = function(buffer, offset
   local length = nasdaq_nsmequities_totalview_itch_v5_0.level_2.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_2(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.level_2.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.level_2, range, value, display)
@@ -2938,7 +2935,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.level_1.display = function(value)
 end
 
 -- Translate: Level 1
-translate.level_1 = function(raw)
+nasdaq_nsmequities_totalview_itch_v5_0.level_1.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -2947,7 +2944,7 @@ nasdaq_nsmequities_totalview_itch_v5_0.level_1.dissect = function(buffer, offset
   local length = nasdaq_nsmequities_totalview_itch_v5_0.level_1.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.level_1(raw)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0.level_1.translate(raw)
   local display = nasdaq_nsmequities_totalview_itch_v5_0.level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0.fields.level_1, range, value, display)
@@ -5130,7 +5127,7 @@ udp_table:add(65333, omi_nasdaq_nsmequities_totalview_itch_v5_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_nsmequities_totalview_itch_v5_0_packet_size = function(buffer)
+nasdaq_nsmequities_totalview_itch_v5_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -5138,7 +5135,7 @@ end
 -- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 5.0
 local function omi_nasdaq_nsmequities_totalview_itch_v5_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_nsmequities_totalview_itch_v5_0_packet_size(buffer) then return false end
+  if not nasdaq_nsmequities_totalview_itch_v5_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_totalview_itch_v5_0

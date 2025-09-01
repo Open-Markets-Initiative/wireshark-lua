@@ -12,9 +12,6 @@ local nasdaq_uqdf_output_utp_v1_5 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1114,7 +1111,7 @@ nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.display = function(value)
 end
 
 -- Translate: Market Center Ask Price
-translate.market_center_ask_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1123,7 +1120,7 @@ nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.dissect = function(buffer, o
   local length = nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.market_center_ask_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_ask_price, range, value, display)
@@ -1166,7 +1163,7 @@ nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.display = function(value)
 end
 
 -- Translate: Market Center Bid Price
-translate.market_center_bid_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1175,7 +1172,7 @@ nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.dissect = function(buffer, o
   local length = nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.market_center_bid_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_bid_price, range, value, display)
@@ -1371,7 +1368,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.display = function(value)
 end
 
 -- Translate: National Best Ask Price
-translate.national_best_ask_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1380,7 +1377,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.dissect = function(buffer, o
   local length = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.national_best_ask_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price, range, value, display)
@@ -1446,7 +1443,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.display = function(value)
 end
 
 -- Translate: National Best Bid Price
-translate.national_best_bid_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1455,7 +1452,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.dissect = function(buffer, o
   local length = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.national_best_bid_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price, range, value, display)
@@ -1621,7 +1618,7 @@ nasdaq_uqdf_output_utp_v1_5.collar_down_price.display = function(value)
 end
 
 -- Translate: Collar Down Price
-translate.collar_down_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.collar_down_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1630,7 +1627,7 @@ nasdaq_uqdf_output_utp_v1_5.collar_down_price.dissect = function(buffer, offset,
   local length = nasdaq_uqdf_output_utp_v1_5.collar_down_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.collar_down_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.collar_down_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.collar_down_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
@@ -1650,7 +1647,7 @@ nasdaq_uqdf_output_utp_v1_5.collar_up_price.display = function(value)
 end
 
 -- Translate: Collar Up Price
-translate.collar_up_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.collar_up_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1659,7 +1656,7 @@ nasdaq_uqdf_output_utp_v1_5.collar_up_price.dissect = function(buffer, offset, p
   local length = nasdaq_uqdf_output_utp_v1_5.collar_up_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.collar_up_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.collar_up_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.collar_up_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
@@ -1679,7 +1676,7 @@ nasdaq_uqdf_output_utp_v1_5.collar_reference_price.display = function(value)
 end
 
 -- Translate: Collar Reference Price
-translate.collar_reference_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.collar_reference_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1688,7 +1685,7 @@ nasdaq_uqdf_output_utp_v1_5.collar_reference_price.dissect = function(buffer, of
   local length = nasdaq_uqdf_output_utp_v1_5.collar_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.collar_reference_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.collar_reference_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.collar_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
@@ -1917,7 +1914,7 @@ nasdaq_uqdf_output_utp_v1_5.limit_up_price.display = function(value)
 end
 
 -- Translate: Limit Up Price
-translate.limit_up_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.limit_up_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1926,7 +1923,7 @@ nasdaq_uqdf_output_utp_v1_5.limit_up_price.dissect = function(buffer, offset, pa
   local length = nasdaq_uqdf_output_utp_v1_5.limit_up_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.limit_up_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.limit_up_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.limit_up_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
@@ -1946,7 +1943,7 @@ nasdaq_uqdf_output_utp_v1_5.limit_down_price.display = function(value)
 end
 
 -- Translate: Limit Down Price
-translate.limit_down_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.limit_down_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1955,7 +1952,7 @@ nasdaq_uqdf_output_utp_v1_5.limit_down_price.dissect = function(buffer, offset, 
   local length = nasdaq_uqdf_output_utp_v1_5.limit_down_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.limit_down_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.limit_down_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.limit_down_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
@@ -3205,7 +3202,7 @@ nasdaq_uqdf_output_utp_v1_5.ask_price.display = function(value)
 end
 
 -- Translate: Ask Price
-translate.ask_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.ask_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3214,7 +3211,7 @@ nasdaq_uqdf_output_utp_v1_5.ask_price.dissect = function(buffer, offset, packet,
   local length = nasdaq_uqdf_output_utp_v1_5.ask_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.ask_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.ask_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.ask_price, range, value, display)
@@ -3257,7 +3254,7 @@ nasdaq_uqdf_output_utp_v1_5.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3266,7 +3263,7 @@ nasdaq_uqdf_output_utp_v1_5.bid_price.dissect = function(buffer, offset, packet,
   local length = nasdaq_uqdf_output_utp_v1_5.bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.bid_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.bid_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.bid_price, range, value, display)
@@ -3497,7 +3494,7 @@ nasdaq_uqdf_output_utp_v1_5.best_ask_price.display = function(value)
 end
 
 -- Translate: Best Ask Price
-translate.best_ask_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.best_ask_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3506,7 +3503,7 @@ nasdaq_uqdf_output_utp_v1_5.best_ask_price.dissect = function(buffer, offset, pa
   local length = nasdaq_uqdf_output_utp_v1_5.best_ask_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.best_ask_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.best_ask_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.best_ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.best_ask_price, range, value, display)
@@ -3572,7 +3569,7 @@ nasdaq_uqdf_output_utp_v1_5.best_bid_price.display = function(value)
 end
 
 -- Translate: Best Bid Price
-translate.best_bid_price = function(raw)
+nasdaq_uqdf_output_utp_v1_5.best_bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3581,7 +3578,7 @@ nasdaq_uqdf_output_utp_v1_5.best_bid_price.dissect = function(buffer, offset, pa
   local length = nasdaq_uqdf_output_utp_v1_5.best_bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.best_bid_price(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.best_bid_price.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.best_bid_price, range, value, display)
@@ -3788,7 +3785,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.display = function(val
 end
 
 -- Translate: National Best Ask Price Short
-translate.national_best_ask_price_short = function(raw)
+nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -3797,7 +3794,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.dissect = function(buf
   local length = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.national_best_ask_price_short(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price_short, range, value, display)
@@ -3840,7 +3837,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.display = function(val
 end
 
 -- Translate: National Best Bid Price Short
-translate.national_best_bid_price_short = function(raw)
+nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -3849,7 +3846,7 @@ nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.dissect = function(buf
   local length = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.national_best_bid_price_short(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price_short, range, value, display)
@@ -4306,7 +4303,7 @@ nasdaq_uqdf_output_utp_v1_5.ask_price_short.display = function(value)
 end
 
 -- Translate: Ask Price Short
-translate.ask_price_short = function(raw)
+nasdaq_uqdf_output_utp_v1_5.ask_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -4315,7 +4312,7 @@ nasdaq_uqdf_output_utp_v1_5.ask_price_short.dissect = function(buffer, offset, p
   local length = nasdaq_uqdf_output_utp_v1_5.ask_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.ask_price_short(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.ask_price_short.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.ask_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.ask_price_short, range, value, display)
@@ -4358,7 +4355,7 @@ nasdaq_uqdf_output_utp_v1_5.bid_price_short.display = function(value)
 end
 
 -- Translate: Bid Price Short
-translate.bid_price_short = function(raw)
+nasdaq_uqdf_output_utp_v1_5.bid_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -4367,7 +4364,7 @@ nasdaq_uqdf_output_utp_v1_5.bid_price_short.dissect = function(buffer, offset, p
   local length = nasdaq_uqdf_output_utp_v1_5.bid_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.bid_price_short(raw)
+  local value = nasdaq_uqdf_output_utp_v1_5.bid_price_short.translate(raw)
   local display = nasdaq_uqdf_output_utp_v1_5.bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.bid_price_short, range, value, display)
@@ -5059,7 +5056,7 @@ udp_table:add(65333, omi_nasdaq_uqdf_output_utp_v1_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_uqdf_output_utp_v1_5_packet_size = function(buffer)
+nasdaq_uqdf_output_utp_v1_5.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -5067,7 +5064,7 @@ end
 -- Dissector Heuristic for Nasdaq Uqdf Output Utp 1.5
 local function omi_nasdaq_uqdf_output_utp_v1_5_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_uqdf_output_utp_v1_5_packet_size(buffer) then return false end
+  if not nasdaq_uqdf_output_utp_v1_5.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_uqdf_output_utp_v1_5

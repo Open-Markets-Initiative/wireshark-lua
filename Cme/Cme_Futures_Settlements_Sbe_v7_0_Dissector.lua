@@ -12,9 +12,6 @@ local cme_futures_settlements_sbe_v7_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -2075,7 +2072,7 @@ cme_futures_settlements_sbe_v7_0.md_entry_px.display = function(raw, value)
 end
 
 -- Translate: Md Entry Px
-translate.md_entry_px = function(raw)
+cme_futures_settlements_sbe_v7_0.md_entry_px.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -2089,7 +2086,7 @@ cme_futures_settlements_sbe_v7_0.md_entry_px.dissect = function(buffer, offset, 
   local length = cme_futures_settlements_sbe_v7_0.md_entry_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.md_entry_px(raw)
+  local value = cme_futures_settlements_sbe_v7_0.md_entry_px.translate(raw)
   local display = cme_futures_settlements_sbe_v7_0.md_entry_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_entry_px, range, value, display)
@@ -2912,13 +2909,13 @@ udp_table:add(65333, omi_cme_futures_settlements_sbe_v7_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cme_futures_settlements_sbe_v7_0_packet_size = function(buffer)
+cme_futures_settlements_sbe_v7_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+cme_futures_settlements_sbe_v7_0.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(18, 2):le_uint()
 
@@ -2930,7 +2927,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+cme_futures_settlements_sbe_v7_0.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -2944,13 +2941,13 @@ end
 -- Dissector Heuristic for Cme Futures Settlements Sbe 7.0
 local function omi_cme_futures_settlements_sbe_v7_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cme_futures_settlements_sbe_v7_0_packet_size(buffer) then return false end
+  if not cme_futures_settlements_sbe_v7_0.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not cme_futures_settlements_sbe_v7_0.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not cme_futures_settlements_sbe_v7_0.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_futures_settlements_sbe_v7_0

@@ -12,9 +12,6 @@ local cboe_byx_equities_summarydepth_pitch_v1_0_4 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -685,7 +682,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.display = function(value)
 end
 
 -- Translate: Last Price
-translate.last_price = function(raw)
+cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -694,7 +691,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.dissect = function(buffer
   local length = cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.last_price(raw)
+  local value = cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.translate(raw)
   local display = cboe_byx_equities_summarydepth_pitch_v1_0_4.last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.last_price, range, value, display)
@@ -918,7 +915,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.display = fu
 end
 
 -- Translate: Price Binary 84 Price 8
-translate.price_binary_84_price_8 = function(raw)
+cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -927,7 +924,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.dissect = fu
   local length = cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price_binary_84_price_8(raw)
+  local value = cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.translate(raw)
   local display = cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_84_price_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.price_binary_84_price_8, range, value, display)
@@ -1048,7 +1045,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.display = fu
 end
 
 -- Translate: Price Binary 44 Price 4
-translate.price_binary_44_price_4 = function(raw)
+cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.translate = function(raw)
   return raw/10000
 end
 
@@ -1057,7 +1054,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.dissect = fu
   local length = cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.price_binary_44_price_4(raw)
+  local value = cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.translate(raw)
   local display = cboe_byx_equities_summarydepth_pitch_v1_0_4.price_binary_44_price_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.price_binary_44_price_4, range, value, display)
@@ -2088,7 +2085,7 @@ udp_table:add(65333, omi_cboe_byx_equities_summarydepth_pitch_v1_0_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_byx_equities_summarydepth_pitch_v1_0_4_packet_size = function(buffer)
+cboe_byx_equities_summarydepth_pitch_v1_0_4.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2096,7 +2093,7 @@ end
 -- Dissector Heuristic for Cboe Byx Equities SummaryDepth Pitch 1.0.4
 local function omi_cboe_byx_equities_summarydepth_pitch_v1_0_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_byx_equities_summarydepth_pitch_v1_0_4_packet_size(buffer) then return false end
+  if not cboe_byx_equities_summarydepth_pitch_v1_0_4.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4

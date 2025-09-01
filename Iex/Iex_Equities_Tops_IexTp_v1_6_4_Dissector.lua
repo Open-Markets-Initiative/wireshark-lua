@@ -12,9 +12,6 @@ local iex_equities_tops_iextp_v1_6_4 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -273,7 +270,7 @@ iex_equities_tops_iextp_v1_6_4.upper_auction_collar.display = function(value)
 end
 
 -- Translate: Upper Auction Collar
-translate.upper_auction_collar = function(raw)
+iex_equities_tops_iextp_v1_6_4.upper_auction_collar.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -282,7 +279,7 @@ iex_equities_tops_iextp_v1_6_4.upper_auction_collar.dissect = function(buffer, o
   local length = iex_equities_tops_iextp_v1_6_4.upper_auction_collar.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.upper_auction_collar(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.upper_auction_collar.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.upper_auction_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.upper_auction_collar, range, value, display)
@@ -302,7 +299,7 @@ iex_equities_tops_iextp_v1_6_4.lower_auction_collar.display = function(value)
 end
 
 -- Translate: Lower Auction Collar
-translate.lower_auction_collar = function(raw)
+iex_equities_tops_iextp_v1_6_4.lower_auction_collar.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -311,7 +308,7 @@ iex_equities_tops_iextp_v1_6_4.lower_auction_collar.dissect = function(buffer, o
   local length = iex_equities_tops_iextp_v1_6_4.lower_auction_collar.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.lower_auction_collar(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.lower_auction_collar.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.lower_auction_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.lower_auction_collar, range, value, display)
@@ -331,7 +328,7 @@ iex_equities_tops_iextp_v1_6_4.collar_reference_price.display = function(value)
 end
 
 -- Translate: Collar Reference Price
-translate.collar_reference_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.collar_reference_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -340,7 +337,7 @@ iex_equities_tops_iextp_v1_6_4.collar_reference_price.dissect = function(buffer,
   local length = iex_equities_tops_iextp_v1_6_4.collar_reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.collar_reference_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.collar_reference_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.collar_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.collar_reference_price, range, value, display)
@@ -360,7 +357,7 @@ iex_equities_tops_iextp_v1_6_4.auction_book_clearing_price.display = function(va
 end
 
 -- Translate: Auction Book Clearing Price
-translate.auction_book_clearing_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.auction_book_clearing_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -369,7 +366,7 @@ iex_equities_tops_iextp_v1_6_4.auction_book_clearing_price.dissect = function(bu
   local length = iex_equities_tops_iextp_v1_6_4.auction_book_clearing_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.auction_book_clearing_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.auction_book_clearing_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.auction_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.auction_book_clearing_price, range, value, display)
@@ -492,7 +489,7 @@ iex_equities_tops_iextp_v1_6_4.indicative_clearing_price.display = function(valu
 end
 
 -- Translate: Indicative Clearing Price
-translate.indicative_clearing_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.indicative_clearing_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -501,7 +498,7 @@ iex_equities_tops_iextp_v1_6_4.indicative_clearing_price.dissect = function(buff
   local length = iex_equities_tops_iextp_v1_6_4.indicative_clearing_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.indicative_clearing_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.indicative_clearing_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.indicative_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.indicative_clearing_price, range, value, display)
@@ -521,7 +518,7 @@ iex_equities_tops_iextp_v1_6_4.reference_price.display = function(value)
 end
 
 -- Translate: Reference Price
-translate.reference_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.reference_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -530,7 +527,7 @@ iex_equities_tops_iextp_v1_6_4.reference_price.dissect = function(buffer, offset
   local length = iex_equities_tops_iextp_v1_6_4.reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.reference_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.reference_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.reference_price, range, value, display)
@@ -795,7 +792,7 @@ iex_equities_tops_iextp_v1_6_4.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+iex_equities_tops_iextp_v1_6_4.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -804,7 +801,7 @@ iex_equities_tops_iextp_v1_6_4.price.dissect = function(buffer, offset, packet, 
   local length = iex_equities_tops_iextp_v1_6_4.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.price, range, value, display)
@@ -1005,7 +1002,7 @@ iex_equities_tops_iextp_v1_6_4.official_price.display = function(value)
 end
 
 -- Translate: Official Price
-translate.official_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.official_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1014,7 +1011,7 @@ iex_equities_tops_iextp_v1_6_4.official_price.dissect = function(buffer, offset,
   local length = iex_equities_tops_iextp_v1_6_4.official_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.official_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.official_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.official_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.official_price, range, value, display)
@@ -1217,7 +1214,7 @@ iex_equities_tops_iextp_v1_6_4.ask_price.display = function(value)
 end
 
 -- Translate: Ask Price
-translate.ask_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.ask_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1226,7 +1223,7 @@ iex_equities_tops_iextp_v1_6_4.ask_price.dissect = function(buffer, offset, pack
   local length = iex_equities_tops_iextp_v1_6_4.ask_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.ask_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.ask_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.ask_price, range, value, display)
@@ -1246,7 +1243,7 @@ iex_equities_tops_iextp_v1_6_4.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.bid_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1255,7 +1252,7 @@ iex_equities_tops_iextp_v1_6_4.bid_price.dissect = function(buffer, offset, pack
   local length = iex_equities_tops_iextp_v1_6_4.bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.bid_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.bid_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.bid_price, range, value, display)
@@ -1879,7 +1876,7 @@ iex_equities_tops_iextp_v1_6_4.adjusted_poc_price.display = function(value)
 end
 
 -- Translate: Adjusted Poc Price
-translate.adjusted_poc_price = function(raw)
+iex_equities_tops_iextp_v1_6_4.adjusted_poc_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1888,7 +1885,7 @@ iex_equities_tops_iextp_v1_6_4.adjusted_poc_price.dissect = function(buffer, off
   local length = iex_equities_tops_iextp_v1_6_4.adjusted_poc_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.adjusted_poc_price(raw)
+  local value = iex_equities_tops_iextp_v1_6_4.adjusted_poc_price.translate(raw)
   local display = iex_equities_tops_iextp_v1_6_4.adjusted_poc_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_tops_iextp_v1_6_4.fields.adjusted_poc_price, range, value, display)
@@ -2838,7 +2835,7 @@ udp_table:add(65333, omi_iex_equities_tops_iextp_v1_6_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_iex_equities_tops_iextp_v1_6_4_packet_size = function(buffer)
+iex_equities_tops_iextp_v1_6_4.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2846,7 +2843,7 @@ end
 -- Dissector Heuristic for Iex Equities Tops IexTp 1.6.4
 local function omi_iex_equities_tops_iextp_v1_6_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_iex_equities_tops_iextp_v1_6_4_packet_size(buffer) then return false end
+  if not iex_equities_tops_iextp_v1_6_4.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_equities_tops_iextp_v1_6_4

@@ -12,9 +12,6 @@ local cboe_c1_options_orderentry_boe3_v1_0_12 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1191,7 +1188,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.drill_thru_protection.display = function
 end
 
 -- Translate: Drill Thru Protection
-translate.drill_thru_protection = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.drill_thru_protection.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1200,7 +1197,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.drill_thru_protection.dissect = function
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.drill_thru_protection.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.drill_thru_protection(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.drill_thru_protection.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.drill_thru_protection.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.drill_thru_protection, range, value, display)
@@ -1489,7 +1486,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.stop_px.display = function(value)
 end
 
 -- Translate: Stop Px
-translate.stop_px = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.stop_px.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1498,7 +1495,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.stop_px.dissect = function(buffer, offse
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.stop_px(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.stop_px.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.stop_px, range, value, display)
@@ -1577,7 +1574,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.working_price.display = function(value)
 end
 
 -- Translate: Working Price
-translate.working_price = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.working_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1586,7 +1583,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.working_price.dissect = function(buffer,
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.working_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.working_price(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.working_price.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.working_price, range, value, display)
@@ -1606,7 +1603,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.display_price.display = function(value)
 end
 
 -- Translate: Display Price
-translate.display_price = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.display_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1615,7 +1612,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.display_price.dissect = function(buffer,
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.display_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.display_price(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.display_price.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.display_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.display_price, range, value, display)
@@ -1721,7 +1718,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.strike_price.display = function(value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.strike_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1730,7 +1727,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.strike_price.dissect = function(buffer, 
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.strike_price(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.strike_price.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.strike_price, range, value, display)
@@ -3727,7 +3724,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.last_px.display = function(value)
 end
 
 -- Translate: Last Px
-translate.last_px = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.last_px.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -3736,7 +3733,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.last_px.dissect = function(buffer, offse
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.last_px(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.last_px.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.last_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.last_px, range, value, display)
@@ -7367,7 +7364,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.price_short.display = function(value)
 end
 
 -- Translate: Price Short
-translate.price_short = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.price_short.translate = function(raw)
   return raw/10000
 end
 
@@ -7376,7 +7373,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.price_short.dissect = function(buffer, o
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.price_short.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = translate.price_short(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.price_short.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.price_short, range, value, display)
@@ -8481,7 +8478,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.equity_trade_price.display = function(va
 end
 
 -- Translate: Equity Trade Price
-translate.equity_trade_price = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.equity_trade_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -8490,7 +8487,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.equity_trade_price.dissect = function(bu
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.equity_trade_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.equity_trade_price(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.equity_trade_price.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.equity_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.equity_trade_price, range, value, display)
@@ -8540,7 +8537,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.auto_match_price.display = function(valu
 end
 
 -- Translate: Auto Match Price
-translate.auto_match_price = function(raw)
+cboe_c1_options_orderentry_boe3_v1_0_12.auto_match_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -8549,7 +8546,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.auto_match_price.dissect = function(buff
   local length = cboe_c1_options_orderentry_boe3_v1_0_12.auto_match_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.auto_match_price(raw)
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.auto_match_price.translate(raw)
   local display = cboe_c1_options_orderentry_boe3_v1_0_12.auto_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.auto_match_price, range, value, display)
@@ -11263,7 +11260,7 @@ tcp_table:add(65333, omi_cboe_c1_options_orderentry_boe3_v1_0_12)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_c1_options_orderentry_boe3_v1_0_12_packet_size = function(buffer)
+cboe_c1_options_orderentry_boe3_v1_0_12.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -11271,7 +11268,7 @@ end
 -- Dissector Heuristic for Cboe C1 Options OrderEntry Boe3 1.0.12
 local function omi_cboe_c1_options_orderentry_boe3_v1_0_12_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_c1_options_orderentry_boe3_v1_0_12_packet_size(buffer) then return false end
+  if not cboe_c1_options_orderentry_boe3_v1_0_12.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_c1_options_orderentry_boe3_v1_0_12

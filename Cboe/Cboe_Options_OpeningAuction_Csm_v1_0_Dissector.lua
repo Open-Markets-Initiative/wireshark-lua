@@ -12,8 +12,6 @@ local cboe_options_openingauction_csm_v1_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -3375,7 +3373,7 @@ udp_table:add(65333, omi_cboe_options_openingauction_csm_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_options_openingauction_csm_v1_0_packet_size = function(buffer)
+cboe_options_openingauction_csm_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3383,7 +3381,7 @@ end
 -- Dissector Heuristic for Cboe Options OpeningAuction Csm 1.0
 local function omi_cboe_options_openingauction_csm_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_options_openingauction_csm_v1_0_packet_size(buffer) then return false end
+  if not cboe_options_openingauction_csm_v1_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_options_openingauction_csm_v1_0

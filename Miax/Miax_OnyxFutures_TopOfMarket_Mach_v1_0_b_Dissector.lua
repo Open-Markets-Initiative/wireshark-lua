@@ -12,9 +12,6 @@ local miax_onyxfutures_topofmarket_mach_v1_0_b = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -246,7 +243,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -255,7 +252,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.price.dissect = function(buffer, offset
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.price.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.price, range, value, display)
@@ -557,7 +554,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.display = function(value)
 end
 
 -- Translate: Mbo Price
-translate.mbo_price = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -566,7 +563,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.dissect = function(buffer, of
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.mbo_price(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbo_price, range, value, display)
@@ -609,7 +606,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.display = function(value)
 end
 
 -- Translate: Mbb Price
-translate.mbb_price = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -618,7 +615,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.dissect = function(buffer, of
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.mbb_price(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbb_price, range, value, display)
@@ -1169,7 +1166,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.display = func
 end
 
 -- Translate: Trading Collar Variation
-translate.trading_collar_variation = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1178,7 +1175,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.dissect = func
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_collar_variation(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trading_collar_variation, range, value, display)
@@ -1290,7 +1287,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.tick.display = function(value)
 end
 
 -- Translate: Tick
-translate.tick = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.tick.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1299,7 +1296,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.tick.dissect = function(buffer, offset,
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.tick.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.tick(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.tick.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.tick.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tick, range, value, display)
@@ -1798,7 +1795,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.display = function(valu
 end
 
 -- Translate: Low Limit Price
-translate.low_limit_price = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1807,7 +1804,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.dissect = function(buff
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.low_limit_price(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.low_limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.low_limit_price, range, value, display)
@@ -1827,7 +1824,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.display = function(val
 end
 
 -- Translate: High Limit Price
-translate.high_limit_price = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1836,7 +1833,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.dissect = function(buf
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.high_limit_price(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.high_limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.high_limit_price, range, value, display)
@@ -1932,7 +1929,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.display = function(val
 end
 
 -- Translate: Settlement Price
-translate.settlement_price = function(raw)
+miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
@@ -1941,7 +1938,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.dissect = function(buf
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.settlement_price(raw)
+  local value = miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.translate(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_price, range, value, display)
@@ -2572,7 +2569,7 @@ udp_table:add(65333, omi_miax_onyxfutures_topofmarket_mach_v1_0_b)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_miax_onyxfutures_topofmarket_mach_v1_0_b_packet_size = function(buffer)
+miax_onyxfutures_topofmarket_mach_v1_0_b.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2580,7 +2577,7 @@ end
 -- Dissector Heuristic for Miax OnyxFutures TopOfMarket Mach 1.0.b
 local function omi_miax_onyxfutures_topofmarket_mach_v1_0_b_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_miax_onyxfutures_topofmarket_mach_v1_0_b_packet_size(buffer) then return false end
+  if not miax_onyxfutures_topofmarket_mach_v1_0_b.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_onyxfutures_topofmarket_mach_v1_0_b

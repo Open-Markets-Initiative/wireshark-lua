@@ -12,8 +12,6 @@ local cboe_edgx_equities_orderentry_boe_v2_3 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -31407,7 +31405,7 @@ tcp_table:add(65333, omi_cboe_edgx_equities_orderentry_boe_v2_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_edgx_equities_orderentry_boe_v2_3_packet_size = function(buffer)
+cboe_edgx_equities_orderentry_boe_v2_3.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -31415,7 +31413,7 @@ end
 -- Dissector Heuristic for Cboe Edgx Equities OrderEntry Boe 2.3
 local function omi_cboe_edgx_equities_orderentry_boe_v2_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_edgx_equities_orderentry_boe_v2_3_packet_size(buffer) then return false end
+  if not cboe_edgx_equities_orderentry_boe_v2_3.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_edgx_equities_orderentry_boe_v2_3

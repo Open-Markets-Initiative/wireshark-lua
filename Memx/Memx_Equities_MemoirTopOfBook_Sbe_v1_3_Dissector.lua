@@ -12,9 +12,6 @@ local memx_equities_memoirtopofbook_sbe_v1_3 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -324,7 +321,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display = function(valu
 end
 
 -- Translate: Offer Price Short
-translate.offer_price_short = function(raw)
+memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -333,7 +330,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect = function(buff
   local length = memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.offer_price_short(raw)
+  local value = memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate(raw)
   local display = memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short, range, value, display)
@@ -436,7 +433,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display = function(value)
 end
 
 -- Translate: Bid Price Short
-translate.bid_price_short = function(raw)
+memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -445,7 +442,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.dissect = function(buffer
   local length = memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price_short(raw)
+  local value = memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate(raw)
   local display = memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short, range, value, display)
@@ -548,7 +545,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.offer_price.display = function(value)
 end
 
 -- Translate: Offer Price
-translate.offer_price = function(raw)
+memx_equities_memoirtopofbook_sbe_v1_3.offer_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -557,7 +554,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.offer_price.dissect = function(buffer, of
   local length = memx_equities_memoirtopofbook_sbe_v1_3.offer_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.offer_price(raw)
+  local value = memx_equities_memoirtopofbook_sbe_v1_3.offer_price.translate(raw)
   local display = memx_equities_memoirtopofbook_sbe_v1_3.offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.offer_price, range, value, display)
@@ -660,7 +657,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+memx_equities_memoirtopofbook_sbe_v1_3.bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -669,7 +666,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.bid_price.dissect = function(buffer, offs
   local length = memx_equities_memoirtopofbook_sbe_v1_3.bid_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.bid_price(raw)
+  local value = memx_equities_memoirtopofbook_sbe_v1_3.bid_price.translate(raw)
   local display = memx_equities_memoirtopofbook_sbe_v1_3.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.bid_price, range, value, display)
@@ -1254,7 +1251,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.mpv.display = function(value)
 end
 
 -- Translate: Mpv
-translate.mpv = function(raw)
+memx_equities_memoirtopofbook_sbe_v1_3.mpv.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1263,7 +1260,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.mpv.dissect = function(buffer, offset, pa
   local length = memx_equities_memoirtopofbook_sbe_v1_3.mpv.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.mpv(raw)
+  local value = memx_equities_memoirtopofbook_sbe_v1_3.mpv.translate(raw)
   local display = memx_equities_memoirtopofbook_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.mpv, range, value, display)
@@ -2238,13 +2235,13 @@ udp_table:add(65333, omi_memx_equities_memoirtopofbook_sbe_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_memx_equities_memoirtopofbook_sbe_v1_3_packet_size = function(buffer)
+memx_equities_memoirtopofbook_sbe_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+memx_equities_memoirtopofbook_sbe_v1_3.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(25, 1):uint()
 
@@ -2256,7 +2253,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+memx_equities_memoirtopofbook_sbe_v1_3.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(26, 2):uint()
 
@@ -2270,13 +2267,13 @@ end
 -- Dissector Heuristic for Memx Equities MemoirTopOfBook Sbe 1.3
 local function omi_memx_equities_memoirtopofbook_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_memx_equities_memoirtopofbook_sbe_v1_3_packet_size(buffer) then return false end
+  if not memx_equities_memoirtopofbook_sbe_v1_3.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not memx_equities_memoirtopofbook_sbe_v1_3.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not memx_equities_memoirtopofbook_sbe_v1_3.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_equities_memoirtopofbook_sbe_v1_3

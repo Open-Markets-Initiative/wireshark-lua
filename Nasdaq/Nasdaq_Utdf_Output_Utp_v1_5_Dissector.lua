@@ -12,9 +12,6 @@ local nasdaq_utdf_output_utp_v1_5 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1514,7 +1511,7 @@ nasdaq_utdf_output_utp_v1_5.market_participant_low_price.display = function(valu
 end
 
 -- Translate: Market Participant Low Price
-translate.market_participant_low_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.market_participant_low_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1523,7 +1520,7 @@ nasdaq_utdf_output_utp_v1_5.market_participant_low_price.dissect = function(buff
   local length = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.market_participant_low_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price, range, value, display)
@@ -1543,7 +1540,7 @@ nasdaq_utdf_output_utp_v1_5.market_participant_high_price.display = function(val
 end
 
 -- Translate: Market Participant High Price
-translate.market_participant_high_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.market_participant_high_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1552,7 +1549,7 @@ nasdaq_utdf_output_utp_v1_5.market_participant_high_price.dissect = function(buf
   local length = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.market_participant_high_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price, range, value, display)
@@ -1625,7 +1622,7 @@ nasdaq_utdf_output_utp_v1_5.market_center_closing_price.display = function(value
 end
 
 -- Translate: Market Center Closing Price
-translate.market_center_closing_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1634,7 +1631,7 @@ nasdaq_utdf_output_utp_v1_5.market_center_closing_price.dissect = function(buffe
   local length = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.market_center_closing_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price, range, value, display)
@@ -1806,7 +1803,7 @@ nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.display = function(
 end
 
 -- Translate: Daily Consolidated Closing Price
-translate.daily_consolidated_closing_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1815,7 +1812,7 @@ nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.dissect = function(
   local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.daily_consolidated_closing_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price, range, value, display)
@@ -1835,7 +1832,7 @@ nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.display = function(valu
 end
 
 -- Translate: Daily Consolidated Low Price
-translate.daily_consolidated_low_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1844,7 +1841,7 @@ nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.dissect = function(buff
   local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.daily_consolidated_low_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price, range, value, display)
@@ -1864,7 +1861,7 @@ nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.display = function(val
 end
 
 -- Translate: Daily Consolidated High Price
-translate.daily_consolidated_high_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -1873,7 +1870,7 @@ nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.dissect = function(buf
   local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.daily_consolidated_high_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price, range, value, display)
@@ -2013,7 +2010,7 @@ nasdaq_utdf_output_utp_v1_5.collar_down_price.display = function(value)
 end
 
 -- Translate: Collar Down Price
-translate.collar_down_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.collar_down_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2022,7 +2019,7 @@ nasdaq_utdf_output_utp_v1_5.collar_down_price.dissect = function(buffer, offset,
   local length = nasdaq_utdf_output_utp_v1_5.collar_down_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.collar_down_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.collar_down_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.collar_down_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
@@ -2042,7 +2039,7 @@ nasdaq_utdf_output_utp_v1_5.collar_up_price.display = function(value)
 end
 
 -- Translate: Collar Up Price
-translate.collar_up_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.collar_up_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2051,7 +2048,7 @@ nasdaq_utdf_output_utp_v1_5.collar_up_price.dissect = function(buffer, offset, p
   local length = nasdaq_utdf_output_utp_v1_5.collar_up_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.collar_up_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.collar_up_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.collar_up_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
@@ -2071,7 +2068,7 @@ nasdaq_utdf_output_utp_v1_5.collar_reference_price.display = function(value)
 end
 
 -- Translate: Collar Reference Price
-translate.collar_reference_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.collar_reference_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2080,7 +2077,7 @@ nasdaq_utdf_output_utp_v1_5.collar_reference_price.dissect = function(buffer, of
   local length = nasdaq_utdf_output_utp_v1_5.collar_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.collar_reference_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.collar_reference_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.collar_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
@@ -2309,7 +2306,7 @@ nasdaq_utdf_output_utp_v1_5.limit_up_price.display = function(value)
 end
 
 -- Translate: Limit Up Price
-translate.limit_up_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.limit_up_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2318,7 +2315,7 @@ nasdaq_utdf_output_utp_v1_5.limit_up_price.dissect = function(buffer, offset, pa
   local length = nasdaq_utdf_output_utp_v1_5.limit_up_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.limit_up_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.limit_up_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.limit_up_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
@@ -2338,7 +2335,7 @@ nasdaq_utdf_output_utp_v1_5.limit_down_price.display = function(value)
 end
 
 -- Translate: Limit Down Price
-translate.limit_down_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.limit_down_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -2347,7 +2344,7 @@ nasdaq_utdf_output_utp_v1_5.limit_down_price.dissect = function(buffer, offset, 
   local length = nasdaq_utdf_output_utp_v1_5.limit_down_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.limit_down_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.limit_down_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.limit_down_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
@@ -3870,7 +3867,7 @@ nasdaq_utdf_output_utp_v1_5.trade_price.display = function(value)
 end
 
 -- Translate: Trade Price
-translate.trade_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.trade_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -3879,7 +3876,7 @@ nasdaq_utdf_output_utp_v1_5.trade_price.dissect = function(buffer, offset, packe
   local length = nasdaq_utdf_output_utp_v1_5.trade_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.trade_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.trade_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price, range, value, display)
@@ -4043,7 +4040,7 @@ nasdaq_utdf_output_utp_v1_5.market_participant_last_price.display = function(val
 end
 
 -- Translate: Market Participant Last Price
-translate.market_participant_last_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.market_participant_last_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4052,7 +4049,7 @@ nasdaq_utdf_output_utp_v1_5.market_participant_last_price.dissect = function(buf
   local length = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.market_participant_last_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price, range, value, display)
@@ -4120,7 +4117,7 @@ nasdaq_utdf_output_utp_v1_5.consolidated_last_price.display = function(value)
 end
 
 -- Translate: Consolidated Last Price
-translate.consolidated_last_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.consolidated_last_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4129,7 +4126,7 @@ nasdaq_utdf_output_utp_v1_5.consolidated_last_price.dissect = function(buffer, o
   local length = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.consolidated_last_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price, range, value, display)
@@ -4149,7 +4146,7 @@ nasdaq_utdf_output_utp_v1_5.consolidated_low_price.display = function(value)
 end
 
 -- Translate: Consolidated Low Price
-translate.consolidated_low_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.consolidated_low_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4158,7 +4155,7 @@ nasdaq_utdf_output_utp_v1_5.consolidated_low_price.dissect = function(buffer, of
   local length = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.consolidated_low_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price, range, value, display)
@@ -4178,7 +4175,7 @@ nasdaq_utdf_output_utp_v1_5.consolidated_high_price.display = function(value)
 end
 
 -- Translate: Consolidated High Price
-translate.consolidated_high_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.consolidated_high_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4187,7 +4184,7 @@ nasdaq_utdf_output_utp_v1_5.consolidated_high_price.dissect = function(buffer, o
   local length = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.consolidated_high_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price, range, value, display)
@@ -4279,7 +4276,7 @@ nasdaq_utdf_output_utp_v1_5.corrected_trade_price.display = function(value)
 end
 
 -- Translate: Corrected Trade Price
-translate.corrected_trade_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.corrected_trade_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4288,7 +4285,7 @@ nasdaq_utdf_output_utp_v1_5.corrected_trade_price.dissect = function(buffer, off
   local length = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.corrected_trade_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price, range, value, display)
@@ -4403,7 +4400,7 @@ nasdaq_utdf_output_utp_v1_5.original_trade_price.display = function(value)
 end
 
 -- Translate: Original Trade Price
-translate.original_trade_price = function(raw)
+nasdaq_utdf_output_utp_v1_5.original_trade_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
@@ -4412,7 +4409,7 @@ nasdaq_utdf_output_utp_v1_5.original_trade_price.dissect = function(buffer, offs
   local length = nasdaq_utdf_output_utp_v1_5.original_trade_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.original_trade_price(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.original_trade_price.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.original_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_price, range, value, display)
@@ -4843,7 +4840,7 @@ nasdaq_utdf_output_utp_v1_5.trade_price_short.display = function(value)
 end
 
 -- Translate: Trade Price Short
-translate.trade_price_short = function(raw)
+nasdaq_utdf_output_utp_v1_5.trade_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -4852,7 +4849,7 @@ nasdaq_utdf_output_utp_v1_5.trade_price_short.dissect = function(buffer, offset,
   local length = nasdaq_utdf_output_utp_v1_5.trade_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.trade_price_short(raw)
+  local value = nasdaq_utdf_output_utp_v1_5.trade_price_short.translate(raw)
   local display = nasdaq_utdf_output_utp_v1_5.trade_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price_short, range, value, display)
@@ -5529,7 +5526,7 @@ udp_table:add(65333, omi_nasdaq_utdf_output_utp_v1_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_utdf_output_utp_v1_5_packet_size = function(buffer)
+nasdaq_utdf_output_utp_v1_5.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -5537,7 +5534,7 @@ end
 -- Dissector Heuristic for Nasdaq Utdf Output Utp 1.5
 local function omi_nasdaq_utdf_output_utp_v1_5_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_utdf_output_utp_v1_5_packet_size(buffer) then return false end
+  if not nasdaq_utdf_output_utp_v1_5.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_utdf_output_utp_v1_5

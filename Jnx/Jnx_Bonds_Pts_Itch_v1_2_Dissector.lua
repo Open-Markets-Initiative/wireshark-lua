@@ -12,9 +12,6 @@ local jnx_bonds_pts_itch_v1_2 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -207,7 +204,7 @@ jnx_bonds_pts_itch_v1_2.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+jnx_bonds_pts_itch_v1_2.price.translate = function(raw)
   return raw/1000
 end
 
@@ -216,7 +213,7 @@ jnx_bonds_pts_itch_v1_2.price.dissect = function(buffer, offset, packet, parent)
   local length = jnx_bonds_pts_itch_v1_2.price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price(raw)
+  local value = jnx_bonds_pts_itch_v1_2.price.translate(raw)
   local display = jnx_bonds_pts_itch_v1_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price, range, value, display)
@@ -817,7 +814,7 @@ jnx_bonds_pts_itch_v1_2.lower_price_limit.display = function(value)
 end
 
 -- Translate: Lower Price Limit
-translate.lower_price_limit = function(raw)
+jnx_bonds_pts_itch_v1_2.lower_price_limit.translate = function(raw)
   return raw/1000
 end
 
@@ -826,7 +823,7 @@ jnx_bonds_pts_itch_v1_2.lower_price_limit.dissect = function(buffer, offset, pac
   local length = jnx_bonds_pts_itch_v1_2.lower_price_limit.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.lower_price_limit(raw)
+  local value = jnx_bonds_pts_itch_v1_2.lower_price_limit.translate(raw)
   local display = jnx_bonds_pts_itch_v1_2.lower_price_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.lower_price_limit, range, value, display)
@@ -846,7 +843,7 @@ jnx_bonds_pts_itch_v1_2.upper_price_limit.display = function(value)
 end
 
 -- Translate: Upper Price Limit
-translate.upper_price_limit = function(raw)
+jnx_bonds_pts_itch_v1_2.upper_price_limit.translate = function(raw)
   return raw/1000
 end
 
@@ -855,7 +852,7 @@ jnx_bonds_pts_itch_v1_2.upper_price_limit.dissect = function(buffer, offset, pac
   local length = jnx_bonds_pts_itch_v1_2.upper_price_limit.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.upper_price_limit(raw)
+  local value = jnx_bonds_pts_itch_v1_2.upper_price_limit.translate(raw)
   local display = jnx_bonds_pts_itch_v1_2.upper_price_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.upper_price_limit, range, value, display)
@@ -1052,7 +1049,7 @@ jnx_bonds_pts_itch_v1_2.price_start.display = function(value)
 end
 
 -- Translate: Price Start
-translate.price_start = function(raw)
+jnx_bonds_pts_itch_v1_2.price_start.translate = function(raw)
   return raw/1000
 end
 
@@ -1061,7 +1058,7 @@ jnx_bonds_pts_itch_v1_2.price_start.dissect = function(buffer, offset, packet, p
   local length = jnx_bonds_pts_itch_v1_2.price_start.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price_start(raw)
+  local value = jnx_bonds_pts_itch_v1_2.price_start.translate(raw)
   local display = jnx_bonds_pts_itch_v1_2.price_start.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.price_start, range, value, display)
@@ -1784,7 +1781,7 @@ udp_table:add(65333, omi_jnx_bonds_pts_itch_v1_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_jnx_bonds_pts_itch_v1_2_packet_size = function(buffer)
+jnx_bonds_pts_itch_v1_2.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -1792,7 +1789,7 @@ end
 -- Dissector Heuristic for Jnx Bonds Pts Itch 1.2
 local function omi_jnx_bonds_pts_itch_v1_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_jnx_bonds_pts_itch_v1_2_packet_size(buffer) then return false end
+  if not jnx_bonds_pts_itch_v1_2.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jnx_bonds_pts_itch_v1_2

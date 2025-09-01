@@ -12,9 +12,6 @@ local nasdaq_phlxoptions_marketdepth_itch_v1_6 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -453,7 +450,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.imbalance_price.display = function(valu
 end
 
 -- Translate: Imbalance Price
-translate.imbalance_price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.imbalance_price.translate = function(raw)
   return raw/10000
 end
 
@@ -462,7 +459,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.imbalance_price.dissect = function(buff
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.imbalance_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.imbalance_price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.imbalance_price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.imbalance_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.imbalance_price, range, value, display)
@@ -851,7 +848,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.price.translate = function(raw)
   return raw/10000
 end
 
@@ -860,7 +857,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.price.dissect = function(buffer, offset
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.price, range, value, display)
@@ -1315,7 +1312,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.ask_price.display = function(value)
 end
 
 -- Translate: Ask Price
-translate.ask_price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.ask_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1324,7 +1321,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.ask_price.dissect = function(buffer, of
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.ask_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.ask_price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.ask_price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.ask_price, range, value, display)
@@ -1367,7 +1364,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.bid_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1376,7 +1373,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.bid_price.dissect = function(buffer, of
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.bid_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.bid_price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.bid_price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.bid_price, range, value, display)
@@ -1550,7 +1547,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.short_ask_price.display = function(valu
 end
 
 -- Translate: Short Ask Price
-translate.short_ask_price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.short_ask_price.translate = function(raw)
   return raw/100
 end
 
@@ -1559,7 +1556,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.short_ask_price.dissect = function(buff
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_ask_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.short_ask_price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_ask_price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.short_ask_price, range, value, display)
@@ -1602,7 +1599,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.short_bid_price.display = function(valu
 end
 
 -- Translate: Short Bid Price
-translate.short_bid_price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.short_bid_price.translate = function(raw)
   return raw/100
 end
 
@@ -1611,7 +1608,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.short_bid_price.dissect = function(buff
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_bid_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.short_bid_price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_bid_price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.short_bid_price, range, value, display)
@@ -2029,7 +2026,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.short_price.display = function(value)
 end
 
 -- Translate: Short Price
-translate.short_price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.short_price.translate = function(raw)
   return raw/100
 end
 
@@ -2038,7 +2035,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.short_price.dissect = function(buffer, 
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.short_price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.short_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.short_price, range, value, display)
@@ -3252,7 +3249,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.explicit_strike_price.display = functio
 end
 
 -- Translate: Explicit Strike Price
-translate.explicit_strike_price = function(raw)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.explicit_strike_price.translate = function(raw)
   return raw/10000
 end
 
@@ -3261,7 +3258,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.explicit_strike_price.dissect = functio
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_6.explicit_strike_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.explicit_strike_price(raw)
+  local value = nasdaq_phlxoptions_marketdepth_itch_v1_6.explicit_strike_price.translate(raw)
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_6.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.explicit_strike_price, range, value, display)
@@ -4389,7 +4386,7 @@ udp_table:add(65333, omi_nasdaq_phlxoptions_marketdepth_itch_v1_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_phlxoptions_marketdepth_itch_v1_6_packet_size = function(buffer)
+nasdaq_phlxoptions_marketdepth_itch_v1_6.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -4397,7 +4394,7 @@ end
 -- Dissector Heuristic for Nasdaq PhlxOptions MarketDepth Itch 1.6
 local function omi_nasdaq_phlxoptions_marketdepth_itch_v1_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_phlxoptions_marketdepth_itch_v1_6_packet_size(buffer) then return false end
+  if not nasdaq_phlxoptions_marketdepth_itch_v1_6.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_phlxoptions_marketdepth_itch_v1_6

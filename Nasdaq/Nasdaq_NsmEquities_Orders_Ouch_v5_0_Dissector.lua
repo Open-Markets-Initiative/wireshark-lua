@@ -12,9 +12,6 @@ local nasdaq_nsmequities_orders_ouch_v5_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1178,7 +1175,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_nsmequities_orders_ouch_v5_0.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1187,7 +1184,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.price.dissect = function(buffer, offset, pac
   local length = nasdaq_nsmequities_orders_ouch_v5_0.price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.price(raw)
+  local value = nasdaq_nsmequities_orders_ouch_v5_0.price.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v5_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.price, range, value, display)
@@ -2138,7 +2135,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.display_price.display = function(value)
 end
 
 -- Translate: Display Price
-translate.display_price = function(raw)
+nasdaq_nsmequities_orders_ouch_v5_0.display_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2147,7 +2144,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.display_price.dissect = function(buffer, off
   local length = nasdaq_nsmequities_orders_ouch_v5_0.display_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.display_price(raw)
+  local value = nasdaq_nsmequities_orders_ouch_v5_0.display_price.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v5_0.display_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.display_price, range, value, display)
@@ -3246,7 +3243,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.reference_price.display = function(value)
 end
 
 -- Translate: Reference Price
-translate.reference_price = function(raw)
+nasdaq_nsmequities_orders_ouch_v5_0.reference_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -3255,7 +3252,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.reference_price.dissect = function(buffer, o
   local length = nasdaq_nsmequities_orders_ouch_v5_0.reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.reference_price(raw)
+  local value = nasdaq_nsmequities_orders_ouch_v5_0.reference_price.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v5_0.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reference_price, range, value, display)
@@ -3478,7 +3475,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.execution_price.display = function(value)
 end
 
 -- Translate: Execution Price
-translate.execution_price = function(raw)
+nasdaq_nsmequities_orders_ouch_v5_0.execution_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -3487,7 +3484,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.execution_price.dissect = function(buffer, o
   local length = nasdaq_nsmequities_orders_ouch_v5_0.execution_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.execution_price(raw)
+  local value = nasdaq_nsmequities_orders_ouch_v5_0.execution_price.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v5_0.execution_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.execution_price, range, value, display)
@@ -4004,7 +4001,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.display = function(val
 end
 
 -- Translate: Discretion Peg Offset
-translate.discretion_peg_offset = function(raw)
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.translate = function(raw)
   return raw/10000
 end
 
@@ -4013,7 +4010,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect = function(buf
   local length = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.discretion_peg_offset(raw)
+  local value = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_peg_offset, range, value, display)
@@ -4056,7 +4053,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.display = function(value)
 end
 
 -- Translate: Discretion Price
-translate.discretion_price = function(raw)
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -4065,7 +4062,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect = function(buffer, 
   local length = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.discretion_price(raw)
+  local value = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_price, range, value, display)
@@ -4108,7 +4105,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.display = function(value)
 end
 
 -- Translate: Peg Offset
-translate.peg_offset = function(raw)
+nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.translate = function(raw)
   return raw/10000
 end
 
@@ -4117,7 +4114,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect = function(buffer, offset
   local length = nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.peg_offset(raw)
+  local value = nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.peg_offset, range, value, display)
@@ -5447,7 +5444,7 @@ tcp_table:add(65333, omi_nasdaq_nsmequities_orders_ouch_v5_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_nsmequities_orders_ouch_v5_0_packet_size = function(buffer)
+nasdaq_nsmequities_orders_ouch_v5_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -5455,7 +5452,7 @@ end
 -- Dissector Heuristic for Nasdaq NsmEquities Orders Ouch 5.0
 local function omi_nasdaq_nsmequities_orders_ouch_v5_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_nsmequities_orders_ouch_v5_0_packet_size(buffer) then return false end
+  if not nasdaq_nsmequities_orders_ouch_v5_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_orders_ouch_v5_0

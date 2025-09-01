@@ -12,9 +12,6 @@ local cboe_c1_options_auctionfeed_pitch_v1_1_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -431,7 +428,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.display = function(value)
 end
 
 -- Translate: Multiplier
-translate.multiplier = function(raw)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.translate = function(raw)
   return raw/10
 end
 
@@ -440,7 +437,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.dissect = function(buffer, o
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.multiplier(raw)
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.translate(raw)
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.multiplier, range, value, display)
@@ -596,7 +593,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -605,7 +602,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.price.dissect = function(buffer, offset
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.translate(raw)
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.price, range, value, display)
@@ -772,7 +769,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.display = function(v
 end
 
 -- Translate: Auction Only Price
-translate.auction_only_price = function(raw)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -781,7 +778,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.dissect = function(b
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.auction_only_price(raw)
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.translate(raw)
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_only_price, range, value, display)
@@ -801,7 +798,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.display = function(val
 end
 
 -- Translate: Indicative Price
-translate.indicative_price = function(raw)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -810,7 +807,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.dissect = function(buf
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.indicative_price(raw)
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.translate(raw)
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.indicative_price, range, value, display)
@@ -876,7 +873,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.display = function(valu
 end
 
 -- Translate: Reference Price
-translate.reference_price = function(raw)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -885,7 +882,7 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.dissect = function(buff
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.reference_price(raw)
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.translate(raw)
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.reference_price, range, value, display)
@@ -2064,7 +2061,7 @@ udp_table:add(65333, omi_cboe_c1_options_auctionfeed_pitch_v1_1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_c1_options_auctionfeed_pitch_v1_1_1_packet_size = function(buffer)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2072,7 +2069,7 @@ end
 -- Dissector Heuristic for Cboe C1 Options AuctionFeed Pitch 1.1.1
 local function omi_cboe_c1_options_auctionfeed_pitch_v1_1_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_c1_options_auctionfeed_pitch_v1_1_1_packet_size(buffer) then return false end
+  if not cboe_c1_options_auctionfeed_pitch_v1_1_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1

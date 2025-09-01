@@ -12,9 +12,6 @@ local memx_options_memoirtop_sbe_v1_6_a = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -444,7 +441,7 @@ memx_options_memoirtop_sbe_v1_6_a.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -453,7 +450,7 @@ memx_options_memoirtop_sbe_v1_6_a.price.dissect = function(buffer, offset, packe
   local length = memx_options_memoirtop_sbe_v1_6_a.price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.price(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.price.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.price, range, value, display)
@@ -695,7 +692,7 @@ memx_options_memoirtop_sbe_v1_6_a.offer_price_short.display = function(value)
 end
 
 -- Translate: Offer Price Short
-translate.offer_price_short = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.offer_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -704,7 +701,7 @@ memx_options_memoirtop_sbe_v1_6_a.offer_price_short.dissect = function(buffer, o
   local length = memx_options_memoirtop_sbe_v1_6_a.offer_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.offer_price_short(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.offer_price_short.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.offer_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.offer_price_short, range, value, display)
@@ -812,7 +809,7 @@ memx_options_memoirtop_sbe_v1_6_a.bid_price_short.display = function(value)
 end
 
 -- Translate: Bid Price Short
-translate.bid_price_short = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.bid_price_short.translate = function(raw)
   return raw/100
 end
 
@@ -821,7 +818,7 @@ memx_options_memoirtop_sbe_v1_6_a.bid_price_short.dissect = function(buffer, off
   local length = memx_options_memoirtop_sbe_v1_6_a.bid_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.bid_price_short(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.bid_price_short.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.bid_price_short, range, value, display)
@@ -929,7 +926,7 @@ memx_options_memoirtop_sbe_v1_6_a.offer_price.display = function(value)
 end
 
 -- Translate: Offer Price
-translate.offer_price = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.offer_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -938,7 +935,7 @@ memx_options_memoirtop_sbe_v1_6_a.offer_price.dissect = function(buffer, offset,
   local length = memx_options_memoirtop_sbe_v1_6_a.offer_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.offer_price(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.offer_price.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.offer_price, range, value, display)
@@ -1069,7 +1066,7 @@ memx_options_memoirtop_sbe_v1_6_a.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.bid_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1078,7 +1075,7 @@ memx_options_memoirtop_sbe_v1_6_a.bid_price.dissect = function(buffer, offset, p
   local length = memx_options_memoirtop_sbe_v1_6_a.bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.bid_price(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.bid_price.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.bid_price, range, value, display)
@@ -1362,7 +1359,7 @@ memx_options_memoirtop_sbe_v1_6_a.corrected_price.display = function(value)
 end
 
 -- Translate: Corrected Price
-translate.corrected_price = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.corrected_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1371,7 +1368,7 @@ memx_options_memoirtop_sbe_v1_6_a.corrected_price.dissect = function(buffer, off
   local length = memx_options_memoirtop_sbe_v1_6_a.corrected_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.corrected_price(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.corrected_price.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.corrected_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_price, range, value, display)
@@ -1414,7 +1411,7 @@ memx_options_memoirtop_sbe_v1_6_a.original_price.display = function(value)
 end
 
 -- Translate: Original Price
-translate.original_price = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.original_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1423,7 +1420,7 @@ memx_options_memoirtop_sbe_v1_6_a.original_price.dissect = function(buffer, offs
   local length = memx_options_memoirtop_sbe_v1_6_a.original_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.original_price(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.original_price.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.original_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.original_price, range, value, display)
@@ -1977,7 +1974,7 @@ memx_options_memoirtop_sbe_v1_6_a.strike_price.display = function(value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+memx_options_memoirtop_sbe_v1_6_a.strike_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1986,7 +1983,7 @@ memx_options_memoirtop_sbe_v1_6_a.strike_price.dissect = function(buffer, offset
   local length = memx_options_memoirtop_sbe_v1_6_a.strike_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = translate.strike_price(raw)
+  local value = memx_options_memoirtop_sbe_v1_6_a.strike_price.translate(raw)
   local display = memx_options_memoirtop_sbe_v1_6_a.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.strike_price, range, value, display)
@@ -3010,13 +3007,13 @@ udp_table:add(65333, omi_memx_options_memoirtop_sbe_v1_6_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_memx_options_memoirtop_sbe_v1_6_a_packet_size = function(buffer)
+memx_options_memoirtop_sbe_v1_6_a.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
-verify.schema_id = function(buffer)
+memx_options_memoirtop_sbe_v1_6_a.schema_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(25, 1):uint()
 
@@ -3028,7 +3025,7 @@ verify.schema_id = function(buffer)
 end
 
 -- Verify Version Field
-verify.version = function(buffer)
+memx_options_memoirtop_sbe_v1_6_a.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(26, 2):uint()
 
@@ -3042,13 +3039,13 @@ end
 -- Dissector Heuristic for Memx Options MemoirTop Sbe 1.6.a
 local function omi_memx_options_memoirtop_sbe_v1_6_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_memx_options_memoirtop_sbe_v1_6_a_packet_size(buffer) then return false end
+  if not memx_options_memoirtop_sbe_v1_6_a.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not verify.schema_id(buffer) then return false end
+  if not memx_options_memoirtop_sbe_v1_6_a.schema_id.verify(buffer) then return false end
 
   -- Verify Version
-  if not verify.version(buffer) then return false end
+  if not memx_options_memoirtop_sbe_v1_6_a.version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_options_memoirtop_sbe_v1_6_a

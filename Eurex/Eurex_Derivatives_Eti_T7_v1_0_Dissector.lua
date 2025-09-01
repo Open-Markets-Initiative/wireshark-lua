@@ -12,8 +12,6 @@ local eurex_derivatives_eti_t7_v1_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -314,7 +312,7 @@ tcp_table:add(65333, omi_eurex_derivatives_eti_t7_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_eurex_derivatives_eti_t7_v1_0_packet_size = function(buffer)
+eurex_derivatives_eti_t7_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -322,7 +320,7 @@ end
 -- Dissector Heuristic for Eurex Derivatives Eti T7 1.0
 local function omi_eurex_derivatives_eti_t7_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_eurex_derivatives_eti_t7_v1_0_packet_size(buffer) then return false end
+  if not eurex_derivatives_eti_t7_v1_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_derivatives_eti_t7_v1_0

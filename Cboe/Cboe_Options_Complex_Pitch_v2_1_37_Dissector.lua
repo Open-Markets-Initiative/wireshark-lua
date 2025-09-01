@@ -12,9 +12,6 @@ local cboe_options_complex_pitch_v2_1_37 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -434,7 +431,7 @@ cboe_options_complex_pitch_v2_1_37.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+cboe_options_complex_pitch_v2_1_37.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -443,7 +440,7 @@ cboe_options_complex_pitch_v2_1_37.price.dissect = function(buffer, offset, pack
   local length = cboe_options_complex_pitch_v2_1_37.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = cboe_options_complex_pitch_v2_1_37.price.translate(raw)
   local display = cboe_options_complex_pitch_v2_1_37.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.price, range, value, display)
@@ -584,7 +581,7 @@ cboe_options_complex_pitch_v2_1_37.composite_market_offer_price.display = functi
 end
 
 -- Translate: Composite Market Offer Price
-translate.composite_market_offer_price = function(raw)
+cboe_options_complex_pitch_v2_1_37.composite_market_offer_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -593,7 +590,7 @@ cboe_options_complex_pitch_v2_1_37.composite_market_offer_price.dissect = functi
   local length = cboe_options_complex_pitch_v2_1_37.composite_market_offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.composite_market_offer_price(raw)
+  local value = cboe_options_complex_pitch_v2_1_37.composite_market_offer_price.translate(raw)
   local display = cboe_options_complex_pitch_v2_1_37.composite_market_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.composite_market_offer_price, range, value, display)
@@ -613,7 +610,7 @@ cboe_options_complex_pitch_v2_1_37.composite_market_bid_price.display = function
 end
 
 -- Translate: Composite Market Bid Price
-translate.composite_market_bid_price = function(raw)
+cboe_options_complex_pitch_v2_1_37.composite_market_bid_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -622,7 +619,7 @@ cboe_options_complex_pitch_v2_1_37.composite_market_bid_price.dissect = function
   local length = cboe_options_complex_pitch_v2_1_37.composite_market_bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.composite_market_bid_price(raw)
+  local value = cboe_options_complex_pitch_v2_1_37.composite_market_bid_price.translate(raw)
   local display = cboe_options_complex_pitch_v2_1_37.composite_market_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.composite_market_bid_price, range, value, display)
@@ -665,7 +662,7 @@ cboe_options_complex_pitch_v2_1_37.auction_only_price.display = function(value)
 end
 
 -- Translate: Auction Only Price
-translate.auction_only_price = function(raw)
+cboe_options_complex_pitch_v2_1_37.auction_only_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -674,7 +671,7 @@ cboe_options_complex_pitch_v2_1_37.auction_only_price.dissect = function(buffer,
   local length = cboe_options_complex_pitch_v2_1_37.auction_only_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.auction_only_price(raw)
+  local value = cboe_options_complex_pitch_v2_1_37.auction_only_price.translate(raw)
   local display = cboe_options_complex_pitch_v2_1_37.auction_only_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.auction_only_price, range, value, display)
@@ -694,7 +691,7 @@ cboe_options_complex_pitch_v2_1_37.indicative_price.display = function(value)
 end
 
 -- Translate: Indicative Price
-translate.indicative_price = function(raw)
+cboe_options_complex_pitch_v2_1_37.indicative_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -703,7 +700,7 @@ cboe_options_complex_pitch_v2_1_37.indicative_price.dissect = function(buffer, o
   local length = cboe_options_complex_pitch_v2_1_37.indicative_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.indicative_price(raw)
+  local value = cboe_options_complex_pitch_v2_1_37.indicative_price.translate(raw)
   local display = cboe_options_complex_pitch_v2_1_37.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.indicative_price, range, value, display)
@@ -769,7 +766,7 @@ cboe_options_complex_pitch_v2_1_37.reference_price.display = function(value)
 end
 
 -- Translate: Reference Price
-translate.reference_price = function(raw)
+cboe_options_complex_pitch_v2_1_37.reference_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -778,7 +775,7 @@ cboe_options_complex_pitch_v2_1_37.reference_price.dissect = function(buffer, of
   local length = cboe_options_complex_pitch_v2_1_37.reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.reference_price(raw)
+  local value = cboe_options_complex_pitch_v2_1_37.reference_price.translate(raw)
   local display = cboe_options_complex_pitch_v2_1_37.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.reference_price, range, value, display)
@@ -1633,7 +1630,7 @@ cboe_options_complex_pitch_v2_1_37.price_short.display = function(value)
 end
 
 -- Translate: Price Short
-translate.price_short = function(raw)
+cboe_options_complex_pitch_v2_1_37.price_short.translate = function(raw)
   return raw/100
 end
 
@@ -1642,7 +1639,7 @@ cboe_options_complex_pitch_v2_1_37.price_short.dissect = function(buffer, offset
   local length = cboe_options_complex_pitch_v2_1_37.price_short.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = translate.price_short(raw)
+  local value = cboe_options_complex_pitch_v2_1_37.price_short.translate(raw)
   local display = cboe_options_complex_pitch_v2_1_37.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.price_short, range, value, display)
@@ -3995,7 +3992,7 @@ udp_table:add(65333, omi_cboe_options_complex_pitch_v2_1_37)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_options_complex_pitch_v2_1_37_packet_size = function(buffer)
+cboe_options_complex_pitch_v2_1_37.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -4003,7 +4000,7 @@ end
 -- Dissector Heuristic for Cboe Options Complex Pitch 2.1.37
 local function omi_cboe_options_complex_pitch_v2_1_37_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_options_complex_pitch_v2_1_37_packet_size(buffer) then return false end
+  if not cboe_options_complex_pitch_v2_1_37.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_options_complex_pitch_v2_1_37

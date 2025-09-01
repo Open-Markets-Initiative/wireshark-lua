@@ -12,9 +12,6 @@ local iex_equities_deepplus_iextp_v1_0_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -431,7 +428,7 @@ iex_equities_deepplus_iextp_v1_0_1.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+iex_equities_deepplus_iextp_v1_0_1.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -440,7 +437,7 @@ iex_equities_deepplus_iextp_v1_0_1.price.dissect = function(buffer, offset, pack
   local length = iex_equities_deepplus_iextp_v1_0_1.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.price(raw)
+  local value = iex_equities_deepplus_iextp_v1_0_1.price.translate(raw)
   local display = iex_equities_deepplus_iextp_v1_0_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.price, range, value, display)
@@ -1651,7 +1648,7 @@ iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.display = function(value)
 end
 
 -- Translate: Adjusted Poc Price
-translate.adjusted_poc_price = function(raw)
+iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1660,7 +1657,7 @@ iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.dissect = function(buffer,
   local length = iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.adjusted_poc_price(raw)
+  local value = iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.translate(raw)
   local display = iex_equities_deepplus_iextp_v1_0_1.adjusted_poc_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.adjusted_poc_price, range, value, display)
@@ -2646,7 +2643,7 @@ udp_table:add(65333, omi_iex_equities_deepplus_iextp_v1_0_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_iex_equities_deepplus_iextp_v1_0_1_packet_size = function(buffer)
+iex_equities_deepplus_iextp_v1_0_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2654,7 +2651,7 @@ end
 -- Dissector Heuristic for Iex Equities DeepPlus IexTp 1.0.1
 local function omi_iex_equities_deepplus_iextp_v1_0_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_iex_equities_deepplus_iextp_v1_0_1_packet_size(buffer) then return false end
+  if not iex_equities_deepplus_iextp_v1_0_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_equities_deepplus_iextp_v1_0_1

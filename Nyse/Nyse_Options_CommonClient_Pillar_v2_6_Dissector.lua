@@ -12,8 +12,6 @@ local nyse_options_commonclient_pillar_v2_6 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -553,7 +551,7 @@ udp_table:add(65333, omi_nyse_options_commonclient_pillar_v2_6)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nyse_options_commonclient_pillar_v2_6_packet_size = function(buffer)
+nyse_options_commonclient_pillar_v2_6.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -561,7 +559,7 @@ end
 -- Dissector Heuristic for Nyse Options CommonClient Pillar 2.6
 local function omi_nyse_options_commonclient_pillar_v2_6_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nyse_options_commonclient_pillar_v2_6_packet_size(buffer) then return false end
+  if not nyse_options_commonclient_pillar_v2_6.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_options_commonclient_pillar_v2_6

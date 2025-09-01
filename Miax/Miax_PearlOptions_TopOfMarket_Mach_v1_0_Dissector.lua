@@ -12,9 +12,6 @@ local miax_pearloptions_topofmarket_mach_v1_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -517,7 +514,7 @@ miax_pearloptions_topofmarket_mach_v1_0.trade_price.display = function(value)
 end
 
 -- Translate: Trade Price
-translate.trade_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.trade_price.translate = function(raw)
   return raw/10000
 end
 
@@ -526,7 +523,7 @@ miax_pearloptions_topofmarket_mach_v1_0.trade_price.dissect = function(buffer, o
   local length = miax_pearloptions_topofmarket_mach_v1_0.trade_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.trade_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.trade_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.trade_price, range, value, display)
@@ -969,7 +966,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.display = function(valu
 end
 
 -- Translate: Wide Offer Price
-translate.wide_offer_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.translate = function(raw)
   return raw/10000
 end
 
@@ -978,7 +975,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.dissect = function(buff
   local length = miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.wide_offer_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_offer_price, range, value, display)
@@ -1083,7 +1080,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.display = function(value)
 end
 
 -- Translate: Wide Bid Price
-translate.wide_bid_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1092,7 +1089,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.dissect = function(buffer
   local length = miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.wide_bid_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_bid_price, range, value, display)
@@ -1248,7 +1245,7 @@ miax_pearloptions_topofmarket_mach_v1_0.offer_price.display = function(value)
 end
 
 -- Translate: Offer Price
-translate.offer_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.offer_price.translate = function(raw)
   return raw/100
 end
 
@@ -1257,7 +1254,7 @@ miax_pearloptions_topofmarket_mach_v1_0.offer_price.dissect = function(buffer, o
   local length = miax_pearloptions_topofmarket_mach_v1_0.offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.offer_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.offer_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.offer_price, range, value, display)
@@ -1323,7 +1320,7 @@ miax_pearloptions_topofmarket_mach_v1_0.bid_price.display = function(value)
 end
 
 -- Translate: Bid Price
-translate.bid_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.bid_price.translate = function(raw)
   return raw/100
 end
 
@@ -1332,7 +1329,7 @@ miax_pearloptions_topofmarket_mach_v1_0.bid_price.dissect = function(buffer, off
   local length = miax_pearloptions_topofmarket_mach_v1_0.bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.bid_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.bid_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.bid_price, range, value, display)
@@ -1527,7 +1524,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.display = function(value
 end
 
 -- Translate: Wide Pbbo Price
-translate.wide_pbbo_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.translate = function(raw)
   return raw/10000
 end
 
@@ -1536,7 +1533,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.dissect = function(buffe
   local length = miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.wide_pbbo_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_price, range, value, display)
@@ -1742,7 +1739,7 @@ miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.display = function(value)
 end
 
 -- Translate: Pbbo Price
-translate.pbbo_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.translate = function(raw)
   return raw/100
 end
 
@@ -1751,7 +1748,7 @@ miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.dissect = function(buffer, of
   local length = miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.pbbo_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_price, range, value, display)
@@ -2406,7 +2403,7 @@ miax_pearloptions_topofmarket_mach_v1_0.strike_price.display = function(value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+miax_pearloptions_topofmarket_mach_v1_0.strike_price.translate = function(raw)
   return raw/10000
 end
 
@@ -2415,7 +2412,7 @@ miax_pearloptions_topofmarket_mach_v1_0.strike_price.dissect = function(buffer, 
   local length = miax_pearloptions_topofmarket_mach_v1_0.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.strike_price(raw)
+  local value = miax_pearloptions_topofmarket_mach_v1_0.strike_price.translate(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.strike_price, range, value, display)
@@ -3165,7 +3162,7 @@ udp_table:add(65333, omi_miax_pearloptions_topofmarket_mach_v1_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_miax_pearloptions_topofmarket_mach_v1_0_packet_size = function(buffer)
+miax_pearloptions_topofmarket_mach_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -3173,7 +3170,7 @@ end
 -- Dissector Heuristic for Miax PearlOptions TopOfMarket Mach 1.0
 local function omi_miax_pearloptions_topofmarket_mach_v1_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_miax_pearloptions_topofmarket_mach_v1_0_packet_size(buffer) then return false end
+  if not miax_pearloptions_topofmarket_mach_v1_0.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearloptions_topofmarket_mach_v1_0

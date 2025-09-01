@@ -12,9 +12,6 @@ local cboe_europe_cedxmulticast_pitch_v1_11 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1055,7 +1052,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.multiplier.display = function(value)
 end
 
 -- Translate: Multiplier
-translate.multiplier = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.multiplier.translate = function(raw)
   return raw/10
 end
 
@@ -1064,7 +1061,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.multiplier.dissect = function(buffer, offs
   local length = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.multiplier(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.multiplier, range, value, display)
@@ -1194,7 +1191,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_increment.display = function(value)
 end
 
 -- Translate: Price Increment
-translate.price_increment = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.price_increment.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1203,7 +1200,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_increment.dissect = function(buffer,
   local length = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price_increment(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_increment, range, value, display)
@@ -1279,7 +1276,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.strike_price.display = function(value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.strike_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1288,7 +1285,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.strike_price.dissect = function(buffer, of
   local length = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.strike_price(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.strike_price, range, value, display)
@@ -1567,7 +1564,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_level.display = function(value)
 end
 
 -- Translate: Price Level
-translate.price_level = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.price_level.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -1576,7 +1573,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_level.dissect = function(buffer, off
   local length = cboe_europe_cedxmulticast_pitch_v1_11.price_level.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price_level(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.price_level.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.price_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level, range, value, display)
@@ -2002,7 +1999,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2011,7 +2008,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price.dissect = function(buffer, offset, p
   local length = cboe_europe_cedxmulticast_pitch_v1_11.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.price(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.price.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price, range, value, display)
@@ -2366,7 +2363,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.display = fun
 end
 
 -- Translate: Composite Market Offer Price
-translate.composite_market_offer_price = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2375,7 +2372,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.dissect = fun
   local length = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.composite_market_offer_price(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.composite_market_offer_price, range, value, display)
@@ -2395,7 +2392,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.display = funct
 end
 
 -- Translate: Composite Market Bid Price
-translate.composite_market_bid_price = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2404,7 +2401,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.dissect = funct
   local length = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.composite_market_bid_price(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.composite_market_bid_price, range, value, display)
@@ -2447,7 +2444,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.display = function(valu
 end
 
 -- Translate: Auction Only Price
-translate.auction_only_price = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2456,7 +2453,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.dissect = function(buff
   local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.auction_only_price(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_only_price, range, value, display)
@@ -2476,7 +2473,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.display = function(value)
 end
 
 -- Translate: Indicative Price
-translate.indicative_price = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2485,7 +2482,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.dissect = function(buffer
   local length = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.indicative_price(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.indicative_price, range, value, display)
@@ -2551,7 +2548,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.reference_price.display = function(value)
 end
 
 -- Translate: Reference Price
-translate.reference_price = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.reference_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
@@ -2560,7 +2557,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.reference_price.dissect = function(buffer,
   local length = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = translate.reference_price(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reference_price, range, value, display)
@@ -3484,7 +3481,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_short.display = function(value)
 end
 
 -- Translate: Price Short
-translate.price_short = function(raw)
+cboe_europe_cedxmulticast_pitch_v1_11.price_short.translate = function(raw)
   return raw/100
 end
 
@@ -3493,7 +3490,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_short.dissect = function(buffer, off
   local length = cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = translate.price_short(raw)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.price_short.translate(raw)
   local display = cboe_europe_cedxmulticast_pitch_v1_11.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_short, range, value, display)
@@ -5319,7 +5316,7 @@ udp_table:add(65333, omi_cboe_europe_cedxmulticast_pitch_v1_11)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_cboe_europe_cedxmulticast_pitch_v1_11_packet_size = function(buffer)
+cboe_europe_cedxmulticast_pitch_v1_11.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -5327,7 +5324,7 @@ end
 -- Dissector Heuristic for Cboe Europe CedxMulticast Pitch 1.11
 local function omi_cboe_europe_cedxmulticast_pitch_v1_11_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_cboe_europe_cedxmulticast_pitch_v1_11_packet_size(buffer) then return false end
+  if not cboe_europe_cedxmulticast_pitch_v1_11.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_europe_cedxmulticast_pitch_v1_11

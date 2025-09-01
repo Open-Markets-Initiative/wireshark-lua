@@ -12,9 +12,6 @@ local nasdaq_iseoptions_orderfeed_itch_v1_1 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -244,7 +241,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.display = function(value)
 end
 
 -- Translate: Response Price
-translate.response_price = function(raw)
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.translate = function(raw)
   return raw/10000
 end
 
@@ -253,7 +250,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.dissect = function(buffer, 
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.response_price(raw)
+  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price, range, value, display)
@@ -558,7 +555,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+nasdaq_iseoptions_orderfeed_itch_v1_1.price.translate = function(raw)
   return raw/10000
 end
 
@@ -567,7 +564,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.price.dissect = function(buffer, offset, p
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price(raw)
+  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.price, range, value, display)
@@ -951,7 +948,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.display = function(value)
 end
 
 -- Translate: Imbalance Price
-translate.imbalance_price = function(raw)
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.translate = function(raw)
   return raw/10000
 end
 
@@ -960,7 +957,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.dissect = function(buffer,
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.imbalance_price(raw)
+  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price, range, value, display)
@@ -1531,7 +1528,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.display = function(value)
 end
 
 -- Translate: Strike Price
-translate.strike_price = function(raw)
+nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
@@ -1540,7 +1537,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.dissect = function(buffer, of
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.strike_price(raw)
+  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price, range, value, display)
@@ -2462,7 +2459,7 @@ udp_table:add(65333, omi_nasdaq_iseoptions_orderfeed_itch_v1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_nasdaq_iseoptions_orderfeed_itch_v1_1_packet_size = function(buffer)
+nasdaq_iseoptions_orderfeed_itch_v1_1.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2470,7 +2467,7 @@ end
 -- Dissector Heuristic for Nasdaq IseOptions OrderFeed Itch 1.1
 local function omi_nasdaq_iseoptions_orderfeed_itch_v1_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_nasdaq_iseoptions_orderfeed_itch_v1_1_packet_size(buffer) then return false end
+  if not nasdaq_iseoptions_orderfeed_itch_v1_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_iseoptions_orderfeed_itch_v1_1

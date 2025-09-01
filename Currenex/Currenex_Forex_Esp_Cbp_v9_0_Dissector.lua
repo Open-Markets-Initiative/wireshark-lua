@@ -12,8 +12,6 @@ local currenex_forex_esp_cbp_v9_0 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -1813,13 +1811,13 @@ udp_table:add(65333, omi_currenex_forex_esp_cbp_v9_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_currenex_forex_esp_cbp_v9_0_packet_size = function(buffer)
+currenex_forex_esp_cbp_v9_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
 -- Verify Itch Soh Field
-verify.itch_soh = function(buffer)
+currenex_forex_esp_cbp_v9_0.itch_soh.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -1833,10 +1831,10 @@ end
 -- Dissector Heuristic for Currenex Forex Esp Cbp 9.0
 local function omi_currenex_forex_esp_cbp_v9_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_currenex_forex_esp_cbp_v9_0_packet_size(buffer) then return false end
+  if not currenex_forex_esp_cbp_v9_0.packet.requiredsize(buffer) then return false end
 
   -- Verify Itch Soh
-  if not verify.itch_soh(buffer) then return false end
+  if not currenex_forex_esp_cbp_v9_0.itch_soh.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_currenex_forex_esp_cbp_v9_0

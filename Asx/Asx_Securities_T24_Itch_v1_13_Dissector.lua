@@ -12,8 +12,6 @@ local asx_securities_t24_itch_v1_13 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -6682,7 +6680,7 @@ udp_table:add(65333, omi_asx_securities_t24_itch_v1_13)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_asx_securities_t24_itch_v1_13_packet_size = function(buffer)
+asx_securities_t24_itch_v1_13.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -6690,7 +6688,7 @@ end
 -- Dissector Heuristic for Asx Securities T24 Itch 1.13
 local function omi_asx_securities_t24_itch_v1_13_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_asx_securities_t24_itch_v1_13_packet_size(buffer) then return false end
+  if not asx_securities_t24_itch_v1_13.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_asx_securities_t24_itch_v1_13

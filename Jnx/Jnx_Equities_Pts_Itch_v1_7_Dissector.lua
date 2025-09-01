@@ -12,9 +12,6 @@ local jnx_equities_pts_itch_v1_7 = {}
 
 -- Component Tables
 local show = {}
-local format = {}
-local verify = {}
-local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -224,7 +221,7 @@ jnx_equities_pts_itch_v1_7.price.display = function(value)
 end
 
 -- Translate: Price
-translate.price = function(raw)
+jnx_equities_pts_itch_v1_7.price.translate = function(raw)
   return raw/10
 end
 
@@ -233,7 +230,7 @@ jnx_equities_pts_itch_v1_7.price.dissect = function(buffer, offset, packet, pare
   local length = jnx_equities_pts_itch_v1_7.price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price(raw)
+  local value = jnx_equities_pts_itch_v1_7.price.translate(raw)
   local display = jnx_equities_pts_itch_v1_7.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price, range, value, display)
@@ -1068,7 +1065,7 @@ jnx_equities_pts_itch_v1_7.lower_price_limit.display = function(value)
 end
 
 -- Translate: Lower Price Limit
-translate.lower_price_limit = function(raw)
+jnx_equities_pts_itch_v1_7.lower_price_limit.translate = function(raw)
   return raw/10
 end
 
@@ -1077,7 +1074,7 @@ jnx_equities_pts_itch_v1_7.lower_price_limit.dissect = function(buffer, offset, 
   local length = jnx_equities_pts_itch_v1_7.lower_price_limit.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.lower_price_limit(raw)
+  local value = jnx_equities_pts_itch_v1_7.lower_price_limit.translate(raw)
   local display = jnx_equities_pts_itch_v1_7.lower_price_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_itch_v1_7.fields.lower_price_limit, range, value, display)
@@ -1097,7 +1094,7 @@ jnx_equities_pts_itch_v1_7.upper_price_limit.display = function(value)
 end
 
 -- Translate: Upper Price Limit
-translate.upper_price_limit = function(raw)
+jnx_equities_pts_itch_v1_7.upper_price_limit.translate = function(raw)
   return raw/10
 end
 
@@ -1106,7 +1103,7 @@ jnx_equities_pts_itch_v1_7.upper_price_limit.dissect = function(buffer, offset, 
   local length = jnx_equities_pts_itch_v1_7.upper_price_limit.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.upper_price_limit(raw)
+  local value = jnx_equities_pts_itch_v1_7.upper_price_limit.translate(raw)
   local display = jnx_equities_pts_itch_v1_7.upper_price_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_itch_v1_7.fields.upper_price_limit, range, value, display)
@@ -1126,7 +1123,7 @@ jnx_equities_pts_itch_v1_7.price_decimals.display = function(value)
 end
 
 -- Translate: Price Decimals
-translate.price_decimals = function(raw)
+jnx_equities_pts_itch_v1_7.price_decimals.translate = function(raw)
   return raw/10
 end
 
@@ -1135,7 +1132,7 @@ jnx_equities_pts_itch_v1_7.price_decimals.dissect = function(buffer, offset, pac
   local length = jnx_equities_pts_itch_v1_7.price_decimals.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price_decimals(raw)
+  local value = jnx_equities_pts_itch_v1_7.price_decimals.translate(raw)
   local display = jnx_equities_pts_itch_v1_7.price_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_decimals, range, value, display)
@@ -1155,7 +1152,7 @@ jnx_equities_pts_itch_v1_7.price_tick_size_table_id.display = function(value)
 end
 
 -- Translate: Price Tick Size Table Id
-translate.price_tick_size_table_id = function(raw)
+jnx_equities_pts_itch_v1_7.price_tick_size_table_id.translate = function(raw)
   return raw/10
 end
 
@@ -1164,7 +1161,7 @@ jnx_equities_pts_itch_v1_7.price_tick_size_table_id.dissect = function(buffer, o
   local length = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price_tick_size_table_id(raw)
+  local value = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.translate(raw)
   local display = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_tick_size_table_id, range, value, display)
@@ -1315,7 +1312,7 @@ jnx_equities_pts_itch_v1_7.price_start.display = function(value)
 end
 
 -- Translate: Price Start
-translate.price_start = function(raw)
+jnx_equities_pts_itch_v1_7.price_start.translate = function(raw)
   return raw/10
 end
 
@@ -1324,7 +1321,7 @@ jnx_equities_pts_itch_v1_7.price_start.dissect = function(buffer, offset, packet
   local length = jnx_equities_pts_itch_v1_7.price_start.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price_start(raw)
+  local value = jnx_equities_pts_itch_v1_7.price_start.translate(raw)
   local display = jnx_equities_pts_itch_v1_7.price_start.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_start, range, value, display)
@@ -1344,7 +1341,7 @@ jnx_equities_pts_itch_v1_7.price_tick_size.display = function(value)
 end
 
 -- Translate: Price Tick Size
-translate.price_tick_size = function(raw)
+jnx_equities_pts_itch_v1_7.price_tick_size.translate = function(raw)
   return raw/10
 end
 
@@ -1353,7 +1350,7 @@ jnx_equities_pts_itch_v1_7.price_tick_size.dissect = function(buffer, offset, pa
   local length = jnx_equities_pts_itch_v1_7.price_tick_size.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price_tick_size(raw)
+  local value = jnx_equities_pts_itch_v1_7.price_tick_size.translate(raw)
   local display = jnx_equities_pts_itch_v1_7.price_tick_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_tick_size, range, value, display)
@@ -2075,7 +2072,7 @@ udp_table:add(65333, omi_jnx_equities_pts_itch_v1_7)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.omi_jnx_equities_pts_itch_v1_7_packet_size = function(buffer)
+jnx_equities_pts_itch_v1_7.packet.requiredsize = function(buffer)
 
   return true
 end
@@ -2083,7 +2080,7 @@ end
 -- Dissector Heuristic for Jnx Equities Pts Itch 1.7
 local function omi_jnx_equities_pts_itch_v1_7_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.omi_jnx_equities_pts_itch_v1_7_packet_size(buffer) then return false end
+  if not jnx_equities_pts_itch_v1_7.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jnx_equities_pts_itch_v1_7
