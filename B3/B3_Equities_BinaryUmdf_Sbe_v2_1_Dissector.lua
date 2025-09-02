@@ -586,18 +586,6 @@ end
 -- Dissect B3 Equities BinaryUmdf Sbe 2.1
 -----------------------------------------------------------------------
 
--- Reserved 4
-b3_equities_binaryumdf_sbe_v2_1.reserved_4 = {}
-
--- Implied
-b3_equities_binaryumdf_sbe_v2_1.implied = {}
-
--- Recovery Msg
-b3_equities_binaryumdf_sbe_v2_1.recovery_msg = {}
-
--- End Of Event
-b3_equities_binaryumdf_sbe_v2_1.end_of_event = {}
-
 -- Match Event Indicator
 b3_equities_binaryumdf_sbe_v2_1.match_event_indicator = {}
 
@@ -2226,30 +2214,6 @@ b3_equities_binaryumdf_sbe_v2_1.md_entry_buyer.dissect = function(buffer, offset
 
   return offset + length, value
 end
-
--- Opening Price
-b3_equities_binaryumdf_sbe_v2_1.opening_price = {}
-
--- Crossed
-b3_equities_binaryumdf_sbe_v2_1.crossed = {}
-
--- Last Trade At The Same Price
-b3_equities_binaryumdf_sbe_v2_1.last_trade_at_the_same_price = {}
-
--- Out Of Sequence
-b3_equities_binaryumdf_sbe_v2_1.out_of_sequence = {}
-
--- Trade On Behalf
-b3_equities_binaryumdf_sbe_v2_1.trade_on_behalf = {}
-
--- Regular Trade
-b3_equities_binaryumdf_sbe_v2_1.regular_trade = {}
-
--- Block Trade
-b3_equities_binaryumdf_sbe_v2_1.block_trade = {}
-
--- Reserved 1
-b3_equities_binaryumdf_sbe_v2_1.reserved_1 = {}
 
 -- Trade Condition
 b3_equities_binaryumdf_sbe_v2_1.trade_condition = {}
@@ -4250,18 +4214,6 @@ b3_equities_binaryumdf_sbe_v2_1.md_entry_size_quantity_optional.dissect = functi
 
   return offset + length, value
 end
-
--- Reserved 8
-b3_equities_binaryumdf_sbe_v2_1.reserved_8 = {}
-
--- Imbalance More Buyers
-b3_equities_binaryumdf_sbe_v2_1.imbalance_more_buyers = {}
-
--- Imbalance More Sellers
-b3_equities_binaryumdf_sbe_v2_1.imbalance_more_sellers = {}
-
--- Reserved 6
-b3_equities_binaryumdf_sbe_v2_1.reserved_6 = {}
 
 -- Imbalance Condition
 b3_equities_binaryumdf_sbe_v2_1.imbalance_condition = {}
@@ -8864,9 +8816,6 @@ b3_equities_binaryumdf_sbe_v2_1.sequence_2_message.dissect = function(buffer, of
     return b3_equities_binaryumdf_sbe_v2_1.sequence_2_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Sequence Reset 1 Message
-b3_equities_binaryumdf_sbe_v2_1.sequence_reset_1_message = {}
 
 -- Payload
 b3_equities_binaryumdf_sbe_v2_1.payload = {}

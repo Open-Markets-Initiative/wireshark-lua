@@ -1361,30 +1361,6 @@ b3_equities_binaryumdf_sbe_v1_8.trading_session_id.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Last Trade Msg
-b3_equities_binaryumdf_sbe_v1_8.last_trade_msg = {}
-
--- Last Volume Msg
-b3_equities_binaryumdf_sbe_v1_8.last_volume_msg = {}
-
--- Last Quote Msg
-b3_equities_binaryumdf_sbe_v1_8.last_quote_msg = {}
-
--- Last Stats Msg
-b3_equities_binaryumdf_sbe_v1_8.last_stats_msg = {}
-
--- Last Implied Msg
-b3_equities_binaryumdf_sbe_v1_8.last_implied_msg = {}
-
--- Recovery Msg
-b3_equities_binaryumdf_sbe_v1_8.recovery_msg = {}
-
--- Reserved 1
-b3_equities_binaryumdf_sbe_v1_8.reserved_1 = {}
-
--- End Of Event
-b3_equities_binaryumdf_sbe_v1_8.end_of_event = {}
-
 -- Match Event Indicator
 b3_equities_binaryumdf_sbe_v1_8.match_event_indicator = {}
 
@@ -2265,27 +2241,6 @@ b3_equities_binaryumdf_sbe_v1_8.md_entry_buyer.dissect = function(buffer, offset
 
   return offset + length, value
 end
-
--- Opening Price
-b3_equities_binaryumdf_sbe_v1_8.opening_price = {}
-
--- Crossed
-b3_equities_binaryumdf_sbe_v1_8.crossed = {}
-
--- Last Trade At The Same Price
-b3_equities_binaryumdf_sbe_v1_8.last_trade_at_the_same_price = {}
-
--- Out Of Sequence
-b3_equities_binaryumdf_sbe_v1_8.out_of_sequence = {}
-
--- Trade On Behalf
-b3_equities_binaryumdf_sbe_v1_8.trade_on_behalf = {}
-
--- Regular Trade
-b3_equities_binaryumdf_sbe_v1_8.regular_trade = {}
-
--- Block Trade
-b3_equities_binaryumdf_sbe_v1_8.block_trade = {}
 
 -- Trade Condition
 b3_equities_binaryumdf_sbe_v1_8.trade_condition = {}
@@ -4382,18 +4337,6 @@ b3_equities_binaryumdf_sbe_v1_8.price_band_20_message.dissect = function(buffer,
     return b3_equities_binaryumdf_sbe_v1_8.price_band_20_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Reserved 8
-b3_equities_binaryumdf_sbe_v1_8.reserved_8 = {}
-
--- Imbalance More Buyers
-b3_equities_binaryumdf_sbe_v1_8.imbalance_more_buyers = {}
-
--- Imbalance More Sellers
-b3_equities_binaryumdf_sbe_v1_8.imbalance_more_sellers = {}
-
--- Reserved 6
-b3_equities_binaryumdf_sbe_v1_8.reserved_6 = {}
 
 -- Imbalance Condition
 b3_equities_binaryumdf_sbe_v1_8.imbalance_condition = {}
@@ -9418,9 +9361,6 @@ b3_equities_binaryumdf_sbe_v1_8.sequence_2_message.dissect = function(buffer, of
     return b3_equities_binaryumdf_sbe_v1_8.sequence_2_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Sequence Reset 1 Message
-b3_equities_binaryumdf_sbe_v1_8.sequence_reset_1_message = {}
 
 -- Payload
 b3_equities_binaryumdf_sbe_v1_8.payload = {}
