@@ -2849,18 +2849,6 @@ nyse_equities_bqt_xdp_v2_1_a.consolidated_security_status_message.dissect = func
   end
 end
 
--- Ok For Morning Hours
-nyse_equities_bqt_xdp_v2_1_a.ok_for_morning_hours = {}
-
--- Ok For National Hours
-nyse_equities_bqt_xdp_v2_1_a.ok_for_national_hours = {}
-
--- Ok For Late Hours
-nyse_equities_bqt_xdp_v2_1_a.ok_for_late_hours = {}
-
--- Reserved
-nyse_equities_bqt_xdp_v2_1_a.reserved = {}
-
 -- Trade Session
 nyse_equities_bqt_xdp_v2_1_a.trade_session = {}
 
