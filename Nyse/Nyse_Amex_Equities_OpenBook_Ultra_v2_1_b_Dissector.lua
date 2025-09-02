@@ -148,9 +148,6 @@ end
 -- Dissect Nyse Amex Equities OpenBook Ultra 2.1.b
 -----------------------------------------------------------------------
 
--- Heartbeat Message
-nyse_amex_equities_openbook_ultra_v2_1_b.heartbeat_message = {}
-
 -- Next Sequence Number
 nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number = {}
 

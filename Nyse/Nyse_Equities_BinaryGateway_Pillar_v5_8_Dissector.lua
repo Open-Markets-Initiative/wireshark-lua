@@ -5651,9 +5651,6 @@ nyse_equities_binarygateway_pillar_v5_8.reserved_7.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Throttled
-nyse_equities_binarygateway_pillar_v5_8.throttled = {}
-
 -- Bitfield Flow Indicator
 nyse_equities_binarygateway_pillar_v5_8.bitfield_flow_indicator = {}
 

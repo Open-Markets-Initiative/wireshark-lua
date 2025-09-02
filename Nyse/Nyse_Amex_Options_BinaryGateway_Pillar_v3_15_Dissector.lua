@@ -50,6 +50,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.clearing_number = ProtoF
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.close = ProtoField.new("Close", "nyse.amex.options.binarygateway.pillar.v3.15.close", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.close_response = ProtoField.new("Close Response", "nyse.amex.options.binarygateway.pillar.v3.15.closeresponse", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.complex_leg = ProtoField.new("Complex Leg", "nyse.amex.options.binarygateway.pillar.v3.15.complexleg", ftypes.STRING)
+omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.complex_leg_ack = ProtoField.new("Complex Leg Ack", "nyse.amex.options.binarygateway.pillar.v3.15.complexlegack", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.contra_clearing_account = ProtoField.new("Contra Clearing Account", "nyse.amex.options.binarygateway.pillar.v3.15.contraclearingaccount", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.contra_clearing_firm = ProtoField.new("Contra Clearing Firm", "nyse.amex.options.binarygateway.pillar.v3.15.contraclearingfirm", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.contra_covered_or_uncovered = ProtoField.new("Contra Covered Or Uncovered", "nyse.amex.options.binarygateway.pillar.v3.15.contracoveredoruncovered", ftypes.UINT8)
@@ -71,6 +72,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.exec_inst = ProtoField.n
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.exposed = ProtoField.new("Exposed", "nyse.amex.options.binarygateway.pillar.v3.15.exposed", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.amex.options.binarygateway.pillar.v3.15.extendedexecinst", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.floor_broker_firm_crd = ProtoField.new("Floor Broker Firm Crd", "nyse.amex.options.binarygateway.pillar.v3.15.floorbrokerfirmcrd", ftypes.UINT32)
+omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.flow_indicator = ProtoField.new("Flow Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.flowindicator", ftypes.UINT8)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.group_id = ProtoField.new("Group Id", "nyse.amex.options.binarygateway.pillar.v3.15.groupid", ftypes.UINT32)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amex.options.binarygateway.pillar.v3.15.heartbeat", ftypes.STRING)
 omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.interest_type = ProtoField.new("Interest Type", "nyse.amex.options.binarygateway.pillar.v3.15.interesttype", ftypes.UINT8)
@@ -252,6 +254,7 @@ show.bulk_quote_acknowledgment = true
 show.close = true
 show.close_response = true
 show.complex_leg = true
+show.complex_leg_ack = true
 show.complex_series_request_acknowledgement = true
 show.covered = true
 show.execution_report = true
@@ -306,6 +309,7 @@ omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowled
 omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
+omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_leg_ack = Pref.bool("Show Complex Leg Ack", show.complex_leg_ack, "Parse and add Complex Leg Ack to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement = Pref.bool("Show Complex Series Request Acknowledgement", show.complex_series_request_acknowledgement, "Parse and add Complex Series Request Acknowledgement to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_covered = Pref.bool("Show Covered", show.covered, "Parse and add Covered to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_execution_report = Pref.bool("Show Execution Report", show.execution_report, "Parse and add Execution Report to protocol tree")
@@ -383,6 +387,10 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs_changed()
   end
   if show.complex_leg ~= omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_leg then
     show.complex_leg = omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_leg
+    changed = true
+  end
+  if show.complex_leg_ack ~= omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_leg_ack then
+    show.complex_leg_ack = omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_leg_ack
     changed = true
   end
   if show.complex_series_request_acknowledgement ~= omi_nyse_amex_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement then
@@ -595,8 +603,136 @@ end
 -- Dissect Nyse Amex Options BinaryGateway Pillar 3.15
 -----------------------------------------------------------------------
 
--- Complex Ack
-nyse_amex_options_binarygateway_pillar_v3_15.complex_ack = {}
+-- Leg Side
+nyse_amex_options_binarygateway_pillar_v3_15.leg_side = {}
+
+-- Size: Leg Side
+nyse_amex_options_binarygateway_pillar_v3_15.leg_side.size = 1
+
+-- Display: Leg Side
+nyse_amex_options_binarygateway_pillar_v3_15.leg_side.display = function(value)
+  if value == 1 then
+    return "Leg Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Leg Side: Sell (2)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+nyse_amex_options_binarygateway_pillar_v3_15.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_15.leg_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_15.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty = {}
+
+-- Size: Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.size = 2
+
+-- Display: Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.display = function(value)
+  return "Leg Ratio Qty: "..value
+end
+
+-- Dissect: Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id = {}
+
+-- Size: Leg Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.size = 4
+
+-- Display: Leg Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.display = function(value)
+  return "Leg Symbol Id: "..value
+end
+
+-- Dissect: Leg Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.leg_symbol_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Complex Leg Ack
+nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack = {}
+
+-- Calculate size of: Complex Leg Ack
+nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.size
+
+  index = index + nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.size
+
+  index = index + nyse_amex_options_binarygateway_pillar_v3_15.leg_side.size
+
+  return index
+end
+
+-- Display: Complex Leg Ack
+nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Leg Ack
+nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Leg Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  index, leg_symbol_id = nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
+  index, leg_ratio_qty = nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, leg_side = nyse_amex_options_binarygateway_pillar_v3_15.leg_side.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Leg Ack
+nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.dissect = function(buffer, offset, packet, parent)
+  if show.complex_leg_ack then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.complex_leg_ack, buffer(offset, 0))
+    local index = nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Repeating Groups
 nyse_amex_options_binarygateway_pillar_v3_15.repeating_groups = {}
@@ -1920,27 +2056,11 @@ end
 -- Complex Series Request Acknowledgement
 nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement = {}
 
--- Calculate size of: Complex Series Request Acknowledgement
+-- Size Of: Complex Series Request Acknowledgement
 nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.seq_msg_header.size(buffer, offset + index)
-
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.transact_time.size
-
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.cl_ord_id.size
-
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.reason_code.size
-
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.symbol_id.size
-
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.side_u_81.size
-
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.repeating_groups.size
-
-  index = index + nyse_amex_options_binarygateway_pillar_v3_15.complex_ack.size
-
-  return index
+  return buffer:len() - (offset + index) 
 end
 
 -- Display: Complex Series Request Acknowledgement
@@ -1973,28 +2093,28 @@ nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgem
   -- Repeating Groups: 1 Byte Unsigned Fixed Width Integer
   index, repeating_groups = nyse_amex_options_binarygateway_pillar_v3_15.repeating_groups.dissect(buffer, index, packet, parent)
 
-  -- Complex Ack
-  index, complex_ack = nyse_amex_options_binarygateway_pillar_v3_15.complex_ack.dissect(buffer, index, packet, parent)
+  -- Dependency for Complex Leg Ack
+  local end_of_payload = repeating_groups
+
+  -- Complex Leg Ack: Struct of 3 fields
+  while index < end_of_payload do
+    index, complex_leg_ack = nyse_amex_options_binarygateway_pillar_v3_15.complex_leg_ack.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Complex Series Request Acknowledgement
 nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
   if show.complex_series_request_acknowledgement then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement, buffer(offset, 0))
-    local index = nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.fields(buffer, offset, packet, parent)
+    local length = nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.display(buffer, packet, parent)
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement, range, display)
   end
+
+  return nyse_amex_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.fields(buffer, offset, packet, parent)
 end
 
 -- Reserved 200
@@ -5477,6 +5597,33 @@ end
 -- Flow Indicator
 nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator = {}
 
+-- Size: Flow Indicator
+nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.size = 1
+
+-- Display: Flow Indicator
+nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.display = function(value)
+  if value == 0 then
+    return "Flow Indicator: Inbound Message Was Not Throttled (0)"
+  end
+  if value == 1 then
+    return "Flow Indicator: Inbound Message Was Throttled (1)"
+  end
+
+  return "Flow Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Flow Indicator
+nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.flow_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Price Price 8
 nyse_amex_options_binarygateway_pillar_v3_15.price_price_8 = {}
 
@@ -5657,7 +5804,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.order_request_acknowledgment.fields
   -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 18 values
   index, ack_type = nyse_amex_options_binarygateway_pillar_v3_15.ack_type.dissect(buffer, index, packet, parent)
 
-  -- Flow Indicator
+  -- Flow Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, flow_indicator = nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.dissect(buffer, index, packet, parent)
 
   -- User Data: 10 Byte Ascii String
@@ -5937,7 +6084,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.fields = 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = nyse_amex_options_binarygateway_pillar_v3_15.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Flow Indicator
+  -- Flow Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, flow_indicator = nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.dissect(buffer, index, packet, parent)
 
   -- Self Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -5950,7 +6097,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.fields = 
   index, repeating_groups = nyse_amex_options_binarygateway_pillar_v3_15.repeating_groups.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(index - 42, 2):le_uint()
+  local seq_msg_length = buffer(index - 43, 2):le_uint()
 
   -- Dependency for Quote Ack
   local end_of_payload = seq_msg_length
@@ -6069,60 +6216,6 @@ nyse_amex_options_binarygateway_pillar_v3_15.min_qty.dissect = function(buffer, 
 
   return offset + length, value
 end
-
--- Side Bit 5
-nyse_amex_options_binarygateway_pillar_v3_15.side_bit_5 = {}
-
--- Ord Type
-nyse_amex_options_binarygateway_pillar_v3_15.ord_type = {}
-
--- Exec Inst
-nyse_amex_options_binarygateway_pillar_v3_15.exec_inst = {}
-
--- Extended Exec Inst
-nyse_amex_options_binarygateway_pillar_v3_15.extended_exec_inst = {}
-
--- Routing Inst
-nyse_amex_options_binarygateway_pillar_v3_15.routing_inst = {}
-
--- Cancel Instead Of Reprice
-nyse_amex_options_binarygateway_pillar_v3_15.cancel_instead_of_reprice = {}
-
--- Proactive If Locked
-nyse_amex_options_binarygateway_pillar_v3_15.proactive_if_locked = {}
-
--- Time In Force
-nyse_amex_options_binarygateway_pillar_v3_15.time_in_force = {}
-
--- Trading Session Id
-nyse_amex_options_binarygateway_pillar_v3_15.trading_session_id = {}
-
--- Interest Type
-nyse_amex_options_binarygateway_pillar_v3_15.interest_type = {}
-
--- Order Capacity
-nyse_amex_options_binarygateway_pillar_v3_15.order_capacity = {}
-
--- Attributed Quote
-nyse_amex_options_binarygateway_pillar_v3_15.attributed_quote = {}
-
--- Retail Indicator
-nyse_amex_options_binarygateway_pillar_v3_15.retail_indicator = {}
-
--- Special Ord Type
-nyse_amex_options_binarygateway_pillar_v3_15.special_ord_type = {}
-
--- Sub Id Indicator
-nyse_amex_options_binarygateway_pillar_v3_15.sub_id_indicator = {}
-
--- Capacity
-nyse_amex_options_binarygateway_pillar_v3_15.capacity = {}
-
--- Security Type
-nyse_amex_options_binarygateway_pillar_v3_15.security_type = {}
-
--- Reserved Bits 34
-nyse_amex_options_binarygateway_pillar_v3_15.reserved_bits_34 = {}
 
 -- Order Instructions
 nyse_amex_options_binarygateway_pillar_v3_15.order_instructions = {}
@@ -6272,7 +6365,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.order_acknowledgement.size = functi
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_15.auction_id.size
 
-  local seq_msg_length = buffer(offset + index - 138, 2):le_uint()
+  local seq_msg_length = buffer(offset + index - 139, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_amex_options_binarygateway_pillar_v3_15.optional_order_add_on.size(buffer, offset + index)
@@ -6351,7 +6444,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.order_acknowledgement.fields = func
   -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 18 values
   index, ack_type = nyse_amex_options_binarygateway_pillar_v3_15.ack_type.dissect(buffer, index, packet, parent)
 
-  -- Flow Indicator
+  -- Flow Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, flow_indicator = nyse_amex_options_binarygateway_pillar_v3_15.flow_indicator.dissect(buffer, index, packet, parent)
 
   -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 8 values
@@ -6361,7 +6454,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.order_acknowledgement.fields = func
   index, auction_id = nyse_amex_options_binarygateway_pillar_v3_15.auction_id.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(index - 138, 2):le_uint()
+  local seq_msg_length = buffer(index - 139, 2):le_uint()
 
   -- Runtime optional field exists: Optional Order Add On
   local optional_order_add_on_exists = seq_msg_length ~= 100
@@ -8037,82 +8130,6 @@ nyse_amex_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data.di
     -- Skip element, add fields directly
     return nyse_amex_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Side
-nyse_amex_options_binarygateway_pillar_v3_15.leg_side = {}
-
--- Size: Leg Side
-nyse_amex_options_binarygateway_pillar_v3_15.leg_side.size = 1
-
--- Display: Leg Side
-nyse_amex_options_binarygateway_pillar_v3_15.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-nyse_amex_options_binarygateway_pillar_v3_15.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_15.leg_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_15.leg_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty = {}
-
--- Size: Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.size = 2
-
--- Display: Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.display = function(value)
-  return "Leg Ratio Qty: "..value
-end
-
--- Dissect: Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_15.leg_ratio_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.leg_ratio_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id = {}
-
--- Size: Leg Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.size = 4
-
--- Display: Leg Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.display = function(value)
-  return "Leg Symbol Id: "..value
-end
-
--- Dissect: Leg Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_15.leg_symbol_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.leg_symbol_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Leg
