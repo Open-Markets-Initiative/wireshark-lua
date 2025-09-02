@@ -958,12 +958,6 @@ lseg_turquoise_level1_gtp_v24_4.statistics_message.dissect = function(buffer, of
   end
 end
 
--- Unused 7
-lseg_turquoise_level1_gtp_v24_4.unused_7 = {}
-
--- Trade Cancellation
-lseg_turquoise_level1_gtp_v24_4.trade_cancellation = {}
-
 -- Trade Flags
 lseg_turquoise_level1_gtp_v24_4.trade_flags = {}
 
@@ -1385,15 +1379,6 @@ lseg_turquoise_level1_gtp_v24_4.reserved_5.dissect = function(buffer, offset, pa
 
   return offset + length, value
 end
-
--- Retail Lp
-lseg_turquoise_level1_gtp_v24_4.retail_lp = {}
-
--- Offer Depth
-lseg_turquoise_level1_gtp_v24_4.offer_depth = {}
-
--- Bid Depth
-lseg_turquoise_level1_gtp_v24_4.bid_depth = {}
 
 -- Order Flags
 lseg_turquoise_level1_gtp_v24_4.order_flags = {}
@@ -2416,15 +2401,6 @@ lseg_turquoise_level1_gtp_v24_4.venue_instrument_id.dissect = function(buffer, o
 
   return offset + length, value
 end
-
--- Unused 5
-lseg_turquoise_level1_gtp_v24_4.unused_5 = {}
-
--- Electronic Order Book
-lseg_turquoise_level1_gtp_v24_4.electronic_order_book = {}
-
--- Unused 2
-lseg_turquoise_level1_gtp_v24_4.unused_2 = {}
 
 -- Allowed Book Types
 lseg_turquoise_level1_gtp_v24_4.allowed_book_types = {}

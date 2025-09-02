@@ -1230,15 +1230,6 @@ lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id.dissect = function(buffer
   return offset + length, value
 end
 
--- Unused 5
-lseg_turquoise_analytics_gtp_v24_4.unused_5 = {}
-
--- Electronic Order Book
-lseg_turquoise_analytics_gtp_v24_4.electronic_order_book = {}
-
--- Unused 2
-lseg_turquoise_analytics_gtp_v24_4.unused_2 = {}
-
 -- Allowed Book Types
 lseg_turquoise_analytics_gtp_v24_4.allowed_book_types = {}
 

@@ -3240,15 +3240,6 @@ lseg_tradeecho_mifid_gtp_v24_4.venue_instrument_id.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Unused 6
-lseg_tradeecho_mifid_gtp_v24_4.unused_6 = {}
-
--- Off Book
-lseg_tradeecho_mifid_gtp_v24_4.off_book = {}
-
--- Si Quote Book
-lseg_tradeecho_mifid_gtp_v24_4.si_quote_book = {}
-
 -- Allowed Book Types
 lseg_tradeecho_mifid_gtp_v24_4.allowed_book_types = {}
 

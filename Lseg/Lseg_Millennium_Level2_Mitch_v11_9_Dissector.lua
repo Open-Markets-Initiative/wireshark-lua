@@ -899,15 +899,6 @@ lseg_millennium_level2_mitch_v11_9.auction_info_message.dissect = function(buffe
   end
 end
 
--- Unused 6
-lseg_millennium_level2_mitch_v11_9.unused_6 = {}
-
--- Amnd
-lseg_millennium_level2_mitch_v11_9.amnd = {}
-
--- Canc
-lseg_millennium_level2_mitch_v11_9.canc = {}
-
 -- Pt Mod Flags
 lseg_millennium_level2_mitch_v11_9.pt_mod_flags = {}
 
@@ -1480,24 +1471,6 @@ lseg_millennium_level2_mitch_v11_9.order_executed_message.dissect = function(buf
     return lseg_millennium_level2_mitch_v11_9.order_executed_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Unused 1
-lseg_millennium_level2_mitch_v11_9.unused_1 = {}
-
--- Private Rfq
-lseg_millennium_level2_mitch_v11_9.private_rfq = {}
-
--- Firm Quote
-lseg_millennium_level2_mitch_v11_9.firm_quote = {}
-
--- Market Order
-lseg_millennium_level2_mitch_v11_9.market_order = {}
-
--- Unused 3
-lseg_millennium_level2_mitch_v11_9.unused_3 = {}
-
--- Priority Flag
-lseg_millennium_level2_mitch_v11_9.priority_flag = {}
 
 -- Flags
 lseg_millennium_level2_mitch_v11_9.flags = {}
@@ -2181,9 +2154,6 @@ lseg_millennium_level2_mitch_v11_9.reason.dissect = function(buffer, offset, pac
 
   return offset + length, value
 end
-
--- Symbol Status Flags
-lseg_millennium_level2_mitch_v11_9.symbol_status_flags = {}
 
 -- Trading Status
 lseg_millennium_level2_mitch_v11_9.trading_status = {}
