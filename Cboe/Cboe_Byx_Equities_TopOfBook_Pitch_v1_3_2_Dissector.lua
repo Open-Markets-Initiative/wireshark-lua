@@ -1517,9 +1517,6 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.delete_order_message.dissect = function
   end
 end
 
--- Modify Order Flags
-cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags = {}
-
 -- Modify Order Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_short_message = {}
 
@@ -2027,12 +2024,6 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.participant_id.dissect = function(buffe
 
   return offset + length, value
 end
-
--- Display
-cboe_byx_equities_topofbook_pitch_v1_3_2.display = {}
-
--- Reserved Flags
-cboe_byx_equities_topofbook_pitch_v1_3_2.reserved_flags = {}
 
 -- Add Order Flags
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags = {}

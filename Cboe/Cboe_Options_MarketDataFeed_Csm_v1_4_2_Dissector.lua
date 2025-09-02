@@ -412,9 +412,6 @@ end
 -- Dissect Cboe Options MarketDataFeed Csm 1.4.2
 -----------------------------------------------------------------------
 
--- Heartbeat Message
-cboe_options_marketdatafeed_csm_v1_4_2.heartbeat_message = {}
-
 -- Md Control Type
 cboe_options_marketdatafeed_csm_v1_4_2.md_control_type = {}
 

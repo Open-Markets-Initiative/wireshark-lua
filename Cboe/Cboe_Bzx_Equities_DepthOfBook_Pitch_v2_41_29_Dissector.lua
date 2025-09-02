@@ -1418,9 +1418,6 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29.delete_order_message.dissect = func
   end
 end
 
--- Modify Order Flags
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.modify_order_flags = {}
-
 -- Modify Order Short Message
 cboe_bzx_equities_depthofbook_pitch_v2_41_29.modify_order_short_message = {}
 
@@ -1928,12 +1925,6 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29.participant_id.dissect = function(b
 
   return offset + length, value
 end
-
--- Display
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.display = {}
-
--- Reserved Flags
-cboe_bzx_equities_depthofbook_pitch_v2_41_29.reserved_flags = {}
 
 -- Add Order Flags
 cboe_bzx_equities_depthofbook_pitch_v2_41_29.add_order_flags = {}

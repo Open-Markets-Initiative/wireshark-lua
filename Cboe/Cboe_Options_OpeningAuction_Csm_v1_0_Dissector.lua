@@ -294,9 +294,6 @@ end
 -- Dissect Cboe Options OpeningAuction Csm 1.0
 -----------------------------------------------------------------------
 
--- Heartbeat Message
-cboe_options_openingauction_csm_v1_0.heartbeat_message = {}
-
 -- Legal Market
 cboe_options_openingauction_csm_v1_0.legal_market = {}
 

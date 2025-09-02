@@ -589,15 +589,6 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_break_message.dissect = functi
   end
 end
 
--- Unused
-cboe_byx_equities_summarydepth_pitch_v1_0_4.unused = {}
-
--- Lastsale Eligible
-cboe_byx_equities_summarydepth_pitch_v1_0_4.lastsale_eligible = {}
-
--- Reserved Trade Flags
-cboe_byx_equities_summarydepth_pitch_v1_0_4.reserved_trade_flags = {}
-
 -- Trade Flags
 cboe_byx_equities_summarydepth_pitch_v1_0_4.trade_flags = {}
 
@@ -1272,18 +1263,6 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.adap_blocks.dissect = function(buffe
 
   return offset + length, value
 end
-
--- Clear
-cboe_byx_equities_summarydepth_pitch_v1_0_4.clear = {}
-
--- Complete
-cboe_byx_equities_summarydepth_pitch_v1_0_4.complete = {}
-
--- Block Type
-cboe_byx_equities_summarydepth_pitch_v1_0_4.block_type = {}
-
--- Adap Reserved Flags
-cboe_byx_equities_summarydepth_pitch_v1_0_4.adap_reserved_flags = {}
 
 -- Adap Flags
 cboe_byx_equities_summarydepth_pitch_v1_0_4.adap_flags = {}

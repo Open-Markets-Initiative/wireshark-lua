@@ -291,9 +291,6 @@ end
 -- Dissect Cboe Options MarketLevel2 Csm 1.0.4
 -----------------------------------------------------------------------
 
--- Heartbeat Message
-cboe_options_marketlevel2_csm_v1_0_4.heartbeat_message = {}
-
 -- Security Trading Status
 cboe_options_marketlevel2_csm_v1_0_4.security_trading_status = {}
 

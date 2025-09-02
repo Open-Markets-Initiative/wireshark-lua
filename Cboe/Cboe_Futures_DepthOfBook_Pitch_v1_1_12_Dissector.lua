@@ -568,24 +568,6 @@ cboe_futures_depthofbook_pitch_v1_1_12.trading_status_message.dissect = function
   end
 end
 
--- High Price Valid
-cboe_futures_depthofbook_pitch_v1_1_12.high_price_valid = {}
-
--- High Price Is Bid
-cboe_futures_depthofbook_pitch_v1_1_12.high_price_is_bid = {}
-
--- Low Price Valid
-cboe_futures_depthofbook_pitch_v1_1_12.low_price_valid = {}
-
--- Low Price Is Offer
-cboe_futures_depthofbook_pitch_v1_1_12.low_price_is_offer = {}
-
--- Offer Close Valid
-cboe_futures_depthofbook_pitch_v1_1_12.offer_close_valid = {}
-
--- Reserved Flags
-cboe_futures_depthofbook_pitch_v1_1_12.reserved_flags = {}
-
 -- Summary Flags
 cboe_futures_depthofbook_pitch_v1_1_12.summary_flags = {}
 

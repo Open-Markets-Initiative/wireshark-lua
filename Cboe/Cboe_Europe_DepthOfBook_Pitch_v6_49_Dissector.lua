@@ -1317,9 +1317,6 @@ cboe_europe_depthofbook_pitch_v6_49.end_of_session.dissect = function(buffer, of
   end
 end
 
--- Extended Trade Flags
-cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags = {}
-
 -- Cboe Trade Flags
 cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags = {}
 
@@ -2933,9 +2930,6 @@ cboe_europe_depthofbook_pitch_v6_49.participant_id.dissect = function(buffer, of
 
   return offset + length, value
 end
-
--- Add Order Flags
-cboe_europe_depthofbook_pitch_v6_49.add_order_flags = {}
 
 -- Quantity
 cboe_europe_depthofbook_pitch_v6_49.quantity = {}

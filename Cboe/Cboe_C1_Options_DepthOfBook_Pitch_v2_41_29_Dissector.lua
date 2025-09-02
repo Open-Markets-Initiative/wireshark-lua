@@ -2592,9 +2592,6 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.delete_order_message.dissect = functi
   end
 end
 
--- Modify Order Flags
-cboe_c1_options_depthofbook_pitch_v2_41_29.modify_order_flags = {}
-
 -- Modify Order Short Message
 cboe_c1_options_depthofbook_pitch_v2_41_29.modify_order_short_message = {}
 
@@ -3066,21 +3063,6 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.order_executed_message.dissect = func
     return cboe_c1_options_depthofbook_pitch_v2_41_29.order_executed_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Display
-cboe_c1_options_depthofbook_pitch_v2_41_29.display = {}
-
--- Reserved Bit 1
-cboe_c1_options_depthofbook_pitch_v2_41_29.reserved_bit_1 = {}
-
--- Reserved Bit 2
-cboe_c1_options_depthofbook_pitch_v2_41_29.reserved_bit_2 = {}
-
--- Aon
-cboe_c1_options_depthofbook_pitch_v2_41_29.aon = {}
-
--- Reserved Flags
-cboe_c1_options_depthofbook_pitch_v2_41_29.reserved_flags = {}
 
 -- Add Order Flags
 cboe_c1_options_depthofbook_pitch_v2_41_29.add_order_flags = {}

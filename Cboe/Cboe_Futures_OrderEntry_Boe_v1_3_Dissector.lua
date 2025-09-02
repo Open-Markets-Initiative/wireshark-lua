@@ -3409,30 +3409,6 @@ cboe_futures_orderentry_boe_v1_3.side.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Variance Restatement Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_1_exists = {}
-
--- Variance Restatement Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_2_exists = {}
-
--- Variance Restatement Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_3_exists = {}
-
--- Variance Restatement Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_4_exists = {}
-
--- Variance Restatement Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_5_exists = {}
-
--- Variance Restatement Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_6_exists = {}
-
--- Variance Restatement Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_7_exists = {}
-
--- Variance Restatement Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_reserved_bit_8_exists = {}
-
 -- Variance Restatement Byte 17
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_17 = {}
 
@@ -3520,9 +3496,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_17.dissect = function
 
   return offset + 1, range
 end
-
--- Variance Restatement Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_frequent_trader_id_exists = {}
 
 -- Variance Restatement Byte 16
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_16 = {}
@@ -3700,9 +3673,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_15.dissect = function
   return offset + 1, range
 end
 
--- Variance Restatement Secondary Exec Id Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_secondary_exec_id_exists = {}
-
 -- Variance Restatement Byte 14
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_14 = {}
 
@@ -3791,9 +3761,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_14.dissect = function
   return offset + 1, range
 end
 
--- Variance Restatement Multileg Reporting Type Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_multileg_reporting_type_exists = {}
-
 -- Variance Restatement Byte 13
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_13 = {}
 
@@ -3881,27 +3848,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_13.dissect = function
 
   return offset + 1, range
 end
-
--- Variance Restatement Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_cti_code_exists = {}
-
--- Variance Restatement Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_manual_order_indicator_exists = {}
-
--- Variance Restatement Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_oeoid_exists = {}
-
--- Variance Restatement Trade Date Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_trade_date_exists = {}
-
--- Variance Restatement Clearing Price Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_clearing_price_exists = {}
-
--- Variance Restatement Clearing Size Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_clearing_size_exists = {}
-
--- Variance Restatement Clearing Symbol Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_clearing_symbol_exists = {}
 
 -- Variance Restatement Byte 12
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_12 = {}
@@ -4167,9 +4113,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_10.dissect = function
   return offset + 1, range
 end
 
--- Variance Restatement Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_cmta_number_exists = {}
-
 -- Variance Restatement Byte 9
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_9 = {}
 
@@ -4257,12 +4200,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_9.dissect = function(
 
   return offset + 1, range
 end
-
--- Variance Restatement Fee Code Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_fee_code_exists = {}
-
--- Variance Restatement Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_stop_px_exists = {}
 
 -- Variance Restatement Byte 8
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_8 = {}
@@ -4528,15 +4465,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_6.dissect = function(
   return offset + 1, range
 end
 
--- Variance Restatement Orig Cl Ord Id Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_orig_cl_ord_id_exists = {}
-
--- Variance Restatement Last Shares Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_last_shares_exists = {}
-
--- Variance Restatement Last Px Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_last_px_exists = {}
-
 -- Variance Restatement Byte 5
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_5 = {}
 
@@ -4624,12 +4552,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_5.dissect = function(
 
   return offset + 1, range
 end
-
--- Variance Restatement Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_maturity_date_exists = {}
-
--- Variance Restatement Open Close Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_open_close_exists = {}
 
 -- Variance Restatement Byte 4
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_4 = {}
@@ -4719,18 +4641,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_4.dissect = function(
   return offset + 1, range
 end
 
--- Variance Restatement Account Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_account_exists = {}
-
--- Variance Restatement Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_clearing_firm_exists = {}
-
--- Variance Restatement Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_clearing_account_exists = {}
-
--- Variance Restatement Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_prevent_match_exists = {}
-
 -- Variance Restatement Byte 3
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_3 = {}
 
@@ -4819,12 +4729,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_3.dissect = function(
   return offset + 1, range
 end
 
--- Variance Restatement Symbol Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_symbol_exists = {}
-
--- Variance Restatement Capacity Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_capacity_exists = {}
-
 -- Variance Restatement Byte 2
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_2 = {}
 
@@ -4912,21 +4816,6 @@ cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_2.dissect = function(
 
   return offset + 1, range
 end
-
--- Variance Restatement Side Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_side_exists = {}
-
--- Variance Restatement Price Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_price_exists = {}
-
--- Variance Restatement Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_ord_type_exists = {}
-
--- Variance Restatement Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_time_in_force_exists = {}
-
--- Variance Restatement Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.variance_restatement_min_qty_exists = {}
 
 -- Variance Restatement Byte 1
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_1 = {}
@@ -5612,30 +5501,6 @@ cboe_futures_orderentry_boe_v1_3.order_qty.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Tas Restatement Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_1_exists = {}
-
--- Tas Restatement Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_2_exists = {}
-
--- Tas Restatement Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_3_exists = {}
-
--- Tas Restatement Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_4_exists = {}
-
--- Tas Restatement Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_5_exists = {}
-
--- Tas Restatement Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_6_exists = {}
-
--- Tas Restatement Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_7_exists = {}
-
--- Tas Restatement Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_reserved_bit_8_exists = {}
-
 -- Tas Restatement Byte 17
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_17 = {}
 
@@ -5723,9 +5588,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_17.dissect = function(buff
 
   return offset + 1, range
 end
-
--- Tas Restatement Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_frequent_trader_id_exists = {}
 
 -- Tas Restatement Byte 16
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_16 = {}
@@ -5903,9 +5765,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_15.dissect = function(buff
   return offset + 1, range
 end
 
--- Tas Restatement Secondary Exec Id Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_secondary_exec_id_exists = {}
-
 -- Tas Restatement Byte 14
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_14 = {}
 
@@ -5994,9 +5853,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_14.dissect = function(buff
   return offset + 1, range
 end
 
--- Tas Restatement Multileg Reporting Type Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_multileg_reporting_type_exists = {}
-
 -- Tas Restatement Byte 13
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_13 = {}
 
@@ -6084,27 +5940,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_13.dissect = function(buff
 
   return offset + 1, range
 end
-
--- Tas Restatement Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_cti_code_exists = {}
-
--- Tas Restatement Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_manual_order_indicator_exists = {}
-
--- Tas Restatement Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_oeoid_exists = {}
-
--- Tas Restatement Trade Date Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_trade_date_exists = {}
-
--- Tas Restatement Clearing Price Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_clearing_price_exists = {}
-
--- Tas Restatement Clearing Size Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_clearing_size_exists = {}
-
--- Tas Restatement Clearing Symbol Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_clearing_symbol_exists = {}
 
 -- Tas Restatement Byte 12
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_12 = {}
@@ -6370,9 +6205,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_10.dissect = function(buff
   return offset + 1, range
 end
 
--- Tas Restatement Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_cmta_number_exists = {}
-
 -- Tas Restatement Byte 9
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_9 = {}
 
@@ -6460,12 +6292,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_9.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Tas Restatement Fee Code Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_fee_code_exists = {}
-
--- Tas Restatement Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_stop_px_exists = {}
 
 -- Tas Restatement Byte 8
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_8 = {}
@@ -6731,15 +6557,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_6.dissect = function(buffe
   return offset + 1, range
 end
 
--- Tas Restatement Orig Cl Ord Id Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_orig_cl_ord_id_exists = {}
-
--- Tas Restatement Last Shares Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_last_shares_exists = {}
-
--- Tas Restatement Last Px Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_last_px_exists = {}
-
 -- Tas Restatement Byte 5
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_5 = {}
 
@@ -6827,12 +6644,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_5.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Tas Restatement Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_maturity_date_exists = {}
-
--- Tas Restatement Open Close Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_open_close_exists = {}
 
 -- Tas Restatement Byte 4
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_4 = {}
@@ -6922,21 +6733,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_4.dissect = function(buffe
   return offset + 1, range
 end
 
--- Tas Restatement Account Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_account_exists = {}
-
--- Tas Restatement Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_clearing_firm_exists = {}
-
--- Tas Restatement Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_clearing_account_exists = {}
-
--- Tas Restatement Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_order_qty_exists = {}
-
--- Tas Restatement Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_prevent_match_exists = {}
-
 -- Tas Restatement Byte 3
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_3 = {}
 
@@ -7025,12 +6821,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_3.dissect = function(buffe
   return offset + 1, range
 end
 
--- Tas Restatement Symbol Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_symbol_exists = {}
-
--- Tas Restatement Capacity Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_capacity_exists = {}
-
 -- Tas Restatement Byte 2
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_2 = {}
 
@@ -7118,21 +6908,6 @@ cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_2.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Tas Restatement Side Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_side_exists = {}
-
--- Tas Restatement Price Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_price_exists = {}
-
--- Tas Restatement Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_ord_type_exists = {}
-
--- Tas Restatement Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_time_in_force_exists = {}
-
--- Tas Restatement Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.tas_restatement_min_qty_exists = {}
 
 -- Tas Restatement Byte 1
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_1 = {}
@@ -7982,30 +7757,6 @@ cboe_futures_orderentry_boe_v1_3.risk_reset_acknowledgment_message.dissect = fun
   return offset + size_of_risk_reset_acknowledgment_message
 end
 
--- Purge Rejected Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_1_exists = {}
-
--- Purge Rejected Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_2_exists = {}
-
--- Purge Rejected Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_3_exists = {}
-
--- Purge Rejected Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_4_exists = {}
-
--- Purge Rejected Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_5_exists = {}
-
--- Purge Rejected Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_6_exists = {}
-
--- Purge Rejected Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_7_exists = {}
-
--- Purge Rejected Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_reserved_bit_8_exists = {}
-
 -- Purge Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_17 = {}
 
@@ -8181,9 +7932,6 @@ cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_16.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Purge Rejected Mass Cancel Id Exists
-cboe_futures_orderentry_boe_v1_3.purge_rejected_mass_cancel_id_exists = {}
 
 -- Purge Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_15 = {}
@@ -9950,30 +9698,6 @@ cboe_futures_orderentry_boe_v1_3.corrected_size.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Trade Cancel Or Correct Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_1_exists = {}
-
--- Trade Cancel Or Correct Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_2_exists = {}
-
--- Trade Cancel Or Correct Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_3_exists = {}
-
--- Trade Cancel Or Correct Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_4_exists = {}
-
--- Trade Cancel Or Correct Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_5_exists = {}
-
--- Trade Cancel Or Correct Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_6_exists = {}
-
--- Trade Cancel Or Correct Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_7_exists = {}
-
--- Trade Cancel Or Correct Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_reserved_bit_8_exists = {}
-
 -- Trade Cancel Or Correct Byte 17
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_17 = {}
 
@@ -10678,9 +10402,6 @@ cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_10.dissect = funct
   return offset + 1, range
 end
 
--- Trade Cancel Or Correct Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_cmta_number_exists = {}
-
 -- Trade Cancel Or Correct Byte 9
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_9 = {}
 
@@ -11121,15 +10842,6 @@ cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_5.dissect = functi
   return offset + 1, range
 end
 
--- Trade Cancel Or Correct Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_maturity_date_exists = {}
-
--- Trade Cancel Or Correct Open Close Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_open_close_exists = {}
-
--- Trade Cancel Or Correct Corrected Size Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_corrected_size_exists = {}
-
 -- Trade Cancel Or Correct Byte 4
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_4 = {}
 
@@ -11305,12 +11017,6 @@ cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_3.dissect = functi
 
   return offset + 1, range
 end
-
--- Trade Cancel Or Correct Symbol Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_symbol_exists = {}
-
--- Trade Cancel Or Correct Capacity Exists
-cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_capacity_exists = {}
 
 -- Trade Cancel Or Correct Byte 2
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_2 = {}
@@ -12285,30 +11991,6 @@ cboe_futures_orderentry_boe_v1_3.expire_time.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Order Execution Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_1_exists = {}
-
--- Order Execution Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_2_exists = {}
-
--- Order Execution Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_3_exists = {}
-
--- Order Execution Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_4_exists = {}
-
--- Order Execution Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_5_exists = {}
-
--- Order Execution Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_6_exists = {}
-
--- Order Execution Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_7_exists = {}
-
--- Order Execution Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_reserved_bit_8_exists = {}
-
 -- Order Execution Byte 17
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_17 = {}
 
@@ -12396,9 +12078,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_17.dissect = function(buff
 
   return offset + 1, range
 end
-
--- Order Execution Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_frequent_trader_id_exists = {}
 
 -- Order Execution Byte 16
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_16 = {}
@@ -12576,9 +12255,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_15.dissect = function(buff
   return offset + 1, range
 end
 
--- Order Execution Secondary Exec Id Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_secondary_exec_id_exists = {}
-
 -- Order Execution Byte 14
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_14 = {}
 
@@ -12667,27 +12343,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_14.dissect = function(buff
   return offset + 1, range
 end
 
--- Order Execution Cum Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_cum_qty_exists = {}
-
--- Order Execution Day Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_day_order_qty_exists = {}
-
--- Order Execution Day Cum Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_day_cum_qty_exists = {}
-
--- Order Execution Avg Px Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_avg_px_exists = {}
-
--- Order Execution Day Avg Px Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_day_avg_px_exists = {}
-
--- Order Execution Pending Status Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_pending_status_exists = {}
-
--- Order Execution Multileg Reporting Type Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_multileg_reporting_type_exists = {}
-
 -- Order Execution Byte 13
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_13 = {}
 
@@ -12775,21 +12430,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_13.dissect = function(buff
 
   return offset + 1, range
 end
-
--- Order Execution Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_cti_code_exists = {}
-
--- Order Execution Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_manual_order_indicator_exists = {}
-
--- Order Execution Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_oeoid_exists = {}
-
--- Order Execution Trade Date Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_trade_date_exists = {}
-
--- Order Execution Clearing Size Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_clearing_size_exists = {}
 
 -- Order Execution Byte 12
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_12 = {}
@@ -13055,9 +12695,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_10.dissect = function(buff
   return offset + 1, range
 end
 
--- Order Execution Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_cmta_number_exists = {}
-
 -- Order Execution Byte 9
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_9 = {}
 
@@ -13145,12 +12782,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_9.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Execution Fee Code Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_fee_code_exists = {}
-
--- Order Execution Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_stop_px_exists = {}
 
 -- Order Execution Byte 8
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_8 = {}
@@ -13416,9 +13047,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_6.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Execution Expire Time Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_expire_time_exists = {}
-
 -- Order Execution Byte 5
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_5 = {}
 
@@ -13506,12 +13134,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_5.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Execution Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_maturity_date_exists = {}
-
--- Order Execution Open Close Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_open_close_exists = {}
 
 -- Order Execution Byte 4
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_4 = {}
@@ -13601,21 +13223,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_4.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Execution Account Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_account_exists = {}
-
--- Order Execution Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_clearing_firm_exists = {}
-
--- Order Execution Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_clearing_account_exists = {}
-
--- Order Execution Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_order_qty_exists = {}
-
--- Order Execution Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_prevent_match_exists = {}
-
 -- Order Execution Byte 3
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_3 = {}
 
@@ -13704,12 +13311,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_3.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Execution Symbol Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_symbol_exists = {}
-
--- Order Execution Capacity Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_capacity_exists = {}
-
 -- Order Execution Byte 2
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_2 = {}
 
@@ -13797,21 +13398,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_byte_2.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Execution Side Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_side_exists = {}
-
--- Order Execution Price Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_price_exists = {}
-
--- Order Execution Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_ord_type_exists = {}
-
--- Order Execution Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_time_in_force_exists = {}
-
--- Order Execution Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_execution_min_qty_exists = {}
 
 -- Order Execution Byte 1
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_1 = {}
@@ -14493,30 +14079,6 @@ cboe_futures_orderentry_boe_v1_3.order_execution_message.dissect = function(buff
   return offset + size_of_order_execution_message
 end
 
--- Cancel Rejected Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_1_exists = {}
-
--- Cancel Rejected Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_2_exists = {}
-
--- Cancel Rejected Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_3_exists = {}
-
--- Cancel Rejected Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_4_exists = {}
-
--- Cancel Rejected Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_5_exists = {}
-
--- Cancel Rejected Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_6_exists = {}
-
--- Cancel Rejected Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_7_exists = {}
-
--- Cancel Rejected Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_reserved_bit_8_exists = {}
-
 -- Cancel Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_17 = {}
 
@@ -14957,15 +14519,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_13.dissect = function(buff
   return offset + 1, range
 end
 
--- Cancel Rejected Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_cti_code_exists = {}
-
--- Cancel Rejected Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_manual_order_indicator_exists = {}
-
--- Cancel Rejected Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_oeoid_exists = {}
-
 -- Cancel Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_12 = {}
 
@@ -15230,9 +14783,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_10.dissect = function(buff
   return offset + 1, range
 end
 
--- Cancel Rejected Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_cmta_number_exists = {}
-
 -- Cancel Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_9 = {}
 
@@ -15320,9 +14870,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_9.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Cancel Rejected Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_stop_px_exists = {}
 
 -- Cancel Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_8 = {}
@@ -15588,9 +15135,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_6.dissect = function(buffe
   return offset + 1, range
 end
 
--- Cancel Rejected Expire Time Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_expire_time_exists = {}
-
 -- Cancel Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_5 = {}
 
@@ -15678,12 +15222,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_5.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Cancel Rejected Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_maturity_date_exists = {}
-
--- Cancel Rejected Open Close Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_open_close_exists = {}
 
 -- Cancel Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_4 = {}
@@ -15861,12 +15399,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_3.dissect = function(buffe
   return offset + 1, range
 end
 
--- Cancel Rejected Symbol Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_symbol_exists = {}
-
--- Cancel Rejected Capacity Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_capacity_exists = {}
-
 -- Cancel Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_2 = {}
 
@@ -15954,21 +15486,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_2.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Cancel Rejected Side Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_side_exists = {}
-
--- Cancel Rejected Price Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_price_exists = {}
-
--- Cancel Rejected Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_ord_type_exists = {}
-
--- Cancel Rejected Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_time_in_force_exists = {}
-
--- Cancel Rejected Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.cancel_rejected_min_qty_exists = {}
 
 -- Cancel Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_1 = {}
@@ -16751,30 +16268,6 @@ cboe_futures_orderentry_boe_v1_3.secondary_order_id.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Order Cancelled Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_1_exists = {}
-
--- Order Cancelled Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_2_exists = {}
-
--- Order Cancelled Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_3_exists = {}
-
--- Order Cancelled Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_4_exists = {}
-
--- Order Cancelled Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_5_exists = {}
-
--- Order Cancelled Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_6_exists = {}
-
--- Order Cancelled Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_7_exists = {}
-
--- Order Cancelled Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_reserved_bit_8_exists = {}
-
 -- Order Cancelled Byte 17
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_17 = {}
 
@@ -16862,9 +16355,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_17.dissect = function(buff
 
   return offset + 1, range
 end
-
--- Order Cancelled Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_frequent_trader_id_exists = {}
 
 -- Order Cancelled Byte 16
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_16 = {}
@@ -17218,15 +16708,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_13.dissect = function(buff
   return offset + 1, range
 end
 
--- Order Cancelled Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_cti_code_exists = {}
-
--- Order Cancelled Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_manual_order_indicator_exists = {}
-
--- Order Cancelled Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_oeoid_exists = {}
-
 -- Order Cancelled Byte 12
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_12 = {}
 
@@ -17491,9 +16972,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_10.dissect = function(buff
   return offset + 1, range
 end
 
--- Order Cancelled Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_cmta_number_exists = {}
-
 -- Order Cancelled Byte 9
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_9 = {}
 
@@ -17581,9 +17059,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_9.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Cancelled Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_stop_px_exists = {}
 
 -- Order Cancelled Byte 8
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_8 = {}
@@ -17761,9 +17236,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_7.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Cancelled Secondary Order Id Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_secondary_order_id_exists = {}
-
 -- Order Cancelled Byte 6
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_6 = {}
 
@@ -17851,18 +17323,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_6.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Cancelled Leaves Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_leaves_qty_exists = {}
-
--- Order Cancelled Last Shares Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_last_shares_exists = {}
-
--- Order Cancelled Last Px Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_last_px_exists = {}
-
--- Order Cancelled Expire Time Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_expire_time_exists = {}
 
 -- Order Cancelled Byte 5
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_5 = {}
@@ -17952,12 +17412,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_5.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Cancelled Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_maturity_date_exists = {}
-
--- Order Cancelled Open Close Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_open_close_exists = {}
-
 -- Order Cancelled Byte 4
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_4 = {}
 
@@ -18045,21 +17499,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_4.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Cancelled Account Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_account_exists = {}
-
--- Order Cancelled Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_clearing_firm_exists = {}
-
--- Order Cancelled Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_clearing_account_exists = {}
-
--- Order Cancelled Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_order_qty_exists = {}
-
--- Order Cancelled Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_prevent_match_exists = {}
 
 -- Order Cancelled Byte 3
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_3 = {}
@@ -18149,12 +17588,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_3.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Cancelled Symbol Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_symbol_exists = {}
-
--- Order Cancelled Capacity Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_capacity_exists = {}
-
 -- Order Cancelled Byte 2
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_2 = {}
 
@@ -18242,21 +17675,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_2.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Cancelled Side Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_side_exists = {}
-
--- Order Cancelled Price Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_price_exists = {}
-
--- Order Cancelled Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_ord_type_exists = {}
-
--- Order Cancelled Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_time_in_force_exists = {}
-
--- Order Cancelled Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_cancelled_min_qty_exists = {}
 
 -- Order Cancelled Byte 1
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_1 = {}
@@ -18840,30 +18258,6 @@ cboe_futures_orderentry_boe_v1_3.order_cancelled_message.dissect = function(buff
 
   return offset + size_of_order_cancelled_message
 end
-
--- User Modify Rejected Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_1_exists = {}
-
--- User Modify Rejected Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_2_exists = {}
-
--- User Modify Rejected Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_3_exists = {}
-
--- User Modify Rejected Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_4_exists = {}
-
--- User Modify Rejected Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_5_exists = {}
-
--- User Modify Rejected Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_6_exists = {}
-
--- User Modify Rejected Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_7_exists = {}
-
--- User Modify Rejected Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.user_modify_rejected_reserved_bit_8_exists = {}
 
 -- User Modify Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_17 = {}
@@ -20867,30 +20261,6 @@ cboe_futures_orderentry_boe_v1_3.quote_restated_message.dissect = function(buffe
   return offset + size_of_quote_restated_message
 end
 
--- Order Modified Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_1_exists = {}
-
--- Order Modified Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_2_exists = {}
-
--- Order Modified Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_3_exists = {}
-
--- Order Modified Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_4_exists = {}
-
--- Order Modified Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_5_exists = {}
-
--- Order Modified Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_6_exists = {}
-
--- Order Modified Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_7_exists = {}
-
--- Order Modified Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_reserved_bit_8_exists = {}
-
 -- Order Modified Byte 17
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_17 = {}
 
@@ -20978,9 +20348,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_17.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Modified Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_frequent_trader_id_exists = {}
 
 -- Order Modified Byte 16
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_16 = {}
@@ -21334,15 +20701,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_13.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Modified Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_cti_code_exists = {}
-
--- Order Modified Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_manual_order_indicator_exists = {}
-
--- Order Modified Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_oeoid_exists = {}
-
 -- Order Modified Byte 12
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_12 = {}
 
@@ -21607,9 +20965,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_10.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Modified Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_cmta_number_exists = {}
-
 -- Order Modified Byte 9
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_9 = {}
 
@@ -21697,9 +21052,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_9.dissect = function(buffer
 
   return offset + 1, range
 end
-
--- Order Modified Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_stop_px_exists = {}
 
 -- Order Modified Byte 8
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_8 = {}
@@ -21965,18 +21317,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_6.dissect = function(buffer
   return offset + 1, range
 end
 
--- Order Modified Orig Cl Ord Id Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_orig_cl_ord_id_exists = {}
-
--- Order Modified Leaves Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_leaves_qty_exists = {}
-
--- Order Modified Base Liquidity Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_base_liquidity_indicator_exists = {}
-
--- Order Modified Expire Time Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_expire_time_exists = {}
-
 -- Order Modified Byte 5
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_5 = {}
 
@@ -22064,12 +21404,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_5.dissect = function(buffer
 
   return offset + 1, range
 end
-
--- Order Modified Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_maturity_date_exists = {}
-
--- Order Modified Open Close Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_open_close_exists = {}
 
 -- Order Modified Byte 4
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_4 = {}
@@ -22159,21 +21493,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_4.dissect = function(buffer
   return offset + 1, range
 end
 
--- Order Modified Account Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_account_exists = {}
-
--- Order Modified Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_clearing_firm_exists = {}
-
--- Order Modified Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_clearing_account_exists = {}
-
--- Order Modified Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_order_qty_exists = {}
-
--- Order Modified Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_prevent_match_exists = {}
-
 -- Order Modified Byte 3
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_3 = {}
 
@@ -22262,12 +21581,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_3.dissect = function(buffer
   return offset + 1, range
 end
 
--- Order Modified Symbol Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_symbol_exists = {}
-
--- Order Modified Capacity Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_capacity_exists = {}
-
 -- Order Modified Byte 2
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_2 = {}
 
@@ -22355,21 +21668,6 @@ cboe_futures_orderentry_boe_v1_3.order_modified_byte_2.dissect = function(buffer
 
   return offset + 1, range
 end
-
--- Order Modified Side Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_side_exists = {}
-
--- Order Modified Price Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_price_exists = {}
-
--- Order Modified Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_ord_type_exists = {}
-
--- Order Modified Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_time_in_force_exists = {}
-
--- Order Modified Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_modified_min_qty_exists = {}
 
 -- Order Modified Byte 1
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_1 = {}
@@ -23046,30 +22344,6 @@ cboe_futures_orderentry_boe_v1_3.quote_update_rejected_message.dissect = functio
   return offset + size_of_quote_update_rejected_message
 end
 
--- Order Rejected Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_1_exists = {}
-
--- Order Rejected Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_2_exists = {}
-
--- Order Rejected Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_3_exists = {}
-
--- Order Rejected Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_4_exists = {}
-
--- Order Rejected Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_5_exists = {}
-
--- Order Rejected Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_6_exists = {}
-
--- Order Rejected Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_7_exists = {}
-
--- Order Rejected Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_reserved_bit_8_exists = {}
-
 -- Order Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_17 = {}
 
@@ -23157,9 +22431,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_17.dissect = function(buffe
 
   return offset + 1, range
 end
-
--- Order Rejected Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_frequent_trader_id_exists = {}
 
 -- Order Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_16 = {}
@@ -23513,15 +22784,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_13.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Rejected Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_cti_code_exists = {}
-
--- Order Rejected Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_manual_order_indicator_exists = {}
-
--- Order Rejected Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_oeoid_exists = {}
-
 -- Order Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_12 = {}
 
@@ -23786,9 +23048,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_10.dissect = function(buffe
   return offset + 1, range
 end
 
--- Order Rejected Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_cmta_number_exists = {}
-
 -- Order Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_9 = {}
 
@@ -23876,9 +23135,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_9.dissect = function(buffer
 
   return offset + 1, range
 end
-
--- Order Rejected Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_stop_px_exists = {}
 
 -- Order Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_8 = {}
@@ -24232,12 +23488,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_5.dissect = function(buffer
   return offset + 1, range
 end
 
--- Order Rejected Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_maturity_date_exists = {}
-
--- Order Rejected Open Close Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_open_close_exists = {}
-
 -- Order Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_4 = {}
 
@@ -24325,21 +23575,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_4.dissect = function(buffer
 
   return offset + 1, range
 end
-
--- Order Rejected Account Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_account_exists = {}
-
--- Order Rejected Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_clearing_firm_exists = {}
-
--- Order Rejected Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_clearing_account_exists = {}
-
--- Order Rejected Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_order_qty_exists = {}
-
--- Order Rejected Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_prevent_match_exists = {}
 
 -- Order Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_3 = {}
@@ -24429,12 +23664,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_3.dissect = function(buffer
   return offset + 1, range
 end
 
--- Order Rejected Symbol Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_symbol_exists = {}
-
--- Order Rejected Capacity Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_capacity_exists = {}
-
 -- Order Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_2 = {}
 
@@ -24522,21 +23751,6 @@ cboe_futures_orderentry_boe_v1_3.order_rejected_byte_2.dissect = function(buffer
 
   return offset + 1, range
 end
-
--- Order Rejected Side Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_side_exists = {}
-
--- Order Rejected Price Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_price_exists = {}
-
--- Order Rejected Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_ord_type_exists = {}
-
--- Order Rejected Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_time_in_force_exists = {}
-
--- Order Rejected Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_rejected_min_qty_exists = {}
 
 -- Order Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_1 = {}
@@ -25453,30 +24667,6 @@ cboe_futures_orderentry_boe_v1_3.quote_update_acknowledgment_message.dissect = f
   return offset + size_of_quote_update_acknowledgment_message
 end
 
--- Order Acknowledgment Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_1_exists = {}
-
--- Order Acknowledgment Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_2_exists = {}
-
--- Order Acknowledgment Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_3_exists = {}
-
--- Order Acknowledgment Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_4_exists = {}
-
--- Order Acknowledgment Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_5_exists = {}
-
--- Order Acknowledgment Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_6_exists = {}
-
--- Order Acknowledgment Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_7_exists = {}
-
--- Order Acknowledgment Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_reserved_bit_8_exists = {}
-
 -- Order Acknowledgment Byte 17
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_17 = {}
 
@@ -25564,9 +24754,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_17.dissect = function
 
   return offset + 1, range
 end
-
--- Order Acknowledgment Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_frequent_trader_id_exists = {}
 
 -- Order Acknowledgment Byte 16
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_16 = {}
@@ -25832,21 +25019,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_14.dissect = function
   return offset + 1, range
 end
 
--- Order Acknowledgment Cum Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_cum_qty_exists = {}
-
--- Order Acknowledgment Day Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_day_order_qty_exists = {}
-
--- Order Acknowledgment Day Cum Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_day_cum_qty_exists = {}
-
--- Order Acknowledgment Avg Px Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_avg_px_exists = {}
-
--- Order Acknowledgment Day Avg Px Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_day_avg_px_exists = {}
-
 -- Order Acknowledgment Byte 13
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_13 = {}
 
@@ -25934,15 +25106,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_13.dissect = function
 
   return offset + 1, range
 end
-
--- Order Acknowledgment Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_cti_code_exists = {}
-
--- Order Acknowledgment Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_manual_order_indicator_exists = {}
-
--- Order Acknowledgment Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_oeoid_exists = {}
 
 -- Order Acknowledgment Byte 12
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_12 = {}
@@ -26208,9 +25371,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_10.dissect = function
   return offset + 1, range
 end
 
--- Order Acknowledgment Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_cmta_number_exists = {}
-
 -- Order Acknowledgment Byte 9
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_9 = {}
 
@@ -26299,9 +25459,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_9.dissect = function(
   return offset + 1, range
 end
 
--- Order Acknowledgment Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_stop_px_exists = {}
-
 -- Order Acknowledgment Byte 8
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_8 = {}
 
@@ -26389,9 +25546,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_8.dissect = function(
 
   return offset + 1, range
 end
-
--- Order Acknowledgment Sub Liquidity Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_sub_liquidity_indicator_exists = {}
 
 -- Order Acknowledgment Byte 7
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_7 = {}
@@ -26569,15 +25723,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_6.dissect = function(
   return offset + 1, range
 end
 
--- Order Acknowledgment Leaves Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_leaves_qty_exists = {}
-
--- Order Acknowledgment Base Liquidity Indicator Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_base_liquidity_indicator_exists = {}
-
--- Order Acknowledgment Expire Time Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_expire_time_exists = {}
-
 -- Order Acknowledgment Byte 5
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_5 = {}
 
@@ -26665,12 +25810,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_5.dissect = function(
 
   return offset + 1, range
 end
-
--- Order Acknowledgment Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_maturity_date_exists = {}
-
--- Order Acknowledgment Open Close Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_open_close_exists = {}
 
 -- Order Acknowledgment Byte 4
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_4 = {}
@@ -26760,21 +25899,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_4.dissect = function(
   return offset + 1, range
 end
 
--- Order Acknowledgment Account Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_account_exists = {}
-
--- Order Acknowledgment Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_clearing_firm_exists = {}
-
--- Order Acknowledgment Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_clearing_account_exists = {}
-
--- Order Acknowledgment Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_order_qty_exists = {}
-
--- Order Acknowledgment Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_prevent_match_exists = {}
-
 -- Order Acknowledgment Byte 3
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_3 = {}
 
@@ -26863,12 +25987,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_3.dissect = function(
   return offset + 1, range
 end
 
--- Order Acknowledgment Symbol Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_symbol_exists = {}
-
--- Order Acknowledgment Capacity Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_capacity_exists = {}
-
 -- Order Acknowledgment Byte 2
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_2 = {}
 
@@ -26956,21 +26074,6 @@ cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_2.dissect = function(
 
   return offset + 1, range
 end
-
--- Order Acknowledgment Side Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_side_exists = {}
-
--- Order Acknowledgment Price Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_price_exists = {}
-
--- Order Acknowledgment Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_ord_type_exists = {}
-
--- Order Acknowledgment Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_time_in_force_exists = {}
-
--- Order Acknowledgment Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.order_acknowledgment_min_qty_exists = {}
 
 -- Order Acknowledgment Byte 1
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_1 = {}
@@ -27775,30 +26878,6 @@ cboe_futures_orderentry_boe_v1_3.mass_cancel_inst.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Purge Order Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_1_exists = {}
-
--- Purge Order Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_2_exists = {}
-
--- Purge Order Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_3_exists = {}
-
--- Purge Order Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_4_exists = {}
-
--- Purge Order Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_5_exists = {}
-
--- Purge Order Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_6_exists = {}
-
--- Purge Order Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_7_exists = {}
-
--- Purge Order Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_reserved_bit_8_exists = {}
-
 -- Purge Order Byte 2
 cboe_futures_orderentry_boe_v1_3.purge_order_byte_2 = {}
 
@@ -27886,24 +26965,6 @@ cboe_futures_orderentry_boe_v1_3.purge_order_byte_2.dissect = function(buffer, o
 
   return offset + 1, range
 end
-
--- Purge Order Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_clearing_firm_exists = {}
-
--- Purge Order Mass Cancel Inst Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_mass_cancel_inst_exists = {}
-
--- Purge Order Product Name Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_product_name_exists = {}
-
--- Purge Order Mass Cancel Id Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_mass_cancel_id_exists = {}
-
--- Purge Order Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_manual_order_indicator_exists = {}
-
--- Purge Order Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.purge_order_oeoid_exists = {}
 
 -- Purge Order Byte 1
 cboe_futures_orderentry_boe_v1_3.purge_order_byte_1 = {}
@@ -28412,12 +27473,6 @@ cboe_futures_orderentry_boe_v1_3.quote_update_message.dissect = function(buffer,
   return offset + size_of_quote_update_message
 end
 
--- Reserved Bit 1
-cboe_futures_orderentry_boe_v1_3.reserved_bit_1 = {}
-
--- Exec Inst
-cboe_futures_orderentry_boe_v1_3.exec_inst = {}
-
 -- Cancel Orig On Reject
 cboe_futures_orderentry_boe_v1_3.cancel_orig_on_reject = {}
 
@@ -28447,30 +27502,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_orig_on_reject.dissect = function(buffer
 
   return offset + length, value
 end
-
--- Modify Order Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_reserved_bit_1_exists = {}
-
--- Modify Order Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_stop_px_exists = {}
-
--- Modify Order Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_reserved_bit_3_exists = {}
-
--- Modify Order Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_manual_order_indicator_exists = {}
-
--- Modify Order Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_oeoid_exists = {}
-
--- Modify Order Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_frequent_trader_id_exists = {}
-
--- Modify Order Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_reserved_bit_7_exists = {}
-
--- Modify Order Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_reserved_bit_8_exists = {}
 
 -- Modify Order Byte 2
 cboe_futures_orderentry_boe_v1_3.modify_order_byte_2 = {}
@@ -28559,30 +27590,6 @@ cboe_futures_orderentry_boe_v1_3.modify_order_byte_2.dissect = function(buffer, 
 
   return offset + 1, range
 end
-
--- Modify Order Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_clearing_firm_exists = {}
-
--- Modify Order Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_reserved_bit_2_exists = {}
-
--- Modify Order Order Qty Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_order_qty_exists = {}
-
--- Modify Order Price Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_price_exists = {}
-
--- Modify Order Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_ord_type_exists = {}
-
--- Modify Order Cancel Orig On Reject Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_cancel_orig_on_reject_exists = {}
-
--- Modify Order Exec Inst Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_exec_inst_exists = {}
-
--- Modify Order Side Exists
-cboe_futures_orderentry_boe_v1_3.modify_order_side_exists = {}
 
 -- Modify Order Byte 1
 cboe_futures_orderentry_boe_v1_3.modify_order_byte_1 = {}
@@ -28907,30 +27914,6 @@ cboe_futures_orderentry_boe_v1_3.modify_order_message.dissect = function(buffer,
   return offset + size_of_modify_order_message
 end
 
--- Cancel Order Mass Cancel Inst Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_mass_cancel_inst_exists = {}
-
--- Cancel Order Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_reserved_bit_2_exists = {}
-
--- Cancel Order Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_reserved_bit_3_exists = {}
-
--- Cancel Order Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_reserved_bit_4_exists = {}
-
--- Cancel Order Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_reserved_bit_5_exists = {}
-
--- Cancel Order Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_reserved_bit_6_exists = {}
-
--- Cancel Order Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_reserved_bit_7_exists = {}
-
--- Cancel Order Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_reserved_bit_8_exists = {}
-
 -- Cancel Order Byte 2
 cboe_futures_orderentry_boe_v1_3.cancel_order_byte_2 = {}
 
@@ -29018,21 +28001,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_order_byte_2.dissect = function(buffer, 
 
   return offset + 1, range
 end
-
--- Cancel Order Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_clearing_firm_exists = {}
-
--- Cancel Order Product Name Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_product_name_exists = {}
-
--- Cancel Order Mass Cancel Id Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_mass_cancel_id_exists = {}
-
--- Cancel Order Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_manual_order_indicator_exists = {}
-
--- Cancel Order Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.cancel_order_oeoid_exists = {}
 
 -- Cancel Order Byte 1
 cboe_futures_orderentry_boe_v1_3.cancel_order_byte_1 = {}
@@ -29306,33 +28274,6 @@ cboe_futures_orderentry_boe_v1_3.cancel_order_message.dissect = function(buffer,
   return offset + size_of_cancel_order_message
 end
 
--- Reserved Bit 2
-cboe_futures_orderentry_boe_v1_3.reserved_bit_2 = {}
-
--- New Order Reserved Bit 1 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_1_exists = {}
-
--- New Order Reserved Bit 2 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_2_exists = {}
-
--- New Order Reserved Bit 3 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_3_exists = {}
-
--- New Order Reserved Bit 4 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_4_exists = {}
-
--- New Order Frequent Trader Id Exists
-cboe_futures_orderentry_boe_v1_3.new_order_frequent_trader_id_exists = {}
-
--- New Order Reserved Bit 6 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_6_exists = {}
-
--- New Order Reserved Bit 7 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_7_exists = {}
-
--- New Order Reserved Bit 8 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_8_exists = {}
-
 -- New Order Byte 8
 cboe_futures_orderentry_boe_v1_3.new_order_byte_8 = {}
 
@@ -29421,21 +28362,6 @@ cboe_futures_orderentry_boe_v1_3.new_order_byte_8.dissect = function(buffer, off
   return offset + 1, range
 end
 
--- New Order Custom Group Id Exists
-cboe_futures_orderentry_boe_v1_3.new_order_custom_group_id_exists = {}
-
--- New Order Reserved Bit 5 Exists
-cboe_futures_orderentry_boe_v1_3.new_order_reserved_bit_5_exists = {}
-
--- New Order Cti Code Exists
-cboe_futures_orderentry_boe_v1_3.new_order_cti_code_exists = {}
-
--- New Order Manual Order Indicator Exists
-cboe_futures_orderentry_boe_v1_3.new_order_manual_order_indicator_exists = {}
-
--- New Order Oeoid Exists
-cboe_futures_orderentry_boe_v1_3.new_order_oeoid_exists = {}
-
 -- New Order Byte 7
 cboe_futures_orderentry_boe_v1_3.new_order_byte_7 = {}
 
@@ -29523,9 +28449,6 @@ cboe_futures_orderentry_boe_v1_3.new_order_byte_7.dissect = function(buffer, off
 
   return offset + 1, range
 end
-
--- New Order Stop Px Exists
-cboe_futures_orderentry_boe_v1_3.new_order_stop_px_exists = {}
 
 -- New Order Byte 6
 cboe_futures_orderentry_boe_v1_3.new_order_byte_6 = {}
@@ -29703,18 +28626,6 @@ cboe_futures_orderentry_boe_v1_3.new_order_byte_5.dissect = function(buffer, off
   return offset + 1, range
 end
 
--- New Order Maturity Date Exists
-cboe_futures_orderentry_boe_v1_3.new_order_maturity_date_exists = {}
-
--- New Order Risk Reset Exists
-cboe_futures_orderentry_boe_v1_3.new_order_risk_reset_exists = {}
-
--- New Order Open Close Exists
-cboe_futures_orderentry_boe_v1_3.new_order_open_close_exists = {}
-
--- New Order Cmta Number Exists
-cboe_futures_orderentry_boe_v1_3.new_order_cmta_number_exists = {}
-
 -- New Order Byte 4
 cboe_futures_orderentry_boe_v1_3.new_order_byte_4 = {}
 
@@ -29802,15 +28713,6 @@ cboe_futures_orderentry_boe_v1_3.new_order_byte_4.dissect = function(buffer, off
 
   return offset + 1, range
 end
-
--- New Order Account Exists
-cboe_futures_orderentry_boe_v1_3.new_order_account_exists = {}
-
--- New Order Prevent Match Exists
-cboe_futures_orderentry_boe_v1_3.new_order_prevent_match_exists = {}
-
--- New Order Expire Time Exists
-cboe_futures_orderentry_boe_v1_3.new_order_expire_time_exists = {}
 
 -- New Order Byte 3
 cboe_futures_orderentry_boe_v1_3.new_order_byte_3 = {}
@@ -29900,12 +28802,6 @@ cboe_futures_orderentry_boe_v1_3.new_order_byte_3.dissect = function(buffer, off
   return offset + 1, range
 end
 
--- New Order Symbol Exists
-cboe_futures_orderentry_boe_v1_3.new_order_symbol_exists = {}
-
--- New Order Capacity Exists
-cboe_futures_orderentry_boe_v1_3.new_order_capacity_exists = {}
-
 -- New Order Byte 2
 cboe_futures_orderentry_boe_v1_3.new_order_byte_2 = {}
 
@@ -29993,24 +28889,6 @@ cboe_futures_orderentry_boe_v1_3.new_order_byte_2.dissect = function(buffer, off
 
   return offset + 1, range
 end
-
--- New Order Clearing Firm Exists
-cboe_futures_orderentry_boe_v1_3.new_order_clearing_firm_exists = {}
-
--- New Order Clearing Account Exists
-cboe_futures_orderentry_boe_v1_3.new_order_clearing_account_exists = {}
-
--- New Order Price Exists
-cboe_futures_orderentry_boe_v1_3.new_order_price_exists = {}
-
--- New Order Ord Type Exists
-cboe_futures_orderentry_boe_v1_3.new_order_ord_type_exists = {}
-
--- New Order Time In Force Exists
-cboe_futures_orderentry_boe_v1_3.new_order_time_in_force_exists = {}
-
--- New Order Min Qty Exists
-cboe_futures_orderentry_boe_v1_3.new_order_min_qty_exists = {}
 
 -- New Order Byte 1
 cboe_futures_orderentry_boe_v1_3.new_order_byte_1 = {}
@@ -30477,12 +29355,6 @@ cboe_futures_orderentry_boe_v1_3.new_order_message.dissect = function(buffer, of
 
   return offset + size_of_new_order_message
 end
-
--- Replay Complete Message
-cboe_futures_orderentry_boe_v1_3.replay_complete_message = {}
-
--- Server Heartbeat Message
-cboe_futures_orderentry_boe_v1_3.server_heartbeat_message = {}
 
 -- Sequence Number
 cboe_futures_orderentry_boe_v1_3.sequence_number = {}
@@ -34177,12 +33049,6 @@ cboe_futures_orderentry_boe_v1_3.login_response_message.dissect = function(buffe
 
   return offset + size_of_login_response_message
 end
-
--- Client Heartbeat Message
-cboe_futures_orderentry_boe_v1_3.client_heartbeat_message = {}
-
--- Logout Request Message
-cboe_futures_orderentry_boe_v1_3.logout_request_message = {}
 
 -- Password
 cboe_futures_orderentry_boe_v1_3.password = {}
