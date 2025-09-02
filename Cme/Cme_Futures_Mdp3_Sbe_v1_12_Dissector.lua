@@ -2117,30 +2117,6 @@ cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_tc_p_long_qty_groups.dissect = 
   return cme_futures_mdp3_sbe_v1_12.snapshot_full_refresh_tc_p_long_qty_groups.fields(buffer, offset, packet, parent)
 end
 
--- Last Trade Msg
-cme_futures_mdp3_sbe_v1_12.last_trade_msg = {}
-
--- Last Volume Msg
-cme_futures_mdp3_sbe_v1_12.last_volume_msg = {}
-
--- Last Quote Msg
-cme_futures_mdp3_sbe_v1_12.last_quote_msg = {}
-
--- Last Stats Msg
-cme_futures_mdp3_sbe_v1_12.last_stats_msg = {}
-
--- Last Implied Msg
-cme_futures_mdp3_sbe_v1_12.last_implied_msg = {}
-
--- Recovery Msg
-cme_futures_mdp3_sbe_v1_12.recovery_msg = {}
-
--- Reserved
-cme_futures_mdp3_sbe_v1_12.reserved = {}
-
--- End Of Event
-cme_futures_mdp3_sbe_v1_12.end_of_event = {}
-
 -- Match Event Indicator
 cme_futures_mdp3_sbe_v1_12.match_event_indicator = {}
 
@@ -4367,81 +4343,6 @@ cme_futures_mdp3_sbe_v1_12.lot_type_rules_groups.dissect = function(buffer, offs
 
   return cme_futures_mdp3_sbe_v1_12.lot_type_rules_groups.fields(buffer, offset, packet, parent)
 end
-
--- Reserved 8
-cme_futures_mdp3_sbe_v1_12.reserved_8 = {}
-
--- Variable Product Eligibility
-cme_futures_mdp3_sbe_v1_12.variable_product_eligibility = {}
-
--- Daily Product Eligibility
-cme_futures_mdp3_sbe_v1_12.daily_product_eligibility = {}
-
--- Gt Orders Eligibility
-cme_futures_mdp3_sbe_v1_12.gt_orders_eligibility = {}
-
--- Implied Matching Eligibility
-cme_futures_mdp3_sbe_v1_12.implied_matching_eligibility = {}
-
--- Triangulation Eligible
-cme_futures_mdp3_sbe_v1_12.triangulation_eligible = {}
-
--- Variable Cab Eligible
-cme_futures_mdp3_sbe_v1_12.variable_cab_eligible = {}
-
--- Inverted Book
-cme_futures_mdp3_sbe_v1_12.inverted_book = {}
-
--- Is Aon Instrument
-cme_futures_mdp3_sbe_v1_12.is_aon_instrument = {}
-
--- ILink Indicative Mass Quoting Eligible
-cme_futures_mdp3_sbe_v1_12.ilink_indicative_mass_quoting_eligible = {}
-
--- Negative Strike Eligible
-cme_futures_mdp3_sbe_v1_12.negative_strike_eligible = {}
-
--- Negative Price Outright Eligible
-cme_futures_mdp3_sbe_v1_12.negative_price_outright_eligible = {}
-
--- Is Fractional
-cme_futures_mdp3_sbe_v1_12.is_fractional = {}
-
--- Volatility Quoted Option
-cme_futures_mdp3_sbe_v1_12.volatility_quoted_option = {}
-
--- Rfq Cross Eligible
-cme_futures_mdp3_sbe_v1_12.rfq_cross_eligible = {}
-
--- Zero Price Outright Eligible
-cme_futures_mdp3_sbe_v1_12.zero_price_outright_eligible = {}
-
--- Decaying Product Eligibility
-cme_futures_mdp3_sbe_v1_12.decaying_product_eligibility = {}
-
--- Electronic Match Eligible
-cme_futures_mdp3_sbe_v1_12.electronic_match_eligible = {}
-
--- Order Cross Eligible
-cme_futures_mdp3_sbe_v1_12.order_cross_eligible = {}
-
--- Block Trade Eligible
-cme_futures_mdp3_sbe_v1_12.block_trade_eligible = {}
-
--- Efp Eligible
-cme_futures_mdp3_sbe_v1_12.efp_eligible = {}
-
--- Ebf Eligible
-cme_futures_mdp3_sbe_v1_12.ebf_eligible = {}
-
--- Efs Eligible
-cme_futures_mdp3_sbe_v1_12.efs_eligible = {}
-
--- Efr Eligible
-cme_futures_mdp3_sbe_v1_12.efr_eligible = {}
-
--- Otc Eligible
-cme_futures_mdp3_sbe_v1_12.otc_eligible = {}
 
 -- Inst Attrib Value
 cme_futures_mdp3_sbe_v1_12.inst_attrib_value = {}
@@ -7096,24 +6997,6 @@ cme_futures_mdp3_sbe_v1_12.collateral_market_value.dissect = function(buffer, of
 
   return cme_futures_mdp3_sbe_v1_12.collateral_market_value.fields(buffer, offset, packet, parent)
 end
-
--- Final Daily
-cme_futures_mdp3_sbe_v1_12.final_daily = {}
-
--- Actual
-cme_futures_mdp3_sbe_v1_12.actual = {}
-
--- Rounded
-cme_futures_mdp3_sbe_v1_12.rounded = {}
-
--- Intraday
-cme_futures_mdp3_sbe_v1_12.intraday = {}
-
--- Reserved Bits
-cme_futures_mdp3_sbe_v1_12.reserved_bits = {}
-
--- Null Value
-cme_futures_mdp3_sbe_v1_12.null_value = {}
 
 -- Settl Price Type
 cme_futures_mdp3_sbe_v1_12.settl_price_type = {}
@@ -14478,9 +14361,6 @@ cme_futures_mdp3_sbe_v1_12.admin_login.dissect = function(buffer, offset, packet
     return cme_futures_mdp3_sbe_v1_12.admin_login.fields(buffer, offset, packet, parent)
   end
 end
-
--- Admin Heartbeat
-cme_futures_mdp3_sbe_v1_12.admin_heartbeat = {}
 
 -- Channel Reset Group
 cme_futures_mdp3_sbe_v1_12.channel_reset_group = {}

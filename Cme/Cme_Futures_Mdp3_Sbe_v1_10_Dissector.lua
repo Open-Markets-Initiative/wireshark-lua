@@ -818,24 +818,6 @@ end
 -- Dissect Cme Futures Mdp3 Sbe 1.10
 -----------------------------------------------------------------------
 
--- Final Daily
-cme_futures_mdp3_sbe_v1_10.final_daily = {}
-
--- Actual
-cme_futures_mdp3_sbe_v1_10.actual = {}
-
--- Rounded
-cme_futures_mdp3_sbe_v1_10.rounded = {}
-
--- Intraday
-cme_futures_mdp3_sbe_v1_10.intraday = {}
-
--- Reserved Bits
-cme_futures_mdp3_sbe_v1_10.reserved_bits = {}
-
--- Null Value
-cme_futures_mdp3_sbe_v1_10.null_value = {}
-
 -- Settl Price Type
 cme_futures_mdp3_sbe_v1_10.settl_price_type = {}
 
@@ -1599,30 +1581,6 @@ cme_futures_mdp3_sbe_v1_10.security_id.dissect = function(buffer, offset, packet
 
   return offset + length, value
 end
-
--- Last Trade Msg
-cme_futures_mdp3_sbe_v1_10.last_trade_msg = {}
-
--- Last Volume Msg
-cme_futures_mdp3_sbe_v1_10.last_volume_msg = {}
-
--- Last Quote Msg
-cme_futures_mdp3_sbe_v1_10.last_quote_msg = {}
-
--- Last Stats Msg
-cme_futures_mdp3_sbe_v1_10.last_stats_msg = {}
-
--- Last Implied Msg
-cme_futures_mdp3_sbe_v1_10.last_implied_msg = {}
-
--- Recovery Msg
-cme_futures_mdp3_sbe_v1_10.recovery_msg = {}
-
--- Reserved
-cme_futures_mdp3_sbe_v1_10.reserved = {}
-
--- End Of Event
-cme_futures_mdp3_sbe_v1_10.end_of_event = {}
 
 -- Match Event Indicator
 cme_futures_mdp3_sbe_v1_10.match_event_indicator = {}
@@ -3081,81 +3039,6 @@ cme_futures_mdp3_sbe_v1_10.lot_type_rules_groups.dissect = function(buffer, offs
 
   return cme_futures_mdp3_sbe_v1_10.lot_type_rules_groups.fields(buffer, offset, packet, parent)
 end
-
--- Reserved 8
-cme_futures_mdp3_sbe_v1_10.reserved_8 = {}
-
--- Variable Product Eligibility
-cme_futures_mdp3_sbe_v1_10.variable_product_eligibility = {}
-
--- Daily Product Eligibility
-cme_futures_mdp3_sbe_v1_10.daily_product_eligibility = {}
-
--- Gt Orders Eligibility
-cme_futures_mdp3_sbe_v1_10.gt_orders_eligibility = {}
-
--- Implied Matching Eligibility
-cme_futures_mdp3_sbe_v1_10.implied_matching_eligibility = {}
-
--- Triangulation Eligible
-cme_futures_mdp3_sbe_v1_10.triangulation_eligible = {}
-
--- Variable Cab Eligible
-cme_futures_mdp3_sbe_v1_10.variable_cab_eligible = {}
-
--- Inverted Book
-cme_futures_mdp3_sbe_v1_10.inverted_book = {}
-
--- Is Aon Instrument
-cme_futures_mdp3_sbe_v1_10.is_aon_instrument = {}
-
--- ILink Indicative Mass Quoting Eligible
-cme_futures_mdp3_sbe_v1_10.ilink_indicative_mass_quoting_eligible = {}
-
--- Negative Strike Eligible
-cme_futures_mdp3_sbe_v1_10.negative_strike_eligible = {}
-
--- Negative Price Outright Eligible
-cme_futures_mdp3_sbe_v1_10.negative_price_outright_eligible = {}
-
--- Is Fractional
-cme_futures_mdp3_sbe_v1_10.is_fractional = {}
-
--- Volatility Quoted Option
-cme_futures_mdp3_sbe_v1_10.volatility_quoted_option = {}
-
--- Rfq Cross Eligible
-cme_futures_mdp3_sbe_v1_10.rfq_cross_eligible = {}
-
--- Zero Price Outright Eligible
-cme_futures_mdp3_sbe_v1_10.zero_price_outright_eligible = {}
-
--- Decaying Product Eligibility
-cme_futures_mdp3_sbe_v1_10.decaying_product_eligibility = {}
-
--- Electronic Match Eligible
-cme_futures_mdp3_sbe_v1_10.electronic_match_eligible = {}
-
--- Order Cross Eligible
-cme_futures_mdp3_sbe_v1_10.order_cross_eligible = {}
-
--- Block Trade Eligible
-cme_futures_mdp3_sbe_v1_10.block_trade_eligible = {}
-
--- Efp Eligible
-cme_futures_mdp3_sbe_v1_10.efp_eligible = {}
-
--- Ebf Eligible
-cme_futures_mdp3_sbe_v1_10.ebf_eligible = {}
-
--- Efs Eligible
-cme_futures_mdp3_sbe_v1_10.efs_eligible = {}
-
--- Efr Eligible
-cme_futures_mdp3_sbe_v1_10.efr_eligible = {}
-
--- Otc Eligible
-cme_futures_mdp3_sbe_v1_10.otc_eligible = {}
 
 -- Inst Attrib Value
 cme_futures_mdp3_sbe_v1_10.inst_attrib_value = {}
@@ -11425,9 +11308,6 @@ cme_futures_mdp3_sbe_v1_10.admin_login.dissect = function(buffer, offset, packet
     return cme_futures_mdp3_sbe_v1_10.admin_login.fields(buffer, offset, packet, parent)
   end
 end
-
--- Admin Heartbeat
-cme_futures_mdp3_sbe_v1_10.admin_heartbeat = {}
 
 -- Channel Reset Group
 cme_futures_mdp3_sbe_v1_10.channel_reset_group = {}

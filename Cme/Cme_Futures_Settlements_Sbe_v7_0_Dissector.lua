@@ -249,9 +249,6 @@ end
 -- Dissect Cme Futures Settlements Sbe 7.0
 -----------------------------------------------------------------------
 
--- Admin Heartbeat
-cme_futures_settlements_sbe_v7_0.admin_heartbeat = {}
-
 -- Trading Reference Date
 cme_futures_settlements_sbe_v7_0.trading_reference_date = {}
 
@@ -1956,27 +1953,6 @@ cme_futures_settlements_sbe_v7_0.md_statistic_desc.dissect = function(buffer, of
 
   return offset + length, value
 end
-
--- Final Daily
-cme_futures_settlements_sbe_v7_0.final_daily = {}
-
--- Actual
-cme_futures_settlements_sbe_v7_0.actual = {}
-
--- Rounded
-cme_futures_settlements_sbe_v7_0.rounded = {}
-
--- Intraday
-cme_futures_settlements_sbe_v7_0.intraday = {}
-
--- Cabinet
-cme_futures_settlements_sbe_v7_0.cabinet = {}
-
--- Reserved Bits
-cme_futures_settlements_sbe_v7_0.reserved_bits = {}
-
--- Null Value
-cme_futures_settlements_sbe_v7_0.null_value = {}
 
 -- Settl Price Type
 cme_futures_settlements_sbe_v7_0.settl_price_type = {}

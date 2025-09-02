@@ -150,9 +150,6 @@ end
 -- Dissect Cme BrokerTec Ust Sbe 10.1
 -----------------------------------------------------------------------
 
--- Admin Heartbeat
-cme_brokertec_ust_sbe_v10_1.admin_heartbeat = {}
-
 -- Price Type
 cme_brokertec_ust_sbe_v10_1.price_type = {}
 

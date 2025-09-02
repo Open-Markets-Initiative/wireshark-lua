@@ -6284,30 +6284,6 @@ cme_futures_ilink3_sbe_v8_5.execution_mode.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Aon
-cme_futures_ilink3_sbe_v8_5.aon = {}
-
--- Ob
-cme_futures_ilink3_sbe_v8_5.ob = {}
-
--- Nh
-cme_futures_ilink3_sbe_v8_5.nh = {}
-
--- Reserved 1
-cme_futures_ilink3_sbe_v8_5.reserved_1 = {}
-
--- Reserved 2
-cme_futures_ilink3_sbe_v8_5.reserved_2 = {}
-
--- Reserved 3
-cme_futures_ilink3_sbe_v8_5.reserved_3 = {}
-
--- Reserved 4
-cme_futures_ilink3_sbe_v8_5.reserved_4 = {}
-
--- Reserved 5
-cme_futures_ilink3_sbe_v8_5.reserved_5 = {}
-
 -- Exec Inst
 cme_futures_ilink3_sbe_v8_5.exec_inst = {}
 

@@ -929,9 +929,6 @@ cme_futures_derived_sbe_v12_0.financial_instrument_full_name.dissect = function(
   return offset + length, value
 end
 
--- Match Event Indicator
-cme_futures_derived_sbe_v12_0.match_event_indicator = {}
-
 -- Md Snapshot Refresh Ticker
 cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker = {}
 
@@ -1623,9 +1620,6 @@ cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.dissect = function
 
   return cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.fields(buffer, offset, packet, parent)
 end
-
--- Admin Heartbeat
-cme_futures_derived_sbe_v12_0.admin_heartbeat = {}
 
 -- Payload
 cme_futures_derived_sbe_v12_0.payload = {}

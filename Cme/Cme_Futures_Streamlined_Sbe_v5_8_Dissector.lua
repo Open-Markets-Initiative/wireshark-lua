@@ -4172,30 +4172,6 @@ cme_futures_streamlined_sbe_v5_8.batch_total_messages_optional.dissect = functio
   return offset + length, value
 end
 
--- Last Trade Msg
-cme_futures_streamlined_sbe_v5_8.last_trade_msg = {}
-
--- Last Volume Msg
-cme_futures_streamlined_sbe_v5_8.last_volume_msg = {}
-
--- Last Quote Msg
-cme_futures_streamlined_sbe_v5_8.last_quote_msg = {}
-
--- Last Stats Msg
-cme_futures_streamlined_sbe_v5_8.last_stats_msg = {}
-
--- Last Implied Msg
-cme_futures_streamlined_sbe_v5_8.last_implied_msg = {}
-
--- Recovery Msg
-cme_futures_streamlined_sbe_v5_8.recovery_msg = {}
-
--- Reserved
-cme_futures_streamlined_sbe_v5_8.reserved = {}
-
--- End Of Event
-cme_futures_streamlined_sbe_v5_8.end_of_event = {}
-
 -- Match Event Indicator
 cme_futures_streamlined_sbe_v5_8.match_event_indicator = {}
 
@@ -9047,21 +9023,6 @@ cme_futures_streamlined_sbe_v5_8.cal_fut_px_optional.dissect = function(buffer, 
   end
 end
 
--- Final
-cme_futures_streamlined_sbe_v5_8.final = {}
-
--- Actual
-cme_futures_streamlined_sbe_v5_8.actual = {}
-
--- Rounded
-cme_futures_streamlined_sbe_v5_8.rounded = {}
-
--- Reserved Bits
-cme_futures_streamlined_sbe_v5_8.reserved_bits = {}
-
--- Null Value
-cme_futures_streamlined_sbe_v5_8.null_value = {}
-
 -- Settl Price Type
 cme_futures_streamlined_sbe_v5_8.settl_price_type = {}
 
@@ -9704,9 +9665,6 @@ cme_futures_streamlined_sbe_v5_8.admin_login.dissect = function(buffer, offset, 
     return cme_futures_streamlined_sbe_v5_8.admin_login.fields(buffer, offset, packet, parent)
   end
 end
-
--- Admin Heartbeat
-cme_futures_streamlined_sbe_v5_8.admin_heartbeat = {}
 
 -- Payload
 cme_futures_streamlined_sbe_v5_8.payload = {}
