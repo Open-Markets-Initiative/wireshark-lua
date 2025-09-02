@@ -73,6 +73,7 @@ omi_memx_options_memo_sbe_v1_10.fields.login_request_message = ProtoField.new("L
 omi_memx_options_memo_sbe_v1_10.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "memx.options.memo.sbe.v1.10.masscancelinst", ftypes.STRING)
 omi_memx_options_memo_sbe_v1_10.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "memx.options.memo.sbe.v1.10.masscancelrejectreason", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.match_trade_prevention = ProtoField.new("Match Trade Prevention", "memx.options.memo.sbe.v1.10.matchtradeprevention", ftypes.UINT8)
+omi_memx_options_memo_sbe_v1_10.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "memx.options.memo.sbe.v1.10.maxsequencenumber", ftypes.UINT64)
 omi_memx_options_memo_sbe_v1_10.fields.message_count = ProtoField.new("Message Count", "memx.options.memo.sbe.v1.10.messagecount", ftypes.UINT64)
 omi_memx_options_memo_sbe_v1_10.fields.message_length = ProtoField.new("Message Length", "memx.options.memo.sbe.v1.10.messagelength", ftypes.UINT16)
 omi_memx_options_memo_sbe_v1_10.fields.message_type = ProtoField.new("Message Type", "memx.options.memo.sbe.v1.10.messagetype", ftypes.UINT8)
@@ -2975,18 +2976,6 @@ memx_options_memo_sbe_v1_10.mass_cancel_done_message.dissect = function(buffer, 
     return memx_options_memo_sbe_v1_10.mass_cancel_done_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Lockout
-memx_options_memo_sbe_v1_10.lockout = {}
-
--- Send Cancels
-memx_options_memo_sbe_v1_10.send_cancels = {}
-
--- Cancel Orders From This Port Only
-memx_options_memo_sbe_v1_10.cancel_orders_from_this_port_only = {}
-
--- Reserved 5
-memx_options_memo_sbe_v1_10.reserved_5 = {}
 
 -- Mass Cancel Inst
 memx_options_memo_sbe_v1_10.mass_cancel_inst = {}
@@ -6193,18 +6182,6 @@ memx_options_memo_sbe_v1_10.mtp_group_id.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Participate Do Not Initiate
-memx_options_memo_sbe_v1_10.participate_do_not_initiate = {}
-
--- Intermarket Sweep
-memx_options_memo_sbe_v1_10.intermarket_sweep = {}
-
--- External Routing Not Allowed
-memx_options_memo_sbe_v1_10.external_routing_not_allowed = {}
-
--- Reserved 13
-memx_options_memo_sbe_v1_10.reserved_13 = {}
-
 -- Exec Inst
 memx_options_memo_sbe_v1_10.exec_inst = {}
 
@@ -9090,6 +9067,26 @@ end
 -- Max Sequence Number
 memx_options_memo_sbe_v1_10.max_sequence_number = {}
 
+-- Size: Max Sequence Number
+memx_options_memo_sbe_v1_10.max_sequence_number.size = 8
+
+-- Display: Max Sequence Number
+memx_options_memo_sbe_v1_10.max_sequence_number.display = function(value)
+  return "Max Sequence Number: "..value
+end
+
+-- Dissect: Max Sequence Number
+memx_options_memo_sbe_v1_10.max_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_10.max_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_10.max_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_10.fields.max_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Next Sequence Number
 memx_options_memo_sbe_v1_10.next_sequence_number = {}
 
@@ -9139,7 +9136,7 @@ memx_options_memo_sbe_v1_10.stream_begin_message.fields = function(buffer, offse
   -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, next_sequence_number = memx_options_memo_sbe_v1_10.next_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Max Sequence Number
+  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, max_sequence_number = memx_options_memo_sbe_v1_10.max_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -10307,7 +10304,7 @@ end
 -- Verify Schema Id Field
 memx_options_memo_sbe_v1_10.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(2541, 1):uint()
+  local value = buffer(2549, 1):uint()
 
   if value == 9 then
     return true
@@ -10319,7 +10316,7 @@ end
 -- Verify Version Field
 memx_options_memo_sbe_v1_10.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(2542, 2):uint()
+  local value = buffer(2550, 2):uint()
 
   if value == 266 then
     return true

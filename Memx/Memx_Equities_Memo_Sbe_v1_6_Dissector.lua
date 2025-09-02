@@ -55,6 +55,7 @@ omi_memx_equities_memo_sbe_v1_6.fields.login_rejected_message = ProtoField.new("
 omi_memx_equities_memo_sbe_v1_6.fields.login_request_message = ProtoField.new("Login Request Message", "memx.equities.memo.sbe.v1.6.loginrequestmessage", ftypes.STRING)
 omi_memx_equities_memo_sbe_v1_6.fields.lower_than_price = ProtoField.new("Lower Than Price", "memx.equities.memo.sbe.v1.6.lowerthanprice", ftypes.DOUBLE)
 omi_memx_equities_memo_sbe_v1_6.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "memx.equities.memo.sbe.v1.6.masscancelrejectreason", ftypes.UINT8)
+omi_memx_equities_memo_sbe_v1_6.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "memx.equities.memo.sbe.v1.6.maxsequencenumber", ftypes.UINT64)
 omi_memx_equities_memo_sbe_v1_6.fields.message_count = ProtoField.new("Message Count", "memx.equities.memo.sbe.v1.6.messagecount", ftypes.UINT64)
 omi_memx_equities_memo_sbe_v1_6.fields.message_length = ProtoField.new("Message Length", "memx.equities.memo.sbe.v1.6.messagelength", ftypes.UINT16)
 omi_memx_equities_memo_sbe_v1_6.fields.message_type = ProtoField.new("Message Type", "memx.equities.memo.sbe.v1.6.messagetype", ftypes.UINT8)
@@ -3697,18 +3698,6 @@ memx_equities_memo_sbe_v1_6.peg_offset_value.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Participate Do Not Initiate
-memx_equities_memo_sbe_v1_6.participate_do_not_initiate = {}
-
--- Intermarket Sweep
-memx_equities_memo_sbe_v1_6.intermarket_sweep = {}
-
--- External Routing Not Allowed
-memx_equities_memo_sbe_v1_6.external_routing_not_allowed = {}
-
--- Reserved 13
-memx_equities_memo_sbe_v1_6.reserved_13 = {}
-
 -- Exec Inst
 memx_equities_memo_sbe_v1_6.exec_inst = {}
 
@@ -5405,6 +5394,26 @@ end
 -- Max Sequence Number
 memx_equities_memo_sbe_v1_6.max_sequence_number = {}
 
+-- Size: Max Sequence Number
+memx_equities_memo_sbe_v1_6.max_sequence_number.size = 8
+
+-- Display: Max Sequence Number
+memx_equities_memo_sbe_v1_6.max_sequence_number.display = function(value)
+  return "Max Sequence Number: "..value
+end
+
+-- Dissect: Max Sequence Number
+memx_equities_memo_sbe_v1_6.max_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_6.max_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_equities_memo_sbe_v1_6.max_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memo_sbe_v1_6.fields.max_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Next Sequence Number
 memx_equities_memo_sbe_v1_6.next_sequence_number = {}
 
@@ -5454,7 +5463,7 @@ memx_equities_memo_sbe_v1_6.stream_begin_message.fields = function(buffer, offse
   -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, next_sequence_number = memx_equities_memo_sbe_v1_6.next_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Max Sequence Number
+  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, max_sequence_number = memx_equities_memo_sbe_v1_6.max_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -6622,7 +6631,7 @@ end
 -- Verify Schema Id Field
 memx_equities_memo_sbe_v1_6.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(1475, 1):uint()
+  local value = buffer(1483, 1):uint()
 
   if value == 1 then
     return true
@@ -6634,7 +6643,7 @@ end
 -- Verify Version Field
 memx_equities_memo_sbe_v1_6.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(1476, 2):uint()
+  local value = buffer(1484, 2):uint()
 
   if value == 262 then
     return true
