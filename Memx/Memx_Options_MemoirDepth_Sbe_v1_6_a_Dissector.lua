@@ -454,12 +454,6 @@ memx_options_memoirdepth_sbe_v1_6_a.order_id.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Intermarket Sweep
-memx_options_memoirdepth_sbe_v1_6_a.intermarket_sweep = {}
-
--- Reserved 7
-memx_options_memoirdepth_sbe_v1_6_a.reserved_7 = {}
-
 -- Trade Conditions
 memx_options_memoirdepth_sbe_v1_6_a.trade_conditions = {}
 

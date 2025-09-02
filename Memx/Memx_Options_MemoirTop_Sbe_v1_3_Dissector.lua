@@ -524,12 +524,6 @@ memx_options_memoirtop_sbe_v1_3.side.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Intermarket Sweep
-memx_options_memoirtop_sbe_v1_3.intermarket_sweep = {}
-
--- Reserved 7
-memx_options_memoirtop_sbe_v1_3.reserved_7 = {}
-
 -- Trade Conditions
 memx_options_memoirtop_sbe_v1_3.trade_conditions = {}
 
