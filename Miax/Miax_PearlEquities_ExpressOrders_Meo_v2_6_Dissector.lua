@@ -74,6 +74,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.new_order_instructions = Pr
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.notification_time = ProtoField.new("Notification Time", "miax.pearlequities.expressorders.meo.v2.6.notificationtime", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearlequities.expressorders.meo.v2.6.numberofmatchingengines", ftypes.UINT8)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.expressorders.meo.v2.6.openingtime", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_execution_instructions = ProtoField.new("Order Execution Instructions", "miax.pearlequities.expressorders.meo.v2.6.orderexecutioninstructions", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_id = ProtoField.new("Order Id", "miax.pearlequities.expressorders.meo.v2.6.orderid", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_status = ProtoField.new("Order Status", "miax.pearlequities.expressorders.meo.v2.6.orderstatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_type = ProtoField.new("Order Type", "miax.pearlequities.expressorders.meo.v2.6.ordertype", ftypes.STRING)
@@ -139,6 +140,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.trading_session_id = ProtoF
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.expressorders.meo.v2.6.unsequenceddatapacket", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "miax.pearlequities.expressorders.meo.v2.6.unsequencedmessage", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.expressorders.meo.v2.6.unsequencedmessagetype", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_15 = ProtoField.new("Unused 15", "miax.pearlequities.expressorders.meo.v2.6.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_2 = ProtoField.new("Unused 2", "miax.pearlequities.expressorders.meo.v2.6.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_3 = ProtoField.new("Unused 3", "miax.pearlequities.expressorders.meo.v2.6.unused3", ftypes.UINT16, nil, base.DEC, 0xE000)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5 = ProtoField.new("Unused 5", "miax.pearlequities.expressorders.meo.v2.6.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
@@ -192,6 +194,7 @@ show.new_order_instructions = true
 show.new_order_notification = true
 show.new_order_request_message = true
 show.new_order_response_message = true
+show.order_execution_instructions = true
 show.order_price_update_notification = true
 show.packet = true
 show.packet_header = true
@@ -232,6 +235,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_instructions 
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_notification = Pref.bool("Show New Order Notification", show.new_order_notification, "Parse and add New Order Notification to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_request_message = Pref.bool("Show New Order Request Message", show.new_order_request_message, "Parse and add New Order Request Message to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_response_message = Pref.bool("Show New Order Response Message", show.new_order_response_message, "Parse and add New Order Response Message to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions = Pref.bool("Show Order Execution Instructions", show.order_execution_instructions, "Parse and add Order Execution Instructions to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_price_update_notification = Pref.bool("Show Order Price Update Notification", show.order_price_update_notification, "Parse and add Order Price Update Notification to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
@@ -340,6 +344,10 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
   end
   if show.new_order_response_message ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_response_message then
     show.new_order_response_message = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_response_message
+    changed = true
+  end
+  if show.order_execution_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions then
+    show.order_execution_instructions = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions
     changed = true
   end
   if show.order_price_update_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_price_update_notification then
@@ -501,15 +509,6 @@ miax_pearlequities_expressorders_meo_v2_6.test_packet.dissect = function(buffer,
 
   return miax_pearlequities_expressorders_meo_v2_6.test_packet.fields(buffer, offset, packet, parent)
 end
-
--- Client Heartbeat
-miax_pearlequities_expressorders_meo_v2_6.client_heartbeat = {}
-
--- Server Heartbeat
-miax_pearlequities_expressorders_meo_v2_6.server_heartbeat = {}
-
--- Trading Session Update
-miax_pearlequities_expressorders_meo_v2_6.trading_session_update = {}
 
 -- Logout Text
 miax_pearlequities_expressorders_meo_v2_6.logout_text = {}
@@ -1261,12 +1260,6 @@ miax_pearlequities_expressorders_meo_v2_6.executing_trading_center_mpid.dissect 
   return offset + length, value
 end
 
--- Nbbo Setter Joiner
-miax_pearlequities_expressorders_meo_v2_6.nbbo_setter_joiner = {}
-
--- Unused 5
-miax_pearlequities_expressorders_meo_v2_6.unused_5 = {}
-
 -- Additional Liquidity Indicator
 miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator = {}
 
@@ -1516,6 +1509,45 @@ end
 
 -- Order Execution Instructions
 miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions = {}
+
+-- Size: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.size = 2
+
+-- Display: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.display = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Side flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."Side|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.bits = function(buffer, offset, packet, parent)
+
+  -- Unused 15: 15 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_15, buffer(offset, 2))
+
+  -- Side: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.side, buffer(offset, 2))
+end
+
+-- Dissect: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.dissect = function(buffer, offset, packet, parent)
+  local size = 2
+  local range = buffer(offset, size)
+  local display = miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.display(range, packet, parent)
+  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_execution_instructions, range, display)
+
+  if show.order_execution_instructions then
+    miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.bits(buffer, offset, packet, element)
+  end
+
+  return offset + 2, range
+end
 
 -- Last Size
 miax_pearlequities_expressorders_meo_v2_6.last_size = {}
@@ -1870,7 +1902,7 @@ miax_pearlequities_expressorders_meo_v2_6.execution_notification.fields = functi
   -- Last Size: BinaryU
   index, last_size = miax_pearlequities_expressorders_meo_v2_6.last_size.dissect(buffer, index, packet, parent)
 
-  -- Order Execution Instructions
+  -- Order Execution Instructions: Struct of 2 fields
   index, order_execution_instructions = miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.dissect(buffer, index, packet, parent)
 
   -- Executing Trading Center: Alphanumeric
@@ -3201,12 +3233,6 @@ miax_pearlequities_expressorders_meo_v2_6.min_qty.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Short Sale Indicator
-miax_pearlequities_expressorders_meo_v2_6.short_sale_indicator = {}
-
--- Locate Required
-miax_pearlequities_expressorders_meo_v2_6.locate_required = {}
-
 -- Modify Order Instructions
 miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions = {}
 
@@ -3894,15 +3920,6 @@ miax_pearlequities_expressorders_meo_v2_6.trading_collar_dollar_value.dissect = 
   return offset + length, value
 end
 
--- Routing Instruction
-miax_pearlequities_expressorders_meo_v2_6.routing_instruction = {}
-
--- Routing Strategy
-miax_pearlequities_expressorders_meo_v2_6.routing_strategy = {}
-
--- Unused 2
-miax_pearlequities_expressorders_meo_v2_6.unused_2 = {}
-
 -- Routing
 miax_pearlequities_expressorders_meo_v2_6.routing = {}
 
@@ -3966,12 +3983,6 @@ miax_pearlequities_expressorders_meo_v2_6.self_trade_protection_group.dissect = 
 
   return offset + length, value
 end
-
--- Self Trade Protection Level
-miax_pearlequities_expressorders_meo_v2_6.self_trade_protection_level = {}
-
--- Self Trade Protection Instruction
-miax_pearlequities_expressorders_meo_v2_6.self_trade_protection_instruction = {}
 
 -- Self Trade Protection
 miax_pearlequities_expressorders_meo_v2_6.self_trade_protection = {}
@@ -4124,33 +4135,6 @@ miax_pearlequities_expressorders_meo_v2_6.time_in_force.dissect = function(buffe
 
   return offset + length, value
 end
-
--- Side
-miax_pearlequities_expressorders_meo_v2_6.side = {}
-
--- Displayed
-miax_pearlequities_expressorders_meo_v2_6.displayed = {}
-
--- Post Only
-miax_pearlequities_expressorders_meo_v2_6.post_only = {}
-
--- Iso
-miax_pearlequities_expressorders_meo_v2_6.iso = {}
-
--- Retail Order
-miax_pearlequities_expressorders_meo_v2_6.retail_order = {}
-
--- Attributable Order
-miax_pearlequities_expressorders_meo_v2_6.attributable_order = {}
-
--- Min Qty Exec Type
-miax_pearlequities_expressorders_meo_v2_6.min_qty_exec_type = {}
-
--- Cancel Order If Not A Nbbo Setter
-miax_pearlequities_expressorders_meo_v2_6.cancel_order_if_not_a_nbbo_setter = {}
-
--- Unused 3
-miax_pearlequities_expressorders_meo_v2_6.unused_3 = {}
 
 -- New Order Instructions
 miax_pearlequities_expressorders_meo_v2_6.new_order_instructions = {}
