@@ -386,15 +386,6 @@ end
 -- Dissect Miax OnyxFutures ExpressInterface Fei 1.0.c
 -----------------------------------------------------------------------
 
--- Client Heartbeat
-miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat = {}
-
--- Server Heartbeat
-miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat = {}
-
--- End Of Session
-miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session = {}
-
 -- Logout Text
 miax_onyxfutures_expressinterface_fei_v1_0_c.logout_text = {}
 
@@ -649,9 +640,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.dissect = fu
     return miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.fields(buffer, offset, packet, parent)
   end
 end
-
--- Synchronization Complete
-miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete = {}
 
 -- Highest Sequence Number
 miax_onyxfutures_expressinterface_fei_v1_0_c.highest_sequence_number = {}
@@ -2322,18 +2310,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect = function(buff
   return offset + length, value
 end
 
--- Customer Of Firm Designation
-miax_onyxfutures_expressinterface_fei_v1_0_c.customer_of_firm_designation = {}
-
--- Manual Order Indicator
-miax_onyxfutures_expressinterface_fei_v1_0_c.manual_order_indicator = {}
-
--- Open Close Position Indicator
-miax_onyxfutures_expressinterface_fei_v1_0_c.open_close_position_indicator = {}
-
--- Unused 5
-miax_onyxfutures_expressinterface_fei_v1_0_c.unused_5 = {}
-
 -- Additional Order Indicators
 miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators = {}
 
@@ -2892,15 +2868,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.min_qty.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Self Trade Protection Level
-miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_level = {}
-
--- Self Trade Protection Instruction
-miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection_instruction = {}
-
--- Unused 2
-miax_onyxfutures_expressinterface_fei_v1_0_c.unused_2 = {}
-
 -- Self Trade Protection
 miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection = {}
 
@@ -3003,12 +2970,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.dissect = function(bu
 
   return offset + length, value
 end
-
--- Side
-miax_onyxfutures_expressinterface_fei_v1_0_c.side = {}
-
--- Unused 15
-miax_onyxfutures_expressinterface_fei_v1_0_c.unused_15 = {}
 
 -- Order Instructions
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions = {}

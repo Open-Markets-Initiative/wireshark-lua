@@ -441,12 +441,6 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect = func
   end
 end
 
--- Reportable
-miax_pearlequities_depthofmarket_mach_v1_3_a.reportable = {}
-
--- Unused 7
-miax_pearlequities_depthofmarket_mach_v1_3_a.unused_7 = {}
-
 -- Trade Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags = {}
 
@@ -758,9 +752,6 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.dissect = func
     return miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Order Position
-miax_pearlequities_depthofmarket_mach_v1_3_a.order_position = {}
 
 -- Modify Order Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags = {}

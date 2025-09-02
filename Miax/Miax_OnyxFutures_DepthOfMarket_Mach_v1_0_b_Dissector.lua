@@ -763,12 +763,6 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.dissect = functi
   end
 end
 
--- Order Position
-miax_onyxfutures_depthofmarket_mach_v1_0_b.order_position = {}
-
--- Unused 7
-miax_onyxfutures_depthofmarket_mach_v1_0_b.unused_7 = {}
-
 -- Modify Flags
 miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags = {}
 

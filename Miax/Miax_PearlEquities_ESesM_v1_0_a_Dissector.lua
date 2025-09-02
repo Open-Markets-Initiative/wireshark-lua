@@ -242,15 +242,6 @@ miax_pearlequities_esesm_v1_0_a.test_packet.dissect = function(buffer, offset, p
   return miax_pearlequities_esesm_v1_0_a.test_packet.fields(buffer, offset, packet, parent)
 end
 
--- Client Heartbeat
-miax_pearlequities_esesm_v1_0_a.client_heartbeat = {}
-
--- Server Heartbeat
-miax_pearlequities_esesm_v1_0_a.server_heartbeat = {}
-
--- Trading Session Update
-miax_pearlequities_esesm_v1_0_a.trading_session_update = {}
-
 -- Logout Text
 miax_pearlequities_esesm_v1_0_a.logout_text = {}
 
