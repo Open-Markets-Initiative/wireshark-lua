@@ -8657,153 +8657,6 @@ euronext_optiq_marketdatagateway_sbe_v5_39.dynamic_collar_logic.dissect = functi
   return offset + length, value
 end
 
--- Jelly Roll
-euronext_optiq_marketdatagateway_sbe_v5_39.jelly_roll = {}
-
--- Butterfly
-euronext_optiq_marketdatagateway_sbe_v5_39.butterfly = {}
-
--- Call Or Put Cabinet
-euronext_optiq_marketdatagateway_sbe_v5_39.call_or_put_cabinet = {}
-
--- Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.spread = {}
-
--- Calendar Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.calendar_spread = {}
-
--- Diagonal Calendar Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.diagonal_calendar_spread = {}
-
--- Guts
-euronext_optiq_marketdatagateway_sbe_v5_39.guts = {}
-
--- Two By One Ratio Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.two_by_one_ratio_spread = {}
-
--- Iron Butterfly
-euronext_optiq_marketdatagateway_sbe_v5_39.iron_butterfly = {}
-
--- Combo
-euronext_optiq_marketdatagateway_sbe_v5_39.combo = {}
-
--- Strangle
-euronext_optiq_marketdatagateway_sbe_v5_39.strangle = {}
-
--- Ladder
-euronext_optiq_marketdatagateway_sbe_v5_39.ladder = {}
-
--- Strip
-euronext_optiq_marketdatagateway_sbe_v5_39.strip = {}
-
--- Straddle Calendar Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.straddle_calendar_spread = {}
-
--- Pack
-euronext_optiq_marketdatagateway_sbe_v5_39.pack = {}
-
--- Diagonal Straddle Calendar Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.diagonal_straddle_calendar_spread = {}
-
--- Simple Inter Commodity Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.simple_inter_commodity_spread = {}
-
--- Conversion Reversal
-euronext_optiq_marketdatagateway_sbe_v5_39.conversion_reversal = {}
-
--- Straddle
-euronext_optiq_marketdatagateway_sbe_v5_39.straddle = {}
-
--- Volatility Trade
-euronext_optiq_marketdatagateway_sbe_v5_39.volatility_trade = {}
-
--- Condor
-euronext_optiq_marketdatagateway_sbe_v5_39.condor = {}
-
--- Box
-euronext_optiq_marketdatagateway_sbe_v5_39.box = {}
-
--- Bundle
-euronext_optiq_marketdatagateway_sbe_v5_39.bundle = {}
-
--- Reduced Tick Spread
-euronext_optiq_marketdatagateway_sbe_v5_39.reduced_tick_spread = {}
-
--- Ladder Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.ladder_versus_underlying = {}
-
--- Butterfly Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.butterfly_versus_underlying = {}
-
--- Call Spread Versus Put Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.call_spread_versus_put_versus_underlying = {}
-
--- Call Or Put Spread Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.call_or_put_spread_versus_underlying = {}
-
--- Call Or Put Calendar Spread Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.call_or_put_calendar_spread_versus_underlying = {}
-
--- Call Put Diagonal Calendar Spread Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.call_put_diagonal_calendar_spread_versus_underlying = {}
-
--- Guts Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.guts_versus_underlying = {}
-
--- Two By One Call Or Put Ratio Spread Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.two_by_one_call_or_put_ratio_spread_versus_underlying = {}
-
--- Iron Butterfly Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.iron_butterfly_versus_underlying = {}
-
--- Combo Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.combo_versus_underlying = {}
-
--- Strangle Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.strangle_versus_underlying = {}
-
--- Exchange For Physical
-euronext_optiq_marketdatagateway_sbe_v5_39.exchange_for_physical = {}
-
--- Straddle Calendar Spread Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.straddle_calendar_spread_versus_underlying = {}
-
--- Put Spread Versus Call Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.put_spread_versus_call_versus_underlying = {}
-
--- Diagonal Straddle Calendar Spread Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.diagonal_straddle_calendar_spread_versus_underlying = {}
-
--- Synthetic
-euronext_optiq_marketdatagateway_sbe_v5_39.synthetic = {}
-
--- Straddle Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.straddle_versus_underlying = {}
-
--- Condor Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.condor_versus_underlying = {}
-
--- Buy Write
-euronext_optiq_marketdatagateway_sbe_v5_39.buy_write = {}
-
--- Iron Condor Versus Underlying
-euronext_optiq_marketdatagateway_sbe_v5_39.iron_condor_versus_underlying = {}
-
--- Iron Condor
-euronext_optiq_marketdatagateway_sbe_v5_39.iron_condor = {}
-
--- Call Spread Versus Sell A Put
-euronext_optiq_marketdatagateway_sbe_v5_39.call_spread_versus_sell_a_put = {}
-
--- Put Spread Versus Sell A Call
-euronext_optiq_marketdatagateway_sbe_v5_39.put_spread_versus_sell_a_call = {}
-
--- Put Straddle Versus Sell A Call Or A Put
-euronext_optiq_marketdatagateway_sbe_v5_39.put_straddle_versus_sell_a_call_or_a_put = {}
-
--- Reserved 16
-euronext_optiq_marketdatagateway_sbe_v5_39.reserved_16 = {}
-
 -- Strategy Authorized
 euronext_optiq_marketdatagateway_sbe_v5_39.strategy_authorized = {}
 
@@ -10069,15 +9922,6 @@ euronext_optiq_marketdatagateway_sbe_v5_39.contract_trading_type.dissect = funct
   return offset + length, value
 end
 
--- Delta
-euronext_optiq_marketdatagateway_sbe_v5_39.delta = {}
-
--- Volume
-euronext_optiq_marketdatagateway_sbe_v5_39.volume = {}
-
--- Reserved 6
-euronext_optiq_marketdatagateway_sbe_v5_39.reserved_6 = {}
-
 -- Mm Protections
 euronext_optiq_marketdatagateway_sbe_v5_39.mm_protections = {}
 
@@ -10193,27 +10037,6 @@ euronext_optiq_marketdatagateway_sbe_v5_39.trading_currency.dissect = function(b
 
   return offset + length, value
 end
-
--- Market
-euronext_optiq_marketdatagateway_sbe_v5_39.market = {}
-
--- Limit
-euronext_optiq_marketdatagateway_sbe_v5_39.limit = {}
-
--- Stop Stop Loss
-euronext_optiq_marketdatagateway_sbe_v5_39.stop_stop_loss = {}
-
--- Stop Limit
-euronext_optiq_marketdatagateway_sbe_v5_39.stop_limit = {}
-
--- Market On Open Moo
-euronext_optiq_marketdatagateway_sbe_v5_39.market_on_open_moo = {}
-
--- Trade At Settlement
-euronext_optiq_marketdatagateway_sbe_v5_39.trade_at_settlement = {}
-
--- Reserved 10
-euronext_optiq_marketdatagateway_sbe_v5_39.reserved_10 = {}
 
 -- Order Type Rules
 euronext_optiq_marketdatagateway_sbe_v5_39.order_type_rules = {}
@@ -14758,39 +14581,6 @@ euronext_optiq_marketdatagateway_sbe_v5_39.trading_period.dissect = function(buf
   return offset + length, value
 end
 
--- No Qualifier
-euronext_optiq_marketdatagateway_sbe_v5_39.no_qualifier = {}
-
--- Call Bbo Only
-euronext_optiq_marketdatagateway_sbe_v5_39.call_bbo_only = {}
-
--- Trading At Last
-euronext_optiq_marketdatagateway_sbe_v5_39.trading_at_last = {}
-
--- Random Uncrossing
-euronext_optiq_marketdatagateway_sbe_v5_39.random_uncrossing = {}
-
--- Suspended
-euronext_optiq_marketdatagateway_sbe_v5_39.suspended = {}
-
--- Wholesale Allowed
-euronext_optiq_marketdatagateway_sbe_v5_39.wholesale_allowed = {}
-
--- Stressed Market Conditions
-euronext_optiq_marketdatagateway_sbe_v5_39.stressed_market_conditions = {}
-
--- Exceptional Market Conditions
-euronext_optiq_marketdatagateway_sbe_v5_39.exceptional_market_conditions = {}
-
--- Quoting Period
-euronext_optiq_marketdatagateway_sbe_v5_39.quoting_period = {}
-
--- Execution Prevention Across All Firms
-euronext_optiq_marketdatagateway_sbe_v5_39.execution_prevention_across_all_firms = {}
-
--- Reserved 5
-euronext_optiq_marketdatagateway_sbe_v5_39.reserved_5 = {}
-
 -- Phase Qualifier
 euronext_optiq_marketdatagateway_sbe_v5_39.phase_qualifier = {}
 
@@ -15838,9 +15628,6 @@ euronext_optiq_marketdatagateway_sbe_v5_39.market_status_change_message.dissect 
   return euronext_optiq_marketdatagateway_sbe_v5_39.market_status_change_message.fields(buffer, offset, packet, parent)
 end
 
--- Not Used Group 1 Group
-euronext_optiq_marketdatagateway_sbe_v5_39.not_used_group_1_group = {}
-
 -- Not Used Group 1 Groups
 euronext_optiq_marketdatagateway_sbe_v5_39.not_used_group_1_groups = {}
 
@@ -16471,30 +16258,6 @@ euronext_optiq_marketdatagateway_sbe_v5_39.transaction_type.dissect = function(b
 
   return offset + length, value
 end
-
--- Uncrossing Trade
-euronext_optiq_marketdatagateway_sbe_v5_39.uncrossing_trade = {}
-
--- First Trade Price
-euronext_optiq_marketdatagateway_sbe_v5_39.first_trade_price = {}
-
--- Passive Order
-euronext_optiq_marketdatagateway_sbe_v5_39.passive_order = {}
-
--- Aggressive Order
-euronext_optiq_marketdatagateway_sbe_v5_39.aggressive_order = {}
-
--- Trade Creation By Market Operations
-euronext_optiq_marketdatagateway_sbe_v5_39.trade_creation_by_market_operations = {}
-
--- Nav Trade Expressed In Bps
-euronext_optiq_marketdatagateway_sbe_v5_39.nav_trade_expressed_in_bps = {}
-
--- Nav Trade Expressed In Price Currency
-euronext_optiq_marketdatagateway_sbe_v5_39.nav_trade_expressed_in_price_currency = {}
-
--- Deferred Publication
-euronext_optiq_marketdatagateway_sbe_v5_39.deferred_publication = {}
 
 -- Trade Qualifier
 euronext_optiq_marketdatagateway_sbe_v5_39.trade_qualifier = {}
@@ -19285,27 +19048,6 @@ euronext_optiq_marketdatagateway_sbe_v5_39.channel_id.dissect = function(buffer,
 
   return offset + length, value
 end
-
--- Compression
-euronext_optiq_marketdatagateway_sbe_v5_39.compression = {}
-
--- Mdg Restart Count
-euronext_optiq_marketdatagateway_sbe_v5_39.mdg_restart_count = {}
-
--- Psn High Weight
-euronext_optiq_marketdatagateway_sbe_v5_39.psn_high_weight = {}
-
--- Has Start Of Day Snapshot
-euronext_optiq_marketdatagateway_sbe_v5_39.has_start_of_day_snapshot = {}
-
--- Has End Of Day Snapshot
-euronext_optiq_marketdatagateway_sbe_v5_39.has_end_of_day_snapshot = {}
-
--- Has Status Message
-euronext_optiq_marketdatagateway_sbe_v5_39.has_status_message = {}
-
--- Reserved Bits
-euronext_optiq_marketdatagateway_sbe_v5_39.reserved_bits = {}
 
 -- Packet Flags
 euronext_optiq_marketdatagateway_sbe_v5_39.packet_flags = {}

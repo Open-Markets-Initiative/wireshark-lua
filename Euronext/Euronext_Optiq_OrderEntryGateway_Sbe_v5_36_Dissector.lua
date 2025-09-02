@@ -1220,9 +1220,6 @@ end
 -- Dissect Euronext Optiq OrderEntryGateway Sbe 5.36
 -----------------------------------------------------------------------
 
--- Not Used Group 1 Group
-euronext_optiq_orderentrygateway_sbe_v5_36.not_used_group_1_group = {}
-
 -- Num In Group
 euronext_optiq_orderentrygateway_sbe_v5_36.num_in_group = {}
 
@@ -2269,9 +2266,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.declaration_cancel_and_refusal_messag
   end
 end
 
--- Not Used Group 2 Group
-euronext_optiq_orderentrygateway_sbe_v5_36.not_used_group_2_group = {}
-
 -- Not Used Group 2 Groups
 euronext_optiq_orderentrygateway_sbe_v5_36.not_used_group_2_groups = {}
 
@@ -2427,30 +2421,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.previous_day_indicator.dissect = func
 
   return offset + length, value
 end
-
--- Lrgs
-euronext_optiq_orderentrygateway_sbe_v5_36.lrgs = {}
-
--- Rfpt
-euronext_optiq_orderentrygateway_sbe_v5_36.rfpt = {}
-
--- Nliq
-euronext_optiq_orderentrygateway_sbe_v5_36.nliq = {}
-
--- Oilq
-euronext_optiq_orderentrygateway_sbe_v5_36.oilq = {}
-
--- Pric
-euronext_optiq_orderentrygateway_sbe_v5_36.pric = {}
-
--- Size
-euronext_optiq_orderentrygateway_sbe_v5_36.size = {}
-
--- Ilqd
-euronext_optiq_orderentrygateway_sbe_v5_36.ilqd = {}
-
--- Omf
-euronext_optiq_orderentrygateway_sbe_v5_36.omf = {}
 
 -- Waiver Indicator
 euronext_optiq_orderentrygateway_sbe_v5_36.waiver_indicator = {}
@@ -3950,27 +3920,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.investment_decision_w_firm_short_code
   return offset + length, value
 end
 
--- Dea Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.dea_indicator = {}
-
--- Investment Algo Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.investment_algo_indicator = {}
-
--- Execution Algo Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.execution_algo_indicator = {}
-
--- Commodity Derivative Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.commodity_derivative_indicator = {}
-
--- Deferral Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.deferral_indicator = {}
-
--- Frmaramplp
-euronext_optiq_orderentrygateway_sbe_v5_36.frmaramplp = {}
-
--- Reserved 2
-euronext_optiq_orderentrygateway_sbe_v5_36.reserved_2 = {}
-
 -- Mifid Indicators
 euronext_optiq_orderentrygateway_sbe_v5_36.mifid_indicators = {}
 
@@ -4629,12 +4578,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.technical_reject_message.dissect = fu
     return euronext_optiq_orderentrygateway_sbe_v5_36.technical_reject_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Test Request Message
-euronext_optiq_orderentrygateway_sbe_v5_36.test_request_message = {}
-
--- Heartbeat Message
-euronext_optiq_orderentrygateway_sbe_v5_36.heartbeat_message = {}
 
 -- Log Out Reason Code
 euronext_optiq_orderentrygateway_sbe_v5_36.log_out_reason_code = {}
@@ -5791,39 +5734,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.wave_for_liquidity_notification_messa
   end
 end
 
--- Euronext Data Driven
-euronext_optiq_orderentrygateway_sbe_v5_36.euronext_data_driven = {}
-
--- Interest Lists
-euronext_optiq_orderentrygateway_sbe_v5_36.interest_lists = {}
-
--- Holdings
-euronext_optiq_orderentrygateway_sbe_v5_36.holdings = {}
-
--- Buy Side
-euronext_optiq_orderentrygateway_sbe_v5_36.buy_side = {}
-
--- Sell Side
-euronext_optiq_orderentrygateway_sbe_v5_36.sell_side = {}
-
--- Quality Of Sell Side Counterparty
-euronext_optiq_orderentrygateway_sbe_v5_36.quality_of_sell_side_counterparty = {}
-
--- Local Community Of Specialist Ams
-euronext_optiq_orderentrygateway_sbe_v5_36.local_community_of_specialist_ams = {}
-
--- Local Community Of Specialist Par
-euronext_optiq_orderentrygateway_sbe_v5_36.local_community_of_specialist_par = {}
-
--- Local Community Of Specialist Bru
-euronext_optiq_orderentrygateway_sbe_v5_36.local_community_of_specialist_bru = {}
-
--- Local Community Of Specialist Lis
-euronext_optiq_orderentrygateway_sbe_v5_36.local_community_of_specialist_lis = {}
-
--- Reserved 6
-euronext_optiq_orderentrygateway_sbe_v5_36.reserved_6 = {}
-
 -- Target Counterparties
 euronext_optiq_orderentrygateway_sbe_v5_36.target_counterparties = {}
 
@@ -6117,24 +6027,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.minimum_order_quantity.dissect = func
 
   return offset + length, value
 end
-
--- Dark Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.dark_indicator = {}
-
--- Deferred Trade Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.deferred_trade_indicator = {}
-
--- Displayed Order Interaction
-euronext_optiq_orderentrygateway_sbe_v5_36.displayed_order_interaction = {}
-
--- Sweep Order Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.sweep_order_indicator = {}
-
--- Minimum Quantity Type
-euronext_optiq_orderentrygateway_sbe_v5_36.minimum_quantity_type = {}
-
--- Reserved 3
-euronext_optiq_orderentrygateway_sbe_v5_36.reserved_3 = {}
 
 -- Dark Execution Instruction Optional
 euronext_optiq_orderentrygateway_sbe_v5_36.dark_execution_instruction_optional = {}
@@ -6938,36 +6830,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.clearing_instruction.dissect = functi
 
   return offset + length, value
 end
-
--- Field Actively Used
-euronext_optiq_orderentrygateway_sbe_v5_36.field_actively_used = {}
-
--- Leg 1
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_1 = {}
-
--- Leg 2
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_2 = {}
-
--- Leg 3
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_3 = {}
-
--- Leg 4
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_4 = {}
-
--- Leg 5
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_5 = {}
-
--- Leg 6
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_6 = {}
-
--- Leg 7
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_7 = {}
-
--- Leg 8
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_8 = {}
-
--- Leg 9
-euronext_optiq_orderentrygateway_sbe_v5_36.leg_9 = {}
 
 -- Open Close
 euronext_optiq_orderentrygateway_sbe_v5_36.open_close = {}
@@ -8364,27 +8226,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.wholesale_ack_legs_rep_groups.dissect
 
   return euronext_optiq_orderentrygateway_sbe_v5_36.wholesale_ack_legs_rep_groups.fields(buffer, offset, packet, parent)
 end
-
--- Queue Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.queue_indicator = {}
-
--- Request With Client Order Id
-euronext_optiq_orderentrygateway_sbe_v5_36.request_with_client_order_id = {}
-
--- Use Of Cross Partition
-euronext_optiq_orderentrygateway_sbe_v5_36.use_of_cross_partition = {}
-
--- Internal 1
-euronext_optiq_orderentrygateway_sbe_v5_36.internal_1 = {}
-
--- Internal 2
-euronext_optiq_orderentrygateway_sbe_v5_36.internal_2 = {}
-
--- Execution Upon Entry Flag Enabled
-euronext_optiq_orderentrygateway_sbe_v5_36.execution_upon_entry_flag_enabled = {}
-
--- Executed Upon Entry Flag
-euronext_optiq_orderentrygateway_sbe_v5_36.executed_upon_entry_flag = {}
 
 -- Ack Qualifiers
 euronext_optiq_orderentrygateway_sbe_v5_36.ack_qualifiers = {}
@@ -9997,18 +9838,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.mmp_section2_groups.dissect = functio
 
   return euronext_optiq_orderentrygateway_sbe_v5_36.mmp_section2_groups.fields(buffer, offset, packet, parent)
 end
-
--- Notification
-euronext_optiq_orderentrygateway_sbe_v5_36.notification = {}
-
--- Acknowledgement
-euronext_optiq_orderentrygateway_sbe_v5_36.acknowledgement = {}
-
--- Pull
-euronext_optiq_orderentrygateway_sbe_v5_36.pull = {}
-
--- Reserved 5
-euronext_optiq_orderentrygateway_sbe_v5_36.reserved_5 = {}
 
 -- Mmp Execution Type
 euronext_optiq_orderentrygateway_sbe_v5_36.mmp_execution_type = {}
@@ -11889,30 +11718,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.family_id.dissect = function(buffer, 
 
   return offset + length, value
 end
-
--- Stp Resting Order
-euronext_optiq_orderentrygateway_sbe_v5_36.stp_resting_order = {}
-
--- Stp Incoming Order
-euronext_optiq_orderentrygateway_sbe_v5_36.stp_incoming_order = {}
-
--- Disclosed Quantity Randomization
-euronext_optiq_orderentrygateway_sbe_v5_36.disclosed_quantity_randomization = {}
-
--- Disabled Cancel On Disconnect Indicator
-euronext_optiq_orderentrygateway_sbe_v5_36.disabled_cancel_on_disconnect_indicator = {}
-
--- Rfq Answer
-euronext_optiq_orderentrygateway_sbe_v5_36.rfq_answer = {}
-
--- Rfq Confirmation
-euronext_optiq_orderentrygateway_sbe_v5_36.rfq_confirmation = {}
-
--- Conditional Order
-euronext_optiq_orderentrygateway_sbe_v5_36.conditional_order = {}
-
--- Stp Both Orders
-euronext_optiq_orderentrygateway_sbe_v5_36.stp_both_orders = {}
 
 -- Execution Instruction Optional
 euronext_optiq_orderentrygateway_sbe_v5_36.execution_instruction_optional = {}
@@ -16652,21 +16457,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.undisclosed_iceberg_type.dissect = fu
   return offset + length, value
 end
 
--- Reserved 1
-euronext_optiq_orderentrygateway_sbe_v5_36.reserved_1 = {}
-
--- Session 1
-euronext_optiq_orderentrygateway_sbe_v5_36.session_1 = {}
-
--- Session 2
-euronext_optiq_orderentrygateway_sbe_v5_36.session_2 = {}
-
--- Session 3
-euronext_optiq_orderentrygateway_sbe_v5_36.session_3 = {}
-
--- Session 4
-euronext_optiq_orderentrygateway_sbe_v5_36.session_4 = {}
-
 -- Trading Session
 euronext_optiq_orderentrygateway_sbe_v5_36.trading_session = {}
 
@@ -18142,30 +17932,6 @@ euronext_optiq_orderentrygateway_sbe_v5_36.leaves_qty.dissect = function(buffer,
 
   return offset + length, value
 end
-
--- Uncrossing Trade
-euronext_optiq_orderentrygateway_sbe_v5_36.uncrossing_trade = {}
-
--- First Trade Price
-euronext_optiq_orderentrygateway_sbe_v5_36.first_trade_price = {}
-
--- Passive Order
-euronext_optiq_orderentrygateway_sbe_v5_36.passive_order = {}
-
--- Aggressive Order
-euronext_optiq_orderentrygateway_sbe_v5_36.aggressive_order = {}
-
--- Trade Creation By Market Operations
-euronext_optiq_orderentrygateway_sbe_v5_36.trade_creation_by_market_operations = {}
-
--- Nav Trade Expressed In Bps
-euronext_optiq_orderentrygateway_sbe_v5_36.nav_trade_expressed_in_bps = {}
-
--- Nav Trade Expressed In Price Currency
-euronext_optiq_orderentrygateway_sbe_v5_36.nav_trade_expressed_in_price_currency = {}
-
--- Deferred Publication
-euronext_optiq_orderentrygateway_sbe_v5_36.deferred_publication = {}
 
 -- Trade Qualifier
 euronext_optiq_orderentrygateway_sbe_v5_36.trade_qualifier = {}
