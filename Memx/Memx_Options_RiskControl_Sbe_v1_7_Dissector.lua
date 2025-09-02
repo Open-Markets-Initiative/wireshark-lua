@@ -108,6 +108,7 @@ omi_memx_options_riskcontrol_sbe_v1_7.fields.max_contracts = ProtoField.new("Max
 omi_memx_options_riskcontrol_sbe_v1_7.fields.max_dup_orders = ProtoField.new("Max Dup Orders", "memx.options.riskcontrol.sbe.v1.7.maxduporders", ftypes.UINT32)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.max_notional_in_dollars = ProtoField.new("Max Notional In Dollars", "memx.options.riskcontrol.sbe.v1.7.maxnotionalindollars", ftypes.UINT64)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.max_order_msgs = ProtoField.new("Max Order Msgs", "memx.options.riskcontrol.sbe.v1.7.maxordermsgs", ftypes.UINT32)
+omi_memx_options_riskcontrol_sbe_v1_7.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "memx.options.riskcontrol.sbe.v1.7.maxsequencenumber", ftypes.UINT64)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.message_count = ProtoField.new("Message Count", "memx.options.riskcontrol.sbe.v1.7.messagecount", ftypes.UINT64)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.message_length = ProtoField.new("Message Length", "memx.options.riskcontrol.sbe.v1.7.messagelength", ftypes.UINT16)
 omi_memx_options_riskcontrol_sbe_v1_7.fields.message_type = ProtoField.new("Message Type", "memx.options.riskcontrol.sbe.v1.7.messagetype", ftypes.UINT8)
@@ -10835,6 +10836,26 @@ end
 -- Max Sequence Number
 memx_options_riskcontrol_sbe_v1_7.max_sequence_number = {}
 
+-- Size: Max Sequence Number
+memx_options_riskcontrol_sbe_v1_7.max_sequence_number.size = 8
+
+-- Display: Max Sequence Number
+memx_options_riskcontrol_sbe_v1_7.max_sequence_number.display = function(value)
+  return "Max Sequence Number: "..value
+end
+
+-- Dissect: Max Sequence Number
+memx_options_riskcontrol_sbe_v1_7.max_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_7.max_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_7.max_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_7.fields.max_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Next Sequence Number
 memx_options_riskcontrol_sbe_v1_7.next_sequence_number = {}
 
@@ -10884,7 +10905,7 @@ memx_options_riskcontrol_sbe_v1_7.stream_begin_message.fields = function(buffer,
   -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, next_sequence_number = memx_options_riskcontrol_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Max Sequence Number
+  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, max_sequence_number = memx_options_riskcontrol_sbe_v1_7.max_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -12029,7 +12050,7 @@ end
 -- Verify Schema Id Field
 memx_options_riskcontrol_sbe_v1_7.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(2231, 1):uint()
+  local value = buffer(2239, 1):uint()
 
   if value == 12 then
     return true
@@ -12041,7 +12062,7 @@ end
 -- Verify Version Field
 memx_options_riskcontrol_sbe_v1_7.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(2232, 2):uint()
+  local value = buffer(2240, 2):uint()
 
   if value == 263 then
     return true
