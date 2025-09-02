@@ -19,11 +19,13 @@ local show = {}
 
 -- SmallX Headers Sbe 1.0 Fields
 omi_smallx_headers_sbe_v1_0.fields.administrative = ProtoField.new("Administrative", "smallx.headers.sbe.v1.0.administrative", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_smallx_headers_sbe_v1_0.fields.block_length = ProtoField.new("Block Length", "smallx.headers.sbe.v1.0.blocklength", ftypes.UINT16)
 omi_smallx_headers_sbe_v1_0.fields.channel_id = ProtoField.new("Channel Id", "smallx.headers.sbe.v1.0.channelid", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.frame_length = ProtoField.new("Frame Length", "smallx.headers.sbe.v1.0.framelength", ftypes.UINT8)
 omi_smallx_headers_sbe_v1_0.fields.incarnation = ProtoField.new("Incarnation", "smallx.headers.sbe.v1.0.incarnation", ftypes.INT16)
 omi_smallx_headers_sbe_v1_0.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.headers.sbe.v1.0.incarnationend", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 omi_smallx_headers_sbe_v1_0.fields.message_count = ProtoField.new("Message Count", "smallx.headers.sbe.v1.0.messagecount", ftypes.UINT8)
+omi_smallx_headers_sbe_v1_0.fields.message_header = ProtoField.new("Message Header", "smallx.headers.sbe.v1.0.messageheader", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.message_sequence = ProtoField.new("Message Sequence", "smallx.headers.sbe.v1.0.messagesequence", ftypes.INT32)
 omi_smallx_headers_sbe_v1_0.fields.packet = ProtoField.new("Packet", "smallx.headers.sbe.v1.0.packet", ftypes.STRING)
 omi_smallx_headers_sbe_v1_0.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.headers.sbe.v1.0.packetflags", ftypes.STRING)
@@ -32,19 +34,24 @@ omi_smallx_headers_sbe_v1_0.fields.payload = ProtoField.new("Payload", "smallx.h
 omi_smallx_headers_sbe_v1_0.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.headers.sbe.v1.0.reserved5", ftypes.UINT8, nil, base.DEC, 0x1F)
 omi_smallx_headers_sbe_v1_0.fields.retransmission = ProtoField.new("Retransmission", "smallx.headers.sbe.v1.0.retransmission", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_smallx_headers_sbe_v1_0.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.headers.sbe.v1.0.sbeframe", ftypes.STRING)
+omi_smallx_headers_sbe_v1_0.fields.schema_id = ProtoField.new("Schema Id", "smallx.headers.sbe.v1.0.schemaid", ftypes.UINT16)
 omi_smallx_headers_sbe_v1_0.fields.source = ProtoField.new("Source", "smallx.headers.sbe.v1.0.source", ftypes.UINT8)
+omi_smallx_headers_sbe_v1_0.fields.template_id = ProtoField.new("Template Id", "smallx.headers.sbe.v1.0.templateid", ftypes.UINT16)
+omi_smallx_headers_sbe_v1_0.fields.version = ProtoField.new("Version", "smallx.headers.sbe.v1.0.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
 -- SmallX Headers Sbe 1.0 Element Dissection Options
+show.message_header = true
 show.packet = true
 show.packet_flags = true
 show.packet_header = true
 show.sbe_frame = true
 
 -- Register SmallX Headers Sbe 1.0 Show Options
+omi_smallx_headers_sbe_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_smallx_headers_sbe_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_smallx_headers_sbe_v1_0.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
 omi_smallx_headers_sbe_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
@@ -55,6 +62,10 @@ function omi_smallx_headers_sbe_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.message_header ~= omi_smallx_headers_sbe_v1_0.prefs.show_message_header then
+    show.message_header = omi_smallx_headers_sbe_v1_0.prefs.show_message_header
+    changed = true
+  end
   if show.packet ~= omi_smallx_headers_sbe_v1_0.prefs.show_packet then
     show.packet = omi_smallx_headers_sbe_v1_0.prefs.show_packet
     changed = true
@@ -102,8 +113,157 @@ smallx_headers_sbe_v1_0.payload.dissect = function(buffer, offset, packet, paren
   return offset + size
 end
 
+-- Version
+smallx_headers_sbe_v1_0.version = {}
+
+-- Size: Version
+smallx_headers_sbe_v1_0.version.size = 2
+
+-- Display: Version
+smallx_headers_sbe_v1_0.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+smallx_headers_sbe_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_headers_sbe_v1_0.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+smallx_headers_sbe_v1_0.schema_id = {}
+
+-- Size: Schema Id
+smallx_headers_sbe_v1_0.schema_id.size = 2
+
+-- Display: Schema Id
+smallx_headers_sbe_v1_0.schema_id.display = function(value)
+  return "Schema Id: "..value
+end
+
+-- Dissect: Schema Id
+smallx_headers_sbe_v1_0.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_headers_sbe_v1_0.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+smallx_headers_sbe_v1_0.template_id = {}
+
+-- Size: Template Id
+smallx_headers_sbe_v1_0.template_id.size = 2
+
+-- Display: Template Id
+smallx_headers_sbe_v1_0.template_id.display = function(value)
+  return "Template Id: "..value
+end
+
+-- Dissect: Template Id
+smallx_headers_sbe_v1_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_headers_sbe_v1_0.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+smallx_headers_sbe_v1_0.block_length = {}
+
+-- Size: Block Length
+smallx_headers_sbe_v1_0.block_length.size = 2
+
+-- Display: Block Length
+smallx_headers_sbe_v1_0.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+smallx_headers_sbe_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_headers_sbe_v1_0.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Header
 smallx_headers_sbe_v1_0.message_header = {}
+
+-- Calculate size of: Message Header
+smallx_headers_sbe_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + smallx_headers_sbe_v1_0.block_length.size
+
+  index = index + smallx_headers_sbe_v1_0.template_id.size
+
+  index = index + smallx_headers_sbe_v1_0.schema_id.size
+
+  index = index + smallx_headers_sbe_v1_0.version.size
+
+  return index
+end
+
+-- Display: Message Header
+smallx_headers_sbe_v1_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+smallx_headers_sbe_v1_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  index, block_length = smallx_headers_sbe_v1_0.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer
+  index, template_id = smallx_headers_sbe_v1_0.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: 2 Byte Unsigned Fixed Width Integer
+  index, schema_id = smallx_headers_sbe_v1_0.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: 2 Byte Unsigned Fixed Width Integer
+  index, version = smallx_headers_sbe_v1_0.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+smallx_headers_sbe_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.message_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_smallx_headers_sbe_v1_0.fields.message_header, buffer(offset, 0))
+    local index = smallx_headers_sbe_v1_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = smallx_headers_sbe_v1_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return smallx_headers_sbe_v1_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Frame Length
 smallx_headers_sbe_v1_0.frame_length = {}
@@ -143,7 +303,7 @@ smallx_headers_sbe_v1_0.sbe_frame.fields = function(buffer, offset, packet, pare
   -- Frame Length: 1 Byte Unsigned Fixed Width Integer
   index, frame_length = smallx_headers_sbe_v1_0.frame_length.dissect(buffer, index, packet, parent)
 
-  -- Message Header
+  -- Message Header: Struct of 4 fields
   index, message_header = smallx_headers_sbe_v1_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Payload
@@ -221,18 +381,6 @@ smallx_headers_sbe_v1_0.message_sequence.dissect = function(buffer, offset, pack
 
   return offset + length, value
 end
-
--- Reserved 5
-smallx_headers_sbe_v1_0.reserved_5 = {}
-
--- Administrative
-smallx_headers_sbe_v1_0.administrative = {}
-
--- Retransmission
-smallx_headers_sbe_v1_0.retransmission = {}
-
--- Incarnation End
-smallx_headers_sbe_v1_0.incarnation_end = {}
 
 -- Packet Flags
 smallx_headers_sbe_v1_0.packet_flags = {}

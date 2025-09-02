@@ -1223,30 +1223,6 @@ smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.dissect = function(buff
   return offset + length, value
 end
 
--- Reserved 2
-smallx_orderbookfeed_sbe_v2_2.reserved_2 = {}
-
--- Instrument Begin
-smallx_orderbookfeed_sbe_v2_2.instrument_begin = {}
-
--- Instrument End
-smallx_orderbookfeed_sbe_v2_2.instrument_end = {}
-
--- Book Begin
-smallx_orderbookfeed_sbe_v2_2.book_begin = {}
-
--- Book End
-smallx_orderbookfeed_sbe_v2_2.book_end = {}
-
--- Snapshot Begin
-smallx_orderbookfeed_sbe_v2_2.snapshot_begin = {}
-
--- Snapshot End
-smallx_orderbookfeed_sbe_v2_2.snapshot_end = {}
-
--- Reserved 7
-smallx_orderbookfeed_sbe_v2_2.reserved_7 = {}
-
 -- Snapshot Message Instructions
 smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions = {}
 
@@ -2344,18 +2320,6 @@ smallx_orderbookfeed_sbe_v2_2.instrument_update_action.dissect = function(buffer
 
   return offset + length, value
 end
-
--- Transaction Begin
-smallx_orderbookfeed_sbe_v2_2.transaction_begin = {}
-
--- Transaction End
-smallx_orderbookfeed_sbe_v2_2.transaction_end = {}
-
--- Book Reset
-smallx_orderbookfeed_sbe_v2_2.book_reset = {}
-
--- Reserved 9
-smallx_orderbookfeed_sbe_v2_2.reserved_9 = {}
 
 -- Incremental Message Instructions
 smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions = {}
@@ -3476,12 +3440,6 @@ smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.dissect = function
   end
 end
 
--- Implied
-smallx_orderbookfeed_sbe_v2_2.implied = {}
-
--- Reserved 15
-smallx_orderbookfeed_sbe_v2_2.reserved_15 = {}
-
 -- Order Attributes
 smallx_orderbookfeed_sbe_v2_2.order_attributes = {}
 
@@ -4147,15 +4105,6 @@ smallx_orderbookfeed_sbe_v2_2.order_book_incremental_message.dissect = function(
 
   return smallx_orderbookfeed_sbe_v2_2.order_book_incremental_message.fields(buffer, offset, packet, parent)
 end
-
--- Synthetic
-smallx_orderbookfeed_sbe_v2_2.synthetic = {}
-
--- Auction
-smallx_orderbookfeed_sbe_v2_2.auction = {}
-
--- Reserved 14
-smallx_orderbookfeed_sbe_v2_2.reserved_14 = {}
 
 -- Trade Conditions
 smallx_orderbookfeed_sbe_v2_2.trade_conditions = {}
@@ -5304,18 +5253,6 @@ smallx_orderbookfeed_sbe_v2_2.message_sequence.dissect = function(buffer, offset
 
   return offset + length, value
 end
-
--- Reserved 5
-smallx_orderbookfeed_sbe_v2_2.reserved_5 = {}
-
--- Administrative
-smallx_orderbookfeed_sbe_v2_2.administrative = {}
-
--- Retransmission
-smallx_orderbookfeed_sbe_v2_2.retransmission = {}
-
--- Incarnation End
-smallx_orderbookfeed_sbe_v2_2.incarnation_end = {}
 
 -- Packet Flags
 smallx_orderbookfeed_sbe_v2_2.packet_flags = {}
