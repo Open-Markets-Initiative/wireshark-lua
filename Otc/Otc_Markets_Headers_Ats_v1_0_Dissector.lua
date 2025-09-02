@@ -29,6 +29,7 @@ omi_otc_markets_headers_ats_v1_0.fields.packet_flag = ProtoField.new("Packet Fla
 omi_otc_markets_headers_ats_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otc.markets.headers.ats.v1.0.packetheader", ftypes.STRING)
 omi_otc_markets_headers_ats_v1_0.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.headers.ats.v1.0.packetmilli", ftypes.UINT32)
 omi_otc_markets_headers_ats_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.headers.ats.v1.0.packetsize", ftypes.UINT16)
+omi_otc_markets_headers_ats_v1_0.fields.payload = ProtoField.new("Payload", "otc.markets.headers.ats.v1.0.payload", ftypes.BYTES)
 omi_otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 omi_otc_markets_headers_ats_v1_0.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.headers.ats.v1.0.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
 omi_otc_markets_headers_ats_v1_0.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.headers.ats.v1.0.seqnum", ftypes.UINT32)
@@ -95,6 +96,26 @@ end
 
 -- Payload
 otc_markets_headers_ats_v1_0.payload = {}
+
+-- Size: Payload
+otc_markets_headers_ats_v1_0.payload.size = 0
+
+-- Display: Payload
+otc_markets_headers_ats_v1_0.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect: Payload
+otc_markets_headers_ats_v1_0.payload.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.payload.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = otc_markets_headers_ats_v1_0.payload.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.payload, range, value, display)
+
+  return offset + length, value
+end
 
 -- Message Type
 otc_markets_headers_ats_v1_0.message_type = {}
@@ -213,7 +234,7 @@ otc_markets_headers_ats_v1_0.message.fields = function(buffer, offset, packet, p
   -- Message Header: Struct of 2 fields
   index, message_header = otc_markets_headers_ats_v1_0.message_header.dissect(buffer, index, packet, parent)
 
-  -- Payload
+  -- Payload: 0 Byte
   index, payload = otc_markets_headers_ats_v1_0.payload.dissect(buffer, index, packet, parent)
 
   return index
@@ -285,21 +306,6 @@ otc_markets_headers_ats_v1_0.messages.dissect = function(buffer, offset, packet,
 
   return offset + length, value
 end
-
--- Heartbeat
-otc_markets_headers_ats_v1_0.heartbeat = {}
-
--- Seq Num Reset
-otc_markets_headers_ats_v1_0.seq_num_reset = {}
-
--- Reserved Packet Flags
-otc_markets_headers_ats_v1_0.reserved_packet_flags = {}
-
--- Replay
-otc_markets_headers_ats_v1_0.replay = {}
-
--- Test
-otc_markets_headers_ats_v1_0.test = {}
 
 -- Packet Flag
 otc_markets_headers_ats_v1_0.packet_flag = {}

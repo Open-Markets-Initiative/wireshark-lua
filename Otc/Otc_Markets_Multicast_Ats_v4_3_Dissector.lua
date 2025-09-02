@@ -412,12 +412,6 @@ otc_markets_multicast_ats_v4_3.deprecated.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Irregular
-otc_markets_multicast_ats_v4_3.irregular = {}
-
--- Reserved Trade Status Bits
-otc_markets_multicast_ats_v4_3.reserved_trade_status_bits = {}
-
 -- Trade Status
 otc_markets_multicast_ats_v4_3.trade_status = {}
 
@@ -1089,30 +1083,6 @@ otc_markets_multicast_ats_v4_3.tier.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Piggyback
-otc_markets_multicast_ats_v4_3.piggyback = {}
-
--- Caveat Emptor Warning
-otc_markets_multicast_ats_v4_3.caveat_emptor_warning = {}
-
--- Qualified Institutional Buyers Only
-otc_markets_multicast_ats_v4_3.qualified_institutional_buyers_only = {}
-
--- Unsolicited Only
-otc_markets_multicast_ats_v4_3.unsolicited_only = {}
-
--- Bb Quoted
-otc_markets_multicast_ats_v4_3.bb_quoted = {}
-
--- Otc Link Ecn Eligible
-otc_markets_multicast_ats_v4_3.otc_link_ecn_eligible = {}
-
--- Otc Link Messaging Disabled
-otc_markets_multicast_ats_v4_3.otc_link_messaging_disabled = {}
-
--- Saturation Eligible
-otc_markets_multicast_ats_v4_3.saturation_eligible = {}
-
 -- Security Flags
 otc_markets_multicast_ats_v4_3.security_flags = {}
 
@@ -1618,21 +1588,6 @@ otc_markets_multicast_ats_v4_3.cusip.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Sponsored Status
-otc_markets_multicast_ats_v4_3.sponsored_status = {}
-
--- Investment Grade
-otc_markets_multicast_ats_v4_3.investment_grade = {}
-
--- Trading Flat
-otc_markets_multicast_ats_v4_3.trading_flat = {}
-
--- Callable
-otc_markets_multicast_ats_v4_3.callable = {}
-
--- Reserved Extended Security Flag Bits
-otc_markets_multicast_ats_v4_3.reserved_extended_security_flag_bits = {}
-
 -- Extended Security Flags
 otc_markets_multicast_ats_v4_3.extended_security_flags = {}
 
@@ -1985,30 +1940,6 @@ otc_markets_multicast_ats_v4_3.price.dissect = function(buffer, offset, packet, 
 
   return offset + length, value
 end
-
--- Update Side
-otc_markets_multicast_ats_v4_3.update_side = {}
-
--- State
-otc_markets_multicast_ats_v4_3.state = {}
-
--- Ask Unsolicited
-otc_markets_multicast_ats_v4_3.ask_unsolicited = {}
-
--- Ask Priced
-otc_markets_multicast_ats_v4_3.ask_priced = {}
-
--- Ask Bid Wanted
-otc_markets_multicast_ats_v4_3.ask_bid_wanted = {}
-
--- Bid Unsolicited
-otc_markets_multicast_ats_v4_3.bid_unsolicited = {}
-
--- Bid Priced
-otc_markets_multicast_ats_v4_3.bid_priced = {}
-
--- Bid Ask Wanted
-otc_markets_multicast_ats_v4_3.bid_ask_wanted = {}
 
 -- Quote Flags
 otc_markets_multicast_ats_v4_3.quote_flags = {}
@@ -2701,21 +2632,6 @@ otc_markets_multicast_ats_v4_3.market_open_message.dissect = function(buffer, of
     return otc_markets_multicast_ats_v4_3.market_open_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Quote Saturated
-otc_markets_multicast_ats_v4_3.quote_saturated = {}
-
--- Bid Auto Ex
-otc_markets_multicast_ats_v4_3.bid_auto_ex = {}
-
--- Offer Auto Ex
-otc_markets_multicast_ats_v4_3.offer_auto_ex = {}
-
--- Nms Conditional Quote
-otc_markets_multicast_ats_v4_3.nms_conditional_quote = {}
-
--- Reserved Extended Quote Flag Bits
-otc_markets_multicast_ats_v4_3.reserved_extended_quote_flag_bits = {}
 
 -- Extended Quote Flags
 otc_markets_multicast_ats_v4_3.extended_quote_flags = {}
@@ -3954,21 +3870,6 @@ otc_markets_multicast_ats_v4_3.messages.dissect = function(buffer, offset, packe
 
   return offset + length, value
 end
-
--- Heartbeat
-otc_markets_multicast_ats_v4_3.heartbeat = {}
-
--- Seq Num Reset
-otc_markets_multicast_ats_v4_3.seq_num_reset = {}
-
--- Reserved Packet Flags
-otc_markets_multicast_ats_v4_3.reserved_packet_flags = {}
-
--- Replay
-otc_markets_multicast_ats_v4_3.replay = {}
-
--- Test
-otc_markets_multicast_ats_v4_3.test = {}
 
 -- Packet Flag
 otc_markets_multicast_ats_v4_3.packet_flag = {}
