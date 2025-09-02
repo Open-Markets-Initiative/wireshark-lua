@@ -81,7 +81,7 @@ omi_siac_opra_recipient_obi_v6_1.fields.participant_reference_number = ProtoFiel
 omi_siac_opra_recipient_obi_v6_1.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v6.1.payload", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_1.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v6.1.premiumprice", ftypes.INT32)
 omi_siac_opra_recipient_obi_v6_1.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v6.1.premiumpricedenominatorcode", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_1.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v6.1.price", ftypes.UINT32)
+omi_siac_opra_recipient_obi_v6_1.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v6.1.price", ftypes.INT32)
 omi_siac_opra_recipient_obi_v6_1.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.opra.recipient.obi.v6.1.quotemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_1.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v6.1.reserved1", ftypes.BYTES)
 omi_siac_opra_recipient_obi_v6_1.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v6.1.reserved4", ftypes.BYTES)
@@ -91,6 +91,7 @@ omi_siac_opra_recipient_obi_v6_1.fields.security_symbol = ProtoField.new("Securi
 omi_siac_opra_recipient_obi_v6_1.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.recipient.obi.v6.1.securitysymbolshort", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_1.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v6.1.sessionindicator", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v6_1.fields.short_equity_and_index_quote_message = ProtoField.new("Short Equity And Index Quote Message", "siac.opra.recipient.obi.v6.1.shortequityandindexquotemessage", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_1.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v6.1.size", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_1.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.recipient.obi.v6.1.strikeprice", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v6_1.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v6.1.strikepricedenominatorcode", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_1.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v6.1.strikepriceshort", ftypes.UINT16)
@@ -1119,6 +1120,26 @@ end
 -- Size
 siac_opra_recipient_obi_v6_1.size = {}
 
+-- Size: Size
+siac_opra_recipient_obi_v6_1.size.size = 4
+
+-- Display: Size
+siac_opra_recipient_obi_v6_1.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Dissect: Size
+siac_opra_recipient_obi_v6_1.size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_1.size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_opra_recipient_obi_v6_1.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_recipient_obi_v6_1.fields.size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Price
 siac_opra_recipient_obi_v6_1.price = {}
 
@@ -1134,7 +1155,7 @@ end
 siac_opra_recipient_obi_v6_1.price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_recipient_obi_v6_1.price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = siac_opra_recipient_obi_v6_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_recipient_obi_v6_1.fields.price, range, value, display)
@@ -1273,10 +1294,10 @@ siac_opra_recipient_obi_v6_1.best_offer_appendage.fields = function(buffer, offs
   -- Denominator Code: alphabetic
   index, denominator_code = siac_opra_recipient_obi_v6_1.denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Price: unsigned integer
+  -- Price: signed integer
   index, price = siac_opra_recipient_obi_v6_1.price.dissect(buffer, index, packet, parent)
 
-  -- Size
+  -- Size: unsigned integer
   index, size = siac_opra_recipient_obi_v6_1.size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1333,10 +1354,10 @@ siac_opra_recipient_obi_v6_1.best_bid_appendage.fields = function(buffer, offset
   -- Denominator Code: alphabetic
   index, denominator_code = siac_opra_recipient_obi_v6_1.denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Price: unsigned integer
+  -- Price: signed integer
   index, price = siac_opra_recipient_obi_v6_1.price.dissect(buffer, index, packet, parent)
 
-  -- Size
+  -- Size: unsigned integer
   index, size = siac_opra_recipient_obi_v6_1.size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1863,7 +1884,7 @@ siac_opra_recipient_obi_v6_1.short_equity_and_index_quote_message.size = functio
 
   end
 
-  local bbo_indicator = buffer(offset + index - 32, 1):string()
+  local bbo_indicator = buffer(offset + index - 36, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_1.best_offer_appendage.size(buffer, offset + index)
@@ -2618,14 +2639,14 @@ siac_opra_recipient_obi_v6_1.long_equity_and_index_quote_message.size = function
 
   end
 
-  local bbo_indicator = buffer(offset + index - 46, 1):string()
+  local bbo_indicator = buffer(offset + index - 50, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_1.best_offer_appendage.size(buffer, offset + index)
 
   end
 
-  local bbo_indicator = buffer(offset + index - 52, 1):string()
+  local bbo_indicator = buffer(offset + index - 60, 1):string()
 
   if bbo_indicator == "O" then
     index = index + siac_opra_recipient_obi_v6_1.best_bid_and_offer_appendage.size(buffer, offset + index)
