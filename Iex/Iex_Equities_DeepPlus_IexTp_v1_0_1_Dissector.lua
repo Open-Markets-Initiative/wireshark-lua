@@ -468,24 +468,6 @@ iex_equities_deepplus_iextp_v1_0_1.size.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Unused 3
-iex_equities_deepplus_iextp_v1_0_1.unused_3 = {}
-
--- Singleprice Cross Trade
-iex_equities_deepplus_iextp_v1_0_1.singleprice_cross_trade = {}
-
--- Trade Through Exempt
-iex_equities_deepplus_iextp_v1_0_1.trade_through_exempt = {}
-
--- Odd Lot
-iex_equities_deepplus_iextp_v1_0_1.odd_lot = {}
-
--- Extended Hours
-iex_equities_deepplus_iextp_v1_0_1.extended_hours = {}
-
--- Intermarket Sweep
-iex_equities_deepplus_iextp_v1_0_1.intermarket_sweep = {}
-
 -- Sale Condition Flags
 iex_equities_deepplus_iextp_v1_0_1.sale_condition_flags = {}
 
@@ -853,12 +835,6 @@ iex_equities_deepplus_iextp_v1_0_1.order_delete_message.dissect = function(buffe
     return iex_equities_deepplus_iextp_v1_0_1.order_delete_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Unused 7
-iex_equities_deepplus_iextp_v1_0_1.unused_7 = {}
-
--- Priority
-iex_equities_deepplus_iextp_v1_0_1.priority = {}
 
 -- Modify Flags
 iex_equities_deepplus_iextp_v1_0_1.modify_flags = {}
@@ -1687,18 +1663,6 @@ iex_equities_deepplus_iextp_v1_0_1.round_lot_size.dissect = function(buffer, off
 
   return offset + length, value
 end
-
--- Unused 5
-iex_equities_deepplus_iextp_v1_0_1.unused_5 = {}
-
--- Etp
-iex_equities_deepplus_iextp_v1_0_1.etp = {}
-
--- When Issued
-iex_equities_deepplus_iextp_v1_0_1.when_issued = {}
-
--- Test Security
-iex_equities_deepplus_iextp_v1_0_1.test_security = {}
 
 -- Security Directory Flags
 iex_equities_deepplus_iextp_v1_0_1.security_directory_flags = {}

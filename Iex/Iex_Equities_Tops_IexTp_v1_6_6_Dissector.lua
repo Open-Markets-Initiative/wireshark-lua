@@ -832,24 +832,6 @@ iex_equities_tops_iextp_v1_6_6.size.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Unused 3
-iex_equities_tops_iextp_v1_6_6.unused_3 = {}
-
--- Singleprice Cross Trade
-iex_equities_tops_iextp_v1_6_6.singleprice_cross_trade = {}
-
--- Trade Through Exempt
-iex_equities_tops_iextp_v1_6_6.trade_through_exempt = {}
-
--- Odd Lot
-iex_equities_tops_iextp_v1_6_6.odd_lot = {}
-
--- Extended Hours
-iex_equities_tops_iextp_v1_6_6.extended_hours = {}
-
--- Intermarket Sweep
-iex_equities_tops_iextp_v1_6_6.intermarket_sweep = {}
-
 -- Sale Condition Flags
 iex_equities_tops_iextp_v1_6_6.sale_condition_flags = {}
 
@@ -1282,15 +1264,6 @@ iex_equities_tops_iextp_v1_6_6.bid_size.dissect = function(buffer, offset, packe
 
   return offset + length, value
 end
-
--- Unused 6
-iex_equities_tops_iextp_v1_6_6.unused_6 = {}
-
--- Market Session
-iex_equities_tops_iextp_v1_6_6.market_session = {}
-
--- Symbol Availability
-iex_equities_tops_iextp_v1_6_6.symbol_availability = {}
 
 -- Quote Update Flags
 iex_equities_tops_iextp_v1_6_6.quote_update_flags = {}
@@ -1924,18 +1897,6 @@ iex_equities_tops_iextp_v1_6_6.round_lot_size.dissect = function(buffer, offset,
 
   return offset + length, value
 end
-
--- Unused 5
-iex_equities_tops_iextp_v1_6_6.unused_5 = {}
-
--- Etp
-iex_equities_tops_iextp_v1_6_6.etp = {}
-
--- When Issued
-iex_equities_tops_iextp_v1_6_6.when_issued = {}
-
--- Test Security
-iex_equities_tops_iextp_v1_6_6.test_security = {}
 
 -- Security Directory Flags
 iex_equities_tops_iextp_v1_6_6.security_directory_flags = {}
