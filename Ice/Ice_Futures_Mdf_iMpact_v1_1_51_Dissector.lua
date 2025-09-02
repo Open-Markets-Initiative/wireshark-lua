@@ -2926,12 +2926,6 @@ ice_futures_mdf_impact_v1_1_51.modification_timestamp.dissect = function(buffer,
   return offset + length, value
 end
 
--- Is Modify Order
-ice_futures_mdf_impact_v1_1_51.is_modify_order = {}
-
--- Unused 7
-ice_futures_mdf_impact_v1_1_51.unused_7 = {}
-
 -- Modify Flags
 ice_futures_mdf_impact_v1_1_51.modify_flags = {}
 
@@ -11834,27 +11828,6 @@ ice_futures_mdf_impact_v1_1_51.spot_market_trade_message.dissect = function(buff
     return ice_futures_mdf_impact_v1_1_51.spot_market_trade_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Is Rfc Crossing
-ice_futures_mdf_impact_v1_1_51.is_rfc_crossing = {}
-
--- Is Leg Deal Outside Ipl
-ice_futures_mdf_impact_v1_1_51.is_leg_deal_outside_ipl = {}
-
--- Has No Direct Outright Originator
-ice_futures_mdf_impact_v1_1_51.has_no_direct_outright_originator = {}
-
--- Is Vertical Split
-ice_futures_mdf_impact_v1_1_51.is_vertical_split = {}
-
--- Has No Direct Outright Taker
-ice_futures_mdf_impact_v1_1_51.has_no_direct_outright_taker = {}
-
--- Is Option Strategy Hedge
-ice_futures_mdf_impact_v1_1_51.is_option_strategy_hedge = {}
-
--- Unused 2
-ice_futures_mdf_impact_v1_1_51.unused_2 = {}
 
 -- Trade Flags
 ice_futures_mdf_impact_v1_1_51.trade_flags = {}

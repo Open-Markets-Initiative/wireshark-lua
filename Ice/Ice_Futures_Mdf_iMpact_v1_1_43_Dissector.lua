@@ -11750,21 +11750,6 @@ ice_futures_mdf_impact_v1_1_43.spot_market_trade_message.dissect = function(buff
   end
 end
 
--- Unused 4
-ice_futures_mdf_impact_v1_1_43.unused_4 = {}
-
--- Is Vertical Split
-ice_futures_mdf_impact_v1_1_43.is_vertical_split = {}
-
--- Is Implied Order
-ice_futures_mdf_impact_v1_1_43.is_implied_order = {}
-
--- Is Leg Deal Outside Ipl
-ice_futures_mdf_impact_v1_1_43.is_leg_deal_outside_ipl = {}
-
--- Is Rfc Crossing
-ice_futures_mdf_impact_v1_1_43.is_rfc_crossing = {}
-
 -- Trade Flags
 ice_futures_mdf_impact_v1_1_43.trade_flags = {}
 
