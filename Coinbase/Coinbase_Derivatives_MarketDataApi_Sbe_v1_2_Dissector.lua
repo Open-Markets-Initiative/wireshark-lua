@@ -590,12 +590,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_request_message.dissect =
   end
 end
 
--- Is Prior Settlement Theoretical
-coinbase_derivatives_marketdataapi_sbe_v1_2.is_prior_settlement_theoretical = {}
-
--- Reserved 15
-coinbase_derivatives_marketdataapi_sbe_v1_2.reserved_15 = {}
-
 -- Definition Flags
 coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags = {}
 

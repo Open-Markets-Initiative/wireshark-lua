@@ -3229,12 +3229,6 @@ coinbase_derivatives_ordersapi_sbe_v1_6.new_ioc_order_message.dissect = function
   end
 end
 
--- Post Only
-coinbase_derivatives_ordersapi_sbe_v1_6.post_only = {}
-
--- Reserved 7
-coinbase_derivatives_ordersapi_sbe_v1_6.reserved_7 = {}
-
 -- Flags
 coinbase_derivatives_ordersapi_sbe_v1_6.flags = {}
 

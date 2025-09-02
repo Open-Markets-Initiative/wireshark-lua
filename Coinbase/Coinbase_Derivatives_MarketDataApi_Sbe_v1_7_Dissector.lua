@@ -702,21 +702,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_7.end_of_cycle_message.dissect = funct
   end
 end
 
--- Is Prior Settlement Theoretical
-coinbase_derivatives_marketdataapi_sbe_v1_7.is_prior_settlement_theoretical = {}
-
--- Is Announced
-coinbase_derivatives_marketdataapi_sbe_v1_7.is_announced = {}
-
--- Is Call
-coinbase_derivatives_marketdataapi_sbe_v1_7.is_call = {}
-
--- Is Strike Delisted
-coinbase_derivatives_marketdataapi_sbe_v1_7.is_strike_delisted = {}
-
--- Reserved 12
-coinbase_derivatives_marketdataapi_sbe_v1_7.reserved_12 = {}
-
 -- Definition Flags
 coinbase_derivatives_marketdataapi_sbe_v1_7.definition_flags = {}
 
