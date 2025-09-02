@@ -19,14 +19,23 @@ local show = {}
 
 -- Currenex Forex Now Cbp 10.0 Fields
 omi_currenex_forex_now_cbp_v10_0.fields.activity_indicator = ProtoField.new("Activity Indicator", "currenex.forex.now.cbp.v10.0.activityindicator", ftypes.STRING)
+omi_currenex_forex_now_cbp_v10_0.fields.amount = ProtoField.new("Amount", "currenex.forex.now.cbp.v10.0.amount", ftypes.INT64)
+omi_currenex_forex_now_cbp_v10_0.fields.bid = ProtoField.new("Bid", "currenex.forex.now.cbp.v10.0.bid", ftypes.STRING)
+omi_currenex_forex_now_cbp_v10_0.fields.bid_price = ProtoField.new("Bid Price", "currenex.forex.now.cbp.v10.0.bidprice", ftypes.DOUBLE)
+omi_currenex_forex_now_cbp_v10_0.fields.conf_factor_25 = ProtoField.new("Conf Factor 25", "currenex.forex.now.cbp.v10.0.conffactor25", ftypes.STRING)
+omi_currenex_forex_now_cbp_v10_0.fields.conf_factor_50 = ProtoField.new("Conf Factor 50", "currenex.forex.now.cbp.v10.0.conffactor50", ftypes.STRING)
+omi_currenex_forex_now_cbp_v10_0.fields.conf_factor_75 = ProtoField.new("Conf Factor 75", "currenex.forex.now.cbp.v10.0.conffactor75", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.instrument_id = ProtoField.new("Instrument Id", "currenex.forex.now.cbp.v10.0.instrumentid", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.instrument_index = ProtoField.new("Instrument Index", "currenex.forex.now.cbp.v10.0.instrumentindex", ftypes.INT16)
 omi_currenex_forex_now_cbp_v10_0.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.forex.now.cbp.v10.0.instrumenttype", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.forex.now.cbp.v10.0.itchetx", ftypes.INT8)
 omi_currenex_forex_now_cbp_v10_0.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.forex.now.cbp.v10.0.itchsoh", ftypes.INT8)
+omi_currenex_forex_now_cbp_v10_0.fields.level = ProtoField.new("Level", "currenex.forex.now.cbp.v10.0.level", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.message_body = ProtoField.new("Message Body", "currenex.forex.now.cbp.v10.0.messagebody", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.message_header = ProtoField.new("Message Header", "currenex.forex.now.cbp.v10.0.messageheader", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.message_type = ProtoField.new("Message Type", "currenex.forex.now.cbp.v10.0.messagetype", ftypes.STRING)
+omi_currenex_forex_now_cbp_v10_0.fields.offer = ProtoField.new("Offer", "currenex.forex.now.cbp.v10.0.offer", ftypes.STRING)
+omi_currenex_forex_now_cbp_v10_0.fields.offer_price = ProtoField.new("Offer Price", "currenex.forex.now.cbp.v10.0.offerprice", ftypes.DOUBLE)
 omi_currenex_forex_now_cbp_v10_0.fields.packet = ProtoField.new("Packet", "currenex.forex.now.cbp.v10.0.packet", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.paid_given_indicator = ProtoField.new("Paid Given Indicator", "currenex.forex.now.cbp.v10.0.paidgivenindicator", ftypes.STRING)
 omi_currenex_forex_now_cbp_v10_0.fields.password = ProtoField.new("Password", "currenex.forex.now.cbp.v10.0.password", ftypes.STRING)
@@ -73,16 +82,22 @@ omi_currenex_forex_now_cbp_v10_0.fields.level_index = ProtoField.new("Level Inde
 -----------------------------------------------------------------------
 
 -- Currenex Forex Now Cbp 10.0 Element Dissection Options
+show.bid = true
+show.conf_factor_25 = true
+show.conf_factor_50 = true
+show.conf_factor_75 = true
 show.depth_of_book_message = true
 show.heart_beat_message = true
 show.instrument_info = true
 show.instrument_info_ack_message = true
+show.level = true
 show.logon_message = true
 show.logout_message = true
 show.mass_subscription_reply_message = true
 show.mass_subscription_request_message = true
 show.message_header = true
 show.mid_activity_indicator_message = true
+show.offer = true
 show.packet = true
 show.paid_given_message = true
 show.reject_message = true
@@ -92,16 +107,22 @@ show.wamr_with_confidence_factor_message = true
 show.message_body = false
 
 -- Register Currenex Forex Now Cbp 10.0 Show Options
+omi_currenex_forex_now_cbp_v10_0.prefs.show_bid = Pref.bool("Show Bid", show.bid, "Parse and add Bid to protocol tree")
+omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_25 = Pref.bool("Show Conf Factor 25", show.conf_factor_25, "Parse and add Conf Factor 25 to protocol tree")
+omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_50 = Pref.bool("Show Conf Factor 50", show.conf_factor_50, "Parse and add Conf Factor 50 to protocol tree")
+omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_75 = Pref.bool("Show Conf Factor 75", show.conf_factor_75, "Parse and add Conf Factor 75 to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_depth_of_book_message = Pref.bool("Show Depth Of Book Message", show.depth_of_book_message, "Parse and add Depth Of Book Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_heart_beat_message = Pref.bool("Show Heart Beat Message", show.heart_beat_message, "Parse and add Heart Beat Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_instrument_info = Pref.bool("Show Instrument Info", show.instrument_info, "Parse and add Instrument Info to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_instrument_info_ack_message = Pref.bool("Show Instrument Info Ack Message", show.instrument_info_ack_message, "Parse and add Instrument Info Ack Message to protocol tree")
+omi_currenex_forex_now_cbp_v10_0.prefs.show_level = Pref.bool("Show Level", show.level, "Parse and add Level to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_mass_subscription_reply_message = Pref.bool("Show Mass Subscription Reply Message", show.mass_subscription_reply_message, "Parse and add Mass Subscription Reply Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_mass_subscription_request_message = Pref.bool("Show Mass Subscription Request Message", show.mass_subscription_request_message, "Parse and add Mass Subscription Request Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_mid_activity_indicator_message = Pref.bool("Show Mid Activity Indicator Message", show.mid_activity_indicator_message, "Parse and add Mid Activity Indicator Message to protocol tree")
+omi_currenex_forex_now_cbp_v10_0.prefs.show_offer = Pref.bool("Show Offer", show.offer, "Parse and add Offer to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_paid_given_message = Pref.bool("Show Paid Given Message", show.paid_given_message, "Parse and add Paid Given Message to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_reject_message = Pref.bool("Show Reject Message", show.reject_message, "Parse and add Reject Message to protocol tree")
@@ -115,6 +136,22 @@ function omi_currenex_forex_now_cbp_v10_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.bid ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_bid then
+    show.bid = omi_currenex_forex_now_cbp_v10_0.prefs.show_bid
+    changed = true
+  end
+  if show.conf_factor_25 ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_25 then
+    show.conf_factor_25 = omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_25
+    changed = true
+  end
+  if show.conf_factor_50 ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_50 then
+    show.conf_factor_50 = omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_50
+    changed = true
+  end
+  if show.conf_factor_75 ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_75 then
+    show.conf_factor_75 = omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_75
+    changed = true
+  end
   if show.depth_of_book_message ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_depth_of_book_message then
     show.depth_of_book_message = omi_currenex_forex_now_cbp_v10_0.prefs.show_depth_of_book_message
     changed = true
@@ -129,6 +166,10 @@ function omi_currenex_forex_now_cbp_v10_0.prefs_changed()
   end
   if show.instrument_info_ack_message ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_instrument_info_ack_message then
     show.instrument_info_ack_message = omi_currenex_forex_now_cbp_v10_0.prefs.show_instrument_info_ack_message
+    changed = true
+  end
+  if show.level ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_level then
+    show.level = omi_currenex_forex_now_cbp_v10_0.prefs.show_level
     changed = true
   end
   if show.logon_message ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_logon_message then
@@ -153,6 +194,10 @@ function omi_currenex_forex_now_cbp_v10_0.prefs_changed()
   end
   if show.mid_activity_indicator_message ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_mid_activity_indicator_message then
     show.mid_activity_indicator_message = omi_currenex_forex_now_cbp_v10_0.prefs.show_mid_activity_indicator_message
+    changed = true
+  end
+  if show.offer ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_offer then
+    show.offer = omi_currenex_forex_now_cbp_v10_0.prefs.show_offer
     changed = true
   end
   if show.packet ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_packet then
@@ -505,14 +550,213 @@ currenex_forex_now_cbp_v10_0.timestamp.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Offer Price
+currenex_forex_now_cbp_v10_0.offer_price = {}
+
+-- Size: Offer Price
+currenex_forex_now_cbp_v10_0.offer_price.size = 4
+
+-- Display: Offer Price
+currenex_forex_now_cbp_v10_0.offer_price.display = function(value)
+  return "Offer Price: "..value
+end
+
+-- Translate: Offer Price
+currenex_forex_now_cbp_v10_0.offer_price.translate = function(raw)
+  return raw/100000
+end
+
+-- Dissect: Offer Price
+currenex_forex_now_cbp_v10_0.offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_now_cbp_v10_0.offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = currenex_forex_now_cbp_v10_0.offer_price.translate(raw)
+  local display = currenex_forex_now_cbp_v10_0.offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_now_cbp_v10_0.fields.offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+currenex_forex_now_cbp_v10_0.bid_price = {}
+
+-- Size: Bid Price
+currenex_forex_now_cbp_v10_0.bid_price.size = 4
+
+-- Display: Bid Price
+currenex_forex_now_cbp_v10_0.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+currenex_forex_now_cbp_v10_0.bid_price.translate = function(raw)
+  return raw/100000
+end
+
+-- Dissect: Bid Price
+currenex_forex_now_cbp_v10_0.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_now_cbp_v10_0.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = currenex_forex_now_cbp_v10_0.bid_price.translate(raw)
+  local display = currenex_forex_now_cbp_v10_0.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_now_cbp_v10_0.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Conf Factor 25
 currenex_forex_now_cbp_v10_0.conf_factor_25 = {}
+
+-- Calculate size of: Conf Factor 25
+currenex_forex_now_cbp_v10_0.conf_factor_25.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_now_cbp_v10_0.bid_price.size
+
+  index = index + currenex_forex_now_cbp_v10_0.offer_price.size
+
+  return index
+end
+
+-- Display: Conf Factor 25
+currenex_forex_now_cbp_v10_0.conf_factor_25.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Conf Factor 25
+currenex_forex_now_cbp_v10_0.conf_factor_25.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price: Scale5_Rate
+  index, bid_price = currenex_forex_now_cbp_v10_0.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Offer Price: Scale5_Rate
+  index, offer_price = currenex_forex_now_cbp_v10_0.offer_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Conf Factor 25
+currenex_forex_now_cbp_v10_0.conf_factor_25.dissect = function(buffer, offset, packet, parent)
+  if show.conf_factor_25 then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.conf_factor_25, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0.conf_factor_25.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_now_cbp_v10_0.conf_factor_25.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_now_cbp_v10_0.conf_factor_25.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Conf Factor 50
 currenex_forex_now_cbp_v10_0.conf_factor_50 = {}
 
+-- Calculate size of: Conf Factor 50
+currenex_forex_now_cbp_v10_0.conf_factor_50.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_now_cbp_v10_0.bid_price.size
+
+  index = index + currenex_forex_now_cbp_v10_0.offer_price.size
+
+  return index
+end
+
+-- Display: Conf Factor 50
+currenex_forex_now_cbp_v10_0.conf_factor_50.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Conf Factor 50
+currenex_forex_now_cbp_v10_0.conf_factor_50.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price: Scale5_Rate
+  index, bid_price = currenex_forex_now_cbp_v10_0.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Offer Price: Scale5_Rate
+  index, offer_price = currenex_forex_now_cbp_v10_0.offer_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Conf Factor 50
+currenex_forex_now_cbp_v10_0.conf_factor_50.dissect = function(buffer, offset, packet, parent)
+  if show.conf_factor_50 then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.conf_factor_50, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0.conf_factor_50.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_now_cbp_v10_0.conf_factor_50.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_now_cbp_v10_0.conf_factor_50.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Conf Factor 75
 currenex_forex_now_cbp_v10_0.conf_factor_75 = {}
+
+-- Calculate size of: Conf Factor 75
+currenex_forex_now_cbp_v10_0.conf_factor_75.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_now_cbp_v10_0.bid_price.size
+
+  index = index + currenex_forex_now_cbp_v10_0.offer_price.size
+
+  return index
+end
+
+-- Display: Conf Factor 75
+currenex_forex_now_cbp_v10_0.conf_factor_75.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Conf Factor 75
+currenex_forex_now_cbp_v10_0.conf_factor_75.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price: Scale5_Rate
+  index, bid_price = currenex_forex_now_cbp_v10_0.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Offer Price: Scale5_Rate
+  index, offer_price = currenex_forex_now_cbp_v10_0.offer_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Conf Factor 75
+currenex_forex_now_cbp_v10_0.conf_factor_75.dissect = function(buffer, offset, packet, parent)
+  if show.conf_factor_75 then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.conf_factor_75, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0.conf_factor_75.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_now_cbp_v10_0.conf_factor_75.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_now_cbp_v10_0.conf_factor_75.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Price
 currenex_forex_now_cbp_v10_0.price = {}
@@ -554,11 +798,11 @@ currenex_forex_now_cbp_v10_0.wamr_with_confidence_factor_message.size = function
 
   index = index + currenex_forex_now_cbp_v10_0.price.size
 
-  index = index + currenex_forex_now_cbp_v10_0.conf_factor_75.size
+  index = index + currenex_forex_now_cbp_v10_0.conf_factor_75.size(buffer, offset + index)
 
-  index = index + currenex_forex_now_cbp_v10_0.conf_factor_50.size
+  index = index + currenex_forex_now_cbp_v10_0.conf_factor_50.size(buffer, offset + index)
 
-  index = index + currenex_forex_now_cbp_v10_0.conf_factor_25.size
+  index = index + currenex_forex_now_cbp_v10_0.conf_factor_25.size(buffer, offset + index)
 
   index = index + currenex_forex_now_cbp_v10_0.timestamp.size
 
@@ -580,13 +824,13 @@ currenex_forex_now_cbp_v10_0.wamr_with_confidence_factor_message.fields = functi
   -- Price: Scale6_Rate
   index, price = currenex_forex_now_cbp_v10_0.price.dissect(buffer, index, packet, parent)
 
-  -- Conf Factor 75
+  -- Conf Factor 75: Struct of 2 fields
   index, conf_factor_75 = currenex_forex_now_cbp_v10_0.conf_factor_75.dissect(buffer, index, packet, parent)
 
-  -- Conf Factor 50
+  -- Conf Factor 50: Struct of 2 fields
   index, conf_factor_50 = currenex_forex_now_cbp_v10_0.conf_factor_50.dissect(buffer, index, packet, parent)
 
-  -- Conf Factor 25
+  -- Conf Factor 25: Struct of 2 fields
   index, conf_factor_25 = currenex_forex_now_cbp_v10_0.conf_factor_25.dissect(buffer, index, packet, parent)
 
   -- Timestamp: Long
@@ -802,8 +1046,184 @@ currenex_forex_now_cbp_v10_0.paid_given_message.dissect = function(buffer, offse
   end
 end
 
+-- Amount
+currenex_forex_now_cbp_v10_0.amount = {}
+
+-- Size: Amount
+currenex_forex_now_cbp_v10_0.amount.size = 8
+
+-- Display: Amount
+currenex_forex_now_cbp_v10_0.amount.display = function(value)
+  return "Amount: "..value
+end
+
+-- Dissect: Amount
+currenex_forex_now_cbp_v10_0.amount.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_now_cbp_v10_0.amount.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_now_cbp_v10_0.amount.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_now_cbp_v10_0.fields.amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer
+currenex_forex_now_cbp_v10_0.offer = {}
+
+-- Calculate size of: Offer
+currenex_forex_now_cbp_v10_0.offer.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_now_cbp_v10_0.rate.size
+
+  index = index + currenex_forex_now_cbp_v10_0.amount.size
+
+  return index
+end
+
+-- Display: Offer
+currenex_forex_now_cbp_v10_0.offer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Offer
+currenex_forex_now_cbp_v10_0.offer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Rate: Scale5_Rate
+  index, rate = currenex_forex_now_cbp_v10_0.rate.dissect(buffer, index, packet, parent)
+
+  -- Amount: Amount
+  index, amount = currenex_forex_now_cbp_v10_0.amount.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Offer
+currenex_forex_now_cbp_v10_0.offer.dissect = function(buffer, offset, packet, parent)
+  if show.offer then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.offer, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0.offer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_now_cbp_v10_0.offer.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_now_cbp_v10_0.offer.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid
+currenex_forex_now_cbp_v10_0.bid = {}
+
+-- Calculate size of: Bid
+currenex_forex_now_cbp_v10_0.bid.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_now_cbp_v10_0.rate.size
+
+  index = index + currenex_forex_now_cbp_v10_0.amount.size
+
+  return index
+end
+
+-- Display: Bid
+currenex_forex_now_cbp_v10_0.bid.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid
+currenex_forex_now_cbp_v10_0.bid.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Rate: Scale5_Rate
+  index, rate = currenex_forex_now_cbp_v10_0.rate.dissect(buffer, index, packet, parent)
+
+  -- Amount: Amount
+  index, amount = currenex_forex_now_cbp_v10_0.amount.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid
+currenex_forex_now_cbp_v10_0.bid.dissect = function(buffer, offset, packet, parent)
+  if show.bid then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.bid, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0.bid.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_now_cbp_v10_0.bid.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_now_cbp_v10_0.bid.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Level
 currenex_forex_now_cbp_v10_0.level = {}
+
+-- Calculate size of: Level
+currenex_forex_now_cbp_v10_0.level.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_now_cbp_v10_0.bid.size(buffer, offset + index)
+
+  index = index + currenex_forex_now_cbp_v10_0.offer.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Level
+currenex_forex_now_cbp_v10_0.level.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Level
+currenex_forex_now_cbp_v10_0.level.fields = function(buffer, offset, packet, parent, level_index)
+  local index = offset
+
+  -- Implicit Level Index
+  if level_index ~= nil then
+    local iteration = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.level_index, level_index)
+    iteration:set_generated()
+  end
+
+  -- Bid: Struct of 2 fields
+  index, bid = currenex_forex_now_cbp_v10_0.bid.dissect(buffer, index, packet, parent)
+
+  -- Offer: Struct of 2 fields
+  index, offer = currenex_forex_now_cbp_v10_0.offer.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Level
+currenex_forex_now_cbp_v10_0.level.dissect = function(buffer, offset, packet, parent, level_index)
+  if show.level then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.level, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0.level.fields(buffer, offset, packet, parent, level_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_now_cbp_v10_0.level.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_now_cbp_v10_0.level.fields(buffer, offset, packet, parent, level_index)
+  end
+end
 
 -- Depth Of Book Message
 currenex_forex_now_cbp_v10_0.depth_of_book_message = {}
@@ -814,7 +1234,7 @@ currenex_forex_now_cbp_v10_0.depth_of_book_message.size = function(buffer, offse
 
   index = index + currenex_forex_now_cbp_v10_0.instrument_index.size
 
-  index = index + 20 * currenex_forex_now_cbp_v10_0.level.size
+  index = index + 20 * currenex_forex_now_cbp_v10_0.level.size(buffer, offset + index)
 
   return index
 end

@@ -6,7 +6,7 @@
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Forex | [Esp][Currenex.Forex.Esp.Cbp.v9.0.Dissector] | Cbp | [9.0][Currenex.Forex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1870 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.Forex.Esp.Cbp.v9.0.Pdf] |
-| Forex | [Now][Currenex.Forex.Now.Cbp.v10.0.Dissector] | Cbp | [10.0][Currenex.Forex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2204 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Now.Cbp.v10.0.Url] - [pdf][Currenex.Forex.Now.Cbp.v10.0.Pdf] |
+| Forex | [Now][Currenex.Forex.Now.Cbp.v10.0.Dissector] | Cbp | [10.0][Currenex.Forex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2624 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Now.Cbp.v10.0.Url] - [pdf][Currenex.Forex.Now.Cbp.v10.0.Pdf] |
 | Forex | [OrderService][Currenex.Forex.OrderService.Cbp.v26.0.Dissector] | Cbp | [26.0][Currenex.Forex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2898 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.Forex.OrderService.Cbp.v26.0.Pdf] |
 
 
