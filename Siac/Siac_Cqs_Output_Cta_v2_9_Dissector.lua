@@ -73,8 +73,10 @@ omi_siac_cqs_output_cta_v2_9.fields.message_header = ProtoField.new("Message Hea
 omi_siac_cqs_output_cta_v2_9.fields.message_id = ProtoField.new("Message Id", "siac.cqs.output.cta.v2.9.messageid", ftypes.UINT8)
 omi_siac_cqs_output_cta_v2_9.fields.message_length = ProtoField.new("Message Length", "siac.cqs.output.cta.v2.9.messagelength", ftypes.UINT16)
 omi_siac_cqs_output_cta_v2_9.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.output.cta.v2.9.messagesinblock", ftypes.UINT8)
+omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.output.cta.v2.9.mwcblevel1", ftypes.INT64)
 omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v2.9.mwcblevel2", ftypes.INT64)
 omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.output.cta.v2.9.mwcblevel3", ftypes.INT64)
+omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_indicator = ProtoField.new("Mwcb Level Indicator", "siac.cqs.output.cta.v2.9.mwcblevelindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.output.cta.v2.9.nanoseconds", ftypes.UINT32)
 omi_siac_cqs_output_cta_v2_9.fields.national_bbo_indicator = ProtoField.new("National Bbo Indicator", "siac.cqs.output.cta.v2.9.nationalbboindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.output.cta.v2.9.nationalbboluldindicator", ftypes.STRING)
@@ -104,6 +106,7 @@ omi_siac_cqs_output_cta_v2_9.fields.retransmission_indicator = ProtoField.new("R
 omi_siac_cqs_output_cta_v2_9.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.9.seconds", ftypes.UINT32)
 omi_siac_cqs_output_cta_v2_9.fields.security_status_indicator = ProtoField.new("Security Status Indicator", "siac.cqs.output.cta.v2.9.securitystatusindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.security_symbol_long = ProtoField.new("Security Symbol Long", "siac.cqs.output.cta.v2.9.securitysymbollong", ftypes.STRING)
+omi_siac_cqs_output_cta_v2_9.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cqs.output.cta.v2.9.securitysymbolshort", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.output.cta.v2.9.settlementcondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.output.cta.v2.9.shortsalerestrictionindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v2.9.sipblocktimestamp", ftypes.STRING)
@@ -2839,6 +2842,26 @@ end
 -- Security Symbol Short
 siac_cqs_output_cta_v2_9.security_symbol_short = {}
 
+-- Size: Security Symbol Short
+siac_cqs_output_cta_v2_9.security_symbol_short.size = 5
+
+-- Display: Security Symbol Short
+siac_cqs_output_cta_v2_9.security_symbol_short.display = function(value)
+  return "Security Symbol Short: "..value
+end
+
+-- Dissect: Security Symbol Short
+siac_cqs_output_cta_v2_9.security_symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v2_9.security_symbol_short.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v2_9.security_symbol_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v2_9.fields.security_symbol_short, range, value, display)
+
+  return offset + length, value
+end
+
 -- Short Quote Message
 siac_cqs_output_cta_v2_9.short_quote_message = {}
 
@@ -2876,7 +2899,7 @@ siac_cqs_output_cta_v2_9.short_quote_message.fields = function(buffer, offset, p
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cqs_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Short
+  -- Security Symbol Short: 5 Byte Ascii String
   index, security_symbol_short = siac_cqs_output_cta_v2_9.security_symbol_short.dissect(buffer, index, packet, parent)
 
   -- Bid Price Short: 2 Byte Unsigned Fixed Width Integer
@@ -3624,8 +3647,41 @@ siac_cqs_output_cta_v2_9.reserved.dissect = function(buffer, offset, packet, par
   return offset + length, value
 end
 
--- Market Wide Circuit Breaker Level Indicator
-siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_level_indicator = {}
+-- Mwcb Level Indicator
+siac_cqs_output_cta_v2_9.mwcb_level_indicator = {}
+
+-- Size: Mwcb Level Indicator
+siac_cqs_output_cta_v2_9.mwcb_level_indicator.size = 1
+
+-- Display: Mwcb Level Indicator
+siac_cqs_output_cta_v2_9.mwcb_level_indicator.display = function(value)
+  if value == " " then
+    return "Mwcb Level Indicator: Mwcb Not Applicable (<whitespace>)"
+  end
+  if value == "1" then
+    return "Mwcb Level Indicator: Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Mwcb Level Indicator: Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Mwcb Level Indicator: Level 3 Breached (3)"
+  end
+
+  return "Mwcb Level Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Mwcb Level Indicator
+siac_cqs_output_cta_v2_9.mwcb_level_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v2_9.mwcb_level_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v2_9.mwcb_level_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_indicator, range, value, display)
+
+  return offset + length, value
+end
 
 -- Market Wide Circuit Breaker Status Message
 siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_status_message = {}
@@ -3664,8 +3720,8 @@ siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_status_message.fields = fun
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cqs_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Market Wide Circuit Breaker Level Indicator
-  index, market_wide_circuit_breaker_level_indicator = siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_level_indicator.dissect(buffer, index, packet, parent)
+  -- Mwcb Level Indicator: 1 Byte Ascii String Enum with 4 values
+  index, mwcb_level_indicator = siac_cqs_output_cta_v2_9.mwcb_level_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
   index, reserved = siac_cqs_output_cta_v2_9.reserved.dissect(buffer, index, packet, parent)
@@ -3739,6 +3795,26 @@ end
 -- Mwcb Level 1
 siac_cqs_output_cta_v2_9.mwcb_level_1 = {}
 
+-- Size: Mwcb Level 1
+siac_cqs_output_cta_v2_9.mwcb_level_1.size = 8
+
+-- Display: Mwcb Level 1
+siac_cqs_output_cta_v2_9.mwcb_level_1.display = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+siac_cqs_output_cta_v2_9.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v2_9.mwcb_level_1.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cqs_output_cta_v2_9.mwcb_level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Wide Circuit Breaker Decline Level Status Message
 siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message = {}
 
@@ -3776,7 +3852,7 @@ siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_messag
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cqs_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 1
+  -- Mwcb Level 1: 8 Byte Signed Fixed Width Integer
   index, mwcb_level_1 = siac_cqs_output_cta_v2_9.mwcb_level_1.dissect(buffer, index, packet, parent)
 
   -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer

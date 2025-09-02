@@ -112,6 +112,7 @@ omi_siac_cts_output_cta_v1_91.fields.stop_stock_indicator = ProtoField.new("Stop
 omi_siac_cts_output_cta_v1_91.fields.summary = ProtoField.new("Summary", "siac.cts.output.cta.v1.91.summary", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v1.91.summarymessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.summary_payload = ProtoField.new("Summary Payload", "siac.cts.output.cta.v1.91.summarypayload", ftypes.STRING)
+omi_siac_cts_output_cta_v1_91.fields.text = ProtoField.new("Text", "siac.cts.output.cta.v1.91.text", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.tick = ProtoField.new("Tick", "siac.cts.output.cta.v1.91.tick", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v1.91.timestamp1", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v1.91.timestamp2", ftypes.STRING)
@@ -1278,9 +1279,6 @@ siac_cts_output_cta_v1_91.timestamp_2.dissect = function(buffer, offset, packet,
     return siac_cts_output_cta_v1_91.timestamp_2.fields(buffer, offset, packet, parent)
   end
 end
-
--- Original Participant Reference Number Of Original Transaction Being Cancelled Or Errored
-siac_cts_output_cta_v1_91.original_participant_reference_number_of_original_transaction_being_cancelled_or_errored = {}
 
 -- Trade Reporting Facility Id
 siac_cts_output_cta_v1_91.trade_reporting_facility_id = {}
@@ -3080,12 +3078,6 @@ siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.dissect = function(buffe
   end
 end
 
--- Trade Volume Long
-siac_cts_output_cta_v1_91.trade_volume_long = {}
-
--- Trade Price Long
-siac_cts_output_cta_v1_91.trade_price_long = {}
-
 -- Original Trade
 siac_cts_output_cta_v1_91.original_trade = {}
 
@@ -3433,9 +3425,6 @@ siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.dissect = functio
 
   return offset + length, value
 end
-
--- Auction Collar Upper Threshold Price
-siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price = {}
 
 -- Auction Collar Reference Price
 siac_cts_output_cta_v1_91.auction_collar_reference_price = {}
@@ -5022,9 +5011,6 @@ siac_cts_output_cta_v1_91.reserved.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Market Wide Circuit Breaker Level Indicator
-siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator = {}
-
 -- Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v1_91.market_wide_circuit_breaker_status_message = {}
 
@@ -5133,9 +5119,6 @@ siac_cts_output_cta_v1_91.mwcb_level_2.dissect = function(buffer, offset, packet
 
   return offset + length, value
 end
-
--- Mwcb Level 1
-siac_cts_output_cta_v1_91.mwcb_level_1 = {}
 
 -- Market Wide Circuit Breaker Decline Level Status Message
 siac_cts_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message = {}
@@ -6319,6 +6302,26 @@ end
 -- Text
 siac_cts_output_cta_v1_91.text = {}
 
+-- Size: Text
+siac_cts_output_cta_v1_91.text.size = 4
+
+-- Display: Text
+siac_cts_output_cta_v1_91.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+siac_cts_output_cta_v1_91.text.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v1_91.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v1_91.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
 -- Administrative Unformatted Message
 siac_cts_output_cta_v1_91.administrative_unformatted_message = {}
 
@@ -6356,7 +6359,7 @@ siac_cts_output_cta_v1_91.administrative_unformatted_message.fields = function(b
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cts_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Text
+  -- Text: 4 Byte Ascii String
   index, text = siac_cts_output_cta_v1_91.text.dissect(buffer, index, packet, parent)
 
   return index

@@ -104,6 +104,7 @@ omi_siac_cqs_output_cta_v1_91.fields.retransmission_indicator = ProtoField.new("
 omi_siac_cqs_output_cta_v1_91.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v1.91.seconds", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.security_status_indicator = ProtoField.new("Security Status Indicator", "siac.cqs.output.cta.v1.91.securitystatusindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.security_symbol_long = ProtoField.new("Security Symbol Long", "siac.cqs.output.cta.v1.91.securitysymbollong", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cqs.output.cta.v1.91.securitysymbolshort", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.output.cta.v1.91.settlementcondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.output.cta.v1.91.shortsalerestrictionindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
@@ -2638,6 +2639,26 @@ end
 -- Security Symbol Short
 siac_cqs_output_cta_v1_91.security_symbol_short = {}
 
+-- Size: Security Symbol Short
+siac_cqs_output_cta_v1_91.security_symbol_short.size = 5
+
+-- Display: Security Symbol Short
+siac_cqs_output_cta_v1_91.security_symbol_short.display = function(value)
+  return "Security Symbol Short: "..value
+end
+
+-- Dissect: Security Symbol Short
+siac_cqs_output_cta_v1_91.security_symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.security_symbol_short.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.security_symbol_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.security_symbol_short, range, value, display)
+
+  return offset + length, value
+end
+
 -- Short Quote Message
 siac_cqs_output_cta_v1_91.short_quote_message = {}
 
@@ -2675,7 +2696,7 @@ siac_cqs_output_cta_v1_91.short_quote_message.fields = function(buffer, offset, 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cqs_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Short
+  -- Security Symbol Short: 5 Byte Ascii String
   index, security_symbol_short = siac_cqs_output_cta_v1_91.security_symbol_short.dissect(buffer, index, packet, parent)
 
   -- Bid Price Short: 2 Byte Unsigned Fixed Width Integer
@@ -3060,15 +3081,6 @@ siac_cqs_output_cta_v1_91.number_of_extensions.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Auction Collar Lower Threshold Price
-siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price = {}
-
--- Auction Collar Upper Threshold Price
-siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price = {}
-
--- Auction Collar Reference Price
-siac_cqs_output_cta_v1_91.auction_collar_reference_price = {}
-
 -- Auction Status Message
 siac_cqs_output_cta_v1_91.auction_status_message = {}
 
@@ -3335,9 +3347,6 @@ siac_cqs_output_cta_v1_91.reserved.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Market Wide Circuit Breaker Level Indicator
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_level_indicator = {}
-
 -- Market Wide Circuit Breaker Status Message
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message = {}
 
@@ -3446,9 +3455,6 @@ siac_cqs_output_cta_v1_91.mwcb_level_2.dissect = function(buffer, offset, packet
 
   return offset + length, value
 end
-
--- Mwcb Level 1
-siac_cqs_output_cta_v1_91.mwcb_level_1 = {}
 
 -- Market Wide Circuit Breaker Decline Level Status Message
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message = {}
@@ -4376,9 +4382,6 @@ siac_cqs_output_cta_v1_91.control.dissect = function(buffer, offset, packet, par
 
   return offset + size_of_control
 end
-
--- Text
-siac_cqs_output_cta_v1_91.text = {}
 
 -- Administrative Unformatted Message
 siac_cqs_output_cta_v1_91.administrative_unformatted_message = {}

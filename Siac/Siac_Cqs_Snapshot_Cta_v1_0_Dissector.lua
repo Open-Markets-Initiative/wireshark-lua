@@ -53,6 +53,7 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.message_category = ProtoField.new("Message
 omi_siac_cqs_snapshot_cta_v1_0.fields.message_header = ProtoField.new("Message Header", "siac.cqs.snapshot.cta.v1.0.messageheader", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.message_length = ProtoField.new("Message Length", "siac.cqs.snapshot.cta.v1.0.messagelength", ftypes.UINT16)
 omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v1.0.messagesinblock", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.snapshot.cta.v1.0.mwcblevel1", ftypes.INT64)
 omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v1.0.mwcblevel2", ftypes.INT64)
 omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v1.0.mwcblevel3", ftypes.INT64)
 omi_siac_cqs_snapshot_cta_v1_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.snapshot.cta.v1.0.nanoseconds", ftypes.UINT32)
@@ -67,6 +68,7 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_quote_condition = Prot
 omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_size = ProtoField.new("National Best Offer Size", "siac.cqs.snapshot.cta.v1.0.nationalbestoffersize", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v1_0.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cqs.snapshot.cta.v1.0.numberofextensions", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v1_0.fields.offer_price = ProtoField.new("Offer Price", "siac.cqs.snapshot.cta.v1.0.offerprice", ftypes.DOUBLE)
+omi_siac_cqs_snapshot_cta_v1_0.fields.offer_size = ProtoField.new("Offer Size", "siac.cqs.snapshot.cta.v1.0.offersize", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v1_0.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v1.0.packet", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.snapshot.cta.v1.0.participantid", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.payload = ProtoField.new("Payload", "siac.cqs.snapshot.cta.v1.0.payload", ftypes.STRING)
@@ -1015,6 +1017,26 @@ end
 -- Offer Size
 siac_cqs_snapshot_cta_v1_0.offer_size = {}
 
+-- Size: Offer Size
+siac_cqs_snapshot_cta_v1_0.offer_size.size = 4
+
+-- Display: Offer Size
+siac_cqs_snapshot_cta_v1_0.offer_size.display = function(value)
+  return "Offer Size: "..value
+end
+
+-- Dissect: Offer Size
+siac_cqs_snapshot_cta_v1_0.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Offer Price
 siac_cqs_snapshot_cta_v1_0.offer_price = {}
 
@@ -1202,7 +1224,7 @@ siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields = function(buffer
   -- Offer Price: 8 Byte Unsigned Fixed Width Integer
   index, offer_price = siac_cqs_snapshot_cta_v1_0.offer_price.dissect(buffer, index, packet, parent)
 
-  -- Offer Size
+  -- Offer Size: 4 Byte Unsigned Fixed Width Integer
   index, offer_size = siac_cqs_snapshot_cta_v1_0.offer_size.dissect(buffer, index, packet, parent)
 
   -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
@@ -2300,6 +2322,26 @@ end
 -- Mwcb Level 1
 siac_cqs_snapshot_cta_v1_0.mwcb_level_1 = {}
 
+-- Size: Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size = 8
+
+-- Display: Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Wide Circuit Breaker Decline Level Status Snapshot Message
 siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snapshot_message = {}
 
@@ -2325,7 +2367,7 @@ siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snap
   -- Participant Id: 1 Byte Ascii String Enum with 20 values
   index, participant_id = siac_cqs_snapshot_cta_v1_0.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 1
+  -- Mwcb Level 1: 8 Byte Signed Fixed Width Integer
   index, mwcb_level_1 = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.dissect(buffer, index, packet, parent)
 
   -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer
