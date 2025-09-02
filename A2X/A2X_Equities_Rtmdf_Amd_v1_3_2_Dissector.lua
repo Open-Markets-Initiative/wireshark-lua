@@ -459,18 +459,6 @@ a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message.dissect = function(buffe
   end
 end
 
--- Trading
-a2x_equities_rtmdf_amd_v1_3_2.trading = {}
-
--- Mac Open
-a2x_equities_rtmdf_amd_v1_3_2.mac_open = {}
-
--- Mac Run
-a2x_equities_rtmdf_amd_v1_3_2.mac_run = {}
-
--- Unused 5
-a2x_equities_rtmdf_amd_v1_3_2.unused_5 = {}
-
 -- Market Flags
 a2x_equities_rtmdf_amd_v1_3_2.market_flags = {}
 
@@ -625,24 +613,6 @@ a2x_equities_rtmdf_amd_v1_3_2.security_status_message.dissect = function(buffer,
     return a2x_equities_rtmdf_amd_v1_3_2.security_status_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Mac Enabled
-a2x_equities_rtmdf_amd_v1_3_2.mac_enabled = {}
-
--- Test Stock
-a2x_equities_rtmdf_amd_v1_3_2.test_stock = {}
-
--- Illiquid
-a2x_equities_rtmdf_amd_v1_3_2.illiquid = {}
-
--- Unused 1
-a2x_equities_rtmdf_amd_v1_3_2.unused_1 = {}
-
--- Aod Enabled
-a2x_equities_rtmdf_amd_v1_3_2.aod_enabled = {}
-
--- Unused 11
-a2x_equities_rtmdf_amd_v1_3_2.unused_11 = {}
 
 -- Security Flags
 a2x_equities_rtmdf_amd_v1_3_2.security_flags = {}
@@ -1602,9 +1572,6 @@ a2x_equities_rtmdf_amd_v1_3_2.order_add_message.dissect = function(buffer, offse
     return a2x_equities_rtmdf_amd_v1_3_2.order_add_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Heartbeat Message
-a2x_equities_rtmdf_amd_v1_3_2.heartbeat_message = {}
 
 -- Payload
 a2x_equities_rtmdf_amd_v1_3_2.payload = {}

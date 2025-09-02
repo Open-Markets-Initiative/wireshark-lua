@@ -436,18 +436,6 @@ a2x_equities_snapshot_amd_v1_3_2.entries.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Trading
-a2x_equities_snapshot_amd_v1_3_2.trading = {}
-
--- Mac Open
-a2x_equities_snapshot_amd_v1_3_2.mac_open = {}
-
--- Mac Run
-a2x_equities_snapshot_amd_v1_3_2.mac_run = {}
-
--- Unused 5
-a2x_equities_snapshot_amd_v1_3_2.unused_5 = {}
-
 -- Market Flags
 a2x_equities_snapshot_amd_v1_3_2.market_flags = {}
 
@@ -725,9 +713,6 @@ a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.dissect = function(buffe
     return a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Heartbeat Message
-a2x_equities_snapshot_amd_v1_3_2.heartbeat_message = {}
 
 -- Payload
 a2x_equities_snapshot_amd_v1_3_2.payload = {}
