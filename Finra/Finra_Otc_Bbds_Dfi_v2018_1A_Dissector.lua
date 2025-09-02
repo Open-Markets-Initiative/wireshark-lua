@@ -70,6 +70,7 @@ omi_finra_otc_bbds_dfi_v2018_1a.fields.reserved = ProtoField.new("Reserved", "fi
 omi_finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.otc.bbds.dfi.v2018.1a.retransmissionrequester", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.second = ProtoField.new("Second", "finra.otc.bbds.dfi.v2018.1a.second", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.session_identifier = ProtoField.new("Session Identifier", "finra.otc.bbds.dfi.v2018.1a.sessionidentifier", ftypes.STRING)
+omi_finra_otc_bbds_dfi_v2018_1a.fields.stock_symbol = ProtoField.new("Stock Symbol", "finra.otc.bbds.dfi.v2018.1a.stocksymbol", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.text = ProtoField.new("Text", "finra.otc.bbds.dfi.v2018.1a.text", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.unsolicited_indicator = ProtoField.new("Unsolicited Indicator", "finra.otc.bbds.dfi.v2018.1a.unsolicitedindicator", ftypes.STRING)
 omi_finra_otc_bbds_dfi_v2018_1a.fields.wanted_indicator = ProtoField.new("Wanted Indicator", "finra.otc.bbds.dfi.v2018.1a.wantedindicator", ftypes.STRING)
@@ -1447,8 +1448,28 @@ finra_otc_bbds_dfi_v2018_1a.action.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Security Symbol
-finra_otc_bbds_dfi_v2018_1a.security_symbol = {}
+-- Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol = {}
+
+-- Size: Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol.size = 11
+
+-- Display: Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol.display = function(value)
+  return "Stock Symbol: "..value
+end
+
+-- Dissect: Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.stock_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.stock_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.stock_symbol, range, value, display)
+
+  return offset + length, value
+end
 
 -- Trading Action Message
 finra_otc_bbds_dfi_v2018_1a.trading_action_message = {}
@@ -1459,7 +1480,7 @@ finra_otc_bbds_dfi_v2018_1a.trading_action_message.size = function(buffer, offse
 
   index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
 
-  index = index + finra_otc_bbds_dfi_v2018_1a.security_symbol.size
+  index = index + finra_otc_bbds_dfi_v2018_1a.stock_symbol.size
 
   index = index + finra_otc_bbds_dfi_v2018_1a.action.size
 
@@ -1482,8 +1503,8 @@ finra_otc_bbds_dfi_v2018_1a.trading_action_message.fields = function(buffer, off
   -- Message Header: Struct of 6 fields
   index, message_header = finra_otc_bbds_dfi_v2018_1a.message_header.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol
-  index, security_symbol = finra_otc_bbds_dfi_v2018_1a.security_symbol.dissect(buffer, index, packet, parent)
+  -- Stock Symbol: 11 Byte Ascii String
+  index, stock_symbol = finra_otc_bbds_dfi_v2018_1a.stock_symbol.dissect(buffer, index, packet, parent)
 
   -- Action: 1 Byte Ascii String Enum with 3 values
   index, action = finra_otc_bbds_dfi_v2018_1a.action.dissect(buffer, index, packet, parent)
