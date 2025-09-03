@@ -36,6 +36,7 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume = ProtoField.new("Con
 omi_nasdaq_utdf_output_utp_v1_5.fields.control = ProtoField.new("Control", "nasdaq.utdf.output.utp.v1.5.control", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.utdf.output.utp.v1.5.controlmessagetype", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.control_payload = ProtoField.new("Control Payload", "nasdaq.utdf.output.utp.v1.5.controlpayload", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sale_condition = ProtoField.new("Corrected Sale Condition", "nasdaq.utdf.output.utp.v1.5.correctedsalecondition", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.correctedsellerssaledays", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id = ProtoField.new("Corrected Trade Id", "nasdaq.utdf.output.utp.v1.5.correctedtradeid", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.utdf.output.utp.v1.5.correctedtradeprice", ftypes.DOUBLE)
@@ -82,6 +83,7 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3 = ProtoField.new("Mwcb Level
 omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries = ProtoField.new("Number Of Market Center Summaries", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentersummaries", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes = ProtoField.new("Number Of Market Center Volumes", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentervolumes", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.utdf.output.utp.v1.5.oldsymbol", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.original_sale_condition = ProtoField.new("Original Sale Condition", "nasdaq.utdf.output.utp.v1.5.originalsalecondition", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days = ProtoField.new("Original Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.originalsellerssaledays", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_id = ProtoField.new("Original Trade Id", "nasdaq.utdf.output.utp.v1.5.originaltradeid", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.utdf.output.utp.v1.5.originaltradeprice", ftypes.DOUBLE)
@@ -164,6 +166,7 @@ show.administrative = true
 show.auction_collar_message = true
 show.closing_trade_summary_report_message = true
 show.control = true
+show.corrected_sale_condition = true
 show.cross_sro_trading_action_message = true
 show.end_of_consolidated_last_sale_eligibility = true
 show.end_of_day_message = true
@@ -181,6 +184,7 @@ show.market_wide_circuit_breaker_decline_level_message = true
 show.message = true
 show.message_header = true
 show.message_info = true
+show.original_sale_condition = true
 show.packet = true
 show.packet_header = true
 show.prior_day_as_of_trade_message = true
@@ -205,6 +209,7 @@ omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative = Pref.bool("Show Admi
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message = Pref.bool("Show Auction Collar Message", show.auction_collar_message, "Parse and add Auction Collar Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message = Pref.bool("Show Closing Trade Summary Report Message", show.closing_trade_summary_report_message, "Parse and add Closing Trade Summary Report Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_corrected_sale_condition = Pref.bool("Show Corrected Sale Condition", show.corrected_sale_condition, "Parse and add Corrected Sale Condition to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message = Pref.bool("Show Cross Sro Trading Action Message", show.cross_sro_trading_action_message, "Parse and add Cross Sro Trading Action Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility = Pref.bool("Show End Of Consolidated Last Sale Eligibility", show.end_of_consolidated_last_sale_eligibility, "Parse and add End Of Consolidated Last Sale Eligibility to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
@@ -222,6 +227,7 @@ omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_l
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info = Pref.bool("Show Message Info", show.message_info, "Parse and add Message Info to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_original_sale_condition = Pref.bool("Show Original Sale Condition", show.original_sale_condition, "Parse and add Original Sale Condition to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message = Pref.bool("Show Prior Day As Of Trade Message", show.prior_day_as_of_trade_message, "Parse and add Prior Day As Of Trade Message to protocol tree")
@@ -260,6 +266,10 @@ function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
   end
   if show.control ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control then
     show.control = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control
+    changed = true
+  end
+  if show.corrected_sale_condition ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_corrected_sale_condition then
+    show.corrected_sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_corrected_sale_condition
     changed = true
   end
   if show.cross_sro_trading_action_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message then
@@ -328,6 +338,10 @@ function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
   end
   if show.message_info ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info then
     show.message_info = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info
+    changed = true
+  end
+  if show.original_sale_condition ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_original_sale_condition then
+    show.original_sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_original_sale_condition
     changed = true
   end
   if show.packet ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet then
@@ -4241,6 +4255,63 @@ end
 -- Corrected Sale Condition
 nasdaq_utdf_output_utp_v1_5.corrected_sale_condition = {}
 
+-- Calculate size of: Corrected Sale Condition
+nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
+
+  return index
+end
+
+-- Display: Corrected Sale Condition
+nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Corrected Sale Condition
+nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Level 1: 1 Byte Ascii String Enum with 6 values
+  index, level_1 = nasdaq_utdf_output_utp_v1_5.level_1.dissect(buffer, index, packet, parent)
+
+  -- Level 2: 1 Byte Ascii String Enum with 9 values
+  index, level_2 = nasdaq_utdf_output_utp_v1_5.level_2.dissect(buffer, index, packet, parent)
+
+  -- Level 3: 1 Byte Ascii String Enum with 21 values
+  index, level_3 = nasdaq_utdf_output_utp_v1_5.level_3.dissect(buffer, index, packet, parent)
+
+  -- Level 4: 1 Byte Ascii String
+  index, level_4 = nasdaq_utdf_output_utp_v1_5.level_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Corrected Sale Condition
+nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.dissect = function(buffer, offset, packet, parent)
+  if show.corrected_sale_condition then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sale_condition, buffer(offset, 0))
+    local index = nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Corrected Volume
 nasdaq_utdf_output_utp_v1_5.corrected_volume = {}
 
@@ -4365,6 +4436,63 @@ end
 -- Original Sale Condition
 nasdaq_utdf_output_utp_v1_5.original_sale_condition = {}
 
+-- Calculate size of: Original Sale Condition
+nasdaq_utdf_output_utp_v1_5.original_sale_condition.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
+
+  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
+
+  return index
+end
+
+-- Display: Original Sale Condition
+nasdaq_utdf_output_utp_v1_5.original_sale_condition.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Original Sale Condition
+nasdaq_utdf_output_utp_v1_5.original_sale_condition.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Level 1: 1 Byte Ascii String Enum with 6 values
+  index, level_1 = nasdaq_utdf_output_utp_v1_5.level_1.dissect(buffer, index, packet, parent)
+
+  -- Level 2: 1 Byte Ascii String Enum with 9 values
+  index, level_2 = nasdaq_utdf_output_utp_v1_5.level_2.dissect(buffer, index, packet, parent)
+
+  -- Level 3: 1 Byte Ascii String Enum with 21 values
+  index, level_3 = nasdaq_utdf_output_utp_v1_5.level_3.dissect(buffer, index, packet, parent)
+
+  -- Level 4: 1 Byte Ascii String
+  index, level_4 = nasdaq_utdf_output_utp_v1_5.level_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Original Sale Condition
+nasdaq_utdf_output_utp_v1_5.original_sale_condition.dissect = function(buffer, offset, packet, parent)
+  if show.original_sale_condition then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_sale_condition, buffer(offset, 0))
+    local index = nasdaq_utdf_output_utp_v1_5.original_sale_condition.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_utdf_output_utp_v1_5.original_sale_condition.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_utdf_output_utp_v1_5.original_sale_condition.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Original Volume
 nasdaq_utdf_output_utp_v1_5.original_volume = {}
 
@@ -4480,7 +4608,7 @@ nasdaq_utdf_output_utp_v1_5.trade_correction_message.fields = function(buffer, o
   -- Original Volume: 4 Byte Unsigned Fixed Width Integer
   index, original_volume = nasdaq_utdf_output_utp_v1_5.original_volume.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition
+  -- Original Sale Condition: Struct of 4 fields
   index, original_sale_condition = nasdaq_utdf_output_utp_v1_5.original_sale_condition.dissect(buffer, index, packet, parent)
 
   -- Original Trade Through Exempt Flag: 1 Byte Ascii String
@@ -4498,7 +4626,7 @@ nasdaq_utdf_output_utp_v1_5.trade_correction_message.fields = function(buffer, o
   -- Corrected Volume: 4 Byte Unsigned Fixed Width Integer
   index, corrected_volume = nasdaq_utdf_output_utp_v1_5.corrected_volume.dissect(buffer, index, packet, parent)
 
-  -- Corrected Sale Condition
+  -- Corrected Sale Condition: Struct of 4 fields
   index, corrected_sale_condition = nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.dissect(buffer, index, packet, parent)
 
   -- Corrected Trade Through Exempt Flag: 1 Byte Ascii String
@@ -4623,7 +4751,7 @@ nasdaq_utdf_output_utp_v1_5.trade_cancel_error_message.fields = function(buffer,
   -- Original Volume: 4 Byte Unsigned Fixed Width Integer
   index, original_volume = nasdaq_utdf_output_utp_v1_5.original_volume.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition
+  -- Original Sale Condition: Struct of 4 fields
   index, original_sale_condition = nasdaq_utdf_output_utp_v1_5.original_sale_condition.dissect(buffer, index, packet, parent)
 
   -- Original Trade Through Exempt Flag: 1 Byte Ascii String

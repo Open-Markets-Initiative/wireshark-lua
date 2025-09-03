@@ -721,15 +721,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect = function(buf
   return offset + length, value
 end
 
--- Day
-nasdaq_phlxoptions_orders_itch_v1_9.day = {}
-
--- Month
-nasdaq_phlxoptions_orders_itch_v1_9.month = {}
-
--- Year
-nasdaq_phlxoptions_orders_itch_v1_9.year = {}
-
 -- Expiration
 nasdaq_phlxoptions_orders_itch_v1_9.expiration = {}
 
