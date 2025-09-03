@@ -139,6 +139,7 @@ omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.packet = ProtoField.new("Pack
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.password = ProtoField.new("Password", "cboe.c1.options.orderentry.boe3.v1.0.12.password", ftypes.STRING)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.posting_instruction = ProtoField.new("Posting Instruction", "cboe.c1.options.orderentry.boe3.v1.0.12.postinginstruction", ftypes.STRING)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.c1.options.orderentry.boe3.v1.0.12.preventmatch", ftypes.STRING)
+omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.price = ProtoField.new("Price", "cboe.c1.options.orderentry.boe3.v1.0.12.price", ftypes.DOUBLE)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.price_short = ProtoField.new("Price Short", "cboe.c1.options.orderentry.boe3.v1.0.12.priceshort", ftypes.DOUBLE)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.price_type = ProtoField.new("Price Type", "cboe.c1.options.orderentry.boe3.v1.0.12.pricetype", ftypes.STRING)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.c1.options.orderentry.boe3.v1.0.12.purgerejectreason", ftypes.STRING)
@@ -155,6 +156,7 @@ omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_update_id = ProtoField.
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.ratio_qty = ProtoField.new("Ratio Qty", "cboe.c1.options.orderentry.boe3.v1.0.12.ratioqty", ftypes.UINT32)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.c1.options.orderentry.boe3.v1.0.12.replayunspecifiedunit", ftypes.STRING)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.c1.options.orderentry.boe3.v1.0.12.requestreceivedtime", ftypes.UINT64)
+omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.reserved = ProtoField.new("Reserved", "cboe.c1.options.orderentry.boe3.v1.0.12.reserved", ftypes.BYTES)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.c1.options.orderentry.boe3.v1.0.12.reservedfield", ftypes.UINT8)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.c1.options.orderentry.boe3.v1.0.12.restatementreason", ftypes.STRING)
 omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.c1.options.orderentry.boe3.v1.0.12.riskreset", ftypes.STRING)
@@ -2207,6 +2209,32 @@ end
 -- Price
 cboe_c1_options_orderentry_boe3_v1_0_12.price = {}
 
+-- Size: Price
+cboe_c1_options_orderentry_boe3_v1_0_12.price.size = 8
+
+-- Display: Price
+cboe_c1_options_orderentry_boe3_v1_0_12.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+cboe_c1_options_orderentry_boe3_v1_0_12.price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price
+cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_orderentry_boe3_v1_0_12.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1_options_orderentry_boe3_v1_0_12.price.translate(raw)
+  local display = cboe_c1_options_orderentry_boe3_v1_0_12.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Side
 cboe_c1_options_orderentry_boe3_v1_0_12.side = {}
 
@@ -2404,7 +2432,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.carried_restatement_message.fields = fun
   -- Side: Alphanumeric
   index, side = cboe_c1_options_orderentry_boe3_v1_0_12.side.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -5682,7 +5710,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.order_restated_message.fields = function
   -- Order Qty: Binary
   index, order_qty = cboe_c1_options_orderentry_boe3_v1_0_12.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: Binary
@@ -5811,7 +5839,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.order_modified_message.fields = function
   -- Order Qty: Binary
   index, order_qty = cboe_c1_options_orderentry_boe3_v1_0_12.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Ord Type: Alphanumeric
@@ -6497,7 +6525,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.cross_order_acknowledgment_message.field
   -- Auction Id: Binary
   index, auction_id = cboe_c1_options_orderentry_boe3_v1_0_12.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Symbol: Alphanumeric
@@ -6770,7 +6798,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.order_acknowledgement_message.fields = f
   -- Side: Alphanumeric
   index, side = cboe_c1_options_orderentry_boe3_v1_0_12.side.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Symbol: Alphanumeric
@@ -7699,7 +7727,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.quote.fields = function(buffer, offset, 
   -- Open Close: Alphanumeric
   index, open_close = cboe_c1_options_orderentry_boe3_v1_0_12.open_close.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: Binary
@@ -7762,7 +7790,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.quote_update_message.size = function(buf
 
   -- Calculate field size from count
   local quote_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_count * 9
+  index = index + quote_count * 17
 
   return index
 end
@@ -7835,6 +7863,26 @@ end
 
 -- Reserved
 cboe_c1_options_orderentry_boe3_v1_0_12.reserved = {}
+
+-- Size: Reserved
+cboe_c1_options_orderentry_boe3_v1_0_12.reserved.size = 41
+
+-- Display: Reserved
+cboe_c1_options_orderentry_boe3_v1_0_12.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+cboe_c1_options_orderentry_boe3_v1_0_12.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_orderentry_boe3_v1_0_12.reserved.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c1_options_orderentry_boe3_v1_0_12.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
 
 -- Cancel Orig On Reject
 cboe_c1_options_orderentry_boe3_v1_0_12.cancel_orig_on_reject = {}
@@ -7924,7 +7972,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.modify_order_message.fields = function(b
   -- Order Qty: Binary
   index, order_qty = cboe_c1_options_orderentry_boe3_v1_0_12.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Ord Type: Alphanumeric
@@ -7939,7 +7987,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.modify_order_message.fields = function(b
   -- Cancel Orig On Reject: Alpha
   index, cancel_orig_on_reject = cboe_c1_options_orderentry_boe3_v1_0_12.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
 
-  -- Reserved
+  -- Reserved: Binary
   index, reserved = cboe_c1_options_orderentry_boe3_v1_0_12.reserved.dissect(buffer, index, packet, parent)
 
   -- Scratch Pad: Binary
@@ -8747,7 +8795,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.new_order_cross_multileg_message.fields 
   -- Cross Prioritization: Alphanumeric
   index, cross_prioritization = cboe_c1_options_orderentry_boe3_v1_0_12.cross_prioritization.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: Binary
@@ -8943,7 +8991,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.new_complex_order_short_message.fields =
   -- Clearing Account: Text
   index, clearing_account = cboe_c1_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -9237,7 +9285,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.new_complex_order_message.fields = funct
   -- Clearing Account: Text
   index, clearing_account = cboe_c1_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -9524,7 +9572,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.new_order_cross_message.fields = functio
   -- Cross Prioritization: Alphanumeric
   index, cross_prioritization = cboe_c1_options_orderentry_boe3_v1_0_12.cross_prioritization.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: Binary
@@ -9708,7 +9756,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.new_order_short_message.fields = functio
   -- Clearing Account: Text
   index, clearing_account = cboe_c1_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -9919,7 +9967,7 @@ cboe_c1_options_orderentry_boe3_v1_0_12.new_order_message.fields = function(buff
   -- Clearing Account: Text
   index, clearing_account = cboe_c1_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c1_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -10059,9 +10107,6 @@ cboe_c1_options_orderentry_boe3_v1_0_12.new_order_message.dissect = function(buf
     return cboe_c1_options_orderentry_boe3_v1_0_12.new_order_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Replay Complete Message
-cboe_c1_options_orderentry_boe3_v1_0_12.replay_complete_message = {}
 
 -- Logout Reason Text
 cboe_c1_options_orderentry_boe3_v1_0_12.logout_reason_text = {}
@@ -10451,12 +10496,6 @@ cboe_c1_options_orderentry_boe3_v1_0_12.login_response_message.dissect = functio
 
   return cboe_c1_options_orderentry_boe3_v1_0_12.login_response_message.fields(buffer, offset, packet, parent)
 end
-
--- Client Heartbeat Message
-cboe_c1_options_orderentry_boe3_v1_0_12.client_heartbeat_message = {}
-
--- Logout Request Message
-cboe_c1_options_orderentry_boe3_v1_0_12.logout_request_message = {}
 
 -- Replay Unspecified Unit
 cboe_c1_options_orderentry_boe3_v1_0_12.replay_unspecified_unit = {}

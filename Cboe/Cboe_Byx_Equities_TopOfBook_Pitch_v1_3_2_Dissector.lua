@@ -36,6 +36,8 @@ omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.message = ProtoField.new("Me
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.message_header = ProtoField.new("Message Header", "cboe.byx.equities.topofbook.pitch.v1.3.2.messageheader", ftypes.STRING)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.message_length = ProtoField.new("Message Length", "cboe.byx.equities.topofbook.pitch.v1.3.2.messagelength", ftypes.UINT8)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.message_type = ProtoField.new("Message Type", "cboe.byx.equities.topofbook.pitch.v1.3.2.messagetype", ftypes.UINT8)
+omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "cboe.byx.equities.topofbook.pitch.v1.3.2.modifyorderflags", ftypes.STRING)
+omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.modify_reserved_flags = ProtoField.new("Modify Reserved Flags", "cboe.byx.equities.topofbook.pitch.v1.3.2.modifyreservedflags", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.order_id = ProtoField.new("Order Id", "cboe.byx.equities.topofbook.pitch.v1.3.2.orderid", ftypes.UINT64)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.packet = ProtoField.new("Packet", "cboe.byx.equities.topofbook.pitch.v1.3.2.packet", ftypes.STRING)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.packet_header = ProtoField.new("Packet Header", "cboe.byx.equities.topofbook.pitch.v1.3.2.packetheader", ftypes.STRING)
@@ -44,6 +46,7 @@ omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.participant_id = ProtoField.
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.payload = ProtoField.new("Payload", "cboe.byx.equities.topofbook.pitch.v1.3.2.payload", ftypes.STRING)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.price = ProtoField.new("Price", "cboe.byx.equities.topofbook.pitch.v1.3.2.price", ftypes.DOUBLE)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.price_short = ProtoField.new("Price Short", "cboe.byx.equities.topofbook.pitch.v1.3.2.priceshort", ftypes.DOUBLE)
+omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.prority = ProtoField.new("Prority", "cboe.byx.equities.topofbook.pitch.v1.3.2.prority", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.quantity = ProtoField.new("Quantity", "cboe.byx.equities.topofbook.pitch.v1.3.2.quantity", ftypes.UINT32)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.byx.equities.topofbook.pitch.v1.3.2.quantityshort", ftypes.UINT16)
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.reference_price = ProtoField.new("Reference Price", "cboe.byx.equities.topofbook.pitch.v1.3.2.referenceprice", ftypes.UINT64)
@@ -104,6 +107,7 @@ show.delete_order_message = true
 show.end_of_session = true
 show.message = true
 show.message_header = true
+show.modify_order_flags = true
 show.modify_order_long_message = true
 show.modify_order_short_message = true
 show.order_executed_at_price_size_message = true
@@ -133,6 +137,7 @@ omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_delete_order_message = P
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_end_of_session = Pref.bool("Show End Of Session", show.end_of_session, "Parse and add End Of Session to protocol tree")
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_modify_order_flags = Pref.bool("Show Modify Order Flags", show.modify_order_flags, "Parse and add Modify Order Flags to protocol tree")
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
 omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
@@ -194,6 +199,10 @@ function omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs_changed()
   end
   if show.message_header ~= omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_message_header then
     show.message_header = omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_message_header
+    changed = true
+  end
+  if show.modify_order_flags ~= omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_modify_order_flags then
+    show.modify_order_flags = omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_modify_order_flags
     changed = true
   end
   if show.modify_order_long_message ~= omi_cboe_byx_equities_topofbook_pitch_v1_3_2.prefs.show_modify_order_long_message then
@@ -1517,6 +1526,55 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.delete_order_message.dissect = function
   end
 end
 
+-- Modify Order Flags
+cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags = {}
+
+-- Size: Modify Order Flags
+cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.size = 1
+
+-- Display: Modify Order Flags
+cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.display = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Prority flag set?
+  if buffer:bitfield(6) > 0 then
+    display = display.."Prority|"
+  end
+  -- Is Display flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Display|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Modify Order Flags
+cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.bits = function(buffer, offset, packet, parent)
+
+  -- Modify Reserved Flags: 6 Bit
+  parent:add(omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.modify_reserved_flags, buffer(offset, 1))
+
+  -- Prority: 1 Bit
+  parent:add(omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.prority, buffer(offset, 1))
+
+  -- Display: 1 Bit
+  parent:add(omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.display, buffer(offset, 1))
+end
+
+-- Dissect: Modify Order Flags
+cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.dissect = function(buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.display(range, packet, parent)
+  local element = parent:add(omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.modify_order_flags, range, display)
+
+  if show.modify_order_flags then
+    cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.bits(buffer, offset, packet, element)
+  end
+
+  return offset + 1, range
+end
+
 -- Modify Order Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_short_message = {}
 
@@ -1558,7 +1616,7 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_short_message.fields = fun
   -- Price Short: 2 Byte Unsigned Fixed Width Integer
   index, price_short = cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.dissect(buffer, index, packet, parent)
 
-  -- Modify Order Flags
+  -- Modify Order Flags: Struct of 3 fields
   index, modify_order_flags = cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.dissect(buffer, index, packet, parent)
 
   return index
@@ -1623,7 +1681,7 @@ cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_long_message.fields = func
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = cboe_byx_equities_topofbook_pitch_v1_3_2.price.dissect(buffer, index, packet, parent)
 
-  -- Modify Order Flags
+  -- Modify Order Flags: Struct of 3 fields
   index, modify_order_flags = cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.dissect(buffer, index, packet, parent)
 
   return index
