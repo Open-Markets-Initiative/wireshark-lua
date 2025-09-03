@@ -1238,27 +1238,6 @@ asx_securities_t24_itch_v1_13.market_settlement.dissect = function(buffer, offse
   end
 end
 
--- Opening Trade Price
-asx_securities_t24_itch_v1_13.opening_trade_price = {}
-
--- Highest Traded Price
-asx_securities_t24_itch_v1_13.highest_traded_price = {}
-
--- Lowest Traded Price
-asx_securities_t24_itch_v1_13.lowest_traded_price = {}
-
--- Total Traded Volume and Total Trades
-asx_securities_t24_itch_v1_13.total_traded_volume_and_total_trades = {}
-
--- Last Traded Price
-asx_securities_t24_itch_v1_13.last_traded_price = {}
-
--- Last Traded Volume
-asx_securities_t24_itch_v1_13.last_traded_volume = {}
-
--- Reserved
-asx_securities_t24_itch_v1_13.reserved = {}
-
 -- Market Updates
 asx_securities_t24_itch_v1_13.market_updates = {}
 

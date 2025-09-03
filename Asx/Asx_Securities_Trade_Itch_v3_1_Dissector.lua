@@ -961,27 +961,6 @@ asx_securities_trade_itch_v3_1.order_delete_message.dissect = function(buffer, o
   end
 end
 
--- Implied Order
-asx_securities_trade_itch_v3_1.implied_order = {}
-
--- Reserved 9 Bits
-asx_securities_trade_itch_v3_1.reserved_9_bits = {}
-
--- Undisclosed
-asx_securities_trade_itch_v3_1.undisclosed = {}
-
--- Reserved Bit
-asx_securities_trade_itch_v3_1.reserved_bit = {}
-
--- Price Stabilisation
-asx_securities_trade_itch_v3_1.price_stabilisation = {}
-
--- Market Bid
-asx_securities_trade_itch_v3_1.market_bid = {}
-
--- Reserved 2 Bits
-asx_securities_trade_itch_v3_1.reserved_2_bits = {}
-
 -- Exchange Order Type
 asx_securities_trade_itch_v3_1.exchange_order_type = {}
 
