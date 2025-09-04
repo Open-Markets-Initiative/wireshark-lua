@@ -38,12 +38,15 @@ omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.clearing_optional_data = Prot
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_id_attr = ProtoField.new("Client Id Attr", "cboe.c2.options.orderentry.boe3.v1.0.12.clientidattr", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.client_sequence = ProtoField.new("Client Sequence", "cboe.c2.options.orderentry.boe3.v1.0.12.clientsequence", ftypes.UINT32)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.c2.options.orderentry.boe3.v1.0.12.cmtanumber", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.combo_order = ProtoField.new("Combo Order", "cboe.c2.options.orderentry.boe3.v1.0.12.comboorder", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg = ProtoField.new("Complex Leg", "cboe.c2.options.orderentry.boe3.v1.0.12.complexleg", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.compression = ProtoField.new("Compression", "cboe.c2.options.orderentry.boe3.v1.0.12.compression", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.c2.options.orderentry.boe3.v1.0.12.contrabroker", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_capacity = ProtoField.new("Contra Capacity", "cboe.c2.options.orderentry.boe3.v1.0.12.contracapacity", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.contra_trader = ProtoField.new("Contra Trader", "cboe.c2.options.orderentry.boe3.v1.0.12.contratrader", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.c2.options.orderentry.boe3.v1.0.12.correctedprice", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.corrected_size = ProtoField.new("Corrected Size", "cboe.c2.options.orderentry.boe3.v1.0.12.correctedsize", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cross_exclusion_indicator = ProtoField.new("Cross Exclusion Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.crossexclusionindicator", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.cumqty", ftypes.UINT32)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupid", ftypes.UINT16)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.c2.options.orderentry.boe3.v1.0.12.customgroupidcnt", ftypes.UINT8)
@@ -51,13 +54,22 @@ omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_indicator = ProtoFiel
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_price = ProtoField.new("Display Price", "cboe.c2.options.orderentry.boe3.v1.0.12.displayprice", ftypes.DOUBLE)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.display_range = ProtoField.new("Display Range", "cboe.c2.options.orderentry.boe3.v1.0.12.displayrange", ftypes.UINT32)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.drill_thru_protection = ProtoField.new("Drill Thru Protection", "cboe.c2.options.orderentry.boe3.v1.0.12.drillthruprotection", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.equity_ex_destination = ProtoField.new("Equity Ex Destination", "cboe.c2.options.orderentry.boe3.v1.0.12.equityexdestination", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.equity_leg_short_sell = ProtoField.new("Equity Leg Short Sell", "cboe.c2.options.orderentry.boe3.v1.0.12.equitylegshortsell", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.equity_party_id = ProtoField.new("Equity Party Id", "cboe.c2.options.orderentry.boe3.v1.0.12.equitypartyid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ex_destination = ProtoField.new("Ex Destination", "cboe.c2.options.orderentry.boe3.v1.0.12.exdestination", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_id = ProtoField.new("Exec Id", "cboe.c2.options.orderentry.boe3.v1.0.12.execid", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.execinst", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.c2.options.orderentry.boe3.v1.0.12.execrefid", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.c2.options.orderentry.boe3.v1.0.12.expiretime", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.fee_code = ProtoField.new("Fee Code", "cboe.c2.options.orderentry.boe3.v1.0.12.feecode", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_destination = ProtoField.new("Floor Destination", "cboe.c2.options.orderentry.boe3.v1.0.12.floordestination", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_routing_inst = ProtoField.new("Floor Routing Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.floorroutinginst", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_trade_time = ProtoField.new("Floor Trade Time", "cboe.c2.options.orderentry.boe3.v1.0.12.floortradetime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_trader_acronym = ProtoField.new("Floor Trader Acronym", "cboe.c2.options.orderentry.boe3.v1.0.12.floortraderacronym", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.c2.options.orderentry.boe3.v1.0.12.frequenttraderid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.gtc_order_filter = ProtoField.new("Gtc Order Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.gtcorderfilter", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.held = ProtoField.new("Held", "cboe.c2.options.orderentry.boe3.v1.0.12.held", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.in_flight = ProtoField.new("In Flight", "cboe.c2.options.orderentry.boe3.v1.0.12.inflight", ftypes.UINT16)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.instruction_details = ProtoField.new("Instruction Details", "cboe.c2.options.orderentry.boe3.v1.0.12.instructiondetails", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.instrument_type_filter = ProtoField.new("Instrument Type Filter", "cboe.c2.options.orderentry.boe3.v1.0.12.instrumenttypefilter", ftypes.STRING)
@@ -74,6 +86,7 @@ omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.login_response_text = ProtoFi
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutreason", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutreasontext", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.c2.options.orderentry.boe3.v1.0.12.logoutresponsemessage", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.marketing_fee_code = ProtoField.new("Marketing Fee Code", "cboe.c2.options.orderentry.boe3.v1.0.12.marketingfeecode", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancelinst", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.mass_cancel_lockout = ProtoField.new("Mass Cancel Lockout", "cboe.c2.options.orderentry.boe3.v1.0.12.masscancellockout", ftypes.STRING)
@@ -94,17 +107,21 @@ omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.number_of_units = ProtoField.
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.open_close = ProtoField.new("Open Close", "cboe.c2.options.orderentry.boe3.v1.0.12.openclose", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ord_type = ProtoField.new("Ord Type", "cboe.c2.options.orderentry.boe3.v1.0.12.ordtype", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_id = ProtoField.new("Order Id", "cboe.c2.options.orderentry.boe3.v1.0.12.orderid", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_origin = ProtoField.new("Order Origin", "cboe.c2.options.orderentry.boe3.v1.0.12.orderorigin", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty = ProtoField.new("Order Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.orderqty", ftypes.UINT32)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_qty_short = ProtoField.new("Order Qty Short", "cboe.c2.options.orderentry.boe3.v1.0.12.orderqtyshort", ftypes.UINT16)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrejectreason", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_restatement_reason = ProtoField.new("Order Restatement Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.orderrestatementreason", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_router_subsidy = ProtoField.new("Order Router Subsidy", "cboe.c2.options.orderentry.boe3.v1.0.12.orderroutersubsidy", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.c2.options.orderentry.boe3.v1.0.12.origclordid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.orig_time = ProtoField.new("Orig Time", "cboe.c2.options.orderentry.boe3.v1.0.12.origtime", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.packet = ProtoField.new("Packet", "cboe.c2.options.orderentry.boe3.v1.0.12.packet", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.password = ProtoField.new("Password", "cboe.c2.options.orderentry.boe3.v1.0.12.password", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.posting_instruction = ProtoField.new("Posting Instruction", "cboe.c2.options.orderentry.boe3.v1.0.12.postinginstruction", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.c2.options.orderentry.boe3.v1.0.12.preventmatch", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.price = ProtoField.new("Price", "cboe.c2.options.orderentry.boe3.v1.0.12.price", ftypes.DOUBLE)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.price_short = ProtoField.new("Price Short", "cboe.c2.options.orderentry.boe3.v1.0.12.priceshort", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.price_type = ProtoField.new("Price Type", "cboe.c2.options.orderentry.boe3.v1.0.12.pricetype", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.purgerejectreason", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.c2.options.orderentry.boe3.v1.0.12.putorcall", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote = ProtoField.new("Quote", "cboe.c2.options.orderentry.boe3.v1.0.12.quote", ftypes.STRING)
@@ -119,6 +136,7 @@ omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_update_id = ProtoField.
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.ratio_qty = ProtoField.new("Ratio Qty", "cboe.c2.options.orderentry.boe3.v1.0.12.ratioqty", ftypes.UINT32)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.replayunspecifiedunit", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.c2.options.orderentry.boe3.v1.0.12.requestreceivedtime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reserved = ProtoField.new("Reserved", "cboe.c2.options.orderentry.boe3.v1.0.12.reserved", ftypes.BYTES)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.c2.options.orderentry.boe3.v1.0.12.reservedfield", ftypes.UINT8)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.c2.options.orderentry.boe3.v1.0.12.restatementreason", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.c2.options.orderentry.boe3.v1.0.12.riskreset", ftypes.STRING)
@@ -133,7 +151,9 @@ omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.scratch_pad = ProtoField.new(
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.c2.options.orderentry.boe3.v1.0.12.secondaryexecid", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.c2.options.orderentry.boe3.v1.0.12.secondaryorderid", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.send_time = ProtoField.new("Send Time", "cboe.c2.options.orderentry.boe3.v1.0.12.sendtime", ftypes.UINT64)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sender_location_id = ProtoField.new("Sender Location Id", "cboe.c2.options.orderentry.boe3.v1.0.12.senderlocationid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.c2.options.orderentry.boe3.v1.0.12.sequencenumber", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_eligibility = ProtoField.new("Session Eligibility", "cboe.c2.options.orderentry.boe3.v1.0.12.sessioneligibility", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_id = ProtoField.new("Session Id", "cboe.c2.options.orderentry.boe3.v1.0.12.sessionid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.c2.options.orderentry.boe3.v1.0.12.sessionsubid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.side = ProtoField.new("Side", "cboe.c2.options.orderentry.boe3.v1.0.12.side", ftypes.STRING)
@@ -141,13 +161,17 @@ omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.size_modifier = ProtoField.ne
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.source_matching_unit = ProtoField.new("Source Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.sourcematchingunit", ftypes.UINT8)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.c2.options.orderentry.boe3.v1.0.12.startofmessage", ftypes.UINT16)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.stop_px = ProtoField.new("Stop Px", "cboe.c2.options.orderentry.boe3.v1.0.12.stoppx", ftypes.DOUBLE)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.strategy_id = ProtoField.new("Strategy Id", "cboe.c2.options.orderentry.boe3.v1.0.12.strategyid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.strike_price = ProtoField.new("Strike Price", "cboe.c2.options.orderentry.boe3.v1.0.12.strikeprice", ftypes.DOUBLE)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.c2.options.orderentry.boe3.v1.0.12.subliquidityindicator", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.symbol = ProtoField.new("Symbol", "cboe.c2.options.orderentry.boe3.v1.0.12.symbol", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.target_matching_unit = ProtoField.new("Target Matching Unit", "cboe.c2.options.orderentry.boe3.v1.0.12.targetmatchingunit", ftypes.UINT8)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.target_party_id = ProtoField.new("Target Party Id", "cboe.c2.options.orderentry.boe3.v1.0.12.targetpartyid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.text = ProtoField.new("Text", "cboe.c2.options.orderentry.boe3.v1.0.12.text", ftypes.STRING)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.tied_hedge = ProtoField.new("Tied Hedge", "cboe.c2.options.orderentry.boe3.v1.0.12.tiedhedge", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.time_in_force = ProtoField.new("Time In Force", "cboe.c2.options.orderentry.boe3.v1.0.12.timeinforce", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_date = ProtoField.new("Trade Date", "cboe.c2.options.orderentry.boe3.v1.0.12.tradedate", ftypes.UINT32)
+omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_through_alert_type = ProtoField.new("Trade Through Alert Type", "cboe.c2.options.orderentry.boe3.v1.0.12.tradethroughalerttype", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trading_group_id = ProtoField.new("Trading Group Id", "cboe.c2.options.orderentry.boe3.v1.0.12.tradinggroupid", ftypes.STRING)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.c2.options.orderentry.boe3.v1.0.12.transactiontime", ftypes.UINT64)
 omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.unique_id_level = ProtoField.new("Unique Id Level", "cboe.c2.options.orderentry.boe3.v1.0.12.uniqueidlevel", ftypes.STRING)
@@ -732,32 +756,232 @@ end
 -- Held
 cboe_c2_options_orderentry_boe3_v1_0_12.held = {}
 
+-- Size: Held
+cboe_c2_options_orderentry_boe3_v1_0_12.held.size = 1
+
+-- Display: Held
+cboe_c2_options_orderentry_boe3_v1_0_12.held.display = function(value)
+  return "Held: "..value
+end
+
+-- Dissect: Held
+cboe_c2_options_orderentry_boe3_v1_0_12.held.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.held.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.held.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.held, range, value, display)
+
+  return offset + length, value
+end
+
 -- Strategy Id
 cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id = {}
+
+-- Size: Strategy Id
+cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id.size = 1
+
+-- Display: Strategy Id
+cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id.display = function(value)
+  return "Strategy Id: "..value
+end
+
+-- Dissect: Strategy Id
+cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.strategy_id, range, value, display)
+
+  return offset + length, value
+end
 
 -- Price Type
 cboe_c2_options_orderentry_boe3_v1_0_12.price_type = {}
 
+-- Size: Price Type
+cboe_c2_options_orderentry_boe3_v1_0_12.price_type.size = 1
+
+-- Display: Price Type
+cboe_c2_options_orderentry_boe3_v1_0_12.price_type.display = function(value)
+  return "Price Type: "..value
+end
+
+-- Dissect: Price Type
+cboe_c2_options_orderentry_boe3_v1_0_12.price_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.price_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.price_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Origin
 cboe_c2_options_orderentry_boe3_v1_0_12.order_origin = {}
+
+-- Size: Order Origin
+cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.size = 3
+
+-- Display: Order Origin
+cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.display = function(value)
+  return "Order Origin: "..value
+end
+
+-- Dissect: Order Origin
+cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_origin, range, value, display)
+
+  return offset + length, value
+end
 
 -- Floor Routing Inst
 cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst = {}
 
+-- Size: Floor Routing Inst
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.size = 1
+
+-- Display: Floor Routing Inst
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.display = function(value)
+  return "Floor Routing Inst: "..value
+end
+
+-- Dissect: Floor Routing Inst
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_routing_inst, range, value, display)
+
+  return offset + length, value
+end
+
 -- Floor Destination
 cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination = {}
+
+-- Size: Floor Destination
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.size = 4
+
+-- Display: Floor Destination
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.display = function(value)
+  return "Floor Destination: "..value
+end
+
+-- Dissect: Floor Destination
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_destination, range, value, display)
+
+  return offset + length, value
+end
 
 -- Compression
 cboe_c2_options_orderentry_boe3_v1_0_12.compression = {}
 
+-- Size: Compression
+cboe_c2_options_orderentry_boe3_v1_0_12.compression.size = 1
+
+-- Display: Compression
+cboe_c2_options_orderentry_boe3_v1_0_12.compression.display = function(value)
+  return "Compression: "..value
+end
+
+-- Dissect: Compression
+cboe_c2_options_orderentry_boe3_v1_0_12.compression.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.compression.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.compression.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.compression, range, value, display)
+
+  return offset + length, value
+end
+
 -- Combo Order
 cboe_c2_options_orderentry_boe3_v1_0_12.combo_order = {}
+
+-- Size: Combo Order
+cboe_c2_options_orderentry_boe3_v1_0_12.combo_order.size = 1
+
+-- Display: Combo Order
+cboe_c2_options_orderentry_boe3_v1_0_12.combo_order.display = function(value)
+  return "Combo Order: "..value
+end
+
+-- Dissect: Combo Order
+cboe_c2_options_orderentry_boe3_v1_0_12.combo_order.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.combo_order.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.combo_order.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.combo_order, range, value, display)
+
+  return offset + length, value
+end
 
 -- Session Eligibility
 cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility = {}
 
+-- Size: Session Eligibility
+cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.size = 1
+
+-- Display: Session Eligibility
+cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.display = function(value)
+  return "Session Eligibility: "..value
+end
+
+-- Dissect: Session Eligibility
+cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.session_eligibility, range, value, display)
+
+  return offset + length, value
+end
+
 -- Frequent Trader Id
 cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id = {}
+
+-- Size: Frequent Trader Id
+cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.size = 6
+
+-- Display: Frequent Trader Id
+cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.display = function(value)
+  return "Frequent Trader Id: "..value
+end
+
+-- Dissect: Frequent Trader Id
+cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.frequent_trader_id, range, value, display)
+
+  return offset + length, value
+end
 
 -- Client Id Attr
 cboe_c2_options_orderentry_boe3_v1_0_12.client_id_attr = {}
@@ -784,6 +1008,26 @@ end
 
 -- Equity Party Id
 cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id = {}
+
+-- Size: Equity Party Id
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.size = 4
+
+-- Display: Equity Party Id
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.display = function(value)
+  return "Equity Party Id: "..value
+end
+
+-- Dissect: Equity Party Id
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.equity_party_id, range, value, display)
+
+  return offset + length, value
+end
 
 -- Drill Thru Protection
 cboe_c2_options_orderentry_boe3_v1_0_12.drill_thru_protection = {}
@@ -908,6 +1152,26 @@ end
 
 -- Target Party Id
 cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id = {}
+
+-- Size: Target Party Id
+cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.size = 4
+
+-- Display: Target Party Id
+cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.display = function(value)
+  return "Target Party Id: "..value
+end
+
+-- Dissect: Target Party Id
+cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.target_party_id, range, value, display)
+
+  return offset + length, value
+end
 
 -- Ex Destination
 cboe_c2_options_orderentry_boe3_v1_0_12.ex_destination = {}
@@ -1784,6 +2048,32 @@ end
 -- Price
 cboe_c2_options_orderentry_boe3_v1_0_12.price = {}
 
+-- Size: Price
+cboe_c2_options_orderentry_boe3_v1_0_12.price.size = 8
+
+-- Display: Price
+cboe_c2_options_orderentry_boe3_v1_0_12.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+cboe_c2_options_orderentry_boe3_v1_0_12.price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price
+cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c2_options_orderentry_boe3_v1_0_12.price.translate(raw)
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Side
 cboe_c2_options_orderentry_boe3_v1_0_12.side = {}
 
@@ -1975,7 +2265,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.carried_restatement_message.fields = fun
   -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12.side.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -2059,7 +2349,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.carried_restatement_message.fields = fun
   -- Ex Destination: Text
   index, ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12.ex_destination.dissect(buffer, index, packet, parent)
 
-  -- Target Party Id
+  -- Target Party Id: Alpha
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
@@ -2080,40 +2370,40 @@ cboe_c2_options_orderentry_boe3_v1_0_12.carried_restatement_message.fields = fun
   -- Drill Thru Protection: BinaryPrice
   index, drill_thru_protection = cboe_c2_options_orderentry_boe3_v1_0_12.drill_thru_protection.dissect(buffer, index, packet, parent)
 
-  -- Equity Party Id
+  -- Equity Party Id: Alpha
   index, equity_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.dissect(buffer, index, packet, parent)
 
   -- Client Id Attr: Text
   index, client_id_attr = cboe_c2_options_orderentry_boe3_v1_0_12.client_id_attr.dissect(buffer, index, packet, parent)
 
-  -- Frequent Trader Id
+  -- Frequent Trader Id: Text
   index, frequent_trader_id = cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.dissect(buffer, index, packet, parent)
 
-  -- Session Eligibility
+  -- Session Eligibility: Alpha
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect(buffer, index, packet, parent)
 
-  -- Combo Order
+  -- Combo Order: Alpha
   index, combo_order = cboe_c2_options_orderentry_boe3_v1_0_12.combo_order.dissect(buffer, index, packet, parent)
 
-  -- Compression
+  -- Compression: Alpha
   index, compression = cboe_c2_options_orderentry_boe3_v1_0_12.compression.dissect(buffer, index, packet, parent)
 
-  -- Floor Destination
+  -- Floor Destination: Text
   index, floor_destination = cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.dissect(buffer, index, packet, parent)
 
-  -- Floor Routing Inst
+  -- Floor Routing Inst: Alphanumeric
   index, floor_routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.dissect(buffer, index, packet, parent)
 
-  -- Order Origin
+  -- Order Origin: Alphanumeric
   index, order_origin = cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.dissect(buffer, index, packet, parent)
 
-  -- Price Type
+  -- Price Type: Alphanumeric
   index, price_type = cboe_c2_options_orderentry_boe3_v1_0_12.price_type.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id
+  -- Strategy Id: Alphanumeric
   index, strategy_id = cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Held
+  -- Held: Alpha
   index, held = cboe_c2_options_orderentry_boe3_v1_0_12.held.dissect(buffer, index, packet, parent)
 
   return index
@@ -3181,6 +3471,26 @@ end
 -- Marketing Fee Code
 cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code = {}
 
+-- Size: Marketing Fee Code
+cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.size = 2
+
+-- Display: Marketing Fee Code
+cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.display = function(value)
+  return "Marketing Fee Code: "..value
+end
+
+-- Dissect: Marketing Fee Code
+cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.marketing_fee_code, range, value, display)
+
+  return offset + length, value
+end
+
 -- Orig Time
 cboe_c2_options_orderentry_boe3_v1_0_12.orig_time = {}
 
@@ -3527,10 +3837,10 @@ cboe_c2_options_orderentry_boe3_v1_0_12.trade_cancel_correct_message.fields = fu
   -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12.open_close.dissect(buffer, index, packet, parent)
 
-  -- Marketing Fee Code
+  -- Marketing Fee Code: Alphanumeric
   index, marketing_fee_code = cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.dissect(buffer, index, packet, parent)
 
-  -- Target Party Id
+  -- Target Party Id: Alpha
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.dissect(buffer, index, packet, parent)
 
   -- Cmta Number: Binary
@@ -3821,7 +4131,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.quote_execution_message.fields = functio
   -- Fee Code: Alphanumeric
   index, fee_code = cboe_c2_options_orderentry_boe3_v1_0_12.fee_code.dissect(buffer, index, packet, parent)
 
-  -- Marketing Fee Code
+  -- Marketing Fee Code: Alphanumeric
   index, marketing_fee_code = cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Date
@@ -3851,17 +4161,124 @@ end
 -- Equity Ex Destination
 cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination = {}
 
+-- Size: Equity Ex Destination
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination.size = 1
+
+-- Display: Equity Ex Destination
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination.display = function(value)
+  return "Equity Ex Destination: "..value
+end
+
+-- Dissect: Equity Ex Destination
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.equity_ex_destination, range, value, display)
+
+  return offset + length, value
+end
+
 -- Floor Trade Time
 cboe_c2_options_orderentry_boe3_v1_0_12.floor_trade_time = {}
+
+-- Size: Floor Trade Time
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_trade_time.size = 8
+
+-- Display: Floor Trade Time
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_trade_time.display = function(value)
+  return "Floor Trade Time: "..value
+end
+
+-- Dissect: Floor Trade Time
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_trade_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.floor_trade_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.floor_trade_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_trade_time, range, value, display)
+
+  return offset + length, value
+end
 
 -- Floor Trader Acronym
 cboe_c2_options_orderentry_boe3_v1_0_12.floor_trader_acronym = {}
 
+-- Size: Floor Trader Acronym
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_trader_acronym.size = 3
+
+-- Display: Floor Trader Acronym
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_trader_acronym.display = function(value)
+  return "Floor Trader Acronym: "..value
+end
+
+-- Dissect: Floor Trader Acronym
+cboe_c2_options_orderentry_boe3_v1_0_12.floor_trader_acronym.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.floor_trader_acronym.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.floor_trader_acronym.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.floor_trader_acronym, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sender Location Id
 cboe_c2_options_orderentry_boe3_v1_0_12.sender_location_id = {}
 
+-- Size: Sender Location Id
+cboe_c2_options_orderentry_boe3_v1_0_12.sender_location_id.size = 1
+
+-- Display: Sender Location Id
+cboe_c2_options_orderentry_boe3_v1_0_12.sender_location_id.display = function(value)
+  if value == "F" then
+    return "Sender Location Id: Floor (F)"
+  end
+  if value == " " then
+    return "Sender Location Id: Electronic Execution (<whitespace>)"
+  end
+
+  return "Sender Location Id: Unknown("..value..")"
+end
+
+-- Dissect: Sender Location Id
+cboe_c2_options_orderentry_boe3_v1_0_12.sender_location_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.sender_location_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.sender_location_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.sender_location_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Through Alert Type
 cboe_c2_options_orderentry_boe3_v1_0_12.trade_through_alert_type = {}
+
+-- Size: Trade Through Alert Type
+cboe_c2_options_orderentry_boe3_v1_0_12.trade_through_alert_type.size = 1
+
+-- Display: Trade Through Alert Type
+cboe_c2_options_orderentry_boe3_v1_0_12.trade_through_alert_type.display = function(value)
+  return "Trade Through Alert Type: "..value
+end
+
+-- Dissect: Trade Through Alert Type
+cboe_c2_options_orderentry_boe3_v1_0_12.trade_through_alert_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.trade_through_alert_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.trade_through_alert_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.trade_through_alert_type, range, value, display)
+
+  return offset + length, value
+end
 
 -- Secondary Exec Id
 cboe_c2_options_orderentry_boe3_v1_0_12.secondary_exec_id = {}
@@ -3924,6 +4341,26 @@ end
 
 -- Cross Exclusion Indicator
 cboe_c2_options_orderentry_boe3_v1_0_12.cross_exclusion_indicator = {}
+
+-- Size: Cross Exclusion Indicator
+cboe_c2_options_orderentry_boe3_v1_0_12.cross_exclusion_indicator.size = 1
+
+-- Display: Cross Exclusion Indicator
+cboe_c2_options_orderentry_boe3_v1_0_12.cross_exclusion_indicator.display = function(value)
+  return "Cross Exclusion Indicator: "..value
+end
+
+-- Dissect: Cross Exclusion Indicator
+cboe_c2_options_orderentry_boe3_v1_0_12.cross_exclusion_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.cross_exclusion_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.cross_exclusion_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.cross_exclusion_indicator, range, value, display)
+
+  return offset + length, value
+end
 
 -- Contra Broker
 cboe_c2_options_orderentry_boe3_v1_0_12.contra_broker = {}
@@ -4073,13 +4510,13 @@ cboe_c2_options_orderentry_boe3_v1_0_12.order_execution_message.fields = functio
   -- Fee Code: Alphanumeric
   index, fee_code = cboe_c2_options_orderentry_boe3_v1_0_12.fee_code.dissect(buffer, index, packet, parent)
 
-  -- Marketing Fee Code
+  -- Marketing Fee Code: Alphanumeric
   index, marketing_fee_code = cboe_c2_options_orderentry_boe3_v1_0_12.marketing_fee_code.dissect(buffer, index, packet, parent)
 
   -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12.routing_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Exclusion Indicator
+  -- Cross Exclusion Indicator: Alpha
   index, cross_exclusion_indicator = cboe_c2_options_orderentry_boe3_v1_0_12.cross_exclusion_indicator.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Date
@@ -4091,25 +4528,25 @@ cboe_c2_options_orderentry_boe3_v1_0_12.order_execution_message.fields = functio
   -- Secondary Exec Id: Binary
   index, secondary_exec_id = cboe_c2_options_orderentry_boe3_v1_0_12.secondary_exec_id.dissect(buffer, index, packet, parent)
 
-  -- Price Type
+  -- Price Type: Alphanumeric
   index, price_type = cboe_c2_options_orderentry_boe3_v1_0_12.price_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Through Alert Type
+  -- Trade Through Alert Type: Alphanumeric
   index, trade_through_alert_type = cboe_c2_options_orderentry_boe3_v1_0_12.trade_through_alert_type.dissect(buffer, index, packet, parent)
 
-  -- Sender Location Id
+  -- Sender Location Id: Alphanumeric
   index, sender_location_id = cboe_c2_options_orderentry_boe3_v1_0_12.sender_location_id.dissect(buffer, index, packet, parent)
 
-  -- Floor Trader Acronym
+  -- Floor Trader Acronym: Alpha
   index, floor_trader_acronym = cboe_c2_options_orderentry_boe3_v1_0_12.floor_trader_acronym.dissect(buffer, index, packet, parent)
 
-  -- Floor Trade Time
+  -- Floor Trade Time: DateTime
   index, floor_trade_time = cboe_c2_options_orderentry_boe3_v1_0_12.floor_trade_time.dissect(buffer, index, packet, parent)
 
   -- Ex Destination: Text
   index, ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12.ex_destination.dissect(buffer, index, packet, parent)
 
-  -- Equity Ex Destination
+  -- Equity Ex Destination: Alphanumeric
   index, equity_ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination.dissect(buffer, index, packet, parent)
 
   return index
@@ -4828,7 +5265,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.order_restated_message.fields = function
   -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: Binary
@@ -4957,7 +5394,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.order_modified_message.fields = function
   -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Ord Type: Alphanumeric
@@ -5647,7 +6084,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.order_acknowledgement_message.fields = f
   -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12.side.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Symbol: Alphanumeric
@@ -6497,7 +6934,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.quote_update_short_message.fields = func
   -- Posting Instruction: Alpha
   index, posting_instruction = cboe_c2_options_orderentry_boe3_v1_0_12.posting_instruction.dissect(buffer, index, packet, parent)
 
-  -- Session Eligibility
+  -- Session Eligibility: Alpha
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect(buffer, index, packet, parent)
 
   -- Size Modifier: Text
@@ -6576,7 +7013,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.quote.fields = function(buffer, offset, 
   -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12.open_close.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Order Qty: Binary
@@ -6639,7 +7076,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.quote_update_message.size = function(buf
 
   -- Calculate field size from count
   local quote_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_count * 9
+  index = index + quote_count * 17
 
   return index
 end
@@ -6677,7 +7114,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.quote_update_message.fields = function(b
   -- Posting Instruction: Alpha
   index, posting_instruction = cboe_c2_options_orderentry_boe3_v1_0_12.posting_instruction.dissect(buffer, index, packet, parent)
 
-  -- Session Eligibility
+  -- Session Eligibility: Alpha
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect(buffer, index, packet, parent)
 
   -- Size Modifier: Text
@@ -6712,6 +7149,26 @@ end
 
 -- Reserved
 cboe_c2_options_orderentry_boe3_v1_0_12.reserved = {}
+
+-- Size: Reserved
+cboe_c2_options_orderentry_boe3_v1_0_12.reserved.size = 41
+
+-- Display: Reserved
+cboe_c2_options_orderentry_boe3_v1_0_12.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+cboe_c2_options_orderentry_boe3_v1_0_12.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.reserved.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
 
 -- Cancel Orig On Reject
 cboe_c2_options_orderentry_boe3_v1_0_12.cancel_orig_on_reject = {}
@@ -6801,7 +7258,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.modify_order_message.fields = function(b
   -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Ord Type: Alphanumeric
@@ -6816,7 +7273,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.modify_order_message.fields = function(b
   -- Cancel Orig On Reject: Alpha
   index, cancel_orig_on_reject = cboe_c2_options_orderentry_boe3_v1_0_12.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
 
-  -- Reserved
+  -- Reserved: Binary
   index, reserved = cboe_c2_options_orderentry_boe3_v1_0_12.reserved.dissect(buffer, index, packet, parent)
 
   -- Scratch Pad: Binary
@@ -7103,7 +7560,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_short_message.fields =
   -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -7133,7 +7590,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_short_message.fields =
   -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12.cmta_number.dissect(buffer, index, packet, parent)
 
-  -- Target Party Id
+  -- Target Party Id: Alpha
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
@@ -7145,22 +7602,22 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_short_message.fields =
   -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12.custom_group_id.dissect(buffer, index, packet, parent)
 
-  -- Equity Party Id
+  -- Equity Party Id: Alpha
   index, equity_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.dissect(buffer, index, packet, parent)
 
-  -- Frequent Trader Id
+  -- Frequent Trader Id: Text
   index, frequent_trader_id = cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.dissect(buffer, index, packet, parent)
 
-  -- Session Eligibility
+  -- Session Eligibility: Alpha
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect(buffer, index, packet, parent)
 
   -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12.max_floor.dissect(buffer, index, packet, parent)
 
-  -- Floor Destination
+  -- Floor Destination: Text
   index, floor_destination = cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.dissect(buffer, index, packet, parent)
 
-  -- Floor Routing Inst
+  -- Floor Routing Inst: Alphanumeric
   index, floor_routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.dissect(buffer, index, packet, parent)
 
   -- Scratch Pad: Binary
@@ -7193,11 +7650,71 @@ end
 -- Tied Hedge
 cboe_c2_options_orderentry_boe3_v1_0_12.tied_hedge = {}
 
+-- Size: Tied Hedge
+cboe_c2_options_orderentry_boe3_v1_0_12.tied_hedge.size = 1
+
+-- Display: Tied Hedge
+cboe_c2_options_orderentry_boe3_v1_0_12.tied_hedge.display = function(value)
+  return "Tied Hedge: "..value
+end
+
+-- Dissect: Tied Hedge
+cboe_c2_options_orderentry_boe3_v1_0_12.tied_hedge.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.tied_hedge.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.tied_hedge.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.tied_hedge, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Router Subsidy
 cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy = {}
 
+-- Size: Order Router Subsidy
+cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy.size = 1
+
+-- Display: Order Router Subsidy
+cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy.display = function(value)
+  return "Order Router Subsidy: "..value
+end
+
+-- Dissect: Order Router Subsidy
+cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.order_router_subsidy, range, value, display)
+
+  return offset + length, value
+end
+
 -- Equity Leg Short Sell
 cboe_c2_options_orderentry_boe3_v1_0_12.equity_leg_short_sell = {}
+
+-- Size: Equity Leg Short Sell
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_leg_short_sell.size = 1
+
+-- Display: Equity Leg Short Sell
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_leg_short_sell.display = function(value)
+  return "Equity Leg Short Sell: "..value
+end
+
+-- Dissect: Equity Leg Short Sell
+cboe_c2_options_orderentry_boe3_v1_0_12.equity_leg_short_sell.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2_options_orderentry_boe3_v1_0_12.equity_leg_short_sell.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c2_options_orderentry_boe3_v1_0_12.equity_leg_short_sell.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2_options_orderentry_boe3_v1_0_12.fields.equity_leg_short_sell, range, value, display)
+
+  return offset + length, value
+end
 
 -- Display Range
 cboe_c2_options_orderentry_boe3_v1_0_12.display_range = {}
@@ -7346,7 +7863,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_message.fields = funct
   -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -7379,7 +7896,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_message.fields = funct
   -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12.cmta_number.dissect(buffer, index, packet, parent)
 
-  -- Target Party Id
+  -- Target Party Id: Alpha
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.dissect(buffer, index, packet, parent)
 
   -- Attributed Quote: Alphanumeric
@@ -7397,7 +7914,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_message.fields = funct
   -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12.custom_group_id.dissect(buffer, index, packet, parent)
 
-  -- Equity Party Id
+  -- Equity Party Id: Alpha
   index, equity_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.equity_party_id.dissect(buffer, index, packet, parent)
 
   -- Clearing Optional Data: Text
@@ -7406,10 +7923,10 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_message.fields = funct
   -- Client Id Attr: Text
   index, client_id_attr = cboe_c2_options_orderentry_boe3_v1_0_12.client_id_attr.dissect(buffer, index, packet, parent)
 
-  -- Frequent Trader Id
+  -- Frequent Trader Id: Text
   index, frequent_trader_id = cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.dissect(buffer, index, packet, parent)
 
-  -- Session Eligibility
+  -- Session Eligibility: Alpha
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect(buffer, index, packet, parent)
 
   -- Max Floor: Binary
@@ -7418,40 +7935,40 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_complex_order_message.fields = funct
   -- Display Range: Binary
   index, display_range = cboe_c2_options_orderentry_boe3_v1_0_12.display_range.dissect(buffer, index, packet, parent)
 
-  -- Combo Order
+  -- Combo Order: Alpha
   index, combo_order = cboe_c2_options_orderentry_boe3_v1_0_12.combo_order.dissect(buffer, index, packet, parent)
 
-  -- Compression
+  -- Compression: Alpha
   index, compression = cboe_c2_options_orderentry_boe3_v1_0_12.compression.dissect(buffer, index, packet, parent)
 
-  -- Equity Ex Destination
+  -- Equity Ex Destination: Alphanumeric
   index, equity_ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12.equity_ex_destination.dissect(buffer, index, packet, parent)
 
-  -- Equity Leg Short Sell
+  -- Equity Leg Short Sell: Alphanumeric
   index, equity_leg_short_sell = cboe_c2_options_orderentry_boe3_v1_0_12.equity_leg_short_sell.dissect(buffer, index, packet, parent)
 
-  -- Floor Destination
+  -- Floor Destination: Text
   index, floor_destination = cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.dissect(buffer, index, packet, parent)
 
-  -- Floor Routing Inst
+  -- Floor Routing Inst: Alphanumeric
   index, floor_routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.dissect(buffer, index, packet, parent)
 
-  -- Order Origin
+  -- Order Origin: Alphanumeric
   index, order_origin = cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.dissect(buffer, index, packet, parent)
 
-  -- Order Router Subsidy
+  -- Order Router Subsidy: Alpha
   index, order_router_subsidy = cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy.dissect(buffer, index, packet, parent)
 
-  -- Price Type
+  -- Price Type: Alphanumeric
   index, price_type = cboe_c2_options_orderentry_boe3_v1_0_12.price_type.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id
+  -- Strategy Id: Alphanumeric
   index, strategy_id = cboe_c2_options_orderentry_boe3_v1_0_12.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Tied Hedge
+  -- Tied Hedge: Alpha
   index, tied_hedge = cboe_c2_options_orderentry_boe3_v1_0_12.tied_hedge.dissect(buffer, index, packet, parent)
 
-  -- Held
+  -- Held: Alpha
   index, held = cboe_c2_options_orderentry_boe3_v1_0_12.held.dissect(buffer, index, packet, parent)
 
   -- Scratch Pad: Binary
@@ -7633,7 +8150,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_order_short_message.fields = functio
   -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -7675,7 +8192,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_order_short_message.fields = functio
   -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12.cmta_number.dissect(buffer, index, packet, parent)
 
-  -- Session Eligibility
+  -- Session Eligibility: Alpha
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect(buffer, index, packet, parent)
 
   -- Attributed Quote: Alphanumeric
@@ -7693,7 +8210,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_order_short_message.fields = functio
   -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12.custom_group_id.dissect(buffer, index, packet, parent)
 
-  -- Frequent Trader Id
+  -- Frequent Trader Id: Text
   index, frequent_trader_id = cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.dissect(buffer, index, packet, parent)
 
   -- Scratch Pad: Binary
@@ -7844,7 +8361,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_order_message.fields = function(buff
   -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Price
+  -- Price: BinaryPrice
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12.price.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Text
@@ -7898,10 +8415,10 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_order_message.fields = function(buff
   -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12.cmta_number.dissect(buffer, index, packet, parent)
 
-  -- Target Party Id
+  -- Target Party Id: Alpha
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12.target_party_id.dissect(buffer, index, packet, parent)
 
-  -- Session Eligibility
+  -- Session Eligibility: Alpha
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12.session_eligibility.dissect(buffer, index, packet, parent)
 
   -- Attributed Quote: Alphanumeric
@@ -7937,28 +8454,28 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_order_message.fields = function(buff
   -- Client Id Attr: Text
   index, client_id_attr = cboe_c2_options_orderentry_boe3_v1_0_12.client_id_attr.dissect(buffer, index, packet, parent)
 
-  -- Frequent Trader Id
+  -- Frequent Trader Id: Text
   index, frequent_trader_id = cboe_c2_options_orderentry_boe3_v1_0_12.frequent_trader_id.dissect(buffer, index, packet, parent)
 
-  -- Compression
+  -- Compression: Alpha
   index, compression = cboe_c2_options_orderentry_boe3_v1_0_12.compression.dissect(buffer, index, packet, parent)
 
-  -- Floor Destination
+  -- Floor Destination: Text
   index, floor_destination = cboe_c2_options_orderentry_boe3_v1_0_12.floor_destination.dissect(buffer, index, packet, parent)
 
-  -- Floor Routing Inst
+  -- Floor Routing Inst: Alphanumeric
   index, floor_routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12.floor_routing_inst.dissect(buffer, index, packet, parent)
 
-  -- Order Origin
+  -- Order Origin: Alphanumeric
   index, order_origin = cboe_c2_options_orderentry_boe3_v1_0_12.order_origin.dissect(buffer, index, packet, parent)
 
-  -- Order Router Subsidy
+  -- Order Router Subsidy: Alpha
   index, order_router_subsidy = cboe_c2_options_orderentry_boe3_v1_0_12.order_router_subsidy.dissect(buffer, index, packet, parent)
 
-  -- Price Type
+  -- Price Type: Alphanumeric
   index, price_type = cboe_c2_options_orderentry_boe3_v1_0_12.price_type.dissect(buffer, index, packet, parent)
 
-  -- Held
+  -- Held: Alpha
   index, held = cboe_c2_options_orderentry_boe3_v1_0_12.held.dissect(buffer, index, packet, parent)
 
   -- Scratch Pad: Binary
@@ -7984,9 +8501,6 @@ cboe_c2_options_orderentry_boe3_v1_0_12.new_order_message.dissect = function(buf
     return cboe_c2_options_orderentry_boe3_v1_0_12.new_order_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Replay Complete Message
-cboe_c2_options_orderentry_boe3_v1_0_12.replay_complete_message = {}
 
 -- Logout Reason Text
 cboe_c2_options_orderentry_boe3_v1_0_12.logout_reason_text = {}
@@ -8376,12 +8890,6 @@ cboe_c2_options_orderentry_boe3_v1_0_12.login_response_message.dissect = functio
 
   return cboe_c2_options_orderentry_boe3_v1_0_12.login_response_message.fields(buffer, offset, packet, parent)
 end
-
--- Client Heartbeat Message
-cboe_c2_options_orderentry_boe3_v1_0_12.client_heartbeat_message = {}
-
--- Logout Request Message
-cboe_c2_options_orderentry_boe3_v1_0_12.logout_request_message = {}
 
 -- Replay Unspecified Unit
 cboe_c2_options_orderentry_boe3_v1_0_12.replay_unspecified_unit = {}
