@@ -12,7 +12,6 @@ local asx_securities_ntp_itch_v1_05 = {}
 
 -- Component Tables
 local show = {}
-local asx_securities_ntp_itch_v1_05_store = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -519,7 +518,7 @@ asx_securities_ntp_itch_v1_05.timestamp.size = 4
 -- Display: Timestamp
 asx_securities_ntp_itch_v1_05.timestamp.display = function(nanoseconds, info, parent)
   -- Lookup seconds
-  local seconds = asx_securities_ntp_itch_v1_05_store.seconds
+  local seconds = asx_securities_ntp_itch_v1_05.seconds.store
 
   if seconds ~= nil then
     return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -4943,6 +4942,9 @@ end
 -- Seconds
 asx_securities_ntp_itch_v1_05.seconds = {}
 
+-- Store: Seconds
+asx_securities_ntp_itch_v1_05.seconds.store = nil
+
 -- Size: Seconds
 asx_securities_ntp_itch_v1_05.seconds.size = 4
 
@@ -4988,7 +4990,7 @@ asx_securities_ntp_itch_v1_05.seconds_message.fields = function(buffer, offset, 
   index, seconds = asx_securities_ntp_itch_v1_05.seconds.dissect(buffer, index, packet, parent)
 
   -- Store Seconds Value
-  asx_securities_ntp_itch_v1_05_store.seconds = seconds
+  asx_securities_ntp_itch_v1_05.seconds.store = seconds
 
   return index
 end
