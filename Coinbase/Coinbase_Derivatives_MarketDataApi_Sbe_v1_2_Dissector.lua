@@ -1473,7 +1473,11 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size = 8
 
 -- Display: Transact Time
 coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.display = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
