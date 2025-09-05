@@ -35,9 +35,11 @@ omi_cboe_futures_orderentry_boe3_v1_1_18.fields.clearing_size = ProtoField.new("
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.clearing_symbol = ProtoField.new("Clearing Symbol", "cboe.futures.orderentry.boe3.v1.1.18.clearingsymbol", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.client_sequence = ProtoField.new("Client Sequence", "cboe.futures.orderentry.boe3.v1.1.18.clientsequence", ftypes.UINT32)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.futures.orderentry.boe3.v1.1.18.cmtanumber", ftypes.UINT32)
+omi_cboe_futures_orderentry_boe3_v1_1_18.fields.complex_instrument_reject_reason = ProtoField.new("Complex Instrument Reject Reason", "cboe.futures.orderentry.boe3.v1.1.18.complexinstrumentrejectreason", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.futures.orderentry.boe3.v1.1.18.correctedprice", ftypes.DOUBLE)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.country_code = ProtoField.new("Country Code", "cboe.futures.orderentry.boe3.v1.1.18.countrycode", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.cti_code = ProtoField.new("Cti Code", "cboe.futures.orderentry.boe3.v1.1.18.cticode", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_1_18.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.futures.orderentry.boe3.v1.1.18.cumqty", ftypes.UINT32)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cboe.futures.orderentry.boe3.v1.1.18.custorderhandlinginst", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.futures.orderentry.boe3.v1.1.18.customgroupid", ftypes.UINT16)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.futures.orderentry.boe3.v1.1.18.customgroupidcnt", ftypes.UINT8)
@@ -79,9 +81,11 @@ omi_cboe_futures_orderentry_boe3_v1_1_18.fields.min_qty = ProtoField.new("Min Qt
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.futures.orderentry.boe3.v1.1.18.modifyrejectreason", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.mtp_modifier = ProtoField.new("Mtp Modifier", "cboe.futures.orderentry.boe3.v1.1.18.mtpmodifier", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "cboe.futures.orderentry.boe3.v1.1.18.multilegreportingtype", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_1_18.fields.no_of_complex_instruments = ProtoField.new("No Of Complex Instruments", "cboe.futures.orderentry.boe3.v1.1.18.noofcomplexinstruments", ftypes.UINT32)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.futures.orderentry.boe3.v1.1.18.numberofunits", ftypes.UINT8)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.oeo_id = ProtoField.new("Oeo Id", "cboe.futures.orderentry.boe3.v1.1.18.oeoid", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.open_close = ProtoField.new("Open Close", "cboe.futures.orderentry.boe3.v1.1.18.openclose", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_1_18.fields.option_accepted_leg = ProtoField.new("Option Accepted Leg", "cboe.futures.orderentry.boe3.v1.1.18.optionacceptedleg", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.option_leg = ProtoField.new("Option Leg", "cboe.futures.orderentry.boe3.v1.1.18.optionleg", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.ord_type = ProtoField.new("Ord Type", "cboe.futures.orderentry.boe3.v1.1.18.ordtype", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.order_id = ProtoField.new("Order Id", "cboe.futures.orderentry.boe3.v1.1.18.orderid", ftypes.UINT64)
@@ -112,6 +116,7 @@ omi_cboe_futures_orderentry_boe3_v1_1_18.fields.risk_reset = ProtoField.new("Ris
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.futures.orderentry.boe3.v1.1.18.riskresetresult", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.futures.orderentry.boe3.v1.1.18.riskstatusid", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.futures.orderentry.boe3.v1.1.18.secondaryexecid", ftypes.UINT64)
+omi_cboe_futures_orderentry_boe3_v1_1_18.fields.security_desc = ProtoField.new("Security Desc", "cboe.futures.orderentry.boe3.v1.1.18.securitydesc", ftypes.BYTES)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.futures.orderentry.boe3.v1.1.18.sequencenumber", ftypes.UINT32)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.session_id = ProtoField.new("Session Id", "cboe.futures.orderentry.boe3.v1.1.18.sessionid", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.futures.orderentry.boe3.v1.1.18.sessionsubid", ftypes.STRING)
@@ -170,6 +175,7 @@ omi_cboe_futures_orderentry_boe3_v1_1_18.fields.trade_cancel_correct_option = Pr
 
 -- Cboe Futures OrderEntry Boe3 1.1.18 generated fields
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.leg_position_effect_index = ProtoField.new("Leg Position Effect Index", "cboe.futures.orderentry.boe3.v1.1.18.legpositioneffectindex", ftypes.UINT16)
+omi_cboe_futures_orderentry_boe3_v1_1_18.fields.option_accepted_leg_index = ProtoField.new("Option Accepted Leg Index", "cboe.futures.orderentry.boe3.v1.1.18.optionacceptedlegindex", ftypes.UINT16)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.option_leg_index = ProtoField.new("Option Leg Index", "cboe.futures.orderentry.boe3.v1.1.18.optionlegindex", ftypes.UINT16)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.quote_update_acknowledgement_group_index = ProtoField.new("Quote Update Acknowledgement Group Index", "cboe.futures.orderentry.boe3.v1.1.18.quoteupdateacknowledgementgroupindex", ftypes.UINT16)
 omi_cboe_futures_orderentry_boe3_v1_1_18.fields.quote_update_group_index = ProtoField.new("Quote Update Group Index", "cboe.futures.orderentry.boe3.v1.1.18.quoteupdategroupindex", ftypes.UINT16)
@@ -198,6 +204,7 @@ show.new_complex_instrument_option = true
 show.new_complex_instrument_rejected_option = true
 show.new_order = true
 show.new_order_option = true
+show.option_accepted_leg = true
 show.option_leg = true
 show.order_acknowledgement = true
 show.order_acknowledgement_option = true
@@ -248,6 +255,7 @@ omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_new_complex_instrument_optio
 omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_new_complex_instrument_rejected_option = Pref.bool("Show New Complex Instrument Rejected Option", show.new_complex_instrument_rejected_option, "Parse and add New Complex Instrument Rejected Option to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_new_order = Pref.bool("Show New Order", show.new_order, "Parse and add New Order to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_new_order_option = Pref.bool("Show New Order Option", show.new_order_option, "Parse and add New Order Option to protocol tree")
+omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_option_accepted_leg = Pref.bool("Show Option Accepted Leg", show.option_accepted_leg, "Parse and add Option Accepted Leg to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_option_leg = Pref.bool("Show Option Leg", show.option_leg, "Parse and add Option Leg to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_order_acknowledgement = Pref.bool("Show Order Acknowledgement", show.order_acknowledgement, "Parse and add Order Acknowledgement to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_order_acknowledgement_option = Pref.bool("Show Order Acknowledgement Option", show.order_acknowledgement_option, "Parse and add Order Acknowledgement Option to protocol tree")
@@ -351,6 +359,10 @@ function omi_cboe_futures_orderentry_boe3_v1_1_18.prefs_changed()
   end
   if show.new_order_option ~= omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_new_order_option then
     show.new_order_option = omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_new_order_option
+    changed = true
+  end
+  if show.option_accepted_leg ~= omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_option_accepted_leg then
+    show.option_accepted_leg = omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_option_accepted_leg
     changed = true
   end
   if show.option_leg ~= omi_cboe_futures_orderentry_boe3_v1_1_18.prefs.show_option_leg then
@@ -512,8 +524,28 @@ cboe_futures_orderentry_boe3_v1_1_18.text.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Reject Reason
-cboe_futures_orderentry_boe3_v1_1_18.reject_reason = {}
+-- Complex Instrument Reject Reason
+cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason = {}
+
+-- Size: Complex Instrument Reject Reason
+cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason.size = 1
+
+-- Display: Complex Instrument Reject Reason
+cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason.display = function(value)
+  return "Complex Instrument Reject Reason: "..value
+end
+
+-- Dissect: Complex Instrument Reject Reason
+cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.complex_instrument_reject_reason, range, value, display)
+
+  return offset + length, value
+end
 
 -- Clearing Firm
 cboe_futures_orderentry_boe3_v1_1_18.clearing_firm = {}
@@ -597,7 +629,7 @@ cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_rejected_option.size
 
   index = index + cboe_futures_orderentry_boe3_v1_1_18.clearing_firm.size
 
-  index = index + cboe_futures_orderentry_boe3_v1_1_18.reject_reason.size
+  index = index + cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason.size
 
   index = index + cboe_futures_orderentry_boe3_v1_1_18.text.size
 
@@ -622,8 +654,8 @@ cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_rejected_option.fiel
   -- Clearing Firm: Alpha
   index, clearing_firm = cboe_futures_orderentry_boe3_v1_1_18.clearing_firm.dissect(buffer, index, packet, parent)
 
-  -- Reject Reason
-  index, reject_reason = cboe_futures_orderentry_boe3_v1_1_18.reject_reason.dissect(buffer, index, packet, parent)
+  -- Complex Instrument Reject Reason: Text
+  index, complex_instrument_reject_reason = cboe_futures_orderentry_boe3_v1_1_18.complex_instrument_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Text: Text
   index, text = cboe_futures_orderentry_boe3_v1_1_18.text.dissect(buffer, index, packet, parent)
@@ -812,6 +844,26 @@ end
 -- No Of Complex Instruments
 cboe_futures_orderentry_boe3_v1_1_18.no_of_complex_instruments = {}
 
+-- Size: No Of Complex Instruments
+cboe_futures_orderentry_boe3_v1_1_18.no_of_complex_instruments.size = 4
+
+-- Display: No Of Complex Instruments
+cboe_futures_orderentry_boe3_v1_1_18.no_of_complex_instruments.display = function(value)
+  return "No Of Complex Instruments: "..value
+end
+
+-- Dissect: No Of Complex Instruments
+cboe_futures_orderentry_boe3_v1_1_18.no_of_complex_instruments.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_1_18.no_of_complex_instruments.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_1_18.no_of_complex_instruments.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.no_of_complex_instruments, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol
 cboe_futures_orderentry_boe3_v1_1_18.symbol = {}
 
@@ -877,7 +929,7 @@ cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_accepted_option.fiel
   -- Symbol: Alphanumeric
   index, symbol = cboe_futures_orderentry_boe3_v1_1_18.symbol.dissect(buffer, index, packet, parent)
 
-  -- No Of Complex Instruments
+  -- No Of Complex Instruments: Binary
   index, no_of_complex_instruments = cboe_futures_orderentry_boe3_v1_1_18.no_of_complex_instruments.dissect(buffer, index, packet, parent)
 
   -- Leg Cnt: Binary
@@ -2573,6 +2625,26 @@ end
 -- Security Desc
 cboe_futures_orderentry_boe3_v1_1_18.security_desc = {}
 
+-- Size: Security Desc
+cboe_futures_orderentry_boe3_v1_1_18.security_desc.size = 16
+
+-- Display: Security Desc
+cboe_futures_orderentry_boe3_v1_1_18.security_desc.display = function(value)
+  return "Security Desc: "..value
+end
+
+-- Dissect: Security Desc
+cboe_futures_orderentry_boe3_v1_1_18.security_desc.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_1_18.security_desc.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_futures_orderentry_boe3_v1_1_18.security_desc.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.security_desc, range, value, display)
+
+  return offset + length, value
+end
+
 -- Capacity
 cboe_futures_orderentry_boe3_v1_1_18.capacity = {}
 
@@ -2791,7 +2863,7 @@ cboe_futures_orderentry_boe3_v1_1_18.trade_cancel_correct_option.fields = functi
   -- Capacity: Alphanumeric
   index, capacity = cboe_futures_orderentry_boe3_v1_1_18.capacity.dissect(buffer, index, packet, parent)
 
-  -- Security Desc
+  -- Security Desc: Binary
   index, security_desc = cboe_futures_orderentry_boe3_v1_1_18.security_desc.dissect(buffer, index, packet, parent)
 
   -- Open Close: Alphanumeric
@@ -3786,7 +3858,7 @@ cboe_futures_orderentry_boe3_v1_1_18.order_execution_option.fields = function(bu
   -- Clearing Firm: Alpha
   index, clearing_firm = cboe_futures_orderentry_boe3_v1_1_18.clearing_firm.dissect(buffer, index, packet, parent)
 
-  -- Security Desc
+  -- Security Desc: Binary
   index, security_desc = cboe_futures_orderentry_boe3_v1_1_18.security_desc.dissect(buffer, index, packet, parent)
 
   -- Fee Code: Alphanumeric
@@ -4630,6 +4702,26 @@ end
 -- Cum Qty
 cboe_futures_orderentry_boe3_v1_1_18.cum_qty = {}
 
+-- Size: Cum Qty
+cboe_futures_orderentry_boe3_v1_1_18.cum_qty.size = 4
+
+-- Display: Cum Qty
+cboe_futures_orderentry_boe3_v1_1_18.cum_qty.display = function(value)
+  return "Cum Qty: "..value
+end
+
+-- Dissect: Cum Qty
+cboe_futures_orderentry_boe3_v1_1_18.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_1_18.cum_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_1_18.cum_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.cum_qty, range, value, display)
+
+  return offset + length, value
+end
+
 -- Oeo Id
 cboe_futures_orderentry_boe3_v1_1_18.oeo_id = {}
 
@@ -5051,7 +5143,7 @@ cboe_futures_orderentry_boe3_v1_1_18.order_acknowledgement_option.fields = funct
   -- Symbol: Alphanumeric
   index, symbol = cboe_futures_orderentry_boe3_v1_1_18.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Desc
+  -- Security Desc: Binary
   index, security_desc = cboe_futures_orderentry_boe3_v1_1_18.security_desc.dissect(buffer, index, packet, parent)
 
   -- Capacity: Alphanumeric
@@ -5099,7 +5191,7 @@ cboe_futures_orderentry_boe3_v1_1_18.order_acknowledgement_option.fields = funct
   -- Oeo Id: Alphanumeric
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18.oeo_id.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty
+  -- Cum Qty: Binary
   index, cum_qty = cboe_futures_orderentry_boe3_v1_1_18.cum_qty.dissect(buffer, index, packet, parent)
 
   -- Frequent Trader Id: Alphanumeric
@@ -5318,7 +5410,7 @@ cboe_futures_orderentry_boe3_v1_1_18.order_acknowledgement.fields = function(buf
   -- Oeo Id: Alphanumeric
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18.oeo_id.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty
+  -- Cum Qty: Binary
   index, cum_qty = cboe_futures_orderentry_boe3_v1_1_18.cum_qty.dissect(buffer, index, packet, parent)
 
   -- Frequent Trader Id: Alphanumeric
@@ -5351,8 +5443,71 @@ cboe_futures_orderentry_boe3_v1_1_18.order_acknowledgement.dissect = function(bu
   end
 end
 
--- Leg Group
-cboe_futures_orderentry_boe3_v1_1_18.leg_group = {}
+-- Option Accepted Leg
+cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg = {}
+
+-- Calculate size of: Option Accepted Leg
+cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_futures_orderentry_boe3_v1_1_18.leg_symbol.size
+
+  index = index + cboe_futures_orderentry_boe3_v1_1_18.security_desc.size
+
+  index = index + cboe_futures_orderentry_boe3_v1_1_18.leg_ratio_qty.size
+
+  index = index + cboe_futures_orderentry_boe3_v1_1_18.leg_side.size
+
+  return index
+end
+
+-- Display: Option Accepted Leg
+cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Option Accepted Leg
+cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.fields = function(buffer, offset, packet, parent, option_accepted_leg_index)
+  local index = offset
+
+  -- Implicit Option Accepted Leg Index
+  if option_accepted_leg_index ~= nil then
+    local iteration = parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.option_accepted_leg_index, option_accepted_leg_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Symbol: Alphanumeric
+  index, leg_symbol = cboe_futures_orderentry_boe3_v1_1_18.leg_symbol.dissect(buffer, index, packet, parent)
+
+  -- Security Desc: Binary
+  index, security_desc = cboe_futures_orderentry_boe3_v1_1_18.security_desc.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: Binary
+  index, leg_ratio_qty = cboe_futures_orderentry_boe3_v1_1_18.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: Text
+  index, leg_side = cboe_futures_orderentry_boe3_v1_1_18.leg_side.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Option Accepted Leg
+cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.dissect = function(buffer, offset, packet, parent, option_accepted_leg_index)
+  if show.option_accepted_leg then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.option_accepted_leg, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.fields(buffer, offset, packet, parent, option_accepted_leg_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.fields(buffer, offset, packet, parent, option_accepted_leg_index)
+  end
+end
 
 -- New Complex Instrument Option
 cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option = {}
@@ -5367,7 +5522,9 @@ cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.size = functi
 
   index = index + cboe_futures_orderentry_boe3_v1_1_18.leg_cnt.size
 
-  index = index + cboe_futures_orderentry_boe3_v1_1_18.leg_group.size
+  -- Calculate field size from count
+  local option_accepted_leg_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + option_accepted_leg_count * 29
 
   return index
 end
@@ -5390,28 +5547,25 @@ cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.fields = func
   -- Leg Cnt: Binary
   index, leg_cnt = cboe_futures_orderentry_boe3_v1_1_18.leg_cnt.dissect(buffer, index, packet, parent)
 
-  -- Leg Group
-  index, leg_group = cboe_futures_orderentry_boe3_v1_1_18.leg_group.dissect(buffer, index, packet, parent)
+  -- Repeating: Option Accepted Leg
+  for option_accepted_leg_index = 1, leg_cnt do
+    index, option_accepted_leg = cboe_futures_orderentry_boe3_v1_1_18.option_accepted_leg.dissect(buffer, index, packet, parent, option_accepted_leg_index)
+  end
 
   return index
 end
 
 -- Dissect: New Complex Instrument Option
 cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
   if show.new_complex_instrument_option then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.new_complex_instrument_option, buffer(offset, 0))
-    local index = cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.fields(buffer, offset, packet, parent)
+    local length = cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.size(buffer, offset)
+    local range = buffer(offset, length)
+    local display = cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.display(buffer, packet, parent)
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_1_18.fields.new_complex_instrument_option, range, display)
   end
+
+  return cboe_futures_orderentry_boe3_v1_1_18.new_complex_instrument_option.fields(buffer, offset, packet, parent)
 end
 
 -- Custom Group Id
@@ -6653,7 +6807,7 @@ cboe_futures_orderentry_boe3_v1_1_18.new_order_option.fields = function(buffer, 
   -- Symbol: Alphanumeric
   index, symbol = cboe_futures_orderentry_boe3_v1_1_18.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Desc
+  -- Security Desc: Binary
   index, security_desc = cboe_futures_orderentry_boe3_v1_1_18.security_desc.dissect(buffer, index, packet, parent)
 
   -- Capacity: Alphanumeric
@@ -6883,9 +7037,6 @@ cboe_futures_orderentry_boe3_v1_1_18.new_order.dissect = function(buffer, offset
     return cboe_futures_orderentry_boe3_v1_1_18.new_order.fields(buffer, offset, packet, parent)
   end
 end
-
--- Replay Complete Message
-cboe_futures_orderentry_boe3_v1_1_18.replay_complete_message = {}
 
 -- Logout Reason Text
 cboe_futures_orderentry_boe3_v1_1_18.logout_reason_text = {}
@@ -7275,12 +7426,6 @@ cboe_futures_orderentry_boe3_v1_1_18.login_response_message.dissect = function(b
 
   return cboe_futures_orderentry_boe3_v1_1_18.login_response_message.fields(buffer, offset, packet, parent)
 end
-
--- Client Heartbeat Message
-cboe_futures_orderentry_boe3_v1_1_18.client_heartbeat_message = {}
-
--- Logout Request Message
-cboe_futures_orderentry_boe3_v1_1_18.logout_request_message = {}
 
 -- Replay Unspecified Unit
 cboe_futures_orderentry_boe3_v1_1_18.replay_unspecified_unit = {}

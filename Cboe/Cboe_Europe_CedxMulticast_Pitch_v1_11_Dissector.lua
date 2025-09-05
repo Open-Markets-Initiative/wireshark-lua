@@ -18,6 +18,7 @@ local show = {}
 -----------------------------------------------------------------------
 
 -- Cboe Europe CedxMulticast Pitch 1.11 Fields
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.europe.cedxmulticast.pitch.v1.11.algorithmicindicator", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.algorithmic_trade = ProtoField.new("Algorithmic Trade", "cboe.europe.cedxmulticast.pitch.v1.11.algorithmictrade", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.europe.cedxmulticast.pitch.v1.11.auctionendoffset", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_id = ProtoField.new("Auction Id", "cboe.europe.cedxmulticast.pitch.v1.11.auctionid", ftypes.UINT64)
@@ -39,8 +40,11 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_binary_4 = ProtoField
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_binary_8 = ProtoField.new("Contracts Binary 8", "cboe.europe.cedxmulticast.pitch.v1.11.contractsbinary8", ftypes.UINT64)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_short = ProtoField.new("Contracts Short", "cboe.europe.cedxmulticast.pitch.v1.11.contractsshort", ftypes.UINT16)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.count = ProtoField.new("Count", "cboe.europe.cedxmulticast.pitch.v1.11.count", ftypes.UINT8)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.crossing_trade = ProtoField.new("Crossing Trade", "cboe.europe.cedxmulticast.pitch.v1.11.crossingtrade", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.currency = ProtoField.new("Currency", "cboe.europe.cedxmulticast.pitch.v1.11.currency", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.europe.cedxmulticast.pitch.v1.11.customerindicator", ftypes.STRING)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.deferral_or_enrichment_type = ProtoField.new("Deferral Or Enrichment Type", "cboe.europe.cedxmulticast.pitch.v1.11.deferralorenrichmenttype", ftypes.STRING)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "cboe.europe.cedxmulticast.pitch.v1.11.duplicativeindicator", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.ecrp_volume = ProtoField.new("Ecrp Volume", "cboe.europe.cedxmulticast.pitch.v1.11.ecrpvolume", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.ex_cum_dividend = ProtoField.new("Ex Cum Dividend", "cboe.europe.cedxmulticast.pitch.v1.11.excumdividend", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.europe.cedxmulticast.pitch.v1.11.executedquantity", ftypes.UINT32)
@@ -48,6 +52,7 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_flags = ProtoField.ne
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_id = ProtoField.new("Execution Id", "cboe.europe.cedxmulticast.pitch.v1.11.executionid", ftypes.UINT64)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.europe.cedxmulticast.pitch.v1.11.executionvenue", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.europe.cedxmulticast.pitch.v1.11.expirationdate", ftypes.UINT32)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.extended_trade_flags = ProtoField.new("Extended Trade Flags", "cboe.europe.cedxmulticast.pitch.v1.11.extendedtradeflags", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.high_price_binary_price_8 = ProtoField.new("High Price Binary Price 8", "cboe.europe.cedxmulticast.pitch.v1.11.highpricebinaryprice8", ftypes.UINT64)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.high_price_bit_1 = ProtoField.new("High Price Bit 1", "cboe.europe.cedxmulticast.pitch.v1.11.highpricebit1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.europe.cedxmulticast.pitch.v1.11.indicativeprice", ftypes.DOUBLE)
@@ -62,7 +67,10 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message = ProtoField.new("Messa
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_header = ProtoField.new("Message Header", "cboe.europe.cedxmulticast.pitch.v1.11.messageheader", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_length = ProtoField.new("Message Length", "cboe.europe.cedxmulticast.pitch.v1.11.messagelength", ftypes.UINT8)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_type = ProtoField.new("Message Type", "cboe.europe.cedxmulticast.pitch.v1.11.messagetype", ftypes.UINT8)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.europe.cedxmulticast.pitch.v1.11.modificationindicator", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.multiplier = ProtoField.new("Multiplier", "cboe.europe.cedxmulticast.pitch.v1.11.multiplier", ftypes.DOUBLE)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.negotiated_trade = ProtoField.new("Negotiated Trade", "cboe.europe.cedxmulticast.pitch.v1.11.negotiatedtrade", ftypes.STRING)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "cboe.europe.cedxmulticast.pitch.v1.11.offbookautomatedindicator", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_and_close_price = ProtoField.new("Open And Close Price", "cboe.europe.cedxmulticast.pitch.v1.11.openandcloseprice", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_interest = ProtoField.new("Open Interest", "cboe.europe.cedxmulticast.pitch.v1.11.openinterest", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_price = ProtoField.new("Open Price", "cboe.europe.cedxmulticast.pitch.v1.11.openprice", ftypes.UINT64)
@@ -73,6 +81,7 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.packet_header = ProtoField.new(
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.participant_id = ProtoField.new("Participant Id", "cboe.europe.cedxmulticast.pitch.v1.11.participantid", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.payload = ProtoField.new("Payload", "cboe.europe.cedxmulticast.pitch.v1.11.payload", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price = ProtoField.new("Price", "cboe.europe.cedxmulticast.pitch.v1.11.price", ftypes.DOUBLE)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "cboe.europe.cedxmulticast.pitch.v1.11.priceformationdiscoveryprocess", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_increment = ProtoField.new("Price Increment", "cboe.europe.cedxmulticast.pitch.v1.11.priceincrement", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level = ProtoField.new("Price Level", "cboe.europe.cedxmulticast.pitch.v1.11.pricelevel", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_count = ProtoField.new("Price Level Count", "cboe.europe.cedxmulticast.pitch.v1.11.pricelevelcount", ftypes.UINT8)
@@ -80,6 +89,7 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group = ProtoField.
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_short = ProtoField.new("Price Short", "cboe.europe.cedxmulticast.pitch.v1.11.priceshort", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_6 = ProtoField.new("Product Code Alphanumeric 6", "cboe.europe.cedxmulticast.pitch.v1.11.productcodealphanumeric6", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_8 = ProtoField.new("Product Code Alphanumeric 8", "cboe.europe.cedxmulticast.pitch.v1.11.productcodealphanumeric8", ftypes.STRING)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.publication_mode_deferral_reason = ProtoField.new("Publication Mode Deferral Reason", "cboe.europe.cedxmulticast.pitch.v1.11.publicationmodedeferralreason", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.quantity = ProtoField.new("Quantity", "cboe.europe.cedxmulticast.pitch.v1.11.quantity", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.europe.cedxmulticast.pitch.v1.11.quantityshort", ftypes.UINT16)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reference_price = ProtoField.new("Reference Price", "cboe.europe.cedxmulticast.pitch.v1.11.referenceprice", ftypes.DOUBLE)
@@ -91,6 +101,7 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.sequence = ProtoField.new("Sequ
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.europe.cedxmulticast.pitch.v1.11.settlementprice", ftypes.UINT64)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.side = ProtoField.new("Side", "cboe.europe.cedxmulticast.pitch.v1.11.side", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.europe.cedxmulticast.pitch.v1.11.sideindicator", ftypes.STRING)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.europe.cedxmulticast.pitch.v1.11.specialdividend", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.status = ProtoField.new("Status", "cboe.europe.cedxmulticast.pitch.v1.11.status", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.strike_price = ProtoField.new("Strike Price", "cboe.europe.cedxmulticast.pitch.v1.11.strikeprice", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.summary_flags = ProtoField.new("Summary Flags", "cboe.europe.cedxmulticast.pitch.v1.11.summaryflags", ftypes.STRING)
@@ -165,6 +176,7 @@ show.delete_order_message = true
 show.end_of_day_summary_message = true
 show.end_of_session = true
 show.execution_flags = true
+show.extended_trade_flags = true
 show.fast_status_message = true
 show.futures_instrument_definition_message = true
 show.message = true
@@ -206,6 +218,7 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_delete_order_message = Pref
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_day_summary_message = Pref.bool("Show End Of Day Summary Message", show.end_of_day_summary_message, "Parse and add End Of Day Summary Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_session = Pref.bool("Show End Of Session", show.end_of_session, "Parse and add End Of Session to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_execution_flags = Pref.bool("Show Execution Flags", show.execution_flags, "Parse and add Execution Flags to protocol tree")
+omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_extended_trade_flags = Pref.bool("Show Extended Trade Flags", show.extended_trade_flags, "Parse and add Extended Trade Flags to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_fast_status_message = Pref.bool("Show Fast Status Message", show.fast_status_message, "Parse and add Fast Status Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_futures_instrument_definition_message = Pref.bool("Show Futures Instrument Definition Message", show.futures_instrument_definition_message, "Parse and add Futures Instrument Definition Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -282,6 +295,10 @@ function omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs_changed()
   end
   if show.execution_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_execution_flags then
     show.execution_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_execution_flags
+    changed = true
+  end
+  if show.extended_trade_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_extended_trade_flags then
+    show.extended_trade_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_extended_trade_flags
     changed = true
   end
   if show.fast_status_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_fast_status_message then
@@ -407,24 +424,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Cboe Europe CedxMulticast Pitch 1.11
 -----------------------------------------------------------------------
-
--- High Price Bit 1
-cboe_europe_cedxmulticast_pitch_v1_11.high_price_bit_1 = {}
-
--- Unused 1
-cboe_europe_cedxmulticast_pitch_v1_11.unused_1 = {}
-
--- Low Price Bit 1
-cboe_europe_cedxmulticast_pitch_v1_11.low_price_bit_1 = {}
-
--- Unused 3
-cboe_europe_cedxmulticast_pitch_v1_11.unused_3 = {}
-
--- Open And Close Price
-cboe_europe_cedxmulticast_pitch_v1_11.open_and_close_price = {}
-
--- Reserved Flags
-cboe_europe_cedxmulticast_pitch_v1_11.reserved_flags = {}
 
 -- Summary Flags
 cboe_europe_cedxmulticast_pitch_v1_11.summary_flags = {}
@@ -3087,8 +3086,458 @@ cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.dissect = function(buffer, 
   end
 end
 
+-- Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator = {}
+
+-- Size: Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size = 1
+
+-- Display: Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.display = function(value)
+  return "Duplicative Indicator: "..value
+end
+
+-- Dissect: Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.duplicative_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type = {}
+
+-- Size: Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size = 1
+
+-- Display: Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.display = function(value)
+  return "Deferral Or Enrichment Type: "..value
+end
+
+-- Dissect: Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.deferral_or_enrichment_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason = {}
+
+-- Size: Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size = 1
+
+-- Display: Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.display = function(value)
+  return "Publication Mode Deferral Reason: "..value
+end
+
+-- Dissect: Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.publication_mode_deferral_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator = {}
+
+-- Size: Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size = 1
+
+-- Display: Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.display = function(value)
+  return "Algorithmic Indicator: "..value
+end
+
+-- Dissect: Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.algorithmic_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process = {}
+
+-- Size: Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size = 1
+
+-- Display: Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.display = function(value)
+  return "Price Formation Discovery Process: "..value
+end
+
+-- Dissect: Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_formation_discovery_process, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator = {}
+
+-- Size: Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size = 1
+
+-- Display: Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.display = function(value)
+  if value == "Q" then
+    return "Off Book Automated Indicator: Automated (Q)"
+  end
+  if value == "M" then
+    return "Off Book Automated Indicator: Manual (M)"
+  end
+  if value == "-" then
+    return "Off Book Automated Indicator: Not Specified (-)"
+  end
+
+  return "Off Book Automated Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.off_book_automated_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend = {}
+
+-- Size: Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size = 1
+
+-- Display: Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.display = function(value)
+  return "Special Dividend: "..value
+end
+
+-- Dissect: Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.special_dividend, range, value, display)
+
+  return offset + length, value
+end
+
+-- Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator = {}
+
+-- Size: Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size = 1
+
+-- Display: Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display = function(value)
+  return "Benchmark Reference Price Indicator: "..value
+end
+
+-- Dissect: Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.benchmark_reference_price_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator = {}
+
+-- Size: Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size = 1
+
+-- Display: Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.display = function(value)
+  if value == "A" then
+    return "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)"
+  end
+  if value == "C" then
+    return "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)"
+  end
+  if value == "-" then
+    return "Modification Indicator: Not Specified (-)"
+  end
+
+  return "Modification Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.modification_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade = {}
+
+-- Size: Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size = 1
+
+-- Display: Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.display = function(value)
+  if value == "X" then
+    return "Crossing Trade: Crossing Trade (X)"
+  end
+  if value == "-" then
+    return "Crossing Trade: Not Specified (-)"
+  end
+
+  return "Crossing Trade: Unknown("..value..")"
+end
+
+-- Dissect: Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.crossing_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade = {}
+
+-- Size: Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size = 1
+
+-- Display: Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.display = function(value)
+  return "Negotiated Trade: "..value
+end
+
+-- Dissect: Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.negotiated_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transaction Category
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_category = {}
+
+-- Size: Transaction Category
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size = 1
+
+-- Display: Transaction Category
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.display = function(value)
+  if value == "D" then
+    return "Transaction Category: Dark Trade (D)"
+  end
+  if value == "R" then
+    return "Transaction Category: Trade That Has Received Price Improvement (R)"
+  end
+  if value == "Z" then
+    return "Transaction Category: Packaged Trade (Z)"
+  end
+  if value == "Y" then
+    return "Transaction Category: Exchange For Physicals Trade (Y)"
+  end
+  if value == "-" then
+    return "Transaction Category: None Of The Above Apply (-)"
+  end
+  if value == "1" then
+    return "Transaction Category: Negotiated Trade In Liquid Financial Instruments (1)"
+  end
+  if value == "2" then
+    return "Transaction Category: Negotiated Trade In Illiquid Financial Instruments (2)"
+  end
+  if value == "3" then
+    return "Transaction Category: Negotiated Trade Subject To Conditions Other Than The Current Market Price (3)"
+  end
+  if value == "N" then
+    return "Transaction Category: Negotiated Trade Where None Of The Above Apply (N)"
+  end
+  if value == "4" then
+    return "Transaction Category: Pre Trade Transparency Waiver For Illiquid Instrument On An Si (4)"
+  end
+  if value == "5" then
+    return "Transaction Category: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (5)"
+  end
+  if value == "6" then
+    return "Transaction Category: Pre Trade Transparency Waivers For Illiquid Instrument On An Si And Above Standard Market Size On An Si (6)"
+  end
+  if value == "-" then
+    return "Transaction Category: Not Specified (-)"
+  end
+
+  return "Transaction Category: Unknown("..value..")"
+end
+
+-- Dissect: Transaction Category
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_category, range, value, display)
+
+  return offset + length, value
+end
+
 -- Extended Trade Flags
 cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags = {}
+
+-- Calculate size of: Extended Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size
+
+  return index
+end
+
+-- Display: Extended Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Extended Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Mechanism: 1 Byte Ascii String Enum with 7 values
+  index, market_mechanism = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.dissect(buffer, index, packet, parent)
+
+  -- Trading Mode: 1 Byte Ascii String Enum with 11 values
+  index, trading_mode = cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.dissect(buffer, index, packet, parent)
+
+  -- Transaction Category: 1 Byte Ascii String Enum with 13 values
+  index, transaction_category = cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.dissect(buffer, index, packet, parent)
+
+  -- Negotiated Trade: 1 Byte Ascii String
+  index, negotiated_trade = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.dissect(buffer, index, packet, parent)
+
+  -- Crossing Trade: 1 Byte Ascii String Enum with 2 values
+  index, crossing_trade = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.dissect(buffer, index, packet, parent)
+
+  -- Modification Indicator: 1 Byte Ascii String Enum with 3 values
+  index, modification_indicator = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.dissect(buffer, index, packet, parent)
+
+  -- Benchmark Reference Price Indicator: 1 Byte Ascii String
+  index, benchmark_reference_price_indicator = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.dissect(buffer, index, packet, parent)
+
+  -- Special Dividend: 1 Byte Ascii String
+  index, special_dividend = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.dissect(buffer, index, packet, parent)
+
+  -- Off Book Automated Indicator: 1 Byte Ascii String Enum with 3 values
+  index, off_book_automated_indicator = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.dissect(buffer, index, packet, parent)
+
+  -- Price Formation Discovery Process: 1 Byte Ascii String
+  index, price_formation_discovery_process = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.dissect(buffer, index, packet, parent)
+
+  -- Algorithmic Indicator: 1 Byte Ascii String
+  index, algorithmic_indicator = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.dissect(buffer, index, packet, parent)
+
+  -- Publication Mode Deferral Reason: 1 Byte Ascii String
+  index, publication_mode_deferral_reason = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.dissect(buffer, index, packet, parent)
+
+  -- Deferral Or Enrichment Type: 1 Byte Ascii String
+  index, deferral_or_enrichment_type = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.dissect(buffer, index, packet, parent)
+
+  -- Duplicative Indicator: 1 Byte Ascii String
+  index, duplicative_indicator = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Extended Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.dissect = function(buffer, offset, packet, parent)
+  if show.extended_trade_flags then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.extended_trade_flags, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Cboe Trade Flags
 cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags = {}
@@ -3253,7 +3702,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.size = function(buf
 
   index = index + cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.size
 
-  index = index + cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.size
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.size(buffer, offset + index)
 
   return index
 end
@@ -3294,7 +3743,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.fields = function(b
   -- Cboe Trade Flags: 1 Byte Ascii String
   index, cboe_trade_flags = cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.dissect(buffer, index, packet, parent)
 
-  -- Extended Trade Flags
+  -- Extended Trade Flags: Struct of 14 fields
   index, extended_trade_flags = cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.dissect(buffer, index, packet, parent)
 
   return index
@@ -3316,92 +3765,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.dissect = function(
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator = {}
-
--- Size: Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size = 1
-
--- Display: Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display = function(value)
-  return "Benchmark Reference Price Indicator: "..value
-end
-
--- Dissect: Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.benchmark_reference_price_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Transaction Category
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_category = {}
-
--- Size: Transaction Category
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size = 1
-
--- Display: Transaction Category
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.display = function(value)
-  if value == "D" then
-    return "Transaction Category: Dark Trade (D)"
-  end
-  if value == "R" then
-    return "Transaction Category: Trade That Has Received Price Improvement (R)"
-  end
-  if value == "Z" then
-    return "Transaction Category: Packaged Trade (Z)"
-  end
-  if value == "Y" then
-    return "Transaction Category: Exchange For Physicals Trade (Y)"
-  end
-  if value == "-" then
-    return "Transaction Category: None Of The Above Apply (-)"
-  end
-  if value == "1" then
-    return "Transaction Category: Negotiated Trade In Liquid Financial Instruments (1)"
-  end
-  if value == "2" then
-    return "Transaction Category: Negotiated Trade In Illiquid Financial Instruments (2)"
-  end
-  if value == "3" then
-    return "Transaction Category: Negotiated Trade Subject To Conditions Other Than The Current Market Price (3)"
-  end
-  if value == "N" then
-    return "Transaction Category: Negotiated Trade Where None Of The Above Apply (N)"
-  end
-  if value == "4" then
-    return "Transaction Category: Pre Trade Transparency Waiver For Illiquid Instrument On An Si (4)"
-  end
-  if value == "5" then
-    return "Transaction Category: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (5)"
-  end
-  if value == "6" then
-    return "Transaction Category: Pre Trade Transparency Waivers For Illiquid Instrument On An Si And Above Standard Market Size On An Si (6)"
-  end
-  if value == "-" then
-    return "Transaction Category: Not Specified (-)"
-  end
-
-  return "Transaction Category: Unknown("..value..")"
-end
-
--- Dissect: Transaction Category
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_category, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Flags

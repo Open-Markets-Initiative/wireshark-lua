@@ -2087,15 +2087,6 @@ cboe_options_depthofbook_pitch_v2_39_4.delete_order_message.dissect = function(b
   end
 end
 
--- Display
-cboe_options_depthofbook_pitch_v2_39_4.display = {}
-
--- Maintain Priority
-cboe_options_depthofbook_pitch_v2_39_4.maintain_priority = {}
-
--- Reserved 6
-cboe_options_depthofbook_pitch_v2_39_4.reserved_6 = {}
-
 -- Modify Flags
 cboe_options_depthofbook_pitch_v2_39_4.modify_flags = {}
 
@@ -2616,9 +2607,6 @@ cboe_options_depthofbook_pitch_v2_39_4.order_executed_message.dissect = function
     return cboe_options_depthofbook_pitch_v2_39_4.order_executed_message.fields(buffer, offset, packet, parent)
   end
 end
-
--- Reserved 7
-cboe_options_depthofbook_pitch_v2_39_4.reserved_7 = {}
 
 -- Add Flags
 cboe_options_depthofbook_pitch_v2_39_4.add_flags = {}
