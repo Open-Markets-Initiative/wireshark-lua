@@ -220,9 +220,6 @@ cboe_europe_lastsale_apf_v1_7.soup_lf.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Unsequenced Message
-cboe_europe_lastsale_apf_v1_7.unsequenced_message = {}
-
 -- Unsequenced Data Packet
 cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet = {}
 

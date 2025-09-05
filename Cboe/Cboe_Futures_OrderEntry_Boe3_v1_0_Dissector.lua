@@ -5830,9 +5830,6 @@ cboe_futures_orderentry_boe3_v1_0.new_order_message.dissect = function(buffer, o
   end
 end
 
--- Replay Complete Message
-cboe_futures_orderentry_boe3_v1_0.replay_complete_message = {}
-
 -- Logout Reason Text
 cboe_futures_orderentry_boe3_v1_0.logout_reason_text = {}
 
@@ -6221,12 +6218,6 @@ cboe_futures_orderentry_boe3_v1_0.login_response_message.dissect = function(buff
 
   return cboe_futures_orderentry_boe3_v1_0.login_response_message.fields(buffer, offset, packet, parent)
 end
-
--- Client Heartbeat Message
-cboe_futures_orderentry_boe3_v1_0.client_heartbeat_message = {}
-
--- Logout Request Message
-cboe_futures_orderentry_boe3_v1_0.logout_request_message = {}
 
 -- Replay Unspecified Unit
 cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit = {}
