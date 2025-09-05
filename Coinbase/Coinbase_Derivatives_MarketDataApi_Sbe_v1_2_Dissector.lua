@@ -82,7 +82,7 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "coinbase.derivatives.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.marketdataapi.sbe.v1.2.padding", ftypes.BYTES)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.marketdataapi.sbe.v1.2.payload", ftypes.STRING)
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price = ProtoField.new("Price", "coinbase.derivatives.marketdataapi.sbe.v1.2.price", ftypes.INT64)
+omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price = ProtoField.new("Price", "coinbase.derivatives.marketdataapi.sbe.v1.2.price", ftypes.DOUBLE)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price_increment = ProtoField.new("Price Increment", "coinbase.derivatives.marketdataapi.sbe.v1.2.priceincrement", ftypes.INT64)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.2.priorsettlementprice", ftypes.INT64)
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.product_code = ProtoField.new("Product Code", "coinbase.derivatives.marketdataapi.sbe.v1.2.productcode", ftypes.STRING)
@@ -1430,11 +1430,17 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.price.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Price
 coinbase_derivatives_marketdataapi_sbe_v1_2.price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_2.price.translate(raw)
   local display = coinbase_derivatives_marketdataapi_sbe_v1_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price, range, value, display)
