@@ -10,9 +10,6 @@ local omi_nasdaq_nsmequities_noi_itch_v3_0 = Proto("Nasdaq.NsmEquities.Noi.Itch.
 -- Protocol table
 local nasdaq_nsmequities_noi_itch_v3_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -78,6 +75,8 @@ omi_nasdaq_nsmequities_noi_itch_v3_0.fields.message_index = ProtoField.new("Mess
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NsmEquities Noi Itch 3.0 Element Dissection Options
 show.cross_trade_message = true

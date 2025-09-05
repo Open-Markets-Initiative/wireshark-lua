@@ -10,9 +10,6 @@ local omi_nasdaq_bxequities_orders_ouch_v4_2 = Proto("Nasdaq.BxEquities.Orders.O
 -- Protocol table
 local nasdaq_bxequities_orders_ouch_v4_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -96,6 +93,8 @@ omi_nasdaq_bxequities_orders_ouch_v4_2.fields.trade_now_message = ProtoField.new
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq BxEquities Orders Ouch 4.2 Element Dissection Options
 show.accepted_message = true

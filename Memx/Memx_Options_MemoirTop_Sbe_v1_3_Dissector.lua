@@ -10,9 +10,6 @@ local omi_memx_options_memoirtop_sbe_v1_3 = Proto("Memx.Options.MemoirTop.Sbe.v1
 -- Protocol table
 local memx_options_memoirtop_sbe_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -93,6 +90,8 @@ omi_memx_options_memoirtop_sbe_v1_3.fields.trading_session_status_message = Prot
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Options MemoirTop Sbe 1.3 Element Dissection Options
 show.best_bid_message = true

@@ -10,9 +10,6 @@ local omi_cboe_bzx_options_orderentry_boe_v2_10 = Proto("Cboe.Bzx.Options.OrderE
 -- Protocol table
 local cboe_bzx_options_orderentry_boe_v2_10 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -839,6 +836,8 @@ omi_cboe_bzx_options_orderentry_boe_v2_10.fields.unit_sequence_index = ProtoFiel
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Bzx Options OrderEntry Boe 2.10 Element Dissection Options
 show.cancel_order_byte_1 = true

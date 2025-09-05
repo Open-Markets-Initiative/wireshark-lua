@@ -10,9 +10,6 @@ local omi_currenex_forex_orderservice_cbp_v26_0 = Proto("Currenex.Forex.OrderSer
 -- Protocol table
 local currenex_forex_orderservice_cbp_v26_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -86,6 +83,8 @@ omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_pending = ProtoField.new(
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Currenex Forex OrderService Cbp 26.0 Element Dissection Options
 show.gap_fill = true

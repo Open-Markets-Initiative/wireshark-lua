@@ -10,9 +10,6 @@ local omi_miax_pearlequities_expressorders_meo_v2_6 = Proto("Miax.PearlEquities.
 -- Protocol table
 local miax_pearlequities_expressorders_meo_v2_6 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -170,6 +167,8 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.system_state_notification =
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax PearlEquities ExpressOrders Meo 2.6 Element Dissection Options
 show.additional_liquidity_indicator = true

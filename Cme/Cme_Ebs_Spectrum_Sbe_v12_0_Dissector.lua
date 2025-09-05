@@ -10,9 +10,6 @@ local omi_cme_ebs_spectrum_sbe_v12_0 = Proto("Cme.Ebs.Spectrum.Sbe.v12.0.Lua", "
 -- Protocol table
 local cme_ebs_spectrum_sbe_v12_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -71,6 +68,8 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index = 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cme Ebs Spectrum Sbe 12.0 Element Dissection Options
 show.binary_packet_header = true

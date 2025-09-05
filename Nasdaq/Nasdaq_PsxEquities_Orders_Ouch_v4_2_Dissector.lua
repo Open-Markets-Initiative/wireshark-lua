@@ -10,9 +10,6 @@ local omi_nasdaq_psxequities_orders_ouch_v4_2 = Proto("Nasdaq.PsxEquities.Orders
 -- Protocol table
 local nasdaq_psxequities_orders_ouch_v4_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -95,6 +92,8 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.system_event_message = ProtoField
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq PsxEquities Orders Ouch 4.2 Element Dissection Options
 show.accepted_message = true

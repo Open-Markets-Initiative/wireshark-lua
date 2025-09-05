@@ -10,9 +10,6 @@ local omi_lseg_turquoise_analytics_gtp_v24_4 = Proto("Lseg.Turquoise.Analytics.G
 -- Protocol table
 local lseg_turquoise_analytics_gtp_v24_4 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -79,6 +76,8 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_index = ProtoField.new("Me
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Lseg Turquoise Analytics Gtp 24.4 Element Dissection Options
 show.add_order_incremental_message = true

@@ -10,9 +10,6 @@ local omi_cboe_byx_equities_topofbook_pitch_v1_3_2 = Proto("Cboe.Byx.Equities.To
 -- Protocol table
 local cboe_byx_equities_topofbook_pitch_v1_3_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -95,6 +92,8 @@ omi_cboe_byx_equities_topofbook_pitch_v1_3_2.fields.message_index = ProtoField.n
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Byx Equities TopOfBook Pitch 1.3.2 Element Dissection Options
 show.add_order_expanded_message = true

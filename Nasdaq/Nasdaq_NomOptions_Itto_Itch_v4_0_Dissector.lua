@@ -10,9 +10,6 @@ local omi_nasdaq_nomoptions_itto_itch_v4_0 = Proto("Nasdaq.NomOptions.Itto.Itch.
 -- Protocol table
 local nasdaq_nomoptions_itto_itch_v4_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -115,6 +112,8 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_index = ProtoField.new("Mess
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NomOptions Itto Itch 4.0 Element Dissection Options
 show.add_order_message_long_form_message = true

@@ -10,9 +10,6 @@ local omi_asx_securities_t24_itch_v1_13 = Proto("Asx.Securities.T24.Itch.v1.13.L
 -- Protocol table
 local asx_securities_t24_itch_v1_13 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -189,6 +186,8 @@ omi_asx_securities_t24_itch_v1_13.fields.message_index = ProtoField.new("Message
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Asx Securities T24 Itch 1.13 Element Dissection Options
 show.ad_hoc_text = true

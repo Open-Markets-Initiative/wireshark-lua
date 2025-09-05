@@ -10,9 +10,6 @@ local omi_nasdaq_common_mold64_udp_v1_0 = Proto("Nasdaq.Common.Mold64.Udp.v1.0.L
 -- Protocol table
 local nasdaq_common_mold64_udp_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -35,6 +32,8 @@ omi_nasdaq_common_mold64_udp_v1_0.fields.message_index = ProtoField.new("Message
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq Common Mold64 Udp 1.0 Element Dissection Options
 show.message = true

@@ -10,9 +10,6 @@ local omi_memx_options_memo_sbe_v1_9 = Proto("Memx.Options.Memo.Sbe.v1.9.Lua", "
 -- Protocol table
 local memx_options_memo_sbe_v1_9 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -215,6 +212,8 @@ omi_memx_options_memo_sbe_v1_9.fields.requested_allocations_group_index = ProtoF
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Options Memo Sbe 1.9 Element Dissection Options
 show.allocation_instruction_ack_message = true

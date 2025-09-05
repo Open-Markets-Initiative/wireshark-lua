@@ -10,9 +10,6 @@ local omi_cboe_byx_equities_depthofbook_pitch_v2_41_29 = Proto("Cboe.Byx.Equitie
 -- Protocol table
 local cboe_byx_equities_depthofbook_pitch_v2_41_29 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -95,6 +92,8 @@ omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.message_index = ProtoFie
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Byx Equities DepthOfBook Pitch 2.41.29 Element Dissection Options
 show.add_order_expanded_message = true

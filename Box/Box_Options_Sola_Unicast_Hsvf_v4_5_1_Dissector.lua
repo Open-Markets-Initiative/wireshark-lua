@@ -10,9 +10,6 @@ local omi_box_options_sola_unicast_hsvf_v4_5_1 = Proto("Box.Options.Sola.Unicast
 -- Protocol table
 local box_options_sola_unicast_hsvf_v4_5_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -202,6 +199,8 @@ omi_box_options_sola_unicast_hsvf_v4_5_1.fields.market_depth_level_index = Proto
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Box Options Sola Unicast Hsvf 4.5.1 Element Dissection Options
 show.beginning_of_complex_order_summary_message = true

@@ -10,9 +10,6 @@ local omi_cme_futures_streamlined_sbe_v5_9 = Proto("Cme.Futures.Streamlined.Sbe.
 -- Protocol table
 local cme_futures_streamlined_sbe_v5_9 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -263,6 +260,8 @@ omi_cme_futures_streamlined_sbe_v5_9.fields.security_alt_id_group_index = ProtoF
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cme Futures Streamlined Sbe 5.9 Element Dissection Options
 show.accrued_coupons = true

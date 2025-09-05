@@ -10,9 +10,6 @@ local omi_nyse_arca_options_topfeed_pillar_v1_2_c = Proto("Nyse.Arca.Options.Top
 -- Protocol table
 local nyse_arca_options_topfeed_pillar_v1_2_c = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -158,6 +155,8 @@ omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_index = ProtoField.ne
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Arca Options TopFeed Pillar 1.2.c Element Dissection Options
 show.correction_condition = true

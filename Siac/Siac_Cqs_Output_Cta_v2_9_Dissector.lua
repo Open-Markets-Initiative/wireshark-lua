@@ -10,9 +10,6 @@ local omi_siac_cqs_output_cta_v2_9 = Proto("Siac.Cqs.Output.Cta.v2.9.Lua", "Siac
 -- Protocol table
 local siac_cqs_output_cta_v2_9 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -137,6 +134,8 @@ omi_siac_cqs_output_cta_v2_9.fields.message_index = ProtoField.new("Message Inde
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Siac Cqs Output Cta 2.9 Element Dissection Options
 show.adf_timestamp = true

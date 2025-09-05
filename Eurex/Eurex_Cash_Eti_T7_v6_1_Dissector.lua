@@ -10,9 +10,6 @@ local omi_eurex_cash_eti_t7_v6_1 = Proto("Eurex.Cash.Eti.T7.v6.1.Lua", "Eurex Ca
 -- Protocol table
 local eurex_cash_eti_t7_v6_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -384,6 +381,8 @@ omi_eurex_cash_eti_t7_v6_1.fields.sessions_grp_comp_index = ProtoField.new("Sess
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Eurex Cash Eti T7 6.1 Element Dissection Options
 show.affected_ord_grp_comp = true

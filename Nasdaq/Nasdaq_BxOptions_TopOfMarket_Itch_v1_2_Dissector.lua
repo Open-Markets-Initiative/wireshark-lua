@@ -10,9 +10,6 @@ local omi_nasdaq_bxoptions_topofmarket_itch_v1_2 = Proto("Nasdaq.BxOptions.TopOf
 -- Protocol table
 local nasdaq_bxoptions_topofmarket_itch_v1_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -88,6 +85,8 @@ omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_index = ProtoField.new
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq BxOptions TopOfMarket Itch 1.2 Element Dissection Options
 show.best_ask_update_long_form_message = true

@@ -10,9 +10,6 @@ local omi_finra_otc_bbds_dfi_v2018_1a = Proto("Finra.Otc.Bbds.Dfi.v2018.1A.Lua",
 -- Protocol table
 local finra_otc_bbds_dfi_v2018_1a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -93,6 +90,8 @@ omi_finra_otc_bbds_dfi_v2018_1a.fields.trading_action_message = ProtoField.new("
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Finra Otc Bbds Dfi 2018.1A Element Dissection Options
 show.action_datetime = true

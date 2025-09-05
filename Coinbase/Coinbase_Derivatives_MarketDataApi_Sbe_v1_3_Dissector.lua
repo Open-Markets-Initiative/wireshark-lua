@@ -10,9 +10,6 @@ local omi_coinbase_derivatives_marketdataapi_sbe_v1_3 = Proto("Coinbase.Derivati
 -- Protocol table
 local coinbase_derivatives_marketdataapi_sbe_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -148,6 +145,8 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trading_status_update_mes
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Coinbase Derivatives MarketDataApi Sbe 1.3 Element Dissection Options
 show.definition_flags = true

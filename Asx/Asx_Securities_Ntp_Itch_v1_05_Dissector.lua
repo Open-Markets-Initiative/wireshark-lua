@@ -10,9 +10,6 @@ local omi_asx_securities_ntp_itch_v1_05 = Proto("Asx.Securities.Ntp.Itch.v1.05.L
 -- Protocol table
 local asx_securities_ntp_itch_v1_05 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -156,6 +153,8 @@ omi_asx_securities_ntp_itch_v1_05.fields.message_index = ProtoField.new("Message
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Asx Securities Ntp Itch 1.05 Element Dissection Options
 show.add_order_message = true

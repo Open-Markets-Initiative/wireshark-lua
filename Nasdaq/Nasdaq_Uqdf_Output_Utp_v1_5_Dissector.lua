@@ -10,9 +10,6 @@ local omi_nasdaq_uqdf_output_utp_v1_5 = Proto("Nasdaq.Uqdf.Output.Utp.v1.5.Lua",
 -- Protocol table
 local nasdaq_uqdf_output_utp_v1_5 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -148,6 +145,8 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.message_index = ProtoField.new("Message I
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq Uqdf Output Utp 1.5 Element Dissection Options
 show.administrative = true

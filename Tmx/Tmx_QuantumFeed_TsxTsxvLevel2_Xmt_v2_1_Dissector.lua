@@ -10,9 +10,6 @@ local omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1 = Proto("Tmx.QuantumFeed.TsxTsx
 -- Protocol table
 local tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -126,6 +123,8 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.cop_order_index = ProtoField.n
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Tmx QuantumFeed TsxTsxvLevel2 Xmt 2.1 Element Dissection Options
 show.assign_cop_no_orders_message = true

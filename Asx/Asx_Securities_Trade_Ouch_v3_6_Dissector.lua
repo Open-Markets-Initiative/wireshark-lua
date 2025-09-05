@@ -10,9 +10,6 @@ local omi_asx_securities_trade_ouch_v3_6 = Proto("Asx.Securities.Trade.Ouch.v3.6
 -- Protocol table
 local asx_securities_trade_ouch_v3_6 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -96,6 +93,8 @@ omi_asx_securities_trade_ouch_v3_6.fields.replace_order_message = ProtoField.new
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Asx Securities Trade Ouch 3.6 Element Dissection Options
 show.cancel_by_order_id_message = true

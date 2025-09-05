@@ -10,9 +10,6 @@ local omi_currenex_forex_now_cbp_v10_0 = Proto("Currenex.Forex.Now.Cbp.v10.0.Lua
 -- Protocol table
 local currenex_forex_now_cbp_v10_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -80,6 +77,8 @@ omi_currenex_forex_now_cbp_v10_0.fields.level_index = ProtoField.new("Level Inde
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Currenex Forex Now Cbp 10.0 Element Dissection Options
 show.bid = true

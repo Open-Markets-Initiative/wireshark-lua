@@ -10,9 +10,6 @@ local omi_nasdaq_psxequities_totalview_itch_v5_0 = Proto("Nasdaq.PsxEquities.Tot
 -- Protocol table
 local nasdaq_psxequities_totalview_itch_v5_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -116,6 +113,8 @@ omi_nasdaq_psxequities_totalview_itch_v5_0.fields.message_index = ProtoField.new
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq PsxEquities TotalView Itch 5.0 Element Dissection Options
 show.add_order_no_mpid_attribution_message = true

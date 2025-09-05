@@ -10,9 +10,6 @@ local omi_cboe_options_marketdatafeed_csm_v1_4_2 = Proto("Cboe.Options.MarketDat
 -- Protocol table
 local cboe_options_marketdatafeed_csm_v1_4_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -144,6 +141,8 @@ omi_cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry_index = ProtoF
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Options MarketDataFeed Csm 1.4.2 Element Dissection Options
 show.currency_code = true

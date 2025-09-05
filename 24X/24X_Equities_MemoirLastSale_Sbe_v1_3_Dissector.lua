@@ -10,9 +10,6 @@ local omi_n24x_equities_memoirlastsale_sbe_v1_3 = Proto("24X.Equities.MemoirLast
 -- Protocol table
 local n24x_equities_memoirlastsale_sbe_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -83,6 +80,8 @@ omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.message_index = ProtoField.new(
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- 24X Equities MemoirLastSale Sbe 1.3 Element Dissection Options
 show.common_header = true

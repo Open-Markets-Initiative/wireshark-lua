@@ -10,9 +10,6 @@ local omi_nyse_equities_binarygateway_pillar_v5_8 = Proto("Nyse.Equities.BinaryG
 -- Protocol table
 local nyse_equities_binarygateway_pillar_v5_8 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -231,6 +228,8 @@ omi_nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct = ProtoFie
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities BinaryGateway Pillar 5.8 Element Dissection Options
 show.application_layer_reject = true

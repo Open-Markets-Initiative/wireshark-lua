@@ -10,9 +10,6 @@ local omi_cboe_c1_options_orderentry_boe_v2_10 = Proto("Cboe.C1.Options.OrderEnt
 -- Protocol table
 local cboe_c1_options_orderentry_boe_v2_10 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -1330,6 +1327,8 @@ omi_cboe_c1_options_orderentry_boe_v2_10.fields.unit_sequence_index = ProtoField
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe C1 Options OrderEntry Boe 2.10 Element Dissection Options
 show.add_floor_trade_message = true

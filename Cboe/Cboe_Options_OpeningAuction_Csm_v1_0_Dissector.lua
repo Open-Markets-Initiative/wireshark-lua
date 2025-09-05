@@ -10,9 +10,6 @@ local omi_cboe_options_openingauction_csm_v1_0 = Proto("Cboe.Options.OpeningAuct
 -- Protocol table
 local cboe_options_openingauction_csm_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -116,6 +113,8 @@ omi_cboe_options_openingauction_csm_v1_0.fields.security_definition_leg_index = 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Options OpeningAuction Csm 1.0 Element Dissection Options
 show.currency_code = true

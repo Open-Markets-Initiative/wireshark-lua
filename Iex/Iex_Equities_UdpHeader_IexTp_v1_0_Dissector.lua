@@ -10,9 +10,6 @@ local omi_iex_equities_udpheader_iextp_v1_0 = Proto("Iex.Equities.UdpHeader.IexT
 -- Protocol table
 local iex_equities_udpheader_iextp_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -42,6 +39,8 @@ omi_iex_equities_udpheader_iextp_v1_0.fields.message_index = ProtoField.new("Mes
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Iex Equities UdpHeader IexTp 1.0 Element Dissection Options
 show.iex_tp_header = true

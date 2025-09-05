@@ -10,9 +10,6 @@ local omi_nyse_equities_openbook_ultra_v2_1_b = Proto("Nyse.Equities.OpenBook.Ul
 -- Protocol table
 local nyse_equities_openbook_ultra_v2_1_b = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -66,6 +63,8 @@ omi_nyse_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = P
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities OpenBook Ultra 2.1.b Element Dissection Options
 show.delta_price_point = true

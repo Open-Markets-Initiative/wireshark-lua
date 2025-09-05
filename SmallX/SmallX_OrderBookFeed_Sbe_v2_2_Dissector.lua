@@ -10,9 +10,6 @@ local omi_smallx_orderbookfeed_sbe_v2_2 = Proto("SmallX.OrderBookFeed.Sbe.v2.2.L
 -- Protocol table
 local smallx_orderbookfeed_sbe_v2_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -159,6 +156,8 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.trades_group_index = ProtoField.new("Tr
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- SmallX OrderBookFeed Sbe 2.2 Element Dissection Options
 show.group_dimension = true

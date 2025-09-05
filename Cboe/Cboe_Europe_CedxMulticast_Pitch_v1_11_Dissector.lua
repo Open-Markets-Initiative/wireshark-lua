@@ -10,9 +10,6 @@ local omi_cboe_europe_cedxmulticast_pitch_v1_11 = Proto("Cboe.Europe.CedxMultica
 -- Protocol table
 local cboe_europe_cedxmulticast_pitch_v1_11 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -163,6 +160,8 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index = Proto
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Europe CedxMulticast Pitch 1.11 Element Dissection Options
 show.add_order_long_message = true

@@ -10,9 +10,6 @@ local omi_nyse_amex_options_binarygateway_pillar_v3_15 = Proto("Nyse.Amex.Option
 -- Protocol table
 local nyse_amex_options_binarygateway_pillar_v3_15 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -245,6 +242,8 @@ omi_nyse_amex_options_binarygateway_pillar_v3_15.fields.underlying_symbol_refere
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Amex Options BinaryGateway Pillar 3.15 Element Dissection Options
 show.application_layer_reject = true

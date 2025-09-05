@@ -10,9 +10,6 @@ local omi_memx_options_riskcontrol_sbe_v1_7 = Proto("Memx.Options.RiskControl.Sb
 -- Protocol table
 local memx_options_riskcontrol_sbe_v1_7 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -261,6 +258,8 @@ omi_memx_options_riskcontrol_sbe_v1_7.fields.single_order_restricted_underlier_s
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Options RiskControl Sbe 1.7 Element Dissection Options
 show.active_risk_acknowledge_all_request_message = true

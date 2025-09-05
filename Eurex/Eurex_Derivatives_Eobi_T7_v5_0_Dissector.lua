@@ -10,9 +10,6 @@ local omi_eurex_derivatives_eobi_t7_v5_0 = Proto("Eurex.Derivatives.Eobi.T7.v5.0
 -- Protocol table
 local eurex_derivatives_eobi_t7_v5_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -131,6 +128,8 @@ omi_eurex_derivatives_eobi_t7_v5_0.fields.md_trade_entry_grp_comp_index = ProtoF
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Eurex Derivatives Eobi T7 5.0 Element Dissection Options
 show.add_complex_instrument = true

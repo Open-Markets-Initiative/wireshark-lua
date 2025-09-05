@@ -10,9 +10,6 @@ local omi_nyse_arca_equities_bbo_xdp_v2_4_c = Proto("Nyse.Arca.Equities.Bbo.Xdp.
 -- Protocol table
 local nyse_arca_equities_bbo_xdp_v2_4_c = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -103,6 +100,8 @@ omi_nyse_arca_equities_bbo_xdp_v2_4_c.fields.message_index = ProtoField.new("Mes
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Arca Equities Bbo Xdp 2.4.c Element Dissection Options
 show.heartbeat_response_message = true

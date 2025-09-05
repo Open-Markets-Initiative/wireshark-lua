@@ -10,9 +10,6 @@ local omi_nasdaq_nsmequities_totalview_itch_v4_1 = Proto("Nasdaq.NsmEquities.Tot
 -- Protocol table
 local nasdaq_nsmequities_totalview_itch_v4_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -89,6 +86,8 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_index = ProtoField.new
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NsmEquities TotalView Itch 4.1 Element Dissection Options
 show.add_order_message = true

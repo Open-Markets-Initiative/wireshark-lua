@@ -10,9 +10,6 @@ local omi_cboe_europe_depthofbook_pitch_v6_49 = Proto("Cboe.Europe.DepthOfBook.P
 -- Protocol table
 local cboe_europe_depthofbook_pitch_v6_49 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -110,6 +107,8 @@ omi_cboe_europe_depthofbook_pitch_v6_49.fields.message_index = ProtoField.new("M
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Europe DepthOfBook Pitch 6.49 Element Dissection Options
 show.add_order_expanded_message = true

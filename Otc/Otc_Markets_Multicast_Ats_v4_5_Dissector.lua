@@ -10,9 +10,6 @@ local omi_otc_markets_multicast_ats_v4_5 = Proto("Otc.Markets.Multicast.Ats.v4.5
 -- Protocol table
 local otc_markets_multicast_ats_v4_5 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -155,6 +152,8 @@ omi_otc_markets_multicast_ats_v4_5.fields.message_index = ProtoField.new("Messag
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Otc Markets Multicast Ats 4.5 Element Dissection Options
 show.end_of_spin_message = true

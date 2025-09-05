@@ -10,9 +10,6 @@ local omi_cme_brokertec_ust_sbe_v10_1 = Proto("Cme.BrokerTec.Ust.Sbe.v10.1.Lua",
 -- Protocol table
 local cme_brokertec_ust_sbe_v10_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -62,6 +59,8 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group_index 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cme BrokerTec Ust Sbe 10.1 Element Dissection Options
 show.binary_packet_header = true

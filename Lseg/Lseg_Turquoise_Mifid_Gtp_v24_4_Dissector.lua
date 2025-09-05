@@ -10,9 +10,6 @@ local omi_lseg_turquoise_mifid_gtp_v24_4 = Proto("Lseg.Turquoise.Mifid.Gtp.v24.4
 -- Protocol table
 local lseg_turquoise_mifid_gtp_v24_4 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -104,6 +101,8 @@ omi_lseg_turquoise_mifid_gtp_v24_4.fields.message_index = ProtoField.new("Messag
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Lseg Turquoise Mifid Gtp 24.4 Element Dissection Options
 show.allowed_book_types = true

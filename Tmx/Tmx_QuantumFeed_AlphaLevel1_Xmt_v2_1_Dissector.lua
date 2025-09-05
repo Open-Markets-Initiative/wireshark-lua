@@ -10,9 +10,6 @@ local omi_tmx_quantumfeed_alphalevel1_xmt_v2_1 = Proto("Tmx.QuantumFeed.AlphaLev
 -- Protocol table
 local tmx_quantumfeed_alphalevel1_xmt_v2_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -83,6 +80,8 @@ omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.body_index = ProtoField.new("Bod
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Tmx QuantumFeed AlphaLevel1 Xmt 2.1 Element Dissection Options
 show.body = true

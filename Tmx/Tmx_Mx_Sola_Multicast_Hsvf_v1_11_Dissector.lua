@@ -10,9 +10,6 @@ local omi_tmx_mx_sola_multicast_hsvf_v1_11 = Proto("Tmx.Mx.Sola.Multicast.Hsvf.v
 -- Protocol table
 local tmx_mx_sola_multicast_hsvf_v1_11 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -265,6 +262,8 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.tick_entry_group_index = ProtoField.
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Tmx Mx Sola Multicast Hsvf 1.11 Element Dissection Options
 show.beginning_of_future_options_summary_message = true

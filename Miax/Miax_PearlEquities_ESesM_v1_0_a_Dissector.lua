@@ -10,9 +10,6 @@ local omi_miax_pearlequities_esesm_v1_0_a = Proto("Miax.PearlEquities.ESesM.v1.0
 -- Protocol table
 local miax_pearlequities_esesm_v1_0_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -58,6 +55,8 @@ omi_miax_pearlequities_esesm_v1_0_a.fields.username = ProtoField.new("Username",
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Element Dissection Options
 show.esesm_tcp_packet = true

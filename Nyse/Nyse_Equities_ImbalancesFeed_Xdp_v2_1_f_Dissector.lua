@@ -10,9 +10,6 @@ local omi_nyse_equities_imbalancesfeed_xdp_v2_1_f = Proto("Nyse.Equities.Imbalan
 -- Protocol table
 local nyse_equities_imbalancesfeed_xdp_v2_1_f = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -109,6 +106,8 @@ omi_nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_index = ProtoField.ne
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities ImbalancesFeed Xdp 2.1.f Element Dissection Options
 show.heartbeat_response_message = true

@@ -10,9 +10,6 @@ local omi_iex_equities_deep_iextp_v1_0_6 = Proto("Iex.Equities.Deep.IexTp.v1.0.6
 -- Protocol table
 local iex_equities_deep_iextp_v1_0_6 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -98,6 +95,8 @@ omi_iex_equities_deep_iextp_v1_0_6.fields.message_index = ProtoField.new("Messag
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Iex Equities Deep IexTp 1.0.6 Element Dissection Options
 show.auction_information_message = true

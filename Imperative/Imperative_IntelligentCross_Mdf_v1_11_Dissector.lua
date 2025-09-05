@@ -10,9 +10,6 @@ local omi_imperative_intelligentcross_mdf_v1_11 = Proto("Imperative.IntelligentC
 -- Protocol table
 local imperative_intelligentcross_mdf_v1_11 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -66,6 +63,8 @@ omi_imperative_intelligentcross_mdf_v1_11.fields.message_index = ProtoField.new(
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Imperative IntelligentCross Mdf 1.11 Element Dissection Options
 show.market_event_message = true

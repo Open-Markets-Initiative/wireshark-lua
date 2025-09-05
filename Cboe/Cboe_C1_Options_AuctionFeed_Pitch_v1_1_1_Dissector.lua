@@ -10,9 +10,6 @@ local omi_cboe_c1_options_auctionfeed_pitch_v1_1_1 = Proto("Cboe.C1.Options.Auct
 -- Protocol table
 local cboe_c1_options_auctionfeed_pitch_v1_1_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -77,6 +74,8 @@ omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.message_index = ProtoField.n
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe C1 Options AuctionFeed Pitch 1.1.1 Element Dissection Options
 show.auction_cancel_message = true

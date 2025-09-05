@@ -10,9 +10,6 @@ local omi_nasdaq_bxoptions_depthofmarket_itch_v1_3 = Proto("Nasdaq.BxOptions.Dep
 -- Protocol table
 local nasdaq_bxoptions_depthofmarket_itch_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -122,6 +119,8 @@ omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_index = ProtoField.n
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq BxOptions DepthOfMarket Itch 1.3 Element Dissection Options
 show.add_order_message_long_form = true

@@ -10,9 +10,6 @@ local omi_boats_equities_memo_sbe_v1_13 = Proto("Boats.Equities.Memo.Sbe.v1.13.L
 -- Protocol table
 local boats_equities_memo_sbe_v1_13 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -157,6 +154,8 @@ omi_boats_equities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("P
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Boats Equities Memo Sbe 1.13 Element Dissection Options
 show.common_header = true

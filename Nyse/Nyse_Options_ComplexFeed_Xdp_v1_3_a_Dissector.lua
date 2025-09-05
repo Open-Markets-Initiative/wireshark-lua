@@ -10,9 +10,6 @@ local omi_nyse_options_complexfeed_xdp_v1_3_a = Proto("Nyse.Options.ComplexFeed.
 -- Protocol table
 local nyse_options_complexfeed_xdp_v1_3_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -83,6 +80,8 @@ omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("M
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Options ComplexFeed Xdp 1.3.a Element Dissection Options
 show.complex_crossing_rfq_message = true

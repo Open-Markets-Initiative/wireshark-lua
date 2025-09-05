@@ -10,9 +10,6 @@ local omi_lseg_tradeecho_level2_gtp_v24_4 = Proto("Lseg.TradeEcho.Level2.Gtp.v24
 -- Protocol table
 local lseg_tradeecho_level2_gtp_v24_4 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -79,6 +76,8 @@ omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_index = ProtoField.new("Messa
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Lseg TradeEcho Level2 Gtp 24.4 Element Dissection Options
 show.allowed_book_types = true

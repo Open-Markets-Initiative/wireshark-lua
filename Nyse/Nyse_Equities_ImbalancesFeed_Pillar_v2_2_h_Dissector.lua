@@ -10,9 +10,6 @@ local omi_nyse_equities_imbalancesfeed_pillar_v2_2_h = Proto("Nyse.Equities.Imba
 -- Protocol table
 local nyse_equities_imbalancesfeed_pillar_v2_2_h = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -116,6 +113,8 @@ omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_index = ProtoField
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities ImbalancesFeed Pillar 2.2.h Element Dissection Options
 show.heartbeat_response_message = true

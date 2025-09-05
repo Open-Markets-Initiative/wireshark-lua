@@ -10,9 +10,6 @@ local omi_cme_futures_settlements_sbe_v7_0 = Proto("Cme.Futures.Settlements.Sbe.
 -- Protocol table
 local cme_futures_settlements_sbe_v7_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -95,6 +92,8 @@ omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_in
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cme Futures Settlements Sbe 7.0 Element Dissection Options
 show.binary_packet_header = true

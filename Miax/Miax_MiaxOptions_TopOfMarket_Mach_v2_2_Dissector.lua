@@ -10,9 +10,6 @@ local omi_miax_miaxoptions_topofmarket_mach_v2_2 = Proto("Miax.MiaxOptions.TopOf
 -- Protocol table
 local miax_miaxoptions_topofmarket_mach_v2_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -100,6 +97,8 @@ omi_miax_miaxoptions_topofmarket_mach_v2_2.fields.underlying_trading_status_noti
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax MiaxOptions TopOfMarket Mach 2.2 Element Dissection Options
 show.application_message = true

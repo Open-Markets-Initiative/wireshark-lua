@@ -10,9 +10,6 @@ local omi_siac_cts_output_cta_v2_10 = Proto("Siac.Cts.Output.Cta.v2.10.Lua", "Si
 -- Protocol table
 local siac_cts_output_cta_v2_10 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -195,6 +192,8 @@ omi_siac_cts_output_cta_v2_10.fields.participants_index = ProtoField.new("Partic
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Siac Cts Output Cta 2.10 Element Dissection Options
 show.administrative = true

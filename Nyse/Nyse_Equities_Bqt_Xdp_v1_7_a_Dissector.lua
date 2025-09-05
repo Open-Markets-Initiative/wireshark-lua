@@ -10,9 +10,6 @@ local omi_nyse_equities_bqt_xdp_v1_7_a = Proto("Nyse.Equities.Bqt.Xdp.v1.7.a.Lua
 -- Protocol table
 local nyse_equities_bqt_xdp_v1_7_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -133,6 +130,8 @@ omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_index = ProtoField.new("Message 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities Bqt Xdp 1.7.a Element Dissection Options
 show.bqt_message = true

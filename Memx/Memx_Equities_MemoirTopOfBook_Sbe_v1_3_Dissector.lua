@@ -10,9 +10,6 @@ local omi_memx_equities_memoirtopofbook_sbe_v1_3 = Proto("Memx.Equities.MemoirTo
 -- Protocol table
 local memx_equities_memoirtopofbook_sbe_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -73,6 +70,8 @@ omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Equities MemoirTopOfBook Sbe 1.3 Element Dissection Options
 show.best_bid_message = true

@@ -10,9 +10,6 @@ local omi_nyse_options_streamprotocol_pillar_v1_6 = Proto("Nyse.Options.StreamPr
 -- Protocol table
 local nyse_options_streamprotocol_pillar_v1_6 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -57,6 +54,8 @@ omi_nyse_options_streamprotocol_pillar_v1_6.fields.version = ProtoField.new("Ver
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Options StreamProtocol Pillar 1.6 Element Dissection Options
 show.close = true

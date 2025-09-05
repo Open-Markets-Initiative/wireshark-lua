@@ -10,9 +10,6 @@ local omi_memx_equities_memo_sbe_v1_9 = Proto("Memx.Equities.Memo.Sbe.v1.9.Lua",
 -- Protocol table
 local memx_equities_memo_sbe_v1_9 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -144,6 +141,8 @@ omi_memx_equities_memo_sbe_v1_9.fields.pending_mass_cancel_message = ProtoField.
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Equities Memo Sbe 1.9 Element Dissection Options
 show.common_header = true

@@ -10,9 +10,6 @@ local omi_cboe_futures_orderentry_boe3_v1_1_18 = Proto("Cboe.Futures.OrderEntry.
 -- Protocol table
 local cboe_futures_orderentry_boe3_v1_1_18 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -185,6 +182,8 @@ omi_cboe_futures_orderentry_boe3_v1_1_18.fields.unit_sequence_index = ProtoField
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Futures OrderEntry Boe3 1.1.18 Element Dissection Options
 show.cancel_order = true

@@ -10,9 +10,6 @@ local omi_cboe_c1_options_orderentry_boe3_v1_0_12 = Proto("Cboe.C1.Options.Order
 -- Protocol table
 local cboe_c1_options_orderentry_boe3_v1_0_12 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -257,6 +254,8 @@ omi_cboe_c1_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index = ProtoFi
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe C1 Options OrderEntry Boe3 1.0.12 Element Dissection Options
 show.acknowledgement_allocation = true

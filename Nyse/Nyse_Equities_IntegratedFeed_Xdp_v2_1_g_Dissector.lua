@@ -10,9 +10,6 @@ local omi_nyse_equities_integratedfeed_xdp_v2_1_g = Proto("Nyse.Equities.Integra
 -- Protocol table
 local nyse_equities_integratedfeed_xdp_v2_1_g = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -144,6 +141,8 @@ omi_nyse_equities_integratedfeed_xdp_v2_1_g.fields.message_index = ProtoField.ne
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities IntegratedFeed Xdp 2.1.g Element Dissection Options
 show.add_order_message = true

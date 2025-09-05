@@ -10,9 +10,6 @@ local omi_nyse_arca_options_feed_pillar_v1_2_f = Proto("Nyse.Arca.Options.Feed.P
 -- Protocol table
 local nyse_arca_options_feed_pillar_v1_2_f = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -157,6 +154,8 @@ omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_index = ProtoField.new("
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Arca Options Feed Pillar 1.2.f Element Dissection Options
 show.heartbeat_response_message = true

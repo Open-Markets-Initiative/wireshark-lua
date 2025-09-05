@@ -10,9 +10,6 @@ local omi_nasdaq_phlxoptions_topo_itch_v3_3 = Proto("Nasdaq.PhlxOptions.Topo.Itc
 -- Protocol table
 local nasdaq_phlxoptions_topo_itch_v3_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -88,6 +85,8 @@ omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_index = ProtoField.new("Mes
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 Element Dissection Options
 show.broken_trade_report_message = true

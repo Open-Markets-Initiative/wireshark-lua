@@ -10,9 +10,6 @@ local omi_coinbase_derivatives_ordersapi_sbe_v1_8 = Proto("Coinbase.Derivatives.
 -- Protocol table
 local coinbase_derivatives_ordersapi_sbe_v1_8 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -154,6 +151,8 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_8.fields.unlock_trading_reject_message
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Coinbase Derivatives OrdersApi Sbe 1.8 Element Dissection Options
 show.cancel_order_message = true

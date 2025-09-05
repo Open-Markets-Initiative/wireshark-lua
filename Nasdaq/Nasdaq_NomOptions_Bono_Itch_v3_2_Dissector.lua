@@ -10,9 +10,6 @@ local omi_nasdaq_nomoptions_bono_itch_v3_2 = Proto("Nasdaq.NomOptions.Bono.Itch.
 -- Protocol table
 local nasdaq_nomoptions_bono_itch_v3_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -88,6 +85,8 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_index = ProtoField.new("Mess
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NomOptions Bono Itch 3.2 Element Dissection Options
 show.broken_trade_report_message = true

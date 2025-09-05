@@ -10,9 +10,6 @@ local omi_nasdaq_phlxoptions_marketdepth_itch_v1_6 = Proto("Nasdaq.PhlxOptions.M
 -- Protocol table
 local nasdaq_phlxoptions_marketdepth_itch_v1_6 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -121,6 +118,8 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.fields.message_index = ProtoField.n
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq PhlxOptions MarketDepth Itch 1.6 Element Dissection Options
 show.add_order_long_message = true

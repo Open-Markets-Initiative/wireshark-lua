@@ -10,9 +10,6 @@ local omi_nyse_options_commonclient_pillar_v2_6 = Proto("Nyse.Options.CommonClie
 -- Protocol table
 local nyse_options_commonclient_pillar_v2_6 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -38,6 +35,8 @@ omi_nyse_options_commonclient_pillar_v2_6.fields.message_index = ProtoField.new(
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Options CommonClient Pillar 2.6 Element Dissection Options
 show.message = true

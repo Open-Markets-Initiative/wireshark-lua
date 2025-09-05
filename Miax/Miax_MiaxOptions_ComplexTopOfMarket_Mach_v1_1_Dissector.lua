@@ -10,9 +10,6 @@ local omi_miax_miaxoptions_complextopofmarket_mach_v1_1 = Proto("Miax.MiaxOption
 -- Protocol table
 local miax_miaxoptions_complextopofmarket_mach_v1_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -110,6 +107,8 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_definition_index = 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Element Dissection Options
 show.application_message = true

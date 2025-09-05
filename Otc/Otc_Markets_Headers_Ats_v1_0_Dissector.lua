@@ -10,9 +10,6 @@ local omi_otc_markets_headers_ats_v1_0 = Proto("Otc.Markets.Headers.Ats.v1.0.Lua
 -- Protocol table
 local otc_markets_headers_ats_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -42,6 +39,8 @@ omi_otc_markets_headers_ats_v1_0.fields.message_index = ProtoField.new("Message 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Otc Markets Headers Ats 1.0 Element Dissection Options
 show.message = true

@@ -10,9 +10,6 @@ local omi_cboe_edgx_equities_depthofbook_pitch_v2_41_29 = Proto("Cboe.Edgx.Equit
 -- Protocol table
 local cboe_edgx_equities_depthofbook_pitch_v2_41_29 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -81,6 +78,8 @@ omi_cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.message_index = ProtoFi
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Edgx Equities DepthOfBook Pitch 2.41.29 Element Dissection Options
 show.add_order_expanded_message = true

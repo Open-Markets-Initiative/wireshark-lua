@@ -10,9 +10,6 @@ local omi_miax_onyxfutures_depthofmarket_mach_v1_0_b = Proto("Miax.OnyxFutures.D
 -- Protocol table
 local miax_onyxfutures_depthofmarket_mach_v1_0_b = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -104,6 +101,8 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg_index = Pro
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax OnyxFutures DepthOfMarket Mach 1.0.b Element Dissection Options
 show.add_order_message = true

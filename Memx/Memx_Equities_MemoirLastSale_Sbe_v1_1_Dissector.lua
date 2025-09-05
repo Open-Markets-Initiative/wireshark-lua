@@ -10,9 +10,6 @@ local omi_memx_equities_memoirlastsale_sbe_v1_1 = Proto("Memx.Equities.MemoirLas
 -- Protocol table
 local memx_equities_memoirlastsale_sbe_v1_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -80,6 +77,8 @@ omi_memx_equities_memoirlastsale_sbe_v1_1.fields.trading_session_status_message 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Equities MemoirLastSale Sbe 1.1 Element Dissection Options
 show.common_header = true

@@ -10,9 +10,6 @@ local omi_memx_options_memoirdepth_sbe_v1_3 = Proto("Memx.Options.MemoirDepth.Sb
 -- Protocol table
 local memx_options_memoirdepth_sbe_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -86,6 +83,8 @@ omi_memx_options_memoirdepth_sbe_v1_3.fields.trading_session_status_message = Pr
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Options MemoirDepth Sbe 1.3 Element Dissection Options
 show.broken_trade_message = true

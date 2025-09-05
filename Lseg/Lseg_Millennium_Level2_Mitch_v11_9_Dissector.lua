@@ -10,9 +10,6 @@ local omi_lseg_millennium_level2_mitch_v11_9 = Proto("Lseg.Millennium.Level2.Mit
 -- Protocol table
 local lseg_millennium_level2_mitch_v11_9 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -105,6 +102,8 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.message_index = ProtoField.new("Me
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Lseg Millennium Level2 Mitch 11.9 Element Dissection Options
 show.add_attributed_order_message = true

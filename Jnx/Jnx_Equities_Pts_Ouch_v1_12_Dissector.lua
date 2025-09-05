@@ -10,9 +10,6 @@ local omi_jnx_equities_pts_ouch_v1_12 = Proto("Jnx.Equities.Pts.Ouch.v1.12.Lua",
 -- Protocol table
 local jnx_equities_pts_ouch_v1_12 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -87,6 +84,8 @@ omi_jnx_equities_pts_ouch_v1_12.fields.system_event_message = ProtoField.new("Sy
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Jnx Equities Pts Ouch 1.12 Element Dissection Options
 show.cancel_order_message = true

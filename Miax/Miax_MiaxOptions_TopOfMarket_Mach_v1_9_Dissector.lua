@@ -10,9 +10,6 @@ local omi_miax_miaxoptions_topofmarket_mach_v1_9 = Proto("Miax.MiaxOptions.TopOf
 -- Protocol table
 local miax_miaxoptions_topofmarket_mach_v1_9 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -100,6 +97,8 @@ omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_offer_messa
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax MiaxOptions TopOfMarket Mach 1.9 Element Dissection Options
 show.application_message = true

@@ -10,9 +10,6 @@ local omi_cboe_c1_options_depthofbook_pitch_v2_41_29 = Proto("Cboe.C1.Options.De
 -- Protocol table
 local cboe_c1_options_depthofbook_pitch_v2_41_29 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -126,6 +123,8 @@ omi_cboe_c1_options_depthofbook_pitch_v2_41_29.fields.message_index = ProtoField
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe C1 Options DepthOfBook Pitch 2.41.29 Element Dissection Options
 show.add_order_expanded_message = true

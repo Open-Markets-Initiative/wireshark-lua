@@ -10,9 +10,6 @@ local omi_cboe_pitch_sequencedunitheader_pitch_v1_0 = Proto("Cboe.Pitch.Sequence
 -- Protocol table
 local cboe_pitch_sequencedunitheader_pitch_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -36,6 +33,8 @@ omi_cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_index = ProtoField.
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Pitch SequencedUnitHeader Pitch 1.0 Element Dissection Options
 show.message = true

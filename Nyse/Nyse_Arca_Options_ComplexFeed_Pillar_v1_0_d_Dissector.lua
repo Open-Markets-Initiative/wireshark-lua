@@ -10,9 +10,6 @@ local omi_nyse_arca_options_complexfeed_pillar_v1_0_d = Proto("Nyse.Arca.Options
 -- Protocol table
 local nyse_arca_options_complexfeed_pillar_v1_0_d = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -138,6 +135,8 @@ omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message_index = ProtoFiel
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Arca Options ComplexFeed Pillar 1.0.d Element Dissection Options
 show.complex_series_index_mapping_message = true

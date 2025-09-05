@@ -10,9 +10,6 @@ local omi_b3_equities_binaryumdf_sbe_v1_8 = Proto("B3.Equities.BinaryUmdf.Sbe.v1
 -- Protocol table
 local b3_equities_binaryumdf_sbe_v1_8 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -265,6 +262,8 @@ omi_b3_equities_binaryumdf_sbe_v1_8.fields.no_underlyings_group_index = ProtoFie
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- B3 Equities BinaryUmdf Sbe 1.8 Element Dissection Options
 show.auction_imbalance_19_message = true

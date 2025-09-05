@@ -10,9 +10,6 @@ local omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = Proto("Nasdaq.IseOptio
 -- Protocol table
 local nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -99,6 +96,8 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_index = ProtoFi
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Element Dissection Options
 show.complex_strategy_directory_message = true

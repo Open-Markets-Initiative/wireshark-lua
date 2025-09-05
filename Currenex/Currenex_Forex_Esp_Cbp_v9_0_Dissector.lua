@@ -10,9 +10,6 @@ local omi_currenex_forex_esp_cbp_v9_0 = Proto("Currenex.Forex.Esp.Cbp.v9.0.Lua",
 -- Protocol table
 local currenex_forex_esp_cbp_v9_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -64,6 +61,8 @@ omi_currenex_forex_esp_cbp_v9_0.fields.trade_ticker_message = ProtoField.new("Tr
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Currenex Forex Esp Cbp 9.0 Element Dissection Options
 show.heartbeat = true

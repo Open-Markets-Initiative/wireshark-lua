@@ -10,9 +10,6 @@ local omi_nyse_equities_integratedfeed_pillar_v2_5_a = Proto("Nyse.Equities.Inte
 -- Protocol table
 local nyse_equities_integratedfeed_pillar_v2_5_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -152,6 +149,8 @@ omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_index = ProtoField
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities IntegratedFeed Pillar 2.5.a Element Dissection Options
 show.add_order_message = true

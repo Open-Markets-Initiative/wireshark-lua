@@ -10,9 +10,6 @@ local omi_siac_cqs_snapshot_cta_v1_0 = Proto("Siac.Cqs.Snapshot.Cta.v1.0.Lua", "
 -- Protocol table
 local siac_cqs_snapshot_cta_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -101,6 +98,8 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.message_index = ProtoField.new("Message In
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Siac Cqs Snapshot Cta 1.0 Element Dissection Options
 show.block_header = true

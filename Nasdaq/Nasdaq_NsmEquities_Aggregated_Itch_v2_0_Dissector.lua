@@ -10,9 +10,6 @@ local omi_nasdaq_nsmequities_aggregated_itch_v2_0 = Proto("Nasdaq.NsmEquities.Ag
 -- Protocol table
 local nasdaq_nsmequities_aggregated_itch_v2_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -97,6 +94,8 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_index = ProtoField.ne
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NsmEquities Aggregated Itch 2.0 Element Dissection Options
 show.ipo_quoting_period_update_message = true

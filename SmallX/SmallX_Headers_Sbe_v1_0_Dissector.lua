@@ -10,9 +10,6 @@ local omi_smallx_headers_sbe_v1_0 = Proto("SmallX.Headers.Sbe.v1.0.Lua", "SmallX
 -- Protocol table
 local smallx_headers_sbe_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -42,6 +39,8 @@ omi_smallx_headers_sbe_v1_0.fields.version = ProtoField.new("Version", "smallx.h
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- SmallX Headers Sbe 1.0 Element Dissection Options
 show.message_header = true

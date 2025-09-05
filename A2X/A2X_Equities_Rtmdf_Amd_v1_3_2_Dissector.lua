@@ -10,9 +10,6 @@ local omi_a2x_equities_rtmdf_amd_v1_3_2 = Proto("A2X.Equities.Rtmdf.Amd.v1.3.2.L
 -- Protocol table
 local a2x_equities_rtmdf_amd_v1_3_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -78,6 +75,8 @@ omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_index = ProtoField.new("Message
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- A2X Equities Rtmdf Amd 1.3.2 Element Dissection Options
 show.auction_on_demand_message = true

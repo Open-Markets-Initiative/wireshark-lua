@@ -10,9 +10,6 @@ local omi_box_options_sola_multicast_hsvf_v1_8 = Proto("Box.Options.Sola.Multica
 -- Protocol table
 local box_options_sola_multicast_hsvf_v1_8 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -189,6 +186,8 @@ omi_box_options_sola_multicast_hsvf_v1_8.fields.market_depth_level_index = Proto
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Box Options Sola Multicast Hsvf 1.8 Element Dissection Options
 show.beginning_of_complex_order_summary_message = true

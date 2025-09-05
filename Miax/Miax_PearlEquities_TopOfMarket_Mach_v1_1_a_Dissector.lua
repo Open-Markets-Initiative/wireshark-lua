@@ -10,9 +10,6 @@ local omi_miax_pearlequities_topofmarket_mach_v1_1_a = Proto("Miax.PearlEquities
 -- Protocol table
 local miax_pearlequities_topofmarket_mach_v1_1_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -66,6 +63,8 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bi
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax PearlEquities TopOfMarket Mach 1.1.a Element Dissection Options
 show.application_message = true

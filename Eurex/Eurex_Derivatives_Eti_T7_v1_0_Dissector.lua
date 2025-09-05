@@ -10,9 +10,6 @@ local omi_eurex_derivatives_eti_t7_v1_0 = Proto("Eurex.Derivatives.Eti.T7.v1.0.L
 -- Protocol table
 local eurex_derivatives_eti_t7_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -28,6 +25,8 @@ omi_eurex_derivatives_eti_t7_v1_0.fields.template_id = ProtoField.new("Template 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Eurex Derivatives Eti T7 1.0 Element Dissection Options
 show.message = true

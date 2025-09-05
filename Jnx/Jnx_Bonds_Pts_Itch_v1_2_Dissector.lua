@@ -10,9 +10,6 @@ local omi_jnx_bonds_pts_itch_v1_2 = Proto("Jnx.Bonds.Pts.Itch.v1.2.Lua", "Jnx Bo
 -- Protocol table
 local jnx_bonds_pts_itch_v1_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -68,6 +65,8 @@ omi_jnx_bonds_pts_itch_v1_2.fields.message_index = ProtoField.new("Message Index
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Jnx Bonds Pts Itch 1.2 Element Dissection Options
 show.message = true

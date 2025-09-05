@@ -10,9 +10,6 @@ local omi_nasdaq_psxequities_bbo_itch_v2_1 = Proto("Nasdaq.PsxEquities.Bbo.Itch.
 -- Protocol table
 local nasdaq_psxequities_bbo_itch_v2_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -79,6 +76,8 @@ omi_nasdaq_psxequities_bbo_itch_v2_1.fields.message_index = ProtoField.new("Mess
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq PsxEquities Bbo Itch 2.1 Element Dissection Options
 show.message = true

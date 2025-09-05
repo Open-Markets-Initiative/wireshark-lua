@@ -10,9 +10,6 @@ local omi_cme_futures_ilink3_sbe_v8_8 = Proto("Cme.Futures.iLink3.Sbe.v8.8.Lua",
 -- Protocol table
 local cme_futures_ilink3_sbe_v8_8 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -422,6 +419,8 @@ omi_cme_futures_ilink3_sbe_v8_8.fields.trd_reg_publications_group_index = ProtoF
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cme Futures iLink3 Sbe 8.8 Element Dissection Options
 show.affected_orders_group = true

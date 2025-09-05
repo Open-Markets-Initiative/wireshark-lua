@@ -10,9 +10,6 @@ local omi_miax_pearlequities_depthofmarket_mach_v1_3_a = Proto("Miax.PearlEquiti
 -- Protocol table
 local miax_pearlequities_depthofmarket_mach_v1_3_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -73,6 +70,8 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoFie
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax PearlEquities DepthOfMarket Mach 1.3.a Element Dissection Options
 show.add_order_message = true

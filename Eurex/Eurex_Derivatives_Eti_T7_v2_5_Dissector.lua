@@ -10,9 +10,6 @@ local omi_eurex_derivatives_eti_t7_v2_5 = Proto("Eurex.Derivatives.Eti.T7.v2.5.L
 -- Protocol table
 local eurex_derivatives_eti_t7_v2_5 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -398,6 +395,8 @@ omi_eurex_derivatives_eti_t7_v2_5.fields.sessions_grp_comp_index = ProtoField.ne
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Eurex Derivatives Eti T7 2.5 Element Dissection Options
 show.add_complex_instrument_request = true

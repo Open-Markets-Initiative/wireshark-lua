@@ -10,9 +10,6 @@ local omi_euronext_optiq_sbe_v4_10 = Proto("Euronext.Optiq.Sbe.v4.10.Lua", "Euro
 -- Protocol table
 local euronext_optiq_sbe_v4_10 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -471,6 +468,8 @@ omi_euronext_optiq_sbe_v4_10.fields.wholesale_legs_rep_group_index = ProtoField.
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Euronext Optiq OrderEntryGateway Sbe 4.10 Element Dissection Options
 show.ack_message = true

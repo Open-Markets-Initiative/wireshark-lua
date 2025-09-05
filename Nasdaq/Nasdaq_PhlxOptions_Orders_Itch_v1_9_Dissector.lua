@@ -10,9 +10,6 @@ local omi_nasdaq_phlxoptions_orders_itch_v1_9 = Proto("Nasdaq.PhlxOptions.Orders
 -- Protocol table
 local nasdaq_phlxoptions_orders_itch_v1_9 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -96,6 +93,8 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_index = ProtoField.new("M
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq PhlxOptions Orders Itch 1.9 Element Dissection Options
 show.auction_notification_message = true

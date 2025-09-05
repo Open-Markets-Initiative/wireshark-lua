@@ -10,9 +10,6 @@ local omi_lseg_millennium_udpunitheader_mitch_v1_0 = Proto("Lseg.Millennium.UdpU
 -- Protocol table
 local lseg_millennium_udpunitheader_mitch_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -36,6 +33,8 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index = ProtoField.n
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Element Dissection Options
 show.message = true

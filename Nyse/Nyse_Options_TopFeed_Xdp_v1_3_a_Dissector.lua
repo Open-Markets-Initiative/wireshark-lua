@@ -10,9 +10,6 @@ local omi_nyse_options_topfeed_xdp_v1_3_a = Proto("Nyse.Options.TopFeed.Xdp.v1.3
 -- Protocol table
 local nyse_options_topfeed_xdp_v1_3_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -115,6 +112,8 @@ omi_nyse_options_topfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Messa
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Options TopFeed Xdp 1.3.a Element Dissection Options
 show.message = true

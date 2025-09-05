@@ -10,9 +10,6 @@ local omi_cboe_c1_options_complex_pitch_v2_1_37 = Proto("Cboe.C1.Options.Complex
 -- Protocol table
 local cboe_c1_options_complex_pitch_v2_1_37 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -118,6 +115,8 @@ omi_cboe_c1_options_complex_pitch_v2_1_37.fields.message_index = ProtoField.new(
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe C1 Options Complex Pitch 2.1.37 Element Dissection Options
 show.add_order_expanded_message = true

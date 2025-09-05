@@ -10,9 +10,6 @@ local omi_euronext_optiq_orderentrygateway_sbe_v4_1 = Proto("Euronext.Optiq.Orde
 -- Protocol table
 local euronext_optiq_orderentrygateway_sbe_v4_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -447,6 +444,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_1.fields.wholesale_legs_rep_group_in
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Euronext Optiq OrderEntryGateway Sbe 4.1 Element Dissection Options
 show.ack_message = true

@@ -10,9 +10,6 @@ local omi_eurex_cash_eti_t7_v10_1 = Proto("Eurex.Cash.Eti.T7.v10.1.Lua", "Eurex 
 -- Protocol table
 local eurex_cash_eti_t7_v10_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -533,6 +530,8 @@ omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp_index = Pr
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Eurex Cash Eti T7 10.1 Element Dissection Options
 show.affected_ord_grp_comp = true

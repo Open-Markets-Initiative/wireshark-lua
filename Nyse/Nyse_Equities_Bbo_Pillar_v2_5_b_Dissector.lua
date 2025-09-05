@@ -10,9 +10,6 @@ local omi_nyse_equities_bbo_pillar_v2_5_b = Proto("Nyse.Equities.Bbo.Pillar.v2.5
 -- Protocol table
 local nyse_equities_bbo_pillar_v2_5_b = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -103,6 +100,8 @@ omi_nyse_equities_bbo_pillar_v2_5_b.fields.message_index = ProtoField.new("Messa
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities Bbo Pillar 2.5.b Element Dissection Options
 show.heartbeat_response_message = true

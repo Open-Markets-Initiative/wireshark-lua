@@ -10,9 +10,6 @@ local omi_memx_options_riskcontrol_sbe_v1_3 = Proto("Memx.Options.RiskControl.Sb
 -- Protocol table
 local memx_options_riskcontrol_sbe_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -157,6 +154,8 @@ omi_memx_options_riskcontrol_sbe_v1_3.fields.single_order_max_notional_threshold
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Options RiskControl Sbe 1.3 Element Dissection Options
 show.active_risk_acknowledge_rej_message = true

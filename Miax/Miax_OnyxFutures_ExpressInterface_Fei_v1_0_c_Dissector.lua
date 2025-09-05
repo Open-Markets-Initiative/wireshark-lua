@@ -10,9 +10,6 @@ local omi_miax_onyxfutures_expressinterface_fei_v1_0_c = Proto("Miax.OnyxFutures
 -- Protocol table
 local miax_onyxfutures_expressinterface_fei_v1_0_c = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -142,6 +139,8 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index = Pro
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Element Dissection Options
 show.additional_order_indicators = true

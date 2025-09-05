@@ -10,9 +10,6 @@ local omi_siac_opra_recipient_obi_v4_0 = Proto("Siac.Opra.Recipient.Obi.v4.0.Lua
 -- Protocol table
 local siac_opra_recipient_obi_v4_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -113,6 +110,8 @@ omi_siac_opra_recipient_obi_v4_0.fields.message_index = ProtoField.new("Message 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Siac Opra Recipient Obi 4.0 Element Dissection Options
 show.administrative_message = true

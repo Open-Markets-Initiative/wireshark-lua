@@ -10,9 +10,6 @@ local omi_cboe_byx_equities_summarydepth_pitch_v1_0_4 = Proto("Cboe.Byx.Equities
 -- Protocol table
 local cboe_byx_equities_summarydepth_pitch_v1_0_4 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -82,6 +79,8 @@ omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.message_index = ProtoFiel
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Byx Equities SummaryDepth Pitch 1.0.4 Element Dissection Options
 show.adap_block = true

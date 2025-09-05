@@ -10,9 +10,6 @@ local omi_nasdaq_nsmequities_orders_ouch_v5_0 = Proto("Nasdaq.NsmEquities.Orders
 -- Protocol table
 local nasdaq_nsmequities_orders_ouch_v5_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -139,6 +136,8 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message = ProtoF
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Element Dissection Options
 show.account_query_response_message = true

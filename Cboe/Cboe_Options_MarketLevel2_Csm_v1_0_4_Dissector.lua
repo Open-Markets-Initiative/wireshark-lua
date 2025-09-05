@@ -10,9 +10,6 @@ local omi_cboe_options_marketlevel2_csm_v1_0_4 = Proto("Cboe.Options.MarketLevel
 -- Protocol table
 local cboe_options_marketlevel2_csm_v1_0_4 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -113,6 +110,8 @@ omi_cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry_i
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Options MarketLevel2 Csm 1.0.4 Element Dissection Options
 show.currency_code = true

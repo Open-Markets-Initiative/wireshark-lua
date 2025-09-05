@@ -10,9 +10,6 @@ local omi_ice_futures_mdf_impact_v1_1_51 = Proto("Ice.Futures.Mdf.iMpact.v1.1.51
 -- Protocol table
 local ice_futures_mdf_impact_v1_1_51 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -326,6 +323,8 @@ omi_ice_futures_mdf_impact_v1_1_51.fields.strategy_leg_definition_index = ProtoF
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Ice Futures Mdf iMpact 1.1.51 Element Dissection Options
 show.add_or_modify_order_message = true

@@ -10,9 +10,6 @@ local omi_memx_options_memoirdepth_sbe_v1_6_a = Proto("Memx.Options.MemoirDepth.
 -- Protocol table
 local memx_options_memoirdepth_sbe_v1_6_a = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -86,6 +83,8 @@ omi_memx_options_memoirdepth_sbe_v1_6_a.fields.underlier_instrument_status_messa
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Memx Options MemoirDepth Sbe 1.6.a Element Dissection Options
 show.broken_trade_message = true

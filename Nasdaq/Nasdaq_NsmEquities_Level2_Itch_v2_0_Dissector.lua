@@ -10,9 +10,6 @@ local omi_nasdaq_nsmequities_level2_itch_v2_0 = Proto("Nasdaq.NsmEquities.Level2
 -- Protocol table
 local nasdaq_nsmequities_level2_itch_v2_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -85,6 +82,8 @@ omi_nasdaq_nsmequities_level2_itch_v2_0.fields.message_index = ProtoField.new("M
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NsmEquities Level2 Itch 2.0 Element Dissection Options
 show.ipo_quoting_period_update_message = true

@@ -10,9 +10,6 @@ local omi_b3_equities_binaryentrypoint_sbe_v7_0 = Proto("B3.Equities.BinaryEntry
 -- Protocol table
 local b3_equities_binaryentrypoint_sbe_v7_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -291,6 +288,8 @@ omi_b3_equities_binaryentrypoint_sbe_v7_0.fields.no_sides_group_index = ProtoFie
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- B3 Equities BinaryEntryPoint Sbe 7.0 Element Dissection Options
 show.allocation_instruction_message = true

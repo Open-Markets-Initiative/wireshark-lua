@@ -10,9 +10,6 @@ local omi_miax_onyxfutures_mach_v1_0 = Proto("Miax.OnyxFutures.Mach.v1.0.Lua", "
 -- Protocol table
 local miax_onyxfutures_mach_v1_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -32,6 +29,8 @@ omi_miax_onyxfutures_mach_v1_0.fields.session_number = ProtoField.new("Session N
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Element Dissection Options
 show.application_message = true

@@ -10,9 +10,6 @@ local omi_finra_orf_tdds_dfi_v2_0 = Proto("Finra.Orf.Tdds.Dfi.v2.0.Lua", "Finra 
 -- Protocol table
 local finra_orf_tdds_dfi_v2_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -115,6 +112,8 @@ omi_finra_orf_tdds_dfi_v2_0.fields.trading_action_message = ProtoField.new("Trad
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Finra Orf Tdds Dfi 2.0 Element Dissection Options
 show.action_datetime = true

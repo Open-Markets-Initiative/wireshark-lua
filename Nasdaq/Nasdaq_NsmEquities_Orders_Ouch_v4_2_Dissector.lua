@@ -10,9 +10,6 @@ local omi_nasdaq_nsmequities_orders_ouch_v4_2 = Proto("Nasdaq.NsmEquities.Orders
 -- Protocol table
 local nasdaq_nsmequities_orders_ouch_v4_2 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -101,6 +98,8 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message = ProtoField.ne
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq NsmEquities Orders Ouch 4.2 Element Dissection Options
 show.accepted_message = true

@@ -10,9 +10,6 @@ local omi_tmx_quantumfeed_xmtheader_udp_v1_1 = Proto("Tmx.QuantumFeed.XmtHeader.
 -- Protocol table
 local tmx_quantumfeed_xmtheader_udp_v1_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -46,6 +43,8 @@ omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index = ProtoField.new("Body 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Tmx QuantumFeed XmtHeader Udp 1.1 Element Dissection Options
 show.body = true

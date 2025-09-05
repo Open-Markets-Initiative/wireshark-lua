@@ -10,9 +10,6 @@ local omi_eurex_derivatives_edci_t7_v13_1 = Proto("Eurex.Derivatives.Edci.T7.v13
 -- Protocol table
 local eurex_derivatives_edci_t7_v13_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -138,6 +135,8 @@ omi_eurex_derivatives_edci_t7_v13_1.fields.sessions_grp_comp_index = ProtoField.
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Eurex Derivatives Edci T7 13.1 Element Dissection Options
 show.affected_ord_grp_comp = true

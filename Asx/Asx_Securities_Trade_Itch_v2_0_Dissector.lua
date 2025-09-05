@@ -10,9 +10,6 @@ local omi_asx_securities_trade_itch_v2_0 = Proto("Asx.Securities.Trade.Itch.v2.0
 -- Protocol table
 local asx_securities_trade_itch_v2_0 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -105,6 +102,8 @@ omi_asx_securities_trade_itch_v2_0.fields.message_index = ProtoField.new("Messag
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Asx Securities Trade Itch 2.0 Element Dissection Options
 show.add_order_no_participant_id_message = true

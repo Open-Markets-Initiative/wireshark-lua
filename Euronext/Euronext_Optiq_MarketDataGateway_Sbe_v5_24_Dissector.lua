@@ -10,9 +10,6 @@ local omi_euronext_optiq_marketdatagateway_sbe_v5_24 = Proto("Euronext.Optiq.Mar
 -- Protocol table
 local euronext_optiq_marketdatagateway_sbe_v5_24 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -497,6 +494,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_24.fields.updates_group_index = Prot
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Euronext Optiq MarketDataGateway Sbe 5.24 Element Dissection Options
 show.apa_full_trade_information_message = true

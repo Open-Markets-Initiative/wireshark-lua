@@ -10,9 +10,6 @@ local omi_nyse_equities_bbo_xdp_v2_4_g = Proto("Nyse.Equities.Bbo.Xdp.v2.4.g.Lua
 -- Protocol table
 local nyse_equities_bbo_xdp_v2_4_g = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -103,6 +100,8 @@ omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_index = ProtoField.new("Message 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nyse Equities Bbo Xdp 2.4.g Element Dissection Options
 show.heartbeat_response_message = true

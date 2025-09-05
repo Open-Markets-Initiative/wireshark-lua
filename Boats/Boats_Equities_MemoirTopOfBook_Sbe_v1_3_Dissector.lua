@@ -10,9 +10,6 @@ local omi_boats_equities_memoirtopofbook_sbe_v1_3 = Proto("Boats.Equities.Memoir
 -- Protocol table
 local boats_equities_memoirtopofbook_sbe_v1_3 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -81,6 +78,8 @@ omi_boats_equities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.ne
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Boats Equities MemoirTopOfBook Sbe 1.3 Element Dissection Options
 show.best_bid_message = true

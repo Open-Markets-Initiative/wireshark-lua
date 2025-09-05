@@ -10,9 +10,6 @@ local omi_miax_onyxfutures_topofmarket_mach_v1_0_b = Proto("Miax.OnyxFutures.Top
 -- Protocol table
 local miax_onyxfutures_topofmarket_mach_v1_0_b = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -90,6 +87,8 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index = Proto
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Miax OnyxFutures TopOfMarket Mach 1.0.b Element Dissection Options
 show.application_message = true

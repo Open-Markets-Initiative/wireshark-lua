@@ -10,9 +10,6 @@ local omi_nasdaq_iseoptions_orderfeed_itch_v1_1 = Proto("Nasdaq.IseOptions.Order
 -- Protocol table
 local nasdaq_iseoptions_orderfeed_itch_v1_1 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -88,6 +85,8 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index = ProtoField.new(
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 Element Dissection Options
 show.auction_message = true

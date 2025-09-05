@@ -10,9 +10,6 @@ local omi_cboe_europe_lastsale_apf_v1_7 = Proto("Cboe.Europe.LastSale.Apf.v1.7.L
 -- Protocol table
 local cboe_europe_lastsale_apf_v1_7 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -85,6 +82,8 @@ omi_cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message_new = ProtoFie
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cboe Europe LastSale Apf 1.7 Element Dissection Options
 show.debug_packet = true

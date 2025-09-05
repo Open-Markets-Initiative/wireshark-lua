@@ -10,9 +10,6 @@ local omi_n24x_equities_memo_sbe_v1_13 = Proto("24X.Equities.Memo.Sbe.v1.13.Lua"
 -- Protocol table
 local n24x_equities_memo_sbe_v1_13 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -158,6 +155,8 @@ omi_n24x_equities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Pa
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- 24X Equities Memo Sbe 1.13 Element Dissection Options
 show.common_header = true

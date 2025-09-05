@@ -10,9 +10,6 @@ local omi_cme_futures_mdp3_sbe_v1_10 = Proto("Cme.Futures.Mdp3.Sbe.v1.10.Lua", "
 -- Protocol table
 local cme_futures_mdp3_sbe_v1_10 = {}
 
--- Component Tables
-local show = {}
-
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
@@ -322,6 +319,8 @@ omi_cme_futures_mdp3_sbe_v1_10.fields.underlyings_group_index = ProtoField.new("
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+local show = {}
 
 -- Cme Futures Mdp3 Sbe 1.10 Element Dissection Options
 show.admin_login = true
