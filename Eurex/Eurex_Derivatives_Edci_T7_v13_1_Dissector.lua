@@ -1423,10 +1423,11 @@ eurex_derivatives_edci_t7_v13_1.reject.fields = function(buffer, offset, packet,
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -4027,10 +4028,11 @@ eurex_derivatives_edci_t7_v13_1.forced_logout_notification.fields = function(buf
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding

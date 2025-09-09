@@ -2576,10 +2576,11 @@ finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields = fun
   -- Inside Appendage Indicator: 1 Byte Ascii String Enum with 3 values
   index, inside_appendage_indicator = finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Inside Appendage
+  -- Runtime optional field: Inside Appendage
+  local inside_appendage = nil
+
   local inside_appendage_exists = inside_appendage_indicator == "3"
 
-  -- Runtime optional field: Inside Appendage
   if inside_appendage_exists then
     index, inside_appendage = finra_otc_bbds_dfi_v2018_1a.inside_appendage.dissect(buffer, index, packet, parent)
   end

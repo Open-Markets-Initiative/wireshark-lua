@@ -5109,10 +5109,11 @@ nyse_amex_options_binarygateway_pillar_v3_15.execution_report.fields = function(
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(index - 134, 2):le_uint()
 
-  -- Runtime optional field exists: Optional Order Add On
+  -- Runtime optional field: Optional Order Add On
+  local optional_order_add_on = nil
+
   local optional_order_add_on_exists = seq_msg_length ~= 100
 
-  -- Runtime optional field: Optional Order Add On
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amex_options_binarygateway_pillar_v3_15.optional_order_add_on.dissect(buffer, index, packet, parent)
   end
@@ -6455,10 +6456,11 @@ nyse_amex_options_binarygateway_pillar_v3_15.order_acknowledgement.fields = func
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(index - 139, 2):le_uint()
 
-  -- Runtime optional field exists: Optional Order Add On
+  -- Runtime optional field: Optional Order Add On
+  local optional_order_add_on = nil
+
   local optional_order_add_on_exists = seq_msg_length ~= 100
 
-  -- Runtime optional field: Optional Order Add On
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amex_options_binarygateway_pillar_v3_15.optional_order_add_on.dissect(buffer, index, packet, parent)
   end
@@ -8743,10 +8745,11 @@ nyse_amex_options_binarygateway_pillar_v3_15.covered.fields = function(buffer, o
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(index - 102, 2):le_uint()
 
-  -- Runtime optional field exists: Optional Order Add On
+  -- Runtime optional field: Optional Order Add On
+  local optional_order_add_on = nil
+
   local optional_order_add_on_exists = seq_msg_length ~= 100
 
-  -- Runtime optional field: Optional Order Add On
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amex_options_binarygateway_pillar_v3_15.optional_order_add_on.dissect(buffer, index, packet, parent)
   end
@@ -9561,10 +9564,11 @@ nyse_amex_options_binarygateway_pillar_v3_15.order_request.fields = function(buf
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(index - 102, 2):le_uint()
 
-  -- Runtime optional field exists: Optional Order Add On
+  -- Runtime optional field: Optional Order Add On
+  local optional_order_add_on = nil
+
   local optional_order_add_on_exists = seq_msg_length ~= 100
 
-  -- Runtime optional field: Optional Order Add On
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amex_options_binarygateway_pillar_v3_15.optional_order_add_on.dissect(buffer, index, packet, parent)
   end

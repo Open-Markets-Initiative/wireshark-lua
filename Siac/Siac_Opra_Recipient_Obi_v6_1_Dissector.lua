@@ -1000,10 +1000,11 @@ siac_opra_recipient_obi_v6_1.control_message.fields = function(buffer, offset, p
   -- Message Data Length: unsigned integer
   index, message_data_length = siac_opra_recipient_obi_v6_1.message_data_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Message Data
+  -- Runtime optional field: Message Data
+  local message_data = nil
+
   local message_data_exists = message_data_length > 0
 
-  -- Runtime optional field: Message Data
   if message_data_exists then
 
     -- Runtime Size Of: Message Data
@@ -1086,10 +1087,11 @@ siac_opra_recipient_obi_v6_1.administrative_message.fields = function(buffer, of
   -- Message Data Length: unsigned integer
   index, message_data_length = siac_opra_recipient_obi_v6_1.message_data_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Message Data
+  -- Runtime optional field: Message Data
+  local message_data = nil
+
   local message_data_exists = message_data_length > 0
 
-  -- Runtime optional field: Message Data
   if message_data_exists then
 
     -- Runtime Size Of: Message Data
@@ -1935,18 +1937,20 @@ siac_opra_recipient_obi_v6_1.short_equity_and_index_quote_message.fields = funct
   -- Offer Size Short: unsigned integer
   index, offer_size_short = siac_opra_recipient_obi_v6_1.offer_size_short.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Best Bid Appendage
+  -- Runtime optional field: Best Bid Appendage
+  local best_bid_appendage = nil
+
   local best_bid_appendage_exists = bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P"
 
-  -- Runtime optional field: Best Bid Appendage
   if best_bid_appendage_exists then
     index, best_bid_appendage = siac_opra_recipient_obi_v6_1.best_bid_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Best Offer Appendage
+  -- Runtime optional field: Best Offer Appendage
+  local best_offer_appendage = nil
+
   local best_offer_appendage_exists = bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K"
 
-  -- Runtime optional field: Best Offer Appendage
   if best_offer_appendage_exists then
     index, best_offer_appendage = siac_opra_recipient_obi_v6_1.best_offer_appendage.dissect(buffer, index, packet, parent)
   end
@@ -2706,26 +2710,29 @@ siac_opra_recipient_obi_v6_1.long_equity_and_index_quote_message.fields = functi
   -- Offer Size: unsigned integer
   index, offer_size = siac_opra_recipient_obi_v6_1.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Best Bid Appendage
+  -- Runtime optional field: Best Bid Appendage
+  local best_bid_appendage = nil
+
   local best_bid_appendage_exists = bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P"
 
-  -- Runtime optional field: Best Bid Appendage
   if best_bid_appendage_exists then
     index, best_bid_appendage = siac_opra_recipient_obi_v6_1.best_bid_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Best Offer Appendage
+  -- Runtime optional field: Best Offer Appendage
+  local best_offer_appendage = nil
+
   local best_offer_appendage_exists = bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K"
 
-  -- Runtime optional field: Best Offer Appendage
   if best_offer_appendage_exists then
     index, best_offer_appendage = siac_opra_recipient_obi_v6_1.best_offer_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Best Bid And Offer Appendage
+  -- Runtime optional field: Best Bid And Offer Appendage
+  local best_bid_and_offer_appendage = nil
+
   local best_bid_and_offer_appendage_exists = bbo_indicator == "O"
 
-  -- Runtime optional field: Best Bid And Offer Appendage
   if best_bid_and_offer_appendage_exists then
     index, best_bid_and_offer_appendage = siac_opra_recipient_obi_v6_1.best_bid_and_offer_appendage.dissect(buffer, index, packet, parent)
   end
@@ -4063,10 +4070,11 @@ siac_opra_recipient_obi_v6_1.packet.dissect = function(buffer, packet, parent)
     index, message = siac_opra_recipient_obi_v6_1.message.dissect(buffer, index, packet, parent, message_index)
   end
 
-  -- Runtime optional field exists: Block Pad Byte
+  -- Runtime optional field: Block Pad Byte
+  local block_pad_byte = nil
+
   local block_pad_byte_exists = uneven( index )
 
-  -- Runtime optional field: Block Pad Byte
   if block_pad_byte_exists then
     index, block_pad_byte = siac_opra_recipient_obi_v6_1.block_pad_byte.dissect(buffer, index, packet, parent)
   end

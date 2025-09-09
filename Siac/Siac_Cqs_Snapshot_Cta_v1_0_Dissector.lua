@@ -3210,10 +3210,11 @@ siac_cqs_snapshot_cta_v1_0.packet.dissect = function(buffer, packet, parent)
     index, message = siac_cqs_snapshot_cta_v1_0.message.dissect(buffer, index, packet, parent, message_length)
   end
 
-  -- Runtime optional field exists: Block Pad Byte
+  -- Runtime optional field: Block Pad Byte
+  local block_pad_byte = nil
+
   local block_pad_byte_exists = uneven( index )
 
-  -- Runtime optional field: Block Pad Byte
   if block_pad_byte_exists then
     index, block_pad_byte = siac_cqs_snapshot_cta_v1_0.block_pad_byte.dissect(buffer, index, packet, parent)
   end

@@ -14825,10 +14825,11 @@ eurex_derivatives_eti_t7_v7_0.reject.fields = function(buffer, offset, packet, p
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -19241,10 +19242,11 @@ eurex_derivatives_eti_t7_v7_0.news_broadcast.fields = function(buffer, offset, p
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -22885,10 +22887,11 @@ eurex_derivatives_eti_t7_v7_0.legal_notification_broadcast.fields = function(buf
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -24394,10 +24397,11 @@ eurex_derivatives_eti_t7_v7_0.forced_user_logout_notification.fields = function(
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -24467,10 +24471,11 @@ eurex_derivatives_eti_t7_v7_0.forced_logout_notification.fields = function(buffe
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -27361,10 +27366,11 @@ eurex_derivatives_eti_t7_v7_0.broadcast_error_notification.fields = function(buf
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding

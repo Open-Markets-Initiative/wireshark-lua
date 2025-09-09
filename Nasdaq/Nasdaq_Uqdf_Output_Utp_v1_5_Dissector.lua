@@ -4223,26 +4223,29 @@ nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields = function(buffer, of
   -- Finra Adf Mpid Appendage Indicator: 1 Byte Ascii String Enum with 4 values
   index, finra_adf_mpid_appendage_indicator = nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Short Form National Bbo Appendage
+  -- Runtime optional field: Short Form National Bbo Appendage
+  local short_form_national_bbo_appendage = nil
+
   local short_form_national_bbo_appendage_exists = nbbo_appendage_indicator == "2"
 
-  -- Runtime optional field: Short Form National Bbo Appendage
   if short_form_national_bbo_appendage_exists then
     index, short_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Long Form National Bbo Appendage
+  -- Runtime optional field: Long Form National Bbo Appendage
+  local long_form_national_bbo_appendage = nil
+
   local long_form_national_bbo_appendage_exists = nbbo_appendage_indicator == "3"
 
-  -- Runtime optional field: Long Form National Bbo Appendage
   if long_form_national_bbo_appendage_exists then
     index, long_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Finra Adf Mpid Appendage
+  -- Runtime optional field: Finra Adf Mpid Appendage
+  local finra_adf_mpid_appendage = nil
+
   local finra_adf_mpid_appendage_exists = finra_adf_mpid_appendage_indicator == "2"
 
-  -- Runtime optional field: Finra Adf Mpid Appendage
   if finra_adf_mpid_appendage_exists then
     index, finra_adf_mpid_appendage = nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.dissect(buffer, index, packet, parent)
   end
@@ -4452,18 +4455,20 @@ nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields = function(buffer, o
   -- Luld National Bbo Indicator: 1 Byte Ascii String Enum with 10 values
   index, luld_national_bbo_indicator = nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Short Form National Bbo Appendage
+  -- Runtime optional field: Short Form National Bbo Appendage
+  local short_form_national_bbo_appendage = nil
+
   local short_form_national_bbo_appendage_exists = nbbo_appendage_indicator == "2"
 
-  -- Runtime optional field: Short Form National Bbo Appendage
   if short_form_national_bbo_appendage_exists then
     index, short_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Long Form National Bbo Appendage
+  -- Runtime optional field: Long Form National Bbo Appendage
+  local long_form_national_bbo_appendage = nil
+
   local long_form_national_bbo_appendage_exists = nbbo_appendage_indicator == "3"
 
-  -- Runtime optional field: Long Form National Bbo Appendage
   if long_form_national_bbo_appendage_exists then
     index, long_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.dissect(buffer, index, packet, parent)
   end

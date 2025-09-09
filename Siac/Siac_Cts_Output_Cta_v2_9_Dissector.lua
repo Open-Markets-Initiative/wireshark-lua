@@ -7302,10 +7302,11 @@ siac_cts_output_cta_v2_9.packet.dissect = function(buffer, packet, parent)
     index, message = siac_cts_output_cta_v2_9.message.dissect(buffer, index, packet, parent, message_length)
   end
 
-  -- Runtime optional field exists: Block Pad Byte
+  -- Runtime optional field: Block Pad Byte
+  local block_pad_byte = nil
+
   local block_pad_byte_exists = uneven( index )
 
-  -- Runtime optional field: Block Pad Byte
   if block_pad_byte_exists then
     index, block_pad_byte = siac_cts_output_cta_v2_9.block_pad_byte.dissect(buffer, index, packet, parent)
   end

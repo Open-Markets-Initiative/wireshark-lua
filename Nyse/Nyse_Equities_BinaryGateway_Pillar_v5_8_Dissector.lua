@@ -6321,10 +6321,11 @@ nyse_equities_binarygateway_pillar_v5_8.order_and_cancel_replace_acknowledgement
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(index - 113, 2):le_uint()
 
-  -- Runtime optional field exists: Optional Order Add On
+  -- Runtime optional field: Optional Order Add On
+  local optional_order_add_on = nil
+
   local optional_order_add_on_exists = seq_msg_length ~= 65
 
-  -- Runtime optional field: Optional Order Add On
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.dissect(buffer, index, packet, parent)
   end
@@ -9197,10 +9198,11 @@ nyse_equities_binarygateway_pillar_v5_8.new_order_single_and_cancel_replace_requ
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(index - 63, 2):le_uint()
 
-  -- Runtime optional field exists: Optional Order Add On
+  -- Runtime optional field: Optional Order Add On
+  local optional_order_add_on = nil
+
   local optional_order_add_on_exists = seq_msg_length ~= 65
 
-  -- Runtime optional field: Optional Order Add On
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_equities_binarygateway_pillar_v5_8.optional_order_add_on.dissect(buffer, index, packet, parent)
   end

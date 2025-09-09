@@ -3912,8 +3912,13 @@ coinbase_derivatives_ordersapi_sbe_v1_7.data.size = function(buffer, offset)
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_7.data_length.size
 
-  -- Parse runtime size of: Data Value
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local data_length = buffer(offset + index - 1, 1):le_uint()
+
+  if data_length > 0 then
+    -- Parse runtime size of: Data Value
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
@@ -3930,8 +3935,16 @@ coinbase_derivatives_ordersapi_sbe_v1_7.data.fields = function(buffer, offset, p
   -- Data Length: 1 Byte Unsigned Fixed Width Integer
   index, data_length = coinbase_derivatives_ordersapi_sbe_v1_7.data_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Data Value
-  index, data_value = coinbase_derivatives_ordersapi_sbe_v1_7.data_value.dissect(buffer, index, packet, parent, data_length)
+  -- Runtime optional field: Data Value
+  local data_value = nil
+
+  local data_value_exists = data_length > 0
+
+  if data_value_exists then
+
+    -- Runtime Size Of: Data Value
+    index, data_value = coinbase_derivatives_ordersapi_sbe_v1_7.data_value.dissect(buffer, index, packet, parent, data_length)
+  end
 
   return index
 end

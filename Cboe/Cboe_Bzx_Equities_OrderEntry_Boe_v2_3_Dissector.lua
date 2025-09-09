@@ -3803,188 +3803,207 @@ cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_optional_fields.fields = fu
   -- Purge Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, purge_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Purge Rejected Byte 1
+  -- Runtime optional field: Purge Rejected Byte 1
+  local purge_rejected_byte_1 = nil
+
   local purge_rejected_byte_1_exists = purge_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: Purge Rejected Byte 1
   if purge_rejected_byte_1_exists then
 
     -- Purge Rejected Byte 1: Struct of 8 fields
     index, purge_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 2
+  -- Runtime optional field: Purge Rejected Byte 2
+  local purge_rejected_byte_2 = nil
+
   local purge_rejected_byte_2_exists = purge_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: Purge Rejected Byte 2
   if purge_rejected_byte_2_exists then
 
     -- Purge Rejected Byte 2: Struct of 8 fields
     index, purge_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 3
+  -- Runtime optional field: Purge Rejected Byte 3
+  local purge_rejected_byte_3 = nil
+
   local purge_rejected_byte_3_exists = purge_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: Purge Rejected Byte 3
   if purge_rejected_byte_3_exists then
 
     -- Purge Rejected Byte 3: Struct of 8 fields
     index, purge_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 4
+  -- Runtime optional field: Purge Rejected Byte 4
+  local purge_rejected_byte_4 = nil
+
   local purge_rejected_byte_4_exists = purge_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: Purge Rejected Byte 4
   if purge_rejected_byte_4_exists then
 
     -- Purge Rejected Byte 4: Struct of 8 fields
     index, purge_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 5
+  -- Runtime optional field: Purge Rejected Byte 5
+  local purge_rejected_byte_5 = nil
+
   local purge_rejected_byte_5_exists = purge_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: Purge Rejected Byte 5
   if purge_rejected_byte_5_exists then
 
     -- Purge Rejected Byte 5: Struct of 8 fields
     index, purge_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 6
+  -- Runtime optional field: Purge Rejected Byte 6
+  local purge_rejected_byte_6 = nil
+
   local purge_rejected_byte_6_exists = purge_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: Purge Rejected Byte 6
   if purge_rejected_byte_6_exists then
 
     -- Purge Rejected Byte 6: Struct of 8 fields
     index, purge_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 7
+  -- Runtime optional field: Purge Rejected Byte 7
+  local purge_rejected_byte_7 = nil
+
   local purge_rejected_byte_7_exists = purge_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: Purge Rejected Byte 7
   if purge_rejected_byte_7_exists then
 
     -- Purge Rejected Byte 7: Struct of 8 fields
     index, purge_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 8
+  -- Runtime optional field: Purge Rejected Byte 8
+  local purge_rejected_byte_8 = nil
+
   local purge_rejected_byte_8_exists = purge_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: Purge Rejected Byte 8
   if purge_rejected_byte_8_exists then
 
     -- Purge Rejected Byte 8: Struct of 8 fields
     index, purge_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 9
+  -- Runtime optional field: Purge Rejected Byte 9
+  local purge_rejected_byte_9 = nil
+
   local purge_rejected_byte_9_exists = purge_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: Purge Rejected Byte 9
   if purge_rejected_byte_9_exists then
 
     -- Purge Rejected Byte 9: Struct of 8 fields
     index, purge_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 10
+  -- Runtime optional field: Purge Rejected Byte 10
+  local purge_rejected_byte_10 = nil
+
   local purge_rejected_byte_10_exists = purge_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: Purge Rejected Byte 10
   if purge_rejected_byte_10_exists then
 
     -- Purge Rejected Byte 10: Struct of 8 fields
     index, purge_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 11
+  -- Runtime optional field: Purge Rejected Byte 11
+  local purge_rejected_byte_11 = nil
+
   local purge_rejected_byte_11_exists = purge_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: Purge Rejected Byte 11
   if purge_rejected_byte_11_exists then
 
     -- Purge Rejected Byte 11: Struct of 8 fields
     index, purge_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 12
+  -- Runtime optional field: Purge Rejected Byte 12
+  local purge_rejected_byte_12 = nil
+
   local purge_rejected_byte_12_exists = purge_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: Purge Rejected Byte 12
   if purge_rejected_byte_12_exists then
 
     -- Purge Rejected Byte 12: Struct of 8 fields
     index, purge_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 13
+  -- Runtime optional field: Purge Rejected Byte 13
+  local purge_rejected_byte_13 = nil
+
   local purge_rejected_byte_13_exists = purge_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: Purge Rejected Byte 13
   if purge_rejected_byte_13_exists then
 
     -- Purge Rejected Byte 13: Struct of 8 fields
     index, purge_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 14
+  -- Runtime optional field: Purge Rejected Byte 14
+  local purge_rejected_byte_14 = nil
+
   local purge_rejected_byte_14_exists = purge_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: Purge Rejected Byte 14
   if purge_rejected_byte_14_exists then
 
     -- Purge Rejected Byte 14: Struct of 8 fields
     index, purge_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 15
+  -- Runtime optional field: Purge Rejected Byte 15
+  local purge_rejected_byte_15 = nil
+
   local purge_rejected_byte_15_exists = purge_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: Purge Rejected Byte 15
   if purge_rejected_byte_15_exists then
 
     -- Purge Rejected Byte 15: Struct of 8 fields
     index, purge_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 16
+  -- Runtime optional field: Purge Rejected Byte 16
+  local purge_rejected_byte_16 = nil
+
   local purge_rejected_byte_16_exists = purge_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: Purge Rejected Byte 16
   if purge_rejected_byte_16_exists then
 
     -- Purge Rejected Byte 16: Struct of 8 fields
     index, purge_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 17
+  -- Runtime optional field: Purge Rejected Byte 17
+  local purge_rejected_byte_17 = nil
+
   local purge_rejected_byte_17_exists = purge_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: Purge Rejected Byte 17
   if purge_rejected_byte_17_exists then
 
     -- Purge Rejected Byte 17: Struct of 8 fields
     index, purge_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Sub Liquidity Indicator
+  -- Runtime optional field: Sub Liquidity Indicator
+  local sub_liquidity_indicator = nil
+
   local sub_liquidity_indicator_exists = purge_rejected_bitfield_count >= 7 and purge_rejected_byte_7:bitfield(7) > 0
 
-  -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
     index, sub_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Mass Cancel Id
+  -- Runtime optional field: Mass Cancel Id
+  local mass_cancel_id = nil
+
   local mass_cancel_id_exists = purge_rejected_bitfield_count >= 15 and purge_rejected_byte_15:bitfield(4) > 0
 
-  -- Runtime optional field: Mass Cancel Id
   if mass_cancel_id_exists then
     index, mass_cancel_id = cboe_bzx_equities_orderentry_boe_v2_3.mass_cancel_id.dissect(buffer, index, packet, parent)
   end
@@ -5955,204 +5974,225 @@ cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_optional_fields.fi
   -- Trade Cancel Or Correct Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, trade_cancel_or_correct_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 1
+  -- Runtime optional field: Trade Cancel Or Correct Byte 1
+  local trade_cancel_or_correct_byte_1 = nil
+
   local trade_cancel_or_correct_byte_1_exists = trade_cancel_or_correct_bitfield_count >= 1
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 1
   if trade_cancel_or_correct_byte_1_exists then
 
     -- Trade Cancel Or Correct Byte 1: Struct of 8 fields
     index, trade_cancel_or_correct_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 2
+  -- Runtime optional field: Trade Cancel Or Correct Byte 2
+  local trade_cancel_or_correct_byte_2 = nil
+
   local trade_cancel_or_correct_byte_2_exists = trade_cancel_or_correct_bitfield_count >= 2
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 2
   if trade_cancel_or_correct_byte_2_exists then
 
     -- Trade Cancel Or Correct Byte 2: Struct of 8 fields
     index, trade_cancel_or_correct_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 3
+  -- Runtime optional field: Trade Cancel Or Correct Byte 3
+  local trade_cancel_or_correct_byte_3 = nil
+
   local trade_cancel_or_correct_byte_3_exists = trade_cancel_or_correct_bitfield_count >= 3
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 3
   if trade_cancel_or_correct_byte_3_exists then
 
     -- Trade Cancel Or Correct Byte 3: Struct of 8 fields
     index, trade_cancel_or_correct_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 4
+  -- Runtime optional field: Trade Cancel Or Correct Byte 4
+  local trade_cancel_or_correct_byte_4 = nil
+
   local trade_cancel_or_correct_byte_4_exists = trade_cancel_or_correct_bitfield_count >= 4
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 4
   if trade_cancel_or_correct_byte_4_exists then
 
     -- Trade Cancel Or Correct Byte 4: Struct of 8 fields
     index, trade_cancel_or_correct_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 5
+  -- Runtime optional field: Trade Cancel Or Correct Byte 5
+  local trade_cancel_or_correct_byte_5 = nil
+
   local trade_cancel_or_correct_byte_5_exists = trade_cancel_or_correct_bitfield_count >= 5
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 5
   if trade_cancel_or_correct_byte_5_exists then
 
     -- Trade Cancel Or Correct Byte 5: Struct of 8 fields
     index, trade_cancel_or_correct_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 6
+  -- Runtime optional field: Trade Cancel Or Correct Byte 6
+  local trade_cancel_or_correct_byte_6 = nil
+
   local trade_cancel_or_correct_byte_6_exists = trade_cancel_or_correct_bitfield_count >= 6
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 6
   if trade_cancel_or_correct_byte_6_exists then
 
     -- Trade Cancel Or Correct Byte 6: Struct of 8 fields
     index, trade_cancel_or_correct_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 7
+  -- Runtime optional field: Trade Cancel Or Correct Byte 7
+  local trade_cancel_or_correct_byte_7 = nil
+
   local trade_cancel_or_correct_byte_7_exists = trade_cancel_or_correct_bitfield_count >= 7
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 7
   if trade_cancel_or_correct_byte_7_exists then
 
     -- Trade Cancel Or Correct Byte 7: Struct of 8 fields
     index, trade_cancel_or_correct_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 8
+  -- Runtime optional field: Trade Cancel Or Correct Byte 8
+  local trade_cancel_or_correct_byte_8 = nil
+
   local trade_cancel_or_correct_byte_8_exists = trade_cancel_or_correct_bitfield_count >= 8
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 8
   if trade_cancel_or_correct_byte_8_exists then
 
     -- Trade Cancel Or Correct Byte 8: Struct of 8 fields
     index, trade_cancel_or_correct_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 9
+  -- Runtime optional field: Trade Cancel Or Correct Byte 9
+  local trade_cancel_or_correct_byte_9 = nil
+
   local trade_cancel_or_correct_byte_9_exists = trade_cancel_or_correct_bitfield_count >= 9
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 9
   if trade_cancel_or_correct_byte_9_exists then
 
     -- Trade Cancel Or Correct Byte 9: Struct of 8 fields
     index, trade_cancel_or_correct_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 10
+  -- Runtime optional field: Trade Cancel Or Correct Byte 10
+  local trade_cancel_or_correct_byte_10 = nil
+
   local trade_cancel_or_correct_byte_10_exists = trade_cancel_or_correct_bitfield_count >= 10
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 10
   if trade_cancel_or_correct_byte_10_exists then
 
     -- Trade Cancel Or Correct Byte 10: Struct of 8 fields
     index, trade_cancel_or_correct_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 11
+  -- Runtime optional field: Trade Cancel Or Correct Byte 11
+  local trade_cancel_or_correct_byte_11 = nil
+
   local trade_cancel_or_correct_byte_11_exists = trade_cancel_or_correct_bitfield_count >= 11
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 11
   if trade_cancel_or_correct_byte_11_exists then
 
     -- Trade Cancel Or Correct Byte 11: Struct of 8 fields
     index, trade_cancel_or_correct_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 12
+  -- Runtime optional field: Trade Cancel Or Correct Byte 12
+  local trade_cancel_or_correct_byte_12 = nil
+
   local trade_cancel_or_correct_byte_12_exists = trade_cancel_or_correct_bitfield_count >= 12
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 12
   if trade_cancel_or_correct_byte_12_exists then
 
     -- Trade Cancel Or Correct Byte 12: Struct of 8 fields
     index, trade_cancel_or_correct_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 13
+  -- Runtime optional field: Trade Cancel Or Correct Byte 13
+  local trade_cancel_or_correct_byte_13 = nil
+
   local trade_cancel_or_correct_byte_13_exists = trade_cancel_or_correct_bitfield_count >= 13
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 13
   if trade_cancel_or_correct_byte_13_exists then
 
     -- Trade Cancel Or Correct Byte 13: Struct of 8 fields
     index, trade_cancel_or_correct_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 14
+  -- Runtime optional field: Trade Cancel Or Correct Byte 14
+  local trade_cancel_or_correct_byte_14 = nil
+
   local trade_cancel_or_correct_byte_14_exists = trade_cancel_or_correct_bitfield_count >= 14
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 14
   if trade_cancel_or_correct_byte_14_exists then
 
     -- Trade Cancel Or Correct Byte 14: Struct of 8 fields
     index, trade_cancel_or_correct_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 15
+  -- Runtime optional field: Trade Cancel Or Correct Byte 15
+  local trade_cancel_or_correct_byte_15 = nil
+
   local trade_cancel_or_correct_byte_15_exists = trade_cancel_or_correct_bitfield_count >= 15
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 15
   if trade_cancel_or_correct_byte_15_exists then
 
     -- Trade Cancel Or Correct Byte 15: Struct of 8 fields
     index, trade_cancel_or_correct_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 16
+  -- Runtime optional field: Trade Cancel Or Correct Byte 16
+  local trade_cancel_or_correct_byte_16 = nil
+
   local trade_cancel_or_correct_byte_16_exists = trade_cancel_or_correct_bitfield_count >= 16
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 16
   if trade_cancel_or_correct_byte_16_exists then
 
     -- Trade Cancel Or Correct Byte 16: Struct of 8 fields
     index, trade_cancel_or_correct_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 17
+  -- Runtime optional field: Trade Cancel Or Correct Byte 17
+  local trade_cancel_or_correct_byte_17 = nil
+
   local trade_cancel_or_correct_byte_17_exists = trade_cancel_or_correct_bitfield_count >= 17
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 17
   if trade_cancel_or_correct_byte_17_exists then
 
     -- Trade Cancel Or Correct Byte 17: Struct of 8 fields
     index, trade_cancel_or_correct_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = trade_cancel_or_correct_bitfield_count >= 2 and trade_cancel_or_correct_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = trade_cancel_or_correct_bitfield_count >= 2 and trade_cancel_or_correct_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = trade_cancel_or_correct_bitfield_count >= 2 and trade_cancel_or_correct_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Sub Liquidity Indicator
+  -- Runtime optional field: Sub Liquidity Indicator
+  local sub_liquidity_indicator = nil
+
   local sub_liquidity_indicator_exists = trade_cancel_or_correct_bitfield_count >= 7 and trade_cancel_or_correct_byte_7:bitfield(7) > 0
 
-  -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
     index, sub_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
@@ -8757,388 +8797,432 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_execution_optional_fields.fields = f
   -- Order Execution Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_execution_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Execution Byte 1
+  -- Runtime optional field: Order Execution Byte 1
+  local order_execution_byte_1 = nil
+
   local order_execution_byte_1_exists = order_execution_bitfield_count >= 1
 
-  -- Runtime optional field: Order Execution Byte 1
   if order_execution_byte_1_exists then
 
     -- Order Execution Byte 1: Struct of 8 fields
     index, order_execution_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 2
+  -- Runtime optional field: Order Execution Byte 2
+  local order_execution_byte_2 = nil
+
   local order_execution_byte_2_exists = order_execution_bitfield_count >= 2
 
-  -- Runtime optional field: Order Execution Byte 2
   if order_execution_byte_2_exists then
 
     -- Order Execution Byte 2: Struct of 8 fields
     index, order_execution_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 3
+  -- Runtime optional field: Order Execution Byte 3
+  local order_execution_byte_3 = nil
+
   local order_execution_byte_3_exists = order_execution_bitfield_count >= 3
 
-  -- Runtime optional field: Order Execution Byte 3
   if order_execution_byte_3_exists then
 
     -- Order Execution Byte 3: Struct of 8 fields
     index, order_execution_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 4
+  -- Runtime optional field: Order Execution Byte 4
+  local order_execution_byte_4 = nil
+
   local order_execution_byte_4_exists = order_execution_bitfield_count >= 4
 
-  -- Runtime optional field: Order Execution Byte 4
   if order_execution_byte_4_exists then
 
     -- Order Execution Byte 4: Struct of 8 fields
     index, order_execution_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 5
+  -- Runtime optional field: Order Execution Byte 5
+  local order_execution_byte_5 = nil
+
   local order_execution_byte_5_exists = order_execution_bitfield_count >= 5
 
-  -- Runtime optional field: Order Execution Byte 5
   if order_execution_byte_5_exists then
 
     -- Order Execution Byte 5: Struct of 8 fields
     index, order_execution_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 6
+  -- Runtime optional field: Order Execution Byte 6
+  local order_execution_byte_6 = nil
+
   local order_execution_byte_6_exists = order_execution_bitfield_count >= 6
 
-  -- Runtime optional field: Order Execution Byte 6
   if order_execution_byte_6_exists then
 
     -- Order Execution Byte 6: Struct of 8 fields
     index, order_execution_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 7
+  -- Runtime optional field: Order Execution Byte 7
+  local order_execution_byte_7 = nil
+
   local order_execution_byte_7_exists = order_execution_bitfield_count >= 7
 
-  -- Runtime optional field: Order Execution Byte 7
   if order_execution_byte_7_exists then
 
     -- Order Execution Byte 7: Struct of 8 fields
     index, order_execution_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 8
+  -- Runtime optional field: Order Execution Byte 8
+  local order_execution_byte_8 = nil
+
   local order_execution_byte_8_exists = order_execution_bitfield_count >= 8
 
-  -- Runtime optional field: Order Execution Byte 8
   if order_execution_byte_8_exists then
 
     -- Order Execution Byte 8: Struct of 8 fields
     index, order_execution_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 9
+  -- Runtime optional field: Order Execution Byte 9
+  local order_execution_byte_9 = nil
+
   local order_execution_byte_9_exists = order_execution_bitfield_count >= 9
 
-  -- Runtime optional field: Order Execution Byte 9
   if order_execution_byte_9_exists then
 
     -- Order Execution Byte 9: Struct of 8 fields
     index, order_execution_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 10
+  -- Runtime optional field: Order Execution Byte 10
+  local order_execution_byte_10 = nil
+
   local order_execution_byte_10_exists = order_execution_bitfield_count >= 10
 
-  -- Runtime optional field: Order Execution Byte 10
   if order_execution_byte_10_exists then
 
     -- Order Execution Byte 10: Struct of 8 fields
     index, order_execution_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 11
+  -- Runtime optional field: Order Execution Byte 11
+  local order_execution_byte_11 = nil
+
   local order_execution_byte_11_exists = order_execution_bitfield_count >= 11
 
-  -- Runtime optional field: Order Execution Byte 11
   if order_execution_byte_11_exists then
 
     -- Order Execution Byte 11: Struct of 8 fields
     index, order_execution_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 12
+  -- Runtime optional field: Order Execution Byte 12
+  local order_execution_byte_12 = nil
+
   local order_execution_byte_12_exists = order_execution_bitfield_count >= 12
 
-  -- Runtime optional field: Order Execution Byte 12
   if order_execution_byte_12_exists then
 
     -- Order Execution Byte 12: Struct of 8 fields
     index, order_execution_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 13
+  -- Runtime optional field: Order Execution Byte 13
+  local order_execution_byte_13 = nil
+
   local order_execution_byte_13_exists = order_execution_bitfield_count >= 13
 
-  -- Runtime optional field: Order Execution Byte 13
   if order_execution_byte_13_exists then
 
     -- Order Execution Byte 13: Struct of 8 fields
     index, order_execution_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 14
+  -- Runtime optional field: Order Execution Byte 14
+  local order_execution_byte_14 = nil
+
   local order_execution_byte_14_exists = order_execution_bitfield_count >= 14
 
-  -- Runtime optional field: Order Execution Byte 14
   if order_execution_byte_14_exists then
 
     -- Order Execution Byte 14: Struct of 8 fields
     index, order_execution_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 15
+  -- Runtime optional field: Order Execution Byte 15
+  local order_execution_byte_15 = nil
+
   local order_execution_byte_15_exists = order_execution_bitfield_count >= 15
 
-  -- Runtime optional field: Order Execution Byte 15
   if order_execution_byte_15_exists then
 
     -- Order Execution Byte 15: Struct of 8 fields
     index, order_execution_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 16
+  -- Runtime optional field: Order Execution Byte 16
+  local order_execution_byte_16 = nil
+
   local order_execution_byte_16_exists = order_execution_bitfield_count >= 16
 
-  -- Runtime optional field: Order Execution Byte 16
   if order_execution_byte_16_exists then
 
     -- Order Execution Byte 16: Struct of 8 fields
     index, order_execution_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 17
+  -- Runtime optional field: Order Execution Byte 17
+  local order_execution_byte_17 = nil
+
   local order_execution_byte_17_exists = order_execution_bitfield_count >= 17
 
-  -- Runtime optional field: Order Execution Byte 17
   if order_execution_byte_17_exists then
 
     -- Order Execution Byte 17: Struct of 8 fields
     index, order_execution_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = order_execution_bitfield_count >= 2 and order_execution_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = order_execution_bitfield_count >= 2 and order_execution_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = order_execution_bitfield_count >= 2 and order_execution_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Account
+  -- Runtime optional field: Account
+  local account = nil
+
   local account_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(7) > 0
 
-  -- Runtime optional field: Account
   if account_exists then
     index, account = cboe_bzx_equities_orderentry_boe_v2_3.account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(6) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Account
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
   local clearing_account_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(5) > 0
 
-  -- Runtime optional field: Clearing Account
   if clearing_account_exists then
     index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Indicator
+  -- Runtime optional field: Display Indicator
+  local display_indicator = nil
+
   local display_indicator_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(4) > 0
 
-  -- Runtime optional field: Display Indicator
   if display_indicator_exists then
     index, display_indicator = cboe_bzx_equities_orderentry_boe_v2_3.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(3) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Discretion Amount
+  -- Runtime optional field: Discretion Amount
+  local discretion_amount = nil
+
   local discretion_amount_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(2) > 0
 
-  -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzx_equities_orderentry_boe_v2_3.discretion_amount.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Qty
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
   local order_qty_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(1) > 0
 
-  -- Runtime optional field: Order Qty
   if order_qty_exists then
     index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3.order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Prevent Match
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
   local prevent_match_exists = order_execution_bitfield_count >= 3 and order_execution_byte_3:bitfield(0) > 0
 
-  -- Runtime optional field: Prevent Match
   if prevent_match_exists then
     index, prevent_match = cboe_bzx_equities_orderentry_boe_v2_3.prevent_match.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attributed Quote
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
   local attributed_quote_exists = order_execution_bitfield_count >= 6 and order_execution_byte_6:bitfield(4) > 0
 
-  -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzx_equities_orderentry_boe_v2_3.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ext Exec Inst
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
   local ext_exec_inst_exists = order_execution_bitfield_count >= 6 and order_execution_byte_6:bitfield(3) > 0
 
-  -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Fee Code
+  -- Runtime optional field: Fee Code
+  local fee_code = nil
+
   local fee_code_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(7) > 0
 
-  -- Runtime optional field: Fee Code
   if fee_code_exists then
     index, fee_code = cboe_bzx_equities_orderentry_boe_v2_3.fee_code.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(6) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(5) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Routing Inst
+  -- Runtime optional field: Routing Inst
+  local routing_inst = nil
+
   local routing_inst_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(4) > 0
 
-  -- Runtime optional field: Routing Inst
   if routing_inst_exists then
     index, routing_inst = cboe_bzx_equities_orderentry_boe_v2_3.routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Delivery Method
+  -- Runtime optional field: Route Delivery Method
+  local route_delivery_method = nil
+
   local route_delivery_method_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(2) > 0
 
-  -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzx_equities_orderentry_boe_v2_3.route_delivery_method.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ex Destination
+  -- Runtime optional field: Ex Destination
+  local ex_destination = nil
+
   local ex_destination_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(1) > 0
 
-  -- Runtime optional field: Ex Destination
   if ex_destination_exists then
     index, ex_destination = cboe_bzx_equities_orderentry_boe_v2_3.ex_destination.dissect(buffer, index, packet, parent)
   end
@@ -10851,276 +10935,306 @@ cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_optional_fields.fields = f
   -- Cancel Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, cancel_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Cancel Rejected Byte 1
+  -- Runtime optional field: Cancel Rejected Byte 1
+  local cancel_rejected_byte_1 = nil
+
   local cancel_rejected_byte_1_exists = cancel_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: Cancel Rejected Byte 1
   if cancel_rejected_byte_1_exists then
 
     -- Cancel Rejected Byte 1: Struct of 8 fields
     index, cancel_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 2
+  -- Runtime optional field: Cancel Rejected Byte 2
+  local cancel_rejected_byte_2 = nil
+
   local cancel_rejected_byte_2_exists = cancel_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: Cancel Rejected Byte 2
   if cancel_rejected_byte_2_exists then
 
     -- Cancel Rejected Byte 2: Struct of 8 fields
     index, cancel_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 3
+  -- Runtime optional field: Cancel Rejected Byte 3
+  local cancel_rejected_byte_3 = nil
+
   local cancel_rejected_byte_3_exists = cancel_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: Cancel Rejected Byte 3
   if cancel_rejected_byte_3_exists then
 
     -- Cancel Rejected Byte 3: Struct of 8 fields
     index, cancel_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 4
+  -- Runtime optional field: Cancel Rejected Byte 4
+  local cancel_rejected_byte_4 = nil
+
   local cancel_rejected_byte_4_exists = cancel_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: Cancel Rejected Byte 4
   if cancel_rejected_byte_4_exists then
 
     -- Cancel Rejected Byte 4: Struct of 8 fields
     index, cancel_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 5
+  -- Runtime optional field: Cancel Rejected Byte 5
+  local cancel_rejected_byte_5 = nil
+
   local cancel_rejected_byte_5_exists = cancel_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: Cancel Rejected Byte 5
   if cancel_rejected_byte_5_exists then
 
     -- Cancel Rejected Byte 5: Struct of 8 fields
     index, cancel_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 6
+  -- Runtime optional field: Cancel Rejected Byte 6
+  local cancel_rejected_byte_6 = nil
+
   local cancel_rejected_byte_6_exists = cancel_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: Cancel Rejected Byte 6
   if cancel_rejected_byte_6_exists then
 
     -- Cancel Rejected Byte 6: Struct of 8 fields
     index, cancel_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 7
+  -- Runtime optional field: Cancel Rejected Byte 7
+  local cancel_rejected_byte_7 = nil
+
   local cancel_rejected_byte_7_exists = cancel_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: Cancel Rejected Byte 7
   if cancel_rejected_byte_7_exists then
 
     -- Cancel Rejected Byte 7: Struct of 8 fields
     index, cancel_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 8
+  -- Runtime optional field: Cancel Rejected Byte 8
+  local cancel_rejected_byte_8 = nil
+
   local cancel_rejected_byte_8_exists = cancel_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: Cancel Rejected Byte 8
   if cancel_rejected_byte_8_exists then
 
     -- Cancel Rejected Byte 8: Struct of 8 fields
     index, cancel_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 9
+  -- Runtime optional field: Cancel Rejected Byte 9
+  local cancel_rejected_byte_9 = nil
+
   local cancel_rejected_byte_9_exists = cancel_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: Cancel Rejected Byte 9
   if cancel_rejected_byte_9_exists then
 
     -- Cancel Rejected Byte 9: Struct of 8 fields
     index, cancel_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 10
+  -- Runtime optional field: Cancel Rejected Byte 10
+  local cancel_rejected_byte_10 = nil
+
   local cancel_rejected_byte_10_exists = cancel_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: Cancel Rejected Byte 10
   if cancel_rejected_byte_10_exists then
 
     -- Cancel Rejected Byte 10: Struct of 8 fields
     index, cancel_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 11
+  -- Runtime optional field: Cancel Rejected Byte 11
+  local cancel_rejected_byte_11 = nil
+
   local cancel_rejected_byte_11_exists = cancel_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: Cancel Rejected Byte 11
   if cancel_rejected_byte_11_exists then
 
     -- Cancel Rejected Byte 11: Struct of 8 fields
     index, cancel_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 12
+  -- Runtime optional field: Cancel Rejected Byte 12
+  local cancel_rejected_byte_12 = nil
+
   local cancel_rejected_byte_12_exists = cancel_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: Cancel Rejected Byte 12
   if cancel_rejected_byte_12_exists then
 
     -- Cancel Rejected Byte 12: Struct of 8 fields
     index, cancel_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 13
+  -- Runtime optional field: Cancel Rejected Byte 13
+  local cancel_rejected_byte_13 = nil
+
   local cancel_rejected_byte_13_exists = cancel_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: Cancel Rejected Byte 13
   if cancel_rejected_byte_13_exists then
 
     -- Cancel Rejected Byte 13: Struct of 8 fields
     index, cancel_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 14
+  -- Runtime optional field: Cancel Rejected Byte 14
+  local cancel_rejected_byte_14 = nil
+
   local cancel_rejected_byte_14_exists = cancel_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: Cancel Rejected Byte 14
   if cancel_rejected_byte_14_exists then
 
     -- Cancel Rejected Byte 14: Struct of 8 fields
     index, cancel_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 15
+  -- Runtime optional field: Cancel Rejected Byte 15
+  local cancel_rejected_byte_15 = nil
+
   local cancel_rejected_byte_15_exists = cancel_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: Cancel Rejected Byte 15
   if cancel_rejected_byte_15_exists then
 
     -- Cancel Rejected Byte 15: Struct of 8 fields
     index, cancel_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 16
+  -- Runtime optional field: Cancel Rejected Byte 16
+  local cancel_rejected_byte_16 = nil
+
   local cancel_rejected_byte_16_exists = cancel_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: Cancel Rejected Byte 16
   if cancel_rejected_byte_16_exists then
 
     -- Cancel Rejected Byte 16: Struct of 8 fields
     index, cancel_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 17
+  -- Runtime optional field: Cancel Rejected Byte 17
+  local cancel_rejected_byte_17 = nil
+
   local cancel_rejected_byte_17_exists = cancel_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: Cancel Rejected Byte 17
   if cancel_rejected_byte_17_exists then
 
     -- Cancel Rejected Byte 17: Struct of 8 fields
     index, cancel_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = cancel_rejected_bitfield_count >= 2 and cancel_rejected_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = cancel_rejected_bitfield_count >= 2 and cancel_rejected_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = cancel_rejected_bitfield_count >= 2 and cancel_rejected_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = cancel_rejected_bitfield_count >= 8 and cancel_rejected_byte_8:bitfield(6) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = cancel_rejected_bitfield_count >= 8 and cancel_rejected_byte_8:bitfield(5) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = cancel_rejected_bitfield_count >= 8 and cancel_rejected_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
@@ -12984,452 +13098,504 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_optional_fields.fields = f
   -- Order Cancelled Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_cancelled_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Cancelled Byte 1
+  -- Runtime optional field: Order Cancelled Byte 1
+  local order_cancelled_byte_1 = nil
+
   local order_cancelled_byte_1_exists = order_cancelled_bitfield_count >= 1
 
-  -- Runtime optional field: Order Cancelled Byte 1
   if order_cancelled_byte_1_exists then
 
     -- Order Cancelled Byte 1: Struct of 8 fields
     index, order_cancelled_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 2
+  -- Runtime optional field: Order Cancelled Byte 2
+  local order_cancelled_byte_2 = nil
+
   local order_cancelled_byte_2_exists = order_cancelled_bitfield_count >= 2
 
-  -- Runtime optional field: Order Cancelled Byte 2
   if order_cancelled_byte_2_exists then
 
     -- Order Cancelled Byte 2: Struct of 8 fields
     index, order_cancelled_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 3
+  -- Runtime optional field: Order Cancelled Byte 3
+  local order_cancelled_byte_3 = nil
+
   local order_cancelled_byte_3_exists = order_cancelled_bitfield_count >= 3
 
-  -- Runtime optional field: Order Cancelled Byte 3
   if order_cancelled_byte_3_exists then
 
     -- Order Cancelled Byte 3: Struct of 8 fields
     index, order_cancelled_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 4
+  -- Runtime optional field: Order Cancelled Byte 4
+  local order_cancelled_byte_4 = nil
+
   local order_cancelled_byte_4_exists = order_cancelled_bitfield_count >= 4
 
-  -- Runtime optional field: Order Cancelled Byte 4
   if order_cancelled_byte_4_exists then
 
     -- Order Cancelled Byte 4: Struct of 8 fields
     index, order_cancelled_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 5
+  -- Runtime optional field: Order Cancelled Byte 5
+  local order_cancelled_byte_5 = nil
+
   local order_cancelled_byte_5_exists = order_cancelled_bitfield_count >= 5
 
-  -- Runtime optional field: Order Cancelled Byte 5
   if order_cancelled_byte_5_exists then
 
     -- Order Cancelled Byte 5: Struct of 8 fields
     index, order_cancelled_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 6
+  -- Runtime optional field: Order Cancelled Byte 6
+  local order_cancelled_byte_6 = nil
+
   local order_cancelled_byte_6_exists = order_cancelled_bitfield_count >= 6
 
-  -- Runtime optional field: Order Cancelled Byte 6
   if order_cancelled_byte_6_exists then
 
     -- Order Cancelled Byte 6: Struct of 8 fields
     index, order_cancelled_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 7
+  -- Runtime optional field: Order Cancelled Byte 7
+  local order_cancelled_byte_7 = nil
+
   local order_cancelled_byte_7_exists = order_cancelled_bitfield_count >= 7
 
-  -- Runtime optional field: Order Cancelled Byte 7
   if order_cancelled_byte_7_exists then
 
     -- Order Cancelled Byte 7: Struct of 8 fields
     index, order_cancelled_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 8
+  -- Runtime optional field: Order Cancelled Byte 8
+  local order_cancelled_byte_8 = nil
+
   local order_cancelled_byte_8_exists = order_cancelled_bitfield_count >= 8
 
-  -- Runtime optional field: Order Cancelled Byte 8
   if order_cancelled_byte_8_exists then
 
     -- Order Cancelled Byte 8: Struct of 8 fields
     index, order_cancelled_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 9
+  -- Runtime optional field: Order Cancelled Byte 9
+  local order_cancelled_byte_9 = nil
+
   local order_cancelled_byte_9_exists = order_cancelled_bitfield_count >= 9
 
-  -- Runtime optional field: Order Cancelled Byte 9
   if order_cancelled_byte_9_exists then
 
     -- Order Cancelled Byte 9: Struct of 8 fields
     index, order_cancelled_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 10
+  -- Runtime optional field: Order Cancelled Byte 10
+  local order_cancelled_byte_10 = nil
+
   local order_cancelled_byte_10_exists = order_cancelled_bitfield_count >= 10
 
-  -- Runtime optional field: Order Cancelled Byte 10
   if order_cancelled_byte_10_exists then
 
     -- Order Cancelled Byte 10: Struct of 8 fields
     index, order_cancelled_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 11
+  -- Runtime optional field: Order Cancelled Byte 11
+  local order_cancelled_byte_11 = nil
+
   local order_cancelled_byte_11_exists = order_cancelled_bitfield_count >= 11
 
-  -- Runtime optional field: Order Cancelled Byte 11
   if order_cancelled_byte_11_exists then
 
     -- Order Cancelled Byte 11: Struct of 8 fields
     index, order_cancelled_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 12
+  -- Runtime optional field: Order Cancelled Byte 12
+  local order_cancelled_byte_12 = nil
+
   local order_cancelled_byte_12_exists = order_cancelled_bitfield_count >= 12
 
-  -- Runtime optional field: Order Cancelled Byte 12
   if order_cancelled_byte_12_exists then
 
     -- Order Cancelled Byte 12: Struct of 8 fields
     index, order_cancelled_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 13
+  -- Runtime optional field: Order Cancelled Byte 13
+  local order_cancelled_byte_13 = nil
+
   local order_cancelled_byte_13_exists = order_cancelled_bitfield_count >= 13
 
-  -- Runtime optional field: Order Cancelled Byte 13
   if order_cancelled_byte_13_exists then
 
     -- Order Cancelled Byte 13: Struct of 8 fields
     index, order_cancelled_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 14
+  -- Runtime optional field: Order Cancelled Byte 14
+  local order_cancelled_byte_14 = nil
+
   local order_cancelled_byte_14_exists = order_cancelled_bitfield_count >= 14
 
-  -- Runtime optional field: Order Cancelled Byte 14
   if order_cancelled_byte_14_exists then
 
     -- Order Cancelled Byte 14: Struct of 8 fields
     index, order_cancelled_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 15
+  -- Runtime optional field: Order Cancelled Byte 15
+  local order_cancelled_byte_15 = nil
+
   local order_cancelled_byte_15_exists = order_cancelled_bitfield_count >= 15
 
-  -- Runtime optional field: Order Cancelled Byte 15
   if order_cancelled_byte_15_exists then
 
     -- Order Cancelled Byte 15: Struct of 8 fields
     index, order_cancelled_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 16
+  -- Runtime optional field: Order Cancelled Byte 16
+  local order_cancelled_byte_16 = nil
+
   local order_cancelled_byte_16_exists = order_cancelled_bitfield_count >= 16
 
-  -- Runtime optional field: Order Cancelled Byte 16
   if order_cancelled_byte_16_exists then
 
     -- Order Cancelled Byte 16: Struct of 8 fields
     index, order_cancelled_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 17
+  -- Runtime optional field: Order Cancelled Byte 17
+  local order_cancelled_byte_17 = nil
+
   local order_cancelled_byte_17_exists = order_cancelled_bitfield_count >= 17
 
-  -- Runtime optional field: Order Cancelled Byte 17
   if order_cancelled_byte_17_exists then
 
     -- Order Cancelled Byte 17: Struct of 8 fields
     index, order_cancelled_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = order_cancelled_bitfield_count >= 2 and order_cancelled_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = order_cancelled_bitfield_count >= 2 and order_cancelled_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = order_cancelled_bitfield_count >= 2 and order_cancelled_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Account
+  -- Runtime optional field: Account
+  local account = nil
+
   local account_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(7) > 0
 
-  -- Runtime optional field: Account
   if account_exists then
     index, account = cboe_bzx_equities_orderentry_boe_v2_3.account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(6) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Account
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
   local clearing_account_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(5) > 0
 
-  -- Runtime optional field: Clearing Account
   if clearing_account_exists then
     index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Indicator
+  -- Runtime optional field: Display Indicator
+  local display_indicator = nil
+
   local display_indicator_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(4) > 0
 
-  -- Runtime optional field: Display Indicator
   if display_indicator_exists then
     index, display_indicator = cboe_bzx_equities_orderentry_boe_v2_3.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(3) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Discretion Amount
+  -- Runtime optional field: Discretion Amount
+  local discretion_amount = nil
+
   local discretion_amount_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(2) > 0
 
-  -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzx_equities_orderentry_boe_v2_3.discretion_amount.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Qty
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
   local order_qty_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(1) > 0
 
-  -- Runtime optional field: Order Qty
   if order_qty_exists then
     index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3.order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Prevent Match
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
   local prevent_match_exists = order_cancelled_bitfield_count >= 3 and order_cancelled_byte_3:bitfield(0) > 0
 
-  -- Runtime optional field: Prevent Match
   if prevent_match_exists then
     index, prevent_match = cboe_bzx_equities_orderentry_boe_v2_3.prevent_match.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Orig Cl Ord Id
+  -- Runtime optional field: Orig Cl Ord Id
+  local orig_cl_ord_id = nil
+
   local orig_cl_ord_id_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(7) > 0
 
-  -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
     index, orig_cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3.orig_cl_ord_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Leaves Qty
+  -- Runtime optional field: Leaves Qty
+  local leaves_qty = nil
+
   local leaves_qty_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(6) > 0
 
-  -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzx_equities_orderentry_boe_v2_3.leaves_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Shares
+  -- Runtime optional field: Last Shares
+  local last_shares = nil
+
   local last_shares_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(5) > 0
 
-  -- Runtime optional field: Last Shares
   if last_shares_exists then
     index, last_shares = cboe_bzx_equities_orderentry_boe_v2_3.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Px
+  -- Runtime optional field: Last Px
+  local last_px = nil
+
   local last_px_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(4) > 0
 
-  -- Runtime optional field: Last Px
   if last_px_exists then
     index, last_px = cboe_bzx_equities_orderentry_boe_v2_3.last_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Price
+  -- Runtime optional field: Display Price
+  local display_price = nil
+
   local display_price_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(3) > 0
 
-  -- Runtime optional field: Display Price
   if display_price_exists then
     index, display_price = cboe_bzx_equities_orderentry_boe_v2_3.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Working Price
+  -- Runtime optional field: Working Price
+  local working_price = nil
+
   local working_price_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(2) > 0
 
-  -- Runtime optional field: Working Price
   if working_price_exists then
     index, working_price = cboe_bzx_equities_orderentry_boe_v2_3.working_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Base Liquidity Indicator
+  -- Runtime optional field: Base Liquidity Indicator
+  local base_liquidity_indicator = nil
+
   local base_liquidity_indicator_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(1) > 0
 
-  -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.base_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Expire Time
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
   local expire_time_exists = order_cancelled_bitfield_count >= 5 and order_cancelled_byte_5:bitfield(0) > 0
 
-  -- Runtime optional field: Expire Time
   if expire_time_exists then
     index, expire_time = cboe_bzx_equities_orderentry_boe_v2_3.expire_time.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Secondary Order Id
+  -- Runtime optional field: Secondary Order Id
+  local secondary_order_id = nil
+
   local secondary_order_id_exists = order_cancelled_bitfield_count >= 6 and order_cancelled_byte_6:bitfield(7) > 0
 
-  -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
     index, secondary_order_id = cboe_bzx_equities_orderentry_boe_v2_3.secondary_order_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attributed Quote
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
   local attributed_quote_exists = order_cancelled_bitfield_count >= 6 and order_cancelled_byte_6:bitfield(4) > 0
 
-  -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzx_equities_orderentry_boe_v2_3.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ext Exec Inst
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
   local ext_exec_inst_exists = order_cancelled_bitfield_count >= 6 and order_cancelled_byte_6:bitfield(3) > 0
 
-  -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(6) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(5) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Routing Inst
+  -- Runtime optional field: Routing Inst
+  local routing_inst = nil
+
   local routing_inst_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(4) > 0
 
-  -- Runtime optional field: Routing Inst
   if routing_inst_exists then
     index, routing_inst = cboe_bzx_equities_orderentry_boe_v2_3.routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Delivery Method
+  -- Runtime optional field: Route Delivery Method
+  local route_delivery_method = nil
+
   local route_delivery_method_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(2) > 0
 
-  -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzx_equities_orderentry_boe_v2_3.route_delivery_method.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ex Destination
+  -- Runtime optional field: Ex Destination
+  local ex_destination = nil
+
   local ex_destination_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(1) > 0
 
-  -- Runtime optional field: Ex Destination
   if ex_destination_exists then
     index, ex_destination = cboe_bzx_equities_orderentry_boe_v2_3.ex_destination.dissect(buffer, index, packet, parent)
   end
@@ -15198,180 +15364,198 @@ cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_optional_fields.field
   -- User Modify Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, user_modify_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: User Modify Rejected Byte 1
+  -- Runtime optional field: User Modify Rejected Byte 1
+  local user_modify_rejected_byte_1 = nil
+
   local user_modify_rejected_byte_1_exists = user_modify_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: User Modify Rejected Byte 1
   if user_modify_rejected_byte_1_exists then
 
     -- User Modify Rejected Byte 1: Struct of 8 fields
     index, user_modify_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 2
+  -- Runtime optional field: User Modify Rejected Byte 2
+  local user_modify_rejected_byte_2 = nil
+
   local user_modify_rejected_byte_2_exists = user_modify_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: User Modify Rejected Byte 2
   if user_modify_rejected_byte_2_exists then
 
     -- User Modify Rejected Byte 2: Struct of 8 fields
     index, user_modify_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 3
+  -- Runtime optional field: User Modify Rejected Byte 3
+  local user_modify_rejected_byte_3 = nil
+
   local user_modify_rejected_byte_3_exists = user_modify_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: User Modify Rejected Byte 3
   if user_modify_rejected_byte_3_exists then
 
     -- User Modify Rejected Byte 3: Struct of 8 fields
     index, user_modify_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 4
+  -- Runtime optional field: User Modify Rejected Byte 4
+  local user_modify_rejected_byte_4 = nil
+
   local user_modify_rejected_byte_4_exists = user_modify_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: User Modify Rejected Byte 4
   if user_modify_rejected_byte_4_exists then
 
     -- User Modify Rejected Byte 4: Struct of 8 fields
     index, user_modify_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 5
+  -- Runtime optional field: User Modify Rejected Byte 5
+  local user_modify_rejected_byte_5 = nil
+
   local user_modify_rejected_byte_5_exists = user_modify_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: User Modify Rejected Byte 5
   if user_modify_rejected_byte_5_exists then
 
     -- User Modify Rejected Byte 5: Struct of 8 fields
     index, user_modify_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 6
+  -- Runtime optional field: User Modify Rejected Byte 6
+  local user_modify_rejected_byte_6 = nil
+
   local user_modify_rejected_byte_6_exists = user_modify_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: User Modify Rejected Byte 6
   if user_modify_rejected_byte_6_exists then
 
     -- User Modify Rejected Byte 6: Struct of 8 fields
     index, user_modify_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 7
+  -- Runtime optional field: User Modify Rejected Byte 7
+  local user_modify_rejected_byte_7 = nil
+
   local user_modify_rejected_byte_7_exists = user_modify_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: User Modify Rejected Byte 7
   if user_modify_rejected_byte_7_exists then
 
     -- User Modify Rejected Byte 7: Struct of 8 fields
     index, user_modify_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 8
+  -- Runtime optional field: User Modify Rejected Byte 8
+  local user_modify_rejected_byte_8 = nil
+
   local user_modify_rejected_byte_8_exists = user_modify_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: User Modify Rejected Byte 8
   if user_modify_rejected_byte_8_exists then
 
     -- User Modify Rejected Byte 8: Struct of 8 fields
     index, user_modify_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 9
+  -- Runtime optional field: User Modify Rejected Byte 9
+  local user_modify_rejected_byte_9 = nil
+
   local user_modify_rejected_byte_9_exists = user_modify_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: User Modify Rejected Byte 9
   if user_modify_rejected_byte_9_exists then
 
     -- User Modify Rejected Byte 9: Struct of 8 fields
     index, user_modify_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 10
+  -- Runtime optional field: User Modify Rejected Byte 10
+  local user_modify_rejected_byte_10 = nil
+
   local user_modify_rejected_byte_10_exists = user_modify_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: User Modify Rejected Byte 10
   if user_modify_rejected_byte_10_exists then
 
     -- User Modify Rejected Byte 10: Struct of 8 fields
     index, user_modify_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 11
+  -- Runtime optional field: User Modify Rejected Byte 11
+  local user_modify_rejected_byte_11 = nil
+
   local user_modify_rejected_byte_11_exists = user_modify_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: User Modify Rejected Byte 11
   if user_modify_rejected_byte_11_exists then
 
     -- User Modify Rejected Byte 11: Struct of 8 fields
     index, user_modify_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 12
+  -- Runtime optional field: User Modify Rejected Byte 12
+  local user_modify_rejected_byte_12 = nil
+
   local user_modify_rejected_byte_12_exists = user_modify_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: User Modify Rejected Byte 12
   if user_modify_rejected_byte_12_exists then
 
     -- User Modify Rejected Byte 12: Struct of 8 fields
     index, user_modify_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 13
+  -- Runtime optional field: User Modify Rejected Byte 13
+  local user_modify_rejected_byte_13 = nil
+
   local user_modify_rejected_byte_13_exists = user_modify_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: User Modify Rejected Byte 13
   if user_modify_rejected_byte_13_exists then
 
     -- User Modify Rejected Byte 13: Struct of 8 fields
     index, user_modify_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 14
+  -- Runtime optional field: User Modify Rejected Byte 14
+  local user_modify_rejected_byte_14 = nil
+
   local user_modify_rejected_byte_14_exists = user_modify_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: User Modify Rejected Byte 14
   if user_modify_rejected_byte_14_exists then
 
     -- User Modify Rejected Byte 14: Struct of 8 fields
     index, user_modify_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 15
+  -- Runtime optional field: User Modify Rejected Byte 15
+  local user_modify_rejected_byte_15 = nil
+
   local user_modify_rejected_byte_15_exists = user_modify_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: User Modify Rejected Byte 15
   if user_modify_rejected_byte_15_exists then
 
     -- User Modify Rejected Byte 15: Struct of 8 fields
     index, user_modify_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 16
+  -- Runtime optional field: User Modify Rejected Byte 16
+  local user_modify_rejected_byte_16 = nil
+
   local user_modify_rejected_byte_16_exists = user_modify_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: User Modify Rejected Byte 16
   if user_modify_rejected_byte_16_exists then
 
     -- User Modify Rejected Byte 16: Struct of 8 fields
     index, user_modify_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 17
+  -- Runtime optional field: User Modify Rejected Byte 17
+  local user_modify_rejected_byte_17 = nil
+
   local user_modify_rejected_byte_17_exists = user_modify_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: User Modify Rejected Byte 17
   if user_modify_rejected_byte_17_exists then
 
     -- User Modify Rejected Byte 17: Struct of 8 fields
     index, user_modify_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Sub Liquidity Indicator
+  -- Runtime optional field: Sub Liquidity Indicator
+  local sub_liquidity_indicator = nil
+
   local sub_liquidity_indicator_exists = user_modify_rejected_bitfield_count >= 7 and user_modify_rejected_byte_7:bitfield(7) > 0
 
-  -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
     index, sub_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
@@ -17120,452 +17304,504 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_restated_optional_fields.fields = fu
   -- Order Restated Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_restated_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Restated Byte 1
+  -- Runtime optional field: Order Restated Byte 1
+  local order_restated_byte_1 = nil
+
   local order_restated_byte_1_exists = order_restated_bitfield_count >= 1
 
-  -- Runtime optional field: Order Restated Byte 1
   if order_restated_byte_1_exists then
 
     -- Order Restated Byte 1: Struct of 8 fields
     index, order_restated_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 2
+  -- Runtime optional field: Order Restated Byte 2
+  local order_restated_byte_2 = nil
+
   local order_restated_byte_2_exists = order_restated_bitfield_count >= 2
 
-  -- Runtime optional field: Order Restated Byte 2
   if order_restated_byte_2_exists then
 
     -- Order Restated Byte 2: Struct of 8 fields
     index, order_restated_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 3
+  -- Runtime optional field: Order Restated Byte 3
+  local order_restated_byte_3 = nil
+
   local order_restated_byte_3_exists = order_restated_bitfield_count >= 3
 
-  -- Runtime optional field: Order Restated Byte 3
   if order_restated_byte_3_exists then
 
     -- Order Restated Byte 3: Struct of 8 fields
     index, order_restated_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 4
+  -- Runtime optional field: Order Restated Byte 4
+  local order_restated_byte_4 = nil
+
   local order_restated_byte_4_exists = order_restated_bitfield_count >= 4
 
-  -- Runtime optional field: Order Restated Byte 4
   if order_restated_byte_4_exists then
 
     -- Order Restated Byte 4: Struct of 8 fields
     index, order_restated_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 5
+  -- Runtime optional field: Order Restated Byte 5
+  local order_restated_byte_5 = nil
+
   local order_restated_byte_5_exists = order_restated_bitfield_count >= 5
 
-  -- Runtime optional field: Order Restated Byte 5
   if order_restated_byte_5_exists then
 
     -- Order Restated Byte 5: Struct of 8 fields
     index, order_restated_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 6
+  -- Runtime optional field: Order Restated Byte 6
+  local order_restated_byte_6 = nil
+
   local order_restated_byte_6_exists = order_restated_bitfield_count >= 6
 
-  -- Runtime optional field: Order Restated Byte 6
   if order_restated_byte_6_exists then
 
     -- Order Restated Byte 6: Struct of 8 fields
     index, order_restated_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 7
+  -- Runtime optional field: Order Restated Byte 7
+  local order_restated_byte_7 = nil
+
   local order_restated_byte_7_exists = order_restated_bitfield_count >= 7
 
-  -- Runtime optional field: Order Restated Byte 7
   if order_restated_byte_7_exists then
 
     -- Order Restated Byte 7: Struct of 8 fields
     index, order_restated_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 8
+  -- Runtime optional field: Order Restated Byte 8
+  local order_restated_byte_8 = nil
+
   local order_restated_byte_8_exists = order_restated_bitfield_count >= 8
 
-  -- Runtime optional field: Order Restated Byte 8
   if order_restated_byte_8_exists then
 
     -- Order Restated Byte 8: Struct of 8 fields
     index, order_restated_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 9
+  -- Runtime optional field: Order Restated Byte 9
+  local order_restated_byte_9 = nil
+
   local order_restated_byte_9_exists = order_restated_bitfield_count >= 9
 
-  -- Runtime optional field: Order Restated Byte 9
   if order_restated_byte_9_exists then
 
     -- Order Restated Byte 9: Struct of 8 fields
     index, order_restated_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 10
+  -- Runtime optional field: Order Restated Byte 10
+  local order_restated_byte_10 = nil
+
   local order_restated_byte_10_exists = order_restated_bitfield_count >= 10
 
-  -- Runtime optional field: Order Restated Byte 10
   if order_restated_byte_10_exists then
 
     -- Order Restated Byte 10: Struct of 8 fields
     index, order_restated_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 11
+  -- Runtime optional field: Order Restated Byte 11
+  local order_restated_byte_11 = nil
+
   local order_restated_byte_11_exists = order_restated_bitfield_count >= 11
 
-  -- Runtime optional field: Order Restated Byte 11
   if order_restated_byte_11_exists then
 
     -- Order Restated Byte 11: Struct of 8 fields
     index, order_restated_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 12
+  -- Runtime optional field: Order Restated Byte 12
+  local order_restated_byte_12 = nil
+
   local order_restated_byte_12_exists = order_restated_bitfield_count >= 12
 
-  -- Runtime optional field: Order Restated Byte 12
   if order_restated_byte_12_exists then
 
     -- Order Restated Byte 12: Struct of 8 fields
     index, order_restated_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 13
+  -- Runtime optional field: Order Restated Byte 13
+  local order_restated_byte_13 = nil
+
   local order_restated_byte_13_exists = order_restated_bitfield_count >= 13
 
-  -- Runtime optional field: Order Restated Byte 13
   if order_restated_byte_13_exists then
 
     -- Order Restated Byte 13: Struct of 8 fields
     index, order_restated_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 14
+  -- Runtime optional field: Order Restated Byte 14
+  local order_restated_byte_14 = nil
+
   local order_restated_byte_14_exists = order_restated_bitfield_count >= 14
 
-  -- Runtime optional field: Order Restated Byte 14
   if order_restated_byte_14_exists then
 
     -- Order Restated Byte 14: Struct of 8 fields
     index, order_restated_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 15
+  -- Runtime optional field: Order Restated Byte 15
+  local order_restated_byte_15 = nil
+
   local order_restated_byte_15_exists = order_restated_bitfield_count >= 15
 
-  -- Runtime optional field: Order Restated Byte 15
   if order_restated_byte_15_exists then
 
     -- Order Restated Byte 15: Struct of 8 fields
     index, order_restated_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 16
+  -- Runtime optional field: Order Restated Byte 16
+  local order_restated_byte_16 = nil
+
   local order_restated_byte_16_exists = order_restated_bitfield_count >= 16
 
-  -- Runtime optional field: Order Restated Byte 16
   if order_restated_byte_16_exists then
 
     -- Order Restated Byte 16: Struct of 8 fields
     index, order_restated_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 17
+  -- Runtime optional field: Order Restated Byte 17
+  local order_restated_byte_17 = nil
+
   local order_restated_byte_17_exists = order_restated_bitfield_count >= 17
 
-  -- Runtime optional field: Order Restated Byte 17
   if order_restated_byte_17_exists then
 
     -- Order Restated Byte 17: Struct of 8 fields
     index, order_restated_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = order_restated_bitfield_count >= 2 and order_restated_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = order_restated_bitfield_count >= 2 and order_restated_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = order_restated_bitfield_count >= 2 and order_restated_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Account
+  -- Runtime optional field: Account
+  local account = nil
+
   local account_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(7) > 0
 
-  -- Runtime optional field: Account
   if account_exists then
     index, account = cboe_bzx_equities_orderentry_boe_v2_3.account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(6) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Account
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
   local clearing_account_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(5) > 0
 
-  -- Runtime optional field: Clearing Account
   if clearing_account_exists then
     index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Indicator
+  -- Runtime optional field: Display Indicator
+  local display_indicator = nil
+
   local display_indicator_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(4) > 0
 
-  -- Runtime optional field: Display Indicator
   if display_indicator_exists then
     index, display_indicator = cboe_bzx_equities_orderentry_boe_v2_3.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(3) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Discretion Amount
+  -- Runtime optional field: Discretion Amount
+  local discretion_amount = nil
+
   local discretion_amount_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(2) > 0
 
-  -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzx_equities_orderentry_boe_v2_3.discretion_amount.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Qty
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
   local order_qty_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(1) > 0
 
-  -- Runtime optional field: Order Qty
   if order_qty_exists then
     index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3.order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Prevent Match
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
   local prevent_match_exists = order_restated_bitfield_count >= 3 and order_restated_byte_3:bitfield(0) > 0
 
-  -- Runtime optional field: Prevent Match
   if prevent_match_exists then
     index, prevent_match = cboe_bzx_equities_orderentry_boe_v2_3.prevent_match.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Orig Cl Ord Id
+  -- Runtime optional field: Orig Cl Ord Id
+  local orig_cl_ord_id = nil
+
   local orig_cl_ord_id_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(7) > 0
 
-  -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
     index, orig_cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3.orig_cl_ord_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Leaves Qty
+  -- Runtime optional field: Leaves Qty
+  local leaves_qty = nil
+
   local leaves_qty_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(6) > 0
 
-  -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzx_equities_orderentry_boe_v2_3.leaves_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Shares
+  -- Runtime optional field: Last Shares
+  local last_shares = nil
+
   local last_shares_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(5) > 0
 
-  -- Runtime optional field: Last Shares
   if last_shares_exists then
     index, last_shares = cboe_bzx_equities_orderentry_boe_v2_3.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Px
+  -- Runtime optional field: Last Px
+  local last_px = nil
+
   local last_px_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(4) > 0
 
-  -- Runtime optional field: Last Px
   if last_px_exists then
     index, last_px = cboe_bzx_equities_orderentry_boe_v2_3.last_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Price
+  -- Runtime optional field: Display Price
+  local display_price = nil
+
   local display_price_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(3) > 0
 
-  -- Runtime optional field: Display Price
   if display_price_exists then
     index, display_price = cboe_bzx_equities_orderentry_boe_v2_3.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Working Price
+  -- Runtime optional field: Working Price
+  local working_price = nil
+
   local working_price_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(2) > 0
 
-  -- Runtime optional field: Working Price
   if working_price_exists then
     index, working_price = cboe_bzx_equities_orderentry_boe_v2_3.working_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Base Liquidity Indicator
+  -- Runtime optional field: Base Liquidity Indicator
+  local base_liquidity_indicator = nil
+
   local base_liquidity_indicator_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(1) > 0
 
-  -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.base_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Expire Time
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
   local expire_time_exists = order_restated_bitfield_count >= 5 and order_restated_byte_5:bitfield(0) > 0
 
-  -- Runtime optional field: Expire Time
   if expire_time_exists then
     index, expire_time = cboe_bzx_equities_orderentry_boe_v2_3.expire_time.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Secondary Order Id
+  -- Runtime optional field: Secondary Order Id
+  local secondary_order_id = nil
+
   local secondary_order_id_exists = order_restated_bitfield_count >= 6 and order_restated_byte_6:bitfield(7) > 0
 
-  -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
     index, secondary_order_id = cboe_bzx_equities_orderentry_boe_v2_3.secondary_order_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attributed Quote
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
   local attributed_quote_exists = order_restated_bitfield_count >= 6 and order_restated_byte_6:bitfield(4) > 0
 
-  -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzx_equities_orderentry_boe_v2_3.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ext Exec Inst
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
   local ext_exec_inst_exists = order_restated_bitfield_count >= 6 and order_restated_byte_6:bitfield(3) > 0
 
-  -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(6) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(5) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Routing Inst
+  -- Runtime optional field: Routing Inst
+  local routing_inst = nil
+
   local routing_inst_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(4) > 0
 
-  -- Runtime optional field: Routing Inst
   if routing_inst_exists then
     index, routing_inst = cboe_bzx_equities_orderentry_boe_v2_3.routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Delivery Method
+  -- Runtime optional field: Route Delivery Method
+  local route_delivery_method = nil
+
   local route_delivery_method_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(2) > 0
 
-  -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzx_equities_orderentry_boe_v2_3.route_delivery_method.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ex Destination
+  -- Runtime optional field: Ex Destination
+  local ex_destination = nil
+
   local ex_destination_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(1) > 0
 
-  -- Runtime optional field: Ex Destination
   if ex_destination_exists then
     index, ex_destination = cboe_bzx_equities_orderentry_boe_v2_3.ex_destination.dissect(buffer, index, packet, parent)
   end
@@ -19239,444 +19475,495 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_modified_optional_fields.fields = fu
   -- Order Modified Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_modified_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Modified Byte 1
+  -- Runtime optional field: Order Modified Byte 1
+  local order_modified_byte_1 = nil
+
   local order_modified_byte_1_exists = order_modified_bitfield_count >= 1
 
-  -- Runtime optional field: Order Modified Byte 1
   if order_modified_byte_1_exists then
 
     -- Order Modified Byte 1: Struct of 8 fields
     index, order_modified_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 2
+  -- Runtime optional field: Order Modified Byte 2
+  local order_modified_byte_2 = nil
+
   local order_modified_byte_2_exists = order_modified_bitfield_count >= 2
 
-  -- Runtime optional field: Order Modified Byte 2
   if order_modified_byte_2_exists then
 
     -- Order Modified Byte 2: Struct of 8 fields
     index, order_modified_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 3
+  -- Runtime optional field: Order Modified Byte 3
+  local order_modified_byte_3 = nil
+
   local order_modified_byte_3_exists = order_modified_bitfield_count >= 3
 
-  -- Runtime optional field: Order Modified Byte 3
   if order_modified_byte_3_exists then
 
     -- Order Modified Byte 3: Struct of 8 fields
     index, order_modified_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 4
+  -- Runtime optional field: Order Modified Byte 4
+  local order_modified_byte_4 = nil
+
   local order_modified_byte_4_exists = order_modified_bitfield_count >= 4
 
-  -- Runtime optional field: Order Modified Byte 4
   if order_modified_byte_4_exists then
 
     -- Order Modified Byte 4: Struct of 8 fields
     index, order_modified_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 5
+  -- Runtime optional field: Order Modified Byte 5
+  local order_modified_byte_5 = nil
+
   local order_modified_byte_5_exists = order_modified_bitfield_count >= 5
 
-  -- Runtime optional field: Order Modified Byte 5
   if order_modified_byte_5_exists then
 
     -- Order Modified Byte 5: Struct of 8 fields
     index, order_modified_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 6
+  -- Runtime optional field: Order Modified Byte 6
+  local order_modified_byte_6 = nil
+
   local order_modified_byte_6_exists = order_modified_bitfield_count >= 6
 
-  -- Runtime optional field: Order Modified Byte 6
   if order_modified_byte_6_exists then
 
     -- Order Modified Byte 6: Struct of 8 fields
     index, order_modified_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 7
+  -- Runtime optional field: Order Modified Byte 7
+  local order_modified_byte_7 = nil
+
   local order_modified_byte_7_exists = order_modified_bitfield_count >= 7
 
-  -- Runtime optional field: Order Modified Byte 7
   if order_modified_byte_7_exists then
 
     -- Order Modified Byte 7: Struct of 8 fields
     index, order_modified_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 8
+  -- Runtime optional field: Order Modified Byte 8
+  local order_modified_byte_8 = nil
+
   local order_modified_byte_8_exists = order_modified_bitfield_count >= 8
 
-  -- Runtime optional field: Order Modified Byte 8
   if order_modified_byte_8_exists then
 
     -- Order Modified Byte 8: Struct of 8 fields
     index, order_modified_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 9
+  -- Runtime optional field: Order Modified Byte 9
+  local order_modified_byte_9 = nil
+
   local order_modified_byte_9_exists = order_modified_bitfield_count >= 9
 
-  -- Runtime optional field: Order Modified Byte 9
   if order_modified_byte_9_exists then
 
     -- Order Modified Byte 9: Struct of 8 fields
     index, order_modified_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 10
+  -- Runtime optional field: Order Modified Byte 10
+  local order_modified_byte_10 = nil
+
   local order_modified_byte_10_exists = order_modified_bitfield_count >= 10
 
-  -- Runtime optional field: Order Modified Byte 10
   if order_modified_byte_10_exists then
 
     -- Order Modified Byte 10: Struct of 8 fields
     index, order_modified_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 11
+  -- Runtime optional field: Order Modified Byte 11
+  local order_modified_byte_11 = nil
+
   local order_modified_byte_11_exists = order_modified_bitfield_count >= 11
 
-  -- Runtime optional field: Order Modified Byte 11
   if order_modified_byte_11_exists then
 
     -- Order Modified Byte 11: Struct of 8 fields
     index, order_modified_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 12
+  -- Runtime optional field: Order Modified Byte 12
+  local order_modified_byte_12 = nil
+
   local order_modified_byte_12_exists = order_modified_bitfield_count >= 12
 
-  -- Runtime optional field: Order Modified Byte 12
   if order_modified_byte_12_exists then
 
     -- Order Modified Byte 12: Struct of 8 fields
     index, order_modified_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 13
+  -- Runtime optional field: Order Modified Byte 13
+  local order_modified_byte_13 = nil
+
   local order_modified_byte_13_exists = order_modified_bitfield_count >= 13
 
-  -- Runtime optional field: Order Modified Byte 13
   if order_modified_byte_13_exists then
 
     -- Order Modified Byte 13: Struct of 8 fields
     index, order_modified_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 14
+  -- Runtime optional field: Order Modified Byte 14
+  local order_modified_byte_14 = nil
+
   local order_modified_byte_14_exists = order_modified_bitfield_count >= 14
 
-  -- Runtime optional field: Order Modified Byte 14
   if order_modified_byte_14_exists then
 
     -- Order Modified Byte 14: Struct of 8 fields
     index, order_modified_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 15
+  -- Runtime optional field: Order Modified Byte 15
+  local order_modified_byte_15 = nil
+
   local order_modified_byte_15_exists = order_modified_bitfield_count >= 15
 
-  -- Runtime optional field: Order Modified Byte 15
   if order_modified_byte_15_exists then
 
     -- Order Modified Byte 15: Struct of 8 fields
     index, order_modified_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 16
+  -- Runtime optional field: Order Modified Byte 16
+  local order_modified_byte_16 = nil
+
   local order_modified_byte_16_exists = order_modified_bitfield_count >= 16
 
-  -- Runtime optional field: Order Modified Byte 16
   if order_modified_byte_16_exists then
 
     -- Order Modified Byte 16: Struct of 8 fields
     index, order_modified_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 17
+  -- Runtime optional field: Order Modified Byte 17
+  local order_modified_byte_17 = nil
+
   local order_modified_byte_17_exists = order_modified_bitfield_count >= 17
 
-  -- Runtime optional field: Order Modified Byte 17
   if order_modified_byte_17_exists then
 
     -- Order Modified Byte 17: Struct of 8 fields
     index, order_modified_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = order_modified_bitfield_count >= 2 and order_modified_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = order_modified_bitfield_count >= 2 and order_modified_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Account
+  -- Runtime optional field: Account
+  local account = nil
+
   local account_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(7) > 0
 
-  -- Runtime optional field: Account
   if account_exists then
     index, account = cboe_bzx_equities_orderentry_boe_v2_3.account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(6) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Account
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
   local clearing_account_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(5) > 0
 
-  -- Runtime optional field: Clearing Account
   if clearing_account_exists then
     index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Indicator
+  -- Runtime optional field: Display Indicator
+  local display_indicator = nil
+
   local display_indicator_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(4) > 0
 
-  -- Runtime optional field: Display Indicator
   if display_indicator_exists then
     index, display_indicator = cboe_bzx_equities_orderentry_boe_v2_3.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(3) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Discretion Amount
+  -- Runtime optional field: Discretion Amount
+  local discretion_amount = nil
+
   local discretion_amount_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(2) > 0
 
-  -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzx_equities_orderentry_boe_v2_3.discretion_amount.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Qty
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
   local order_qty_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(1) > 0
 
-  -- Runtime optional field: Order Qty
   if order_qty_exists then
     index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3.order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Prevent Match
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
   local prevent_match_exists = order_modified_bitfield_count >= 3 and order_modified_byte_3:bitfield(0) > 0
 
-  -- Runtime optional field: Prevent Match
   if prevent_match_exists then
     index, prevent_match = cboe_bzx_equities_orderentry_boe_v2_3.prevent_match.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Orig Cl Ord Id
+  -- Runtime optional field: Orig Cl Ord Id
+  local orig_cl_ord_id = nil
+
   local orig_cl_ord_id_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(7) > 0
 
-  -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
     index, orig_cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3.orig_cl_ord_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Leaves Qty
+  -- Runtime optional field: Leaves Qty
+  local leaves_qty = nil
+
   local leaves_qty_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(6) > 0
 
-  -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzx_equities_orderentry_boe_v2_3.leaves_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Shares
+  -- Runtime optional field: Last Shares
+  local last_shares = nil
+
   local last_shares_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(5) > 0
 
-  -- Runtime optional field: Last Shares
   if last_shares_exists then
     index, last_shares = cboe_bzx_equities_orderentry_boe_v2_3.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Px
+  -- Runtime optional field: Last Px
+  local last_px = nil
+
   local last_px_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(4) > 0
 
-  -- Runtime optional field: Last Px
   if last_px_exists then
     index, last_px = cboe_bzx_equities_orderentry_boe_v2_3.last_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Price
+  -- Runtime optional field: Display Price
+  local display_price = nil
+
   local display_price_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(3) > 0
 
-  -- Runtime optional field: Display Price
   if display_price_exists then
     index, display_price = cboe_bzx_equities_orderentry_boe_v2_3.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Working Price
+  -- Runtime optional field: Working Price
+  local working_price = nil
+
   local working_price_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(2) > 0
 
-  -- Runtime optional field: Working Price
   if working_price_exists then
     index, working_price = cboe_bzx_equities_orderentry_boe_v2_3.working_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Base Liquidity Indicator
+  -- Runtime optional field: Base Liquidity Indicator
+  local base_liquidity_indicator = nil
+
   local base_liquidity_indicator_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(1) > 0
 
-  -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.base_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Expire Time
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
   local expire_time_exists = order_modified_bitfield_count >= 5 and order_modified_byte_5:bitfield(0) > 0
 
-  -- Runtime optional field: Expire Time
   if expire_time_exists then
     index, expire_time = cboe_bzx_equities_orderentry_boe_v2_3.expire_time.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Secondary Order Id
+  -- Runtime optional field: Secondary Order Id
+  local secondary_order_id = nil
+
   local secondary_order_id_exists = order_modified_bitfield_count >= 6 and order_modified_byte_6:bitfield(7) > 0
 
-  -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
     index, secondary_order_id = cboe_bzx_equities_orderentry_boe_v2_3.secondary_order_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attributed Quote
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
   local attributed_quote_exists = order_modified_bitfield_count >= 6 and order_modified_byte_6:bitfield(4) > 0
 
-  -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzx_equities_orderentry_boe_v2_3.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ext Exec Inst
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
   local ext_exec_inst_exists = order_modified_bitfield_count >= 6 and order_modified_byte_6:bitfield(3) > 0
 
-  -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(6) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(5) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Routing Inst
+  -- Runtime optional field: Routing Inst
+  local routing_inst = nil
+
   local routing_inst_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(4) > 0
 
-  -- Runtime optional field: Routing Inst
   if routing_inst_exists then
     index, routing_inst = cboe_bzx_equities_orderentry_boe_v2_3.routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Delivery Method
+  -- Runtime optional field: Route Delivery Method
+  local route_delivery_method = nil
+
   local route_delivery_method_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(2) > 0
 
-  -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzx_equities_orderentry_boe_v2_3.route_delivery_method.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ex Destination
+  -- Runtime optional field: Ex Destination
+  local ex_destination = nil
+
   local ex_destination_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(1) > 0
 
-  -- Runtime optional field: Ex Destination
   if ex_destination_exists then
     index, ex_destination = cboe_bzx_equities_orderentry_boe_v2_3.ex_destination.dissect(buffer, index, packet, parent)
   end
@@ -21302,388 +21589,432 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_optional_fields.fields = fu
   -- Order Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Rejected Byte 1
+  -- Runtime optional field: Order Rejected Byte 1
+  local order_rejected_byte_1 = nil
+
   local order_rejected_byte_1_exists = order_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: Order Rejected Byte 1
   if order_rejected_byte_1_exists then
 
     -- Order Rejected Byte 1: Struct of 8 fields
     index, order_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 2
+  -- Runtime optional field: Order Rejected Byte 2
+  local order_rejected_byte_2 = nil
+
   local order_rejected_byte_2_exists = order_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: Order Rejected Byte 2
   if order_rejected_byte_2_exists then
 
     -- Order Rejected Byte 2: Struct of 8 fields
     index, order_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 3
+  -- Runtime optional field: Order Rejected Byte 3
+  local order_rejected_byte_3 = nil
+
   local order_rejected_byte_3_exists = order_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: Order Rejected Byte 3
   if order_rejected_byte_3_exists then
 
     -- Order Rejected Byte 3: Struct of 8 fields
     index, order_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 4
+  -- Runtime optional field: Order Rejected Byte 4
+  local order_rejected_byte_4 = nil
+
   local order_rejected_byte_4_exists = order_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: Order Rejected Byte 4
   if order_rejected_byte_4_exists then
 
     -- Order Rejected Byte 4: Struct of 8 fields
     index, order_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 5
+  -- Runtime optional field: Order Rejected Byte 5
+  local order_rejected_byte_5 = nil
+
   local order_rejected_byte_5_exists = order_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: Order Rejected Byte 5
   if order_rejected_byte_5_exists then
 
     -- Order Rejected Byte 5: Struct of 8 fields
     index, order_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 6
+  -- Runtime optional field: Order Rejected Byte 6
+  local order_rejected_byte_6 = nil
+
   local order_rejected_byte_6_exists = order_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: Order Rejected Byte 6
   if order_rejected_byte_6_exists then
 
     -- Order Rejected Byte 6: Struct of 8 fields
     index, order_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 7
+  -- Runtime optional field: Order Rejected Byte 7
+  local order_rejected_byte_7 = nil
+
   local order_rejected_byte_7_exists = order_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: Order Rejected Byte 7
   if order_rejected_byte_7_exists then
 
     -- Order Rejected Byte 7: Struct of 8 fields
     index, order_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 8
+  -- Runtime optional field: Order Rejected Byte 8
+  local order_rejected_byte_8 = nil
+
   local order_rejected_byte_8_exists = order_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: Order Rejected Byte 8
   if order_rejected_byte_8_exists then
 
     -- Order Rejected Byte 8: Struct of 8 fields
     index, order_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 9
+  -- Runtime optional field: Order Rejected Byte 9
+  local order_rejected_byte_9 = nil
+
   local order_rejected_byte_9_exists = order_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: Order Rejected Byte 9
   if order_rejected_byte_9_exists then
 
     -- Order Rejected Byte 9: Struct of 8 fields
     index, order_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 10
+  -- Runtime optional field: Order Rejected Byte 10
+  local order_rejected_byte_10 = nil
+
   local order_rejected_byte_10_exists = order_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: Order Rejected Byte 10
   if order_rejected_byte_10_exists then
 
     -- Order Rejected Byte 10: Struct of 8 fields
     index, order_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 11
+  -- Runtime optional field: Order Rejected Byte 11
+  local order_rejected_byte_11 = nil
+
   local order_rejected_byte_11_exists = order_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: Order Rejected Byte 11
   if order_rejected_byte_11_exists then
 
     -- Order Rejected Byte 11: Struct of 8 fields
     index, order_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 12
+  -- Runtime optional field: Order Rejected Byte 12
+  local order_rejected_byte_12 = nil
+
   local order_rejected_byte_12_exists = order_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: Order Rejected Byte 12
   if order_rejected_byte_12_exists then
 
     -- Order Rejected Byte 12: Struct of 8 fields
     index, order_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 13
+  -- Runtime optional field: Order Rejected Byte 13
+  local order_rejected_byte_13 = nil
+
   local order_rejected_byte_13_exists = order_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: Order Rejected Byte 13
   if order_rejected_byte_13_exists then
 
     -- Order Rejected Byte 13: Struct of 8 fields
     index, order_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 14
+  -- Runtime optional field: Order Rejected Byte 14
+  local order_rejected_byte_14 = nil
+
   local order_rejected_byte_14_exists = order_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: Order Rejected Byte 14
   if order_rejected_byte_14_exists then
 
     -- Order Rejected Byte 14: Struct of 8 fields
     index, order_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 15
+  -- Runtime optional field: Order Rejected Byte 15
+  local order_rejected_byte_15 = nil
+
   local order_rejected_byte_15_exists = order_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: Order Rejected Byte 15
   if order_rejected_byte_15_exists then
 
     -- Order Rejected Byte 15: Struct of 8 fields
     index, order_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 16
+  -- Runtime optional field: Order Rejected Byte 16
+  local order_rejected_byte_16 = nil
+
   local order_rejected_byte_16_exists = order_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: Order Rejected Byte 16
   if order_rejected_byte_16_exists then
 
     -- Order Rejected Byte 16: Struct of 8 fields
     index, order_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 17
+  -- Runtime optional field: Order Rejected Byte 17
+  local order_rejected_byte_17 = nil
+
   local order_rejected_byte_17_exists = order_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: Order Rejected Byte 17
   if order_rejected_byte_17_exists then
 
     -- Order Rejected Byte 17: Struct of 8 fields
     index, order_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = order_rejected_bitfield_count >= 2 and order_rejected_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = order_rejected_bitfield_count >= 2 and order_rejected_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = order_rejected_bitfield_count >= 2 and order_rejected_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Account
+  -- Runtime optional field: Account
+  local account = nil
+
   local account_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(7) > 0
 
-  -- Runtime optional field: Account
   if account_exists then
     index, account = cboe_bzx_equities_orderentry_boe_v2_3.account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(6) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Account
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
   local clearing_account_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(5) > 0
 
-  -- Runtime optional field: Clearing Account
   if clearing_account_exists then
     index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Indicator
+  -- Runtime optional field: Display Indicator
+  local display_indicator = nil
+
   local display_indicator_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(4) > 0
 
-  -- Runtime optional field: Display Indicator
   if display_indicator_exists then
     index, display_indicator = cboe_bzx_equities_orderentry_boe_v2_3.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(3) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Discretion Amount
+  -- Runtime optional field: Discretion Amount
+  local discretion_amount = nil
+
   local discretion_amount_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(2) > 0
 
-  -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzx_equities_orderentry_boe_v2_3.discretion_amount.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Qty
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
   local order_qty_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(1) > 0
 
-  -- Runtime optional field: Order Qty
   if order_qty_exists then
     index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3.order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Prevent Match
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
   local prevent_match_exists = order_rejected_bitfield_count >= 3 and order_rejected_byte_3:bitfield(0) > 0
 
-  -- Runtime optional field: Prevent Match
   if prevent_match_exists then
     index, prevent_match = cboe_bzx_equities_orderentry_boe_v2_3.prevent_match.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Secondary Order Id
+  -- Runtime optional field: Secondary Order Id
+  local secondary_order_id = nil
+
   local secondary_order_id_exists = order_rejected_bitfield_count >= 6 and order_rejected_byte_6:bitfield(7) > 0
 
-  -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
     index, secondary_order_id = cboe_bzx_equities_orderentry_boe_v2_3.secondary_order_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attributed Quote
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
   local attributed_quote_exists = order_rejected_bitfield_count >= 6 and order_rejected_byte_6:bitfield(4) > 0
 
-  -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzx_equities_orderentry_boe_v2_3.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ext Exec Inst
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
   local ext_exec_inst_exists = order_rejected_bitfield_count >= 6 and order_rejected_byte_6:bitfield(3) > 0
 
-  -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(6) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(5) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Routing Inst
+  -- Runtime optional field: Routing Inst
+  local routing_inst = nil
+
   local routing_inst_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(4) > 0
 
-  -- Runtime optional field: Routing Inst
   if routing_inst_exists then
     index, routing_inst = cboe_bzx_equities_orderentry_boe_v2_3.routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Delivery Method
+  -- Runtime optional field: Route Delivery Method
+  local route_delivery_method = nil
+
   local route_delivery_method_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(2) > 0
 
-  -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzx_equities_orderentry_boe_v2_3.route_delivery_method.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ex Destination
+  -- Runtime optional field: Ex Destination
+  local ex_destination = nil
+
   local ex_destination_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(1) > 0
 
-  -- Runtime optional field: Ex Destination
   if ex_destination_exists then
     index, ex_destination = cboe_bzx_equities_orderentry_boe_v2_3.ex_destination.dissect(buffer, index, packet, parent)
   end
@@ -23432,460 +23763,513 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_optional_fields.field
   -- Order Acknowledgment Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_acknowledgment_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 1
+  -- Runtime optional field: Order Acknowledgment Byte 1
+  local order_acknowledgment_byte_1 = nil
+
   local order_acknowledgment_byte_1_exists = order_acknowledgment_bitfield_count >= 1
 
-  -- Runtime optional field: Order Acknowledgment Byte 1
   if order_acknowledgment_byte_1_exists then
 
     -- Order Acknowledgment Byte 1: Struct of 8 fields
     index, order_acknowledgment_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 2
+  -- Runtime optional field: Order Acknowledgment Byte 2
+  local order_acknowledgment_byte_2 = nil
+
   local order_acknowledgment_byte_2_exists = order_acknowledgment_bitfield_count >= 2
 
-  -- Runtime optional field: Order Acknowledgment Byte 2
   if order_acknowledgment_byte_2_exists then
 
     -- Order Acknowledgment Byte 2: Struct of 8 fields
     index, order_acknowledgment_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 3
+  -- Runtime optional field: Order Acknowledgment Byte 3
+  local order_acknowledgment_byte_3 = nil
+
   local order_acknowledgment_byte_3_exists = order_acknowledgment_bitfield_count >= 3
 
-  -- Runtime optional field: Order Acknowledgment Byte 3
   if order_acknowledgment_byte_3_exists then
 
     -- Order Acknowledgment Byte 3: Struct of 8 fields
     index, order_acknowledgment_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 4
+  -- Runtime optional field: Order Acknowledgment Byte 4
+  local order_acknowledgment_byte_4 = nil
+
   local order_acknowledgment_byte_4_exists = order_acknowledgment_bitfield_count >= 4
 
-  -- Runtime optional field: Order Acknowledgment Byte 4
   if order_acknowledgment_byte_4_exists then
 
     -- Order Acknowledgment Byte 4: Struct of 8 fields
     index, order_acknowledgment_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 5
+  -- Runtime optional field: Order Acknowledgment Byte 5
+  local order_acknowledgment_byte_5 = nil
+
   local order_acknowledgment_byte_5_exists = order_acknowledgment_bitfield_count >= 5
 
-  -- Runtime optional field: Order Acknowledgment Byte 5
   if order_acknowledgment_byte_5_exists then
 
     -- Order Acknowledgment Byte 5: Struct of 8 fields
     index, order_acknowledgment_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 6
+  -- Runtime optional field: Order Acknowledgment Byte 6
+  local order_acknowledgment_byte_6 = nil
+
   local order_acknowledgment_byte_6_exists = order_acknowledgment_bitfield_count >= 6
 
-  -- Runtime optional field: Order Acknowledgment Byte 6
   if order_acknowledgment_byte_6_exists then
 
     -- Order Acknowledgment Byte 6: Struct of 8 fields
     index, order_acknowledgment_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 7
+  -- Runtime optional field: Order Acknowledgment Byte 7
+  local order_acknowledgment_byte_7 = nil
+
   local order_acknowledgment_byte_7_exists = order_acknowledgment_bitfield_count >= 7
 
-  -- Runtime optional field: Order Acknowledgment Byte 7
   if order_acknowledgment_byte_7_exists then
 
     -- Order Acknowledgment Byte 7: Struct of 8 fields
     index, order_acknowledgment_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 8
+  -- Runtime optional field: Order Acknowledgment Byte 8
+  local order_acknowledgment_byte_8 = nil
+
   local order_acknowledgment_byte_8_exists = order_acknowledgment_bitfield_count >= 8
 
-  -- Runtime optional field: Order Acknowledgment Byte 8
   if order_acknowledgment_byte_8_exists then
 
     -- Order Acknowledgment Byte 8: Struct of 8 fields
     index, order_acknowledgment_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 9
+  -- Runtime optional field: Order Acknowledgment Byte 9
+  local order_acknowledgment_byte_9 = nil
+
   local order_acknowledgment_byte_9_exists = order_acknowledgment_bitfield_count >= 9
 
-  -- Runtime optional field: Order Acknowledgment Byte 9
   if order_acknowledgment_byte_9_exists then
 
     -- Order Acknowledgment Byte 9: Struct of 8 fields
     index, order_acknowledgment_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 10
+  -- Runtime optional field: Order Acknowledgment Byte 10
+  local order_acknowledgment_byte_10 = nil
+
   local order_acknowledgment_byte_10_exists = order_acknowledgment_bitfield_count >= 10
 
-  -- Runtime optional field: Order Acknowledgment Byte 10
   if order_acknowledgment_byte_10_exists then
 
     -- Order Acknowledgment Byte 10: Struct of 8 fields
     index, order_acknowledgment_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 11
+  -- Runtime optional field: Order Acknowledgment Byte 11
+  local order_acknowledgment_byte_11 = nil
+
   local order_acknowledgment_byte_11_exists = order_acknowledgment_bitfield_count >= 11
 
-  -- Runtime optional field: Order Acknowledgment Byte 11
   if order_acknowledgment_byte_11_exists then
 
     -- Order Acknowledgment Byte 11: Struct of 8 fields
     index, order_acknowledgment_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 12
+  -- Runtime optional field: Order Acknowledgment Byte 12
+  local order_acknowledgment_byte_12 = nil
+
   local order_acknowledgment_byte_12_exists = order_acknowledgment_bitfield_count >= 12
 
-  -- Runtime optional field: Order Acknowledgment Byte 12
   if order_acknowledgment_byte_12_exists then
 
     -- Order Acknowledgment Byte 12: Struct of 8 fields
     index, order_acknowledgment_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 13
+  -- Runtime optional field: Order Acknowledgment Byte 13
+  local order_acknowledgment_byte_13 = nil
+
   local order_acknowledgment_byte_13_exists = order_acknowledgment_bitfield_count >= 13
 
-  -- Runtime optional field: Order Acknowledgment Byte 13
   if order_acknowledgment_byte_13_exists then
 
     -- Order Acknowledgment Byte 13: Struct of 8 fields
     index, order_acknowledgment_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 14
+  -- Runtime optional field: Order Acknowledgment Byte 14
+  local order_acknowledgment_byte_14 = nil
+
   local order_acknowledgment_byte_14_exists = order_acknowledgment_bitfield_count >= 14
 
-  -- Runtime optional field: Order Acknowledgment Byte 14
   if order_acknowledgment_byte_14_exists then
 
     -- Order Acknowledgment Byte 14: Struct of 8 fields
     index, order_acknowledgment_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 15
+  -- Runtime optional field: Order Acknowledgment Byte 15
+  local order_acknowledgment_byte_15 = nil
+
   local order_acknowledgment_byte_15_exists = order_acknowledgment_bitfield_count >= 15
 
-  -- Runtime optional field: Order Acknowledgment Byte 15
   if order_acknowledgment_byte_15_exists then
 
     -- Order Acknowledgment Byte 15: Struct of 8 fields
     index, order_acknowledgment_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 16
+  -- Runtime optional field: Order Acknowledgment Byte 16
+  local order_acknowledgment_byte_16 = nil
+
   local order_acknowledgment_byte_16_exists = order_acknowledgment_bitfield_count >= 16
 
-  -- Runtime optional field: Order Acknowledgment Byte 16
   if order_acknowledgment_byte_16_exists then
 
     -- Order Acknowledgment Byte 16: Struct of 8 fields
     index, order_acknowledgment_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 17
+  -- Runtime optional field: Order Acknowledgment Byte 17
+  local order_acknowledgment_byte_17 = nil
+
   local order_acknowledgment_byte_17_exists = order_acknowledgment_bitfield_count >= 17
 
-  -- Runtime optional field: Order Acknowledgment Byte 17
   if order_acknowledgment_byte_17_exists then
 
     -- Order Acknowledgment Byte 17: Struct of 8 fields
     index, order_acknowledgment_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = order_acknowledgment_bitfield_count >= 2 and order_acknowledgment_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = order_acknowledgment_bitfield_count >= 2 and order_acknowledgment_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = order_acknowledgment_bitfield_count >= 2 and order_acknowledgment_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Account
+  -- Runtime optional field: Account
+  local account = nil
+
   local account_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(7) > 0
 
-  -- Runtime optional field: Account
   if account_exists then
     index, account = cboe_bzx_equities_orderentry_boe_v2_3.account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(6) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Account
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
   local clearing_account_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(5) > 0
 
-  -- Runtime optional field: Clearing Account
   if clearing_account_exists then
     index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Indicator
+  -- Runtime optional field: Display Indicator
+  local display_indicator = nil
+
   local display_indicator_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(4) > 0
 
-  -- Runtime optional field: Display Indicator
   if display_indicator_exists then
     index, display_indicator = cboe_bzx_equities_orderentry_boe_v2_3.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(3) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Discretion Amount
+  -- Runtime optional field: Discretion Amount
+  local discretion_amount = nil
+
   local discretion_amount_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(2) > 0
 
-  -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzx_equities_orderentry_boe_v2_3.discretion_amount.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Qty
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
   local order_qty_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(1) > 0
 
-  -- Runtime optional field: Order Qty
   if order_qty_exists then
     index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3.order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Prevent Match
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
   local prevent_match_exists = order_acknowledgment_bitfield_count >= 3 and order_acknowledgment_byte_3:bitfield(0) > 0
 
-  -- Runtime optional field: Prevent Match
   if prevent_match_exists then
     index, prevent_match = cboe_bzx_equities_orderentry_boe_v2_3.prevent_match.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Orig Cl Ord Id
+  -- Runtime optional field: Orig Cl Ord Id
+  local orig_cl_ord_id = nil
+
   local orig_cl_ord_id_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(7) > 0
 
-  -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
     index, orig_cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3.orig_cl_ord_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Leaves Qty
+  -- Runtime optional field: Leaves Qty
+  local leaves_qty = nil
+
   local leaves_qty_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(6) > 0
 
-  -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzx_equities_orderentry_boe_v2_3.leaves_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Shares
+  -- Runtime optional field: Last Shares
+  local last_shares = nil
+
   local last_shares_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(5) > 0
 
-  -- Runtime optional field: Last Shares
   if last_shares_exists then
     index, last_shares = cboe_bzx_equities_orderentry_boe_v2_3.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Last Px
+  -- Runtime optional field: Last Px
+  local last_px = nil
+
   local last_px_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(4) > 0
 
-  -- Runtime optional field: Last Px
   if last_px_exists then
     index, last_px = cboe_bzx_equities_orderentry_boe_v2_3.last_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Price
+  -- Runtime optional field: Display Price
+  local display_price = nil
+
   local display_price_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(3) > 0
 
-  -- Runtime optional field: Display Price
   if display_price_exists then
     index, display_price = cboe_bzx_equities_orderentry_boe_v2_3.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Working Price
+  -- Runtime optional field: Working Price
+  local working_price = nil
+
   local working_price_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(2) > 0
 
-  -- Runtime optional field: Working Price
   if working_price_exists then
     index, working_price = cboe_bzx_equities_orderentry_boe_v2_3.working_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Base Liquidity Indicator
+  -- Runtime optional field: Base Liquidity Indicator
+  local base_liquidity_indicator = nil
+
   local base_liquidity_indicator_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(1) > 0
 
-  -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.base_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Expire Time
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
   local expire_time_exists = order_acknowledgment_bitfield_count >= 5 and order_acknowledgment_byte_5:bitfield(0) > 0
 
-  -- Runtime optional field: Expire Time
   if expire_time_exists then
     index, expire_time = cboe_bzx_equities_orderentry_boe_v2_3.expire_time.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Secondary Order Id
+  -- Runtime optional field: Secondary Order Id
+  local secondary_order_id = nil
+
   local secondary_order_id_exists = order_acknowledgment_bitfield_count >= 6 and order_acknowledgment_byte_6:bitfield(7) > 0
 
-  -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
     index, secondary_order_id = cboe_bzx_equities_orderentry_boe_v2_3.secondary_order_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attributed Quote
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
   local attributed_quote_exists = order_acknowledgment_bitfield_count >= 6 and order_acknowledgment_byte_6:bitfield(4) > 0
 
-  -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzx_equities_orderentry_boe_v2_3.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ext Exec Inst
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
   local ext_exec_inst_exists = order_acknowledgment_bitfield_count >= 6 and order_acknowledgment_byte_6:bitfield(3) > 0
 
-  -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Sub Liquidity Indicator
+  -- Runtime optional field: Sub Liquidity Indicator
+  local sub_liquidity_indicator = nil
+
   local sub_liquidity_indicator_exists = order_acknowledgment_bitfield_count >= 7 and order_acknowledgment_byte_7:bitfield(7) > 0
 
-  -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
     index, sub_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(6) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(5) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Routing Inst
+  -- Runtime optional field: Routing Inst
+  local routing_inst = nil
+
   local routing_inst_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(4) > 0
 
-  -- Runtime optional field: Routing Inst
   if routing_inst_exists then
     index, routing_inst = cboe_bzx_equities_orderentry_boe_v2_3.routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Delivery Method
+  -- Runtime optional field: Route Delivery Method
+  local route_delivery_method = nil
+
   local route_delivery_method_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(2) > 0
 
-  -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzx_equities_orderentry_boe_v2_3.route_delivery_method.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ex Destination
+  -- Runtime optional field: Ex Destination
+  local ex_destination = nil
+
   local ex_destination_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(1) > 0
 
-  -- Runtime optional field: Ex Destination
   if ex_destination_exists then
     index, ex_destination = cboe_bzx_equities_orderentry_boe_v2_3.ex_destination.dissect(buffer, index, packet, parent)
   end
@@ -24214,62 +24598,69 @@ cboe_bzx_equities_orderentry_boe_v2_3.purge_order_optional_fields.fields = funct
   -- Purge Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, purge_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.purge_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Purge Order Byte 1
+  -- Runtime optional field: Purge Order Byte 1
+  local purge_order_byte_1 = nil
+
   local purge_order_byte_1_exists = purge_order_bitfield_count >= 1
 
-  -- Runtime optional field: Purge Order Byte 1
   if purge_order_byte_1_exists then
 
     -- Purge Order Byte 1: Struct of 8 fields
     index, purge_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.purge_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Order Byte 2
+  -- Runtime optional field: Purge Order Byte 2
+  local purge_order_byte_2 = nil
+
   local purge_order_byte_2_exists = purge_order_bitfield_count >= 2
 
-  -- Runtime optional field: Purge Order Byte 2
   if purge_order_byte_2_exists then
 
     -- Purge Order Byte 2: Struct of 8 fields
     index, purge_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.purge_order_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = purge_order_bitfield_count >= 1 and purge_order_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Mass Cancel Inst
+  -- Runtime optional field: Mass Cancel Inst
+  local mass_cancel_inst = nil
+
   local mass_cancel_inst_exists = purge_order_bitfield_count >= 1 and purge_order_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Mass Cancel Inst
   if mass_cancel_inst_exists then
     index, mass_cancel_inst = cboe_bzx_equities_orderentry_boe_v2_3.mass_cancel_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Mass Cancel Id
+  -- Runtime optional field: Mass Cancel Id
+  local mass_cancel_id = nil
+
   local mass_cancel_id_exists = purge_order_bitfield_count >= 1 and purge_order_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Mass Cancel Id
   if mass_cancel_id_exists then
     index, mass_cancel_id = cboe_bzx_equities_orderentry_boe_v2_3.mass_cancel_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = purge_order_bitfield_count >= 2 and purge_order_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = purge_order_bitfield_count >= 2 and purge_order_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
@@ -24589,86 +24980,96 @@ cboe_bzx_equities_orderentry_boe_v2_3.modify_order_optional_fields.fields = func
   -- Modify Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, modify_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.modify_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Modify Order Byte 1
+  -- Runtime optional field: Modify Order Byte 1
+  local modify_order_byte_1 = nil
+
   local modify_order_byte_1_exists = modify_order_bitfield_count >= 1
 
-  -- Runtime optional field: Modify Order Byte 1
   if modify_order_byte_1_exists then
 
     -- Modify Order Byte 1: Struct of 8 fields
     index, modify_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.modify_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Modify Order Byte 2
+  -- Runtime optional field: Modify Order Byte 2
+  local modify_order_byte_2 = nil
+
   local modify_order_byte_2_exists = modify_order_bitfield_count >= 2
 
-  -- Runtime optional field: Modify Order Byte 2
   if modify_order_byte_2_exists then
 
     -- Modify Order Byte 2: Struct of 8 fields
     index, modify_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.modify_order_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Qty
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
   local order_qty_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Order Qty
   if order_qty_exists then
     index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3.order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Orig On Reject
+  -- Runtime optional field: Cancel Orig On Reject
+  local cancel_orig_on_reject = nil
+
   local cancel_orig_on_reject_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Cancel Orig On Reject
   if cancel_orig_on_reject_exists then
     index, cancel_orig_on_reject = cboe_bzx_equities_orderentry_boe_v2_3.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Side
+  -- Runtime optional field: Side
+  local side = nil
+
   local side_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(0) > 0
 
-  -- Runtime optional field: Side
   if side_exists then
     index, side = cboe_bzx_equities_orderentry_boe_v2_3.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = modify_order_bitfield_count >= 2 and modify_order_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
@@ -24968,30 +25369,33 @@ cboe_bzx_equities_orderentry_boe_v2_3.cancel_order_optional_fields.fields = func
   -- Cancel Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, cancel_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.cancel_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Cancel Order Byte 1
+  -- Runtime optional field: Cancel Order Byte 1
+  local cancel_order_byte_1 = nil
+
   local cancel_order_byte_1_exists = cancel_order_bitfield_count >= 1
 
-  -- Runtime optional field: Cancel Order Byte 1
   if cancel_order_byte_1_exists then
 
     -- Cancel Order Byte 1: Struct of 8 fields
     index, cancel_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Order Byte 2
+  -- Runtime optional field: Cancel Order Byte 2
+  local cancel_order_byte_2 = nil
+
   local cancel_order_byte_2_exists = cancel_order_bitfield_count >= 2
 
-  -- Runtime optional field: Cancel Order Byte 2
   if cancel_order_byte_2_exists then
 
     -- Cancel Order Byte 2: Struct of 8 fields
     index, cancel_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_order_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = cancel_order_bitfield_count >= 1 and cancel_order_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
@@ -25820,304 +26224,340 @@ cboe_bzx_equities_orderentry_boe_v2_3.new_order_optional_fields.fields = functio
   -- New Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, new_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.new_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: New Order Byte 1
+  -- Runtime optional field: New Order Byte 1
+  local new_order_byte_1 = nil
+
   local new_order_byte_1_exists = new_order_bitfield_count >= 1
 
-  -- Runtime optional field: New Order Byte 1
   if new_order_byte_1_exists then
 
     -- New Order Byte 1: Struct of 8 fields
     index, new_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 2
+  -- Runtime optional field: New Order Byte 2
+  local new_order_byte_2 = nil
+
   local new_order_byte_2_exists = new_order_bitfield_count >= 2
 
-  -- Runtime optional field: New Order Byte 2
   if new_order_byte_2_exists then
 
     -- New Order Byte 2: Struct of 8 fields
     index, new_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 3
+  -- Runtime optional field: New Order Byte 3
+  local new_order_byte_3 = nil
+
   local new_order_byte_3_exists = new_order_bitfield_count >= 3
 
-  -- Runtime optional field: New Order Byte 3
   if new_order_byte_3_exists then
 
     -- New Order Byte 3: Struct of 8 fields
     index, new_order_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 4
+  -- Runtime optional field: New Order Byte 4
+  local new_order_byte_4 = nil
+
   local new_order_byte_4_exists = new_order_bitfield_count >= 4
 
-  -- Runtime optional field: New Order Byte 4
   if new_order_byte_4_exists then
 
     -- New Order Byte 4: Struct of 8 fields
     index, new_order_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 5
+  -- Runtime optional field: New Order Byte 5
+  local new_order_byte_5 = nil
+
   local new_order_byte_5_exists = new_order_bitfield_count >= 5
 
-  -- Runtime optional field: New Order Byte 5
   if new_order_byte_5_exists then
 
     -- New Order Byte 5: Struct of 8 fields
     index, new_order_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 6
+  -- Runtime optional field: New Order Byte 6
+  local new_order_byte_6 = nil
+
   local new_order_byte_6_exists = new_order_bitfield_count >= 6
 
-  -- Runtime optional field: New Order Byte 6
   if new_order_byte_6_exists then
 
     -- New Order Byte 6: Struct of 8 fields
     index, new_order_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 7
+  -- Runtime optional field: New Order Byte 7
+  local new_order_byte_7 = nil
+
   local new_order_byte_7_exists = new_order_bitfield_count >= 7
 
-  -- Runtime optional field: New Order Byte 7
   if new_order_byte_7_exists then
 
     -- New Order Byte 7: Struct of 8 fields
     index, new_order_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Firm
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
   local clearing_firm_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(7) > 0
 
-  -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Clearing Account
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
   local clearing_account_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(6) > 0
 
-  -- Runtime optional field: Clearing Account
   if clearing_account_exists then
     index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Price
+  -- Runtime optional field: Price
+  local price = nil
+
   local price_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(5) > 0
 
-  -- Runtime optional field: Price
   if price_exists then
     index, price = cboe_bzx_equities_orderentry_boe_v2_3.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
   local exec_inst_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(4) > 0
 
-  -- Runtime optional field: Exec Inst
   if exec_inst_exists then
     index, exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ord Type
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
   local ord_type_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(3) > 0
 
-  -- Runtime optional field: Ord Type
   if ord_type_exists then
     index, ord_type = cboe_bzx_equities_orderentry_boe_v2_3.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Time In Force
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
   local time_in_force_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Time In Force
   if time_in_force_exists then
     index, time_in_force = cboe_bzx_equities_orderentry_boe_v2_3.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Min Qty
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
   local min_qty_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(1) > 0
 
-  -- Runtime optional field: Min Qty
   if min_qty_exists then
     index, min_qty = cboe_bzx_equities_orderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Floor
+  -- Runtime optional field: Max Floor
+  local max_floor = nil
+
   local max_floor_exists = new_order_bitfield_count >= 1 and new_order_byte_1:bitfield(0) > 0
 
-  -- Runtime optional field: Max Floor
   if max_floor_exists then
     index, max_floor = cboe_bzx_equities_orderentry_boe_v2_3.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
   local symbol_exists = new_order_bitfield_count >= 2 and new_order_byte_2:bitfield(7) > 0
 
-  -- Runtime optional field: Symbol
   if symbol_exists then
     index, symbol = cboe_bzx_equities_orderentry_boe_v2_3.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Symbol Sfx
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
   local symbol_sfx_exists = new_order_bitfield_count >= 2 and new_order_byte_2:bitfield(6) > 0
 
-  -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzx_equities_orderentry_boe_v2_3.symbol_sfx.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Capacity
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
   local capacity_exists = new_order_bitfield_count >= 2 and new_order_byte_2:bitfield(1) > 0
 
-  -- Runtime optional field: Capacity
   if capacity_exists then
     index, capacity = cboe_bzx_equities_orderentry_boe_v2_3.capacity.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Routing Inst
+  -- Runtime optional field: Routing Inst
+  local routing_inst = nil
+
   local routing_inst_exists = new_order_bitfield_count >= 2 and new_order_byte_2:bitfield(0) > 0
 
-  -- Runtime optional field: Routing Inst
   if routing_inst_exists then
     index, routing_inst = cboe_bzx_equities_orderentry_boe_v2_3.routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Account
+  -- Runtime optional field: Account
+  local account = nil
+
   local account_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(7) > 0
 
-  -- Runtime optional field: Account
   if account_exists then
     index, account = cboe_bzx_equities_orderentry_boe_v2_3.account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Indicator
+  -- Runtime optional field: Display Indicator
+  local display_indicator = nil
+
   local display_indicator_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(6) > 0
 
-  -- Runtime optional field: Display Indicator
   if display_indicator_exists then
     index, display_indicator = cboe_bzx_equities_orderentry_boe_v2_3.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Discretion Amount
+  -- Runtime optional field: Discretion Amount
+  local discretion_amount = nil
+
   local discretion_amount_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(4) > 0
 
-  -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzx_equities_orderentry_boe_v2_3.discretion_amount.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Peg Difference
+  -- Runtime optional field: Peg Difference
+  local peg_difference = nil
+
   local peg_difference_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(3) > 0
 
-  -- Runtime optional field: Peg Difference
   if peg_difference_exists then
     index, peg_difference = cboe_bzx_equities_orderentry_boe_v2_3.peg_difference.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Prevent Match
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
   local prevent_match_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(2) > 0
 
-  -- Runtime optional field: Prevent Match
   if prevent_match_exists then
     index, prevent_match = cboe_bzx_equities_orderentry_boe_v2_3.prevent_match.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Locate Reqd
+  -- Runtime optional field: Locate Reqd
+  local locate_reqd = nil
+
   local locate_reqd_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(1) > 0
 
-  -- Runtime optional field: Locate Reqd
   if locate_reqd_exists then
     index, locate_reqd = cboe_bzx_equities_orderentry_boe_v2_3.locate_reqd.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Expire Time
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
   local expire_time_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(0) > 0
 
-  -- Runtime optional field: Expire Time
   if expire_time_exists then
     index, expire_time = cboe_bzx_equities_orderentry_boe_v2_3.expire_time.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Risk Reset
+  -- Runtime optional field: Risk Reset
+  local risk_reset = nil
+
   local risk_reset_exists = new_order_bitfield_count >= 4 and new_order_byte_4:bitfield(4) > 0
 
-  -- Runtime optional field: Risk Reset
   if risk_reset_exists then
     index, risk_reset = cboe_bzx_equities_orderentry_boe_v2_3.risk_reset.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attributed Quote
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
   local attributed_quote_exists = new_order_bitfield_count >= 5 and new_order_byte_5:bitfield(6) > 0
 
-  -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzx_equities_orderentry_boe_v2_3.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ext Exec Inst
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
   local ext_exec_inst_exists = new_order_bitfield_count >= 5 and new_order_byte_5:bitfield(4) > 0
 
-  -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzx_equities_orderentry_boe_v2_3.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Display Range
+  -- Runtime optional field: Display Range
+  local display_range = nil
+
   local display_range_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(7) > 0
 
-  -- Runtime optional field: Display Range
   if display_range_exists then
     index, display_range = cboe_bzx_equities_orderentry_boe_v2_3.display_range.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Stop Px
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
   local stop_px_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(6) > 0
 
-  -- Runtime optional field: Stop Px
   if stop_px_exists then
     index, stop_px = cboe_bzx_equities_orderentry_boe_v2_3.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Rout Strategy
+  -- Runtime optional field: Rout Strategy
+  local rout_strategy = nil
+
   local rout_strategy_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(5) > 0
 
-  -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzx_equities_orderentry_boe_v2_3.rout_strategy.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Delivery Method
+  -- Runtime optional field: Route Delivery Method
+  local route_delivery_method = nil
+
   local route_delivery_method_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(4) > 0
 
-  -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzx_equities_orderentry_boe_v2_3.route_delivery_method.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Ex Destination
+  -- Runtime optional field: Ex Destination
+  local ex_destination = nil
+
   local ex_destination_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(3) > 0
 
-  -- Runtime optional field: Ex Destination
   if ex_destination_exists then
     index, ex_destination = cboe_bzx_equities_orderentry_boe_v2_3.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Echo Text
+  -- Runtime optional field: Echo Text
+  local echo_text = nil
+
   local echo_text_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(2) > 0
 
-  -- Runtime optional field: Echo Text
   if echo_text_exists then
     index, echo_text = cboe_bzx_equities_orderentry_boe_v2_3.echo_text.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Custom Group Id
+  -- Runtime optional field: Custom Group Id
+  local custom_group_id = nil
+
   local custom_group_id_exists = new_order_bitfield_count >= 7 and new_order_byte_7:bitfield(6) > 0
 
-  -- Runtime optional field: Custom Group Id
   if custom_group_id_exists then
     index, custom_group_id = cboe_bzx_equities_orderentry_boe_v2_3.custom_group_id.dissect(buffer, index, packet, parent)
   end
@@ -26497,170 +26937,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_return_bitfields.fields = f
   -- Purge Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, purge_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Purge Rejected Byte 1
+  -- Runtime optional field: Purge Rejected Byte 1
+  local purge_rejected_byte_1 = nil
+
   local purge_rejected_byte_1_exists = purge_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: Purge Rejected Byte 1
   if purge_rejected_byte_1_exists then
 
     -- Purge Rejected Byte 1: Struct of 8 fields
     index, purge_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 2
+  -- Runtime optional field: Purge Rejected Byte 2
+  local purge_rejected_byte_2 = nil
+
   local purge_rejected_byte_2_exists = purge_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: Purge Rejected Byte 2
   if purge_rejected_byte_2_exists then
 
     -- Purge Rejected Byte 2: Struct of 8 fields
     index, purge_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 3
+  -- Runtime optional field: Purge Rejected Byte 3
+  local purge_rejected_byte_3 = nil
+
   local purge_rejected_byte_3_exists = purge_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: Purge Rejected Byte 3
   if purge_rejected_byte_3_exists then
 
     -- Purge Rejected Byte 3: Struct of 8 fields
     index, purge_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 4
+  -- Runtime optional field: Purge Rejected Byte 4
+  local purge_rejected_byte_4 = nil
+
   local purge_rejected_byte_4_exists = purge_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: Purge Rejected Byte 4
   if purge_rejected_byte_4_exists then
 
     -- Purge Rejected Byte 4: Struct of 8 fields
     index, purge_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 5
+  -- Runtime optional field: Purge Rejected Byte 5
+  local purge_rejected_byte_5 = nil
+
   local purge_rejected_byte_5_exists = purge_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: Purge Rejected Byte 5
   if purge_rejected_byte_5_exists then
 
     -- Purge Rejected Byte 5: Struct of 8 fields
     index, purge_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 6
+  -- Runtime optional field: Purge Rejected Byte 6
+  local purge_rejected_byte_6 = nil
+
   local purge_rejected_byte_6_exists = purge_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: Purge Rejected Byte 6
   if purge_rejected_byte_6_exists then
 
     -- Purge Rejected Byte 6: Struct of 8 fields
     index, purge_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 7
+  -- Runtime optional field: Purge Rejected Byte 7
+  local purge_rejected_byte_7 = nil
+
   local purge_rejected_byte_7_exists = purge_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: Purge Rejected Byte 7
   if purge_rejected_byte_7_exists then
 
     -- Purge Rejected Byte 7: Struct of 8 fields
     index, purge_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 8
+  -- Runtime optional field: Purge Rejected Byte 8
+  local purge_rejected_byte_8 = nil
+
   local purge_rejected_byte_8_exists = purge_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: Purge Rejected Byte 8
   if purge_rejected_byte_8_exists then
 
     -- Purge Rejected Byte 8: Struct of 8 fields
     index, purge_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 9
+  -- Runtime optional field: Purge Rejected Byte 9
+  local purge_rejected_byte_9 = nil
+
   local purge_rejected_byte_9_exists = purge_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: Purge Rejected Byte 9
   if purge_rejected_byte_9_exists then
 
     -- Purge Rejected Byte 9: Struct of 8 fields
     index, purge_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 10
+  -- Runtime optional field: Purge Rejected Byte 10
+  local purge_rejected_byte_10 = nil
+
   local purge_rejected_byte_10_exists = purge_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: Purge Rejected Byte 10
   if purge_rejected_byte_10_exists then
 
     -- Purge Rejected Byte 10: Struct of 8 fields
     index, purge_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 11
+  -- Runtime optional field: Purge Rejected Byte 11
+  local purge_rejected_byte_11 = nil
+
   local purge_rejected_byte_11_exists = purge_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: Purge Rejected Byte 11
   if purge_rejected_byte_11_exists then
 
     -- Purge Rejected Byte 11: Struct of 8 fields
     index, purge_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 12
+  -- Runtime optional field: Purge Rejected Byte 12
+  local purge_rejected_byte_12 = nil
+
   local purge_rejected_byte_12_exists = purge_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: Purge Rejected Byte 12
   if purge_rejected_byte_12_exists then
 
     -- Purge Rejected Byte 12: Struct of 8 fields
     index, purge_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 13
+  -- Runtime optional field: Purge Rejected Byte 13
+  local purge_rejected_byte_13 = nil
+
   local purge_rejected_byte_13_exists = purge_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: Purge Rejected Byte 13
   if purge_rejected_byte_13_exists then
 
     -- Purge Rejected Byte 13: Struct of 8 fields
     index, purge_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 14
+  -- Runtime optional field: Purge Rejected Byte 14
+  local purge_rejected_byte_14 = nil
+
   local purge_rejected_byte_14_exists = purge_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: Purge Rejected Byte 14
   if purge_rejected_byte_14_exists then
 
     -- Purge Rejected Byte 14: Struct of 8 fields
     index, purge_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 15
+  -- Runtime optional field: Purge Rejected Byte 15
+  local purge_rejected_byte_15 = nil
+
   local purge_rejected_byte_15_exists = purge_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: Purge Rejected Byte 15
   if purge_rejected_byte_15_exists then
 
     -- Purge Rejected Byte 15: Struct of 8 fields
     index, purge_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 16
+  -- Runtime optional field: Purge Rejected Byte 16
+  local purge_rejected_byte_16 = nil
+
   local purge_rejected_byte_16_exists = purge_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: Purge Rejected Byte 16
   if purge_rejected_byte_16_exists then
 
     -- Purge Rejected Byte 16: Struct of 8 fields
     index, purge_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.purge_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Rejected Byte 17
+  -- Runtime optional field: Purge Rejected Byte 17
+  local purge_rejected_byte_17 = nil
+
   local purge_rejected_byte_17_exists = purge_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: Purge Rejected Byte 17
   if purge_rejected_byte_17_exists then
 
     -- Purge Rejected Byte 17: Struct of 8 fields
@@ -26712,170 +27169,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_return_bitfields.f
   -- Trade Cancel Or Correct Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, trade_cancel_or_correct_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 1
+  -- Runtime optional field: Trade Cancel Or Correct Byte 1
+  local trade_cancel_or_correct_byte_1 = nil
+
   local trade_cancel_or_correct_byte_1_exists = trade_cancel_or_correct_bitfield_count >= 1
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 1
   if trade_cancel_or_correct_byte_1_exists then
 
     -- Trade Cancel Or Correct Byte 1: Struct of 8 fields
     index, trade_cancel_or_correct_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 2
+  -- Runtime optional field: Trade Cancel Or Correct Byte 2
+  local trade_cancel_or_correct_byte_2 = nil
+
   local trade_cancel_or_correct_byte_2_exists = trade_cancel_or_correct_bitfield_count >= 2
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 2
   if trade_cancel_or_correct_byte_2_exists then
 
     -- Trade Cancel Or Correct Byte 2: Struct of 8 fields
     index, trade_cancel_or_correct_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 3
+  -- Runtime optional field: Trade Cancel Or Correct Byte 3
+  local trade_cancel_or_correct_byte_3 = nil
+
   local trade_cancel_or_correct_byte_3_exists = trade_cancel_or_correct_bitfield_count >= 3
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 3
   if trade_cancel_or_correct_byte_3_exists then
 
     -- Trade Cancel Or Correct Byte 3: Struct of 8 fields
     index, trade_cancel_or_correct_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 4
+  -- Runtime optional field: Trade Cancel Or Correct Byte 4
+  local trade_cancel_or_correct_byte_4 = nil
+
   local trade_cancel_or_correct_byte_4_exists = trade_cancel_or_correct_bitfield_count >= 4
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 4
   if trade_cancel_or_correct_byte_4_exists then
 
     -- Trade Cancel Or Correct Byte 4: Struct of 8 fields
     index, trade_cancel_or_correct_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 5
+  -- Runtime optional field: Trade Cancel Or Correct Byte 5
+  local trade_cancel_or_correct_byte_5 = nil
+
   local trade_cancel_or_correct_byte_5_exists = trade_cancel_or_correct_bitfield_count >= 5
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 5
   if trade_cancel_or_correct_byte_5_exists then
 
     -- Trade Cancel Or Correct Byte 5: Struct of 8 fields
     index, trade_cancel_or_correct_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 6
+  -- Runtime optional field: Trade Cancel Or Correct Byte 6
+  local trade_cancel_or_correct_byte_6 = nil
+
   local trade_cancel_or_correct_byte_6_exists = trade_cancel_or_correct_bitfield_count >= 6
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 6
   if trade_cancel_or_correct_byte_6_exists then
 
     -- Trade Cancel Or Correct Byte 6: Struct of 8 fields
     index, trade_cancel_or_correct_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 7
+  -- Runtime optional field: Trade Cancel Or Correct Byte 7
+  local trade_cancel_or_correct_byte_7 = nil
+
   local trade_cancel_or_correct_byte_7_exists = trade_cancel_or_correct_bitfield_count >= 7
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 7
   if trade_cancel_or_correct_byte_7_exists then
 
     -- Trade Cancel Or Correct Byte 7: Struct of 8 fields
     index, trade_cancel_or_correct_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 8
+  -- Runtime optional field: Trade Cancel Or Correct Byte 8
+  local trade_cancel_or_correct_byte_8 = nil
+
   local trade_cancel_or_correct_byte_8_exists = trade_cancel_or_correct_bitfield_count >= 8
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 8
   if trade_cancel_or_correct_byte_8_exists then
 
     -- Trade Cancel Or Correct Byte 8: Struct of 8 fields
     index, trade_cancel_or_correct_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 9
+  -- Runtime optional field: Trade Cancel Or Correct Byte 9
+  local trade_cancel_or_correct_byte_9 = nil
+
   local trade_cancel_or_correct_byte_9_exists = trade_cancel_or_correct_bitfield_count >= 9
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 9
   if trade_cancel_or_correct_byte_9_exists then
 
     -- Trade Cancel Or Correct Byte 9: Struct of 8 fields
     index, trade_cancel_or_correct_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 10
+  -- Runtime optional field: Trade Cancel Or Correct Byte 10
+  local trade_cancel_or_correct_byte_10 = nil
+
   local trade_cancel_or_correct_byte_10_exists = trade_cancel_or_correct_bitfield_count >= 10
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 10
   if trade_cancel_or_correct_byte_10_exists then
 
     -- Trade Cancel Or Correct Byte 10: Struct of 8 fields
     index, trade_cancel_or_correct_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 11
+  -- Runtime optional field: Trade Cancel Or Correct Byte 11
+  local trade_cancel_or_correct_byte_11 = nil
+
   local trade_cancel_or_correct_byte_11_exists = trade_cancel_or_correct_bitfield_count >= 11
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 11
   if trade_cancel_or_correct_byte_11_exists then
 
     -- Trade Cancel Or Correct Byte 11: Struct of 8 fields
     index, trade_cancel_or_correct_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 12
+  -- Runtime optional field: Trade Cancel Or Correct Byte 12
+  local trade_cancel_or_correct_byte_12 = nil
+
   local trade_cancel_or_correct_byte_12_exists = trade_cancel_or_correct_bitfield_count >= 12
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 12
   if trade_cancel_or_correct_byte_12_exists then
 
     -- Trade Cancel Or Correct Byte 12: Struct of 8 fields
     index, trade_cancel_or_correct_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 13
+  -- Runtime optional field: Trade Cancel Or Correct Byte 13
+  local trade_cancel_or_correct_byte_13 = nil
+
   local trade_cancel_or_correct_byte_13_exists = trade_cancel_or_correct_bitfield_count >= 13
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 13
   if trade_cancel_or_correct_byte_13_exists then
 
     -- Trade Cancel Or Correct Byte 13: Struct of 8 fields
     index, trade_cancel_or_correct_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 14
+  -- Runtime optional field: Trade Cancel Or Correct Byte 14
+  local trade_cancel_or_correct_byte_14 = nil
+
   local trade_cancel_or_correct_byte_14_exists = trade_cancel_or_correct_bitfield_count >= 14
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 14
   if trade_cancel_or_correct_byte_14_exists then
 
     -- Trade Cancel Or Correct Byte 14: Struct of 8 fields
     index, trade_cancel_or_correct_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 15
+  -- Runtime optional field: Trade Cancel Or Correct Byte 15
+  local trade_cancel_or_correct_byte_15 = nil
+
   local trade_cancel_or_correct_byte_15_exists = trade_cancel_or_correct_bitfield_count >= 15
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 15
   if trade_cancel_or_correct_byte_15_exists then
 
     -- Trade Cancel Or Correct Byte 15: Struct of 8 fields
     index, trade_cancel_or_correct_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 16
+  -- Runtime optional field: Trade Cancel Or Correct Byte 16
+  local trade_cancel_or_correct_byte_16 = nil
+
   local trade_cancel_or_correct_byte_16_exists = trade_cancel_or_correct_bitfield_count >= 16
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 16
   if trade_cancel_or_correct_byte_16_exists then
 
     -- Trade Cancel Or Correct Byte 16: Struct of 8 fields
     index, trade_cancel_or_correct_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Trade Cancel Or Correct Byte 17
+  -- Runtime optional field: Trade Cancel Or Correct Byte 17
+  local trade_cancel_or_correct_byte_17 = nil
+
   local trade_cancel_or_correct_byte_17_exists = trade_cancel_or_correct_bitfield_count >= 17
 
-  -- Runtime optional field: Trade Cancel Or Correct Byte 17
   if trade_cancel_or_correct_byte_17_exists then
 
     -- Trade Cancel Or Correct Byte 17: Struct of 8 fields
@@ -26927,170 +27401,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_execution_return_bitfields.fields = 
   -- Order Execution Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_execution_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Execution Byte 1
+  -- Runtime optional field: Order Execution Byte 1
+  local order_execution_byte_1 = nil
+
   local order_execution_byte_1_exists = order_execution_bitfield_count >= 1
 
-  -- Runtime optional field: Order Execution Byte 1
   if order_execution_byte_1_exists then
 
     -- Order Execution Byte 1: Struct of 8 fields
     index, order_execution_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 2
+  -- Runtime optional field: Order Execution Byte 2
+  local order_execution_byte_2 = nil
+
   local order_execution_byte_2_exists = order_execution_bitfield_count >= 2
 
-  -- Runtime optional field: Order Execution Byte 2
   if order_execution_byte_2_exists then
 
     -- Order Execution Byte 2: Struct of 8 fields
     index, order_execution_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 3
+  -- Runtime optional field: Order Execution Byte 3
+  local order_execution_byte_3 = nil
+
   local order_execution_byte_3_exists = order_execution_bitfield_count >= 3
 
-  -- Runtime optional field: Order Execution Byte 3
   if order_execution_byte_3_exists then
 
     -- Order Execution Byte 3: Struct of 8 fields
     index, order_execution_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 4
+  -- Runtime optional field: Order Execution Byte 4
+  local order_execution_byte_4 = nil
+
   local order_execution_byte_4_exists = order_execution_bitfield_count >= 4
 
-  -- Runtime optional field: Order Execution Byte 4
   if order_execution_byte_4_exists then
 
     -- Order Execution Byte 4: Struct of 8 fields
     index, order_execution_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 5
+  -- Runtime optional field: Order Execution Byte 5
+  local order_execution_byte_5 = nil
+
   local order_execution_byte_5_exists = order_execution_bitfield_count >= 5
 
-  -- Runtime optional field: Order Execution Byte 5
   if order_execution_byte_5_exists then
 
     -- Order Execution Byte 5: Struct of 8 fields
     index, order_execution_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 6
+  -- Runtime optional field: Order Execution Byte 6
+  local order_execution_byte_6 = nil
+
   local order_execution_byte_6_exists = order_execution_bitfield_count >= 6
 
-  -- Runtime optional field: Order Execution Byte 6
   if order_execution_byte_6_exists then
 
     -- Order Execution Byte 6: Struct of 8 fields
     index, order_execution_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 7
+  -- Runtime optional field: Order Execution Byte 7
+  local order_execution_byte_7 = nil
+
   local order_execution_byte_7_exists = order_execution_bitfield_count >= 7
 
-  -- Runtime optional field: Order Execution Byte 7
   if order_execution_byte_7_exists then
 
     -- Order Execution Byte 7: Struct of 8 fields
     index, order_execution_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 8
+  -- Runtime optional field: Order Execution Byte 8
+  local order_execution_byte_8 = nil
+
   local order_execution_byte_8_exists = order_execution_bitfield_count >= 8
 
-  -- Runtime optional field: Order Execution Byte 8
   if order_execution_byte_8_exists then
 
     -- Order Execution Byte 8: Struct of 8 fields
     index, order_execution_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 9
+  -- Runtime optional field: Order Execution Byte 9
+  local order_execution_byte_9 = nil
+
   local order_execution_byte_9_exists = order_execution_bitfield_count >= 9
 
-  -- Runtime optional field: Order Execution Byte 9
   if order_execution_byte_9_exists then
 
     -- Order Execution Byte 9: Struct of 8 fields
     index, order_execution_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 10
+  -- Runtime optional field: Order Execution Byte 10
+  local order_execution_byte_10 = nil
+
   local order_execution_byte_10_exists = order_execution_bitfield_count >= 10
 
-  -- Runtime optional field: Order Execution Byte 10
   if order_execution_byte_10_exists then
 
     -- Order Execution Byte 10: Struct of 8 fields
     index, order_execution_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 11
+  -- Runtime optional field: Order Execution Byte 11
+  local order_execution_byte_11 = nil
+
   local order_execution_byte_11_exists = order_execution_bitfield_count >= 11
 
-  -- Runtime optional field: Order Execution Byte 11
   if order_execution_byte_11_exists then
 
     -- Order Execution Byte 11: Struct of 8 fields
     index, order_execution_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 12
+  -- Runtime optional field: Order Execution Byte 12
+  local order_execution_byte_12 = nil
+
   local order_execution_byte_12_exists = order_execution_bitfield_count >= 12
 
-  -- Runtime optional field: Order Execution Byte 12
   if order_execution_byte_12_exists then
 
     -- Order Execution Byte 12: Struct of 8 fields
     index, order_execution_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 13
+  -- Runtime optional field: Order Execution Byte 13
+  local order_execution_byte_13 = nil
+
   local order_execution_byte_13_exists = order_execution_bitfield_count >= 13
 
-  -- Runtime optional field: Order Execution Byte 13
   if order_execution_byte_13_exists then
 
     -- Order Execution Byte 13: Struct of 8 fields
     index, order_execution_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 14
+  -- Runtime optional field: Order Execution Byte 14
+  local order_execution_byte_14 = nil
+
   local order_execution_byte_14_exists = order_execution_bitfield_count >= 14
 
-  -- Runtime optional field: Order Execution Byte 14
   if order_execution_byte_14_exists then
 
     -- Order Execution Byte 14: Struct of 8 fields
     index, order_execution_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 15
+  -- Runtime optional field: Order Execution Byte 15
+  local order_execution_byte_15 = nil
+
   local order_execution_byte_15_exists = order_execution_bitfield_count >= 15
 
-  -- Runtime optional field: Order Execution Byte 15
   if order_execution_byte_15_exists then
 
     -- Order Execution Byte 15: Struct of 8 fields
     index, order_execution_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 16
+  -- Runtime optional field: Order Execution Byte 16
+  local order_execution_byte_16 = nil
+
   local order_execution_byte_16_exists = order_execution_bitfield_count >= 16
 
-  -- Runtime optional field: Order Execution Byte 16
   if order_execution_byte_16_exists then
 
     -- Order Execution Byte 16: Struct of 8 fields
     index, order_execution_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_execution_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Execution Byte 17
+  -- Runtime optional field: Order Execution Byte 17
+  local order_execution_byte_17 = nil
+
   local order_execution_byte_17_exists = order_execution_bitfield_count >= 17
 
-  -- Runtime optional field: Order Execution Byte 17
   if order_execution_byte_17_exists then
 
     -- Order Execution Byte 17: Struct of 8 fields
@@ -27142,170 +27633,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_return_bitfields.fields = 
   -- Cancel Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, cancel_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Cancel Rejected Byte 1
+  -- Runtime optional field: Cancel Rejected Byte 1
+  local cancel_rejected_byte_1 = nil
+
   local cancel_rejected_byte_1_exists = cancel_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: Cancel Rejected Byte 1
   if cancel_rejected_byte_1_exists then
 
     -- Cancel Rejected Byte 1: Struct of 8 fields
     index, cancel_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 2
+  -- Runtime optional field: Cancel Rejected Byte 2
+  local cancel_rejected_byte_2 = nil
+
   local cancel_rejected_byte_2_exists = cancel_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: Cancel Rejected Byte 2
   if cancel_rejected_byte_2_exists then
 
     -- Cancel Rejected Byte 2: Struct of 8 fields
     index, cancel_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 3
+  -- Runtime optional field: Cancel Rejected Byte 3
+  local cancel_rejected_byte_3 = nil
+
   local cancel_rejected_byte_3_exists = cancel_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: Cancel Rejected Byte 3
   if cancel_rejected_byte_3_exists then
 
     -- Cancel Rejected Byte 3: Struct of 8 fields
     index, cancel_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 4
+  -- Runtime optional field: Cancel Rejected Byte 4
+  local cancel_rejected_byte_4 = nil
+
   local cancel_rejected_byte_4_exists = cancel_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: Cancel Rejected Byte 4
   if cancel_rejected_byte_4_exists then
 
     -- Cancel Rejected Byte 4: Struct of 8 fields
     index, cancel_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 5
+  -- Runtime optional field: Cancel Rejected Byte 5
+  local cancel_rejected_byte_5 = nil
+
   local cancel_rejected_byte_5_exists = cancel_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: Cancel Rejected Byte 5
   if cancel_rejected_byte_5_exists then
 
     -- Cancel Rejected Byte 5: Struct of 8 fields
     index, cancel_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 6
+  -- Runtime optional field: Cancel Rejected Byte 6
+  local cancel_rejected_byte_6 = nil
+
   local cancel_rejected_byte_6_exists = cancel_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: Cancel Rejected Byte 6
   if cancel_rejected_byte_6_exists then
 
     -- Cancel Rejected Byte 6: Struct of 8 fields
     index, cancel_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 7
+  -- Runtime optional field: Cancel Rejected Byte 7
+  local cancel_rejected_byte_7 = nil
+
   local cancel_rejected_byte_7_exists = cancel_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: Cancel Rejected Byte 7
   if cancel_rejected_byte_7_exists then
 
     -- Cancel Rejected Byte 7: Struct of 8 fields
     index, cancel_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 8
+  -- Runtime optional field: Cancel Rejected Byte 8
+  local cancel_rejected_byte_8 = nil
+
   local cancel_rejected_byte_8_exists = cancel_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: Cancel Rejected Byte 8
   if cancel_rejected_byte_8_exists then
 
     -- Cancel Rejected Byte 8: Struct of 8 fields
     index, cancel_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 9
+  -- Runtime optional field: Cancel Rejected Byte 9
+  local cancel_rejected_byte_9 = nil
+
   local cancel_rejected_byte_9_exists = cancel_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: Cancel Rejected Byte 9
   if cancel_rejected_byte_9_exists then
 
     -- Cancel Rejected Byte 9: Struct of 8 fields
     index, cancel_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 10
+  -- Runtime optional field: Cancel Rejected Byte 10
+  local cancel_rejected_byte_10 = nil
+
   local cancel_rejected_byte_10_exists = cancel_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: Cancel Rejected Byte 10
   if cancel_rejected_byte_10_exists then
 
     -- Cancel Rejected Byte 10: Struct of 8 fields
     index, cancel_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 11
+  -- Runtime optional field: Cancel Rejected Byte 11
+  local cancel_rejected_byte_11 = nil
+
   local cancel_rejected_byte_11_exists = cancel_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: Cancel Rejected Byte 11
   if cancel_rejected_byte_11_exists then
 
     -- Cancel Rejected Byte 11: Struct of 8 fields
     index, cancel_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 12
+  -- Runtime optional field: Cancel Rejected Byte 12
+  local cancel_rejected_byte_12 = nil
+
   local cancel_rejected_byte_12_exists = cancel_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: Cancel Rejected Byte 12
   if cancel_rejected_byte_12_exists then
 
     -- Cancel Rejected Byte 12: Struct of 8 fields
     index, cancel_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 13
+  -- Runtime optional field: Cancel Rejected Byte 13
+  local cancel_rejected_byte_13 = nil
+
   local cancel_rejected_byte_13_exists = cancel_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: Cancel Rejected Byte 13
   if cancel_rejected_byte_13_exists then
 
     -- Cancel Rejected Byte 13: Struct of 8 fields
     index, cancel_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 14
+  -- Runtime optional field: Cancel Rejected Byte 14
+  local cancel_rejected_byte_14 = nil
+
   local cancel_rejected_byte_14_exists = cancel_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: Cancel Rejected Byte 14
   if cancel_rejected_byte_14_exists then
 
     -- Cancel Rejected Byte 14: Struct of 8 fields
     index, cancel_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 15
+  -- Runtime optional field: Cancel Rejected Byte 15
+  local cancel_rejected_byte_15 = nil
+
   local cancel_rejected_byte_15_exists = cancel_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: Cancel Rejected Byte 15
   if cancel_rejected_byte_15_exists then
 
     -- Cancel Rejected Byte 15: Struct of 8 fields
     index, cancel_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 16
+  -- Runtime optional field: Cancel Rejected Byte 16
+  local cancel_rejected_byte_16 = nil
+
   local cancel_rejected_byte_16_exists = cancel_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: Cancel Rejected Byte 16
   if cancel_rejected_byte_16_exists then
 
     -- Cancel Rejected Byte 16: Struct of 8 fields
     index, cancel_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Rejected Byte 17
+  -- Runtime optional field: Cancel Rejected Byte 17
+  local cancel_rejected_byte_17 = nil
+
   local cancel_rejected_byte_17_exists = cancel_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: Cancel Rejected Byte 17
   if cancel_rejected_byte_17_exists then
 
     -- Cancel Rejected Byte 17: Struct of 8 fields
@@ -27357,170 +27865,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_return_bitfields.fields = 
   -- Order Cancelled Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_cancelled_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Cancelled Byte 1
+  -- Runtime optional field: Order Cancelled Byte 1
+  local order_cancelled_byte_1 = nil
+
   local order_cancelled_byte_1_exists = order_cancelled_bitfield_count >= 1
 
-  -- Runtime optional field: Order Cancelled Byte 1
   if order_cancelled_byte_1_exists then
 
     -- Order Cancelled Byte 1: Struct of 8 fields
     index, order_cancelled_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 2
+  -- Runtime optional field: Order Cancelled Byte 2
+  local order_cancelled_byte_2 = nil
+
   local order_cancelled_byte_2_exists = order_cancelled_bitfield_count >= 2
 
-  -- Runtime optional field: Order Cancelled Byte 2
   if order_cancelled_byte_2_exists then
 
     -- Order Cancelled Byte 2: Struct of 8 fields
     index, order_cancelled_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 3
+  -- Runtime optional field: Order Cancelled Byte 3
+  local order_cancelled_byte_3 = nil
+
   local order_cancelled_byte_3_exists = order_cancelled_bitfield_count >= 3
 
-  -- Runtime optional field: Order Cancelled Byte 3
   if order_cancelled_byte_3_exists then
 
     -- Order Cancelled Byte 3: Struct of 8 fields
     index, order_cancelled_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 4
+  -- Runtime optional field: Order Cancelled Byte 4
+  local order_cancelled_byte_4 = nil
+
   local order_cancelled_byte_4_exists = order_cancelled_bitfield_count >= 4
 
-  -- Runtime optional field: Order Cancelled Byte 4
   if order_cancelled_byte_4_exists then
 
     -- Order Cancelled Byte 4: Struct of 8 fields
     index, order_cancelled_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 5
+  -- Runtime optional field: Order Cancelled Byte 5
+  local order_cancelled_byte_5 = nil
+
   local order_cancelled_byte_5_exists = order_cancelled_bitfield_count >= 5
 
-  -- Runtime optional field: Order Cancelled Byte 5
   if order_cancelled_byte_5_exists then
 
     -- Order Cancelled Byte 5: Struct of 8 fields
     index, order_cancelled_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 6
+  -- Runtime optional field: Order Cancelled Byte 6
+  local order_cancelled_byte_6 = nil
+
   local order_cancelled_byte_6_exists = order_cancelled_bitfield_count >= 6
 
-  -- Runtime optional field: Order Cancelled Byte 6
   if order_cancelled_byte_6_exists then
 
     -- Order Cancelled Byte 6: Struct of 8 fields
     index, order_cancelled_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 7
+  -- Runtime optional field: Order Cancelled Byte 7
+  local order_cancelled_byte_7 = nil
+
   local order_cancelled_byte_7_exists = order_cancelled_bitfield_count >= 7
 
-  -- Runtime optional field: Order Cancelled Byte 7
   if order_cancelled_byte_7_exists then
 
     -- Order Cancelled Byte 7: Struct of 8 fields
     index, order_cancelled_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 8
+  -- Runtime optional field: Order Cancelled Byte 8
+  local order_cancelled_byte_8 = nil
+
   local order_cancelled_byte_8_exists = order_cancelled_bitfield_count >= 8
 
-  -- Runtime optional field: Order Cancelled Byte 8
   if order_cancelled_byte_8_exists then
 
     -- Order Cancelled Byte 8: Struct of 8 fields
     index, order_cancelled_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 9
+  -- Runtime optional field: Order Cancelled Byte 9
+  local order_cancelled_byte_9 = nil
+
   local order_cancelled_byte_9_exists = order_cancelled_bitfield_count >= 9
 
-  -- Runtime optional field: Order Cancelled Byte 9
   if order_cancelled_byte_9_exists then
 
     -- Order Cancelled Byte 9: Struct of 8 fields
     index, order_cancelled_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 10
+  -- Runtime optional field: Order Cancelled Byte 10
+  local order_cancelled_byte_10 = nil
+
   local order_cancelled_byte_10_exists = order_cancelled_bitfield_count >= 10
 
-  -- Runtime optional field: Order Cancelled Byte 10
   if order_cancelled_byte_10_exists then
 
     -- Order Cancelled Byte 10: Struct of 8 fields
     index, order_cancelled_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 11
+  -- Runtime optional field: Order Cancelled Byte 11
+  local order_cancelled_byte_11 = nil
+
   local order_cancelled_byte_11_exists = order_cancelled_bitfield_count >= 11
 
-  -- Runtime optional field: Order Cancelled Byte 11
   if order_cancelled_byte_11_exists then
 
     -- Order Cancelled Byte 11: Struct of 8 fields
     index, order_cancelled_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 12
+  -- Runtime optional field: Order Cancelled Byte 12
+  local order_cancelled_byte_12 = nil
+
   local order_cancelled_byte_12_exists = order_cancelled_bitfield_count >= 12
 
-  -- Runtime optional field: Order Cancelled Byte 12
   if order_cancelled_byte_12_exists then
 
     -- Order Cancelled Byte 12: Struct of 8 fields
     index, order_cancelled_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 13
+  -- Runtime optional field: Order Cancelled Byte 13
+  local order_cancelled_byte_13 = nil
+
   local order_cancelled_byte_13_exists = order_cancelled_bitfield_count >= 13
 
-  -- Runtime optional field: Order Cancelled Byte 13
   if order_cancelled_byte_13_exists then
 
     -- Order Cancelled Byte 13: Struct of 8 fields
     index, order_cancelled_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 14
+  -- Runtime optional field: Order Cancelled Byte 14
+  local order_cancelled_byte_14 = nil
+
   local order_cancelled_byte_14_exists = order_cancelled_bitfield_count >= 14
 
-  -- Runtime optional field: Order Cancelled Byte 14
   if order_cancelled_byte_14_exists then
 
     -- Order Cancelled Byte 14: Struct of 8 fields
     index, order_cancelled_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 15
+  -- Runtime optional field: Order Cancelled Byte 15
+  local order_cancelled_byte_15 = nil
+
   local order_cancelled_byte_15_exists = order_cancelled_bitfield_count >= 15
 
-  -- Runtime optional field: Order Cancelled Byte 15
   if order_cancelled_byte_15_exists then
 
     -- Order Cancelled Byte 15: Struct of 8 fields
     index, order_cancelled_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 16
+  -- Runtime optional field: Order Cancelled Byte 16
+  local order_cancelled_byte_16 = nil
+
   local order_cancelled_byte_16_exists = order_cancelled_bitfield_count >= 16
 
-  -- Runtime optional field: Order Cancelled Byte 16
   if order_cancelled_byte_16_exists then
 
     -- Order Cancelled Byte 16: Struct of 8 fields
     index, order_cancelled_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_cancelled_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Cancelled Byte 17
+  -- Runtime optional field: Order Cancelled Byte 17
+  local order_cancelled_byte_17 = nil
+
   local order_cancelled_byte_17_exists = order_cancelled_bitfield_count >= 17
 
-  -- Runtime optional field: Order Cancelled Byte 17
   if order_cancelled_byte_17_exists then
 
     -- Order Cancelled Byte 17: Struct of 8 fields
@@ -27572,170 +28097,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_return_bitfields.fiel
   -- User Modify Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, user_modify_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: User Modify Rejected Byte 1
+  -- Runtime optional field: User Modify Rejected Byte 1
+  local user_modify_rejected_byte_1 = nil
+
   local user_modify_rejected_byte_1_exists = user_modify_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: User Modify Rejected Byte 1
   if user_modify_rejected_byte_1_exists then
 
     -- User Modify Rejected Byte 1: Struct of 8 fields
     index, user_modify_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 2
+  -- Runtime optional field: User Modify Rejected Byte 2
+  local user_modify_rejected_byte_2 = nil
+
   local user_modify_rejected_byte_2_exists = user_modify_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: User Modify Rejected Byte 2
   if user_modify_rejected_byte_2_exists then
 
     -- User Modify Rejected Byte 2: Struct of 8 fields
     index, user_modify_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 3
+  -- Runtime optional field: User Modify Rejected Byte 3
+  local user_modify_rejected_byte_3 = nil
+
   local user_modify_rejected_byte_3_exists = user_modify_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: User Modify Rejected Byte 3
   if user_modify_rejected_byte_3_exists then
 
     -- User Modify Rejected Byte 3: Struct of 8 fields
     index, user_modify_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 4
+  -- Runtime optional field: User Modify Rejected Byte 4
+  local user_modify_rejected_byte_4 = nil
+
   local user_modify_rejected_byte_4_exists = user_modify_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: User Modify Rejected Byte 4
   if user_modify_rejected_byte_4_exists then
 
     -- User Modify Rejected Byte 4: Struct of 8 fields
     index, user_modify_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 5
+  -- Runtime optional field: User Modify Rejected Byte 5
+  local user_modify_rejected_byte_5 = nil
+
   local user_modify_rejected_byte_5_exists = user_modify_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: User Modify Rejected Byte 5
   if user_modify_rejected_byte_5_exists then
 
     -- User Modify Rejected Byte 5: Struct of 8 fields
     index, user_modify_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 6
+  -- Runtime optional field: User Modify Rejected Byte 6
+  local user_modify_rejected_byte_6 = nil
+
   local user_modify_rejected_byte_6_exists = user_modify_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: User Modify Rejected Byte 6
   if user_modify_rejected_byte_6_exists then
 
     -- User Modify Rejected Byte 6: Struct of 8 fields
     index, user_modify_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 7
+  -- Runtime optional field: User Modify Rejected Byte 7
+  local user_modify_rejected_byte_7 = nil
+
   local user_modify_rejected_byte_7_exists = user_modify_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: User Modify Rejected Byte 7
   if user_modify_rejected_byte_7_exists then
 
     -- User Modify Rejected Byte 7: Struct of 8 fields
     index, user_modify_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 8
+  -- Runtime optional field: User Modify Rejected Byte 8
+  local user_modify_rejected_byte_8 = nil
+
   local user_modify_rejected_byte_8_exists = user_modify_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: User Modify Rejected Byte 8
   if user_modify_rejected_byte_8_exists then
 
     -- User Modify Rejected Byte 8: Struct of 8 fields
     index, user_modify_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 9
+  -- Runtime optional field: User Modify Rejected Byte 9
+  local user_modify_rejected_byte_9 = nil
+
   local user_modify_rejected_byte_9_exists = user_modify_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: User Modify Rejected Byte 9
   if user_modify_rejected_byte_9_exists then
 
     -- User Modify Rejected Byte 9: Struct of 8 fields
     index, user_modify_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 10
+  -- Runtime optional field: User Modify Rejected Byte 10
+  local user_modify_rejected_byte_10 = nil
+
   local user_modify_rejected_byte_10_exists = user_modify_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: User Modify Rejected Byte 10
   if user_modify_rejected_byte_10_exists then
 
     -- User Modify Rejected Byte 10: Struct of 8 fields
     index, user_modify_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 11
+  -- Runtime optional field: User Modify Rejected Byte 11
+  local user_modify_rejected_byte_11 = nil
+
   local user_modify_rejected_byte_11_exists = user_modify_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: User Modify Rejected Byte 11
   if user_modify_rejected_byte_11_exists then
 
     -- User Modify Rejected Byte 11: Struct of 8 fields
     index, user_modify_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 12
+  -- Runtime optional field: User Modify Rejected Byte 12
+  local user_modify_rejected_byte_12 = nil
+
   local user_modify_rejected_byte_12_exists = user_modify_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: User Modify Rejected Byte 12
   if user_modify_rejected_byte_12_exists then
 
     -- User Modify Rejected Byte 12: Struct of 8 fields
     index, user_modify_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 13
+  -- Runtime optional field: User Modify Rejected Byte 13
+  local user_modify_rejected_byte_13 = nil
+
   local user_modify_rejected_byte_13_exists = user_modify_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: User Modify Rejected Byte 13
   if user_modify_rejected_byte_13_exists then
 
     -- User Modify Rejected Byte 13: Struct of 8 fields
     index, user_modify_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 14
+  -- Runtime optional field: User Modify Rejected Byte 14
+  local user_modify_rejected_byte_14 = nil
+
   local user_modify_rejected_byte_14_exists = user_modify_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: User Modify Rejected Byte 14
   if user_modify_rejected_byte_14_exists then
 
     -- User Modify Rejected Byte 14: Struct of 8 fields
     index, user_modify_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 15
+  -- Runtime optional field: User Modify Rejected Byte 15
+  local user_modify_rejected_byte_15 = nil
+
   local user_modify_rejected_byte_15_exists = user_modify_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: User Modify Rejected Byte 15
   if user_modify_rejected_byte_15_exists then
 
     -- User Modify Rejected Byte 15: Struct of 8 fields
     index, user_modify_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 16
+  -- Runtime optional field: User Modify Rejected Byte 16
+  local user_modify_rejected_byte_16 = nil
+
   local user_modify_rejected_byte_16_exists = user_modify_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: User Modify Rejected Byte 16
   if user_modify_rejected_byte_16_exists then
 
     -- User Modify Rejected Byte 16: Struct of 8 fields
     index, user_modify_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: User Modify Rejected Byte 17
+  -- Runtime optional field: User Modify Rejected Byte 17
+  local user_modify_rejected_byte_17 = nil
+
   local user_modify_rejected_byte_17_exists = user_modify_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: User Modify Rejected Byte 17
   if user_modify_rejected_byte_17_exists then
 
     -- User Modify Rejected Byte 17: Struct of 8 fields
@@ -27787,170 +28329,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_restated_return_bitfields.fields = f
   -- Order Restated Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_restated_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Restated Byte 1
+  -- Runtime optional field: Order Restated Byte 1
+  local order_restated_byte_1 = nil
+
   local order_restated_byte_1_exists = order_restated_bitfield_count >= 1
 
-  -- Runtime optional field: Order Restated Byte 1
   if order_restated_byte_1_exists then
 
     -- Order Restated Byte 1: Struct of 8 fields
     index, order_restated_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 2
+  -- Runtime optional field: Order Restated Byte 2
+  local order_restated_byte_2 = nil
+
   local order_restated_byte_2_exists = order_restated_bitfield_count >= 2
 
-  -- Runtime optional field: Order Restated Byte 2
   if order_restated_byte_2_exists then
 
     -- Order Restated Byte 2: Struct of 8 fields
     index, order_restated_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 3
+  -- Runtime optional field: Order Restated Byte 3
+  local order_restated_byte_3 = nil
+
   local order_restated_byte_3_exists = order_restated_bitfield_count >= 3
 
-  -- Runtime optional field: Order Restated Byte 3
   if order_restated_byte_3_exists then
 
     -- Order Restated Byte 3: Struct of 8 fields
     index, order_restated_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 4
+  -- Runtime optional field: Order Restated Byte 4
+  local order_restated_byte_4 = nil
+
   local order_restated_byte_4_exists = order_restated_bitfield_count >= 4
 
-  -- Runtime optional field: Order Restated Byte 4
   if order_restated_byte_4_exists then
 
     -- Order Restated Byte 4: Struct of 8 fields
     index, order_restated_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 5
+  -- Runtime optional field: Order Restated Byte 5
+  local order_restated_byte_5 = nil
+
   local order_restated_byte_5_exists = order_restated_bitfield_count >= 5
 
-  -- Runtime optional field: Order Restated Byte 5
   if order_restated_byte_5_exists then
 
     -- Order Restated Byte 5: Struct of 8 fields
     index, order_restated_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 6
+  -- Runtime optional field: Order Restated Byte 6
+  local order_restated_byte_6 = nil
+
   local order_restated_byte_6_exists = order_restated_bitfield_count >= 6
 
-  -- Runtime optional field: Order Restated Byte 6
   if order_restated_byte_6_exists then
 
     -- Order Restated Byte 6: Struct of 8 fields
     index, order_restated_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 7
+  -- Runtime optional field: Order Restated Byte 7
+  local order_restated_byte_7 = nil
+
   local order_restated_byte_7_exists = order_restated_bitfield_count >= 7
 
-  -- Runtime optional field: Order Restated Byte 7
   if order_restated_byte_7_exists then
 
     -- Order Restated Byte 7: Struct of 8 fields
     index, order_restated_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 8
+  -- Runtime optional field: Order Restated Byte 8
+  local order_restated_byte_8 = nil
+
   local order_restated_byte_8_exists = order_restated_bitfield_count >= 8
 
-  -- Runtime optional field: Order Restated Byte 8
   if order_restated_byte_8_exists then
 
     -- Order Restated Byte 8: Struct of 8 fields
     index, order_restated_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 9
+  -- Runtime optional field: Order Restated Byte 9
+  local order_restated_byte_9 = nil
+
   local order_restated_byte_9_exists = order_restated_bitfield_count >= 9
 
-  -- Runtime optional field: Order Restated Byte 9
   if order_restated_byte_9_exists then
 
     -- Order Restated Byte 9: Struct of 8 fields
     index, order_restated_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 10
+  -- Runtime optional field: Order Restated Byte 10
+  local order_restated_byte_10 = nil
+
   local order_restated_byte_10_exists = order_restated_bitfield_count >= 10
 
-  -- Runtime optional field: Order Restated Byte 10
   if order_restated_byte_10_exists then
 
     -- Order Restated Byte 10: Struct of 8 fields
     index, order_restated_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 11
+  -- Runtime optional field: Order Restated Byte 11
+  local order_restated_byte_11 = nil
+
   local order_restated_byte_11_exists = order_restated_bitfield_count >= 11
 
-  -- Runtime optional field: Order Restated Byte 11
   if order_restated_byte_11_exists then
 
     -- Order Restated Byte 11: Struct of 8 fields
     index, order_restated_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 12
+  -- Runtime optional field: Order Restated Byte 12
+  local order_restated_byte_12 = nil
+
   local order_restated_byte_12_exists = order_restated_bitfield_count >= 12
 
-  -- Runtime optional field: Order Restated Byte 12
   if order_restated_byte_12_exists then
 
     -- Order Restated Byte 12: Struct of 8 fields
     index, order_restated_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 13
+  -- Runtime optional field: Order Restated Byte 13
+  local order_restated_byte_13 = nil
+
   local order_restated_byte_13_exists = order_restated_bitfield_count >= 13
 
-  -- Runtime optional field: Order Restated Byte 13
   if order_restated_byte_13_exists then
 
     -- Order Restated Byte 13: Struct of 8 fields
     index, order_restated_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 14
+  -- Runtime optional field: Order Restated Byte 14
+  local order_restated_byte_14 = nil
+
   local order_restated_byte_14_exists = order_restated_bitfield_count >= 14
 
-  -- Runtime optional field: Order Restated Byte 14
   if order_restated_byte_14_exists then
 
     -- Order Restated Byte 14: Struct of 8 fields
     index, order_restated_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 15
+  -- Runtime optional field: Order Restated Byte 15
+  local order_restated_byte_15 = nil
+
   local order_restated_byte_15_exists = order_restated_bitfield_count >= 15
 
-  -- Runtime optional field: Order Restated Byte 15
   if order_restated_byte_15_exists then
 
     -- Order Restated Byte 15: Struct of 8 fields
     index, order_restated_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 16
+  -- Runtime optional field: Order Restated Byte 16
+  local order_restated_byte_16 = nil
+
   local order_restated_byte_16_exists = order_restated_bitfield_count >= 16
 
-  -- Runtime optional field: Order Restated Byte 16
   if order_restated_byte_16_exists then
 
     -- Order Restated Byte 16: Struct of 8 fields
     index, order_restated_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_restated_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Restated Byte 17
+  -- Runtime optional field: Order Restated Byte 17
+  local order_restated_byte_17 = nil
+
   local order_restated_byte_17_exists = order_restated_bitfield_count >= 17
 
-  -- Runtime optional field: Order Restated Byte 17
   if order_restated_byte_17_exists then
 
     -- Order Restated Byte 17: Struct of 8 fields
@@ -28002,170 +28561,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_modified_return_bitfields.fields = f
   -- Order Modified Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_modified_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Modified Byte 1
+  -- Runtime optional field: Order Modified Byte 1
+  local order_modified_byte_1 = nil
+
   local order_modified_byte_1_exists = order_modified_bitfield_count >= 1
 
-  -- Runtime optional field: Order Modified Byte 1
   if order_modified_byte_1_exists then
 
     -- Order Modified Byte 1: Struct of 8 fields
     index, order_modified_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 2
+  -- Runtime optional field: Order Modified Byte 2
+  local order_modified_byte_2 = nil
+
   local order_modified_byte_2_exists = order_modified_bitfield_count >= 2
 
-  -- Runtime optional field: Order Modified Byte 2
   if order_modified_byte_2_exists then
 
     -- Order Modified Byte 2: Struct of 8 fields
     index, order_modified_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 3
+  -- Runtime optional field: Order Modified Byte 3
+  local order_modified_byte_3 = nil
+
   local order_modified_byte_3_exists = order_modified_bitfield_count >= 3
 
-  -- Runtime optional field: Order Modified Byte 3
   if order_modified_byte_3_exists then
 
     -- Order Modified Byte 3: Struct of 8 fields
     index, order_modified_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 4
+  -- Runtime optional field: Order Modified Byte 4
+  local order_modified_byte_4 = nil
+
   local order_modified_byte_4_exists = order_modified_bitfield_count >= 4
 
-  -- Runtime optional field: Order Modified Byte 4
   if order_modified_byte_4_exists then
 
     -- Order Modified Byte 4: Struct of 8 fields
     index, order_modified_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 5
+  -- Runtime optional field: Order Modified Byte 5
+  local order_modified_byte_5 = nil
+
   local order_modified_byte_5_exists = order_modified_bitfield_count >= 5
 
-  -- Runtime optional field: Order Modified Byte 5
   if order_modified_byte_5_exists then
 
     -- Order Modified Byte 5: Struct of 8 fields
     index, order_modified_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 6
+  -- Runtime optional field: Order Modified Byte 6
+  local order_modified_byte_6 = nil
+
   local order_modified_byte_6_exists = order_modified_bitfield_count >= 6
 
-  -- Runtime optional field: Order Modified Byte 6
   if order_modified_byte_6_exists then
 
     -- Order Modified Byte 6: Struct of 8 fields
     index, order_modified_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 7
+  -- Runtime optional field: Order Modified Byte 7
+  local order_modified_byte_7 = nil
+
   local order_modified_byte_7_exists = order_modified_bitfield_count >= 7
 
-  -- Runtime optional field: Order Modified Byte 7
   if order_modified_byte_7_exists then
 
     -- Order Modified Byte 7: Struct of 8 fields
     index, order_modified_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 8
+  -- Runtime optional field: Order Modified Byte 8
+  local order_modified_byte_8 = nil
+
   local order_modified_byte_8_exists = order_modified_bitfield_count >= 8
 
-  -- Runtime optional field: Order Modified Byte 8
   if order_modified_byte_8_exists then
 
     -- Order Modified Byte 8: Struct of 8 fields
     index, order_modified_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 9
+  -- Runtime optional field: Order Modified Byte 9
+  local order_modified_byte_9 = nil
+
   local order_modified_byte_9_exists = order_modified_bitfield_count >= 9
 
-  -- Runtime optional field: Order Modified Byte 9
   if order_modified_byte_9_exists then
 
     -- Order Modified Byte 9: Struct of 8 fields
     index, order_modified_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 10
+  -- Runtime optional field: Order Modified Byte 10
+  local order_modified_byte_10 = nil
+
   local order_modified_byte_10_exists = order_modified_bitfield_count >= 10
 
-  -- Runtime optional field: Order Modified Byte 10
   if order_modified_byte_10_exists then
 
     -- Order Modified Byte 10: Struct of 8 fields
     index, order_modified_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 11
+  -- Runtime optional field: Order Modified Byte 11
+  local order_modified_byte_11 = nil
+
   local order_modified_byte_11_exists = order_modified_bitfield_count >= 11
 
-  -- Runtime optional field: Order Modified Byte 11
   if order_modified_byte_11_exists then
 
     -- Order Modified Byte 11: Struct of 8 fields
     index, order_modified_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 12
+  -- Runtime optional field: Order Modified Byte 12
+  local order_modified_byte_12 = nil
+
   local order_modified_byte_12_exists = order_modified_bitfield_count >= 12
 
-  -- Runtime optional field: Order Modified Byte 12
   if order_modified_byte_12_exists then
 
     -- Order Modified Byte 12: Struct of 8 fields
     index, order_modified_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 13
+  -- Runtime optional field: Order Modified Byte 13
+  local order_modified_byte_13 = nil
+
   local order_modified_byte_13_exists = order_modified_bitfield_count >= 13
 
-  -- Runtime optional field: Order Modified Byte 13
   if order_modified_byte_13_exists then
 
     -- Order Modified Byte 13: Struct of 8 fields
     index, order_modified_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 14
+  -- Runtime optional field: Order Modified Byte 14
+  local order_modified_byte_14 = nil
+
   local order_modified_byte_14_exists = order_modified_bitfield_count >= 14
 
-  -- Runtime optional field: Order Modified Byte 14
   if order_modified_byte_14_exists then
 
     -- Order Modified Byte 14: Struct of 8 fields
     index, order_modified_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 15
+  -- Runtime optional field: Order Modified Byte 15
+  local order_modified_byte_15 = nil
+
   local order_modified_byte_15_exists = order_modified_bitfield_count >= 15
 
-  -- Runtime optional field: Order Modified Byte 15
   if order_modified_byte_15_exists then
 
     -- Order Modified Byte 15: Struct of 8 fields
     index, order_modified_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 16
+  -- Runtime optional field: Order Modified Byte 16
+  local order_modified_byte_16 = nil
+
   local order_modified_byte_16_exists = order_modified_bitfield_count >= 16
 
-  -- Runtime optional field: Order Modified Byte 16
   if order_modified_byte_16_exists then
 
     -- Order Modified Byte 16: Struct of 8 fields
     index, order_modified_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_modified_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Modified Byte 17
+  -- Runtime optional field: Order Modified Byte 17
+  local order_modified_byte_17 = nil
+
   local order_modified_byte_17_exists = order_modified_bitfield_count >= 17
 
-  -- Runtime optional field: Order Modified Byte 17
   if order_modified_byte_17_exists then
 
     -- Order Modified Byte 17: Struct of 8 fields
@@ -28217,170 +28793,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_return_bitfields.fields = f
   -- Order Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Rejected Byte 1
+  -- Runtime optional field: Order Rejected Byte 1
+  local order_rejected_byte_1 = nil
+
   local order_rejected_byte_1_exists = order_rejected_bitfield_count >= 1
 
-  -- Runtime optional field: Order Rejected Byte 1
   if order_rejected_byte_1_exists then
 
     -- Order Rejected Byte 1: Struct of 8 fields
     index, order_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 2
+  -- Runtime optional field: Order Rejected Byte 2
+  local order_rejected_byte_2 = nil
+
   local order_rejected_byte_2_exists = order_rejected_bitfield_count >= 2
 
-  -- Runtime optional field: Order Rejected Byte 2
   if order_rejected_byte_2_exists then
 
     -- Order Rejected Byte 2: Struct of 8 fields
     index, order_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 3
+  -- Runtime optional field: Order Rejected Byte 3
+  local order_rejected_byte_3 = nil
+
   local order_rejected_byte_3_exists = order_rejected_bitfield_count >= 3
 
-  -- Runtime optional field: Order Rejected Byte 3
   if order_rejected_byte_3_exists then
 
     -- Order Rejected Byte 3: Struct of 8 fields
     index, order_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 4
+  -- Runtime optional field: Order Rejected Byte 4
+  local order_rejected_byte_4 = nil
+
   local order_rejected_byte_4_exists = order_rejected_bitfield_count >= 4
 
-  -- Runtime optional field: Order Rejected Byte 4
   if order_rejected_byte_4_exists then
 
     -- Order Rejected Byte 4: Struct of 8 fields
     index, order_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 5
+  -- Runtime optional field: Order Rejected Byte 5
+  local order_rejected_byte_5 = nil
+
   local order_rejected_byte_5_exists = order_rejected_bitfield_count >= 5
 
-  -- Runtime optional field: Order Rejected Byte 5
   if order_rejected_byte_5_exists then
 
     -- Order Rejected Byte 5: Struct of 8 fields
     index, order_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 6
+  -- Runtime optional field: Order Rejected Byte 6
+  local order_rejected_byte_6 = nil
+
   local order_rejected_byte_6_exists = order_rejected_bitfield_count >= 6
 
-  -- Runtime optional field: Order Rejected Byte 6
   if order_rejected_byte_6_exists then
 
     -- Order Rejected Byte 6: Struct of 8 fields
     index, order_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 7
+  -- Runtime optional field: Order Rejected Byte 7
+  local order_rejected_byte_7 = nil
+
   local order_rejected_byte_7_exists = order_rejected_bitfield_count >= 7
 
-  -- Runtime optional field: Order Rejected Byte 7
   if order_rejected_byte_7_exists then
 
     -- Order Rejected Byte 7: Struct of 8 fields
     index, order_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 8
+  -- Runtime optional field: Order Rejected Byte 8
+  local order_rejected_byte_8 = nil
+
   local order_rejected_byte_8_exists = order_rejected_bitfield_count >= 8
 
-  -- Runtime optional field: Order Rejected Byte 8
   if order_rejected_byte_8_exists then
 
     -- Order Rejected Byte 8: Struct of 8 fields
     index, order_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 9
+  -- Runtime optional field: Order Rejected Byte 9
+  local order_rejected_byte_9 = nil
+
   local order_rejected_byte_9_exists = order_rejected_bitfield_count >= 9
 
-  -- Runtime optional field: Order Rejected Byte 9
   if order_rejected_byte_9_exists then
 
     -- Order Rejected Byte 9: Struct of 8 fields
     index, order_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 10
+  -- Runtime optional field: Order Rejected Byte 10
+  local order_rejected_byte_10 = nil
+
   local order_rejected_byte_10_exists = order_rejected_bitfield_count >= 10
 
-  -- Runtime optional field: Order Rejected Byte 10
   if order_rejected_byte_10_exists then
 
     -- Order Rejected Byte 10: Struct of 8 fields
     index, order_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 11
+  -- Runtime optional field: Order Rejected Byte 11
+  local order_rejected_byte_11 = nil
+
   local order_rejected_byte_11_exists = order_rejected_bitfield_count >= 11
 
-  -- Runtime optional field: Order Rejected Byte 11
   if order_rejected_byte_11_exists then
 
     -- Order Rejected Byte 11: Struct of 8 fields
     index, order_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 12
+  -- Runtime optional field: Order Rejected Byte 12
+  local order_rejected_byte_12 = nil
+
   local order_rejected_byte_12_exists = order_rejected_bitfield_count >= 12
 
-  -- Runtime optional field: Order Rejected Byte 12
   if order_rejected_byte_12_exists then
 
     -- Order Rejected Byte 12: Struct of 8 fields
     index, order_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 13
+  -- Runtime optional field: Order Rejected Byte 13
+  local order_rejected_byte_13 = nil
+
   local order_rejected_byte_13_exists = order_rejected_bitfield_count >= 13
 
-  -- Runtime optional field: Order Rejected Byte 13
   if order_rejected_byte_13_exists then
 
     -- Order Rejected Byte 13: Struct of 8 fields
     index, order_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 14
+  -- Runtime optional field: Order Rejected Byte 14
+  local order_rejected_byte_14 = nil
+
   local order_rejected_byte_14_exists = order_rejected_bitfield_count >= 14
 
-  -- Runtime optional field: Order Rejected Byte 14
   if order_rejected_byte_14_exists then
 
     -- Order Rejected Byte 14: Struct of 8 fields
     index, order_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 15
+  -- Runtime optional field: Order Rejected Byte 15
+  local order_rejected_byte_15 = nil
+
   local order_rejected_byte_15_exists = order_rejected_bitfield_count >= 15
 
-  -- Runtime optional field: Order Rejected Byte 15
   if order_rejected_byte_15_exists then
 
     -- Order Rejected Byte 15: Struct of 8 fields
     index, order_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 16
+  -- Runtime optional field: Order Rejected Byte 16
+  local order_rejected_byte_16 = nil
+
   local order_rejected_byte_16_exists = order_rejected_bitfield_count >= 16
 
-  -- Runtime optional field: Order Rejected Byte 16
   if order_rejected_byte_16_exists then
 
     -- Order Rejected Byte 16: Struct of 8 fields
     index, order_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_rejected_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Rejected Byte 17
+  -- Runtime optional field: Order Rejected Byte 17
+  local order_rejected_byte_17 = nil
+
   local order_rejected_byte_17_exists = order_rejected_bitfield_count >= 17
 
-  -- Runtime optional field: Order Rejected Byte 17
   if order_rejected_byte_17_exists then
 
     -- Order Rejected Byte 17: Struct of 8 fields
@@ -28432,170 +29025,187 @@ cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_return_bitfields.fiel
   -- Order Acknowledgment Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, order_acknowledgment_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 1
+  -- Runtime optional field: Order Acknowledgment Byte 1
+  local order_acknowledgment_byte_1 = nil
+
   local order_acknowledgment_byte_1_exists = order_acknowledgment_bitfield_count >= 1
 
-  -- Runtime optional field: Order Acknowledgment Byte 1
   if order_acknowledgment_byte_1_exists then
 
     -- Order Acknowledgment Byte 1: Struct of 8 fields
     index, order_acknowledgment_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 2
+  -- Runtime optional field: Order Acknowledgment Byte 2
+  local order_acknowledgment_byte_2 = nil
+
   local order_acknowledgment_byte_2_exists = order_acknowledgment_bitfield_count >= 2
 
-  -- Runtime optional field: Order Acknowledgment Byte 2
   if order_acknowledgment_byte_2_exists then
 
     -- Order Acknowledgment Byte 2: Struct of 8 fields
     index, order_acknowledgment_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 3
+  -- Runtime optional field: Order Acknowledgment Byte 3
+  local order_acknowledgment_byte_3 = nil
+
   local order_acknowledgment_byte_3_exists = order_acknowledgment_bitfield_count >= 3
 
-  -- Runtime optional field: Order Acknowledgment Byte 3
   if order_acknowledgment_byte_3_exists then
 
     -- Order Acknowledgment Byte 3: Struct of 8 fields
     index, order_acknowledgment_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 4
+  -- Runtime optional field: Order Acknowledgment Byte 4
+  local order_acknowledgment_byte_4 = nil
+
   local order_acknowledgment_byte_4_exists = order_acknowledgment_bitfield_count >= 4
 
-  -- Runtime optional field: Order Acknowledgment Byte 4
   if order_acknowledgment_byte_4_exists then
 
     -- Order Acknowledgment Byte 4: Struct of 8 fields
     index, order_acknowledgment_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 5
+  -- Runtime optional field: Order Acknowledgment Byte 5
+  local order_acknowledgment_byte_5 = nil
+
   local order_acknowledgment_byte_5_exists = order_acknowledgment_bitfield_count >= 5
 
-  -- Runtime optional field: Order Acknowledgment Byte 5
   if order_acknowledgment_byte_5_exists then
 
     -- Order Acknowledgment Byte 5: Struct of 8 fields
     index, order_acknowledgment_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 6
+  -- Runtime optional field: Order Acknowledgment Byte 6
+  local order_acknowledgment_byte_6 = nil
+
   local order_acknowledgment_byte_6_exists = order_acknowledgment_bitfield_count >= 6
 
-  -- Runtime optional field: Order Acknowledgment Byte 6
   if order_acknowledgment_byte_6_exists then
 
     -- Order Acknowledgment Byte 6: Struct of 8 fields
     index, order_acknowledgment_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 7
+  -- Runtime optional field: Order Acknowledgment Byte 7
+  local order_acknowledgment_byte_7 = nil
+
   local order_acknowledgment_byte_7_exists = order_acknowledgment_bitfield_count >= 7
 
-  -- Runtime optional field: Order Acknowledgment Byte 7
   if order_acknowledgment_byte_7_exists then
 
     -- Order Acknowledgment Byte 7: Struct of 8 fields
     index, order_acknowledgment_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_7.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 8
+  -- Runtime optional field: Order Acknowledgment Byte 8
+  local order_acknowledgment_byte_8 = nil
+
   local order_acknowledgment_byte_8_exists = order_acknowledgment_bitfield_count >= 8
 
-  -- Runtime optional field: Order Acknowledgment Byte 8
   if order_acknowledgment_byte_8_exists then
 
     -- Order Acknowledgment Byte 8: Struct of 8 fields
     index, order_acknowledgment_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_8.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 9
+  -- Runtime optional field: Order Acknowledgment Byte 9
+  local order_acknowledgment_byte_9 = nil
+
   local order_acknowledgment_byte_9_exists = order_acknowledgment_bitfield_count >= 9
 
-  -- Runtime optional field: Order Acknowledgment Byte 9
   if order_acknowledgment_byte_9_exists then
 
     -- Order Acknowledgment Byte 9: Struct of 8 fields
     index, order_acknowledgment_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 10
+  -- Runtime optional field: Order Acknowledgment Byte 10
+  local order_acknowledgment_byte_10 = nil
+
   local order_acknowledgment_byte_10_exists = order_acknowledgment_bitfield_count >= 10
 
-  -- Runtime optional field: Order Acknowledgment Byte 10
   if order_acknowledgment_byte_10_exists then
 
     -- Order Acknowledgment Byte 10: Struct of 8 fields
     index, order_acknowledgment_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_10.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 11
+  -- Runtime optional field: Order Acknowledgment Byte 11
+  local order_acknowledgment_byte_11 = nil
+
   local order_acknowledgment_byte_11_exists = order_acknowledgment_bitfield_count >= 11
 
-  -- Runtime optional field: Order Acknowledgment Byte 11
   if order_acknowledgment_byte_11_exists then
 
     -- Order Acknowledgment Byte 11: Struct of 8 fields
     index, order_acknowledgment_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_11.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 12
+  -- Runtime optional field: Order Acknowledgment Byte 12
+  local order_acknowledgment_byte_12 = nil
+
   local order_acknowledgment_byte_12_exists = order_acknowledgment_bitfield_count >= 12
 
-  -- Runtime optional field: Order Acknowledgment Byte 12
   if order_acknowledgment_byte_12_exists then
 
     -- Order Acknowledgment Byte 12: Struct of 8 fields
     index, order_acknowledgment_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_12.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 13
+  -- Runtime optional field: Order Acknowledgment Byte 13
+  local order_acknowledgment_byte_13 = nil
+
   local order_acknowledgment_byte_13_exists = order_acknowledgment_bitfield_count >= 13
 
-  -- Runtime optional field: Order Acknowledgment Byte 13
   if order_acknowledgment_byte_13_exists then
 
     -- Order Acknowledgment Byte 13: Struct of 8 fields
     index, order_acknowledgment_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_13.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 14
+  -- Runtime optional field: Order Acknowledgment Byte 14
+  local order_acknowledgment_byte_14 = nil
+
   local order_acknowledgment_byte_14_exists = order_acknowledgment_bitfield_count >= 14
 
-  -- Runtime optional field: Order Acknowledgment Byte 14
   if order_acknowledgment_byte_14_exists then
 
     -- Order Acknowledgment Byte 14: Struct of 8 fields
     index, order_acknowledgment_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_14.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 15
+  -- Runtime optional field: Order Acknowledgment Byte 15
+  local order_acknowledgment_byte_15 = nil
+
   local order_acknowledgment_byte_15_exists = order_acknowledgment_bitfield_count >= 15
 
-  -- Runtime optional field: Order Acknowledgment Byte 15
   if order_acknowledgment_byte_15_exists then
 
     -- Order Acknowledgment Byte 15: Struct of 8 fields
     index, order_acknowledgment_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_15.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 16
+  -- Runtime optional field: Order Acknowledgment Byte 16
+  local order_acknowledgment_byte_16 = nil
+
   local order_acknowledgment_byte_16_exists = order_acknowledgment_bitfield_count >= 16
 
-  -- Runtime optional field: Order Acknowledgment Byte 16
   if order_acknowledgment_byte_16_exists then
 
     -- Order Acknowledgment Byte 16: Struct of 8 fields
     index, order_acknowledgment_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_16.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Order Acknowledgment Byte 17
+  -- Runtime optional field: Order Acknowledgment Byte 17
+  local order_acknowledgment_byte_17 = nil
+
   local order_acknowledgment_byte_17_exists = order_acknowledgment_bitfield_count >= 17
 
-  -- Runtime optional field: Order Acknowledgment Byte 17
   if order_acknowledgment_byte_17_exists then
 
     -- Order Acknowledgment Byte 17: Struct of 8 fields
@@ -28647,20 +29257,22 @@ cboe_bzx_equities_orderentry_boe_v2_3.purge_order_return_bitfields.fields = func
   -- Purge Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, purge_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.purge_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Purge Order Byte 1
+  -- Runtime optional field: Purge Order Byte 1
+  local purge_order_byte_1 = nil
+
   local purge_order_byte_1_exists = purge_order_bitfield_count >= 1
 
-  -- Runtime optional field: Purge Order Byte 1
   if purge_order_byte_1_exists then
 
     -- Purge Order Byte 1: Struct of 8 fields
     index, purge_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.purge_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Purge Order Byte 2
+  -- Runtime optional field: Purge Order Byte 2
+  local purge_order_byte_2 = nil
+
   local purge_order_byte_2_exists = purge_order_bitfield_count >= 2
 
-  -- Runtime optional field: Purge Order Byte 2
   if purge_order_byte_2_exists then
 
     -- Purge Order Byte 2: Struct of 8 fields
@@ -28712,20 +29324,22 @@ cboe_bzx_equities_orderentry_boe_v2_3.modify_order_return_bitfields.fields = fun
   -- Modify Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, modify_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.modify_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Modify Order Byte 1
+  -- Runtime optional field: Modify Order Byte 1
+  local modify_order_byte_1 = nil
+
   local modify_order_byte_1_exists = modify_order_bitfield_count >= 1
 
-  -- Runtime optional field: Modify Order Byte 1
   if modify_order_byte_1_exists then
 
     -- Modify Order Byte 1: Struct of 8 fields
     index, modify_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.modify_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Modify Order Byte 2
+  -- Runtime optional field: Modify Order Byte 2
+  local modify_order_byte_2 = nil
+
   local modify_order_byte_2_exists = modify_order_bitfield_count >= 2
 
-  -- Runtime optional field: Modify Order Byte 2
   if modify_order_byte_2_exists then
 
     -- Modify Order Byte 2: Struct of 8 fields
@@ -28777,20 +29391,22 @@ cboe_bzx_equities_orderentry_boe_v2_3.cancel_order_return_bitfields.fields = fun
   -- Cancel Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, cancel_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.cancel_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: Cancel Order Byte 1
+  -- Runtime optional field: Cancel Order Byte 1
+  local cancel_order_byte_1 = nil
+
   local cancel_order_byte_1_exists = cancel_order_bitfield_count >= 1
 
-  -- Runtime optional field: Cancel Order Byte 1
   if cancel_order_byte_1_exists then
 
     -- Cancel Order Byte 1: Struct of 8 fields
     index, cancel_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.cancel_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Cancel Order Byte 2
+  -- Runtime optional field: Cancel Order Byte 2
+  local cancel_order_byte_2 = nil
+
   local cancel_order_byte_2_exists = cancel_order_bitfield_count >= 2
 
-  -- Runtime optional field: Cancel Order Byte 2
   if cancel_order_byte_2_exists then
 
     -- Cancel Order Byte 2: Struct of 8 fields
@@ -28842,70 +29458,77 @@ cboe_bzx_equities_orderentry_boe_v2_3.new_order_return_bitfields.fields = functi
   -- New Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
   index, new_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3.new_order_bitfield_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: New Order Byte 1
+  -- Runtime optional field: New Order Byte 1
+  local new_order_byte_1 = nil
+
   local new_order_byte_1_exists = new_order_bitfield_count >= 1
 
-  -- Runtime optional field: New Order Byte 1
   if new_order_byte_1_exists then
 
     -- New Order Byte 1: Struct of 8 fields
     index, new_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 2
+  -- Runtime optional field: New Order Byte 2
+  local new_order_byte_2 = nil
+
   local new_order_byte_2_exists = new_order_bitfield_count >= 2
 
-  -- Runtime optional field: New Order Byte 2
   if new_order_byte_2_exists then
 
     -- New Order Byte 2: Struct of 8 fields
     index, new_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 3
+  -- Runtime optional field: New Order Byte 3
+  local new_order_byte_3 = nil
+
   local new_order_byte_3_exists = new_order_bitfield_count >= 3
 
-  -- Runtime optional field: New Order Byte 3
   if new_order_byte_3_exists then
 
     -- New Order Byte 3: Struct of 8 fields
     index, new_order_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_3.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 4
+  -- Runtime optional field: New Order Byte 4
+  local new_order_byte_4 = nil
+
   local new_order_byte_4_exists = new_order_bitfield_count >= 4
 
-  -- Runtime optional field: New Order Byte 4
   if new_order_byte_4_exists then
 
     -- New Order Byte 4: Struct of 8 fields
     index, new_order_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_4.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 5
+  -- Runtime optional field: New Order Byte 5
+  local new_order_byte_5 = nil
+
   local new_order_byte_5_exists = new_order_bitfield_count >= 5
 
-  -- Runtime optional field: New Order Byte 5
   if new_order_byte_5_exists then
 
     -- New Order Byte 5: Struct of 8 fields
     index, new_order_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_5.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 6
+  -- Runtime optional field: New Order Byte 6
+  local new_order_byte_6 = nil
+
   local new_order_byte_6_exists = new_order_bitfield_count >= 6
 
-  -- Runtime optional field: New Order Byte 6
   if new_order_byte_6_exists then
 
     -- New Order Byte 6: Struct of 8 fields
     index, new_order_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3.new_order_byte_6.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: New Order Byte 7
+  -- Runtime optional field: New Order Byte 7
+  local new_order_byte_7 = nil
+
   local new_order_byte_7_exists = new_order_bitfield_count >= 7
 
-  -- Runtime optional field: New Order Byte 7
   if new_order_byte_7_exists then
 
     -- New Order Byte 7: Struct of 8 fields

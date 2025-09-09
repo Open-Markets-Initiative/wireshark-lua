@@ -2479,34 +2479,38 @@ siac_cqs_output_cta_v1_91.special_long_quote_message.fields = function(buffer, o
   -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
   index, national_bbo_indicator = siac_cqs_output_cta_v1_91.national_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: National Best Bid Long Appendage
+  -- Runtime optional field: National Best Bid Long Appendage
+  local national_best_bid_long_appendage = nil
+
   local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
 
-  -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
     index, national_best_bid_long_appendage = siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Offer Long Appendage
+  -- Runtime optional field: National Best Offer Long Appendage
+  local national_best_offer_long_appendage = nil
+
   local national_best_offer_long_appendage_exists = national_bbo_indicator == "U"
 
-  -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
     index, national_best_offer_long_appendage = siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Bid Short Appendage
+  -- Runtime optional field: National Best Bid Short Appendage
+  local national_best_bid_short_appendage = nil
+
   local national_best_bid_short_appendage_exists = national_bbo_indicator == "T"
 
-  -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
     index, national_best_bid_short_appendage = siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Offer Short Appendage
+  -- Runtime optional field: National Best Offer Short Appendage
+  local national_best_offer_short_appendage = nil
+
   local national_best_offer_short_appendage_exists = national_bbo_indicator == "T"
 
-  -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
     index, national_best_offer_short_appendage = siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.dissect(buffer, index, packet, parent)
   end
@@ -2716,34 +2720,38 @@ siac_cqs_output_cta_v1_91.short_quote_message.fields = function(buffer, offset, 
   -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
   index, national_bbo_indicator = siac_cqs_output_cta_v1_91.national_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: National Best Bid Long Appendage
+  -- Runtime optional field: National Best Bid Long Appendage
+  local national_best_bid_long_appendage = nil
+
   local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
 
-  -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
     index, national_best_bid_long_appendage = siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Offer Long Appendage
+  -- Runtime optional field: National Best Offer Long Appendage
+  local national_best_offer_long_appendage = nil
+
   local national_best_offer_long_appendage_exists = national_bbo_indicator == "U"
 
-  -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
     index, national_best_offer_long_appendage = siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Bid Short Appendage
+  -- Runtime optional field: National Best Bid Short Appendage
+  local national_best_bid_short_appendage = nil
+
   local national_best_bid_short_appendage_exists = national_bbo_indicator == "T"
 
-  -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
     index, national_best_bid_short_appendage = siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Offer Short Appendage
+  -- Runtime optional field: National Best Offer Short Appendage
+  local national_best_offer_short_appendage = nil
+
   local national_best_offer_short_appendage_exists = national_bbo_indicator == "T"
 
-  -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
     index, national_best_offer_short_appendage = siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.dissect(buffer, index, packet, parent)
   end
@@ -2982,34 +2990,38 @@ siac_cqs_output_cta_v1_91.long_quote_message.fields = function(buffer, offset, p
   -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
   index, national_bbo_indicator = siac_cqs_output_cta_v1_91.national_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field exists: National Best Bid Long Appendage
+  -- Runtime optional field: National Best Bid Long Appendage
+  local national_best_bid_long_appendage = nil
+
   local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
 
-  -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
     index, national_best_bid_long_appendage = siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Offer Long Appendage
+  -- Runtime optional field: National Best Offer Long Appendage
+  local national_best_offer_long_appendage = nil
+
   local national_best_offer_long_appendage_exists = national_bbo_indicator == "U"
 
-  -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
     index, national_best_offer_long_appendage = siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Bid Short Appendage
+  -- Runtime optional field: National Best Bid Short Appendage
+  local national_best_bid_short_appendage = nil
+
   local national_best_bid_short_appendage_exists = national_bbo_indicator == "T"
 
-  -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
     index, national_best_bid_short_appendage = siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: National Best Offer Short Appendage
+  -- Runtime optional field: National Best Offer Short Appendage
+  local national_best_offer_short_appendage = nil
+
   local national_best_offer_short_appendage_exists = national_bbo_indicator == "T"
 
-  -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
     index, national_best_offer_short_appendage = siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.dissect(buffer, index, packet, parent)
   end
@@ -5118,10 +5130,11 @@ siac_cqs_output_cta_v1_91.packet.dissect = function(buffer, packet, parent)
     index, message = siac_cqs_output_cta_v1_91.message.dissect(buffer, index, packet, parent, message_length)
   end
 
-  -- Runtime optional field exists: Block Pad Byte
+  -- Runtime optional field: Block Pad Byte
+  local block_pad_byte = nil
+
   local block_pad_byte_exists = uneven( index )
 
-  -- Runtime optional field: Block Pad Byte
   if block_pad_byte_exists then
     index, block_pad_byte = siac_cqs_output_cta_v1_91.block_pad_byte.dissect(buffer, index, packet, parent)
   end

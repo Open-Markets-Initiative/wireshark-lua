@@ -10489,10 +10489,11 @@ eurex_derivatives_eti_t7_v10_0.tes_broadcast.fields = function(buffer, offset, p
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -10820,10 +10821,11 @@ eurex_derivatives_eti_t7_v10_0.tes_approve_broadcast.fields = function(buffer, o
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -18214,10 +18216,11 @@ eurex_derivatives_eti_t7_v10_0.reject.fields = function(buffer, offset, packet, 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -22970,10 +22973,11 @@ eurex_derivatives_eti_t7_v10_0.news_broadcast.fields = function(buffer, offset, 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -27516,10 +27520,11 @@ eurex_derivatives_eti_t7_v10_0.legal_notification_broadcast.fields = function(bu
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -28900,10 +28905,11 @@ eurex_derivatives_eti_t7_v10_0.forced_user_logout_notification.fields = function
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -28973,10 +28979,11 @@ eurex_derivatives_eti_t7_v10_0.forced_logout_notification.fields = function(buff
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
@@ -32002,10 +32009,11 @@ eurex_derivatives_eti_t7_v10_0.broadcast_error_notification.fields = function(bu
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
 
-  -- Runtime optional field exists: Alignment Padding
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
   local alignment_padding_exists = body_len ~= index
 
-  -- Runtime optional field: Alignment Padding
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
