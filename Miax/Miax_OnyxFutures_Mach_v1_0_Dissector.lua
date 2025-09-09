@@ -89,11 +89,11 @@ end
 miax_onyxfutures_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = miax_onyxfutures_mach_v1_0.data.display(value, buffer, offset, packet, parent, size)
+  local display = miax_onyxfutures_mach_v1_0.data.display(value, packet, parent, size)
 
   parent:add(omi_miax_onyxfutures_mach_v1_0.fields.data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Message Type

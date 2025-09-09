@@ -1347,11 +1347,11 @@ end
 cboe_options_marketlevel2_csm_v1_0_4.underlying_type_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = cboe_options_marketlevel2_csm_v1_0_4.underlying_type_text.display(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketlevel2_csm_v1_0_4.underlying_type_text.display(value, packet, parent, size)
 
   parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.underlying_type_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Underlying Type Length
@@ -1435,11 +1435,11 @@ end
 cboe_options_marketlevel2_csm_v1_0_4.underlying_symbol_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = cboe_options_marketlevel2_csm_v1_0_4.underlying_symbol_text.display(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketlevel2_csm_v1_0_4.underlying_symbol_text.display(value, packet, parent, size)
 
   parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.underlying_symbol_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Underlying Symbol Length
@@ -1523,11 +1523,11 @@ end
 cboe_options_marketlevel2_csm_v1_0_4.currency_code_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = cboe_options_marketlevel2_csm_v1_0_4.currency_code_text.display(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketlevel2_csm_v1_0_4.currency_code_text.display(value, packet, parent, size)
 
   parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.currency_code_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Currency Code Length
@@ -2270,11 +2270,11 @@ end
 cboe_options_marketlevel2_csm_v1_0_4.target_location_id_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = cboe_options_marketlevel2_csm_v1_0_4.target_location_id_text.display(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketlevel2_csm_v1_0_4.target_location_id_text.display(value, packet, parent, size)
 
   parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.target_location_id_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Target Location Id Length
@@ -2358,11 +2358,11 @@ end
 cboe_options_marketlevel2_csm_v1_0_4.symbol_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = cboe_options_marketlevel2_csm_v1_0_4.symbol_text.display(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketlevel2_csm_v1_0_4.symbol_text.display(value, packet, parent, size)
 
   parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.symbol_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Symbol Length
@@ -2485,11 +2485,11 @@ end
 cboe_options_marketlevel2_csm_v1_0_4.security_type_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = cboe_options_marketlevel2_csm_v1_0_4.security_type_text.display(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketlevel2_csm_v1_0_4.security_type_text.display(value, packet, parent, size)
 
   parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.security_type_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Security Type Length

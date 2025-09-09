@@ -397,11 +397,11 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.logout_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_text.display(value, buffer, offset, packet, parent, size)
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_text.display(value, packet, parent, size)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Logout Reason

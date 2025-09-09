@@ -92,11 +92,11 @@ end
 nasdaq_common_mold64_udp_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_common_mold64_udp_v1_0.payload.display(value, buffer, offset, packet, parent, size)
+  local display = nasdaq_common_mold64_udp_v1_0.payload.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.payload, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Message Type

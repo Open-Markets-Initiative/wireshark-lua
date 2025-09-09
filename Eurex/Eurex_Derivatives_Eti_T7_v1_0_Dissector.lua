@@ -79,11 +79,11 @@ end
 eurex_derivatives_eti_t7_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eti_t7_v1_0.payload.display(value, buffer, offset, packet, parent, size)
+  local display = eurex_derivatives_eti_t7_v1_0.payload.display(value, packet, parent, size)
 
   parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.payload, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Template Id

@@ -14787,11 +14787,11 @@ end
 eurex_cash_eti_t7_v8_0.alignment_padding.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v8_0.alignment_padding.display(value, buffer, offset, packet, parent, size)
+  local display = eurex_cash_eti_t7_v8_0.alignment_padding.display(value, packet, parent, size)
 
   parent:add(omi_eurex_cash_eti_t7_v8_0.fields.alignment_padding, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Var Text
@@ -14806,11 +14806,11 @@ end
 eurex_cash_eti_t7_v8_0.var_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = eurex_cash_eti_t7_v8_0.var_text.display(value, buffer, offset, packet, parent, size)
+  local display = eurex_cash_eti_t7_v8_0.var_text.display(value, packet, parent, size)
 
   parent:add(omi_eurex_cash_eti_t7_v8_0.fields.var_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Session Status

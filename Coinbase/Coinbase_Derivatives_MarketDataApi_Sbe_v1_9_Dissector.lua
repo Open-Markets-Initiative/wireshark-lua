@@ -408,11 +408,11 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_9.padding.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_9.padding.display(value, buffer, offset, packet, parent, size)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_9.padding.display(value, packet, parent, size)
 
   parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_9.fields.padding, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Reason

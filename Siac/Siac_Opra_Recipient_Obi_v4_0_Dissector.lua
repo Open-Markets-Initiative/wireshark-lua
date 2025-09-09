@@ -815,11 +815,11 @@ end
 siac_opra_recipient_obi_v4_0.message_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = siac_opra_recipient_obi_v4_0.message_data.display(value, buffer, offset, packet, parent, size)
+  local display = siac_opra_recipient_obi_v4_0.message_data.display(value, packet, parent, size)
 
   parent:add(omi_siac_opra_recipient_obi_v4_0.fields.message_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Message Data Length

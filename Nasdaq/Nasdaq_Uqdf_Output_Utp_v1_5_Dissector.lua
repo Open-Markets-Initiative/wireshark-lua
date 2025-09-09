@@ -2774,11 +2774,11 @@ end
 nasdaq_uqdf_output_utp_v1_5.text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_uqdf_output_utp_v1_5.text.display(value, buffer, offset, packet, parent, size)
+  local display = nasdaq_uqdf_output_utp_v1_5.text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Text Length

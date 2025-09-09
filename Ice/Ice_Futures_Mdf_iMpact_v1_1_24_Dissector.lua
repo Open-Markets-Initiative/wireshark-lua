@@ -5906,11 +5906,11 @@ end
 ice_futures_mdf_impact_v1_1_24.special_field_value.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = ice_futures_mdf_impact_v1_1_24.special_field_value.display(value, buffer, offset, packet, parent, size)
+  local display = ice_futures_mdf_impact_v1_1_24.special_field_value.display(value, packet, parent, size)
 
   parent:add(omi_ice_futures_mdf_impact_v1_1_24.fields.special_field_value, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Special Field Length

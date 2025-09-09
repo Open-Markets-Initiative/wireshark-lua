@@ -180,11 +180,11 @@ end
 nyse_options_streamprotocol_pillar_v1_6.data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_streamprotocol_pillar_v1_6.data.display(value, buffer, offset, packet, parent, size)
+  local display = nyse_options_streamprotocol_pillar_v1_6.data.display(value, packet, parent, size)
 
   parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Seq Msg Length

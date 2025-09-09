@@ -480,11 +480,11 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.test_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = miax_pearlequities_expressorders_meo_v2_7_a.test_text.display(value, buffer, offset, packet, parent, size)
+  local display = miax_pearlequities_expressorders_meo_v2_7_a.test_text.display(value, packet, parent, size)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.test_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Test Packet
@@ -546,11 +546,11 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.logout_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = miax_pearlequities_expressorders_meo_v2_7_a.logout_text.display(value, buffer, offset, packet, parent, size)
+  local display = miax_pearlequities_expressorders_meo_v2_7_a.logout_text.display(value, packet, parent, size)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.logout_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Logout Reason

@@ -95,11 +95,11 @@ end
 nyse_options_commonclient_pillar_v2_6.payload.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_commonclient_pillar_v2_6.payload.display(value, buffer, offset, packet, parent, size)
+  local display = nyse_options_commonclient_pillar_v2_6.payload.display(value, packet, parent, size)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.payload, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Message Type

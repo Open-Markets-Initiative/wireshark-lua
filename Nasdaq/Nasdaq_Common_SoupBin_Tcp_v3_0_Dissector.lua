@@ -139,11 +139,11 @@ end
 nasdaq_common_soupbin_tcp_v3_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_common_soupbin_tcp_v3_0.unsequenced_message.display(value, buffer, offset, packet, parent, size)
+  local display = nasdaq_common_soupbin_tcp_v3_0.unsequenced_message.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Unsequenced Message Type
@@ -387,11 +387,11 @@ end
 nasdaq_common_soupbin_tcp_v3_0.sequenced_message.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_common_soupbin_tcp_v3_0.sequenced_message.display(value, buffer, offset, packet, parent, size)
+  local display = nasdaq_common_soupbin_tcp_v3_0.sequenced_message.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Sequenced Message Type

@@ -115,11 +115,11 @@ end
 tmx_quantumfeed_xmtheader_udp_v1_1.business_message.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = tmx_quantumfeed_xmtheader_udp_v1_1.business_message.display(value, buffer, offset, packet, parent, size)
+  local display = tmx_quantumfeed_xmtheader_udp_v1_1.business_message.display(value, packet, parent, size)
 
   parent:add(omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_message, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Sequence 1

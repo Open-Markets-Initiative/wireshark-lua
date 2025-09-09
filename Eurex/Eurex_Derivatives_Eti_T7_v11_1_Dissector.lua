@@ -11014,11 +11014,11 @@ end
 eurex_derivatives_eti_t7_v11_1.alignment_padding.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eti_t7_v11_1.alignment_padding.display(value, buffer, offset, packet, parent, size)
+  local display = eurex_derivatives_eti_t7_v11_1.alignment_padding.display(value, packet, parent, size)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.alignment_padding, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Var Text
@@ -11033,11 +11033,11 @@ end
 eurex_derivatives_eti_t7_v11_1.var_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = eurex_derivatives_eti_t7_v11_1.var_text.display(value, buffer, offset, packet, parent, size)
+  local display = eurex_derivatives_eti_t7_v11_1.var_text.display(value, packet, parent, size)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.var_text, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Leg Clearing Trade Price
@@ -28169,11 +28169,11 @@ end
 eurex_derivatives_eti_t7_v11_1.public_key.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = eurex_derivatives_eti_t7_v11_1.public_key.display(value, buffer, offset, packet, parent, size)
+  local display = eurex_derivatives_eti_t7_v11_1.public_key.display(value, packet, parent, size)
 
   parent:add(omi_eurex_derivatives_eti_t7_v11_1.fields.public_key, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Default Cstm Appl Ver Sub Id

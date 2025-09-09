@@ -99,11 +99,11 @@ end
 iex_equities_udpheader_iextp_v1_0.message_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = iex_equities_udpheader_iextp_v1_0.message_data.display(value, buffer, offset, packet, parent, size)
+  local display = iex_equities_udpheader_iextp_v1_0.message_data.display(value, packet, parent, size)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Message Type

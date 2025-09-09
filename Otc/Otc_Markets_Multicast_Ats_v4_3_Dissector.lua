@@ -674,11 +674,11 @@ end
 otc_markets_multicast_ats_v4_3.issuer_name.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = otc_markets_multicast_ats_v4_3.issuer_name.display(value, buffer, offset, packet, parent, size)
+  local display = otc_markets_multicast_ats_v4_3.issuer_name.display(value, packet, parent, size)
 
   parent:add(omi_otc_markets_multicast_ats_v4_3.fields.issuer_name, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Issuer Size
@@ -716,11 +716,11 @@ end
 otc_markets_multicast_ats_v4_3.security_detail.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = otc_markets_multicast_ats_v4_3.security_detail.display(value, buffer, offset, packet, parent, size)
+  local display = otc_markets_multicast_ats_v4_3.security_detail.display(value, packet, parent, size)
 
   parent:add(omi_otc_markets_multicast_ats_v4_3.fields.security_detail, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Security Detail Size
