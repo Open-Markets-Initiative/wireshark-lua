@@ -39,6 +39,8 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.cmta_giveup_cd = ProtoField.new("Cmta Giv
 omi_cme_futures_ilink3_sbe_v8_6.fields.contra_calculated_ccy_last_qty = ProtoField.new("Contra Calculated Ccy Last Qty", "cme.futures.ilink3.sbe.v8.6.contracalculatedccylastqty", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.contra_gross_trade_amt = ProtoField.new("Contra Gross Trade Amt", "cme.futures.ilink3.sbe.v8.6.contragrosstradeamt", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.credentials = ProtoField.new("Credentials", "cme.futures.ilink3.sbe.v8.6.credentials", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_6.fields.credentials_data = ProtoField.new("Credentials Data", "cme.futures.ilink3.sbe.v8.6.credentialsdata", ftypes.BYTES)
+omi_cme_futures_ilink3_sbe_v8_6.fields.credentials_length = ProtoField.new("Credentials Length", "cme.futures.ilink3.sbe.v8.6.credentialslength", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.6.crossid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.cross_id_optional = ProtoField.new("Cross Id Optional", "cme.futures.ilink3.sbe.v8.6.crossidoptional", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_6.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.6.crosstype", ftypes.UINT8)
@@ -48,7 +50,6 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.cust_order_capacity = ProtoField.new("Cus
 omi_cme_futures_ilink3_sbe_v8_6.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cme.futures.ilink3.sbe.v8.6.custorderhandlinginst", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.cxl_quantity = ProtoField.new("Cxl Quantity", "cme.futures.ilink3.sbe.v8.6.cxlquantity", ftypes.UINT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "cme.futures.ilink3.sbe.v8.6.cxlrejreason", ftypes.UINT16)
-omi_cme_futures_ilink3_sbe_v8_6.fields.data_length = ProtoField.new("Data Length", "cme.futures.ilink3.sbe.v8.6.datalength", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.day = ProtoField.new("Day", "cme.futures.ilink3.sbe.v8.6.day", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_6.fields.delay_duration = ProtoField.new("Delay Duration", "cme.futures.ilink3.sbe.v8.6.delayduration", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.delay_to_time = ProtoField.new("Delay To Time", "cme.futures.ilink3.sbe.v8.6.delaytotime", ftypes.UINT64)
@@ -319,7 +320,6 @@ omi_cme_futures_ilink3_sbe_v8_6.fields.underlying_px = ProtoField.new("Underlyin
 omi_cme_futures_ilink3_sbe_v8_6.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.ilink3.sbe.v8.6.underlyingsecurityid", ftypes.INT32)
 omi_cme_futures_ilink3_sbe_v8_6.fields.unsolicited_cancel_type = ProtoField.new("Unsolicited Cancel Type", "cme.futures.ilink3.sbe.v8.6.unsolicitedcanceltype", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.uuid = ProtoField.new("Uuid", "cme.futures.ilink3.sbe.v8.6.uuid", ftypes.UINT64)
-omi_cme_futures_ilink3_sbe_v8_6.fields.var_data = ProtoField.new("Var Data", "cme.futures.ilink3.sbe.v8.6.vardata", ftypes.BYTES)
 omi_cme_futures_ilink3_sbe_v8_6.fields.version = ProtoField.new("Version", "cme.futures.ilink3.sbe.v8.6.version", ftypes.UINT16)
 omi_cme_futures_ilink3_sbe_v8_6.fields.volatility = ProtoField.new("Volatility", "cme.futures.ilink3.sbe.v8.6.volatility", ftypes.STRING)
 omi_cme_futures_ilink3_sbe_v8_6.fields.week = ProtoField.new("Week", "cme.futures.ilink3.sbe.v8.6.week", ftypes.UINT8)
@@ -18037,44 +18037,44 @@ cme_futures_ilink3_sbe_v8_6.establishment_ack.dissect = function(buffer, offset,
   end
 end
 
--- Var Data
-cme_futures_ilink3_sbe_v8_6.var_data = {}
+-- Credentials Data
+cme_futures_ilink3_sbe_v8_6.credentials_data = {}
 
--- Display: Var Data
-cme_futures_ilink3_sbe_v8_6.var_data.display = function(value)
-  return "Var Data: "..value
+-- Display: Credentials Data
+cme_futures_ilink3_sbe_v8_6.credentials_data.display = function(value)
+  return "Credentials Data: "..value
 end
 
--- Dissect runtime sized field: Var Data
-cme_futures_ilink3_sbe_v8_6.var_data.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Credentials Data
+cme_futures_ilink3_sbe_v8_6.credentials_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = cme_futures_ilink3_sbe_v8_6.var_data.display(value, buffer, offset, packet, parent, size)
+  local display = cme_futures_ilink3_sbe_v8_6.credentials_data.display(value, packet, parent, size)
 
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.var_data, range, value, display)
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.credentials_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
--- Data Length
-cme_futures_ilink3_sbe_v8_6.data_length = {}
+-- Credentials Length
+cme_futures_ilink3_sbe_v8_6.credentials_length = {}
 
--- Size: Data Length
-cme_futures_ilink3_sbe_v8_6.data_length.size = 2
+-- Size: Credentials Length
+cme_futures_ilink3_sbe_v8_6.credentials_length.size = 2
 
--- Display: Data Length
-cme_futures_ilink3_sbe_v8_6.data_length.display = function(value)
-  return "Data Length: "..value
+-- Display: Credentials Length
+cme_futures_ilink3_sbe_v8_6.credentials_length.display = function(value)
+  return "Credentials Length: "..value
 end
 
--- Dissect: Data Length
-cme_futures_ilink3_sbe_v8_6.data_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_6.data_length.size
+-- Dissect: Credentials Length
+cme_futures_ilink3_sbe_v8_6.credentials_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_6.credentials_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_6.data_length.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_ilink3_sbe_v8_6.credentials_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.data_length, range, value, display)
+  parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.credentials_length, range, value, display)
 
   return offset + length, value
 end
@@ -18086,43 +18086,55 @@ cme_futures_ilink3_sbe_v8_6.credentials = {}
 cme_futures_ilink3_sbe_v8_6.credentials.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_ilink3_sbe_v8_6.data_length.size
+  index = index + cme_futures_ilink3_sbe_v8_6.credentials_length.size
 
-  -- Parse runtime size of: Var Data
+  -- Parse runtime size of: Credentials Data
   index = index + buffer(offset + index - 2, 2):le_uint()
 
   return index
 end
 
 -- Display: Credentials
-cme_futures_ilink3_sbe_v8_6.credentials.display = function(packet, parent, length)
-  return ""
+cme_futures_ilink3_sbe_v8_6.credentials.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Credentials
 cme_futures_ilink3_sbe_v8_6.credentials.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Data Length: 2 Byte Unsigned Fixed Width Integer
-  index, data_length = cme_futures_ilink3_sbe_v8_6.data_length.dissect(buffer, index, packet, parent)
+  -- Credentials Length: 2 Byte Unsigned Fixed Width Integer
+  index, credentials_length = cme_futures_ilink3_sbe_v8_6.credentials_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Var Data
-  index, var_data = cme_futures_ilink3_sbe_v8_6.var_data.dissect(buffer, index, packet, parent, data_length)
+  -- Runtime Size Of: Credentials Data
+  index, credentials_data = cme_futures_ilink3_sbe_v8_6.credentials_data.dissect(buffer, index, packet, parent, credentials_length)
 
-  return index
+  -- Composite value
+  local credentials = credentials_data
+
+  return index, credentials
 end
 
 -- Dissect: Credentials
 cme_futures_ilink3_sbe_v8_6.credentials.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.credentials then
-    local length = cme_futures_ilink3_sbe_v8_6.credentials.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_ilink3_sbe_v8_6.credentials.display(buffer, packet, parent)
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.credentials, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_6.fields.credentials, buffer(offset, 0))
+    local index, value = cme_futures_ilink3_sbe_v8_6.credentials.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_ilink3_sbe_v8_6.credentials.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return cme_futures_ilink3_sbe_v8_6.credentials.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_ilink3_sbe_v8_6.credentials.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Firm

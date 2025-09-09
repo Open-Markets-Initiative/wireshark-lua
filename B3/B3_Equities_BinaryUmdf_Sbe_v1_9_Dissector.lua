@@ -4695,11 +4695,11 @@ end
 b3_equities_binaryumdf_sbe_v1_9.url_link_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryumdf_sbe_v1_9.url_link_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryumdf_sbe_v1_9.url_link_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.url_link_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Url Link Length
@@ -4734,8 +4734,13 @@ b3_equities_binaryumdf_sbe_v1_9.url_link.size = function(buffer, offset)
 
   index = index + b3_equities_binaryumdf_sbe_v1_9.url_link_length.size
 
-  -- Parse runtime size of: Url Link Data
-  index = index + buffer(offset + index - 2, 2):le_uint()
+  local url_link_length = buffer(offset + index - 2, 2):le_uint()
+
+  if url_link_length > 0 then
+    -- Parse runtime size of: Url Link Data
+    index = index + buffer(offset + index - 2, 2):le_uint()
+
+  end
 
   return index
 end
@@ -4752,8 +4757,16 @@ b3_equities_binaryumdf_sbe_v1_9.url_link.fields = function(buffer, offset, packe
   -- Url Link Length: 2 Byte Unsigned Fixed Width Integer
   index, url_link_length = b3_equities_binaryumdf_sbe_v1_9.url_link_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Url Link Data
-  index, url_link_data = b3_equities_binaryumdf_sbe_v1_9.url_link_data.dissect(buffer, index, packet, parent, url_link_length)
+  -- Runtime optional field: Url Link Data
+  local url_link_data = nil
+
+  local url_link_data_exists = url_link_length > 0
+
+  if url_link_data_exists then
+
+    -- Runtime Size Of: Url Link Data
+    index, url_link_data = b3_equities_binaryumdf_sbe_v1_9.url_link_data.dissect(buffer, index, packet, parent, url_link_length)
+  end
 
   return index
 end
@@ -4783,11 +4796,11 @@ end
 b3_equities_binaryumdf_sbe_v1_9.text_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryumdf_sbe_v1_9.text_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryumdf_sbe_v1_9.text_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.text_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Text Length
@@ -4822,8 +4835,13 @@ b3_equities_binaryumdf_sbe_v1_9.text.size = function(buffer, offset)
 
   index = index + b3_equities_binaryumdf_sbe_v1_9.text_length.size
 
-  -- Parse runtime size of: Text Data
-  index = index + buffer(offset + index - 2, 2):le_uint()
+  local text_length = buffer(offset + index - 2, 2):le_uint()
+
+  if text_length > 0 then
+    -- Parse runtime size of: Text Data
+    index = index + buffer(offset + index - 2, 2):le_uint()
+
+  end
 
   return index
 end
@@ -4840,8 +4858,16 @@ b3_equities_binaryumdf_sbe_v1_9.text.fields = function(buffer, offset, packet, p
   -- Text Length: 2 Byte Unsigned Fixed Width Integer
   index, text_length = b3_equities_binaryumdf_sbe_v1_9.text_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Text Data
-  index, text_data = b3_equities_binaryumdf_sbe_v1_9.text_data.dissect(buffer, index, packet, parent, text_length)
+  -- Runtime optional field: Text Data
+  local text_data = nil
+
+  local text_data_exists = text_length > 0
+
+  if text_data_exists then
+
+    -- Runtime Size Of: Text Data
+    index, text_data = b3_equities_binaryumdf_sbe_v1_9.text_data.dissect(buffer, index, packet, parent, text_length)
+  end
 
   return index
 end
@@ -4871,11 +4897,11 @@ end
 b3_equities_binaryumdf_sbe_v1_9.headline_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryumdf_sbe_v1_9.headline_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryumdf_sbe_v1_9.headline_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.headline_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Headline Length
@@ -4910,8 +4936,13 @@ b3_equities_binaryumdf_sbe_v1_9.headline.size = function(buffer, offset)
 
   index = index + b3_equities_binaryumdf_sbe_v1_9.headline_length.size
 
-  -- Parse runtime size of: Headline Data
-  index = index + buffer(offset + index - 2, 2):le_uint()
+  local headline_length = buffer(offset + index - 2, 2):le_uint()
+
+  if headline_length > 0 then
+    -- Parse runtime size of: Headline Data
+    index = index + buffer(offset + index - 2, 2):le_uint()
+
+  end
 
   return index
 end
@@ -4928,8 +4959,16 @@ b3_equities_binaryumdf_sbe_v1_9.headline.fields = function(buffer, offset, packe
   -- Headline Length: 2 Byte Unsigned Fixed Width Integer
   index, headline_length = b3_equities_binaryumdf_sbe_v1_9.headline_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Headline Data
-  index, headline_data = b3_equities_binaryumdf_sbe_v1_9.headline_data.dissect(buffer, index, packet, parent, headline_length)
+  -- Runtime optional field: Headline Data
+  local headline_data = nil
+
+  local headline_data_exists = headline_length > 0
+
+  if headline_data_exists then
+
+    -- Runtime Size Of: Headline Data
+    index, headline_data = b3_equities_binaryumdf_sbe_v1_9.headline_data.dissect(buffer, index, packet, parent, headline_length)
+  end
 
   return index
 end
@@ -5308,11 +5347,11 @@ end
 b3_equities_binaryumdf_sbe_v1_9.security_desc_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryumdf_sbe_v1_9.security_desc_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryumdf_sbe_v1_9.security_desc_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.security_desc_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Security Desc Length
@@ -5347,15 +5386,24 @@ b3_equities_binaryumdf_sbe_v1_9.security_desc.size = function(buffer, offset)
 
   index = index + b3_equities_binaryumdf_sbe_v1_9.security_desc_length.size
 
-  -- Parse runtime size of: Security Desc Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local security_desc_length = buffer(offset + index - 1, 1):le_uint()
+
+  if security_desc_length > 0 then
+    -- Parse runtime size of: Security Desc Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Security Desc
-b3_equities_binaryumdf_sbe_v1_9.security_desc.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryumdf_sbe_v1_9.security_desc.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Security Desc
@@ -5365,23 +5413,39 @@ b3_equities_binaryumdf_sbe_v1_9.security_desc.fields = function(buffer, offset, 
   -- Security Desc Length: 1 Byte Unsigned Fixed Width Integer
   index, security_desc_length = b3_equities_binaryumdf_sbe_v1_9.security_desc_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Security Desc Data
-  index, security_desc_data = b3_equities_binaryumdf_sbe_v1_9.security_desc_data.dissect(buffer, index, packet, parent, security_desc_length)
+  -- Runtime optional field: Security Desc Data
+  local security_desc_data = nil
 
-  return index
+  local security_desc_data_exists = security_desc_length > 0
+
+  if security_desc_data_exists then
+
+    -- Runtime Size Of: Security Desc Data
+    index, security_desc_data = b3_equities_binaryumdf_sbe_v1_9.security_desc_data.dissect(buffer, index, packet, parent, security_desc_length)
+  end
+
+  -- Composite value
+  local security_desc = security_desc_data
+
+  return index, security_desc
 end
 
 -- Dissect: Security Desc
 b3_equities_binaryumdf_sbe_v1_9.security_desc.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.security_desc then
-    local length = b3_equities_binaryumdf_sbe_v1_9.security_desc.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_9.security_desc.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.security_desc, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryumdf_sbe_v1_9.fields.security_desc, buffer(offset, 0))
+    local index, value = b3_equities_binaryumdf_sbe_v1_9.security_desc.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryumdf_sbe_v1_9.security_desc.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryumdf_sbe_v1_9.security_desc.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryumdf_sbe_v1_9.security_desc.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Instr Attrib Value

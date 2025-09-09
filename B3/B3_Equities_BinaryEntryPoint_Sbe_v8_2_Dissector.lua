@@ -734,11 +734,11 @@ end
 b3_equities_binaryentrypoint_sbe_v8_2.text_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_2.text_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryentrypoint_sbe_v8_2.text_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.text_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Text Length
@@ -773,15 +773,24 @@ b3_equities_binaryentrypoint_sbe_v8_2.text.size = function(buffer, offset)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_2.text_length.size
 
-  -- Parse runtime size of: Text Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local text_length = buffer(offset + index - 1, 1):le_uint()
+
+  if text_length > 0 then
+    -- Parse runtime size of: Text Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Text
-b3_equities_binaryentrypoint_sbe_v8_2.text.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryentrypoint_sbe_v8_2.text.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Text
@@ -791,23 +800,39 @@ b3_equities_binaryentrypoint_sbe_v8_2.text.fields = function(buffer, offset, pac
   -- Text Length: 1 Byte Unsigned Fixed Width Integer
   index, text_length = b3_equities_binaryentrypoint_sbe_v8_2.text_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Text Data
-  index, text_data = b3_equities_binaryentrypoint_sbe_v8_2.text_data.dissect(buffer, index, packet, parent, text_length)
+  -- Runtime optional field: Text Data
+  local text_data = nil
 
-  return index
+  local text_data_exists = text_length > 0
+
+  if text_data_exists then
+
+    -- Runtime Size Of: Text Data
+    index, text_data = b3_equities_binaryentrypoint_sbe_v8_2.text_data.dissect(buffer, index, packet, parent, text_length)
+  end
+
+  -- Composite value
+  local text = text_data
+
+  return index, text
 end
 
 -- Dissect: Text
 b3_equities_binaryentrypoint_sbe_v8_2.text.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.text then
-    local length = b3_equities_binaryentrypoint_sbe_v8_2.text.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2.text.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.text, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.text, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_2.text.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2.text.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v8_2.text.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_2.text.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Document
@@ -2387,11 +2412,11 @@ end
 b3_equities_binaryentrypoint_sbe_v8_2.memo_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_2.memo_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryentrypoint_sbe_v8_2.memo_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.memo_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Memo Length
@@ -2426,15 +2451,24 @@ b3_equities_binaryentrypoint_sbe_v8_2.memo.size = function(buffer, offset)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_2.memo_length.size
 
-  -- Parse runtime size of: Memo Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local memo_length = buffer(offset + index - 1, 1):le_uint()
+
+  if memo_length > 0 then
+    -- Parse runtime size of: Memo Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Memo
-b3_equities_binaryentrypoint_sbe_v8_2.memo.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryentrypoint_sbe_v8_2.memo.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Memo
@@ -2444,23 +2478,39 @@ b3_equities_binaryentrypoint_sbe_v8_2.memo.fields = function(buffer, offset, pac
   -- Memo Length: 1 Byte Unsigned Fixed Width Integer
   index, memo_length = b3_equities_binaryentrypoint_sbe_v8_2.memo_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Memo Data
-  index, memo_data = b3_equities_binaryentrypoint_sbe_v8_2.memo_data.dissect(buffer, index, packet, parent, memo_length)
+  -- Runtime optional field: Memo Data
+  local memo_data = nil
 
-  return index
+  local memo_data_exists = memo_length > 0
+
+  if memo_data_exists then
+
+    -- Runtime Size Of: Memo Data
+    index, memo_data = b3_equities_binaryentrypoint_sbe_v8_2.memo_data.dissect(buffer, index, packet, parent, memo_length)
+  end
+
+  -- Composite value
+  local memo = memo_data
+
+  return index, memo
 end
 
 -- Dissect: Memo
 b3_equities_binaryentrypoint_sbe_v8_2.memo.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.memo then
-    local length = b3_equities_binaryentrypoint_sbe_v8_2.memo.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2.memo.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.memo, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.memo, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_2.memo.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2.memo.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v8_2.memo.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_2.memo.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Desk Id Data
@@ -2475,11 +2525,11 @@ end
 b3_equities_binaryentrypoint_sbe_v8_2.desk_id_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_2.desk_id_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryentrypoint_sbe_v8_2.desk_id_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.desk_id_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Desk Id Length
@@ -2514,15 +2564,24 @@ b3_equities_binaryentrypoint_sbe_v8_2.desk_id.size = function(buffer, offset)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_2.desk_id_length.size
 
-  -- Parse runtime size of: Desk Id Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local desk_id_length = buffer(offset + index - 1, 1):le_uint()
+
+  if desk_id_length > 0 then
+    -- Parse runtime size of: Desk Id Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Desk Id
-b3_equities_binaryentrypoint_sbe_v8_2.desk_id.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryentrypoint_sbe_v8_2.desk_id.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Desk Id
@@ -2532,23 +2591,39 @@ b3_equities_binaryentrypoint_sbe_v8_2.desk_id.fields = function(buffer, offset, 
   -- Desk Id Length: 1 Byte Unsigned Fixed Width Integer
   index, desk_id_length = b3_equities_binaryentrypoint_sbe_v8_2.desk_id_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Desk Id Data
-  index, desk_id_data = b3_equities_binaryentrypoint_sbe_v8_2.desk_id_data.dissect(buffer, index, packet, parent, desk_id_length)
+  -- Runtime optional field: Desk Id Data
+  local desk_id_data = nil
 
-  return index
+  local desk_id_data_exists = desk_id_length > 0
+
+  if desk_id_data_exists then
+
+    -- Runtime Size Of: Desk Id Data
+    index, desk_id_data = b3_equities_binaryentrypoint_sbe_v8_2.desk_id_data.dissect(buffer, index, packet, parent, desk_id_length)
+  end
+
+  -- Composite value
+  local desk_id = desk_id_data
+
+  return index, desk_id
 end
 
 -- Dissect: Desk Id
 b3_equities_binaryentrypoint_sbe_v8_2.desk_id.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.desk_id then
-    local length = b3_equities_binaryentrypoint_sbe_v8_2.desk_id.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2.desk_id.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.desk_id, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.desk_id, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_2.desk_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2.desk_id.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v8_2.desk_id.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_2.desk_id.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Alloc Qty
@@ -13239,11 +13314,11 @@ end
 b3_equities_binaryentrypoint_sbe_v8_2.credentials_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_2.credentials_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryentrypoint_sbe_v8_2.credentials_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.credentials_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Credentials Length
@@ -13278,15 +13353,24 @@ b3_equities_binaryentrypoint_sbe_v8_2.credentials.size = function(buffer, offset
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_2.credentials_length.size
 
-  -- Parse runtime size of: Credentials Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local credentials_length = buffer(offset + index - 1, 1):le_uint()
+
+  if credentials_length > 0 then
+    -- Parse runtime size of: Credentials Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Credentials
-b3_equities_binaryentrypoint_sbe_v8_2.credentials.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryentrypoint_sbe_v8_2.credentials.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Credentials
@@ -13296,23 +13380,39 @@ b3_equities_binaryentrypoint_sbe_v8_2.credentials.fields = function(buffer, offs
   -- Credentials Length: 1 Byte Unsigned Fixed Width Integer
   index, credentials_length = b3_equities_binaryentrypoint_sbe_v8_2.credentials_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Credentials Data
-  index, credentials_data = b3_equities_binaryentrypoint_sbe_v8_2.credentials_data.dissect(buffer, index, packet, parent, credentials_length)
+  -- Runtime optional field: Credentials Data
+  local credentials_data = nil
 
-  return index
+  local credentials_data_exists = credentials_length > 0
+
+  if credentials_data_exists then
+
+    -- Runtime Size Of: Credentials Data
+    index, credentials_data = b3_equities_binaryentrypoint_sbe_v8_2.credentials_data.dissect(buffer, index, packet, parent, credentials_length)
+  end
+
+  -- Composite value
+  local credentials = credentials_data
+
+  return index, credentials
 end
 
 -- Dissect: Credentials
 b3_equities_binaryentrypoint_sbe_v8_2.credentials.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.credentials then
-    local length = b3_equities_binaryentrypoint_sbe_v8_2.credentials.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2.credentials.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.credentials, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.credentials, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_2.credentials.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2.credentials.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v8_2.credentials.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_2.credentials.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Cod Timeout Window
@@ -13913,11 +14013,11 @@ end
 b3_equities_binaryentrypoint_sbe_v8_2.client_app_version_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_app_version_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Client App Version Length
@@ -13952,15 +14052,24 @@ b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.size = function(buffer,
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_2.client_app_version_length.size
 
-  -- Parse runtime size of: Client App Version Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local client_app_version_length = buffer(offset + index - 1, 1):le_uint()
+
+  if client_app_version_length > 0 then
+    -- Parse runtime size of: Client App Version Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Client App Version
-b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Client App Version
@@ -13970,23 +14079,39 @@ b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.fields = function(buffe
   -- Client App Version Length: 1 Byte Unsigned Fixed Width Integer
   index, client_app_version_length = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Client App Version Data
-  index, client_app_version_data = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version_data.dissect(buffer, index, packet, parent, client_app_version_length)
+  -- Runtime optional field: Client App Version Data
+  local client_app_version_data = nil
 
-  return index
+  local client_app_version_data_exists = client_app_version_length > 0
+
+  if client_app_version_data_exists then
+
+    -- Runtime Size Of: Client App Version Data
+    index, client_app_version_data = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version_data.dissect(buffer, index, packet, parent, client_app_version_length)
+  end
+
+  -- Composite value
+  local client_app_version = client_app_version_data
+
+  return index, client_app_version
 end
 
 -- Dissect: Client App Version
 b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.client_app_version then
-    local length = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_app_version, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_app_version, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_2.client_app_version.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Client App Name Data
@@ -14001,11 +14126,11 @@ end
 b3_equities_binaryentrypoint_sbe_v8_2.client_app_name_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_app_name_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Client App Name Length
@@ -14040,15 +14165,24 @@ b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.size = function(buffer, of
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_2.client_app_name_length.size
 
-  -- Parse runtime size of: Client App Name Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local client_app_name_length = buffer(offset + index - 1, 1):le_uint()
+
+  if client_app_name_length > 0 then
+    -- Parse runtime size of: Client App Name Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Client App Name
-b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Client App Name
@@ -14058,23 +14192,39 @@ b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.fields = function(buffer, 
   -- Client App Name Length: 1 Byte Unsigned Fixed Width Integer
   index, client_app_name_length = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Client App Name Data
-  index, client_app_name_data = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name_data.dissect(buffer, index, packet, parent, client_app_name_length)
+  -- Runtime optional field: Client App Name Data
+  local client_app_name_data = nil
 
-  return index
+  local client_app_name_data_exists = client_app_name_length > 0
+
+  if client_app_name_data_exists then
+
+    -- Runtime Size Of: Client App Name Data
+    index, client_app_name_data = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name_data.dissect(buffer, index, packet, parent, client_app_name_length)
+  end
+
+  -- Composite value
+  local client_app_name = client_app_name_data
+
+  return index, client_app_name
 end
 
 -- Dissect: Client App Name
 b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.client_app_name then
-    local length = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_app_name, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_app_name, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_2.client_app_name.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Client Ip Data
@@ -14089,11 +14239,11 @@ end
 b3_equities_binaryentrypoint_sbe_v8_2.client_ip_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_2.client_ip_data.display(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryentrypoint_sbe_v8_2.client_ip_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_ip_data, range, value, display)
 
-  return offset + size
+  return offset + size, value
 end
 
 -- Client Ip Length
@@ -14128,15 +14278,24 @@ b3_equities_binaryentrypoint_sbe_v8_2.client_ip.size = function(buffer, offset)
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_2.client_ip_length.size
 
-  -- Parse runtime size of: Client Ip Data
-  index = index + buffer(offset + index - 1, 1):le_uint()
+  local client_ip_length = buffer(offset + index - 1, 1):le_uint()
+
+  if client_ip_length > 0 then
+    -- Parse runtime size of: Client Ip Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
 
   return index
 end
 
 -- Display: Client Ip
-b3_equities_binaryentrypoint_sbe_v8_2.client_ip.display = function(packet, parent, length)
-  return ""
+b3_equities_binaryentrypoint_sbe_v8_2.client_ip.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Client Ip
@@ -14146,23 +14305,39 @@ b3_equities_binaryentrypoint_sbe_v8_2.client_ip.fields = function(buffer, offset
   -- Client Ip Length: 1 Byte Unsigned Fixed Width Integer
   index, client_ip_length = b3_equities_binaryentrypoint_sbe_v8_2.client_ip_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Client Ip Data
-  index, client_ip_data = b3_equities_binaryentrypoint_sbe_v8_2.client_ip_data.dissect(buffer, index, packet, parent, client_ip_length)
+  -- Runtime optional field: Client Ip Data
+  local client_ip_data = nil
 
-  return index
+  local client_ip_data_exists = client_ip_length > 0
+
+  if client_ip_data_exists then
+
+    -- Runtime Size Of: Client Ip Data
+    index, client_ip_data = b3_equities_binaryentrypoint_sbe_v8_2.client_ip_data.dissect(buffer, index, packet, parent, client_ip_length)
+  end
+
+  -- Composite value
+  local client_ip = client_ip_data
+
+  return index, client_ip
 end
 
 -- Dissect: Client Ip
 b3_equities_binaryentrypoint_sbe_v8_2.client_ip.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.client_ip then
-    local length = b3_equities_binaryentrypoint_sbe_v8_2.client_ip.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2.client_ip.display(buffer, packet, parent)
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_ip, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_2.fields.client_ip, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_2.client_ip.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2.client_ip.display(packet, parent, value, length)
+    parent:append_text(display)
 
-  return b3_equities_binaryentrypoint_sbe_v8_2.client_ip.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_2.client_ip.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Onbehalf Firm
