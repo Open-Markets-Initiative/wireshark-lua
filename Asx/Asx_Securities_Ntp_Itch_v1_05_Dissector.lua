@@ -4941,11 +4941,11 @@ end
 -- Seconds
 asx_securities_ntp_itch_v1_05.seconds = {}
 
--- Store: Seconds
-asx_securities_ntp_itch_v1_05.seconds.store = nil
-
 -- Size: Seconds
 asx_securities_ntp_itch_v1_05.seconds.size = 4
+
+-- Store: Seconds
+asx_securities_ntp_itch_v1_05.seconds.store = nil
 
 -- Display: Seconds
 asx_securities_ntp_itch_v1_05.seconds.display = function(value)
