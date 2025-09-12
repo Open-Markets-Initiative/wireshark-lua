@@ -18,6 +18,7 @@ local coinbase_derivatives_session_tcp_v1_2 = {}
 omi_coinbase_derivatives_session_tcp_v1_2.fields.block_length = ProtoField.new("Block Length", "coinbase.derivatives.session.tcp.v1.2.blocklength", ftypes.UINT16)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.derivatives.session.tcp.v1.2.correlationid", ftypes.INT64)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.details = ProtoField.new("Details", "coinbase.derivatives.session.tcp.v1.2.details", ftypes.STRING)
+omi_coinbase_derivatives_session_tcp_v1_2.fields.flags = ProtoField.new("Flags", "coinbase.derivatives.session.tcp.v1.2.flags", ftypes.UINT8)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.derivatives.session.tcp.v1.2.fromsequencenumber", ftypes.UINT32)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.derivatives.session.tcp.v1.2.heartbeatintervalseconds", ftypes.INT32)
 omi_coinbase_derivatives_session_tcp_v1_2.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.derivatives.session.tcp.v1.2.lastprocessedseqno", ftypes.UINT32)
@@ -363,8 +364,13 @@ coinbase_derivatives_session_tcp_v1_2.gap_fill_message.size = function(buffer, o
 
   index = index + coinbase_derivatives_session_tcp_v1_2.new_sequence_number.size
 
-  -- Parse runtime size of: Padding
-  index = index + buffer(offset + index - 34, 2):le_uint()
+  local message_length = buffer(offset + index - 34, 2):le_uint()
+
+  if message_length - (index - offset) > 0 then
+    -- Parse runtime size of: Padding
+    index = index + buffer(offset + index - 34, 2):le_uint()
+
+  end
 
   return index
 end
@@ -381,14 +387,22 @@ coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields = function(buffer,
   -- New Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, new_sequence_number = coinbase_derivatives_session_tcp_v1_2.new_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 30, 2):le_uint()
+  -- Runtime optional field: Padding
+  local padding = nil
 
-  -- Runtime Size Of: Padding
-  local size_of_padding = message_length - (index - offset)
+  local padding_exists = message_length - (index - offset) > 0
 
-  -- Padding: 4 Byte Unsigned Fixed Width Integer
-  index, padding = coinbase_derivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
+  if padding_exists then
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset - 30, 2):le_uint()
+
+    -- Runtime Size Of: Padding
+    local size_of_padding = message_length - (index - offset)
+
+    -- Padding: 4 Byte Unsigned Fixed Width Integer
+    index, padding = coinbase_derivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
+  end
 
   return index
 end
@@ -1215,7 +1229,11 @@ coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size = 8
 
 -- Display: Send Time Epoch Nanos
 coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.display = function(value)
-  return "Send Time Epoch Nanos: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Send Time Epoch Nanos: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Send Time Epoch Nanos
@@ -1322,6 +1340,29 @@ coinbase_derivatives_session_tcp_v1_2.message_length.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Flags
+coinbase_derivatives_session_tcp_v1_2.flags = {}
+
+-- Size: Flags
+coinbase_derivatives_session_tcp_v1_2.flags.size = 1
+
+-- Display: Flags
+coinbase_derivatives_session_tcp_v1_2.flags.display = function(value)
+  return "Flags: "..value
+end
+
+-- Dissect: Flags
+coinbase_derivatives_session_tcp_v1_2.flags.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.flags.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.flags, range, value, display)
+
+  return offset + length, value
+end
+
 -- Protocol Id
 coinbase_derivatives_session_tcp_v1_2.protocol_id = {}
 
@@ -1353,6 +1394,8 @@ coinbase_derivatives_session_tcp_v1_2.message_header.size = function(buffer, off
   local index = 0
 
   index = index + coinbase_derivatives_session_tcp_v1_2.protocol_id.size
+
+  index = index + coinbase_derivatives_session_tcp_v1_2.flags.size
 
   index = index + coinbase_derivatives_session_tcp_v1_2.message_length.size
 
@@ -1386,6 +1429,9 @@ coinbase_derivatives_session_tcp_v1_2.message_header.fields = function(buffer, o
 
   -- Protocol Id: 1 Byte Unsigned Fixed Width Integer
   index, protocol_id = coinbase_derivatives_session_tcp_v1_2.protocol_id.dissect(buffer, index, packet, parent)
+
+  -- Flags: 1 Byte Unsigned Fixed Width Integer
+  index, flags = coinbase_derivatives_session_tcp_v1_2.flags.dissect(buffer, index, packet, parent)
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = coinbase_derivatives_session_tcp_v1_2.message_length.dissect(buffer, index, packet, parent)
@@ -1447,7 +1493,7 @@ end
 coinbase_derivatives_session_tcp_v1_2.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
-  -- Message Header: Struct of 10 fields
+  -- Message Header: Struct of 11 fields
   index, message_header = coinbase_derivatives_session_tcp_v1_2.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -1456,14 +1502,22 @@ coinbase_derivatives_session_tcp_v1_2.sbe_message.fields = function(buffer, offs
   -- Payload: Runtime Type with 9 branches
   index = coinbase_derivatives_session_tcp_v1_2.payload.dissect(buffer, index, packet, parent, template_id)
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset + 1, 2):le_uint()
+  -- Runtime optional field: Padding
+  local padding = nil
 
-  -- Runtime Size Of: Padding
-  local size_of_padding = message_length - (index - offset)
+  local padding_exists = message_length - (index - offset) > 0
 
-  -- Padding: 4 Byte Unsigned Fixed Width Integer
-  index, padding = coinbase_derivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
+  if padding_exists then
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset + 2, 2):le_uint()
+
+    -- Runtime Size Of: Padding
+    local size_of_padding = message_length - (index - offset)
+
+    -- Padding: 4 Byte Unsigned Fixed Width Integer
+    index, padding = coinbase_derivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
+  end
 
   return index
 end
@@ -1500,7 +1554,7 @@ local sbe_message_bytes_remaining = function(buffer, index, available)
   end
 
   -- Parse runtime size
-  local current = buffer(index + 1, 2):le_uint()
+  local current = buffer(index + 2, 2):le_uint()
 
   -- Check if enough bytes remain
   if remaining < current then
@@ -1578,7 +1632,7 @@ end
 -- Verify Schema Id Field
 coinbase_derivatives_session_tcp_v1_2.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(27, 2):le_uint()
+  local value = buffer(28, 2):le_uint()
 
   if value == 1100 then
     return true
@@ -1590,7 +1644,7 @@ end
 -- Verify Version Field
 coinbase_derivatives_session_tcp_v1_2.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(29, 2):le_uint()
+  local value = buffer(30, 2):le_uint()
 
   if value == 2 then
     return true

@@ -36,7 +36,6 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.exec_id = ProtoField.new("Exe
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_price = ProtoField.new("Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.fillprice", ftypes.DOUBLE)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_qty = ProtoField.new("Fill Qty", "coinbase.derivatives.ordersapi.sbe.v1.4.fillqty", ftypes.INT32)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Filled Vwap", "coinbase.derivatives.ordersapi.sbe.v1.4.filledvwap", ftypes.DOUBLE)
-omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "coinbase.derivatives.ordersapi.sbe.v1.4.flags", ftypes.UINT8)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.fromsequencenumber", ftypes.UINT32)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillpadding", ftypes.UINT32)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatintervalseconds", ftypes.INT32)
@@ -51,6 +50,7 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_1_fill_price = ProtoField
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.leg2fillprice", ftypes.DOUBLE)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.limit_price = ProtoField.new("Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.limitprice", ftypes.DOUBLE)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.match_id = ProtoField.new("Match Id", "coinbase.derivatives.ordersapi.sbe.v1.4.matchid", ftypes.INT64)
+omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_flags = ProtoField.new("Message Flags", "coinbase.derivatives.ordersapi.sbe.v1.4.messageflags", ftypes.UINT8)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "coinbase.derivatives.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_length = ProtoField.new("Message Length", "coinbase.derivatives.ordersapi.sbe.v1.4.messagelength", ftypes.UINT16)
 omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_limit_price = ProtoField.new("New Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.newlimitprice", ftypes.DOUBLE)
@@ -5206,25 +5206,25 @@ coinbase_derivatives_ordersapi_sbe_v1_4.message_length.dissect = function(buffer
   return offset + length, value
 end
 
--- Flags
-coinbase_derivatives_ordersapi_sbe_v1_4.flags = {}
+-- Message Flags
+coinbase_derivatives_ordersapi_sbe_v1_4.message_flags = {}
 
--- Size: Flags
-coinbase_derivatives_ordersapi_sbe_v1_4.flags.size = 1
+-- Size: Message Flags
+coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.size = 1
 
--- Display: Flags
-coinbase_derivatives_ordersapi_sbe_v1_4.flags.display = function(value)
-  return "Flags: "..value
+-- Display: Message Flags
+coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.display = function(value)
+  return "Message Flags: "..value
 end
 
--- Dissect: Flags
-coinbase_derivatives_ordersapi_sbe_v1_4.flags.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_ordersapi_sbe_v1_4.flags.size
+-- Dissect: Message Flags
+coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = coinbase_derivatives_ordersapi_sbe_v1_4.flags.display(value, buffer, offset, packet, parent)
+  local display = coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_flags, range, value, display)
 
   return offset + length, value
 end
@@ -5261,7 +5261,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4.message_header.size = function(buffer, o
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_4.protocol_id.size
 
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.flags.size
+  index = index + coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.size
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_4.message_length.size
 
@@ -5296,8 +5296,8 @@ coinbase_derivatives_ordersapi_sbe_v1_4.message_header.fields = function(buffer,
   -- Protocol Id: 1 Byte Unsigned Fixed Width Integer
   index, protocol_id = coinbase_derivatives_ordersapi_sbe_v1_4.protocol_id.dissect(buffer, index, packet, parent)
 
-  -- Flags: 1 Byte Unsigned Fixed Width Integer
-  index, flags = coinbase_derivatives_ordersapi_sbe_v1_4.flags.dissect(buffer, index, packet, parent)
+  -- Message Flags: 1 Byte Unsigned Fixed Width Integer
+  index, message_flags = coinbase_derivatives_ordersapi_sbe_v1_4.message_flags.dissect(buffer, index, packet, parent)
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = coinbase_derivatives_ordersapi_sbe_v1_4.message_length.dissect(buffer, index, packet, parent)
@@ -5368,14 +5368,22 @@ coinbase_derivatives_ordersapi_sbe_v1_4.sbe_message.fields = function(buffer, of
   -- Payload: Runtime Type with 37 branches
   index = coinbase_derivatives_ordersapi_sbe_v1_4.payload.dissect(buffer, index, packet, parent, template_id)
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset + 2, 2):le_uint()
+  -- Runtime optional field: Padding
+  local padding = nil
 
-  -- Runtime Size Of: Padding
-  local size_of_padding = message_length - (index - offset)
+  local padding_exists = message_length - (index - offset) > 0
 
-  -- Padding: 0 Byte
-  index, padding = coinbase_derivatives_ordersapi_sbe_v1_4.padding.dissect(buffer, index, packet, parent, size_of_padding)
+  if padding_exists then
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset + 2, 2):le_uint()
+
+    -- Runtime Size Of: Padding
+    local size_of_padding = message_length - (index - offset)
+
+    -- Padding: 0 Byte
+    index, padding = coinbase_derivatives_ordersapi_sbe_v1_4.padding.dissect(buffer, index, packet, parent, size_of_padding)
+  end
 
   return index
 end
