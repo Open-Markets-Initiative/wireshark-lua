@@ -73,10 +73,10 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.payload = ProtoField.new("Pay
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.post_only = ProtoField.new("Post Only", "coinbase.derivatives.ordersapi.sbe.v1.6.postonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.derivatives.ordersapi.sbe.v1.6.protocolid", ftypes.UINT8)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.ordersapi.sbe.v1.6.quantity", ftypes.INT32)
-omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.reason_reject_reason = ProtoField.new("Reason Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.6.reasonrejectreason", ftypes.INT32)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.reason_string_64 = ProtoField.new("Reason String 64", "coinbase.derivatives.ordersapi.sbe.v1.6.reasonstring64", ftypes.STRING)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.receive_time = ProtoField.new("Receive Time", "coinbase.derivatives.ordersapi.sbe.v1.6.receivetime", ftypes.INT64)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.6.refsequencenumber", ftypes.UINT32)
+omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.reject_reason = ProtoField.new("Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.6.rejectreason", ftypes.INT32)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.request_time = ProtoField.new("Request Time", "coinbase.derivatives.ordersapi.sbe.v1.6.requesttime", ftypes.INT64)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "coinbase.derivatives.ordersapi.sbe.v1.6.requesttradinglock", ftypes.INT8)
 omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.resend_reject_reason = ProtoField.new("Resend Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.6.resendrejectreason", ftypes.INT8)
@@ -4199,38 +4199,38 @@ coinbase_derivatives_ordersapi_sbe_v1_6.details.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Reason Reject Reason
-coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason = {}
+-- Reject Reason
+coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason = {}
 
--- Size: Reason Reject Reason
-coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason.size = 4
+-- Size: Reject Reason
+coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.size = 4
 
--- Display: Reason Reject Reason
-coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason.display = function(value)
+-- Display: Reject Reason
+coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.display = function(value)
   if value == 1 then
-    return "Reason Reject Reason: Invalid Schema Id (1)"
+    return "Reject Reason: Invalid Schema Id (1)"
   end
   if value == 2 then
-    return "Reason Reject Reason: Invalid Template Id (2)"
+    return "Reject Reason: Invalid Template Id (2)"
   end
   if value == 3 then
-    return "Reason Reject Reason: Invalid Block Length (3)"
+    return "Reject Reason: Invalid Block Length (3)"
   end
   if value == 4 then
-    return "Reason Reject Reason: Invalid Field Value (4)"
+    return "Reject Reason: Invalid Field Value (4)"
   end
 
-  return "Reason Reject Reason: Unknown("..value..")"
+  return "Reject Reason: Unknown("..value..")"
 end
 
--- Dissect: Reason Reject Reason
-coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason.size
+-- Dissect: Reject Reason
+coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason.display(value, buffer, offset, packet, parent)
+  local display = coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.reason_reject_reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_6.fields.reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4267,7 +4267,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6.reject_message.size = function(buffer, o
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_6.ref_sequence_number.size
 
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason.size
+  index = index + coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.size
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_6.details.size
 
@@ -4286,8 +4286,8 @@ coinbase_derivatives_ordersapi_sbe_v1_6.reject_message.fields = function(buffer,
   -- Ref Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, ref_sequence_number = coinbase_derivatives_ordersapi_sbe_v1_6.ref_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Reason Reject Reason: 4 Byte Signed Fixed Width Integer Enum with 4 values
-  index, reason_reject_reason = coinbase_derivatives_ordersapi_sbe_v1_6.reason_reject_reason.dissect(buffer, index, packet, parent)
+  -- Reject Reason: 4 Byte Signed Fixed Width Integer Enum with 4 values
+  index, reject_reason = coinbase_derivatives_ordersapi_sbe_v1_6.reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: 64 Byte Ascii String
   index, details = coinbase_derivatives_ordersapi_sbe_v1_6.details.dissect(buffer, index, packet, parent)
