@@ -107,7 +107,7 @@ omi_cme_futures_ilink3_sbe_v8_4.fields.leg_exec_id = ProtoField.new("Leg Exec Id
 omi_cme_futures_ilink3_sbe_v8_4.fields.leg_exec_ref_id = ProtoField.new("Leg Exec Ref Id", "cme.futures.ilink3.sbe.v8.4.legexecrefid", ftypes.UINT64)
 omi_cme_futures_ilink3_sbe_v8_4.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.4.leglastpx", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_4.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "cme.futures.ilink3.sbe.v8.4.leglastqty", ftypes.UINT32)
-omi_cme_futures_ilink3_sbe_v8_4.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.4.legoptiondelta", ftypes.STRING)
+omi_cme_futures_ilink3_sbe_v8_4.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.4.legoptiondelta", ftypes.FLOAT)
 omi_cme_futures_ilink3_sbe_v8_4.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.ilink3.sbe.v8.4.legprice", ftypes.DOUBLE)
 omi_cme_futures_ilink3_sbe_v8_4.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.ilink3.sbe.v8.4.legratioqty", ftypes.UINT8)
 omi_cme_futures_ilink3_sbe_v8_4.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.ilink3.sbe.v8.4.legsecurityid", ftypes.INT32)
@@ -1072,6 +1072,38 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- Convert exponent to decimal
+factor = function(value)
+  if value == nil then
+    return nil
+  elseif value == -1 then
+    return 10
+  elseif value == -2 then
+    return 100
+  elseif value == -3 then
+    return 1000
+  elseif value == -4 then
+    return 10000
+  elseif value == -5 then
+    return 100000
+  elseif value == -6 then
+    return 1000000
+  elseif value == -7 then
+    return 10000000
+  elseif value == -8 then
+    return 100000000
+  elseif value == -9 then
+    return 1000000000
+  end
+
+  return 1
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Cme Futures iLink3 Sbe 8.4
 -----------------------------------------------------------------------
 
@@ -1227,8 +1259,8 @@ cme_futures_ilink3_sbe_v8_4.leg_option_delta.size = function(buffer, offset)
 end
 
 -- Display: Leg Option Delta
-cme_futures_ilink3_sbe_v8_4.leg_option_delta.display = function(packet, parent, length)
-  return ""
+cme_futures_ilink3_sbe_v8_4.leg_option_delta.display = function(buffer, offset, value, packet, parent)
+  return "Leg Option Delta: "..value
 end
 
 -- Dissect Fields: Leg Option Delta
@@ -1246,20 +1278,16 @@ end
 
 -- Dissect: Leg Option Delta
 cme_futures_ilink3_sbe_v8_4.leg_option_delta.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.leg_option_delta then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.leg_option_delta, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_4.leg_option_delta.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_4.leg_option_delta.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_ilink3_sbe_v8_4.leg_option_delta.fields(buffer, offset, packet, parent)
+    local length = cme_futures_ilink3_sbe_v8_4.leg_option_delta.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_ilink3_sbe_v8_4.leg_option_delta.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.leg_option_delta, range, value, display)
   end
+
+  return cme_futures_ilink3_sbe_v8_4.leg_option_delta.fields(buffer, offset, packet, parent)
 end
 
 -- Leg Price
@@ -12330,8 +12358,12 @@ cme_futures_ilink3_sbe_v8_4.risk_free_rate.size = function(buffer, offset)
 end
 
 -- Display: Risk Free Rate
-cme_futures_ilink3_sbe_v8_4.risk_free_rate.display = function(packet, parent, length)
-  return ""
+cme_futures_ilink3_sbe_v8_4.risk_free_rate.display = function(raw, value)
+  if raw ~= nil then
+    return "Risk Free Rate: No Value"
+  end
+
+  return "Risk Free Rate: "..value
 end
 
 -- Dissect Fields: Risk Free Rate
@@ -12344,7 +12376,10 @@ cme_futures_ilink3_sbe_v8_4.risk_free_rate.fields = function(buffer, offset, pac
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_4.exponent.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local risk_free_rate = mantissa_32 / factor( exponent )
+
+  return index, risk_free_rate
 end
 
 -- Dissect: Risk Free Rate
@@ -12352,10 +12387,10 @@ cme_futures_ilink3_sbe_v8_4.risk_free_rate.dissect = function(buffer, offset, pa
   if show.risk_free_rate then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.risk_free_rate, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_4.risk_free_rate.fields(buffer, offset, packet, parent)
+    local index, value = cme_futures_ilink3_sbe_v8_4.risk_free_rate.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_4.risk_free_rate.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_4.risk_free_rate.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
@@ -12380,8 +12415,12 @@ cme_futures_ilink3_sbe_v8_4.time_to_expiration.size = function(buffer, offset)
 end
 
 -- Display: Time To Expiration
-cme_futures_ilink3_sbe_v8_4.time_to_expiration.display = function(packet, parent, length)
-  return ""
+cme_futures_ilink3_sbe_v8_4.time_to_expiration.display = function(raw, value)
+  if raw ~= nil then
+    return "Time To Expiration: No Value"
+  end
+
+  return "Time To Expiration: "..value
 end
 
 -- Dissect Fields: Time To Expiration
@@ -12394,7 +12433,10 @@ cme_futures_ilink3_sbe_v8_4.time_to_expiration.fields = function(buffer, offset,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_4.exponent.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local time_to_expiration = mantissa_32 / factor( exponent )
+
+  return index, time_to_expiration
 end
 
 -- Dissect: Time To Expiration
@@ -12402,10 +12444,10 @@ cme_futures_ilink3_sbe_v8_4.time_to_expiration.dissect = function(buffer, offset
   if show.time_to_expiration then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.time_to_expiration, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_4.time_to_expiration.fields(buffer, offset, packet, parent)
+    local index, value = cme_futures_ilink3_sbe_v8_4.time_to_expiration.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_4.time_to_expiration.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_4.time_to_expiration.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
@@ -12430,8 +12472,12 @@ cme_futures_ilink3_sbe_v8_4.option_delta.size = function(buffer, offset)
 end
 
 -- Display: Option Delta
-cme_futures_ilink3_sbe_v8_4.option_delta.display = function(packet, parent, length)
-  return ""
+cme_futures_ilink3_sbe_v8_4.option_delta.display = function(raw, value)
+  if raw ~= nil then
+    return "Option Delta: No Value"
+  end
+
+  return "Option Delta: "..value
 end
 
 -- Dissect Fields: Option Delta
@@ -12444,7 +12490,10 @@ cme_futures_ilink3_sbe_v8_4.option_delta.fields = function(buffer, offset, packe
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_4.exponent.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local option_delta = mantissa_32 / factor( exponent )
+
+  return index, option_delta
 end
 
 -- Dissect: Option Delta
@@ -12452,10 +12501,10 @@ cme_futures_ilink3_sbe_v8_4.option_delta.dissect = function(buffer, offset, pack
   if show.option_delta then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.option_delta, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_4.option_delta.fields(buffer, offset, packet, parent)
+    local index, value = cme_futures_ilink3_sbe_v8_4.option_delta.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_4.option_delta.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_4.option_delta.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
@@ -12547,8 +12596,12 @@ cme_futures_ilink3_sbe_v8_4.volatility.size = function(buffer, offset)
 end
 
 -- Display: Volatility
-cme_futures_ilink3_sbe_v8_4.volatility.display = function(packet, parent, length)
-  return ""
+cme_futures_ilink3_sbe_v8_4.volatility.display = function(raw, value)
+  if raw ~= nil then
+    return "Volatility: No Value"
+  end
+
+  return "Volatility: "..value
 end
 
 -- Dissect Fields: Volatility
@@ -12561,7 +12614,10 @@ cme_futures_ilink3_sbe_v8_4.volatility.fields = function(buffer, offset, packet,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_4.exponent.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local volatility = mantissa / factor( exponent )
+
+  return index, volatility
 end
 
 -- Dissect: Volatility
@@ -12569,10 +12625,10 @@ cme_futures_ilink3_sbe_v8_4.volatility.dissect = function(buffer, offset, packet
   if show.volatility then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_4.fields.volatility, buffer(offset, 0))
-    local index = cme_futures_ilink3_sbe_v8_4.volatility.fields(buffer, offset, packet, parent)
+    local index, value = cme_futures_ilink3_sbe_v8_4.volatility.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_ilink3_sbe_v8_4.volatility.display(packet, parent, length)
+    local display = cme_futures_ilink3_sbe_v8_4.volatility.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
@@ -16973,8 +17029,13 @@ cme_futures_ilink3_sbe_v8_4.credentials.size = function(buffer, offset)
 
   index = index + cme_futures_ilink3_sbe_v8_4.credentials_length.size
 
-  -- Parse runtime size of: Credentials Data
-  index = index + buffer(offset + index - 2, 2):le_uint()
+  local credentials_length = buffer(offset + index - 2, 2):le_uint()
+
+  if credentials_length > 0 then
+    -- Parse runtime size of: Credentials Data
+    index = index + buffer(offset + index - 2, 2):le_uint()
+
+  end
 
   return index
 end
@@ -16995,8 +17056,16 @@ cme_futures_ilink3_sbe_v8_4.credentials.fields = function(buffer, offset, packet
   -- Credentials Length: 2 Byte Unsigned Fixed Width Integer
   index, credentials_length = cme_futures_ilink3_sbe_v8_4.credentials_length.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Credentials Data
-  index, credentials_data = cme_futures_ilink3_sbe_v8_4.credentials_data.dissect(buffer, index, packet, parent, credentials_length)
+  -- Runtime optional field: Credentials Data
+  local credentials_data = nil
+
+  local credentials_data_exists = credentials_length > 0
+
+  if credentials_data_exists then
+
+    -- Runtime Size Of: Credentials Data
+    index, credentials_data = cme_futures_ilink3_sbe_v8_4.credentials_data.dissect(buffer, index, packet, parent, credentials_length)
+  end
 
   -- Composite value
   local credentials = credentials_data

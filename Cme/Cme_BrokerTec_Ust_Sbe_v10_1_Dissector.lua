@@ -17,7 +17,7 @@ local cme_brokertec_ust_sbe_v10_1 = {}
 -- Cme BrokerTec Ust Sbe 10.1 Fields
 omi_cme_brokertec_ust_sbe_v10_1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.brokertec.ust.sbe.v10.1.binarypacketheader", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.block_length = ProtoField.new("Block Length", "cme.brokertec.ust.sbe.v10.1.blocklength", ftypes.UINT16)
-omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.brokertec.ust.sbe.v10.1.couponrate", ftypes.STRING)
+omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.brokertec.ust.sbe.v10.1.couponrate", ftypes.FLOAT)
 omi_cme_brokertec_ust_sbe_v10_1.fields.exponent = ProtoField.new("Exponent", "cme.brokertec.ust.sbe.v10.1.exponent", ftypes.INT8)
 omi_cme_brokertec_ust_sbe_v10_1.fields.group_size = ProtoField.new("Group Size", "cme.brokertec.ust.sbe.v10.1.groupsize", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group = ProtoField.new("M D Incremental Refresh Btec Group", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtecgroup", ftypes.STRING)
@@ -25,7 +25,7 @@ omi_cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_groups = Pro
 omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_32 = ProtoField.new("Mantissa int 32", "cme.brokertec.ust.sbe.v10.1.mantissaint32", ftypes.INT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_int_64 = ProtoField.new("Mantissa int 64", "cme.brokertec.ust.sbe.v10.1.mantissaint64", ftypes.INT64)
 omi_cme_brokertec_ust_sbe_v10_1.fields.maturity_date = ProtoField.new("Maturity Date", "cme.brokertec.ust.sbe.v10.1.maturitydate", ftypes.UINT16)
-omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.brokertec.ust.sbe.v10.1.mdentrypx", ftypes.STRING)
+omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.brokertec.ust.sbe.v10.1.mdentrypx", ftypes.DOUBLE)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.brokertec.ust.sbe.v10.1.mdentrysize", ftypes.UINT32)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.brokertec.ust.sbe.v10.1.mdentrytype", ftypes.STRING)
 omi_cme_brokertec_ust_sbe_v10_1.fields.md_price_level = ProtoField.new("Md Price Level", "cme.brokertec.ust.sbe.v10.1.mdpricelevel", ftypes.UINT8)
@@ -284,8 +284,8 @@ cme_brokertec_ust_sbe_v10_1.coupon_rate.size = function(buffer, offset)
 end
 
 -- Display: Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate.display = function(packet, parent, length)
-  return ""
+cme_brokertec_ust_sbe_v10_1.coupon_rate.display = function(buffer, offset, value, packet, parent)
+  return "Coupon Rate: "..value
 end
 
 -- Dissect Fields: Coupon Rate
@@ -303,20 +303,16 @@ end
 
 -- Dissect: Coupon Rate
 cme_brokertec_ust_sbe_v10_1.coupon_rate.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.coupon_rate then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, buffer(offset, 0))
-    local index = cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_brokertec_ust_sbe_v10_1.coupon_rate.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
+    local length = cme_brokertec_ust_sbe_v10_1.coupon_rate.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_brokertec_ust_sbe_v10_1.coupon_rate.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, range, value, display)
   end
+
+  return cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
 end
 
 -- Security Alt Id Source
@@ -588,8 +584,8 @@ cme_brokertec_ust_sbe_v10_1.md_entry_px.size = function(buffer, offset)
 end
 
 -- Display: Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px.display = function(packet, parent, length)
-  return ""
+cme_brokertec_ust_sbe_v10_1.md_entry_px.display = function(buffer, offset, value, packet, parent)
+  return "Md Entry Px: "..value
 end
 
 -- Dissect Fields: Md Entry Px
@@ -607,20 +603,16 @@ end
 
 -- Dissect: Md Entry Px
 cme_brokertec_ust_sbe_v10_1.md_entry_px.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.md_entry_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, buffer(offset, 0))
-    local index = cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_brokertec_ust_sbe_v10_1.md_entry_px.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
+    local length = cme_brokertec_ust_sbe_v10_1.md_entry_px.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_brokertec_ust_sbe_v10_1.md_entry_px.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, range, value, display)
   end
+
+  return cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
 end
 
 -- Md Entry Type

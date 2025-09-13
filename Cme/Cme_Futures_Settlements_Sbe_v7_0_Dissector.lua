@@ -24,13 +24,13 @@ omi_cme_futures_settlements_sbe_v7_0.fields.clearing_product_code = ProtoField.n
 omi_cme_futures_settlements_sbe_v7_0.fields.day = ProtoField.new("Day", "cme.futures.settlements.sbe.v7.0.day", ftypes.UINT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.exponent = ProtoField.new("Exponent", "cme.futures.settlements.sbe.v7.0.exponent", ftypes.INT8)
 omi_cme_futures_settlements_sbe_v7_0.fields.final_daily = ProtoField.new("Final Daily", "cme.futures.settlements.sbe.v7.0.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px = ProtoField.new("Formatted Last Px", "cme.futures.settlements.sbe.v7.0.formattedlastpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px = ProtoField.new("Formatted Last Px", "cme.futures.settlements.sbe.v7.0.formattedlastpx", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.settlements.sbe.v7.0.groupsize", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.high_px = ProtoField.new("High Px", "cme.futures.settlements.sbe.v7.0.highpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.high_px = ProtoField.new("High Px", "cme.futures.settlements.sbe.v7.0.highpx", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.high_px_ind = ProtoField.new("High Px Ind", "cme.futures.settlements.sbe.v7.0.highpxind", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.settlements.sbe.v7.0.instrumentguid", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.intraday = ProtoField.new("Intraday", "cme.futures.settlements.sbe.v7.0.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-omi_cme_futures_settlements_sbe_v7_0.fields.low_px = ProtoField.new("Low Px", "cme.futures.settlements.sbe.v7.0.lowpx", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.low_px = ProtoField.new("Low Px", "cme.futures.settlements.sbe.v7.0.lowpx", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.low_px_ind = ProtoField.new("Low Px Ind", "cme.futures.settlements.sbe.v7.0.lowpxind", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group = ProtoField.new("M D Incremental Refresh High Low Group", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroup", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_groups = ProtoField.new("M D Incremental Refresh High Low Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroups", ftypes.STRING)
@@ -65,7 +65,7 @@ omi_cme_futures_settlements_sbe_v7_0.fields.security_id = ProtoField.new("Securi
 omi_cme_futures_settlements_sbe_v7_0.fields.security_type = ProtoField.new("Security Type", "cme.futures.settlements.sbe.v7.0.securitytype", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.settlements.sbe.v7.0.sendingtime", ftypes.UINT64)
 omi_cme_futures_settlements_sbe_v7_0.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.settlements.sbe.v7.0.settlpricetype", ftypes.STRING)
-omi_cme_futures_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.settlements.sbe.v7.0.strikeprice", ftypes.STRING)
+omi_cme_futures_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.settlements.sbe.v7.0.strikeprice", ftypes.DOUBLE)
 omi_cme_futures_settlements_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "cme.futures.settlements.sbe.v7.0.symbol", ftypes.STRING)
 omi_cme_futures_settlements_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "cme.futures.settlements.sbe.v7.0.templateid", ftypes.UINT16)
 omi_cme_futures_settlements_sbe_v7_0.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.settlements.sbe.v7.0.tradingreferencedate", ftypes.UINT16)
@@ -393,8 +393,8 @@ cme_futures_settlements_sbe_v7_0.high_px.size = function(buffer, offset)
 end
 
 -- Display: High Px
-cme_futures_settlements_sbe_v7_0.high_px.display = function(packet, parent, length)
-  return ""
+cme_futures_settlements_sbe_v7_0.high_px.display = function(buffer, offset, value, packet, parent)
+  return "High Px: "..value
 end
 
 -- Dissect Fields: High Px
@@ -412,20 +412,16 @@ end
 
 -- Dissect: High Px
 cme_futures_settlements_sbe_v7_0.high_px.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.high_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.high_px, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0.high_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.high_px.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.high_px.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.high_px.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.high_px.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.high_px, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.high_px.fields(buffer, offset, packet, parent)
 end
 
 -- Low Px Ind
@@ -489,8 +485,8 @@ cme_futures_settlements_sbe_v7_0.low_px.size = function(buffer, offset)
 end
 
 -- Display: Low Px
-cme_futures_settlements_sbe_v7_0.low_px.display = function(packet, parent, length)
-  return ""
+cme_futures_settlements_sbe_v7_0.low_px.display = function(buffer, offset, value, packet, parent)
+  return "Low Px: "..value
 end
 
 -- Dissect Fields: Low Px
@@ -508,20 +504,16 @@ end
 
 -- Dissect: Low Px
 cme_futures_settlements_sbe_v7_0.low_px.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.low_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.low_px, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0.low_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.low_px.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.low_px.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.low_px.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.low_px.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.low_px, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.low_px.fields(buffer, offset, packet, parent)
 end
 
 -- Security Id
@@ -951,8 +943,8 @@ cme_futures_settlements_sbe_v7_0.strike_price.size = function(buffer, offset)
 end
 
 -- Display: Strike Price
-cme_futures_settlements_sbe_v7_0.strike_price.display = function(packet, parent, length)
-  return ""
+cme_futures_settlements_sbe_v7_0.strike_price.display = function(buffer, offset, value, packet, parent)
+  return "Strike Price: "..value
 end
 
 -- Dissect Fields: Strike Price
@@ -970,20 +962,16 @@ end
 
 -- Dissect: Strike Price
 cme_futures_settlements_sbe_v7_0.strike_price.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.strike_price then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.strike_price, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0.strike_price.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.strike_price.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.strike_price.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.strike_price.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.strike_price, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.strike_price.fields(buffer, offset, packet, parent)
 end
 
 -- Put Or Call
@@ -2084,8 +2072,8 @@ cme_futures_settlements_sbe_v7_0.formatted_last_px.size = function(buffer, offse
 end
 
 -- Display: Formatted Last Px
-cme_futures_settlements_sbe_v7_0.formatted_last_px.display = function(packet, parent, length)
-  return ""
+cme_futures_settlements_sbe_v7_0.formatted_last_px.display = function(buffer, offset, value, packet, parent)
+  return "Formatted Last Px: "..value
 end
 
 -- Dissect Fields: Formatted Last Px
@@ -2103,20 +2091,16 @@ end
 
 -- Dissect: Formatted Last Px
 cme_futures_settlements_sbe_v7_0.formatted_last_px.dissect = function(buffer, offset, packet, parent)
+  -- Optionally add element to protocol tree
   if show.formatted_last_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0.formatted_last_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_settlements_sbe_v7_0.formatted_last_px.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0.formatted_last_px.fields(buffer, offset, packet, parent)
+    local length = cme_futures_settlements_sbe_v7_0.formatted_last_px.size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:float()
+    local display = cme_futures_settlements_sbe_v7_0.formatted_last_px.display(buffer, offset, value, packet, parent)
+    parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, range, value, display)
   end
+
+  return cme_futures_settlements_sbe_v7_0.formatted_last_px.fields(buffer, offset, packet, parent)
 end
 
 -- Md Entry Type
