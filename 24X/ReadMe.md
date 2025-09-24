@@ -11,7 +11,7 @@
 | Equities | [MemoirTopOfBook][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 9/1/2025 | 2324 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Xml] |
 
 
-24X: [website](https://24exchange.com "Go to 24 Exchange")
+[![24X](https://github.com/Open-Markets-Initiative/Directory/blob/main/About/Images/Website.png)](https://24exchange.com "Go to 24 Exchange")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
