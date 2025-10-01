@@ -19,6 +19,7 @@ omi_currenex_forex_orderservice_cbp_v26_0.fields.aggressor_flag = ProtoField.new
 omi_currenex_forex_orderservice_cbp_v26_0.fields.begin_seq_no = ProtoField.new("Begin Seq No", "currenex.forex.orderservice.cbp.v26.0.beginseqno", ftypes.INT32)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.cl_order_id = ProtoField.new("Cl Order Id", "currenex.forex.orderservice.cbp.v26.0.clorderid", ftypes.INT32)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.error_code = ProtoField.new("Error Code", "currenex.forex.orderservice.cbp.v26.0.errorcode", ftypes.INT16)
+omi_currenex_forex_orderservice_cbp_v26_0.fields.etx = ProtoField.new("Etx", "currenex.forex.orderservice.cbp.v26.0.etx", ftypes.INT8)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.exec_broker = ProtoField.new("Exec Broker", "currenex.forex.orderservice.cbp.v26.0.execbroker", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.exec_type = ProtoField.new("Exec Type", "currenex.forex.orderservice.cbp.v26.0.exectype", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.execution_id = ProtoField.new("Execution Id", "currenex.forex.orderservice.cbp.v26.0.executionid", ftypes.STRING)
@@ -28,8 +29,6 @@ omi_currenex_forex_orderservice_cbp_v26_0.fields.fill_rate = ProtoField.new("Fil
 omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_id = ProtoField.new("Instrument Id", "currenex.forex.orderservice.cbp.v26.0.instrumentid", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_index = ProtoField.new("Instrument Index", "currenex.forex.orderservice.cbp.v26.0.instrumentindex", ftypes.INT16)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.forex.orderservice.cbp.v26.0.instrumenttype", ftypes.STRING)
-omi_currenex_forex_orderservice_cbp_v26_0.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.forex.orderservice.cbp.v26.0.itchetx", ftypes.INT8)
-omi_currenex_forex_orderservice_cbp_v26_0.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.forex.orderservice.cbp.v26.0.itchsoh", ftypes.INT8)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.leaves_amt = ProtoField.new("Leaves Amt", "currenex.forex.orderservice.cbp.v26.0.leavesamt", ftypes.INT64)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.message_body = ProtoField.new("Message Body", "currenex.forex.orderservice.cbp.v26.0.messagebody", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.message_header = ProtoField.new("Message Header", "currenex.forex.orderservice.cbp.v26.0.messageheader", ftypes.STRING)
@@ -53,6 +52,7 @@ omi_currenex_forex_orderservice_cbp_v26_0.fields.settle_date = ProtoField.new("S
 omi_currenex_forex_orderservice_cbp_v26_0.fields.settlement_date = ProtoField.new("Settlement Date", "currenex.forex.orderservice.cbp.v26.0.settlementdate", ftypes.INT64)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.show_amt = ProtoField.new("Show Amt", "currenex.forex.orderservice.cbp.v26.0.showamt", ftypes.INT64)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.side = ProtoField.new("Side", "currenex.forex.orderservice.cbp.v26.0.side", ftypes.STRING)
+omi_currenex_forex_orderservice_cbp_v26_0.fields.soh = ProtoField.new("Soh", "currenex.forex.orderservice.cbp.v26.0.soh", ftypes.INT8)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.status = ProtoField.new("Status", "currenex.forex.orderservice.cbp.v26.0.status", ftypes.STRING)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_date = ProtoField.new("Trade Date", "currenex.forex.orderservice.cbp.v26.0.tradedate", ftypes.INT64)
 omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_link_id = ProtoField.new("Trade Link Id", "currenex.forex.orderservice.cbp.v26.0.tradelinkid", ftypes.INT32)
@@ -251,25 +251,25 @@ end
 -- Dissect Currenex Forex OrderService Cbp 26.0
 -----------------------------------------------------------------------
 
--- Itch Etx
-currenex_forex_orderservice_cbp_v26_0.itch_etx = {}
+-- Etx
+currenex_forex_orderservice_cbp_v26_0.etx = {}
 
--- Size: Itch Etx
-currenex_forex_orderservice_cbp_v26_0.itch_etx.size = 1
+-- Size: Etx
+currenex_forex_orderservice_cbp_v26_0.etx.size = 1
 
--- Display: Itch Etx
-currenex_forex_orderservice_cbp_v26_0.itch_etx.display = function(value)
-  return "Itch Etx: "..value
+-- Display: Etx
+currenex_forex_orderservice_cbp_v26_0.etx.display = function(value)
+  return "Etx: "..value
 end
 
--- Dissect: Itch Etx
-currenex_forex_orderservice_cbp_v26_0.itch_etx.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.itch_etx.size
+-- Dissect: Etx
+currenex_forex_orderservice_cbp_v26_0.etx.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.etx.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.itch_etx.display(value, buffer, offset, packet, parent)
+  local display = currenex_forex_orderservice_cbp_v26_0.etx.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.itch_etx, range, value, display)
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.etx, range, value, display)
 
   return offset + length, value
 end
@@ -2754,25 +2754,25 @@ currenex_forex_orderservice_cbp_v26_0.message_header.dissect = function(buffer, 
   end
 end
 
--- Itch Soh
-currenex_forex_orderservice_cbp_v26_0.itch_soh = {}
+-- Soh
+currenex_forex_orderservice_cbp_v26_0.soh = {}
 
--- Size: Itch Soh
-currenex_forex_orderservice_cbp_v26_0.itch_soh.size = 1
+-- Size: Soh
+currenex_forex_orderservice_cbp_v26_0.soh.size = 1
 
--- Display: Itch Soh
-currenex_forex_orderservice_cbp_v26_0.itch_soh.display = function(value)
-  return "Itch Soh: "..value
+-- Display: Soh
+currenex_forex_orderservice_cbp_v26_0.soh.display = function(value)
+  return "Soh: "..value
 end
 
--- Dissect: Itch Soh
-currenex_forex_orderservice_cbp_v26_0.itch_soh.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.itch_soh.size
+-- Dissect: Soh
+currenex_forex_orderservice_cbp_v26_0.soh.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.soh.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.itch_soh.display(value, buffer, offset, packet, parent)
+  local display = currenex_forex_orderservice_cbp_v26_0.soh.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.itch_soh, range, value, display)
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.soh, range, value, display)
 
   return offset + length, value
 end
@@ -2789,8 +2789,8 @@ currenex_forex_orderservice_cbp_v26_0.packet.dissect = function(buffer, packet, 
 
   while index < end_of_payload do
 
-    -- Itch Soh: 1 Byte Fixed Width Integer Static
-    index, itch_soh = currenex_forex_orderservice_cbp_v26_0.itch_soh.dissect(buffer, index, packet, parent)
+    -- Soh: 1 Byte Fixed Width Integer Static
+    index, soh = currenex_forex_orderservice_cbp_v26_0.soh.dissect(buffer, index, packet, parent)
 
     -- Message Header: Struct of 3 fields
     index, message_header = currenex_forex_orderservice_cbp_v26_0.message_header.dissect(buffer, index, packet, parent)
@@ -2801,8 +2801,8 @@ currenex_forex_orderservice_cbp_v26_0.packet.dissect = function(buffer, packet, 
     -- Message Body: Runtime Type with 18 branches
     index = currenex_forex_orderservice_cbp_v26_0.message_body.dissect(buffer, index, packet, parent, message_type)
 
-    -- Itch Etx: 1 Byte Fixed Width Integer
-    index, itch_etx = currenex_forex_orderservice_cbp_v26_0.itch_etx.dissect(buffer, index, packet, parent)
+    -- Etx: 1 Byte Fixed Width Integer
+    index, etx = currenex_forex_orderservice_cbp_v26_0.etx.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -2828,9 +2828,9 @@ function omi_currenex_forex_orderservice_cbp_v26_0.dissector(buffer, packet, par
   return currenex_forex_orderservice_cbp_v26_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_currenex_forex_orderservice_cbp_v26_0)
+-- Register With Tcp Table
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add(65333, omi_currenex_forex_orderservice_cbp_v26_0)
 
 
 -----------------------------------------------------------------------
@@ -2843,8 +2843,8 @@ currenex_forex_orderservice_cbp_v26_0.packet.requiredsize = function(buffer)
   return true
 end
 
--- Verify Itch Soh Field
-currenex_forex_orderservice_cbp_v26_0.itch_soh.verify = function(buffer)
+-- Verify Soh Field
+currenex_forex_orderservice_cbp_v26_0.soh.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -2860,8 +2860,8 @@ local function omi_currenex_forex_orderservice_cbp_v26_0_heuristic(buffer, packe
   -- Verify packet length
   if not currenex_forex_orderservice_cbp_v26_0.packet.requiredsize(buffer) then return false end
 
-  -- Verify Itch Soh
-  if not currenex_forex_orderservice_cbp_v26_0.itch_soh.verify(buffer) then return false end
+  -- Verify Soh
+  if not currenex_forex_orderservice_cbp_v26_0.soh.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_currenex_forex_orderservice_cbp_v26_0
@@ -2871,7 +2871,7 @@ local function omi_currenex_forex_orderservice_cbp_v26_0_heuristic(buffer, packe
 end
 
 -- Register Heuristic for Currenex Forex OrderService Cbp 26.0
-omi_currenex_forex_orderservice_cbp_v26_0:register_heuristic("udp", omi_currenex_forex_orderservice_cbp_v26_0_heuristic)
+omi_currenex_forex_orderservice_cbp_v26_0:register_heuristic("tcp", omi_currenex_forex_orderservice_cbp_v26_0_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
