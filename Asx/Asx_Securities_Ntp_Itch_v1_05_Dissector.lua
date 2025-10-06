@@ -396,7 +396,7 @@ end
 -- Voi Trade Date
 asx_securities_ntp_itch_v1_05.voi_trade_date = {}
 
--- Size Of: Voi Trade Date
+-- Size: Voi Trade Date
 asx_securities_ntp_itch_v1_05.voi_trade_date.size = 2
 
 -- Display: Voi Trade Date
@@ -419,7 +419,7 @@ end
 -- Open Interest
 asx_securities_ntp_itch_v1_05.open_interest = {}
 
--- Size Of: Open Interest
+-- Size: Open Interest
 asx_securities_ntp_itch_v1_05.open_interest.size = 8
 
 -- Display: Open Interest
@@ -442,7 +442,7 @@ end
 -- Cumulative Volume
 asx_securities_ntp_itch_v1_05.cumulative_volume = {}
 
--- Size Of: Cumulative Volume
+-- Size: Cumulative Volume
 asx_securities_ntp_itch_v1_05.cumulative_volume.size = 8
 
 -- Display: Cumulative Volume
@@ -465,7 +465,7 @@ end
 -- Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.tradeable_instrument_id = {}
 
--- Size Of: Tradeable Instrument Id
+-- Size: Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size = 4
 
 -- Display: Tradeable Instrument Id
@@ -488,7 +488,7 @@ end
 -- Trade Date
 asx_securities_ntp_itch_v1_05.trade_date = {}
 
--- Size Of: Trade Date
+-- Size: Trade Date
 asx_securities_ntp_itch_v1_05.trade_date.size = 2
 
 -- Display: Trade Date
@@ -511,7 +511,7 @@ end
 -- Timestamp
 asx_securities_ntp_itch_v1_05.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 asx_securities_ntp_itch_v1_05.timestamp.size = 4
 
 -- Display: Timestamp
@@ -541,14 +541,24 @@ end
 -- Volume And Open Interest Message
 asx_securities_ntp_itch_v1_05.volume_and_open_interest_message = {}
 
--- Size Of: Volume And Open Interest Message
-asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.cumulative_volume.size + 
-  asx_securities_ntp_itch_v1_05.open_interest.size + 
-  asx_securities_ntp_itch_v1_05.voi_trade_date.size;
+-- Calculate size of: Volume And Open Interest Message
+asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.cumulative_volume.size
+
+  index = index + asx_securities_ntp_itch_v1_05.open_interest.size
+
+  index = index + asx_securities_ntp_itch_v1_05.voi_trade_date.size
+
+  return index
+end
 
 -- Display: Volume And Open Interest Message
 asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.display = function(packet, parent, length)
@@ -601,7 +611,7 @@ end
 -- Etr Lower Price
 asx_securities_ntp_itch_v1_05.etr_lower_price = {}
 
--- Size Of: Etr Lower Price
+-- Size: Etr Lower Price
 asx_securities_ntp_itch_v1_05.etr_lower_price.size = 8
 
 -- Display: Etr Lower Price
@@ -624,7 +634,7 @@ end
 -- Etr Upper Price
 asx_securities_ntp_itch_v1_05.etr_upper_price = {}
 
--- Size Of: Etr Upper Price
+-- Size: Etr Upper Price
 asx_securities_ntp_itch_v1_05.etr_upper_price.size = 8
 
 -- Display: Etr Upper Price
@@ -647,7 +657,7 @@ end
 -- Etr Price
 asx_securities_ntp_itch_v1_05.etr_price = {}
 
--- Size Of: Etr Price
+-- Size: Etr Price
 asx_securities_ntp_itch_v1_05.etr_price.size = 8
 
 -- Display: Etr Price
@@ -670,7 +680,7 @@ end
 -- Aot Lower Price
 asx_securities_ntp_itch_v1_05.aot_lower_price = {}
 
--- Size Of: Aot Lower Price
+-- Size: Aot Lower Price
 asx_securities_ntp_itch_v1_05.aot_lower_price.size = 8
 
 -- Display: Aot Lower Price
@@ -693,7 +703,7 @@ end
 -- Aot Upper Price
 asx_securities_ntp_itch_v1_05.aot_upper_price = {}
 
--- Size Of: Aot Upper Price
+-- Size: Aot Upper Price
 asx_securities_ntp_itch_v1_05.aot_upper_price.size = 8
 
 -- Display: Aot Upper Price
@@ -716,7 +726,7 @@ end
 -- Aot Price
 asx_securities_ntp_itch_v1_05.aot_price = {}
 
--- Size Of: Aot Price
+-- Size: Aot Price
 asx_securities_ntp_itch_v1_05.aot_price.size = 8
 
 -- Display: Aot Price
@@ -739,17 +749,30 @@ end
 -- Anomalous Order Threshold Publish Message
 asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message = {}
 
--- Size Of: Anomalous Order Threshold Publish Message
-asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.aot_price.size + 
-  asx_securities_ntp_itch_v1_05.aot_upper_price.size + 
-  asx_securities_ntp_itch_v1_05.aot_lower_price.size + 
-  asx_securities_ntp_itch_v1_05.etr_price.size + 
-  asx_securities_ntp_itch_v1_05.etr_upper_price.size + 
-  asx_securities_ntp_itch_v1_05.etr_lower_price.size;
+-- Calculate size of: Anomalous Order Threshold Publish Message
+asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.aot_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.aot_upper_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.aot_lower_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.etr_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.etr_upper_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.etr_lower_price.size
+
+  return index
+end
 
 -- Display: Anomalous Order Threshold Publish Message
 asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.display = function(packet, parent, length)
@@ -811,7 +834,7 @@ end
 -- Quantity
 asx_securities_ntp_itch_v1_05.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 asx_securities_ntp_itch_v1_05.quantity.size = 4
 
 -- Display: Quantity
@@ -834,7 +857,7 @@ end
 -- Rfq Side
 asx_securities_ntp_itch_v1_05.rfq_side = {}
 
--- Size Of: Rfq Side
+-- Size: Rfq Side
 asx_securities_ntp_itch_v1_05.rfq_side.size = 1
 
 -- Display: Rfq Side
@@ -870,13 +893,22 @@ end
 -- Request For Quote Message
 asx_securities_ntp_itch_v1_05.request_for_quote_message = {}
 
--- Size Of: Request For Quote Message
-asx_securities_ntp_itch_v1_05.request_for_quote_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.rfq_side.size + 
-  asx_securities_ntp_itch_v1_05.quantity.size;
+-- Calculate size of: Request For Quote Message
+asx_securities_ntp_itch_v1_05.request_for_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.rfq_side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity.size
+
+  return index
+end
 
 -- Display: Request For Quote Message
 asx_securities_ntp_itch_v1_05.request_for_quote_message.display = function(packet, parent, length)
@@ -926,7 +958,7 @@ end
 -- Text
 asx_securities_ntp_itch_v1_05.text = {}
 
--- Size Of: Text
+-- Size: Text
 asx_securities_ntp_itch_v1_05.text.size = 100
 
 -- Display: Text
@@ -949,7 +981,7 @@ end
 -- Source Id
 asx_securities_ntp_itch_v1_05.source_id = {}
 
--- Size Of: Source Id
+-- Size: Source Id
 asx_securities_ntp_itch_v1_05.source_id.size = 6
 
 -- Display: Source Id
@@ -972,12 +1004,20 @@ end
 -- Text Message
 asx_securities_ntp_itch_v1_05.text_message = {}
 
--- Size Of: Text Message
-asx_securities_ntp_itch_v1_05.text_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.source_id.size + 
-  asx_securities_ntp_itch_v1_05.text.size;
+-- Calculate size of: Text Message
+asx_securities_ntp_itch_v1_05.text_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.source_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.text.size
+
+  return index
+end
 
 -- Display: Text Message
 asx_securities_ntp_itch_v1_05.text_message.display = function(packet, parent, length)
@@ -1024,7 +1064,7 @@ end
 -- Total Traded Volume
 asx_securities_ntp_itch_v1_05.total_traded_volume = {}
 
--- Size Of: Total Traded Volume
+-- Size: Total Traded Volume
 asx_securities_ntp_itch_v1_05.total_traded_volume.size = 8
 
 -- Display: Total Traded Volume
@@ -1047,7 +1087,7 @@ end
 -- Last Volume
 asx_securities_ntp_itch_v1_05.last_volume = {}
 
--- Size Of: Last Volume
+-- Size: Last Volume
 asx_securities_ntp_itch_v1_05.last_volume.size = 4
 
 -- Display: Last Volume
@@ -1070,7 +1110,7 @@ end
 -- Last Trade
 asx_securities_ntp_itch_v1_05.last_trade = {}
 
--- Size Of: Last Trade
+-- Size: Last Trade
 asx_securities_ntp_itch_v1_05.last_trade.size = 8
 
 -- Display: Last Trade
@@ -1093,7 +1133,7 @@ end
 -- Lowest Trade
 asx_securities_ntp_itch_v1_05.lowest_trade = {}
 
--- Size Of: Lowest Trade
+-- Size: Lowest Trade
 asx_securities_ntp_itch_v1_05.lowest_trade.size = 8
 
 -- Display: Lowest Trade
@@ -1116,7 +1156,7 @@ end
 -- Highest Trade
 asx_securities_ntp_itch_v1_05.highest_trade = {}
 
--- Size Of: Highest Trade
+-- Size: Highest Trade
 asx_securities_ntp_itch_v1_05.highest_trade.size = 8
 
 -- Display: Highest Trade
@@ -1139,7 +1179,7 @@ end
 -- Opening Trade
 asx_securities_ntp_itch_v1_05.opening_trade = {}
 
--- Size Of: Opening Trade
+-- Size: Opening Trade
 asx_securities_ntp_itch_v1_05.opening_trade.size = 8
 
 -- Display: Opening Trade
@@ -1162,17 +1202,30 @@ end
 -- Market Settlement Message
 asx_securities_ntp_itch_v1_05.market_settlement_message = {}
 
--- Size Of: Market Settlement Message
-asx_securities_ntp_itch_v1_05.market_settlement_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.opening_trade.size + 
-  asx_securities_ntp_itch_v1_05.highest_trade.size + 
-  asx_securities_ntp_itch_v1_05.lowest_trade.size + 
-  asx_securities_ntp_itch_v1_05.last_trade.size + 
-  asx_securities_ntp_itch_v1_05.last_volume.size + 
-  asx_securities_ntp_itch_v1_05.total_traded_volume.size;
+-- Calculate size of: Market Settlement Message
+asx_securities_ntp_itch_v1_05.market_settlement_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.opening_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.highest_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.lowest_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.last_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.last_volume.size
+
+  index = index + asx_securities_ntp_itch_v1_05.total_traded_volume.size
+
+  return index
+end
 
 -- Display: Market Settlement Message
 asx_securities_ntp_itch_v1_05.market_settlement_message.display = function(packet, parent, length)
@@ -1234,17 +1287,30 @@ end
 -- Open High Low Last Trade Adjustment Message
 asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message = {}
 
--- Size Of: Open High Low Last Trade Adjustment Message
-asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.opening_trade.size + 
-  asx_securities_ntp_itch_v1_05.highest_trade.size + 
-  asx_securities_ntp_itch_v1_05.lowest_trade.size + 
-  asx_securities_ntp_itch_v1_05.last_trade.size + 
-  asx_securities_ntp_itch_v1_05.last_volume.size + 
-  asx_securities_ntp_itch_v1_05.total_traded_volume.size;
+-- Calculate size of: Open High Low Last Trade Adjustment Message
+asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.opening_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.highest_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.lowest_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.last_trade.size
+
+  index = index + asx_securities_ntp_itch_v1_05.last_volume.size
+
+  index = index + asx_securities_ntp_itch_v1_05.total_traded_volume.size
+
+  return index
+end
 
 -- Display: Open High Low Last Trade Adjustment Message
 asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.display = function(packet, parent, length)
@@ -1306,7 +1372,7 @@ end
 -- Ask Quantity
 asx_securities_ntp_itch_v1_05.ask_quantity = {}
 
--- Size Of: Ask Quantity
+-- Size: Ask Quantity
 asx_securities_ntp_itch_v1_05.ask_quantity.size = 8
 
 -- Display: Ask Quantity
@@ -1329,7 +1395,7 @@ end
 -- Bid Quantity
 asx_securities_ntp_itch_v1_05.bid_quantity = {}
 
--- Size Of: Bid Quantity
+-- Size: Bid Quantity
 asx_securities_ntp_itch_v1_05.bid_quantity.size = 8
 
 -- Display: Bid Quantity
@@ -1352,7 +1418,7 @@ end
 -- Matched Quantity
 asx_securities_ntp_itch_v1_05.matched_quantity = {}
 
--- Size Of: Matched Quantity
+-- Size: Matched Quantity
 asx_securities_ntp_itch_v1_05.matched_quantity.size = 8
 
 -- Display: Matched Quantity
@@ -1375,7 +1441,7 @@ end
 -- Equilibrium Price
 asx_securities_ntp_itch_v1_05.equilibrium_price = {}
 
--- Size Of: Equilibrium Price
+-- Size: Equilibrium Price
 asx_securities_ntp_itch_v1_05.equilibrium_price.size = 8
 
 -- Display: Equilibrium Price
@@ -1398,15 +1464,26 @@ end
 -- Equilibrium Price Message
 asx_securities_ntp_itch_v1_05.equilibrium_price_message = {}
 
--- Size Of: Equilibrium Price Message
-asx_securities_ntp_itch_v1_05.equilibrium_price_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.equilibrium_price.size + 
-  asx_securities_ntp_itch_v1_05.matched_quantity.size + 
-  asx_securities_ntp_itch_v1_05.bid_quantity.size + 
-  asx_securities_ntp_itch_v1_05.ask_quantity.size;
+-- Calculate size of: Equilibrium Price Message
+asx_securities_ntp_itch_v1_05.equilibrium_price_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.equilibrium_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.matched_quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.bid_quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.ask_quantity.size
+
+  return index
+end
 
 -- Display: Equilibrium Price Message
 asx_securities_ntp_itch_v1_05.equilibrium_price_message.display = function(packet, parent, length)
@@ -1462,7 +1539,7 @@ end
 -- Trade Id
 asx_securities_ntp_itch_v1_05.trade_id = {}
 
--- Size Of: Trade Id
+-- Size: Trade Id
 asx_securities_ntp_itch_v1_05.trade_id.size = 8
 
 -- Display: Trade Id
@@ -1485,12 +1562,20 @@ end
 -- Trade Cancellation Message
 asx_securities_ntp_itch_v1_05.trade_cancellation_message = {}
 
--- Size Of: Trade Cancellation Message
-asx_securities_ntp_itch_v1_05.trade_cancellation_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.trade_id.size;
+-- Calculate size of: Trade Cancellation Message
+asx_securities_ntp_itch_v1_05.trade_cancellation_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_id.size
+
+  return index
+end
 
 -- Display: Trade Cancellation Message
 asx_securities_ntp_itch_v1_05.trade_cancellation_message.display = function(packet, parent, length)
@@ -1537,7 +1622,7 @@ end
 -- Seller Participant Id
 asx_securities_ntp_itch_v1_05.seller_participant_id = {}
 
--- Size Of: Seller Participant Id
+-- Size: Seller Participant Id
 asx_securities_ntp_itch_v1_05.seller_participant_id.size = 3
 
 -- Display: Seller Participant Id
@@ -1560,7 +1645,7 @@ end
 -- Seller Combination Trade Id
 asx_securities_ntp_itch_v1_05.seller_combination_trade_id = {}
 
--- Size Of: Seller Combination Trade Id
+-- Size: Seller Combination Trade Id
 asx_securities_ntp_itch_v1_05.seller_combination_trade_id.size = 8
 
 -- Display: Seller Combination Trade Id
@@ -1583,7 +1668,7 @@ end
 -- Seller Order Id
 asx_securities_ntp_itch_v1_05.seller_order_id = {}
 
--- Size Of: Seller Order Id
+-- Size: Seller Order Id
 asx_securities_ntp_itch_v1_05.seller_order_id.size = 8
 
 -- Display: Seller Order Id
@@ -1606,7 +1691,7 @@ end
 -- Seller Side
 asx_securities_ntp_itch_v1_05.seller_side = {}
 
--- Size Of: Seller Side
+-- Size: Seller Side
 asx_securities_ntp_itch_v1_05.seller_side.size = 1
 
 -- Display: Seller Side
@@ -1636,7 +1721,7 @@ end
 -- Seller Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id = {}
 
--- Size Of: Seller Tradeable Instrument Id
+-- Size: Seller Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.size = 4
 
 -- Display: Seller Tradeable Instrument Id
@@ -1659,7 +1744,7 @@ end
 -- Buyer Participant Id
 asx_securities_ntp_itch_v1_05.buyer_participant_id = {}
 
--- Size Of: Buyer Participant Id
+-- Size: Buyer Participant Id
 asx_securities_ntp_itch_v1_05.buyer_participant_id.size = 3
 
 -- Display: Buyer Participant Id
@@ -1682,7 +1767,7 @@ end
 -- Buyer Combination Trade Id
 asx_securities_ntp_itch_v1_05.buyer_combination_trade_id = {}
 
--- Size Of: Buyer Combination Trade Id
+-- Size: Buyer Combination Trade Id
 asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.size = 8
 
 -- Display: Buyer Combination Trade Id
@@ -1705,7 +1790,7 @@ end
 -- Buyer Order Id
 asx_securities_ntp_itch_v1_05.buyer_order_id = {}
 
--- Size Of: Buyer Order Id
+-- Size: Buyer Order Id
 asx_securities_ntp_itch_v1_05.buyer_order_id.size = 8
 
 -- Display: Buyer Order Id
@@ -1728,7 +1813,7 @@ end
 -- Buyer Side
 asx_securities_ntp_itch_v1_05.buyer_side = {}
 
--- Size Of: Buyer Side
+-- Size: Buyer Side
 asx_securities_ntp_itch_v1_05.buyer_side.size = 1
 
 -- Display: Buyer Side
@@ -1758,7 +1843,7 @@ end
 -- Buyer Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id = {}
 
--- Size Of: Buyer Tradeable Instrument Id
+-- Size: Buyer Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.size = 4
 
 -- Display: Buyer Tradeable Instrument Id
@@ -1781,7 +1866,7 @@ end
 -- Trade Price
 asx_securities_ntp_itch_v1_05.trade_price = {}
 
--- Size Of: Trade Price
+-- Size: Trade Price
 asx_securities_ntp_itch_v1_05.trade_price.size = 8
 
 -- Display: Trade Price
@@ -1804,7 +1889,7 @@ end
 -- Executed Quantity
 asx_securities_ntp_itch_v1_05.executed_quantity = {}
 
--- Size Of: Executed Quantity
+-- Size: Executed Quantity
 asx_securities_ntp_itch_v1_05.executed_quantity.size = 4
 
 -- Display: Executed Quantity
@@ -1827,7 +1912,7 @@ end
 -- Trade Type
 asx_securities_ntp_itch_v1_05.trade_type = {}
 
--- Size Of: Trade Type
+-- Size: Trade Type
 asx_securities_ntp_itch_v1_05.trade_type.size = 1
 
 -- Display: Trade Type
@@ -1887,25 +1972,46 @@ end
 -- Combination Trade Executed Message
 asx_securities_ntp_itch_v1_05.combination_trade_executed_message = {}
 
--- Size Of: Combination Trade Executed Message
-asx_securities_ntp_itch_v1_05.combination_trade_executed_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.trade_type.size + 
-  asx_securities_ntp_itch_v1_05.trade_id.size + 
-  asx_securities_ntp_itch_v1_05.executed_quantity.size + 
-  asx_securities_ntp_itch_v1_05.trade_price.size + 
-  asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.buyer_side.size + 
-  asx_securities_ntp_itch_v1_05.buyer_order_id.size + 
-  asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.size + 
-  asx_securities_ntp_itch_v1_05.buyer_participant_id.size + 
-  asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.seller_side.size + 
-  asx_securities_ntp_itch_v1_05.seller_order_id.size + 
-  asx_securities_ntp_itch_v1_05.seller_combination_trade_id.size + 
-  asx_securities_ntp_itch_v1_05.seller_participant_id.size;
+-- Calculate size of: Combination Trade Executed Message
+asx_securities_ntp_itch_v1_05.combination_trade_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_type.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.executed_quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.buyer_side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.buyer_order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.buyer_participant_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.seller_side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.seller_order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.seller_combination_trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.seller_participant_id.size
+
+  return index
+end
 
 -- Display: Combination Trade Executed Message
 asx_securities_ntp_itch_v1_05.combination_trade_executed_message.display = function(packet, parent, length)
@@ -1991,7 +2097,7 @@ end
 -- Participant Id Seller
 asx_securities_ntp_itch_v1_05.participant_id_seller = {}
 
--- Size Of: Participant Id Seller
+-- Size: Participant Id Seller
 asx_securities_ntp_itch_v1_05.participant_id_seller.size = 3
 
 -- Display: Participant Id Seller
@@ -2014,7 +2120,7 @@ end
 -- Participant Id Buyer
 asx_securities_ntp_itch_v1_05.participant_id_buyer = {}
 
--- Size Of: Participant Id Buyer
+-- Size: Participant Id Buyer
 asx_securities_ntp_itch_v1_05.participant_id_buyer.size = 3
 
 -- Display: Participant Id Buyer
@@ -2037,7 +2143,7 @@ end
 -- Combination Trade Id
 asx_securities_ntp_itch_v1_05.combination_trade_id = {}
 
--- Size Of: Combination Trade Id
+-- Size: Combination Trade Id
 asx_securities_ntp_itch_v1_05.combination_trade_id.size = 8
 
 -- Display: Combination Trade Id
@@ -2060,18 +2166,32 @@ end
 -- Trade Executed Message
 asx_securities_ntp_itch_v1_05.trade_executed_message = {}
 
--- Size Of: Trade Executed Message
-asx_securities_ntp_itch_v1_05.trade_executed_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.trade_type.size + 
-  asx_securities_ntp_itch_v1_05.trade_id.size + 
-  asx_securities_ntp_itch_v1_05.executed_quantity.size + 
-  asx_securities_ntp_itch_v1_05.trade_price.size + 
-  asx_securities_ntp_itch_v1_05.combination_trade_id.size + 
-  asx_securities_ntp_itch_v1_05.participant_id_buyer.size + 
-  asx_securities_ntp_itch_v1_05.participant_id_seller.size;
+-- Calculate size of: Trade Executed Message
+asx_securities_ntp_itch_v1_05.trade_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_type.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.executed_quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.combination_trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.participant_id_buyer.size
+
+  index = index + asx_securities_ntp_itch_v1_05.participant_id_seller.size
+
+  return index
+end
 
 -- Display: Trade Executed Message
 asx_securities_ntp_itch_v1_05.trade_executed_message.display = function(packet, parent, length)
@@ -2136,7 +2256,7 @@ end
 -- Order Id
 asx_securities_ntp_itch_v1_05.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 asx_securities_ntp_itch_v1_05.order_id.size = 8
 
 -- Display: Order Id
@@ -2159,7 +2279,7 @@ end
 -- Side
 asx_securities_ntp_itch_v1_05.side = {}
 
--- Size Of: Side
+-- Size: Side
 asx_securities_ntp_itch_v1_05.side.size = 1
 
 -- Display: Side
@@ -2189,13 +2309,22 @@ end
 -- Implied Order Deleted Message
 asx_securities_ntp_itch_v1_05.implied_order_deleted_message = {}
 
--- Size Of: Implied Order Deleted Message
-asx_securities_ntp_itch_v1_05.implied_order_deleted_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size;
+-- Calculate size of: Implied Order Deleted Message
+asx_securities_ntp_itch_v1_05.implied_order_deleted_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  return index
+end
 
 -- Display: Implied Order Deleted Message
 asx_securities_ntp_itch_v1_05.implied_order_deleted_message.display = function(packet, parent, length)
@@ -2245,7 +2374,7 @@ end
 -- Price
 asx_securities_ntp_itch_v1_05.price = {}
 
--- Size Of: Price
+-- Size: Price
 asx_securities_ntp_itch_v1_05.price.size = 8
 
 -- Display: Price
@@ -2268,7 +2397,7 @@ end
 -- Order Book Priority
 asx_securities_ntp_itch_v1_05.order_book_priority = {}
 
--- Size Of: Order Book Priority
+-- Size: Order Book Priority
 asx_securities_ntp_itch_v1_05.order_book_priority.size = 8
 
 -- Display: Order Book Priority
@@ -2291,16 +2420,28 @@ end
 -- Implied Order Replaced Message
 asx_securities_ntp_itch_v1_05.implied_order_replaced_message = {}
 
--- Size Of: Implied Order Replaced Message
-asx_securities_ntp_itch_v1_05.implied_order_replaced_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size + 
-  asx_securities_ntp_itch_v1_05.order_book_priority.size + 
-  asx_securities_ntp_itch_v1_05.quantity.size + 
-  asx_securities_ntp_itch_v1_05.price.size;
+-- Calculate size of: Implied Order Replaced Message
+asx_securities_ntp_itch_v1_05.implied_order_replaced_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_book_priority.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price.size
+
+  return index
+end
 
 -- Display: Implied Order Replaced Message
 asx_securities_ntp_itch_v1_05.implied_order_replaced_message.display = function(packet, parent, length)
@@ -2359,16 +2500,28 @@ end
 -- Implied Order Added Message
 asx_securities_ntp_itch_v1_05.implied_order_added_message = {}
 
--- Size Of: Implied Order Added Message
-asx_securities_ntp_itch_v1_05.implied_order_added_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size + 
-  asx_securities_ntp_itch_v1_05.order_book_priority.size + 
-  asx_securities_ntp_itch_v1_05.quantity.size + 
-  asx_securities_ntp_itch_v1_05.price.size;
+-- Calculate size of: Implied Order Added Message
+asx_securities_ntp_itch_v1_05.implied_order_added_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_book_priority.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price.size
+
+  return index
+end
 
 -- Display: Implied Order Added Message
 asx_securities_ntp_itch_v1_05.implied_order_added_message.display = function(packet, parent, length)
@@ -2427,7 +2580,7 @@ end
 -- Opposite Order Id
 asx_securities_ntp_itch_v1_05.opposite_order_id = {}
 
--- Size Of: Opposite Order Id
+-- Size: Opposite Order Id
 asx_securities_ntp_itch_v1_05.opposite_order_id.size = 8
 
 -- Display: Opposite Order Id
@@ -2450,7 +2603,7 @@ end
 -- Opposite Side
 asx_securities_ntp_itch_v1_05.opposite_side = {}
 
--- Size Of: Opposite Side
+-- Size: Opposite Side
 asx_securities_ntp_itch_v1_05.opposite_side.size = 1
 
 -- Display: Opposite Side
@@ -2480,7 +2633,7 @@ end
 -- Opposite Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id = {}
 
--- Size Of: Opposite Tradeable Instrument Id
+-- Size: Opposite Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.size = 4
 
 -- Display: Opposite Tradeable Instrument Id
@@ -2503,7 +2656,7 @@ end
 -- Quantity Remaining
 asx_securities_ntp_itch_v1_05.quantity_remaining = {}
 
--- Size Of: Quantity Remaining
+-- Size: Quantity Remaining
 asx_securities_ntp_itch_v1_05.quantity_remaining.size = 4
 
 -- Display: Quantity Remaining
@@ -2526,22 +2679,40 @@ end
 -- Combination Order Executed Message
 asx_securities_ntp_itch_v1_05.combination_order_executed_message = {}
 
--- Size Of: Combination Order Executed Message
-asx_securities_ntp_itch_v1_05.combination_order_executed_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size + 
-  asx_securities_ntp_itch_v1_05.quantity_remaining.size + 
-  asx_securities_ntp_itch_v1_05.trade_type.size + 
-  asx_securities_ntp_itch_v1_05.trade_id.size + 
-  asx_securities_ntp_itch_v1_05.executed_quantity.size + 
-  asx_securities_ntp_itch_v1_05.trade_price.size + 
-  asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.opposite_side.size + 
-  asx_securities_ntp_itch_v1_05.opposite_order_id.size + 
-  asx_securities_ntp_itch_v1_05.combination_trade_id.size;
+-- Calculate size of: Combination Order Executed Message
+asx_securities_ntp_itch_v1_05.combination_order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity_remaining.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_type.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.executed_quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.opposite_side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.opposite_order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.combination_trade_id.size
+
+  return index
+end
 
 -- Display: Combination Order Executed Message
 asx_securities_ntp_itch_v1_05.combination_order_executed_message.display = function(packet, parent, length)
@@ -2618,19 +2789,34 @@ end
 -- Auction Order Executed Message
 asx_securities_ntp_itch_v1_05.auction_order_executed_message = {}
 
--- Size Of: Auction Order Executed Message
-asx_securities_ntp_itch_v1_05.auction_order_executed_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size + 
-  asx_securities_ntp_itch_v1_05.quantity_remaining.size + 
-  asx_securities_ntp_itch_v1_05.trade_type.size + 
-  asx_securities_ntp_itch_v1_05.trade_id.size + 
-  asx_securities_ntp_itch_v1_05.executed_quantity.size + 
-  asx_securities_ntp_itch_v1_05.trade_price.size + 
-  asx_securities_ntp_itch_v1_05.opposite_order_id.size;
+-- Calculate size of: Auction Order Executed Message
+asx_securities_ntp_itch_v1_05.auction_order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity_remaining.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_type.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.executed_quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.opposite_order_id.size
+
+  return index
+end
 
 -- Display: Auction Order Executed Message
 asx_securities_ntp_itch_v1_05.auction_order_executed_message.display = function(packet, parent, length)
@@ -2698,7 +2884,7 @@ end
 -- Counter Party Id
 asx_securities_ntp_itch_v1_05.counter_party_id = {}
 
--- Size Of: Counter Party Id
+-- Size: Counter Party Id
 asx_securities_ntp_itch_v1_05.counter_party_id.size = 3
 
 -- Display: Counter Party Id
@@ -2721,20 +2907,36 @@ end
 -- Order Executed Message
 asx_securities_ntp_itch_v1_05.order_executed_message = {}
 
--- Size Of: Order Executed Message
-asx_securities_ntp_itch_v1_05.order_executed_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size + 
-  asx_securities_ntp_itch_v1_05.quantity_remaining.size + 
-  asx_securities_ntp_itch_v1_05.trade_type.size + 
-  asx_securities_ntp_itch_v1_05.trade_id.size + 
-  asx_securities_ntp_itch_v1_05.executed_quantity.size + 
-  asx_securities_ntp_itch_v1_05.trade_price.size + 
-  asx_securities_ntp_itch_v1_05.combination_trade_id.size + 
-  asx_securities_ntp_itch_v1_05.counter_party_id.size;
+-- Calculate size of: Order Executed Message
+asx_securities_ntp_itch_v1_05.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity_remaining.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_type.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.executed_quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_price.size
+
+  index = index + asx_securities_ntp_itch_v1_05.combination_trade_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.counter_party_id.size
+
+  return index
+end
 
 -- Display: Order Executed Message
 asx_securities_ntp_itch_v1_05.order_executed_message.display = function(packet, parent, length)
@@ -2805,13 +3007,22 @@ end
 -- Order Deleted Message
 asx_securities_ntp_itch_v1_05.order_deleted_message = {}
 
--- Size Of: Order Deleted Message
-asx_securities_ntp_itch_v1_05.order_deleted_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size;
+-- Calculate size of: Order Deleted Message
+asx_securities_ntp_itch_v1_05.order_deleted_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  return index
+end
 
 -- Display: Order Deleted Message
 asx_securities_ntp_itch_v1_05.order_deleted_message.display = function(packet, parent, length)
@@ -2861,14 +3072,24 @@ end
 -- Order Volume Cancelled Message
 asx_securities_ntp_itch_v1_05.order_volume_cancelled_message = {}
 
--- Size Of: Order Volume Cancelled Message
-asx_securities_ntp_itch_v1_05.order_volume_cancelled_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size + 
-  asx_securities_ntp_itch_v1_05.quantity.size;
+-- Calculate size of: Order Volume Cancelled Message
+asx_securities_ntp_itch_v1_05.order_volume_cancelled_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity.size
+
+  return index
+end
 
 -- Display: Order Volume Cancelled Message
 asx_securities_ntp_itch_v1_05.order_volume_cancelled_message.display = function(packet, parent, length)
@@ -2921,16 +3142,28 @@ end
 -- Add Order Message
 asx_securities_ntp_itch_v1_05.add_order_message = {}
 
--- Size Of: Add Order Message
-asx_securities_ntp_itch_v1_05.add_order_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.side.size + 
-  asx_securities_ntp_itch_v1_05.order_id.size + 
-  asx_securities_ntp_itch_v1_05.order_book_priority.size + 
-  asx_securities_ntp_itch_v1_05.quantity.size + 
-  asx_securities_ntp_itch_v1_05.price.size;
+-- Calculate size of: Add Order Message
+asx_securities_ntp_itch_v1_05.add_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.order_book_priority.size
+
+  index = index + asx_securities_ntp_itch_v1_05.quantity.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price.size
+
+  return index
+end
 
 -- Display: Add Order Message
 asx_securities_ntp_itch_v1_05.add_order_message.display = function(packet, parent, length)
@@ -2989,7 +3222,7 @@ end
 -- Session State
 asx_securities_ntp_itch_v1_05.session_state = {}
 
--- Size Of: Session State
+-- Size: Session State
 asx_securities_ntp_itch_v1_05.session_state.size = 1
 
 -- Display: Session State
@@ -3031,12 +3264,20 @@ end
 -- Order Book State Message
 asx_securities_ntp_itch_v1_05.order_book_state_message = {}
 
--- Size Of: Order Book State Message
-asx_securities_ntp_itch_v1_05.order_book_state_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.session_state.size;
+-- Calculate size of: Order Book State Message
+asx_securities_ntp_itch_v1_05.order_book_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.session_state.size
+
+  return index
+end
 
 -- Display: Order Book State Message
 asx_securities_ntp_itch_v1_05.order_book_state_message.display = function(packet, parent, length)
@@ -3083,7 +3324,7 @@ end
 -- Price Leg
 asx_securities_ntp_itch_v1_05.price_leg = {}
 
--- Size Of: Price Leg
+-- Size: Price Leg
 asx_securities_ntp_itch_v1_05.price_leg.size = 8
 
 -- Display: Price Leg
@@ -3106,7 +3347,7 @@ end
 -- Ratio Leg
 asx_securities_ntp_itch_v1_05.ratio_leg = {}
 
--- Size Of: Ratio Leg
+-- Size: Ratio Leg
 asx_securities_ntp_itch_v1_05.ratio_leg.size = 4
 
 -- Display: Ratio Leg
@@ -3129,7 +3370,7 @@ end
 -- Side Leg
 asx_securities_ntp_itch_v1_05.side_leg = {}
 
--- Size Of: Side Leg
+-- Size: Side Leg
 asx_securities_ntp_itch_v1_05.side_leg.size = 1
 
 -- Display: Side Leg
@@ -3162,7 +3403,7 @@ end
 -- Tradeable Instrument Id Leg
 asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg = {}
 
--- Size Of: Tradeable Instrument Id Leg
+-- Size: Tradeable Instrument Id Leg
 asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size = 4
 
 -- Display: Tradeable Instrument Id Leg
@@ -3185,12 +3426,20 @@ end
 -- Bundle Leg
 asx_securities_ntp_itch_v1_05.bundle_leg = {}
 
--- Size Of: Bundle Leg
-asx_securities_ntp_itch_v1_05.bundle_leg.size =
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size + 
-  asx_securities_ntp_itch_v1_05.side_leg.size + 
-  asx_securities_ntp_itch_v1_05.ratio_leg.size + 
-  asx_securities_ntp_itch_v1_05.price_leg.size;
+-- Calculate size of: Bundle Leg
+asx_securities_ntp_itch_v1_05.bundle_leg.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side_leg.size
+
+  index = index + asx_securities_ntp_itch_v1_05.ratio_leg.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_leg.size
+
+  return index
+end
 
 -- Display: Bundle Leg
 asx_securities_ntp_itch_v1_05.bundle_leg.display = function(packet, parent, length)
@@ -3243,7 +3492,7 @@ end
 -- Legs
 asx_securities_ntp_itch_v1_05.legs = {}
 
--- Size Of: Legs
+-- Size: Legs
 asx_securities_ntp_itch_v1_05.legs.size = 1
 
 -- Display: Legs
@@ -3266,7 +3515,7 @@ end
 -- Price Minimum Tick
 asx_securities_ntp_itch_v1_05.price_minimum_tick = {}
 
--- Size Of: Price Minimum Tick
+-- Size: Price Minimum Tick
 asx_securities_ntp_itch_v1_05.price_minimum_tick.size = 4
 
 -- Display: Price Minimum Tick
@@ -3289,7 +3538,7 @@ end
 -- Price Fractional Denominator
 asx_securities_ntp_itch_v1_05.price_fractional_denominator = {}
 
--- Size Of: Price Fractional Denominator
+-- Size: Price Fractional Denominator
 asx_securities_ntp_itch_v1_05.price_fractional_denominator.size = 4
 
 -- Display: Price Fractional Denominator
@@ -3312,7 +3561,7 @@ end
 -- Price Display Decimals
 asx_securities_ntp_itch_v1_05.price_display_decimals = {}
 
--- Size Of: Price Display Decimals
+-- Size: Price Display Decimals
 asx_securities_ntp_itch_v1_05.price_display_decimals.size = 1
 
 -- Display: Price Display Decimals
@@ -3335,7 +3584,7 @@ end
 -- Price Method
 asx_securities_ntp_itch_v1_05.price_method = {}
 
--- Size Of: Price Method
+-- Size: Price Method
 asx_securities_ntp_itch_v1_05.price_method.size = 1
 
 -- Display: Price Method
@@ -3371,7 +3620,7 @@ end
 -- Cfi Code
 asx_securities_ntp_itch_v1_05.cfi_code = {}
 
--- Size Of: Cfi Code
+-- Size: Cfi Code
 asx_securities_ntp_itch_v1_05.cfi_code.size = 6
 
 -- Display: Cfi Code
@@ -3394,7 +3643,7 @@ end
 -- Long Name
 asx_securities_ntp_itch_v1_05.long_name = {}
 
--- Size Of: Long Name
+-- Size: Long Name
 asx_securities_ntp_itch_v1_05.long_name.size = 60
 
 -- Display: Long Name
@@ -3417,7 +3666,7 @@ end
 -- Symbol Name
 asx_securities_ntp_itch_v1_05.symbol_name = {}
 
--- Size Of: Symbol Name
+-- Size: Symbol Name
 asx_securities_ntp_itch_v1_05.symbol_name.size = 32
 
 -- Display: Symbol Name
@@ -3440,20 +3689,36 @@ end
 -- Bundles Symbol Directory
 asx_securities_ntp_itch_v1_05.bundles_symbol_directory = {}
 
--- Size Of: Bundles Symbol Directory
-asx_securities_ntp_itch_v1_05.bundles_symbol_directory.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.symbol_name.size + 
-  asx_securities_ntp_itch_v1_05.long_name.size + 
-  asx_securities_ntp_itch_v1_05.cfi_code.size + 
-  asx_securities_ntp_itch_v1_05.price_method.size + 
-  asx_securities_ntp_itch_v1_05.price_display_decimals.size + 
-  asx_securities_ntp_itch_v1_05.price_fractional_denominator.size + 
-  asx_securities_ntp_itch_v1_05.price_minimum_tick.size + 
-  asx_securities_ntp_itch_v1_05.legs.size + 
-  asx_securities_ntp_itch_v1_05.bundle_leg.size;
+-- Calculate size of: Bundles Symbol Directory
+asx_securities_ntp_itch_v1_05.bundles_symbol_directory.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.symbol_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.long_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.cfi_code.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_method.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_display_decimals.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_fractional_denominator.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_minimum_tick.size
+
+  index = index + asx_securities_ntp_itch_v1_05.legs.size
+
+  index = index + 20 * asx_securities_ntp_itch_v1_05.bundle_leg.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Bundles Symbol Directory
 asx_securities_ntp_itch_v1_05.bundles_symbol_directory.display = function(packet, parent, length)
@@ -3526,12 +3791,20 @@ end
 -- Combination Leg
 asx_securities_ntp_itch_v1_05.combination_leg = {}
 
--- Size Of: Combination Leg
-asx_securities_ntp_itch_v1_05.combination_leg.size =
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size + 
-  asx_securities_ntp_itch_v1_05.side_leg.size + 
-  asx_securities_ntp_itch_v1_05.ratio_leg.size + 
-  asx_securities_ntp_itch_v1_05.price_leg.size;
+-- Calculate size of: Combination Leg
+asx_securities_ntp_itch_v1_05.combination_leg.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size
+
+  index = index + asx_securities_ntp_itch_v1_05.side_leg.size
+
+  index = index + asx_securities_ntp_itch_v1_05.ratio_leg.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_leg.size
+
+  return index
+end
 
 -- Display: Combination Leg
 asx_securities_ntp_itch_v1_05.combination_leg.display = function(packet, parent, length)
@@ -3584,20 +3857,36 @@ end
 -- Combination Symbol Directory Message
 asx_securities_ntp_itch_v1_05.combination_symbol_directory_message = {}
 
--- Size Of: Combination Symbol Directory Message
-asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.symbol_name.size + 
-  asx_securities_ntp_itch_v1_05.long_name.size + 
-  asx_securities_ntp_itch_v1_05.cfi_code.size + 
-  asx_securities_ntp_itch_v1_05.price_method.size + 
-  asx_securities_ntp_itch_v1_05.price_display_decimals.size + 
-  asx_securities_ntp_itch_v1_05.price_fractional_denominator.size + 
-  asx_securities_ntp_itch_v1_05.price_minimum_tick.size + 
-  asx_securities_ntp_itch_v1_05.legs.size + 
-  asx_securities_ntp_itch_v1_05.combination_leg.size;
+-- Calculate size of: Combination Symbol Directory Message
+asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.symbol_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.long_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.cfi_code.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_method.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_display_decimals.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_fractional_denominator.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_minimum_tick.size
+
+  index = index + asx_securities_ntp_itch_v1_05.legs.size
+
+  index = index + 6 * asx_securities_ntp_itch_v1_05.combination_leg.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Combination Symbol Directory Message
 asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.display = function(packet, parent, length)
@@ -3670,7 +3959,7 @@ end
 -- Basis Of Quotation
 asx_securities_ntp_itch_v1_05.basis_of_quotation = {}
 
--- Size Of: Basis Of Quotation
+-- Size: Basis Of Quotation
 asx_securities_ntp_itch_v1_05.basis_of_quotation.size = 10
 
 -- Display: Basis Of Quotation
@@ -3693,7 +3982,7 @@ end
 -- Expiry Date
 asx_securities_ntp_itch_v1_05.expiry_date = {}
 
--- Size Of: Expiry Date
+-- Size: Expiry Date
 asx_securities_ntp_itch_v1_05.expiry_date.size = 4
 
 -- Display: Expiry Date
@@ -3716,7 +4005,7 @@ end
 -- Block Lot Size
 asx_securities_ntp_itch_v1_05.block_lot_size = {}
 
--- Size Of: Block Lot Size
+-- Size: Block Lot Size
 asx_securities_ntp_itch_v1_05.block_lot_size.size = 4
 
 -- Display: Block Lot Size
@@ -3739,7 +4028,7 @@ end
 -- Payments Per Year
 asx_securities_ntp_itch_v1_05.payments_per_year = {}
 
--- Size Of: Payments Per Year
+-- Size: Payments Per Year
 asx_securities_ntp_itch_v1_05.payments_per_year.size = 1
 
 -- Display: Payments Per Year
@@ -3762,7 +4051,7 @@ end
 -- Coupon Rate
 asx_securities_ntp_itch_v1_05.coupon_rate = {}
 
--- Size Of: Coupon Rate
+-- Size: Coupon Rate
 asx_securities_ntp_itch_v1_05.coupon_rate.size = 2
 
 -- Display: Coupon Rate
@@ -3785,7 +4074,7 @@ end
 -- Maturity Value
 asx_securities_ntp_itch_v1_05.maturity_value = {}
 
--- Size Of: Maturity Value
+-- Size: Maturity Value
 asx_securities_ntp_itch_v1_05.maturity_value.size = 1
 
 -- Display: Maturity Value
@@ -3808,7 +4097,7 @@ end
 -- Lot Size Or Face Value
 asx_securities_ntp_itch_v1_05.lot_size_or_face_value = {}
 
--- Size Of: Lot Size Or Face Value
+-- Size: Lot Size Or Face Value
 asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size = 8
 
 -- Display: Lot Size Or Face Value
@@ -3831,7 +4120,7 @@ end
 -- Currency
 asx_securities_ntp_itch_v1_05.currency = {}
 
--- Size Of: Currency
+-- Size: Currency
 asx_securities_ntp_itch_v1_05.currency.size = 3
 
 -- Display: Currency
@@ -3854,7 +4143,7 @@ end
 -- Volatility
 asx_securities_ntp_itch_v1_05.volatility = {}
 
--- Size Of: Volatility
+-- Size: Volatility
 asx_securities_ntp_itch_v1_05.volatility.size = 8
 
 -- Display: Volatility
@@ -3877,7 +4166,7 @@ end
 -- Prior Day Settlement
 asx_securities_ntp_itch_v1_05.prior_day_settlement = {}
 
--- Size Of: Prior Day Settlement
+-- Size: Prior Day Settlement
 asx_securities_ntp_itch_v1_05.prior_day_settlement.size = 8
 
 -- Display: Prior Day Settlement
@@ -3900,7 +4189,7 @@ end
 -- Last Trading Date
 asx_securities_ntp_itch_v1_05.last_trading_date = {}
 
--- Size Of: Last Trading Date
+-- Size: Last Trading Date
 asx_securities_ntp_itch_v1_05.last_trading_date.size = 4
 
 -- Display: Last Trading Date
@@ -3923,7 +4212,7 @@ end
 -- Strike Price Minimum Tick
 asx_securities_ntp_itch_v1_05.strike_price_minimum_tick = {}
 
--- Size Of: Strike Price Minimum Tick
+-- Size: Strike Price Minimum Tick
 asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.size = 4
 
 -- Display: Strike Price Minimum Tick
@@ -3946,7 +4235,7 @@ end
 -- Strike Price Fractional Denominator
 asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator = {}
 
--- Size Of: Strike Price Fractional Denominator
+-- Size: Strike Price Fractional Denominator
 asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.size = 4
 
 -- Display: Strike Price Fractional Denominator
@@ -3969,7 +4258,7 @@ end
 -- Strike Price Decimal Position
 asx_securities_ntp_itch_v1_05.strike_price_decimal_position = {}
 
--- Size Of: Strike Price Decimal Position
+-- Size: Strike Price Decimal Position
 asx_securities_ntp_itch_v1_05.strike_price_decimal_position.size = 1
 
 -- Display: Strike Price Decimal Position
@@ -3992,7 +4281,7 @@ end
 -- Underlying Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id = {}
 
--- Size Of: Underlying Tradeable Instrument Id
+-- Size: Underlying Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.size = 4
 
 -- Display: Underlying Tradeable Instrument Id
@@ -4015,7 +4304,7 @@ end
 -- Strike
 asx_securities_ntp_itch_v1_05.strike = {}
 
--- Size Of: Strike
+-- Size: Strike
 asx_securities_ntp_itch_v1_05.strike.size = 8
 
 -- Display: Strike
@@ -4038,7 +4327,7 @@ end
 -- Option Type
 asx_securities_ntp_itch_v1_05.option_type = {}
 
--- Size Of: Option Type
+-- Size: Option Type
 asx_securities_ntp_itch_v1_05.option_type.size = 1
 
 -- Display: Option Type
@@ -4068,7 +4357,7 @@ end
 -- Expiry Month
 asx_securities_ntp_itch_v1_05.expiry_month = {}
 
--- Size Of: Expiry Month
+-- Size: Expiry Month
 asx_securities_ntp_itch_v1_05.expiry_month.size = 1
 
 -- Display: Expiry Month
@@ -4128,7 +4417,7 @@ end
 -- Expiry Year
 asx_securities_ntp_itch_v1_05.expiry_year = {}
 
--- Size Of: Expiry Year
+-- Size: Expiry Year
 asx_securities_ntp_itch_v1_05.expiry_year.size = 2
 
 -- Display: Expiry Year
@@ -4151,7 +4440,7 @@ end
 -- Instrument
 asx_securities_ntp_itch_v1_05.instrument = {}
 
--- Size Of: Instrument
+-- Size: Instrument
 asx_securities_ntp_itch_v1_05.instrument.size = 6
 
 -- Display: Instrument
@@ -4174,7 +4463,7 @@ end
 -- Exchange
 asx_securities_ntp_itch_v1_05.exchange = {}
 
--- Size Of: Exchange
+-- Size: Exchange
 asx_securities_ntp_itch_v1_05.exchange.size = 6
 
 -- Display: Exchange
@@ -4197,7 +4486,7 @@ end
 -- Isin
 asx_securities_ntp_itch_v1_05.isin = {}
 
--- Size Of: Isin
+-- Size: Isin
 asx_securities_ntp_itch_v1_05.isin.size = 12
 
 -- Display: Isin
@@ -4220,39 +4509,74 @@ end
 -- Options Symbol Directory Message
 asx_securities_ntp_itch_v1_05.options_symbol_directory_message = {}
 
--- Size Of: Options Symbol Directory Message
-asx_securities_ntp_itch_v1_05.options_symbol_directory_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.symbol_name.size + 
-  asx_securities_ntp_itch_v1_05.long_name.size + 
-  asx_securities_ntp_itch_v1_05.isin.size + 
-  asx_securities_ntp_itch_v1_05.exchange.size + 
-  asx_securities_ntp_itch_v1_05.instrument.size + 
-  asx_securities_ntp_itch_v1_05.cfi_code.size + 
-  asx_securities_ntp_itch_v1_05.expiry_year.size + 
-  asx_securities_ntp_itch_v1_05.expiry_month.size + 
-  asx_securities_ntp_itch_v1_05.option_type.size + 
-  asx_securities_ntp_itch_v1_05.strike.size + 
-  asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.price_display_decimals.size + 
-  asx_securities_ntp_itch_v1_05.price_fractional_denominator.size + 
-  asx_securities_ntp_itch_v1_05.price_minimum_tick.size + 
-  asx_securities_ntp_itch_v1_05.strike_price_decimal_position.size + 
-  asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.size + 
-  asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.size + 
-  asx_securities_ntp_itch_v1_05.last_trading_date.size + 
-  asx_securities_ntp_itch_v1_05.prior_day_settlement.size + 
-  asx_securities_ntp_itch_v1_05.volatility.size + 
-  asx_securities_ntp_itch_v1_05.currency.size + 
-  asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size + 
-  asx_securities_ntp_itch_v1_05.maturity_value.size + 
-  asx_securities_ntp_itch_v1_05.coupon_rate.size + 
-  asx_securities_ntp_itch_v1_05.payments_per_year.size + 
-  asx_securities_ntp_itch_v1_05.block_lot_size.size + 
-  asx_securities_ntp_itch_v1_05.expiry_date.size + 
-  asx_securities_ntp_itch_v1_05.basis_of_quotation.size;
+-- Calculate size of: Options Symbol Directory Message
+asx_securities_ntp_itch_v1_05.options_symbol_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.symbol_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.long_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.isin.size
+
+  index = index + asx_securities_ntp_itch_v1_05.exchange.size
+
+  index = index + asx_securities_ntp_itch_v1_05.instrument.size
+
+  index = index + asx_securities_ntp_itch_v1_05.cfi_code.size
+
+  index = index + asx_securities_ntp_itch_v1_05.expiry_year.size
+
+  index = index + asx_securities_ntp_itch_v1_05.expiry_month.size
+
+  index = index + asx_securities_ntp_itch_v1_05.option_type.size
+
+  index = index + asx_securities_ntp_itch_v1_05.strike.size
+
+  index = index + asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_display_decimals.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_fractional_denominator.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_minimum_tick.size
+
+  index = index + asx_securities_ntp_itch_v1_05.strike_price_decimal_position.size
+
+  index = index + asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.size
+
+  index = index + asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.size
+
+  index = index + asx_securities_ntp_itch_v1_05.last_trading_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.prior_day_settlement.size
+
+  index = index + asx_securities_ntp_itch_v1_05.volatility.size
+
+  index = index + asx_securities_ntp_itch_v1_05.currency.size
+
+  index = index + asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size
+
+  index = index + asx_securities_ntp_itch_v1_05.maturity_value.size
+
+  index = index + asx_securities_ntp_itch_v1_05.coupon_rate.size
+
+  index = index + asx_securities_ntp_itch_v1_05.payments_per_year.size
+
+  index = index + asx_securities_ntp_itch_v1_05.block_lot_size.size
+
+  index = index + asx_securities_ntp_itch_v1_05.expiry_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.basis_of_quotation.size
+
+  return index
+end
 
 -- Display: Options Symbol Directory Message
 asx_securities_ntp_itch_v1_05.options_symbol_directory_message.display = function(packet, parent, length)
@@ -4380,31 +4704,58 @@ end
 -- Future Symbol Directory Message
 asx_securities_ntp_itch_v1_05.future_symbol_directory_message = {}
 
--- Size Of: Future Symbol Directory Message
-asx_securities_ntp_itch_v1_05.future_symbol_directory_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
-  asx_securities_ntp_itch_v1_05.symbol_name.size + 
-  asx_securities_ntp_itch_v1_05.long_name.size + 
-  asx_securities_ntp_itch_v1_05.isin.size + 
-  asx_securities_ntp_itch_v1_05.exchange.size + 
-  asx_securities_ntp_itch_v1_05.instrument.size + 
-  asx_securities_ntp_itch_v1_05.cfi_code.size + 
-  asx_securities_ntp_itch_v1_05.expiry_year.size + 
-  asx_securities_ntp_itch_v1_05.expiry_month.size + 
-  asx_securities_ntp_itch_v1_05.price_display_decimals.size + 
-  asx_securities_ntp_itch_v1_05.price_fractional_denominator.size + 
-  asx_securities_ntp_itch_v1_05.price_minimum_tick.size + 
-  asx_securities_ntp_itch_v1_05.last_trading_date.size + 
-  asx_securities_ntp_itch_v1_05.prior_day_settlement.size + 
-  asx_securities_ntp_itch_v1_05.currency.size + 
-  asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size + 
-  asx_securities_ntp_itch_v1_05.maturity_value.size + 
-  asx_securities_ntp_itch_v1_05.coupon_rate.size + 
-  asx_securities_ntp_itch_v1_05.payments_per_year.size + 
-  asx_securities_ntp_itch_v1_05.block_lot_size.size + 
-  asx_securities_ntp_itch_v1_05.expiry_date.size;
+-- Calculate size of: Future Symbol Directory Message
+asx_securities_ntp_itch_v1_05.future_symbol_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+
+  index = index + asx_securities_ntp_itch_v1_05.symbol_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.long_name.size
+
+  index = index + asx_securities_ntp_itch_v1_05.isin.size
+
+  index = index + asx_securities_ntp_itch_v1_05.exchange.size
+
+  index = index + asx_securities_ntp_itch_v1_05.instrument.size
+
+  index = index + asx_securities_ntp_itch_v1_05.cfi_code.size
+
+  index = index + asx_securities_ntp_itch_v1_05.expiry_year.size
+
+  index = index + asx_securities_ntp_itch_v1_05.expiry_month.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_display_decimals.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_fractional_denominator.size
+
+  index = index + asx_securities_ntp_itch_v1_05.price_minimum_tick.size
+
+  index = index + asx_securities_ntp_itch_v1_05.last_trading_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.prior_day_settlement.size
+
+  index = index + asx_securities_ntp_itch_v1_05.currency.size
+
+  index = index + asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size
+
+  index = index + asx_securities_ntp_itch_v1_05.maturity_value.size
+
+  index = index + asx_securities_ntp_itch_v1_05.coupon_rate.size
+
+  index = index + asx_securities_ntp_itch_v1_05.payments_per_year.size
+
+  index = index + asx_securities_ntp_itch_v1_05.block_lot_size.size
+
+  index = index + asx_securities_ntp_itch_v1_05.expiry_date.size
+
+  return index
+end
 
 -- Display: Future Symbol Directory Message
 asx_securities_ntp_itch_v1_05.future_symbol_directory_message.display = function(packet, parent, length)
@@ -4508,7 +4859,7 @@ end
 -- Event Code
 asx_securities_ntp_itch_v1_05.event_code = {}
 
--- Size Of: Event Code
+-- Size: Event Code
 asx_securities_ntp_itch_v1_05.event_code.size = 1
 
 -- Display: Event Code
@@ -4535,11 +4886,18 @@ end
 -- End Of Business Trade Date Message
 asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message = {}
 
--- Size Of: End Of Business Trade Date Message
-asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.size =
-  asx_securities_ntp_itch_v1_05.timestamp.size + 
-  asx_securities_ntp_itch_v1_05.trade_date.size + 
-  asx_securities_ntp_itch_v1_05.event_code.size;
+-- Calculate size of: End Of Business Trade Date Message
+asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.timestamp.size
+
+  index = index + asx_securities_ntp_itch_v1_05.trade_date.size
+
+  index = index + asx_securities_ntp_itch_v1_05.event_code.size
+
+  return index
+end
 
 -- Display: End Of Business Trade Date Message
 asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.display = function(packet, parent, length)
@@ -4583,7 +4941,7 @@ end
 -- Seconds
 asx_securities_ntp_itch_v1_05.seconds = {}
 
--- Size Of: Seconds
+-- Size: Seconds
 asx_securities_ntp_itch_v1_05.seconds.size = 4
 
 -- Store: Seconds
@@ -4609,9 +4967,14 @@ end
 -- Seconds Message
 asx_securities_ntp_itch_v1_05.seconds_message = {}
 
--- Size Of: Seconds Message
-asx_securities_ntp_itch_v1_05.seconds_message.size =
-  asx_securities_ntp_itch_v1_05.seconds.size;
+-- Calculate size of: Seconds Message
+asx_securities_ntp_itch_v1_05.seconds_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.seconds.size
+
+  return index
+end
 
 -- Display: Seconds Message
 asx_securities_ntp_itch_v1_05.seconds_message.display = function(packet, parent, length)
@@ -4900,7 +5263,7 @@ end
 -- Message Type
 asx_securities_ntp_itch_v1_05.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 asx_securities_ntp_itch_v1_05.message_type.size = 1
 
 -- Display: Message Type
@@ -5002,7 +5365,7 @@ end
 -- Message Length
 asx_securities_ntp_itch_v1_05.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 asx_securities_ntp_itch_v1_05.message_length.size = 2
 
 -- Display: Message Length
@@ -5025,10 +5388,16 @@ end
 -- Message Header
 asx_securities_ntp_itch_v1_05.message_header = {}
 
--- Size Of: Message Header
-asx_securities_ntp_itch_v1_05.message_header.size =
-  asx_securities_ntp_itch_v1_05.message_length.size + 
-  asx_securities_ntp_itch_v1_05.message_type.size;
+-- Calculate size of: Message Header
+asx_securities_ntp_itch_v1_05.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.message_length.size
+
+  index = index + asx_securities_ntp_itch_v1_05.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 asx_securities_ntp_itch_v1_05.message_header.display = function(packet, parent, length)
@@ -5120,7 +5489,7 @@ end
 -- Message Count
 asx_securities_ntp_itch_v1_05.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 asx_securities_ntp_itch_v1_05.message_count.size = 2
 
 -- Display: Message Count
@@ -5143,7 +5512,7 @@ end
 -- Sequence Number
 asx_securities_ntp_itch_v1_05.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 asx_securities_ntp_itch_v1_05.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -5166,7 +5535,7 @@ end
 -- Session
 asx_securities_ntp_itch_v1_05.session = {}
 
--- Size Of: Session
+-- Size: Session
 asx_securities_ntp_itch_v1_05.session.size = 10
 
 -- Display: Session
@@ -5205,11 +5574,18 @@ end
 -- Packet Header
 asx_securities_ntp_itch_v1_05.packet_header = {}
 
--- Size Of: Packet Header
-asx_securities_ntp_itch_v1_05.packet_header.size =
-  asx_securities_ntp_itch_v1_05.session.size + 
-  asx_securities_ntp_itch_v1_05.sequence_number.size + 
-  asx_securities_ntp_itch_v1_05.message_count.size;
+-- Calculate size of: Packet Header
+asx_securities_ntp_itch_v1_05.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_ntp_itch_v1_05.session.size
+
+  index = index + asx_securities_ntp_itch_v1_05.sequence_number.size
+
+  index = index + asx_securities_ntp_itch_v1_05.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 asx_securities_ntp_itch_v1_05.packet_header.display = function(packet, parent, length)

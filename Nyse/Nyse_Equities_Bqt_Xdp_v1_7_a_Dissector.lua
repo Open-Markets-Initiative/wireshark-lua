@@ -301,7 +301,7 @@ end
 -- Complete
 nyse_equities_bqt_xdp_v1_7_a.complete = {}
 
--- Size Of: Complete
+-- Size: Complete
 nyse_equities_bqt_xdp_v1_7_a.complete.size = 1
 
 -- Display: Complete
@@ -331,7 +331,7 @@ end
 -- Reason
 nyse_equities_bqt_xdp_v1_7_a.reason = {}
 
--- Size Of: Reason
+-- Size: Reason
 nyse_equities_bqt_xdp_v1_7_a.reason.size = 1
 
 -- Display: Reason
@@ -370,7 +370,7 @@ end
 -- Total Volume
 nyse_equities_bqt_xdp_v1_7_a.total_volume = {}
 
--- Size Of: Total Volume
+-- Size: Total Volume
 nyse_equities_bqt_xdp_v1_7_a.total_volume.size = 4
 
 -- Display: Total Volume
@@ -393,7 +393,7 @@ end
 -- Symbol Seq Number
 nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number = {}
 
--- Size Of: Symbol Seq Number
+-- Size: Symbol Seq Number
 nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size = 4
 
 -- Display: Symbol Seq Number
@@ -416,7 +416,7 @@ end
 -- Symbol Index
 nyse_equities_bqt_xdp_v1_7_a.symbol_index = {}
 
--- Size Of: Symbol Index
+-- Size: Symbol Index
 nyse_equities_bqt_xdp_v1_7_a.symbol_index.size = 4
 
 -- Display: Symbol Index
@@ -439,13 +439,22 @@ end
 -- Consolidated Volume Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_volume_message = {}
 
--- Size Of: Consolidated Volume Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_volume_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size + 
-  nyse_equities_bqt_xdp_v1_7_a.total_volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.reason.size + 
-  nyse_equities_bqt_xdp_v1_7_a.complete.size;
+-- Calculate size of: Consolidated Volume Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_volume_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.total_volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.reason.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.complete.size
+
+  return index
+end
 
 -- Display: Consolidated Volume Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_volume_message.display = function(packet, parent, length)
@@ -495,7 +504,7 @@ end
 -- Close
 nyse_equities_bqt_xdp_v1_7_a.close = {}
 
--- Size Of: Close
+-- Size: Close
 nyse_equities_bqt_xdp_v1_7_a.close.size = 4
 
 -- Display: Close
@@ -518,7 +527,7 @@ end
 -- Market Id Of The Close
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_the_close = {}
 
--- Size Of: Market Id Of The Close
+-- Size: Market Id Of The Close
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_the_close.size = 2
 
 -- Display: Market Id Of The Close
@@ -554,7 +563,7 @@ end
 -- Num Close Prices
 nyse_equities_bqt_xdp_v1_7_a.num_close_prices = {}
 
--- Size Of: Num Close Prices
+-- Size: Num Close Prices
 nyse_equities_bqt_xdp_v1_7_a.num_close_prices.size = 1
 
 -- Display: Num Close Prices
@@ -577,7 +586,7 @@ end
 -- Market Id Of Open Price
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_open_price = {}
 
--- Size Of: Market Id Of Open Price
+-- Size: Market Id Of Open Price
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_open_price.size = 2
 
 -- Display: Market Id Of Open Price
@@ -613,7 +622,7 @@ end
 -- Market Id Of Low Price
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_low_price = {}
 
--- Size Of: Market Id Of Low Price
+-- Size: Market Id Of Low Price
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_low_price.size = 2
 
 -- Display: Market Id Of Low Price
@@ -649,7 +658,7 @@ end
 -- Market Id Of High Price
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_high_price = {}
 
--- Size Of: Market Id Of High Price
+-- Size: Market Id Of High Price
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_high_price.size = 2
 
 -- Display: Market Id Of High Price
@@ -685,7 +694,7 @@ end
 -- Open
 nyse_equities_bqt_xdp_v1_7_a.open = {}
 
--- Size Of: Open
+-- Size: Open
 nyse_equities_bqt_xdp_v1_7_a.open.size = 4
 
 -- Display: Open
@@ -708,7 +717,7 @@ end
 -- Low Price
 nyse_equities_bqt_xdp_v1_7_a.low_price = {}
 
--- Size Of: Low Price
+-- Size: Low Price
 nyse_equities_bqt_xdp_v1_7_a.low_price.size = 4
 
 -- Display: Low Price
@@ -731,7 +740,7 @@ end
 -- High Price
 nyse_equities_bqt_xdp_v1_7_a.high_price = {}
 
--- Size Of: High Price
+-- Size: High Price
 nyse_equities_bqt_xdp_v1_7_a.high_price.size = 4
 
 -- Display: High Price
@@ -754,7 +763,7 @@ end
 -- Source Time Ns
 nyse_equities_bqt_xdp_v1_7_a.source_time_ns = {}
 
--- Size Of: Source Time Ns
+-- Size: Source Time Ns
 nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size = 4
 
 -- Display: Source Time Ns
@@ -777,7 +786,7 @@ end
 -- Source Time
 nyse_equities_bqt_xdp_v1_7_a.source_time = {}
 
--- Size Of: Source Time
+-- Size: Source Time
 nyse_equities_bqt_xdp_v1_7_a.source_time.size = 4
 
 -- Display: Source Time
@@ -800,21 +809,38 @@ end
 -- Consolidated Stock Summary Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_stock_summary_message = {}
 
--- Size Of: Consolidated Stock Summary Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_stock_summary_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.high_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.low_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.open.size + 
-  nyse_equities_bqt_xdp_v1_7_a.total_volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id_of_high_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id_of_low_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id_of_open_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.num_close_prices.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id_of_the_close.size + 
-  nyse_equities_bqt_xdp_v1_7_a.close.size;
+-- Calculate size of: Consolidated Stock Summary Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_stock_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.high_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.low_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.open.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.total_volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id_of_high_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id_of_low_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id_of_open_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.num_close_prices.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id_of_the_close.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.close.size
+
+  return index
+end
 
 -- Display: Consolidated Stock Summary Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_stock_summary_message.display = function(packet, parent, length)
@@ -888,7 +914,7 @@ end
 -- Market Id
 nyse_equities_bqt_xdp_v1_7_a.market_id = {}
 
--- Size Of: Market Id
+-- Size: Market Id
 nyse_equities_bqt_xdp_v1_7_a.market_id.size = 2
 
 -- Display: Market Id
@@ -939,7 +965,7 @@ end
 -- Trade Condition 4
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_4 = {}
 
--- Size Of: Trade Condition 4
+-- Size: Trade Condition 4
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_4.size = 1
 
 -- Display: Trade Condition 4
@@ -999,7 +1025,7 @@ end
 -- Trade Condition 3
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_3 = {}
 
--- Size Of: Trade Condition 3
+-- Size: Trade Condition 3
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_3.size = 1
 
 -- Display: Trade Condition 3
@@ -1038,7 +1064,7 @@ end
 -- Trade Condition 2
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_2 = {}
 
--- Size Of: Trade Condition 2
+-- Size: Trade Condition 2
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_2.size = 1
 
 -- Display: Trade Condition 2
@@ -1083,7 +1109,7 @@ end
 -- Trade Condition 1
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_1 = {}
 
--- Size Of: Trade Condition 1
+-- Size: Trade Condition 1
 nyse_equities_bqt_xdp_v1_7_a.trade_condition_1.size = 1
 
 -- Display: Trade Condition 1
@@ -1119,7 +1145,7 @@ end
 -- Volume
 nyse_equities_bqt_xdp_v1_7_a.volume = {}
 
--- Size Of: Volume
+-- Size: Volume
 nyse_equities_bqt_xdp_v1_7_a.volume.size = 4
 
 -- Display: Volume
@@ -1142,7 +1168,7 @@ end
 -- Price
 nyse_equities_bqt_xdp_v1_7_a.price = {}
 
--- Size Of: Price
+-- Size: Price
 nyse_equities_bqt_xdp_v1_7_a.price.size = 4
 
 -- Display: Price
@@ -1165,7 +1191,7 @@ end
 -- Trade Id
 nyse_equities_bqt_xdp_v1_7_a.trade_id = {}
 
--- Size Of: Trade Id
+-- Size: Trade Id
 nyse_equities_bqt_xdp_v1_7_a.trade_id.size = 4
 
 -- Display: Trade Id
@@ -1188,7 +1214,7 @@ end
 -- Original Trade Id
 nyse_equities_bqt_xdp_v1_7_a.original_trade_id = {}
 
--- Size Of: Original Trade Id
+-- Size: Original Trade Id
 nyse_equities_bqt_xdp_v1_7_a.original_trade_id.size = 4
 
 -- Display: Original Trade Id
@@ -1211,21 +1237,38 @@ end
 -- Consolidated Trade Correction Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_correction_message = {}
 
--- Size Of: Consolidated Trade Correction Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_correction_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size + 
-  nyse_equities_bqt_xdp_v1_7_a.original_trade_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_1.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_2.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_3.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_4.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size;
+-- Calculate size of: Consolidated Trade Correction Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_correction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.original_trade_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_1.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_2.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_3.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_4.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  return index
+end
 
 -- Display: Consolidated Trade Correction Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_correction_message.display = function(packet, parent, length)
@@ -1299,14 +1342,24 @@ end
 -- Consolidated Trade Cancel Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message = {}
 
--- Size Of: Consolidated Trade Cancel Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size;
+-- Calculate size of: Consolidated Trade Cancel Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  return index
+end
 
 -- Display: Consolidated Trade Cancel Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message.display = function(packet, parent, length)
@@ -1359,7 +1412,7 @@ end
 -- Symbol Seq Num
 nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num = {}
 
--- Size Of: Symbol Seq Num
+-- Size: Symbol Seq Num
 nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
@@ -1382,20 +1435,36 @@ end
 -- Consolidated Trade Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_message = {}
 
--- Size Of: Consolidated Trade Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_1.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_2.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_3.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_condition_4.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size;
+-- Calculate size of: Consolidated Trade Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_1.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_2.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_3.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_condition_4.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  return index
+end
 
 -- Display: Consolidated Trade Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trade_message.display = function(packet, parent, length)
@@ -1466,7 +1535,7 @@ end
 -- Rpi Indicator
 nyse_equities_bqt_xdp_v1_7_a.rpi_indicator = {}
 
--- Size Of: Rpi Indicator
+-- Size: Rpi Indicator
 nyse_equities_bqt_xdp_v1_7_a.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
@@ -1502,7 +1571,7 @@ end
 -- Quote Condition
 nyse_equities_bqt_xdp_v1_7_a.quote_condition = {}
 
--- Size Of: Quote Condition
+-- Size: Quote Condition
 nyse_equities_bqt_xdp_v1_7_a.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -1541,7 +1610,7 @@ end
 -- Side
 nyse_equities_bqt_xdp_v1_7_a.side = {}
 
--- Size Of: Side
+-- Size: Side
 nyse_equities_bqt_xdp_v1_7_a.side.size = 1
 
 -- Display: Side
@@ -1571,16 +1640,28 @@ end
 -- Consolidated Single Sided Quote Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message = {}
 
--- Size Of: Consolidated Single Sided Quote Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size + 
-  nyse_equities_bqt_xdp_v1_7_a.side.size + 
-  nyse_equities_bqt_xdp_v1_7_a.price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.quote_condition.size + 
-  nyse_equities_bqt_xdp_v1_7_a.rpi_indicator.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size;
+-- Calculate size of: Consolidated Single Sided Quote Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.side.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.quote_condition.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.rpi_indicator.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  return index
+end
 
 -- Display: Consolidated Single Sided Quote Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message.display = function(packet, parent, length)
@@ -1639,7 +1720,7 @@ end
 -- Market Id Of Best Bid
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_bid = {}
 
--- Size Of: Market Id Of Best Bid
+-- Size: Market Id Of Best Bid
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_bid.size = 2
 
 -- Display: Market Id Of Best Bid
@@ -1675,7 +1756,7 @@ end
 -- Market Id Of Best Ask
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_ask = {}
 
--- Size Of: Market Id Of Best Ask
+-- Size: Market Id Of Best Ask
 nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_ask.size = 2
 
 -- Display: Market Id Of Best Ask
@@ -1711,7 +1792,7 @@ end
 -- Retail Pricing Indicator
 nyse_equities_bqt_xdp_v1_7_a.retail_pricing_indicator = {}
 
--- Size Of: Retail Pricing Indicator
+-- Size: Retail Pricing Indicator
 nyse_equities_bqt_xdp_v1_7_a.retail_pricing_indicator.size = 1
 
 -- Display: Retail Pricing Indicator
@@ -1747,7 +1828,7 @@ end
 -- Bid Quote Condition
 nyse_equities_bqt_xdp_v1_7_a.bid_quote_condition = {}
 
--- Size Of: Bid Quote Condition
+-- Size: Bid Quote Condition
 nyse_equities_bqt_xdp_v1_7_a.bid_quote_condition.size = 1
 
 -- Display: Bid Quote Condition
@@ -1783,7 +1864,7 @@ end
 -- Ask Quote Condition
 nyse_equities_bqt_xdp_v1_7_a.ask_quote_condition = {}
 
--- Size Of: Ask Quote Condition
+-- Size: Ask Quote Condition
 nyse_equities_bqt_xdp_v1_7_a.ask_quote_condition.size = 1
 
 -- Display: Ask Quote Condition
@@ -1819,7 +1900,7 @@ end
 -- Bid Volume
 nyse_equities_bqt_xdp_v1_7_a.bid_volume = {}
 
--- Size Of: Bid Volume
+-- Size: Bid Volume
 nyse_equities_bqt_xdp_v1_7_a.bid_volume.size = 4
 
 -- Display: Bid Volume
@@ -1842,7 +1923,7 @@ end
 -- Bid Price
 nyse_equities_bqt_xdp_v1_7_a.bid_price = {}
 
--- Size Of: Bid Price
+-- Size: Bid Price
 nyse_equities_bqt_xdp_v1_7_a.bid_price.size = 4
 
 -- Display: Bid Price
@@ -1865,7 +1946,7 @@ end
 -- Ask Volume
 nyse_equities_bqt_xdp_v1_7_a.ask_volume = {}
 
--- Size Of: Ask Volume
+-- Size: Ask Volume
 nyse_equities_bqt_xdp_v1_7_a.ask_volume.size = 4
 
 -- Display: Ask Volume
@@ -1888,7 +1969,7 @@ end
 -- Ask Price
 nyse_equities_bqt_xdp_v1_7_a.ask_price = {}
 
--- Size Of: Ask Price
+-- Size: Ask Price
 nyse_equities_bqt_xdp_v1_7_a.ask_price.size = 4
 
 -- Display: Ask Price
@@ -1911,19 +1992,34 @@ end
 -- Bqt Message
 nyse_equities_bqt_xdp_v1_7_a.bqt_message = {}
 
--- Size Of: Bqt Message
-nyse_equities_bqt_xdp_v1_7_a.bqt_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size + 
-  nyse_equities_bqt_xdp_v1_7_a.ask_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.ask_volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.bid_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.bid_volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.ask_quote_condition.size + 
-  nyse_equities_bqt_xdp_v1_7_a.bid_quote_condition.size + 
-  nyse_equities_bqt_xdp_v1_7_a.retail_pricing_indicator.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_ask.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_bid.size;
+-- Calculate size of: Bqt Message
+nyse_equities_bqt_xdp_v1_7_a.bqt_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_number.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.ask_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.ask_volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.bid_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.bid_volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.ask_quote_condition.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.bid_quote_condition.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.retail_pricing_indicator.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_ask.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id_of_best_bid.size
+
+  return index
+end
 
 -- Display: Bqt Message
 nyse_equities_bqt_xdp_v1_7_a.bqt_message.display = function(packet, parent, length)
@@ -1991,7 +2087,7 @@ end
 -- Last Symbol Seq Num
 nyse_equities_bqt_xdp_v1_7_a.last_symbol_seq_num = {}
 
--- Size Of: Last Symbol Seq Num
+-- Size: Last Symbol Seq Num
 nyse_equities_bqt_xdp_v1_7_a.last_symbol_seq_num.size = 4
 
 -- Display: Last Symbol Seq Num
@@ -2014,7 +2110,7 @@ end
 -- Last Seq Num
 nyse_equities_bqt_xdp_v1_7_a.last_seq_num = {}
 
--- Size Of: Last Seq Num
+-- Size: Last Seq Num
 nyse_equities_bqt_xdp_v1_7_a.last_seq_num.size = 4
 
 -- Display: Last Seq Num
@@ -2037,7 +2133,7 @@ end
 -- Total Refresh Pkts
 nyse_equities_bqt_xdp_v1_7_a.total_refresh_pkts = {}
 
--- Size Of: Total Refresh Pkts
+-- Size: Total Refresh Pkts
 nyse_equities_bqt_xdp_v1_7_a.total_refresh_pkts.size = 2
 
 -- Display: Total Refresh Pkts
@@ -2060,7 +2156,7 @@ end
 -- Current Refresh Pkt
 nyse_equities_bqt_xdp_v1_7_a.current_refresh_pkt = {}
 
--- Size Of: Current Refresh Pkt
+-- Size: Current Refresh Pkt
 nyse_equities_bqt_xdp_v1_7_a.current_refresh_pkt.size = 2
 
 -- Display: Current Refresh Pkt
@@ -2083,12 +2179,20 @@ end
 -- Refresh Header Message
 nyse_equities_bqt_xdp_v1_7_a.refresh_header_message = {}
 
--- Size Of: Refresh Header Message
-nyse_equities_bqt_xdp_v1_7_a.refresh_header_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.current_refresh_pkt.size + 
-  nyse_equities_bqt_xdp_v1_7_a.total_refresh_pkts.size + 
-  nyse_equities_bqt_xdp_v1_7_a.last_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.last_symbol_seq_num.size;
+-- Calculate size of: Refresh Header Message
+nyse_equities_bqt_xdp_v1_7_a.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.current_refresh_pkt.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.total_refresh_pkts.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.last_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.last_symbol_seq_num.size
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_equities_bqt_xdp_v1_7_a.refresh_header_message.display = function(packet, parent, length)
@@ -2135,7 +2239,7 @@ end
 -- Session State
 nyse_equities_bqt_xdp_v1_7_a.session_state = {}
 
--- Size Of: Session State
+-- Size: Session State
 nyse_equities_bqt_xdp_v1_7_a.session_state.size = 1
 
 -- Display: Session State
@@ -2168,7 +2272,7 @@ end
 -- Market State
 nyse_equities_bqt_xdp_v1_7_a.market_state = {}
 
--- Size Of: Market State
+-- Size: Market State
 nyse_equities_bqt_xdp_v1_7_a.market_state.size = 1
 
 -- Display: Market State
@@ -2207,7 +2311,7 @@ end
 -- Ssr State
 nyse_equities_bqt_xdp_v1_7_a.ssr_state = {}
 
--- Size Of: Ssr State
+-- Size: Ssr State
 nyse_equities_bqt_xdp_v1_7_a.ssr_state.size = 1
 
 -- Display: Ssr State
@@ -2237,7 +2341,7 @@ end
 -- Time
 nyse_equities_bqt_xdp_v1_7_a.time = {}
 
--- Size Of: Time
+-- Size: Time
 nyse_equities_bqt_xdp_v1_7_a.time.size = 4
 
 -- Display: Time
@@ -2260,7 +2364,7 @@ end
 -- Ssr Triggering Volume
 nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_volume = {}
 
--- Size Of: Ssr Triggering Volume
+-- Size: Ssr Triggering Volume
 nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_volume.size = 4
 
 -- Display: Ssr Triggering Volume
@@ -2283,7 +2387,7 @@ end
 -- Ssr Triggering Exchange Id
 nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_exchange_id = {}
 
--- Size Of: Ssr Triggering Exchange Id
+-- Size: Ssr Triggering Exchange Id
 nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
@@ -2361,7 +2465,7 @@ end
 -- Price 2
 nyse_equities_bqt_xdp_v1_7_a.price_2 = {}
 
--- Size Of: Price 2
+-- Size: Price 2
 nyse_equities_bqt_xdp_v1_7_a.price_2.size = 4
 
 -- Display: Price 2
@@ -2384,7 +2488,7 @@ end
 -- Price 1
 nyse_equities_bqt_xdp_v1_7_a.price_1 = {}
 
--- Size Of: Price 1
+-- Size: Price 1
 nyse_equities_bqt_xdp_v1_7_a.price_1.size = 4
 
 -- Display: Price 1
@@ -2407,7 +2511,7 @@ end
 -- Reserved 2
 nyse_equities_bqt_xdp_v1_7_a.reserved_2 = {}
 
--- Size Of: Reserved 2
+-- Size: Reserved 2
 nyse_equities_bqt_xdp_v1_7_a.reserved_2.size = 2
 
 -- Display: Reserved 2
@@ -2430,7 +2534,7 @@ end
 -- Halt Condition
 nyse_equities_bqt_xdp_v1_7_a.halt_condition = {}
 
--- Size Of: Halt Condition
+-- Size: Halt Condition
 nyse_equities_bqt_xdp_v1_7_a.halt_condition.size = 1
 
 -- Display: Halt Condition
@@ -2487,7 +2591,7 @@ end
 -- Security Status
 nyse_equities_bqt_xdp_v1_7_a.security_status = {}
 
--- Size Of: Security Status
+-- Size: Security Status
 nyse_equities_bqt_xdp_v1_7_a.security_status.size = 1
 
 -- Display: Security Status
@@ -2559,24 +2663,44 @@ end
 -- Consolidated Security Status Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_security_status_message = {}
 
--- Size Of: Consolidated Security Status Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_security_status_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.security_status.size + 
-  nyse_equities_bqt_xdp_v1_7_a.halt_condition.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.reserved_2.size + 
-  nyse_equities_bqt_xdp_v1_7_a.price_1.size + 
-  nyse_equities_bqt_xdp_v1_7_a.price_2.size + 
-  nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_exchange_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.ssr_state.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_state.size + 
-  nyse_equities_bqt_xdp_v1_7_a.session_state.size;
+-- Calculate size of: Consolidated Security Status Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_security_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.security_status.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.halt_condition.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.reserved_2.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.price_1.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.price_2.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_exchange_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.ssr_triggering_volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.ssr_state.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_state.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.session_state.size
+
+  return index
+end
 
 -- Display: Consolidated Security Status Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_security_status_message.display = function(packet, parent, length)
@@ -2659,7 +2783,7 @@ end
 -- Trade Session
 nyse_equities_bqt_xdp_v1_7_a.trade_session = {}
 
--- Size Of: Trade Session
+-- Size: Trade Session
 nyse_equities_bqt_xdp_v1_7_a.trade_session.size = 1
 
 -- Display: Trade Session
@@ -2682,14 +2806,24 @@ end
 -- Consolidated Trading Session Change Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message = {}
 
--- Size Of: Consolidated Trading Session Change Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.trade_session.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size;
+-- Calculate size of: Consolidated Trading Session Change Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.trade_session.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  return index
+end
 
 -- Display: Consolidated Trading Session Change Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message.display = function(packet, parent, length)
@@ -2742,7 +2876,7 @@ end
 -- Next Source Seq Num
 nyse_equities_bqt_xdp_v1_7_a.next_source_seq_num = {}
 
--- Size Of: Next Source Seq Num
+-- Size: Next Source Seq Num
 nyse_equities_bqt_xdp_v1_7_a.next_source_seq_num.size = 4
 
 -- Display: Next Source Seq Num
@@ -2765,13 +2899,22 @@ end
 -- Consolidated Symbol Clear Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message = {}
 
--- Size Of: Consolidated Symbol Clear Message
-nyse_equities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.next_source_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size;
+-- Calculate size of: Consolidated Symbol Clear Message
+nyse_equities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.next_source_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  return index
+end
 
 -- Display: Consolidated Symbol Clear Message
 nyse_equities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message.display = function(packet, parent, length)
@@ -2821,7 +2964,7 @@ end
 -- Channel Id
 nyse_equities_bqt_xdp_v1_7_a.channel_id = {}
 
--- Size Of: Channel Id
+-- Size: Channel Id
 nyse_equities_bqt_xdp_v1_7_a.channel_id.size = 1
 
 -- Display: Channel Id
@@ -2844,7 +2987,7 @@ end
 -- Product Id
 nyse_equities_bqt_xdp_v1_7_a.product_id = {}
 
--- Size Of: Product Id
+-- Size: Product Id
 nyse_equities_bqt_xdp_v1_7_a.product_id.size = 1
 
 -- Display: Product Id
@@ -2867,7 +3010,7 @@ end
 -- End Seq Num
 nyse_equities_bqt_xdp_v1_7_a.end_seq_num = {}
 
--- Size Of: End Seq Num
+-- Size: End Seq Num
 nyse_equities_bqt_xdp_v1_7_a.end_seq_num.size = 4
 
 -- Display: End Seq Num
@@ -2890,7 +3033,7 @@ end
 -- Begin Seq Num
 nyse_equities_bqt_xdp_v1_7_a.begin_seq_num = {}
 
--- Size Of: Begin Seq Num
+-- Size: Begin Seq Num
 nyse_equities_bqt_xdp_v1_7_a.begin_seq_num.size = 4
 
 -- Display: Begin Seq Num
@@ -2913,12 +3056,20 @@ end
 -- Message Unavailable Message
 nyse_equities_bqt_xdp_v1_7_a.message_unavailable_message = {}
 
--- Size Of: Message Unavailable Message
-nyse_equities_bqt_xdp_v1_7_a.message_unavailable_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.begin_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.end_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.product_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.channel_id.size;
+-- Calculate size of: Message Unavailable Message
+nyse_equities_bqt_xdp_v1_7_a.message_unavailable_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.begin_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.end_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.product_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.channel_id.size
+
+  return index
+end
 
 -- Display: Message Unavailable Message
 nyse_equities_bqt_xdp_v1_7_a.message_unavailable_message.display = function(packet, parent, length)
@@ -2965,7 +3116,7 @@ end
 -- Source Id
 nyse_equities_bqt_xdp_v1_7_a.source_id = {}
 
--- Size Of: Source Id
+-- Size: Source Id
 nyse_equities_bqt_xdp_v1_7_a.source_id.size = 10
 
 -- Display: Source Id
@@ -2988,12 +3139,20 @@ end
 -- Refresh Request Message
 nyse_equities_bqt_xdp_v1_7_a.refresh_request_message = {}
 
--- Size Of: Refresh Request Message
-nyse_equities_bqt_xdp_v1_7_a.refresh_request_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.product_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.channel_id.size;
+-- Calculate size of: Refresh Request Message
+nyse_equities_bqt_xdp_v1_7_a.refresh_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.product_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.channel_id.size
+
+  return index
+end
 
 -- Display: Refresh Request Message
 nyse_equities_bqt_xdp_v1_7_a.refresh_request_message.display = function(packet, parent, length)
@@ -3040,7 +3199,7 @@ end
 -- Retransmit Method
 nyse_equities_bqt_xdp_v1_7_a.retransmit_method = {}
 
--- Size Of: Retransmit Method
+-- Size: Retransmit Method
 nyse_equities_bqt_xdp_v1_7_a.retransmit_method.size = 1
 
 -- Display: Retransmit Method
@@ -3067,13 +3226,22 @@ end
 -- Symbol Index Mapping Request Message
 nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message = {}
 
--- Size Of: Symbol Index Mapping Request Message
-nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.product_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.channel_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.retransmit_method.size;
+-- Calculate size of: Symbol Index Mapping Request Message
+nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.product_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.channel_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.retransmit_method.size
+
+  return index
+end
 
 -- Display: Symbol Index Mapping Request Message
 nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message.display = function(packet, parent, length)
@@ -3123,9 +3291,14 @@ end
 -- Heartbeat Response Message
 nyse_equities_bqt_xdp_v1_7_a.heartbeat_response_message = {}
 
--- Size Of: Heartbeat Response Message
-nyse_equities_bqt_xdp_v1_7_a.heartbeat_response_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_id.size;
+-- Calculate size of: Heartbeat Response Message
+nyse_equities_bqt_xdp_v1_7_a.heartbeat_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_id.size
+
+  return index
+end
 
 -- Display: Heartbeat Response Message
 nyse_equities_bqt_xdp_v1_7_a.heartbeat_response_message.display = function(packet, parent, length)
@@ -3163,7 +3336,7 @@ end
 -- Status
 nyse_equities_bqt_xdp_v1_7_a.status = {}
 
--- Size Of: Status
+-- Size: Status
 nyse_equities_bqt_xdp_v1_7_a.status.size = 1
 
 -- Display: Status
@@ -3217,7 +3390,7 @@ end
 -- Request Seq Num
 nyse_equities_bqt_xdp_v1_7_a.request_seq_num = {}
 
--- Size Of: Request Seq Num
+-- Size: Request Seq Num
 nyse_equities_bqt_xdp_v1_7_a.request_seq_num.size = 4
 
 -- Display: Request Seq Num
@@ -3240,15 +3413,26 @@ end
 -- Request Response Message
 nyse_equities_bqt_xdp_v1_7_a.request_response_message = {}
 
--- Size Of: Request Response Message
-nyse_equities_bqt_xdp_v1_7_a.request_response_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.request_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.begin_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.end_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.product_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.channel_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.status.size;
+-- Calculate size of: Request Response Message
+nyse_equities_bqt_xdp_v1_7_a.request_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.request_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.begin_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.end_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.product_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.channel_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.status.size
+
+  return index
+end
 
 -- Display: Request Response Message
 nyse_equities_bqt_xdp_v1_7_a.request_response_message.display = function(packet, parent, length)
@@ -3304,13 +3488,22 @@ end
 -- Retransmission Request Message
 nyse_equities_bqt_xdp_v1_7_a.retransmission_request_message = {}
 
--- Size Of: Retransmission Request Message
-nyse_equities_bqt_xdp_v1_7_a.retransmission_request_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.begin_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.end_seq_num.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.product_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.channel_id.size;
+-- Calculate size of: Retransmission Request Message
+nyse_equities_bqt_xdp_v1_7_a.retransmission_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.begin_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.end_seq_num.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.product_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.channel_id.size
+
+  return index
+end
 
 -- Display: Retransmission Request Message
 nyse_equities_bqt_xdp_v1_7_a.retransmission_request_message.display = function(packet, parent, length)
@@ -3360,7 +3553,7 @@ end
 -- Unit Of Trade
 nyse_equities_bqt_xdp_v1_7_a.unit_of_trade = {}
 
--- Size Of: Unit Of Trade
+-- Size: Unit Of Trade
 nyse_equities_bqt_xdp_v1_7_a.unit_of_trade.size = 2
 
 -- Display: Unit Of Trade
@@ -3383,7 +3576,7 @@ end
 -- Mpv
 nyse_equities_bqt_xdp_v1_7_a.mpv = {}
 
--- Size Of: Mpv
+-- Size: Mpv
 nyse_equities_bqt_xdp_v1_7_a.mpv.size = 2
 
 -- Display: Mpv
@@ -3406,7 +3599,7 @@ end
 -- Round Lot
 nyse_equities_bqt_xdp_v1_7_a.round_lot = {}
 
--- Size Of: Round Lot
+-- Size: Round Lot
 nyse_equities_bqt_xdp_v1_7_a.round_lot.size = 1
 
 -- Display: Round Lot
@@ -3436,7 +3629,7 @@ end
 -- Price Resolution
 nyse_equities_bqt_xdp_v1_7_a.price_resolution = {}
 
--- Size Of: Price Resolution
+-- Size: Price Resolution
 nyse_equities_bqt_xdp_v1_7_a.price_resolution.size = 1
 
 -- Display: Price Resolution
@@ -3469,7 +3662,7 @@ end
 -- Prev Close Volume
 nyse_equities_bqt_xdp_v1_7_a.prev_close_volume = {}
 
--- Size Of: Prev Close Volume
+-- Size: Prev Close Volume
 nyse_equities_bqt_xdp_v1_7_a.prev_close_volume.size = 4
 
 -- Display: Prev Close Volume
@@ -3492,7 +3685,7 @@ end
 -- Prev Close Price
 nyse_equities_bqt_xdp_v1_7_a.prev_close_price = {}
 
--- Size Of: Prev Close Price
+-- Size: Prev Close Price
 nyse_equities_bqt_xdp_v1_7_a.prev_close_price.size = 4
 
 -- Display: Prev Close Price
@@ -3515,7 +3708,7 @@ end
 -- Lot Size
 nyse_equities_bqt_xdp_v1_7_a.lot_size = {}
 
--- Size Of: Lot Size
+-- Size: Lot Size
 nyse_equities_bqt_xdp_v1_7_a.lot_size.size = 2
 
 -- Display: Lot Size
@@ -3538,7 +3731,7 @@ end
 -- Security Type
 nyse_equities_bqt_xdp_v1_7_a.security_type = {}
 
--- Size Of: Security Type
+-- Size: Security Type
 nyse_equities_bqt_xdp_v1_7_a.security_type.size = 1
 
 -- Display: Security Type
@@ -3610,7 +3803,7 @@ end
 -- Price Scale Code
 nyse_equities_bqt_xdp_v1_7_a.price_scale_code = {}
 
--- Size Of: Price Scale Code
+-- Size: Price Scale Code
 nyse_equities_bqt_xdp_v1_7_a.price_scale_code.size = 1
 
 -- Display: Price Scale Code
@@ -3633,7 +3826,7 @@ end
 -- Exchange Code
 nyse_equities_bqt_xdp_v1_7_a.exchange_code = {}
 
--- Size Of: Exchange Code
+-- Size: Exchange Code
 nyse_equities_bqt_xdp_v1_7_a.exchange_code.size = 1
 
 -- Display: Exchange Code
@@ -3681,7 +3874,7 @@ end
 -- System Id
 nyse_equities_bqt_xdp_v1_7_a.system_id = {}
 
--- Size Of: System Id
+-- Size: System Id
 nyse_equities_bqt_xdp_v1_7_a.system_id.size = 1
 
 -- Display: System Id
@@ -3704,7 +3897,7 @@ end
 -- Reserved 1
 nyse_equities_bqt_xdp_v1_7_a.reserved_1 = {}
 
--- Size Of: Reserved 1
+-- Size: Reserved 1
 nyse_equities_bqt_xdp_v1_7_a.reserved_1.size = 1
 
 -- Display: Reserved 1
@@ -3727,7 +3920,7 @@ end
 -- Symbol
 nyse_equities_bqt_xdp_v1_7_a.symbol = {}
 
--- Size Of: Symbol
+-- Size: Symbol
 nyse_equities_bqt_xdp_v1_7_a.symbol.size = 11
 
 -- Display: Symbol
@@ -3750,24 +3943,44 @@ end
 -- Symbol Index Mapping Message
 nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_message = {}
 
--- Size Of: Symbol Index Mapping Message
-nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.symbol_index.size + 
-  nyse_equities_bqt_xdp_v1_7_a.symbol.size + 
-  nyse_equities_bqt_xdp_v1_7_a.reserved_1.size + 
-  nyse_equities_bqt_xdp_v1_7_a.market_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.system_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.exchange_code.size + 
-  nyse_equities_bqt_xdp_v1_7_a.price_scale_code.size + 
-  nyse_equities_bqt_xdp_v1_7_a.security_type.size + 
-  nyse_equities_bqt_xdp_v1_7_a.lot_size.size + 
-  nyse_equities_bqt_xdp_v1_7_a.prev_close_price.size + 
-  nyse_equities_bqt_xdp_v1_7_a.prev_close_volume.size + 
-  nyse_equities_bqt_xdp_v1_7_a.price_resolution.size + 
-  nyse_equities_bqt_xdp_v1_7_a.round_lot.size + 
-  nyse_equities_bqt_xdp_v1_7_a.mpv.size + 
-  nyse_equities_bqt_xdp_v1_7_a.unit_of_trade.size + 
-  nyse_equities_bqt_xdp_v1_7_a.reserved_2.size;
+-- Calculate size of: Symbol Index Mapping Message
+nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol_index.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.symbol.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.reserved_1.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.market_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.system_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.exchange_code.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.price_scale_code.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.security_type.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.lot_size.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.prev_close_price.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.prev_close_volume.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.price_resolution.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.round_lot.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.mpv.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.unit_of_trade.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Symbol Index Mapping Message
 nyse_equities_bqt_xdp_v1_7_a.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -3850,12 +4063,20 @@ end
 -- Sequence Number Reset Message
 nyse_equities_bqt_xdp_v1_7_a.sequence_number_reset_message = {}
 
--- Size Of: Sequence Number Reset Message
-nyse_equities_bqt_xdp_v1_7_a.sequence_number_reset_message.size =
-  nyse_equities_bqt_xdp_v1_7_a.source_time.size + 
-  nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size + 
-  nyse_equities_bqt_xdp_v1_7_a.product_id.size + 
-  nyse_equities_bqt_xdp_v1_7_a.channel_id.size;
+-- Calculate size of: Sequence Number Reset Message
+nyse_equities_bqt_xdp_v1_7_a.sequence_number_reset_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.source_time_ns.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.product_id.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.channel_id.size
+
+  return index
+end
 
 -- Display: Sequence Number Reset Message
 nyse_equities_bqt_xdp_v1_7_a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -4094,7 +4315,7 @@ end
 -- Message Type
 nyse_equities_bqt_xdp_v1_7_a.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nyse_equities_bqt_xdp_v1_7_a.message_type.size = 2
 
 -- Display: Message Type
@@ -4175,7 +4396,7 @@ end
 -- Message Size
 nyse_equities_bqt_xdp_v1_7_a.message_size = {}
 
--- Size Of: Message Size
+-- Size: Message Size
 nyse_equities_bqt_xdp_v1_7_a.message_size.size = 2
 
 -- Display: Message Size
@@ -4198,10 +4419,16 @@ end
 -- Message Header
 nyse_equities_bqt_xdp_v1_7_a.message_header = {}
 
--- Size Of: Message Header
-nyse_equities_bqt_xdp_v1_7_a.message_header.size =
-  nyse_equities_bqt_xdp_v1_7_a.message_size.size + 
-  nyse_equities_bqt_xdp_v1_7_a.message_type.size;
+-- Calculate size of: Message Header
+nyse_equities_bqt_xdp_v1_7_a.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.message_size.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nyse_equities_bqt_xdp_v1_7_a.message_header.display = function(packet, parent, length)
@@ -4246,7 +4473,7 @@ nyse_equities_bqt_xdp_v1_7_a.message = {}
 nyse_equities_bqt_xdp_v1_7_a.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_bqt_xdp_v1_7_a.message_header.size
+  index = index + nyse_equities_bqt_xdp_v1_7_a.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -4299,7 +4526,7 @@ end
 -- Nanoseconds
 nyse_equities_bqt_xdp_v1_7_a.nanoseconds = {}
 
--- Size Of: Nanoseconds
+-- Size: Nanoseconds
 nyse_equities_bqt_xdp_v1_7_a.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -4322,7 +4549,7 @@ end
 -- Timestamp
 nyse_equities_bqt_xdp_v1_7_a.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nyse_equities_bqt_xdp_v1_7_a.timestamp.size = 4
 
 -- Display: Timestamp
@@ -4345,7 +4572,7 @@ end
 -- Sequence Number
 nyse_equities_bqt_xdp_v1_7_a.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nyse_equities_bqt_xdp_v1_7_a.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -4368,7 +4595,7 @@ end
 -- Message Count
 nyse_equities_bqt_xdp_v1_7_a.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nyse_equities_bqt_xdp_v1_7_a.message_count.size = 1
 
 -- Display: Message Count
@@ -4391,7 +4618,7 @@ end
 -- Delivery Flag
 nyse_equities_bqt_xdp_v1_7_a.delivery_flag = {}
 
--- Size Of: Delivery Flag
+-- Size: Delivery Flag
 nyse_equities_bqt_xdp_v1_7_a.delivery_flag.size = 1
 
 -- Display: Delivery Flag
@@ -4448,7 +4675,7 @@ end
 -- Packet Size
 nyse_equities_bqt_xdp_v1_7_a.packet_size = {}
 
--- Size Of: Packet Size
+-- Size: Packet Size
 nyse_equities_bqt_xdp_v1_7_a.packet_size.size = 2
 
 -- Display: Packet Size
@@ -4471,14 +4698,24 @@ end
 -- Packet Header
 nyse_equities_bqt_xdp_v1_7_a.packet_header = {}
 
--- Size Of: Packet Header
-nyse_equities_bqt_xdp_v1_7_a.packet_header.size =
-  nyse_equities_bqt_xdp_v1_7_a.packet_size.size + 
-  nyse_equities_bqt_xdp_v1_7_a.delivery_flag.size + 
-  nyse_equities_bqt_xdp_v1_7_a.message_count.size + 
-  nyse_equities_bqt_xdp_v1_7_a.sequence_number.size + 
-  nyse_equities_bqt_xdp_v1_7_a.timestamp.size + 
-  nyse_equities_bqt_xdp_v1_7_a.nanoseconds.size;
+-- Calculate size of: Packet Header
+nyse_equities_bqt_xdp_v1_7_a.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.packet_size.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.delivery_flag.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.message_count.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.sequence_number.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.timestamp.size
+
+  index = index + nyse_equities_bqt_xdp_v1_7_a.nanoseconds.size
+
+  return index
+end
 
 -- Display: Packet Header
 nyse_equities_bqt_xdp_v1_7_a.packet_header.display = function(packet, parent, length)

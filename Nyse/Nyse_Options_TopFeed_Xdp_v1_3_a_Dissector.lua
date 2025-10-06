@@ -271,7 +271,7 @@ end
 -- Channel Id
 nyse_options_topfeed_xdp_v1_3_a.channel_id = {}
 
--- Size Of: Channel Id
+-- Size: Channel Id
 nyse_options_topfeed_xdp_v1_3_a.channel_id.size = 1
 
 -- Display: Channel Id
@@ -294,7 +294,7 @@ end
 -- Product Id
 nyse_options_topfeed_xdp_v1_3_a.product_id = {}
 
--- Size Of: Product Id
+-- Size: Product Id
 nyse_options_topfeed_xdp_v1_3_a.product_id.size = 1
 
 -- Display: Product Id
@@ -317,7 +317,7 @@ end
 -- Source Time Ns
 nyse_options_topfeed_xdp_v1_3_a.source_time_ns = {}
 
--- Size Of: Source Time Ns
+-- Size: Source Time Ns
 nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size = 4
 
 -- Display: Source Time Ns
@@ -340,7 +340,7 @@ end
 -- Source Time
 nyse_options_topfeed_xdp_v1_3_a.source_time = {}
 
--- Size Of: Source Time
+-- Size: Source Time
 nyse_options_topfeed_xdp_v1_3_a.source_time.size = 4
 
 -- Display: Source Time
@@ -363,12 +363,20 @@ end
 -- Sequence Number Reset Message
 nyse_options_topfeed_xdp_v1_3_a.sequence_number_reset_message = {}
 
--- Size Of: Sequence Number Reset Message
-nyse_options_topfeed_xdp_v1_3_a.sequence_number_reset_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.product_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.channel_id.size;
+-- Calculate size of: Sequence Number Reset Message
+nyse_options_topfeed_xdp_v1_3_a.sequence_number_reset_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.product_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.channel_id.size
+
+  return index
+end
 
 -- Display: Sequence Number Reset Message
 nyse_options_topfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -415,7 +423,7 @@ end
 -- Reserved 2
 nyse_options_topfeed_xdp_v1_3_a.reserved_2 = {}
 
--- Size Of: Reserved 2
+-- Size: Reserved 2
 nyse_options_topfeed_xdp_v1_3_a.reserved_2.size = 2
 
 -- Display: Reserved 2
@@ -438,7 +446,7 @@ end
 -- Stream Id
 nyse_options_topfeed_xdp_v1_3_a.stream_id = {}
 
--- Size Of: Stream Id
+-- Size: Stream Id
 nyse_options_topfeed_xdp_v1_3_a.stream_id.size = 2
 
 -- Display: Stream Id
@@ -461,10 +469,16 @@ end
 -- Stream Id Message
 nyse_options_topfeed_xdp_v1_3_a.stream_id_message = {}
 
--- Size Of: Stream Id Message
-nyse_options_topfeed_xdp_v1_3_a.stream_id_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.stream_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Stream Id Message
+nyse_options_topfeed_xdp_v1_3_a.stream_id_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.stream_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Stream Id Message
 nyse_options_topfeed_xdp_v1_3_a.stream_id_message.display = function(packet, parent, length)
@@ -505,7 +519,7 @@ end
 -- Group Id
 nyse_options_topfeed_xdp_v1_3_a.group_id = {}
 
--- Size Of: Group Id
+-- Size: Group Id
 nyse_options_topfeed_xdp_v1_3_a.group_id.size = 4
 
 -- Display: Group Id
@@ -528,7 +542,7 @@ end
 -- Option Symbol Root
 nyse_options_topfeed_xdp_v1_3_a.option_symbol_root = {}
 
--- Size Of: Option Symbol Root
+-- Size: Option Symbol Root
 nyse_options_topfeed_xdp_v1_3_a.option_symbol_root.size = 5
 
 -- Display: Option Symbol Root
@@ -551,7 +565,7 @@ end
 -- Underlying Symbol
 nyse_options_topfeed_xdp_v1_3_a.underlying_symbol = {}
 
--- Size Of: Underlying Symbol
+-- Size: Underlying Symbol
 nyse_options_topfeed_xdp_v1_3_a.underlying_symbol.size = 11
 
 -- Display: Underlying Symbol
@@ -574,7 +588,7 @@ end
 -- Price Scale Code
 nyse_options_topfeed_xdp_v1_3_a.price_scale_code = {}
 
--- Size Of: Price Scale Code
+-- Size: Price Scale Code
 nyse_options_topfeed_xdp_v1_3_a.price_scale_code.size = 1
 
 -- Display: Price Scale Code
@@ -597,7 +611,7 @@ end
 -- Strike Price
 nyse_options_topfeed_xdp_v1_3_a.strike_price = {}
 
--- Size Of: Strike Price
+-- Size: Strike Price
 nyse_options_topfeed_xdp_v1_3_a.strike_price.size = 10
 
 -- Display: Strike Price
@@ -620,7 +634,7 @@ end
 -- Put Or Call
 nyse_options_topfeed_xdp_v1_3_a.put_or_call = {}
 
--- Size Of: Put Or Call
+-- Size: Put Or Call
 nyse_options_topfeed_xdp_v1_3_a.put_or_call.size = 1
 
 -- Display: Put Or Call
@@ -650,7 +664,7 @@ end
 -- Maturity Date
 nyse_options_topfeed_xdp_v1_3_a.maturity_date = {}
 
--- Size Of: Maturity Date
+-- Size: Maturity Date
 nyse_options_topfeed_xdp_v1_3_a.maturity_date.size = 6
 
 -- Display: Maturity Date
@@ -673,7 +687,7 @@ end
 -- Contract Multiplier
 nyse_options_topfeed_xdp_v1_3_a.contract_multiplier = {}
 
--- Size Of: Contract Multiplier
+-- Size: Contract Multiplier
 nyse_options_topfeed_xdp_v1_3_a.contract_multiplier.size = 2
 
 -- Display: Contract Multiplier
@@ -696,7 +710,7 @@ end
 -- Underlying Index
 nyse_options_topfeed_xdp_v1_3_a.underlying_index = {}
 
--- Size Of: Underlying Index
+-- Size: Underlying Index
 nyse_options_topfeed_xdp_v1_3_a.underlying_index.size = 4
 
 -- Display: Underlying Index
@@ -719,7 +733,7 @@ end
 -- Reserved B 1
 nyse_options_topfeed_xdp_v1_3_a.reserved_b_1 = {}
 
--- Size Of: Reserved B 1
+-- Size: Reserved B 1
 nyse_options_topfeed_xdp_v1_3_a.reserved_b_1.size = 1
 
 -- Display: Reserved B 1
@@ -742,7 +756,7 @@ end
 -- System Id
 nyse_options_topfeed_xdp_v1_3_a.system_id = {}
 
--- Size Of: System Id
+-- Size: System Id
 nyse_options_topfeed_xdp_v1_3_a.system_id.size = 1
 
 -- Display: System Id
@@ -765,7 +779,7 @@ end
 -- Market Id
 nyse_options_topfeed_xdp_v1_3_a.market_id = {}
 
--- Size Of: Market Id
+-- Size: Market Id
 nyse_options_topfeed_xdp_v1_3_a.market_id.size = 2
 
 -- Display: Market Id
@@ -816,7 +830,7 @@ end
 -- Reserved A 1
 nyse_options_topfeed_xdp_v1_3_a.reserved_a_1 = {}
 
--- Size Of: Reserved A 1
+-- Size: Reserved A 1
 nyse_options_topfeed_xdp_v1_3_a.reserved_a_1.size = 1
 
 -- Display: Reserved A 1
@@ -839,7 +853,7 @@ end
 -- Series Index
 nyse_options_topfeed_xdp_v1_3_a.series_index = {}
 
--- Size Of: Series Index
+-- Size: Series Index
 nyse_options_topfeed_xdp_v1_3_a.series_index.size = 4
 
 -- Display: Series Index
@@ -862,24 +876,44 @@ end
 -- Series Index Mapping Message
 nyse_options_topfeed_xdp_v1_3_a.series_index_mapping_message = {}
 
--- Size Of: Series Index Mapping Message
-nyse_options_topfeed_xdp_v1_3_a.series_index_mapping_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.channel_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_a_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.market_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.system_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_b_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.stream_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.underlying_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.contract_multiplier.size + 
-  nyse_options_topfeed_xdp_v1_3_a.maturity_date.size + 
-  nyse_options_topfeed_xdp_v1_3_a.put_or_call.size + 
-  nyse_options_topfeed_xdp_v1_3_a.strike_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price_scale_code.size + 
-  nyse_options_topfeed_xdp_v1_3_a.underlying_symbol.size + 
-  nyse_options_topfeed_xdp_v1_3_a.option_symbol_root.size + 
-  nyse_options_topfeed_xdp_v1_3_a.group_id.size;
+-- Calculate size of: Series Index Mapping Message
+nyse_options_topfeed_xdp_v1_3_a.series_index_mapping_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.channel_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_a_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.market_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.system_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_b_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.stream_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.underlying_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.contract_multiplier.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.maturity_date.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.put_or_call.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.strike_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price_scale_code.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.underlying_symbol.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.option_symbol_root.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.group_id.size
+
+  return index
+end
 
 -- Display: Series Index Mapping Message
 nyse_options_topfeed_xdp_v1_3_a.series_index_mapping_message.display = function(packet, parent, length)
@@ -962,7 +996,7 @@ end
 -- Reserved 1
 nyse_options_topfeed_xdp_v1_3_a.reserved_1 = {}
 
--- Size Of: Reserved 1
+-- Size: Reserved 1
 nyse_options_topfeed_xdp_v1_3_a.reserved_1.size = 1
 
 -- Display: Reserved 1
@@ -985,7 +1019,7 @@ end
 -- Price Resolution
 nyse_options_topfeed_xdp_v1_3_a.price_resolution = {}
 
--- Size Of: Price Resolution
+-- Size: Price Resolution
 nyse_options_topfeed_xdp_v1_3_a.price_resolution.size = 1
 
 -- Display: Price Resolution
@@ -1018,7 +1052,7 @@ end
 -- Security Type
 nyse_options_topfeed_xdp_v1_3_a.security_type = {}
 
--- Size Of: Security Type
+-- Size: Security Type
 nyse_options_topfeed_xdp_v1_3_a.security_type.size = 1
 
 -- Display: Security Type
@@ -1090,7 +1124,7 @@ end
 -- Exchange Code
 nyse_options_topfeed_xdp_v1_3_a.exchange_code = {}
 
--- Size Of: Exchange Code
+-- Size: Exchange Code
 nyse_options_topfeed_xdp_v1_3_a.exchange_code.size = 1
 
 -- Display: Exchange Code
@@ -1132,18 +1166,32 @@ end
 -- Underlying Index Mapping Message
 nyse_options_topfeed_xdp_v1_3_a.underlying_index_mapping_message = {}
 
--- Size Of: Underlying Index Mapping Message
-nyse_options_topfeed_xdp_v1_3_a.underlying_index_mapping_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.underlying_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.underlying_symbol.size + 
-  nyse_options_topfeed_xdp_v1_3_a.channel_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.market_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.system_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.exchange_code.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price_scale_code.size + 
-  nyse_options_topfeed_xdp_v1_3_a.security_type.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price_resolution.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_1.size;
+-- Calculate size of: Underlying Index Mapping Message
+nyse_options_topfeed_xdp_v1_3_a.underlying_index_mapping_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.underlying_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.underlying_symbol.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.channel_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.market_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.system_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.exchange_code.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price_scale_code.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.security_type.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price_resolution.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_1.size
+
+  return index
+end
 
 -- Display: Underlying Index Mapping Message
 nyse_options_topfeed_xdp_v1_3_a.underlying_index_mapping_message.display = function(packet, parent, length)
@@ -1208,7 +1256,7 @@ end
 -- Reserved 3
 nyse_options_topfeed_xdp_v1_3_a.reserved_3 = {}
 
--- Size Of: Reserved 3
+-- Size: Reserved 3
 nyse_options_topfeed_xdp_v1_3_a.reserved_3.size = 3
 
 -- Display: Reserved 3
@@ -1231,7 +1279,7 @@ end
 -- Market Imbalance Side
 nyse_options_topfeed_xdp_v1_3_a.market_imbalance_side = {}
 
--- Size Of: Market Imbalance Side
+-- Size: Market Imbalance Side
 nyse_options_topfeed_xdp_v1_3_a.market_imbalance_side.size = 1
 
 -- Display: Market Imbalance Side
@@ -1264,7 +1312,7 @@ end
 -- Imbalance Side
 nyse_options_topfeed_xdp_v1_3_a.imbalance_side = {}
 
--- Size Of: Imbalance Side
+-- Size: Imbalance Side
 nyse_options_topfeed_xdp_v1_3_a.imbalance_side.size = 1
 
 -- Display: Imbalance Side
@@ -1297,7 +1345,7 @@ end
 -- Auction Type
 nyse_options_topfeed_xdp_v1_3_a.auction_type = {}
 
--- Size Of: Auction Type
+-- Size: Auction Type
 nyse_options_topfeed_xdp_v1_3_a.auction_type.size = 1
 
 -- Display: Auction Type
@@ -1327,7 +1375,7 @@ end
 -- Market Imbalance Qty
 nyse_options_topfeed_xdp_v1_3_a.market_imbalance_qty = {}
 
--- Size Of: Market Imbalance Qty
+-- Size: Market Imbalance Qty
 nyse_options_topfeed_xdp_v1_3_a.market_imbalance_qty.size = 2
 
 -- Display: Market Imbalance Qty
@@ -1350,7 +1398,7 @@ end
 -- Total Imbalance Qty
 nyse_options_topfeed_xdp_v1_3_a.total_imbalance_qty = {}
 
--- Size Of: Total Imbalance Qty
+-- Size: Total Imbalance Qty
 nyse_options_topfeed_xdp_v1_3_a.total_imbalance_qty.size = 2
 
 -- Display: Total Imbalance Qty
@@ -1373,7 +1421,7 @@ end
 -- Paired Qty
 nyse_options_topfeed_xdp_v1_3_a.paired_qty = {}
 
--- Size Of: Paired Qty
+-- Size: Paired Qty
 nyse_options_topfeed_xdp_v1_3_a.paired_qty.size = 2
 
 -- Display: Paired Qty
@@ -1396,7 +1444,7 @@ end
 -- Reference Price
 nyse_options_topfeed_xdp_v1_3_a.reference_price = {}
 
--- Size Of: Reference Price
+-- Size: Reference Price
 nyse_options_topfeed_xdp_v1_3_a.reference_price.size = 4
 
 -- Display: Reference Price
@@ -1419,7 +1467,7 @@ end
 -- Symbol Seq Num
 nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num = {}
 
--- Size Of: Symbol Seq Num
+-- Size: Symbol Seq Num
 nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
@@ -1442,20 +1490,36 @@ end
 -- Refresh Outright Imbalance Message
 nyse_options_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message = {}
 
--- Size Of: Refresh Outright Imbalance Message
-nyse_options_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reference_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.paired_qty.size + 
-  nyse_options_topfeed_xdp_v1_3_a.total_imbalance_qty.size + 
-  nyse_options_topfeed_xdp_v1_3_a.market_imbalance_qty.size + 
-  nyse_options_topfeed_xdp_v1_3_a.auction_type.size + 
-  nyse_options_topfeed_xdp_v1_3_a.imbalance_side.size + 
-  nyse_options_topfeed_xdp_v1_3_a.market_imbalance_side.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_3.size;
+-- Calculate size of: Refresh Outright Imbalance Message
+nyse_options_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reference_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.paired_qty.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.total_imbalance_qty.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.market_imbalance_qty.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.auction_type.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.imbalance_side.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.market_imbalance_side.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_3.size
+
+  return index
+end
 
 -- Display: Refresh Outright Imbalance Message
 nyse_options_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.display = function(packet, parent, length)
@@ -1526,7 +1590,7 @@ end
 -- Trade Cond 2
 nyse_options_topfeed_xdp_v1_3_a.trade_cond_2 = {}
 
--- Size Of: Trade Cond 2
+-- Size: Trade Cond 2
 nyse_options_topfeed_xdp_v1_3_a.trade_cond_2.size = 1
 
 -- Display: Trade Cond 2
@@ -1556,7 +1620,7 @@ end
 -- Trade Cond 1
 nyse_options_topfeed_xdp_v1_3_a.trade_cond_1 = {}
 
--- Size Of: Trade Cond 1
+-- Size: Trade Cond 1
 nyse_options_topfeed_xdp_v1_3_a.trade_cond_1.size = 1
 
 -- Display: Trade Cond 1
@@ -1592,7 +1656,7 @@ end
 -- Volume 4
 nyse_options_topfeed_xdp_v1_3_a.volume_4 = {}
 
--- Size Of: Volume 4
+-- Size: Volume 4
 nyse_options_topfeed_xdp_v1_3_a.volume_4.size = 4
 
 -- Display: Volume 4
@@ -1615,7 +1679,7 @@ end
 -- Price
 nyse_options_topfeed_xdp_v1_3_a.price = {}
 
--- Size Of: Price
+-- Size: Price
 nyse_options_topfeed_xdp_v1_3_a.price.size = 4
 
 -- Display: Price
@@ -1638,7 +1702,7 @@ end
 -- Trade Id
 nyse_options_topfeed_xdp_v1_3_a.trade_id = {}
 
--- Size Of: Trade Id
+-- Size: Trade Id
 nyse_options_topfeed_xdp_v1_3_a.trade_id.size = 4
 
 -- Display: Trade Id
@@ -1661,18 +1725,32 @@ end
 -- Refresh Outright Trade Message
 nyse_options_topfeed_xdp_v1_3_a.refresh_outright_trade_message = {}
 
--- Size Of: Refresh Outright Trade Message
-nyse_options_topfeed_xdp_v1_3_a.refresh_outright_trade_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.volume_4.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_cond_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_cond_2.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Refresh Outright Trade Message
+nyse_options_topfeed_xdp_v1_3_a.refresh_outright_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.volume_4.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_cond_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_cond_2.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Refresh Outright Trade Message
 nyse_options_topfeed_xdp_v1_3_a.refresh_outright_trade_message.display = function(packet, parent, length)
@@ -1737,7 +1815,7 @@ end
 -- Quote Condition
 nyse_options_topfeed_xdp_v1_3_a.quote_condition = {}
 
--- Size Of: Quote Condition
+-- Size: Quote Condition
 nyse_options_topfeed_xdp_v1_3_a.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -1776,7 +1854,7 @@ end
 -- Bid Customer Volume
 nyse_options_topfeed_xdp_v1_3_a.bid_customer_volume = {}
 
--- Size Of: Bid Customer Volume
+-- Size: Bid Customer Volume
 nyse_options_topfeed_xdp_v1_3_a.bid_customer_volume.size = 2
 
 -- Display: Bid Customer Volume
@@ -1799,7 +1877,7 @@ end
 -- Ask Customer Volume
 nyse_options_topfeed_xdp_v1_3_a.ask_customer_volume = {}
 
--- Size Of: Ask Customer Volume
+-- Size: Ask Customer Volume
 nyse_options_topfeed_xdp_v1_3_a.ask_customer_volume.size = 2
 
 -- Display: Ask Customer Volume
@@ -1822,7 +1900,7 @@ end
 -- Bid Volume
 nyse_options_topfeed_xdp_v1_3_a.bid_volume = {}
 
--- Size Of: Bid Volume
+-- Size: Bid Volume
 nyse_options_topfeed_xdp_v1_3_a.bid_volume.size = 2
 
 -- Display: Bid Volume
@@ -1845,7 +1923,7 @@ end
 -- Ask Volume
 nyse_options_topfeed_xdp_v1_3_a.ask_volume = {}
 
--- Size Of: Ask Volume
+-- Size: Ask Volume
 nyse_options_topfeed_xdp_v1_3_a.ask_volume.size = 2
 
 -- Display: Ask Volume
@@ -1868,7 +1946,7 @@ end
 -- Bid Price
 nyse_options_topfeed_xdp_v1_3_a.bid_price = {}
 
--- Size Of: Bid Price
+-- Size: Bid Price
 nyse_options_topfeed_xdp_v1_3_a.bid_price.size = 4
 
 -- Display: Bid Price
@@ -1891,7 +1969,7 @@ end
 -- Ask Price
 nyse_options_topfeed_xdp_v1_3_a.ask_price = {}
 
--- Size Of: Ask Price
+-- Size: Ask Price
 nyse_options_topfeed_xdp_v1_3_a.ask_price.size = 4
 
 -- Display: Ask Price
@@ -1914,21 +1992,38 @@ end
 -- Refresh Outright Quote Message
 nyse_options_topfeed_xdp_v1_3_a.refresh_outright_quote_message = {}
 
--- Size Of: Refresh Outright Quote Message
-nyse_options_topfeed_xdp_v1_3_a.refresh_outright_quote_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.ask_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.bid_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.ask_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.bid_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.ask_customer_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.bid_customer_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.quote_condition.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Refresh Outright Quote Message
+nyse_options_topfeed_xdp_v1_3_a.refresh_outright_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.ask_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.bid_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.ask_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.bid_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.ask_customer_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.bid_customer_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.quote_condition.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Refresh Outright Quote Message
 nyse_options_topfeed_xdp_v1_3_a.refresh_outright_quote_message.display = function(packet, parent, length)
@@ -2002,7 +2097,7 @@ end
 -- Halt Condition
 nyse_options_topfeed_xdp_v1_3_a.halt_condition = {}
 
--- Size Of: Halt Condition
+-- Size: Halt Condition
 nyse_options_topfeed_xdp_v1_3_a.halt_condition.size = 1
 
 -- Display: Halt Condition
@@ -2025,7 +2120,7 @@ end
 -- Security Status
 nyse_options_topfeed_xdp_v1_3_a.security_status = {}
 
--- Size Of: Security Status
+-- Size: Security Status
 nyse_options_topfeed_xdp_v1_3_a.security_status.size = 1
 
 -- Display: Security Status
@@ -2073,15 +2168,26 @@ end
 -- Outright Series Status Message
 nyse_options_topfeed_xdp_v1_3_a.outright_series_status_message = {}
 
--- Size Of: Outright Series Status Message
-nyse_options_topfeed_xdp_v1_3_a.outright_series_status_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.security_status.size + 
-  nyse_options_topfeed_xdp_v1_3_a.halt_condition.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Outright Series Status Message
+nyse_options_topfeed_xdp_v1_3_a.outright_series_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.security_status.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.halt_condition.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Outright Series Status Message
 nyse_options_topfeed_xdp_v1_3_a.outright_series_status_message.display = function(packet, parent, length)
@@ -2137,7 +2243,7 @@ end
 -- Underlying Seq Num
 nyse_options_topfeed_xdp_v1_3_a.underlying_seq_num = {}
 
--- Size Of: Underlying Seq Num
+-- Size: Underlying Seq Num
 nyse_options_topfeed_xdp_v1_3_a.underlying_seq_num.size = 4
 
 -- Display: Underlying Seq Num
@@ -2160,15 +2266,26 @@ end
 -- Underlying Status Message
 nyse_options_topfeed_xdp_v1_3_a.underlying_status_message = {}
 
--- Size Of: Underlying Status Message
-nyse_options_topfeed_xdp_v1_3_a.underlying_status_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.underlying_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.underlying_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.security_status.size + 
-  nyse_options_topfeed_xdp_v1_3_a.halt_condition.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Underlying Status Message
+nyse_options_topfeed_xdp_v1_3_a.underlying_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.underlying_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.underlying_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.security_status.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.halt_condition.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Underlying Status Message
 nyse_options_topfeed_xdp_v1_3_a.underlying_status_message.display = function(packet, parent, length)
@@ -2224,7 +2341,7 @@ end
 -- Total Volume
 nyse_options_topfeed_xdp_v1_3_a.total_volume = {}
 
--- Size Of: Total Volume
+-- Size: Total Volume
 nyse_options_topfeed_xdp_v1_3_a.total_volume.size = 4
 
 -- Display: Total Volume
@@ -2247,7 +2364,7 @@ end
 -- Close
 nyse_options_topfeed_xdp_v1_3_a.close = {}
 
--- Size Of: Close
+-- Size: Close
 nyse_options_topfeed_xdp_v1_3_a.close.size = 4
 
 -- Display: Close
@@ -2270,7 +2387,7 @@ end
 -- Open
 nyse_options_topfeed_xdp_v1_3_a.open = {}
 
--- Size Of: Open
+-- Size: Open
 nyse_options_topfeed_xdp_v1_3_a.open.size = 4
 
 -- Display: Open
@@ -2293,7 +2410,7 @@ end
 -- Low Price
 nyse_options_topfeed_xdp_v1_3_a.low_price = {}
 
--- Size Of: Low Price
+-- Size: Low Price
 nyse_options_topfeed_xdp_v1_3_a.low_price.size = 4
 
 -- Display: Low Price
@@ -2316,7 +2433,7 @@ end
 -- High Price
 nyse_options_topfeed_xdp_v1_3_a.high_price = {}
 
--- Size Of: High Price
+-- Size: High Price
 nyse_options_topfeed_xdp_v1_3_a.high_price.size = 4
 
 -- Display: High Price
@@ -2339,17 +2456,30 @@ end
 -- Outright Summary Message
 nyse_options_topfeed_xdp_v1_3_a.outright_summary_message = {}
 
--- Size Of: Outright Summary Message
-nyse_options_topfeed_xdp_v1_3_a.outright_summary_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.high_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.low_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.open.size + 
-  nyse_options_topfeed_xdp_v1_3_a.close.size + 
-  nyse_options_topfeed_xdp_v1_3_a.total_volume.size;
+-- Calculate size of: Outright Summary Message
+nyse_options_topfeed_xdp_v1_3_a.outright_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.high_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.low_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.open.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.close.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.total_volume.size
+
+  return index
+end
 
 -- Display: Outright Summary Message
 nyse_options_topfeed_xdp_v1_3_a.outright_summary_message.display = function(packet, parent, length)
@@ -2411,7 +2541,7 @@ end
 -- Participant
 nyse_options_topfeed_xdp_v1_3_a.participant = {}
 
--- Size Of: Participant
+-- Size: Participant
 nyse_options_topfeed_xdp_v1_3_a.participant.size = 4
 
 -- Display: Participant
@@ -2434,7 +2564,7 @@ end
 -- Contracts
 nyse_options_topfeed_xdp_v1_3_a.contracts = {}
 
--- Size Of: Contracts
+-- Size: Contracts
 nyse_options_topfeed_xdp_v1_3_a.contracts.size = 2
 
 -- Display: Contracts
@@ -2457,7 +2587,7 @@ end
 -- Capacity
 nyse_options_topfeed_xdp_v1_3_a.capacity = {}
 
--- Size Of: Capacity
+-- Size: Capacity
 nyse_options_topfeed_xdp_v1_3_a.capacity.size = 1
 
 -- Display: Capacity
@@ -2499,7 +2629,7 @@ end
 -- Side
 nyse_options_topfeed_xdp_v1_3_a.side = {}
 
--- Size Of: Side
+-- Size: Side
 nyse_options_topfeed_xdp_v1_3_a.side.size = 1
 
 -- Display: Side
@@ -2529,7 +2659,7 @@ end
 -- Source Ns
 nyse_options_topfeed_xdp_v1_3_a.source_ns = {}
 
--- Size Of: Source Ns
+-- Size: Source Ns
 nyse_options_topfeed_xdp_v1_3_a.source_ns.size = 4
 
 -- Display: Source Ns
@@ -2552,17 +2682,30 @@ end
 -- Outright Bold Rfq Message
 nyse_options_topfeed_xdp_v1_3_a.outright_bold_rfq_message = {}
 
--- Size Of: Outright Bold Rfq Message
-nyse_options_topfeed_xdp_v1_3_a.outright_bold_rfq_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.side.size + 
-  nyse_options_topfeed_xdp_v1_3_a.capacity.size + 
-  nyse_options_topfeed_xdp_v1_3_a.contracts.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.participant.size;
+-- Calculate size of: Outright Bold Rfq Message
+nyse_options_topfeed_xdp_v1_3_a.outright_bold_rfq_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.side.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.capacity.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.contracts.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.participant.size
+
+  return index
+end
 
 -- Display: Outright Bold Rfq Message
 nyse_options_topfeed_xdp_v1_3_a.outright_bold_rfq_message.display = function(packet, parent, length)
@@ -2624,7 +2767,7 @@ end
 -- Volume 2
 nyse_options_topfeed_xdp_v1_3_a.volume_2 = {}
 
--- Size Of: Volume 2
+-- Size: Volume 2
 nyse_options_topfeed_xdp_v1_3_a.volume_2.size = 2
 
 -- Display: Volume 2
@@ -2647,16 +2790,28 @@ end
 -- Outright Crossing Rfq Message
 nyse_options_topfeed_xdp_v1_3_a.outright_crossing_rfq_message = {}
 
--- Size Of: Outright Crossing Rfq Message
-nyse_options_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.side.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.volume_2.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price.size;
+-- Calculate size of: Outright Crossing Rfq Message
+nyse_options_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.side.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.volume_2.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price.size
+
+  return index
+end
 
 -- Display: Outright Crossing Rfq Message
 nyse_options_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.display = function(packet, parent, length)
@@ -2715,20 +2870,36 @@ end
 -- Outright Imbalance Message
 nyse_options_topfeed_xdp_v1_3_a.outright_imbalance_message = {}
 
--- Size Of: Outright Imbalance Message
-nyse_options_topfeed_xdp_v1_3_a.outright_imbalance_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reference_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.paired_qty.size + 
-  nyse_options_topfeed_xdp_v1_3_a.total_imbalance_qty.size + 
-  nyse_options_topfeed_xdp_v1_3_a.market_imbalance_qty.size + 
-  nyse_options_topfeed_xdp_v1_3_a.auction_type.size + 
-  nyse_options_topfeed_xdp_v1_3_a.imbalance_side.size + 
-  nyse_options_topfeed_xdp_v1_3_a.market_imbalance_side.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_3.size;
+-- Calculate size of: Outright Imbalance Message
+nyse_options_topfeed_xdp_v1_3_a.outright_imbalance_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reference_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.paired_qty.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.total_imbalance_qty.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.market_imbalance_qty.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.auction_type.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.imbalance_side.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.market_imbalance_side.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_3.size
+
+  return index
+end
 
 -- Display: Outright Imbalance Message
 nyse_options_topfeed_xdp_v1_3_a.outright_imbalance_message.display = function(packet, parent, length)
@@ -2799,7 +2970,7 @@ end
 -- Original Trade Id
 nyse_options_topfeed_xdp_v1_3_a.original_trade_id = {}
 
--- Size Of: Original Trade Id
+-- Size: Original Trade Id
 nyse_options_topfeed_xdp_v1_3_a.original_trade_id.size = 4
 
 -- Display: Original Trade Id
@@ -2822,19 +2993,34 @@ end
 -- Outright Trade Correction Message
 nyse_options_topfeed_xdp_v1_3_a.outright_trade_correction_message = {}
 
--- Size Of: Outright Trade Correction Message
-nyse_options_topfeed_xdp_v1_3_a.outright_trade_correction_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.original_trade_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.volume_4.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_cond_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_cond_2.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Outright Trade Correction Message
+nyse_options_topfeed_xdp_v1_3_a.outright_trade_correction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.original_trade_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.volume_4.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_cond_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_cond_2.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Outright Trade Correction Message
 nyse_options_topfeed_xdp_v1_3_a.outright_trade_correction_message.display = function(packet, parent, length)
@@ -2902,13 +3088,22 @@ end
 -- Outright Trade Cancel Message
 nyse_options_topfeed_xdp_v1_3_a.outright_trade_cancel_message = {}
 
--- Size Of: Outright Trade Cancel Message
-nyse_options_topfeed_xdp_v1_3_a.outright_trade_cancel_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.original_trade_id.size;
+-- Calculate size of: Outright Trade Cancel Message
+nyse_options_topfeed_xdp_v1_3_a.outright_trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.original_trade_id.size
+
+  return index
+end
 
 -- Display: Outright Trade Cancel Message
 nyse_options_topfeed_xdp_v1_3_a.outright_trade_cancel_message.display = function(packet, parent, length)
@@ -2958,18 +3153,32 @@ end
 -- Outright Trade Message
 nyse_options_topfeed_xdp_v1_3_a.outright_trade_message = {}
 
--- Size Of: Outright Trade Message
-nyse_options_topfeed_xdp_v1_3_a.outright_trade_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_id.size + 
-  nyse_options_topfeed_xdp_v1_3_a.price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.volume_4.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_cond_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.trade_cond_2.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Outright Trade Message
+nyse_options_topfeed_xdp_v1_3_a.outright_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_id.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.volume_4.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_cond_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.trade_cond_2.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Outright Trade Message
 nyse_options_topfeed_xdp_v1_3_a.outright_trade_message.display = function(packet, parent, length)
@@ -3034,21 +3243,38 @@ end
 -- Outright Quote Message
 nyse_options_topfeed_xdp_v1_3_a.outright_quote_message = {}
 
--- Size Of: Outright Quote Message
-nyse_options_topfeed_xdp_v1_3_a.outright_quote_message.size =
-  nyse_options_topfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_topfeed_xdp_v1_3_a.series_index.size + 
-  nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size + 
-  nyse_options_topfeed_xdp_v1_3_a.ask_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.bid_price.size + 
-  nyse_options_topfeed_xdp_v1_3_a.ask_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.bid_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.ask_customer_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.bid_customer_volume.size + 
-  nyse_options_topfeed_xdp_v1_3_a.quote_condition.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_1.size + 
-  nyse_options_topfeed_xdp_v1_3_a.reserved_2.size;
+-- Calculate size of: Outright Quote Message
+nyse_options_topfeed_xdp_v1_3_a.outright_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.source_time_ns.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.series_index.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.symbol_seq_num.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.ask_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.bid_price.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.ask_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.bid_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.ask_customer_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.bid_customer_volume.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.quote_condition.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_1.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.reserved_2.size
+
+  return index
+end
 
 -- Display: Outright Quote Message
 nyse_options_topfeed_xdp_v1_3_a.outright_quote_message.display = function(packet, parent, length)
@@ -3298,7 +3524,7 @@ end
 -- Message Type
 nyse_options_topfeed_xdp_v1_3_a.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nyse_options_topfeed_xdp_v1_3_a.message_type.size = 2
 
 -- Display: Message Type
@@ -3373,7 +3599,7 @@ end
 -- Message Size
 nyse_options_topfeed_xdp_v1_3_a.message_size = {}
 
--- Size Of: Message Size
+-- Size: Message Size
 nyse_options_topfeed_xdp_v1_3_a.message_size.size = 2
 
 -- Display: Message Size
@@ -3396,10 +3622,16 @@ end
 -- Message Header
 nyse_options_topfeed_xdp_v1_3_a.message_header = {}
 
--- Size Of: Message Header
-nyse_options_topfeed_xdp_v1_3_a.message_header.size =
-  nyse_options_topfeed_xdp_v1_3_a.message_size.size + 
-  nyse_options_topfeed_xdp_v1_3_a.message_type.size;
+-- Calculate size of: Message Header
+nyse_options_topfeed_xdp_v1_3_a.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.message_size.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nyse_options_topfeed_xdp_v1_3_a.message_header.display = function(packet, parent, length)
@@ -3444,7 +3676,7 @@ nyse_options_topfeed_xdp_v1_3_a.message = {}
 nyse_options_topfeed_xdp_v1_3_a.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_options_topfeed_xdp_v1_3_a.message_header.size
+  index = index + nyse_options_topfeed_xdp_v1_3_a.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3497,7 +3729,7 @@ end
 -- Nanoseconds
 nyse_options_topfeed_xdp_v1_3_a.nanoseconds = {}
 
--- Size Of: Nanoseconds
+-- Size: Nanoseconds
 nyse_options_topfeed_xdp_v1_3_a.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -3520,7 +3752,7 @@ end
 -- Timestamp
 nyse_options_topfeed_xdp_v1_3_a.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nyse_options_topfeed_xdp_v1_3_a.timestamp.size = 4
 
 -- Display: Timestamp
@@ -3543,7 +3775,7 @@ end
 -- Sequence Number
 nyse_options_topfeed_xdp_v1_3_a.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nyse_options_topfeed_xdp_v1_3_a.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -3566,7 +3798,7 @@ end
 -- Message Count
 nyse_options_topfeed_xdp_v1_3_a.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nyse_options_topfeed_xdp_v1_3_a.message_count.size = 1
 
 -- Display: Message Count
@@ -3589,7 +3821,7 @@ end
 -- Delivery Flag
 nyse_options_topfeed_xdp_v1_3_a.delivery_flag = {}
 
--- Size Of: Delivery Flag
+-- Size: Delivery Flag
 nyse_options_topfeed_xdp_v1_3_a.delivery_flag.size = 1
 
 -- Display: Delivery Flag
@@ -3646,7 +3878,7 @@ end
 -- Packet Size
 nyse_options_topfeed_xdp_v1_3_a.packet_size = {}
 
--- Size Of: Packet Size
+-- Size: Packet Size
 nyse_options_topfeed_xdp_v1_3_a.packet_size.size = 2
 
 -- Display: Packet Size
@@ -3669,14 +3901,24 @@ end
 -- Packet Header
 nyse_options_topfeed_xdp_v1_3_a.packet_header = {}
 
--- Size Of: Packet Header
-nyse_options_topfeed_xdp_v1_3_a.packet_header.size =
-  nyse_options_topfeed_xdp_v1_3_a.packet_size.size + 
-  nyse_options_topfeed_xdp_v1_3_a.delivery_flag.size + 
-  nyse_options_topfeed_xdp_v1_3_a.message_count.size + 
-  nyse_options_topfeed_xdp_v1_3_a.sequence_number.size + 
-  nyse_options_topfeed_xdp_v1_3_a.timestamp.size + 
-  nyse_options_topfeed_xdp_v1_3_a.nanoseconds.size;
+-- Calculate size of: Packet Header
+nyse_options_topfeed_xdp_v1_3_a.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.packet_size.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.delivery_flag.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.message_count.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.sequence_number.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.timestamp.size
+
+  index = index + nyse_options_topfeed_xdp_v1_3_a.nanoseconds.size
+
+  return index
+end
 
 -- Display: Packet Header
 nyse_options_topfeed_xdp_v1_3_a.packet_header.display = function(packet, parent, length)

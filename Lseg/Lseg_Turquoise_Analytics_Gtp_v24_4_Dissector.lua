@@ -181,7 +181,7 @@ end
 -- Vwap Sell
 lseg_turquoise_analytics_gtp_v24_4.vwap_sell = {}
 
--- Size Of: Vwap Sell
+-- Size: Vwap Sell
 lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size = 8
 
 -- Display: Vwap Sell
@@ -210,7 +210,7 @@ end
 -- Vwap Buy
 lseg_turquoise_analytics_gtp_v24_4.vwap_buy = {}
 
--- Size Of: Vwap Buy
+-- Size: Vwap Buy
 lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size = 8
 
 -- Display: Vwap Buy
@@ -239,7 +239,7 @@ end
 -- Bid Ask Spread
 lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread = {}
 
--- Size Of: Bid Ask Spread
+-- Size: Bid Ask Spread
 lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.size = 8
 
 -- Display: Bid Ask Spread
@@ -268,7 +268,7 @@ end
 -- Sell Market Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations = {}
 
--- Size Of: Sell Market Order Cancellations
+-- Size: Sell Market Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size = 4
 
 -- Display: Sell Market Order Cancellations
@@ -291,7 +291,7 @@ end
 -- Sell Limit Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations = {}
 
--- Size Of: Sell Limit Order Cancellations
+-- Size: Sell Limit Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size = 4
 
 -- Display: Sell Limit Order Cancellations
@@ -314,7 +314,7 @@ end
 -- Buy Market Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations = {}
 
--- Size Of: Buy Market Order Cancellations
+-- Size: Buy Market Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.size = 4
 
 -- Display: Buy Market Order Cancellations
@@ -337,7 +337,7 @@ end
 -- Buy Limit Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations = {}
 
--- Size Of: Buy Limit Order Cancellations
+-- Size: Buy Limit Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size = 4
 
 -- Display: Buy Limit Order Cancellations
@@ -360,7 +360,7 @@ end
 -- Sell Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations = {}
 
--- Size Of: Sell Order Cancellations
+-- Size: Sell Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size = 4
 
 -- Display: Sell Order Cancellations
@@ -383,7 +383,7 @@ end
 -- Buy Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations = {}
 
--- Size Of: Buy Order Cancellations
+-- Size: Buy Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.size = 4
 
 -- Display: Buy Order Cancellations
@@ -406,7 +406,7 @@ end
 -- Sell Order Size
 lseg_turquoise_analytics_gtp_v24_4.sell_order_size = {}
 
--- Size Of: Sell Order Size
+-- Size: Sell Order Size
 lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size = 8
 
 -- Display: Sell Order Size
@@ -435,7 +435,7 @@ end
 -- Buy Order Size
 lseg_turquoise_analytics_gtp_v24_4.buy_order_size = {}
 
--- Size Of: Buy Order Size
+-- Size: Buy Order Size
 lseg_turquoise_analytics_gtp_v24_4.buy_order_size.size = 8
 
 -- Display: Buy Order Size
@@ -464,7 +464,7 @@ end
 -- Sell Order Count
 lseg_turquoise_analytics_gtp_v24_4.sell_order_count = {}
 
--- Size Of: Sell Order Count
+-- Size: Sell Order Count
 lseg_turquoise_analytics_gtp_v24_4.sell_order_count.size = 4
 
 -- Display: Sell Order Count
@@ -487,7 +487,7 @@ end
 -- Buy Order Count
 lseg_turquoise_analytics_gtp_v24_4.buy_order_count = {}
 
--- Size Of: Buy Order Count
+-- Size: Buy Order Count
 lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size = 4
 
 -- Display: Buy Order Count
@@ -510,7 +510,7 @@ end
 -- End Time
 lseg_turquoise_analytics_gtp_v24_4.end_time = {}
 
--- Size Of: End Time
+-- Size: End Time
 lseg_turquoise_analytics_gtp_v24_4.end_time.size = 8
 
 -- Display: End Time
@@ -537,7 +537,7 @@ end
 -- Start Time
 lseg_turquoise_analytics_gtp_v24_4.start_time = {}
 
--- Size Of: Start Time
+-- Size: Start Time
 lseg_turquoise_analytics_gtp_v24_4.start_time.size = 8
 
 -- Display: Start Time
@@ -564,7 +564,7 @@ end
 -- Source Venue
 lseg_turquoise_analytics_gtp_v24_4.source_venue = {}
 
--- Size Of: Source Venue
+-- Size: Source Venue
 lseg_turquoise_analytics_gtp_v24_4.source_venue.size = 2
 
 -- Display: Source Venue
@@ -606,7 +606,7 @@ end
 -- Instrument
 lseg_turquoise_analytics_gtp_v24_4.instrument = {}
 
--- Size Of: Instrument
+-- Size: Instrument
 lseg_turquoise_analytics_gtp_v24_4.instrument.size = 8
 
 -- Display: Instrument
@@ -629,7 +629,7 @@ end
 -- Timestamp
 lseg_turquoise_analytics_gtp_v24_4.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 lseg_turquoise_analytics_gtp_v24_4.timestamp.size = 8
 
 -- Display: Timestamp
@@ -656,26 +656,48 @@ end
 -- Add Order Incremental Message
 lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message = {}
 
--- Size Of: Add Order Incremental Message
-lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.size =
-  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_analytics_gtp_v24_4.instrument.size + 
-  lseg_turquoise_analytics_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_analytics_gtp_v24_4.start_time.size + 
-  lseg_turquoise_analytics_gtp_v24_4.end_time.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_order_count.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_order_size.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.size + 
-  lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size + 
-  lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size;
+-- Calculate size of: Add Order Incremental Message
+lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.instrument.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.source_venue.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.start_time.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.end_time.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.sell_order_count.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.buy_order_size.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size
+
+  return index
+end
 
 -- Display: Add Order Incremental Message
 lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.display = function(packet, parent, length)
@@ -764,7 +786,7 @@ end
 -- Order Book Type
 lseg_turquoise_analytics_gtp_v24_4.order_book_type = {}
 
--- Size Of: Order Book Type
+-- Size: Order Book Type
 lseg_turquoise_analytics_gtp_v24_4.order_book_type.size = 1
 
 -- Display: Order Book Type
@@ -791,7 +813,7 @@ end
 -- New End Time
 lseg_turquoise_analytics_gtp_v24_4.new_end_time = {}
 
--- Size Of: New End Time
+-- Size: New End Time
 lseg_turquoise_analytics_gtp_v24_4.new_end_time.size = 6
 
 -- Display: New End Time
@@ -814,7 +836,7 @@ end
 -- Session Change Reason
 lseg_turquoise_analytics_gtp_v24_4.session_change_reason = {}
 
--- Size Of: Session Change Reason
+-- Size: Session Change Reason
 lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size = 1
 
 -- Display: Session Change Reason
@@ -859,7 +881,7 @@ end
 -- Trading Status
 lseg_turquoise_analytics_gtp_v24_4.trading_status = {}
 
--- Size Of: Trading Status
+-- Size: Trading Status
 lseg_turquoise_analytics_gtp_v24_4.trading_status.size = 1
 
 -- Display: Trading Status
@@ -910,15 +932,26 @@ end
 -- Instrument Status Message
 lseg_turquoise_analytics_gtp_v24_4.instrument_status_message = {}
 
--- Size Of: Instrument Status Message
-lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.size =
-  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_analytics_gtp_v24_4.instrument.size + 
-  lseg_turquoise_analytics_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_analytics_gtp_v24_4.trading_status.size + 
-  lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size + 
-  lseg_turquoise_analytics_gtp_v24_4.new_end_time.size + 
-  lseg_turquoise_analytics_gtp_v24_4.order_book_type.size;
+-- Calculate size of: Instrument Status Message
+lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.instrument.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.source_venue.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.trading_status.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.new_end_time.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.order_book_type.size
+
+  return index
+end
 
 -- Display: Instrument Status Message
 lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.display = function(packet, parent, length)
@@ -974,7 +1007,7 @@ end
 -- Reserved 38
 lseg_turquoise_analytics_gtp_v24_4.reserved_38 = {}
 
--- Size Of: Reserved 38
+-- Size: Reserved 38
 lseg_turquoise_analytics_gtp_v24_4.reserved_38.size = 38
 
 -- Display: Reserved 38
@@ -997,7 +1030,7 @@ end
 -- Currency
 lseg_turquoise_analytics_gtp_v24_4.currency = {}
 
--- Size Of: Currency
+-- Size: Currency
 lseg_turquoise_analytics_gtp_v24_4.currency.size = 3
 
 -- Display: Currency
@@ -1020,7 +1053,7 @@ end
 -- Reserved 23
 lseg_turquoise_analytics_gtp_v24_4.reserved_23 = {}
 
--- Size Of: Reserved 23
+-- Size: Reserved 23
 lseg_turquoise_analytics_gtp_v24_4.reserved_23.size = 23
 
 -- Display: Reserved 23
@@ -1043,7 +1076,7 @@ end
 -- Segment
 lseg_turquoise_analytics_gtp_v24_4.segment = {}
 
--- Size Of: Segment
+-- Size: Segment
 lseg_turquoise_analytics_gtp_v24_4.segment.size = 6
 
 -- Display: Segment
@@ -1066,7 +1099,7 @@ end
 -- Static Circuit Breaker Tolerances
 lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances = {}
 
--- Size Of: Static Circuit Breaker Tolerances
+-- Size: Static Circuit Breaker Tolerances
 lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size = 8
 
 -- Display: Static Circuit Breaker Tolerances
@@ -1095,7 +1128,7 @@ end
 -- Dynamic Circuit Breaker Tolerances
 lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances = {}
 
--- Size Of: Dynamic Circuit Breaker Tolerances
+-- Size: Dynamic Circuit Breaker Tolerances
 lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size = 8
 
 -- Display: Dynamic Circuit Breaker Tolerances
@@ -1124,7 +1157,7 @@ end
 -- Price Band Tolerances
 lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances = {}
 
--- Size Of: Price Band Tolerances
+-- Size: Price Band Tolerances
 lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size = 8
 
 -- Display: Price Band Tolerances
@@ -1153,7 +1186,7 @@ end
 -- Tick Id
 lseg_turquoise_analytics_gtp_v24_4.tick_id = {}
 
--- Size Of: Tick Id
+-- Size: Tick Id
 lseg_turquoise_analytics_gtp_v24_4.tick_id.size = 2
 
 -- Display: Tick Id
@@ -1176,7 +1209,7 @@ end
 -- Venue Instrument Id
 lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id = {}
 
--- Size Of: Venue Instrument Id
+-- Size: Venue Instrument Id
 lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id.size = 11
 
 -- Display: Venue Instrument Id
@@ -1199,7 +1232,7 @@ end
 -- Allowed Book Types
 lseg_turquoise_analytics_gtp_v24_4.allowed_book_types = {}
 
--- Size Of: Allowed Book Types
+-- Size: Allowed Book Types
 lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.size = 1
 
 -- Display: Allowed Book Types
@@ -1244,7 +1277,7 @@ end
 -- Isin
 lseg_turquoise_analytics_gtp_v24_4.isin = {}
 
--- Size Of: Isin
+-- Size: Isin
 lseg_turquoise_analytics_gtp_v24_4.isin.size = 12
 
 -- Display: Isin
@@ -1267,22 +1300,40 @@ end
 -- Instrument Directory Message
 lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message = {}
 
--- Size Of: Instrument Directory Message
-lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.size =
-  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_analytics_gtp_v24_4.instrument.size + 
-  lseg_turquoise_analytics_gtp_v24_4.isin.size + 
-  lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.size + 
-  lseg_turquoise_analytics_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id.size + 
-  lseg_turquoise_analytics_gtp_v24_4.tick_id.size + 
-  lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size + 
-  lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size + 
-  lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size + 
-  lseg_turquoise_analytics_gtp_v24_4.segment.size + 
-  lseg_turquoise_analytics_gtp_v24_4.reserved_23.size + 
-  lseg_turquoise_analytics_gtp_v24_4.currency.size + 
-  lseg_turquoise_analytics_gtp_v24_4.reserved_38.size;
+-- Calculate size of: Instrument Directory Message
+lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.instrument.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.isin.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.source_venue.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.tick_id.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.segment.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.reserved_23.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.currency.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.reserved_38.size
+
+  return index
+end
 
 -- Display: Instrument Directory Message
 lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.display = function(packet, parent, length)
@@ -1359,7 +1410,7 @@ end
 -- Event Code
 lseg_turquoise_analytics_gtp_v24_4.event_code = {}
 
--- Size Of: Event Code
+-- Size: Event Code
 lseg_turquoise_analytics_gtp_v24_4.event_code.size = 1
 
 -- Display: Event Code
@@ -1389,11 +1440,18 @@ end
 -- System Event Message
 lseg_turquoise_analytics_gtp_v24_4.system_event_message = {}
 
--- Size Of: System Event Message
-lseg_turquoise_analytics_gtp_v24_4.system_event_message.size =
-  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_analytics_gtp_v24_4.event_code.size + 
-  lseg_turquoise_analytics_gtp_v24_4.source_venue.size;
+-- Calculate size of: System Event Message
+lseg_turquoise_analytics_gtp_v24_4.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.timestamp.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.event_code.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.source_venue.size
+
+  return index
+end
 
 -- Display: System Event Message
 lseg_turquoise_analytics_gtp_v24_4.system_event_message.display = function(packet, parent, length)
@@ -1509,7 +1567,7 @@ end
 -- Message Type
 lseg_turquoise_analytics_gtp_v24_4.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 lseg_turquoise_analytics_gtp_v24_4.message_type.size = 1
 
 -- Display: Message Type
@@ -1545,7 +1603,7 @@ end
 -- Message Length
 lseg_turquoise_analytics_gtp_v24_4.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 lseg_turquoise_analytics_gtp_v24_4.message_length.size = 1
 
 -- Display: Message Length
@@ -1568,10 +1626,16 @@ end
 -- Message Header
 lseg_turquoise_analytics_gtp_v24_4.message_header = {}
 
--- Size Of: Message Header
-lseg_turquoise_analytics_gtp_v24_4.message_header.size =
-  lseg_turquoise_analytics_gtp_v24_4.message_length.size + 
-  lseg_turquoise_analytics_gtp_v24_4.message_type.size;
+-- Calculate size of: Message Header
+lseg_turquoise_analytics_gtp_v24_4.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.message_length.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 lseg_turquoise_analytics_gtp_v24_4.message_header.display = function(packet, parent, length)
@@ -1616,7 +1680,7 @@ lseg_turquoise_analytics_gtp_v24_4.message = {}
 lseg_turquoise_analytics_gtp_v24_4.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_turquoise_analytics_gtp_v24_4.message_header.size
+  index = index + lseg_turquoise_analytics_gtp_v24_4.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1669,7 +1733,7 @@ end
 -- Sequence Number
 lseg_turquoise_analytics_gtp_v24_4.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 lseg_turquoise_analytics_gtp_v24_4.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -1692,7 +1756,7 @@ end
 -- Market Data Group
 lseg_turquoise_analytics_gtp_v24_4.market_data_group = {}
 
--- Size Of: Market Data Group
+-- Size: Market Data Group
 lseg_turquoise_analytics_gtp_v24_4.market_data_group.size = 1
 
 -- Display: Market Data Group
@@ -1715,7 +1779,7 @@ end
 -- Message Count
 lseg_turquoise_analytics_gtp_v24_4.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 lseg_turquoise_analytics_gtp_v24_4.message_count.size = 1
 
 -- Display: Message Count
@@ -1738,7 +1802,7 @@ end
 -- Length
 lseg_turquoise_analytics_gtp_v24_4.length = {}
 
--- Size Of: Length
+-- Size: Length
 lseg_turquoise_analytics_gtp_v24_4.length.size = 2
 
 -- Display: Length
@@ -1761,12 +1825,20 @@ end
 -- Unit Header
 lseg_turquoise_analytics_gtp_v24_4.unit_header = {}
 
--- Size Of: Unit Header
-lseg_turquoise_analytics_gtp_v24_4.unit_header.size =
-  lseg_turquoise_analytics_gtp_v24_4.length.size + 
-  lseg_turquoise_analytics_gtp_v24_4.message_count.size + 
-  lseg_turquoise_analytics_gtp_v24_4.market_data_group.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sequence_number.size;
+-- Calculate size of: Unit Header
+lseg_turquoise_analytics_gtp_v24_4.unit_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.length.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.message_count.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.market_data_group.size
+
+  index = index + lseg_turquoise_analytics_gtp_v24_4.sequence_number.size
+
+  return index
+end
 
 -- Display: Unit Header
 lseg_turquoise_analytics_gtp_v24_4.unit_header.display = function(packet, parent, length)

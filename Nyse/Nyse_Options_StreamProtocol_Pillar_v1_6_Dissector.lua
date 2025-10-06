@@ -190,7 +190,7 @@ end
 -- Seq Msg Length
 nyse_options_streamprotocol_pillar_v1_6.seq_msg_length = {}
 
--- Size Of: Seq Msg Length
+-- Size: Seq Msg Length
 nyse_options_streamprotocol_pillar_v1_6.seq_msg_length.size = 2
 
 -- Display: Seq Msg Length
@@ -213,7 +213,7 @@ end
 -- Seq Msg Type
 nyse_options_streamprotocol_pillar_v1_6.seq_msg_type = {}
 
--- Size Of: Seq Msg Type
+-- Size: Seq Msg Type
 nyse_options_streamprotocol_pillar_v1_6.seq_msg_type.size = 2
 
 -- Display: Seq Msg Type
@@ -236,10 +236,16 @@ end
 -- Seq Msg Header
 nyse_options_streamprotocol_pillar_v1_6.seq_msg_header = {}
 
--- Size Of: Seq Msg Header
-nyse_options_streamprotocol_pillar_v1_6.seq_msg_header.size =
-  nyse_options_streamprotocol_pillar_v1_6.seq_msg_type.size + 
-  nyse_options_streamprotocol_pillar_v1_6.seq_msg_length.size;
+-- Calculate size of: Seq Msg Header
+nyse_options_streamprotocol_pillar_v1_6.seq_msg_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.seq_msg_type.size
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.seq_msg_length.size
+
+  return index
+end
 
 -- Display: Seq Msg Header
 nyse_options_streamprotocol_pillar_v1_6.seq_msg_header.display = function(packet, parent, length)
@@ -328,7 +334,7 @@ end
 -- Timestamp
 nyse_options_streamprotocol_pillar_v1_6.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nyse_options_streamprotocol_pillar_v1_6.timestamp.size = 8
 
 -- Display: Timestamp
@@ -351,7 +357,7 @@ end
 -- Reserved 4
 nyse_options_streamprotocol_pillar_v1_6.reserved_4 = {}
 
--- Size Of: Reserved 4
+-- Size: Reserved 4
 nyse_options_streamprotocol_pillar_v1_6.reserved_4.size = 4
 
 -- Display: Reserved 4
@@ -374,7 +380,7 @@ end
 -- Seq
 nyse_options_streamprotocol_pillar_v1_6.seq = {}
 
--- Size Of: Seq
+-- Size: Seq
 nyse_options_streamprotocol_pillar_v1_6.seq.size = 8
 
 -- Display: Seq
@@ -397,7 +403,7 @@ end
 -- User
 nyse_options_streamprotocol_pillar_v1_6.user = {}
 
--- Size Of: User
+-- Size: User
 nyse_options_streamprotocol_pillar_v1_6.user.size = 4
 
 -- Display: User
@@ -420,7 +426,7 @@ end
 -- Sess
 nyse_options_streamprotocol_pillar_v1_6.sess = {}
 
--- Size Of: Sess
+-- Size: Sess
 nyse_options_streamprotocol_pillar_v1_6.sess.size = 4
 
 -- Display: Sess
@@ -443,10 +449,16 @@ end
 -- Stream Id
 nyse_options_streamprotocol_pillar_v1_6.stream_id = {}
 
--- Size Of: Stream Id
-nyse_options_streamprotocol_pillar_v1_6.stream_id.size =
-  nyse_options_streamprotocol_pillar_v1_6.sess.size + 
-  nyse_options_streamprotocol_pillar_v1_6.user.size;
+-- Calculate size of: Stream Id
+nyse_options_streamprotocol_pillar_v1_6.stream_id.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.sess.size
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.user.size
+
+  return index
+end
 
 -- Display: Stream Id
 nyse_options_streamprotocol_pillar_v1_6.stream_id.display = function(packet, parent, length)
@@ -487,10 +499,16 @@ end
 -- Seqmsgid
 nyse_options_streamprotocol_pillar_v1_6.seqmsgid = {}
 
--- Size Of: Seqmsgid
-nyse_options_streamprotocol_pillar_v1_6.seqmsgid.size =
-  nyse_options_streamprotocol_pillar_v1_6.stream_id.size + 
-  nyse_options_streamprotocol_pillar_v1_6.seq.size;
+-- Calculate size of: Seqmsgid
+nyse_options_streamprotocol_pillar_v1_6.seqmsgid.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.stream_id.size(buffer, offset + index)
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.seq.size
+
+  return index
+end
 
 -- Display: Seqmsgid
 nyse_options_streamprotocol_pillar_v1_6.seqmsgid.display = function(packet, parent, length)
@@ -531,7 +549,7 @@ end
 -- Msg Length
 nyse_options_streamprotocol_pillar_v1_6.msg_length = {}
 
--- Size Of: Msg Length
+-- Size: Msg Length
 nyse_options_streamprotocol_pillar_v1_6.msg_length.size = 2
 
 -- Display: Msg Length
@@ -554,7 +572,7 @@ end
 -- Msg Type
 nyse_options_streamprotocol_pillar_v1_6.msg_type = {}
 
--- Size Of: Msg Type
+-- Size: Msg Type
 nyse_options_streamprotocol_pillar_v1_6.msg_type.size = 2
 
 -- Display: Msg Type
@@ -605,10 +623,16 @@ end
 -- Msg Header
 nyse_options_streamprotocol_pillar_v1_6.msg_header = {}
 
--- Size Of: Msg Header
-nyse_options_streamprotocol_pillar_v1_6.msg_header.size =
-  nyse_options_streamprotocol_pillar_v1_6.msg_type.size + 
-  nyse_options_streamprotocol_pillar_v1_6.msg_length.size;
+-- Calculate size of: Msg Header
+nyse_options_streamprotocol_pillar_v1_6.msg_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.msg_type.size
+
+  index = index + nyse_options_streamprotocol_pillar_v1_6.msg_length.size
+
+  return index
+end
 
 -- Display: Msg Header
 nyse_options_streamprotocol_pillar_v1_6.msg_header.display = function(packet, parent, length)
@@ -712,7 +736,7 @@ end
 -- Status
 nyse_options_streamprotocol_pillar_v1_6.status = {}
 
--- Size Of: Status
+-- Size: Status
 nyse_options_streamprotocol_pillar_v1_6.status.size = 1
 
 -- Display: Status
@@ -841,7 +865,7 @@ end
 -- Access
 nyse_options_streamprotocol_pillar_v1_6.access = {}
 
--- Size Of: Access
+-- Size: Access
 nyse_options_streamprotocol_pillar_v1_6.access.size = 1
 
 -- Display: Access
@@ -918,7 +942,7 @@ end
 -- Mode
 nyse_options_streamprotocol_pillar_v1_6.mode = {}
 
--- Size Of: Mode
+-- Size: Mode
 nyse_options_streamprotocol_pillar_v1_6.mode.size = 1
 
 -- Display: Mode
@@ -941,7 +965,7 @@ end
 -- End Seq
 nyse_options_streamprotocol_pillar_v1_6.end_seq = {}
 
--- Size Of: End Seq
+-- Size: End Seq
 nyse_options_streamprotocol_pillar_v1_6.end_seq.size = 8
 
 -- Display: End Seq
@@ -964,7 +988,7 @@ end
 -- Start Seq
 nyse_options_streamprotocol_pillar_v1_6.start_seq = {}
 
--- Size Of: Start Seq
+-- Size: Start Seq
 nyse_options_streamprotocol_pillar_v1_6.start_seq.size = 8
 
 -- Display: Start Seq
@@ -1092,7 +1116,7 @@ end
 -- Next Seq
 nyse_options_streamprotocol_pillar_v1_6.next_seq = {}
 
--- Size Of: Next Seq
+-- Size: Next Seq
 nyse_options_streamprotocol_pillar_v1_6.next_seq.size = 8
 
 -- Display: Next Seq
@@ -1169,7 +1193,7 @@ end
 -- Username
 nyse_options_streamprotocol_pillar_v1_6.username = {}
 
--- Size Of: Username
+-- Size: Username
 nyse_options_streamprotocol_pillar_v1_6.username.size = 16
 
 -- Display: Username
@@ -1259,7 +1283,7 @@ end
 -- Version
 nyse_options_streamprotocol_pillar_v1_6.version = {}
 
--- Size Of: Version
+-- Size: Version
 nyse_options_streamprotocol_pillar_v1_6.version.size = 20
 
 -- Display: Version
@@ -1298,7 +1322,7 @@ end
 -- Mic
 nyse_options_streamprotocol_pillar_v1_6.mic = {}
 
--- Size Of: Mic
+-- Size: Mic
 nyse_options_streamprotocol_pillar_v1_6.mic.size = 4
 
 -- Display: Mic
@@ -1337,7 +1361,7 @@ end
 -- Password
 nyse_options_streamprotocol_pillar_v1_6.password = {}
 
--- Size Of: Password
+-- Size: Password
 nyse_options_streamprotocol_pillar_v1_6.password.size = 32
 
 -- Display: Password

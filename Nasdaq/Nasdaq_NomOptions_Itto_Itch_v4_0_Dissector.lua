@@ -319,7 +319,7 @@ end
 -- Reserved
 nasdaq_nomoptions_itto_itch_v4_0.reserved = {}
 
--- Size Of: Reserved
+-- Size: Reserved
 nasdaq_nomoptions_itto_itch_v4_0.reserved.size = 3
 
 -- Display: Reserved
@@ -342,7 +342,7 @@ end
 -- Customer Firm Indicator
 nasdaq_nomoptions_itto_itch_v4_0.customer_firm_indicator = {}
 
--- Size Of: Customer Firm Indicator
+-- Size: Customer Firm Indicator
 nasdaq_nomoptions_itto_itch_v4_0.customer_firm_indicator.size = 1
 
 -- Display: Customer Firm Indicator
@@ -381,7 +381,7 @@ end
 -- Imbalance Volume
 nasdaq_nomoptions_itto_itch_v4_0.imbalance_volume = {}
 
--- Size Of: Imbalance Volume
+-- Size: Imbalance Volume
 nasdaq_nomoptions_itto_itch_v4_0.imbalance_volume.size = 4
 
 -- Display: Imbalance Volume
@@ -404,7 +404,7 @@ end
 -- Imbalance Price
 nasdaq_nomoptions_itto_itch_v4_0.imbalance_price = {}
 
--- Size Of: Imbalance Price
+-- Size: Imbalance Price
 nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.size = 4
 
 -- Display: Imbalance Price
@@ -433,7 +433,7 @@ end
 -- Option Id
 nasdaq_nomoptions_itto_itch_v4_0.option_id = {}
 
--- Size Of: Option Id
+-- Size: Option Id
 nasdaq_nomoptions_itto_itch_v4_0.option_id.size = 4
 
 -- Display: Option Id
@@ -456,7 +456,7 @@ end
 -- Imbalance Direction
 nasdaq_nomoptions_itto_itch_v4_0.imbalance_direction = {}
 
--- Size Of: Imbalance Direction
+-- Size: Imbalance Direction
 nasdaq_nomoptions_itto_itch_v4_0.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
@@ -486,7 +486,7 @@ end
 -- Paired Contracts
 nasdaq_nomoptions_itto_itch_v4_0.paired_contracts = {}
 
--- Size Of: Paired Contracts
+-- Size: Paired Contracts
 nasdaq_nomoptions_itto_itch_v4_0.paired_contracts.size = 4
 
 -- Display: Paired Contracts
@@ -509,7 +509,7 @@ end
 -- Auction Type
 nasdaq_nomoptions_itto_itch_v4_0.auction_type = {}
 
--- Size Of: Auction Type
+-- Size: Auction Type
 nasdaq_nomoptions_itto_itch_v4_0.auction_type.size = 1
 
 -- Display: Auction Type
@@ -545,7 +545,7 @@ end
 -- Auction Id
 nasdaq_nomoptions_itto_itch_v4_0.auction_id = {}
 
--- Size Of: Auction Id
+-- Size: Auction Id
 nasdaq_nomoptions_itto_itch_v4_0.auction_id.size = 4
 
 -- Display: Auction Id
@@ -568,7 +568,7 @@ end
 -- Timestamp
 nasdaq_nomoptions_itto_itch_v4_0.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nasdaq_nomoptions_itto_itch_v4_0.timestamp.size = 6
 
 -- Display: Timestamp
@@ -591,7 +591,7 @@ end
 -- Tracking Number
 nasdaq_nomoptions_itto_itch_v4_0.tracking_number = {}
 
--- Size Of: Tracking Number
+-- Size: Tracking Number
 nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size = 2
 
 -- Display: Tracking Number
@@ -614,19 +614,34 @@ end
 -- Noii Message
 nasdaq_nomoptions_itto_itch_v4_0.noii_message = {}
 
--- Size Of: Noii Message
-nasdaq_nomoptions_itto_itch_v4_0.noii_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.auction_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.auction_type.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.paired_contracts.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.imbalance_direction.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.imbalance_volume.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.customer_firm_indicator.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.reserved.size;
+-- Calculate size of: Noii Message
+nasdaq_nomoptions_itto_itch_v4_0.noii_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.auction_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.auction_type.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.paired_contracts.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.imbalance_direction.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.imbalance_volume.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.customer_firm_indicator.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.reserved.size
+
+  return index
+end
 
 -- Display: Noii Message
 nasdaq_nomoptions_itto_itch_v4_0.noii_message.display = function(packet, parent, length)
@@ -694,7 +709,7 @@ end
 -- Match Number
 nasdaq_nomoptions_itto_itch_v4_0.match_number = {}
 
--- Size Of: Match Number
+-- Size: Match Number
 nasdaq_nomoptions_itto_itch_v4_0.match_number.size = 4
 
 -- Display: Match Number
@@ -717,7 +732,7 @@ end
 -- Cross Number
 nasdaq_nomoptions_itto_itch_v4_0.cross_number = {}
 
--- Size Of: Cross Number
+-- Size: Cross Number
 nasdaq_nomoptions_itto_itch_v4_0.cross_number.size = 4
 
 -- Display: Cross Number
@@ -740,12 +755,20 @@ end
 -- Broken Trade Order Executed Message
 nasdaq_nomoptions_itto_itch_v4_0.broken_trade_order_executed_message = {}
 
--- Size Of: Broken Trade Order Executed Message
-nasdaq_nomoptions_itto_itch_v4_0.broken_trade_order_executed_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.cross_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.match_number.size;
+-- Calculate size of: Broken Trade Order Executed Message
+nasdaq_nomoptions_itto_itch_v4_0.broken_trade_order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.cross_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.match_number.size
+
+  return index
+end
 
 -- Display: Broken Trade Order Executed Message
 nasdaq_nomoptions_itto_itch_v4_0.broken_trade_order_executed_message.display = function(packet, parent, length)
@@ -792,7 +815,7 @@ end
 -- Volume Long
 nasdaq_nomoptions_itto_itch_v4_0.volume_long = {}
 
--- Size Of: Volume Long
+-- Size: Volume Long
 nasdaq_nomoptions_itto_itch_v4_0.volume_long.size = 4
 
 -- Display: Volume Long
@@ -815,7 +838,7 @@ end
 -- Price Long
 nasdaq_nomoptions_itto_itch_v4_0.price_long = {}
 
--- Size Of: Price Long
+-- Size: Price Long
 nasdaq_nomoptions_itto_itch_v4_0.price_long.size = 4
 
 -- Display: Price Long
@@ -844,7 +867,7 @@ end
 -- Cross Type
 nasdaq_nomoptions_itto_itch_v4_0.cross_type = {}
 
--- Size Of: Cross Type
+-- Size: Cross Type
 nasdaq_nomoptions_itto_itch_v4_0.cross_type.size = 1
 
 -- Display: Cross Type
@@ -874,16 +897,28 @@ end
 -- Options Cross Trade Message
 nasdaq_nomoptions_itto_itch_v4_0.options_cross_trade_message = {}
 
--- Size Of: Options Cross Trade Message
-nasdaq_nomoptions_itto_itch_v4_0.options_cross_trade_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.cross_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.match_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.cross_type.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume_long.size;
+-- Calculate size of: Options Cross Trade Message
+nasdaq_nomoptions_itto_itch_v4_0.options_cross_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.cross_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.match_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.cross_type.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume_long.size
+
+  return index
+end
 
 -- Display: Options Cross Trade Message
 nasdaq_nomoptions_itto_itch_v4_0.options_cross_trade_message.display = function(packet, parent, length)
@@ -942,7 +977,7 @@ end
 -- Buy Sell Indicator
 nasdaq_nomoptions_itto_itch_v4_0.buy_sell_indicator = {}
 
--- Size Of: Buy Sell Indicator
+-- Size: Buy Sell Indicator
 nasdaq_nomoptions_itto_itch_v4_0.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
@@ -972,16 +1007,28 @@ end
 -- Options Trade Messages Non Auction
 nasdaq_nomoptions_itto_itch_v4_0.options_trade_messages_non_auction = {}
 
--- Size Of: Options Trade Messages Non Auction
-nasdaq_nomoptions_itto_itch_v4_0.options_trade_messages_non_auction.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.buy_sell_indicator.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.cross_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.match_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume_long.size;
+-- Calculate size of: Options Trade Messages Non Auction
+nasdaq_nomoptions_itto_itch_v4_0.options_trade_messages_non_auction.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.buy_sell_indicator.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.cross_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.match_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume_long.size
+
+  return index
+end
 
 -- Display: Options Trade Messages Non Auction
 nasdaq_nomoptions_itto_itch_v4_0.options_trade_messages_non_auction.display = function(packet, parent, length)
@@ -1040,7 +1087,7 @@ end
 -- Ask Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number = {}
 
--- Size Of: Ask Reference Number
+-- Size: Ask Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size = 8
 
 -- Display: Ask Reference Number
@@ -1063,7 +1110,7 @@ end
 -- Bid Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number = {}
 
--- Size Of: Bid Reference Number
+-- Size: Bid Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size = 8
 
 -- Display: Bid Reference Number
@@ -1086,12 +1133,20 @@ end
 -- Quote Delete Message
 nasdaq_nomoptions_itto_itch_v4_0.quote_delete_message = {}
 
--- Size Of: Quote Delete Message
-nasdaq_nomoptions_itto_itch_v4_0.quote_delete_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size;
+-- Calculate size of: Quote Delete Message
+nasdaq_nomoptions_itto_itch_v4_0.quote_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size
+
+  return index
+end
 
 -- Display: Quote Delete Message
 nasdaq_nomoptions_itto_itch_v4_0.quote_delete_message.display = function(packet, parent, length)
@@ -1138,7 +1193,7 @@ end
 -- Ask Size Long
 nasdaq_nomoptions_itto_itch_v4_0.ask_size_long = {}
 
--- Size Of: Ask Size Long
+-- Size: Ask Size Long
 nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size = 4
 
 -- Display: Ask Size Long
@@ -1161,7 +1216,7 @@ end
 -- Ask Price Long
 nasdaq_nomoptions_itto_itch_v4_0.ask_price_long = {}
 
--- Size Of: Ask Price Long
+-- Size: Ask Price Long
 nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.size = 4
 
 -- Display: Ask Price Long
@@ -1190,7 +1245,7 @@ end
 -- Bid Size Long
 nasdaq_nomoptions_itto_itch_v4_0.bid_size_long = {}
 
--- Size Of: Bid Size Long
+-- Size: Bid Size Long
 nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size = 4
 
 -- Display: Bid Size Long
@@ -1213,7 +1268,7 @@ end
 -- Bid Price Long
 nasdaq_nomoptions_itto_itch_v4_0.bid_price_long = {}
 
--- Size Of: Bid Price Long
+-- Size: Bid Price Long
 nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.size = 4
 
 -- Display: Bid Price Long
@@ -1242,7 +1297,7 @@ end
 -- Original Ask Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number = {}
 
--- Size Of: Original Ask Reference Number
+-- Size: Original Ask Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number.size = 8
 
 -- Display: Original Ask Reference Number
@@ -1265,7 +1320,7 @@ end
 -- Original Bid Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.original_bid_reference_number = {}
 
--- Size Of: Original Bid Reference Number
+-- Size: Original Bid Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.original_bid_reference_number.size = 8
 
 -- Display: Original Bid Reference Number
@@ -1288,18 +1343,32 @@ end
 -- Quote Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form = {}
 
--- Size Of: Quote Replace Message Long Form
-nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.original_bid_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size;
+-- Calculate size of: Quote Replace Message Long Form
+nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.original_bid_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size
+
+  return index
+end
 
 -- Display: Quote Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.display = function(packet, parent, length)
@@ -1364,7 +1433,7 @@ end
 -- Ask Size
 nasdaq_nomoptions_itto_itch_v4_0.ask_size = {}
 
--- Size Of: Ask Size
+-- Size: Ask Size
 nasdaq_nomoptions_itto_itch_v4_0.ask_size.size = 2
 
 -- Display: Ask Size
@@ -1387,7 +1456,7 @@ end
 -- Ask Price
 nasdaq_nomoptions_itto_itch_v4_0.ask_price = {}
 
--- Size Of: Ask Price
+-- Size: Ask Price
 nasdaq_nomoptions_itto_itch_v4_0.ask_price.size = 2
 
 -- Display: Ask Price
@@ -1416,7 +1485,7 @@ end
 -- Bid Size
 nasdaq_nomoptions_itto_itch_v4_0.bid_size = {}
 
--- Size Of: Bid Size
+-- Size: Bid Size
 nasdaq_nomoptions_itto_itch_v4_0.bid_size.size = 2
 
 -- Display: Bid Size
@@ -1439,7 +1508,7 @@ end
 -- Bid Price
 nasdaq_nomoptions_itto_itch_v4_0.bid_price = {}
 
--- Size Of: Bid Price
+-- Size: Bid Price
 nasdaq_nomoptions_itto_itch_v4_0.bid_price.size = 2
 
 -- Display: Bid Price
@@ -1468,18 +1537,32 @@ end
 -- Quote Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form = {}
 
--- Size Of: Quote Replace Message Short Form
-nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.original_bid_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size.size;
+-- Calculate size of: Quote Replace Message Short Form
+nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.original_bid_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_size.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_size.size
+
+  return index
+end
 
 -- Display: Quote Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.display = function(packet, parent, length)
@@ -1544,7 +1627,7 @@ end
 -- Change Reason
 nasdaq_nomoptions_itto_itch_v4_0.change_reason = {}
 
--- Size Of: Change Reason
+-- Size: Change Reason
 nasdaq_nomoptions_itto_itch_v4_0.change_reason.size = 1
 
 -- Display: Change Reason
@@ -1577,7 +1660,7 @@ end
 -- Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.reference_number = {}
 
--- Size Of: Reference Number
+-- Size: Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.reference_number.size = 8
 
 -- Display: Reference Number
@@ -1600,14 +1683,24 @@ end
 -- Single Side Change Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_change_message = {}
 
--- Size Of: Single Side Change Message
-nasdaq_nomoptions_itto_itch_v4_0.single_side_change_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.change_reason.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume_long.size;
+-- Calculate size of: Single Side Change Message
+nasdaq_nomoptions_itto_itch_v4_0.single_side_change_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.change_reason.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume_long.size
+
+  return index
+end
 
 -- Display: Single Side Change Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_change_message.display = function(packet, parent, length)
@@ -1660,11 +1753,18 @@ end
 -- Single Side Delete Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_delete_message = {}
 
--- Size Of: Single Side Delete Message
-nasdaq_nomoptions_itto_itch_v4_0.single_side_delete_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.reference_number.size;
+-- Calculate size of: Single Side Delete Message
+nasdaq_nomoptions_itto_itch_v4_0.single_side_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.reference_number.size
+
+  return index
+end
 
 -- Display: Single Side Delete Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_delete_message.display = function(packet, parent, length)
@@ -1708,7 +1808,7 @@ end
 -- New Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.new_reference_number = {}
 
--- Size Of: New Reference Number
+-- Size: New Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.new_reference_number.size = 8
 
 -- Display: New Reference Number
@@ -1731,7 +1831,7 @@ end
 -- Original Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.original_reference_number = {}
 
--- Size Of: Original Reference Number
+-- Size: Original Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.original_reference_number.size = 8
 
 -- Display: Original Reference Number
@@ -1754,14 +1854,24 @@ end
 -- Single Side Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_long_form = {}
 
--- Size Of: Single Side Replace Message Long Form
-nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_long_form.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.original_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.new_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume_long.size;
+-- Calculate size of: Single Side Replace Message Long Form
+nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.original_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.new_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume_long.size
+
+  return index
+end
 
 -- Display: Single Side Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_long_form.display = function(packet, parent, length)
@@ -1814,7 +1924,7 @@ end
 -- Volume
 nasdaq_nomoptions_itto_itch_v4_0.volume = {}
 
--- Size Of: Volume
+-- Size: Volume
 nasdaq_nomoptions_itto_itch_v4_0.volume.size = 2
 
 -- Display: Volume
@@ -1837,7 +1947,7 @@ end
 -- Price
 nasdaq_nomoptions_itto_itch_v4_0.price = {}
 
--- Size Of: Price
+-- Size: Price
 nasdaq_nomoptions_itto_itch_v4_0.price.size = 2
 
 -- Display: Price
@@ -1866,14 +1976,24 @@ end
 -- Single Side Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_short_form = {}
 
--- Size Of: Single Side Replace Message Short Form
-nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_short_form.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.original_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.new_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume.size;
+-- Calculate size of: Single Side Replace Message Short Form
+nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_short_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.original_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.new_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume.size
+
+  return index
+end
 
 -- Display: Single Side Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_short_form.display = function(packet, parent, length)
@@ -1926,7 +2046,7 @@ end
 -- Cancelled Contracts
 nasdaq_nomoptions_itto_itch_v4_0.cancelled_contracts = {}
 
--- Size Of: Cancelled Contracts
+-- Size: Cancelled Contracts
 nasdaq_nomoptions_itto_itch_v4_0.cancelled_contracts.size = 4
 
 -- Display: Cancelled Contracts
@@ -1949,7 +2069,7 @@ end
 -- Order Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.order_reference_number = {}
 
--- Size Of: Order Reference Number
+-- Size: Order Reference Number
 nasdaq_nomoptions_itto_itch_v4_0.order_reference_number.size = 8
 
 -- Display: Order Reference Number
@@ -1972,12 +2092,20 @@ end
 -- Order Cancel Message
 nasdaq_nomoptions_itto_itch_v4_0.order_cancel_message = {}
 
--- Size Of: Order Cancel Message
-nasdaq_nomoptions_itto_itch_v4_0.order_cancel_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.order_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.cancelled_contracts.size;
+-- Calculate size of: Order Cancel Message
+nasdaq_nomoptions_itto_itch_v4_0.order_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.order_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.cancelled_contracts.size
+
+  return index
+end
 
 -- Display: Order Cancel Message
 nasdaq_nomoptions_itto_itch_v4_0.order_cancel_message.display = function(packet, parent, length)
@@ -2024,7 +2152,7 @@ end
 -- Printable
 nasdaq_nomoptions_itto_itch_v4_0.printable = {}
 
--- Size Of: Printable
+-- Size: Printable
 nasdaq_nomoptions_itto_itch_v4_0.printable.size = 1
 
 -- Display: Printable
@@ -2054,16 +2182,28 @@ end
 -- Single Side Executed With Price Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_with_price_message = {}
 
--- Size Of: Single Side Executed With Price Message
-nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_with_price_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.cross_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.match_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.printable.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume_long.size;
+-- Calculate size of: Single Side Executed With Price Message
+nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_with_price_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.cross_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.match_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.printable.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume_long.size
+
+  return index
+end
 
 -- Display: Single Side Executed With Price Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_with_price_message.display = function(packet, parent, length)
@@ -2122,7 +2262,7 @@ end
 -- Executed Contracts
 nasdaq_nomoptions_itto_itch_v4_0.executed_contracts = {}
 
--- Size Of: Executed Contracts
+-- Size: Executed Contracts
 nasdaq_nomoptions_itto_itch_v4_0.executed_contracts.size = 4
 
 -- Display: Executed Contracts
@@ -2145,14 +2285,24 @@ end
 -- Single Side Executed Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_message = {}
 
--- Size Of: Single Side Executed Message
-nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.executed_contracts.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.cross_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.match_number.size;
+-- Calculate size of: Single Side Executed Message
+nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.executed_contracts.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.cross_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.match_number.size
+
+  return index
+end
 
 -- Display: Single Side Executed Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_message.display = function(packet, parent, length)
@@ -2205,7 +2355,7 @@ end
 -- Ask
 nasdaq_nomoptions_itto_itch_v4_0.ask = {}
 
--- Size Of: Ask
+-- Size: Ask
 nasdaq_nomoptions_itto_itch_v4_0.ask.size = 4
 
 -- Display: Ask
@@ -2228,7 +2378,7 @@ end
 -- Bid
 nasdaq_nomoptions_itto_itch_v4_0.bid = {}
 
--- Size Of: Bid
+-- Size: Bid
 nasdaq_nomoptions_itto_itch_v4_0.bid.size = 4
 
 -- Display: Bid
@@ -2251,17 +2401,30 @@ end
 -- Add Quote Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message = {}
 
--- Size Of: Add Quote Message Long Form Message
-nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size;
+-- Calculate size of: Add Quote Message Long Form Message
+nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size
+
+  return index
+end
 
 -- Display: Add Quote Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.display = function(packet, parent, length)
@@ -2323,17 +2486,30 @@ end
 -- Add Quote Message Short Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message = {}
 
--- Size Of: Add Quote Message Short Form Message
-nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size.size;
+-- Calculate size of: Add Quote Message Short Form Message
+nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.bid_size.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.ask_size.size
+
+  return index
+end
 
 -- Display: Add Quote Message Short Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.display = function(packet, parent, length)
@@ -2395,7 +2571,7 @@ end
 -- Market Side
 nasdaq_nomoptions_itto_itch_v4_0.market_side = {}
 
--- Size Of: Market Side
+-- Size: Market Side
 nasdaq_nomoptions_itto_itch_v4_0.market_side.size = 1
 
 -- Display: Market Side
@@ -2425,15 +2601,26 @@ end
 -- Add Order Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_order_message_long_form_message = {}
 
--- Size Of: Add Order Message Long Form Message
-nasdaq_nomoptions_itto_itch_v4_0.add_order_message_long_form_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.order_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.market_side.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume_long.size;
+-- Calculate size of: Add Order Message Long Form Message
+nasdaq_nomoptions_itto_itch_v4_0.add_order_message_long_form_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.order_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.market_side.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price_long.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume_long.size
+
+  return index
+end
 
 -- Display: Add Order Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_order_message_long_form_message.display = function(packet, parent, length)
@@ -2489,15 +2676,26 @@ end
 -- Add Order Message Short Message Form
 nasdaq_nomoptions_itto_itch_v4_0.add_order_message_short_message_form = {}
 
--- Size Of: Add Order Message Short Message Form
-nasdaq_nomoptions_itto_itch_v4_0.add_order_message_short_message_form.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.order_reference_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.market_side.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.volume.size;
+-- Calculate size of: Add Order Message Short Message Form
+nasdaq_nomoptions_itto_itch_v4_0.add_order_message_short_message_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.order_reference_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.market_side.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.volume.size
+
+  return index
+end
 
 -- Display: Add Order Message Short Message Form
 nasdaq_nomoptions_itto_itch_v4_0.add_order_message_short_message_form.display = function(packet, parent, length)
@@ -2553,7 +2751,7 @@ end
 -- Open State
 nasdaq_nomoptions_itto_itch_v4_0.open_state = {}
 
--- Size Of: Open State
+-- Size: Open State
 nasdaq_nomoptions_itto_itch_v4_0.open_state.size = 1
 
 -- Display: Open State
@@ -2583,12 +2781,20 @@ end
 -- Security Open Message
 nasdaq_nomoptions_itto_itch_v4_0.security_open_message = {}
 
--- Size Of: Security Open Message
-nasdaq_nomoptions_itto_itch_v4_0.security_open_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.open_state.size;
+-- Calculate size of: Security Open Message
+nasdaq_nomoptions_itto_itch_v4_0.security_open_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.open_state.size
+
+  return index
+end
 
 -- Display: Security Open Message
 nasdaq_nomoptions_itto_itch_v4_0.security_open_message.display = function(packet, parent, length)
@@ -2635,7 +2841,7 @@ end
 -- Current Trading State
 nasdaq_nomoptions_itto_itch_v4_0.current_trading_state = {}
 
--- Size Of: Current Trading State
+-- Size: Current Trading State
 nasdaq_nomoptions_itto_itch_v4_0.current_trading_state.size = 1
 
 -- Display: Current Trading State
@@ -2671,12 +2877,20 @@ end
 -- Trading Action Message
 nasdaq_nomoptions_itto_itch_v4_0.trading_action_message = {}
 
--- Size Of: Trading Action Message
-nasdaq_nomoptions_itto_itch_v4_0.trading_action_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.current_trading_state.size;
+-- Calculate size of: Trading Action Message
+nasdaq_nomoptions_itto_itch_v4_0.trading_action_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.current_trading_state.size
+
+  return index
+end
 
 -- Display: Trading Action Message
 nasdaq_nomoptions_itto_itch_v4_0.trading_action_message.display = function(packet, parent, length)
@@ -2723,7 +2937,7 @@ end
 -- Mpv
 nasdaq_nomoptions_itto_itch_v4_0.mpv = {}
 
--- Size Of: Mpv
+-- Size: Mpv
 nasdaq_nomoptions_itto_itch_v4_0.mpv.size = 1
 
 -- Display: Mpv
@@ -2756,7 +2970,7 @@ end
 -- Tradable
 nasdaq_nomoptions_itto_itch_v4_0.tradable = {}
 
--- Size Of: Tradable
+-- Size: Tradable
 nasdaq_nomoptions_itto_itch_v4_0.tradable.size = 1
 
 -- Display: Tradable
@@ -2786,7 +3000,7 @@ end
 -- Options Closing Type
 nasdaq_nomoptions_itto_itch_v4_0.options_closing_type = {}
 
--- Size Of: Options Closing Type
+-- Size: Options Closing Type
 nasdaq_nomoptions_itto_itch_v4_0.options_closing_type.size = 1
 
 -- Display: Options Closing Type
@@ -2816,7 +3030,7 @@ end
 -- Underlying Symbol
 nasdaq_nomoptions_itto_itch_v4_0.underlying_symbol = {}
 
--- Size Of: Underlying Symbol
+-- Size: Underlying Symbol
 nasdaq_nomoptions_itto_itch_v4_0.underlying_symbol.size = 13
 
 -- Display: Underlying Symbol
@@ -2839,7 +3053,7 @@ end
 -- Source
 nasdaq_nomoptions_itto_itch_v4_0.source = {}
 
--- Size Of: Source
+-- Size: Source
 nasdaq_nomoptions_itto_itch_v4_0.source.size = 1
 
 -- Display: Source
@@ -2862,7 +3076,7 @@ end
 -- Option Type
 nasdaq_nomoptions_itto_itch_v4_0.option_type = {}
 
--- Size Of: Option Type
+-- Size: Option Type
 nasdaq_nomoptions_itto_itch_v4_0.option_type.size = 1
 
 -- Display: Option Type
@@ -2892,7 +3106,7 @@ end
 -- Explicit Strike Price
 nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price = {}
 
--- Size Of: Explicit Strike Price
+-- Size: Explicit Strike Price
 nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.size = 4
 
 -- Display: Explicit Strike Price
@@ -2921,7 +3135,7 @@ end
 -- Expiration Date
 nasdaq_nomoptions_itto_itch_v4_0.expiration_date = {}
 
--- Size Of: Expiration Date
+-- Size: Expiration Date
 nasdaq_nomoptions_itto_itch_v4_0.expiration_date.size = 1
 
 -- Display: Expiration Date
@@ -2944,7 +3158,7 @@ end
 -- Expiration Month
 nasdaq_nomoptions_itto_itch_v4_0.expiration_month = {}
 
--- Size Of: Expiration Month
+-- Size: Expiration Month
 nasdaq_nomoptions_itto_itch_v4_0.expiration_month.size = 1
 
 -- Display: Expiration Month
@@ -2967,7 +3181,7 @@ end
 -- Expiration Year
 nasdaq_nomoptions_itto_itch_v4_0.expiration_year = {}
 
--- Size Of: Expiration Year
+-- Size: Expiration Year
 nasdaq_nomoptions_itto_itch_v4_0.expiration_year.size = 1
 
 -- Display: Expiration Year
@@ -2990,7 +3204,7 @@ end
 -- Security Symbol
 nasdaq_nomoptions_itto_itch_v4_0.security_symbol = {}
 
--- Size Of: Security Symbol
+-- Size: Security Symbol
 nasdaq_nomoptions_itto_itch_v4_0.security_symbol.size = 6
 
 -- Display: Security Symbol
@@ -3013,22 +3227,40 @@ end
 -- Options Directory Message
 nasdaq_nomoptions_itto_itch_v4_0.options_directory_message = {}
 
--- Size Of: Options Directory Message
-nasdaq_nomoptions_itto_itch_v4_0.options_directory_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.security_symbol.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.expiration_year.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.expiration_month.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.expiration_date.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.option_type.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.source.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.underlying_symbol.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.options_closing_type.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.tradable.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.mpv.size;
+-- Calculate size of: Options Directory Message
+nasdaq_nomoptions_itto_itch_v4_0.options_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_id.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.security_symbol.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.expiration_year.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.expiration_month.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.expiration_date.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.option_type.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.source.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.underlying_symbol.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.options_closing_type.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tradable.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.mpv.size
+
+  return index
+end
 
 -- Display: Options Directory Message
 nasdaq_nomoptions_itto_itch_v4_0.options_directory_message.display = function(packet, parent, length)
@@ -3105,7 +3337,7 @@ end
 -- Event Code
 nasdaq_nomoptions_itto_itch_v4_0.event_code = {}
 
--- Size Of: Event Code
+-- Size: Event Code
 nasdaq_nomoptions_itto_itch_v4_0.event_code.size = 1
 
 -- Display: Event Code
@@ -3150,11 +3382,18 @@ end
 -- System Event Message
 nasdaq_nomoptions_itto_itch_v4_0.system_event_message = {}
 
--- Size Of: System Event Message
-nasdaq_nomoptions_itto_itch_v4_0.system_event_message.size =
-  nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.timestamp.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.event_code.size;
+-- Calculate size of: System Event Message
+nasdaq_nomoptions_itto_itch_v4_0.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.tracking_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.timestamp.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.event_code.size
+
+  return index
+end
 
 -- Display: System Event Message
 nasdaq_nomoptions_itto_itch_v4_0.system_event_message.display = function(packet, parent, length)
@@ -3414,7 +3653,7 @@ end
 -- Message Type
 nasdaq_nomoptions_itto_itch_v4_0.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nasdaq_nomoptions_itto_itch_v4_0.message_type.size = 1
 
 -- Display: Message Type
@@ -3504,7 +3743,7 @@ end
 -- Message Length
 nasdaq_nomoptions_itto_itch_v4_0.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 nasdaq_nomoptions_itto_itch_v4_0.message_length.size = 2
 
 -- Display: Message Length
@@ -3527,10 +3766,16 @@ end
 -- Message Header
 nasdaq_nomoptions_itto_itch_v4_0.message_header = {}
 
--- Size Of: Message Header
-nasdaq_nomoptions_itto_itch_v4_0.message_header.size =
-  nasdaq_nomoptions_itto_itch_v4_0.message_length.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.message_type.size;
+-- Calculate size of: Message Header
+nasdaq_nomoptions_itto_itch_v4_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.message_length.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_nomoptions_itto_itch_v4_0.message_header.display = function(packet, parent, length)
@@ -3622,7 +3867,7 @@ end
 -- Message Count
 nasdaq_nomoptions_itto_itch_v4_0.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nasdaq_nomoptions_itto_itch_v4_0.message_count.size = 2
 
 -- Display: Message Count
@@ -3645,7 +3890,7 @@ end
 -- Sequence Number
 nasdaq_nomoptions_itto_itch_v4_0.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nasdaq_nomoptions_itto_itch_v4_0.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -3668,7 +3913,7 @@ end
 -- Session
 nasdaq_nomoptions_itto_itch_v4_0.session = {}
 
--- Size Of: Session
+-- Size: Session
 nasdaq_nomoptions_itto_itch_v4_0.session.size = 10
 
 -- Display: Session
@@ -3707,11 +3952,18 @@ end
 -- Packet Header
 nasdaq_nomoptions_itto_itch_v4_0.packet_header = {}
 
--- Size Of: Packet Header
-nasdaq_nomoptions_itto_itch_v4_0.packet_header.size =
-  nasdaq_nomoptions_itto_itch_v4_0.session.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.sequence_number.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.message_count.size;
+-- Calculate size of: Packet Header
+nasdaq_nomoptions_itto_itch_v4_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.session.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.sequence_number.size
+
+  index = index + nasdaq_nomoptions_itto_itch_v4_0.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_nomoptions_itto_itch_v4_0.packet_header.display = function(packet, parent, length)

@@ -102,7 +102,7 @@ end
 -- Message Type
 nasdaq_common_mold64_udp_v1_0.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nasdaq_common_mold64_udp_v1_0.message_type.size = 1
 
 -- Display: Message Type
@@ -125,7 +125,7 @@ end
 -- Message Length
 nasdaq_common_mold64_udp_v1_0.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 nasdaq_common_mold64_udp_v1_0.message_length.size = 2
 
 -- Display: Message Length
@@ -148,10 +148,16 @@ end
 -- Message Header
 nasdaq_common_mold64_udp_v1_0.message_header = {}
 
--- Size Of: Message Header
-nasdaq_common_mold64_udp_v1_0.message_header.size =
-  nasdaq_common_mold64_udp_v1_0.message_length.size + 
-  nasdaq_common_mold64_udp_v1_0.message_type.size;
+-- Calculate size of: Message Header
+nasdaq_common_mold64_udp_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_common_mold64_udp_v1_0.message_length.size
+
+  index = index + nasdaq_common_mold64_udp_v1_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_common_mold64_udp_v1_0.message_header.display = function(packet, parent, length)
@@ -246,7 +252,7 @@ end
 -- Message Count
 nasdaq_common_mold64_udp_v1_0.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nasdaq_common_mold64_udp_v1_0.message_count.size = 2
 
 -- Display: Message Count
@@ -269,7 +275,7 @@ end
 -- Sequence Number
 nasdaq_common_mold64_udp_v1_0.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nasdaq_common_mold64_udp_v1_0.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -292,7 +298,7 @@ end
 -- Session
 nasdaq_common_mold64_udp_v1_0.session = {}
 
--- Size Of: Session
+-- Size: Session
 nasdaq_common_mold64_udp_v1_0.session.size = 10
 
 -- Display: Session
@@ -331,11 +337,18 @@ end
 -- Packet Header
 nasdaq_common_mold64_udp_v1_0.packet_header = {}
 
--- Size Of: Packet Header
-nasdaq_common_mold64_udp_v1_0.packet_header.size =
-  nasdaq_common_mold64_udp_v1_0.session.size + 
-  nasdaq_common_mold64_udp_v1_0.sequence_number.size + 
-  nasdaq_common_mold64_udp_v1_0.message_count.size;
+-- Calculate size of: Packet Header
+nasdaq_common_mold64_udp_v1_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_common_mold64_udp_v1_0.session.size
+
+  index = index + nasdaq_common_mold64_udp_v1_0.sequence_number.size
+
+  index = index + nasdaq_common_mold64_udp_v1_0.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_common_mold64_udp_v1_0.packet_header.display = function(packet, parent, length)

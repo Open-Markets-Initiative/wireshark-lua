@@ -134,7 +134,7 @@ end
 -- Order Ref
 a2x_equities_snapshot_amd_v1_3_2.order_ref = {}
 
--- Size Of: Order Ref
+-- Size: Order Ref
 a2x_equities_snapshot_amd_v1_3_2.order_ref.size = 4
 
 -- Display: Order Ref
@@ -157,7 +157,7 @@ end
 -- Price
 a2x_equities_snapshot_amd_v1_3_2.price = {}
 
--- Size Of: Price
+-- Size: Price
 a2x_equities_snapshot_amd_v1_3_2.price.size = 8
 
 -- Display: Price
@@ -180,7 +180,7 @@ end
 -- Quantity
 a2x_equities_snapshot_amd_v1_3_2.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 a2x_equities_snapshot_amd_v1_3_2.quantity.size = 4
 
 -- Display: Quantity
@@ -203,7 +203,7 @@ end
 -- Security Id
 a2x_equities_snapshot_amd_v1_3_2.security_id = {}
 
--- Size Of: Security Id
+-- Size: Security Id
 a2x_equities_snapshot_amd_v1_3_2.security_id.size = 2
 
 -- Display: Security Id
@@ -226,12 +226,20 @@ end
 -- Market At Close Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message = {}
 
--- Size Of: Market At Close Book Entry Message
-a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size =
-  a2x_equities_snapshot_amd_v1_3_2.security_id.size + 
-  a2x_equities_snapshot_amd_v1_3_2.quantity.size + 
-  a2x_equities_snapshot_amd_v1_3_2.price.size + 
-  a2x_equities_snapshot_amd_v1_3_2.order_ref.size;
+-- Calculate size of: Market At Close Book Entry Message
+a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.security_id.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.quantity.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.price.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.order_ref.size
+
+  return index
+end
 
 -- Display: Market At Close Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.display = function(packet, parent, length)
@@ -278,12 +286,20 @@ end
 -- Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.book_entry_message = {}
 
--- Size Of: Book Entry Message
-a2x_equities_snapshot_amd_v1_3_2.book_entry_message.size =
-  a2x_equities_snapshot_amd_v1_3_2.security_id.size + 
-  a2x_equities_snapshot_amd_v1_3_2.quantity.size + 
-  a2x_equities_snapshot_amd_v1_3_2.price.size + 
-  a2x_equities_snapshot_amd_v1_3_2.order_ref.size;
+-- Calculate size of: Book Entry Message
+a2x_equities_snapshot_amd_v1_3_2.book_entry_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.security_id.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.quantity.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.price.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.order_ref.size
+
+  return index
+end
 
 -- Display: Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.book_entry_message.display = function(packet, parent, length)
@@ -330,7 +346,7 @@ end
 -- Indicative Price
 a2x_equities_snapshot_amd_v1_3_2.indicative_price = {}
 
--- Size Of: Indicative Price
+-- Size: Indicative Price
 a2x_equities_snapshot_amd_v1_3_2.indicative_price.size = 8
 
 -- Display: Indicative Price
@@ -353,7 +369,7 @@ end
 -- Closing Sell Qty
 a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty = {}
 
--- Size Of: Closing Sell Qty
+-- Size: Closing Sell Qty
 a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size = 4
 
 -- Display: Closing Sell Qty
@@ -376,7 +392,7 @@ end
 -- Closing Buy Qty
 a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty = {}
 
--- Size Of: Closing Buy Qty
+-- Size: Closing Buy Qty
 a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size = 4
 
 -- Display: Closing Buy Qty
@@ -399,7 +415,7 @@ end
 -- Entries
 a2x_equities_snapshot_amd_v1_3_2.entries = {}
 
--- Size Of: Entries
+-- Size: Entries
 a2x_equities_snapshot_amd_v1_3_2.entries.size = 2
 
 -- Display: Entries
@@ -422,7 +438,7 @@ end
 -- Market Flags
 a2x_equities_snapshot_amd_v1_3_2.market_flags = {}
 
--- Size Of: Market Flags
+-- Size: Market Flags
 a2x_equities_snapshot_amd_v1_3_2.market_flags.size = 1
 
 -- Display: Market Flags
@@ -478,7 +494,7 @@ end
 -- Trading Status
 a2x_equities_snapshot_amd_v1_3_2.trading_status = {}
 
--- Size Of: Trading Status
+-- Size: Trading Status
 a2x_equities_snapshot_amd_v1_3_2.trading_status.size = 1
 
 -- Display: Trading Status
@@ -501,15 +517,26 @@ end
 -- Book Status Message
 a2x_equities_snapshot_amd_v1_3_2.book_status_message = {}
 
--- Size Of: Book Status Message
-a2x_equities_snapshot_amd_v1_3_2.book_status_message.size =
-  a2x_equities_snapshot_amd_v1_3_2.security_id.size + 
-  a2x_equities_snapshot_amd_v1_3_2.trading_status.size + 
-  a2x_equities_snapshot_amd_v1_3_2.market_flags.size + 
-  a2x_equities_snapshot_amd_v1_3_2.entries.size + 
-  a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size + 
-  a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size + 
-  a2x_equities_snapshot_amd_v1_3_2.indicative_price.size;
+-- Calculate size of: Book Status Message
+a2x_equities_snapshot_amd_v1_3_2.book_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.security_id.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.trading_status.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.market_flags.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.entries.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.indicative_price.size
+
+  return index
+end
 
 -- Display: Book Status Message
 a2x_equities_snapshot_amd_v1_3_2.book_status_message.display = function(packet, parent, length)
@@ -565,7 +592,7 @@ end
 -- Timestamp
 a2x_equities_snapshot_amd_v1_3_2.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 a2x_equities_snapshot_amd_v1_3_2.timestamp.size = 8
 
 -- Display: Timestamp
@@ -588,7 +615,7 @@ end
 -- Security Count
 a2x_equities_snapshot_amd_v1_3_2.security_count = {}
 
--- Size Of: Security Count
+-- Size: Security Count
 a2x_equities_snapshot_amd_v1_3_2.security_count.size = 2
 
 -- Display: Security Count
@@ -611,7 +638,7 @@ end
 -- Stream Seq No
 a2x_equities_snapshot_amd_v1_3_2.stream_seq_no = {}
 
--- Size Of: Stream Seq No
+-- Size: Stream Seq No
 a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size = 4
 
 -- Display: Stream Seq No
@@ -634,11 +661,18 @@ end
 -- Snapshot Start Message
 a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message = {}
 
--- Size Of: Snapshot Start Message
-a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.size =
-  a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size + 
-  a2x_equities_snapshot_amd_v1_3_2.security_count.size + 
-  a2x_equities_snapshot_amd_v1_3_2.timestamp.size;
+-- Calculate size of: Snapshot Start Message
+a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.security_count.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.timestamp.size
+
+  return index
+end
 
 -- Display: Snapshot Start Message
 a2x_equities_snapshot_amd_v1_3_2.snapshot_start_message.display = function(packet, parent, length)
@@ -761,7 +795,7 @@ end
 -- Seq No
 a2x_equities_snapshot_amd_v1_3_2.seq_no = {}
 
--- Size Of: Seq No
+-- Size: Seq No
 a2x_equities_snapshot_amd_v1_3_2.seq_no.size = 4
 
 -- Display: Seq No
@@ -784,7 +818,7 @@ end
 -- Msg Length
 a2x_equities_snapshot_amd_v1_3_2.msg_length = {}
 
--- Size Of: Msg Length
+-- Size: Msg Length
 a2x_equities_snapshot_amd_v1_3_2.msg_length.size = 1
 
 -- Display: Msg Length
@@ -807,7 +841,7 @@ end
 -- Msg Type
 a2x_equities_snapshot_amd_v1_3_2.msg_type = {}
 
--- Size Of: Msg Type
+-- Size: Msg Type
 a2x_equities_snapshot_amd_v1_3_2.msg_type.size = 1
 
 -- Display: Msg Type
@@ -846,11 +880,18 @@ end
 -- Message Header
 a2x_equities_snapshot_amd_v1_3_2.message_header = {}
 
--- Size Of: Message Header
-a2x_equities_snapshot_amd_v1_3_2.message_header.size =
-  a2x_equities_snapshot_amd_v1_3_2.msg_type.size + 
-  a2x_equities_snapshot_amd_v1_3_2.msg_length.size + 
-  a2x_equities_snapshot_amd_v1_3_2.seq_no.size;
+-- Calculate size of: Message Header
+a2x_equities_snapshot_amd_v1_3_2.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.msg_type.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.msg_length.size
+
+  index = index + a2x_equities_snapshot_amd_v1_3_2.seq_no.size
+
+  return index
+end
 
 -- Display: Message Header
 a2x_equities_snapshot_amd_v1_3_2.message_header.display = function(packet, parent, length)
@@ -945,7 +986,7 @@ end
 -- Message Count
 a2x_equities_snapshot_amd_v1_3_2.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 a2x_equities_snapshot_amd_v1_3_2.message_count.size = 1
 
 -- Display: Message Count

@@ -3471,7 +3471,7 @@ end
 -- Complex Instrument Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_17 = {}
 
--- Size Of: Complex Instrument Rejected Byte 17
+-- Size: Complex Instrument Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_17.size = 1
 
 -- Display: Complex Instrument Rejected Byte 17
@@ -3559,7 +3559,7 @@ end
 -- Complex Instrument Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_16 = {}
 
--- Size Of: Complex Instrument Rejected Byte 16
+-- Size: Complex Instrument Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_16.size = 1
 
 -- Display: Complex Instrument Rejected Byte 16
@@ -3647,7 +3647,7 @@ end
 -- Complex Instrument Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_15 = {}
 
--- Size Of: Complex Instrument Rejected Byte 15
+-- Size: Complex Instrument Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_15.size = 1
 
 -- Display: Complex Instrument Rejected Byte 15
@@ -3735,7 +3735,7 @@ end
 -- Complex Instrument Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_14 = {}
 
--- Size Of: Complex Instrument Rejected Byte 14
+-- Size: Complex Instrument Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_14.size = 1
 
 -- Display: Complex Instrument Rejected Byte 14
@@ -3823,7 +3823,7 @@ end
 -- Complex Instrument Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_13 = {}
 
--- Size Of: Complex Instrument Rejected Byte 13
+-- Size: Complex Instrument Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_13.size = 1
 
 -- Display: Complex Instrument Rejected Byte 13
@@ -3911,7 +3911,7 @@ end
 -- Complex Instrument Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_12 = {}
 
--- Size Of: Complex Instrument Rejected Byte 12
+-- Size: Complex Instrument Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_12.size = 1
 
 -- Display: Complex Instrument Rejected Byte 12
@@ -3999,7 +3999,7 @@ end
 -- Complex Instrument Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_11 = {}
 
--- Size Of: Complex Instrument Rejected Byte 11
+-- Size: Complex Instrument Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_11.size = 1
 
 -- Display: Complex Instrument Rejected Byte 11
@@ -4087,7 +4087,7 @@ end
 -- Complex Instrument Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_10 = {}
 
--- Size Of: Complex Instrument Rejected Byte 10
+-- Size: Complex Instrument Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_10.size = 1
 
 -- Display: Complex Instrument Rejected Byte 10
@@ -4175,7 +4175,7 @@ end
 -- Complex Instrument Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_9 = {}
 
--- Size Of: Complex Instrument Rejected Byte 9
+-- Size: Complex Instrument Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_9.size = 1
 
 -- Display: Complex Instrument Rejected Byte 9
@@ -4263,7 +4263,7 @@ end
 -- Complex Instrument Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_8 = {}
 
--- Size Of: Complex Instrument Rejected Byte 8
+-- Size: Complex Instrument Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_8.size = 1
 
 -- Display: Complex Instrument Rejected Byte 8
@@ -4351,7 +4351,7 @@ end
 -- Complex Instrument Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_7 = {}
 
--- Size Of: Complex Instrument Rejected Byte 7
+-- Size: Complex Instrument Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_7.size = 1
 
 -- Display: Complex Instrument Rejected Byte 7
@@ -4439,7 +4439,7 @@ end
 -- Complex Instrument Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_6 = {}
 
--- Size Of: Complex Instrument Rejected Byte 6
+-- Size: Complex Instrument Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_6.size = 1
 
 -- Display: Complex Instrument Rejected Byte 6
@@ -4527,7 +4527,7 @@ end
 -- Complex Instrument Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_5 = {}
 
--- Size Of: Complex Instrument Rejected Byte 5
+-- Size: Complex Instrument Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_5.size = 1
 
 -- Display: Complex Instrument Rejected Byte 5
@@ -4615,7 +4615,7 @@ end
 -- Complex Instrument Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_4 = {}
 
--- Size Of: Complex Instrument Rejected Byte 4
+-- Size: Complex Instrument Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_4.size = 1
 
 -- Display: Complex Instrument Rejected Byte 4
@@ -4703,7 +4703,7 @@ end
 -- Complex Instrument Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_3 = {}
 
--- Size Of: Complex Instrument Rejected Byte 3
+-- Size: Complex Instrument Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_3.size = 1
 
 -- Display: Complex Instrument Rejected Byte 3
@@ -4791,7 +4791,7 @@ end
 -- Complex Instrument Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_2 = {}
 
--- Size Of: Complex Instrument Rejected Byte 2
+-- Size: Complex Instrument Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_2.size = 1
 
 -- Display: Complex Instrument Rejected Byte 2
@@ -4879,7 +4879,7 @@ end
 -- Complex Instrument Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_1 = {}
 
--- Size Of: Complex Instrument Rejected Byte 1
+-- Size: Complex Instrument Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_byte_1.size = 1
 
 -- Display: Complex Instrument Rejected Byte 1
@@ -4967,7 +4967,7 @@ end
 -- Complex Instrument Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_bitfield_count = {}
 
--- Size Of: Complex Instrument Rejected Bitfield Count
+-- Size: Complex Instrument Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_rejected_bitfield_count.size = 1
 
 -- Display: Complex Instrument Rejected Bitfield Count
@@ -5216,7 +5216,7 @@ end
 -- Reserved Internal
 cboe_edgx_options_orderentry_boe_v2_10.reserved_internal = {}
 
--- Size Of: Reserved Internal
+-- Size: Reserved Internal
 cboe_edgx_options_orderentry_boe_v2_10.reserved_internal.size = 1
 
 -- Display: Reserved Internal
@@ -5239,7 +5239,7 @@ end
 -- No Of Securities
 cboe_edgx_options_orderentry_boe_v2_10.no_of_securities = {}
 
--- Size Of: No Of Securities
+-- Size: No Of Securities
 cboe_edgx_options_orderentry_boe_v2_10.no_of_securities.size = 4
 
 -- Display: No Of Securities
@@ -5262,7 +5262,7 @@ end
 -- Text
 cboe_edgx_options_orderentry_boe_v2_10.text = {}
 
--- Size Of: Text
+-- Size: Text
 cboe_edgx_options_orderentry_boe_v2_10.text.size = 60
 
 -- Display: Text
@@ -5285,7 +5285,7 @@ end
 -- Order Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.order_reject_reason = {}
 
--- Size Of: Order Reject Reason
+-- Size: Order Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
@@ -5402,7 +5402,7 @@ end
 -- Transaction Time
 cboe_edgx_options_orderentry_boe_v2_10.transaction_time = {}
 
--- Size Of: Transaction Time
+-- Size: Transaction Time
 cboe_edgx_options_orderentry_boe_v2_10.transaction_time.size = 8
 
 -- Display: Transaction Time
@@ -5491,7 +5491,7 @@ end
 -- Leg Strike Price
 cboe_edgx_options_orderentry_boe_v2_10.leg_strike_price = {}
 
--- Size Of: Leg Strike Price
+-- Size: Leg Strike Price
 cboe_edgx_options_orderentry_boe_v2_10.leg_strike_price.size = 8
 
 -- Display: Leg Strike Price
@@ -5514,7 +5514,7 @@ end
 -- Leg Maturity Date
 cboe_edgx_options_orderentry_boe_v2_10.leg_maturity_date = {}
 
--- Size Of: Leg Maturity Date
+-- Size: Leg Maturity Date
 cboe_edgx_options_orderentry_boe_v2_10.leg_maturity_date.size = 4
 
 -- Display: Leg Maturity Date
@@ -5537,7 +5537,7 @@ end
 -- Leg Cfi Code
 cboe_edgx_options_orderentry_boe_v2_10.leg_cfi_code = {}
 
--- Size Of: Leg Cfi Code
+-- Size: Leg Cfi Code
 cboe_edgx_options_orderentry_boe_v2_10.leg_cfi_code.size = 6
 
 -- Display: Leg Cfi Code
@@ -5570,7 +5570,7 @@ end
 -- Complex Instrument Accepted Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_17 = {}
 
--- Size Of: Complex Instrument Accepted Byte 17
+-- Size: Complex Instrument Accepted Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_17.size = 1
 
 -- Display: Complex Instrument Accepted Byte 17
@@ -5658,7 +5658,7 @@ end
 -- Complex Instrument Accepted Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_16 = {}
 
--- Size Of: Complex Instrument Accepted Byte 16
+-- Size: Complex Instrument Accepted Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_16.size = 1
 
 -- Display: Complex Instrument Accepted Byte 16
@@ -5746,7 +5746,7 @@ end
 -- Complex Instrument Accepted Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_15 = {}
 
--- Size Of: Complex Instrument Accepted Byte 15
+-- Size: Complex Instrument Accepted Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_15.size = 1
 
 -- Display: Complex Instrument Accepted Byte 15
@@ -5834,7 +5834,7 @@ end
 -- Complex Instrument Accepted Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_14 = {}
 
--- Size Of: Complex Instrument Accepted Byte 14
+-- Size: Complex Instrument Accepted Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_14.size = 1
 
 -- Display: Complex Instrument Accepted Byte 14
@@ -5922,7 +5922,7 @@ end
 -- Complex Instrument Accepted Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_13 = {}
 
--- Size Of: Complex Instrument Accepted Byte 13
+-- Size: Complex Instrument Accepted Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_13.size = 1
 
 -- Display: Complex Instrument Accepted Byte 13
@@ -6010,7 +6010,7 @@ end
 -- Complex Instrument Accepted Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_12 = {}
 
--- Size Of: Complex Instrument Accepted Byte 12
+-- Size: Complex Instrument Accepted Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_12.size = 1
 
 -- Display: Complex Instrument Accepted Byte 12
@@ -6098,7 +6098,7 @@ end
 -- Complex Instrument Accepted Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_11 = {}
 
--- Size Of: Complex Instrument Accepted Byte 11
+-- Size: Complex Instrument Accepted Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_11.size = 1
 
 -- Display: Complex Instrument Accepted Byte 11
@@ -6186,7 +6186,7 @@ end
 -- Complex Instrument Accepted Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_10 = {}
 
--- Size Of: Complex Instrument Accepted Byte 10
+-- Size: Complex Instrument Accepted Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_10.size = 1
 
 -- Display: Complex Instrument Accepted Byte 10
@@ -6274,7 +6274,7 @@ end
 -- Complex Instrument Accepted Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_9 = {}
 
--- Size Of: Complex Instrument Accepted Byte 9
+-- Size: Complex Instrument Accepted Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_9.size = 1
 
 -- Display: Complex Instrument Accepted Byte 9
@@ -6362,7 +6362,7 @@ end
 -- Complex Instrument Accepted Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_8 = {}
 
--- Size Of: Complex Instrument Accepted Byte 8
+-- Size: Complex Instrument Accepted Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_8.size = 1
 
 -- Display: Complex Instrument Accepted Byte 8
@@ -6450,7 +6450,7 @@ end
 -- Complex Instrument Accepted Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_7 = {}
 
--- Size Of: Complex Instrument Accepted Byte 7
+-- Size: Complex Instrument Accepted Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_7.size = 1
 
 -- Display: Complex Instrument Accepted Byte 7
@@ -6538,7 +6538,7 @@ end
 -- Complex Instrument Accepted Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_6 = {}
 
--- Size Of: Complex Instrument Accepted Byte 6
+-- Size: Complex Instrument Accepted Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_6.size = 1
 
 -- Display: Complex Instrument Accepted Byte 6
@@ -6626,7 +6626,7 @@ end
 -- Complex Instrument Accepted Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_5 = {}
 
--- Size Of: Complex Instrument Accepted Byte 5
+-- Size: Complex Instrument Accepted Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_5.size = 1
 
 -- Display: Complex Instrument Accepted Byte 5
@@ -6714,7 +6714,7 @@ end
 -- Complex Instrument Accepted Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_4 = {}
 
--- Size Of: Complex Instrument Accepted Byte 4
+-- Size: Complex Instrument Accepted Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_4.size = 1
 
 -- Display: Complex Instrument Accepted Byte 4
@@ -6802,7 +6802,7 @@ end
 -- Complex Instrument Accepted Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_3 = {}
 
--- Size Of: Complex Instrument Accepted Byte 3
+-- Size: Complex Instrument Accepted Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_3.size = 1
 
 -- Display: Complex Instrument Accepted Byte 3
@@ -6890,7 +6890,7 @@ end
 -- Complex Instrument Accepted Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_2 = {}
 
--- Size Of: Complex Instrument Accepted Byte 2
+-- Size: Complex Instrument Accepted Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_2.size = 1
 
 -- Display: Complex Instrument Accepted Byte 2
@@ -6978,7 +6978,7 @@ end
 -- Complex Instrument Accepted Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_1 = {}
 
--- Size Of: Complex Instrument Accepted Byte 1
+-- Size: Complex Instrument Accepted Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_byte_1.size = 1
 
 -- Display: Complex Instrument Accepted Byte 1
@@ -7066,7 +7066,7 @@ end
 -- Complex Instrument Accepted Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_bitfield_count = {}
 
--- Size Of: Complex Instrument Accepted Bitfield Count
+-- Size: Complex Instrument Accepted Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.complex_instrument_accepted_bitfield_count.size = 1
 
 -- Display: Complex Instrument Accepted Bitfield Count
@@ -7342,7 +7342,7 @@ end
 -- Revised Legs
 cboe_edgx_options_orderentry_boe_v2_10.revised_legs = {}
 
--- Size Of: Revised Legs
+-- Size: Revised Legs
 cboe_edgx_options_orderentry_boe_v2_10.revised_legs.size = 1
 
 -- Display: Revised Legs
@@ -7372,7 +7372,7 @@ end
 -- Symbol
 cboe_edgx_options_orderentry_boe_v2_10.symbol = {}
 
--- Size Of: Symbol
+-- Size: Symbol
 cboe_edgx_options_orderentry_boe_v2_10.symbol.size = 6
 
 -- Display: Symbol
@@ -7395,7 +7395,7 @@ end
 -- Cl Ord Id
 cboe_edgx_options_orderentry_boe_v2_10.cl_ord_id = {}
 
--- Size Of: Cl Ord Id
+-- Size: Cl Ord Id
 cboe_edgx_options_orderentry_boe_v2_10.cl_ord_id.size = 20
 
 -- Display: Cl Ord Id
@@ -7487,7 +7487,7 @@ end
 -- Cancelled Order Count
 cboe_edgx_options_orderentry_boe_v2_10.cancelled_order_count = {}
 
--- Size Of: Cancelled Order Count
+-- Size: Cancelled Order Count
 cboe_edgx_options_orderentry_boe_v2_10.cancelled_order_count.size = 4
 
 -- Display: Cancelled Order Count
@@ -7510,7 +7510,7 @@ end
 -- Mass Cancel Id
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel_id = {}
 
--- Size Of: Mass Cancel Id
+-- Size: Mass Cancel Id
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel_id.size = 20
 
 -- Display: Mass Cancel Id
@@ -7587,7 +7587,7 @@ end
 -- Risk Reset Result
 cboe_edgx_options_orderentry_boe_v2_10.risk_reset_result = {}
 
--- Size Of: Risk Reset Result
+-- Size: Risk Reset Result
 cboe_edgx_options_orderentry_boe_v2_10.risk_reset_result.size = 1
 
 -- Display: Risk Reset Result
@@ -7644,7 +7644,7 @@ end
 -- Risk Status Id
 cboe_edgx_options_orderentry_boe_v2_10.risk_status_id = {}
 
--- Size Of: Risk Status Id
+-- Size: Risk Status Id
 cboe_edgx_options_orderentry_boe_v2_10.risk_status_id.size = 16
 
 -- Display: Risk Status Id
@@ -7715,7 +7715,7 @@ end
 -- Purge Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_17 = {}
 
--- Size Of: Purge Rejected Byte 17
+-- Size: Purge Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_17.size = 1
 
 -- Display: Purge Rejected Byte 17
@@ -7803,7 +7803,7 @@ end
 -- Purge Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_16 = {}
 
--- Size Of: Purge Rejected Byte 16
+-- Size: Purge Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_16.size = 1
 
 -- Display: Purge Rejected Byte 16
@@ -7891,7 +7891,7 @@ end
 -- Purge Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_15 = {}
 
--- Size Of: Purge Rejected Byte 15
+-- Size: Purge Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_15.size = 1
 
 -- Display: Purge Rejected Byte 15
@@ -7979,7 +7979,7 @@ end
 -- Purge Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_14 = {}
 
--- Size Of: Purge Rejected Byte 14
+-- Size: Purge Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_14.size = 1
 
 -- Display: Purge Rejected Byte 14
@@ -8067,7 +8067,7 @@ end
 -- Purge Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_13 = {}
 
--- Size Of: Purge Rejected Byte 13
+-- Size: Purge Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_13.size = 1
 
 -- Display: Purge Rejected Byte 13
@@ -8155,7 +8155,7 @@ end
 -- Purge Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_12 = {}
 
--- Size Of: Purge Rejected Byte 12
+-- Size: Purge Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_12.size = 1
 
 -- Display: Purge Rejected Byte 12
@@ -8243,7 +8243,7 @@ end
 -- Purge Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_11 = {}
 
--- Size Of: Purge Rejected Byte 11
+-- Size: Purge Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_11.size = 1
 
 -- Display: Purge Rejected Byte 11
@@ -8331,7 +8331,7 @@ end
 -- Purge Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_10 = {}
 
--- Size Of: Purge Rejected Byte 10
+-- Size: Purge Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_10.size = 1
 
 -- Display: Purge Rejected Byte 10
@@ -8419,7 +8419,7 @@ end
 -- Purge Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_9 = {}
 
--- Size Of: Purge Rejected Byte 9
+-- Size: Purge Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_9.size = 1
 
 -- Display: Purge Rejected Byte 9
@@ -8507,7 +8507,7 @@ end
 -- Purge Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_8 = {}
 
--- Size Of: Purge Rejected Byte 8
+-- Size: Purge Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_8.size = 1
 
 -- Display: Purge Rejected Byte 8
@@ -8595,7 +8595,7 @@ end
 -- Purge Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_7 = {}
 
--- Size Of: Purge Rejected Byte 7
+-- Size: Purge Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_7.size = 1
 
 -- Display: Purge Rejected Byte 7
@@ -8683,7 +8683,7 @@ end
 -- Purge Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_6 = {}
 
--- Size Of: Purge Rejected Byte 6
+-- Size: Purge Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_6.size = 1
 
 -- Display: Purge Rejected Byte 6
@@ -8771,7 +8771,7 @@ end
 -- Purge Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_5 = {}
 
--- Size Of: Purge Rejected Byte 5
+-- Size: Purge Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_5.size = 1
 
 -- Display: Purge Rejected Byte 5
@@ -8859,7 +8859,7 @@ end
 -- Purge Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_4 = {}
 
--- Size Of: Purge Rejected Byte 4
+-- Size: Purge Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_4.size = 1
 
 -- Display: Purge Rejected Byte 4
@@ -8947,7 +8947,7 @@ end
 -- Purge Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_3 = {}
 
--- Size Of: Purge Rejected Byte 3
+-- Size: Purge Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_3.size = 1
 
 -- Display: Purge Rejected Byte 3
@@ -9035,7 +9035,7 @@ end
 -- Purge Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_2 = {}
 
--- Size Of: Purge Rejected Byte 2
+-- Size: Purge Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_2.size = 1
 
 -- Display: Purge Rejected Byte 2
@@ -9123,7 +9123,7 @@ end
 -- Purge Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_1 = {}
 
--- Size Of: Purge Rejected Byte 1
+-- Size: Purge Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_byte_1.size = 1
 
 -- Display: Purge Rejected Byte 1
@@ -9211,7 +9211,7 @@ end
 -- Purge Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_bitfield_count = {}
 
--- Size Of: Purge Rejected Bitfield Count
+-- Size: Purge Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.purge_rejected_bitfield_count.size = 1
 
 -- Display: Purge Rejected Bitfield Count
@@ -9469,7 +9469,7 @@ end
 -- Purge Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.purge_reject_reason = {}
 
--- Size Of: Purge Reject Reason
+-- Size: Purge Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
@@ -9649,7 +9649,7 @@ end
 -- Cross Exclusion Indicator
 cboe_edgx_options_orderentry_boe_v2_10.cross_exclusion_indicator = {}
 
--- Size Of: Cross Exclusion Indicator
+-- Size: Cross Exclusion Indicator
 cboe_edgx_options_orderentry_boe_v2_10.cross_exclusion_indicator.size = 1
 
 -- Display: Cross Exclusion Indicator
@@ -9679,7 +9679,7 @@ end
 -- Routing Firm Id
 cboe_edgx_options_orderentry_boe_v2_10.routing_firm_id = {}
 
--- Size Of: Routing Firm Id
+-- Size: Routing Firm Id
 cboe_edgx_options_orderentry_boe_v2_10.routing_firm_id.size = 4
 
 -- Display: Routing Firm Id
@@ -9702,7 +9702,7 @@ end
 -- Give Up Firm Id
 cboe_edgx_options_orderentry_boe_v2_10.give_up_firm_id = {}
 
--- Size Of: Give Up Firm Id
+-- Size: Give Up Firm Id
 cboe_edgx_options_orderentry_boe_v2_10.give_up_firm_id.size = 4
 
 -- Display: Give Up Firm Id
@@ -9725,7 +9725,7 @@ end
 -- Cross Id
 cboe_edgx_options_orderentry_boe_v2_10.cross_id = {}
 
--- Size Of: Cross Id
+-- Size: Cross Id
 cboe_edgx_options_orderentry_boe_v2_10.cross_id.size = 20
 
 -- Display: Cross Id
@@ -9748,7 +9748,7 @@ end
 -- Cmta Number
 cboe_edgx_options_orderentry_boe_v2_10.cmta_number = {}
 
--- Size Of: Cmta Number
+-- Size: Cmta Number
 cboe_edgx_options_orderentry_boe_v2_10.cmta_number.size = 4
 
 -- Display: Cmta Number
@@ -9771,7 +9771,7 @@ end
 -- Auction Id
 cboe_edgx_options_orderentry_boe_v2_10.auction_id = {}
 
--- Size Of: Auction Id
+-- Size: Auction Id
 cboe_edgx_options_orderentry_boe_v2_10.auction_id.size = 8
 
 -- Display: Auction Id
@@ -9794,7 +9794,7 @@ end
 -- Target Party Id
 cboe_edgx_options_orderentry_boe_v2_10.target_party_id = {}
 
--- Size Of: Target Party Id
+-- Size: Target Party Id
 cboe_edgx_options_orderentry_boe_v2_10.target_party_id.size = 4
 
 -- Display: Target Party Id
@@ -9817,7 +9817,7 @@ end
 -- Marketing Fee Code
 cboe_edgx_options_orderentry_boe_v2_10.marketing_fee_code = {}
 
--- Size Of: Marketing Fee Code
+-- Size: Marketing Fee Code
 cboe_edgx_options_orderentry_boe_v2_10.marketing_fee_code.size = 2
 
 -- Display: Marketing Fee Code
@@ -9850,7 +9850,7 @@ end
 -- Sub Liquidity Indicator
 cboe_edgx_options_orderentry_boe_v2_10.sub_liquidity_indicator = {}
 
--- Size Of: Sub Liquidity Indicator
+-- Size: Sub Liquidity Indicator
 cboe_edgx_options_orderentry_boe_v2_10.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
@@ -9898,7 +9898,7 @@ end
 -- Corrected Size
 cboe_edgx_options_orderentry_boe_v2_10.corrected_size = {}
 
--- Size Of: Corrected Size
+-- Size: Corrected Size
 cboe_edgx_options_orderentry_boe_v2_10.corrected_size.size = 4
 
 -- Display: Corrected Size
@@ -9921,7 +9921,7 @@ end
 -- Open Close
 cboe_edgx_options_orderentry_boe_v2_10.open_close = {}
 
--- Size Of: Open Close
+-- Size: Open Close
 cboe_edgx_options_orderentry_boe_v2_10.open_close.size = 1
 
 -- Display: Open Close
@@ -9954,7 +9954,7 @@ end
 -- Put Or Call
 cboe_edgx_options_orderentry_boe_v2_10.put_or_call = {}
 
--- Size Of: Put Or Call
+-- Size: Put Or Call
 cboe_edgx_options_orderentry_boe_v2_10.put_or_call.size = 1
 
 -- Display: Put Or Call
@@ -9984,7 +9984,7 @@ end
 -- Strike Price
 cboe_edgx_options_orderentry_boe_v2_10.strike_price = {}
 
--- Size Of: Strike Price
+-- Size: Strike Price
 cboe_edgx_options_orderentry_boe_v2_10.strike_price.size = 8
 
 -- Display: Strike Price
@@ -10007,7 +10007,7 @@ end
 -- Maturity Date
 cboe_edgx_options_orderentry_boe_v2_10.maturity_date = {}
 
--- Size Of: Maturity Date
+-- Size: Maturity Date
 cboe_edgx_options_orderentry_boe_v2_10.maturity_date.size = 4
 
 -- Display: Maturity Date
@@ -10030,7 +10030,7 @@ end
 -- Capacity
 cboe_edgx_options_orderentry_boe_v2_10.capacity = {}
 
--- Size Of: Capacity
+-- Size: Capacity
 cboe_edgx_options_orderentry_boe_v2_10.capacity.size = 1
 
 -- Display: Capacity
@@ -10075,7 +10075,7 @@ end
 -- Trade Cancel Or Correct Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_17 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 17
+-- Size: Trade Cancel Or Correct Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_17.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 17
@@ -10163,7 +10163,7 @@ end
 -- Trade Cancel Or Correct Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_16 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 16
+-- Size: Trade Cancel Or Correct Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_16.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 16
@@ -10251,7 +10251,7 @@ end
 -- Trade Cancel Or Correct Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_15 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 15
+-- Size: Trade Cancel Or Correct Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_15.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 15
@@ -10339,7 +10339,7 @@ end
 -- Trade Cancel Or Correct Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_14 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 14
+-- Size: Trade Cancel Or Correct Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_14.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 14
@@ -10427,7 +10427,7 @@ end
 -- Trade Cancel Or Correct Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_13 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 13
+-- Size: Trade Cancel Or Correct Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_13.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 13
@@ -10515,7 +10515,7 @@ end
 -- Trade Cancel Or Correct Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_12 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 12
+-- Size: Trade Cancel Or Correct Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_12.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 12
@@ -10603,7 +10603,7 @@ end
 -- Trade Cancel Or Correct Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_11 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 11
+-- Size: Trade Cancel Or Correct Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_11.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 11
@@ -10691,7 +10691,7 @@ end
 -- Trade Cancel Or Correct Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_10 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 10
+-- Size: Trade Cancel Or Correct Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_10.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 10
@@ -10779,7 +10779,7 @@ end
 -- Trade Cancel Or Correct Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_9 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 9
+-- Size: Trade Cancel Or Correct Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_9.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 9
@@ -10867,7 +10867,7 @@ end
 -- Trade Cancel Or Correct Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_8 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 8
+-- Size: Trade Cancel Or Correct Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_8.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 8
@@ -10955,7 +10955,7 @@ end
 -- Trade Cancel Or Correct Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_7 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 7
+-- Size: Trade Cancel Or Correct Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_7.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 7
@@ -11043,7 +11043,7 @@ end
 -- Trade Cancel Or Correct Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_6 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 6
+-- Size: Trade Cancel Or Correct Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_6.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 6
@@ -11131,7 +11131,7 @@ end
 -- Trade Cancel Or Correct Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_5 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 5
+-- Size: Trade Cancel Or Correct Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_5.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 5
@@ -11219,7 +11219,7 @@ end
 -- Trade Cancel Or Correct Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_4 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 4
+-- Size: Trade Cancel Or Correct Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_4.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 4
@@ -11307,7 +11307,7 @@ end
 -- Trade Cancel Or Correct Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_3 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 3
+-- Size: Trade Cancel Or Correct Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_3.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 3
@@ -11395,7 +11395,7 @@ end
 -- Trade Cancel Or Correct Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_2 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 2
+-- Size: Trade Cancel Or Correct Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_2.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 2
@@ -11483,7 +11483,7 @@ end
 -- Trade Cancel Or Correct Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_1 = {}
 
--- Size Of: Trade Cancel Or Correct Byte 1
+-- Size: Trade Cancel Or Correct Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_byte_1.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 1
@@ -11571,7 +11571,7 @@ end
 -- Trade Cancel Or Correct Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_bitfield_count = {}
 
--- Size Of: Trade Cancel Or Correct Bitfield Count
+-- Size: Trade Cancel Or Correct Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.trade_cancel_or_correct_bitfield_count.size = 1
 
 -- Display: Trade Cancel Or Correct Bitfield Count
@@ -11964,7 +11964,7 @@ end
 -- Orig Time
 cboe_edgx_options_orderentry_boe_v2_10.orig_time = {}
 
--- Size Of: Orig Time
+-- Size: Orig Time
 cboe_edgx_options_orderentry_boe_v2_10.orig_time.size = 8
 
 -- Display: Orig Time
@@ -11987,7 +11987,7 @@ end
 -- Corrected Price
 cboe_edgx_options_orderentry_boe_v2_10.corrected_price = {}
 
--- Size Of: Corrected Price
+-- Size: Corrected Price
 cboe_edgx_options_orderentry_boe_v2_10.corrected_price.size = 8
 
 -- Display: Corrected Price
@@ -12010,7 +12010,7 @@ end
 -- Last Px
 cboe_edgx_options_orderentry_boe_v2_10.last_px = {}
 
--- Size Of: Last Px
+-- Size: Last Px
 cboe_edgx_options_orderentry_boe_v2_10.last_px.size = 8
 
 -- Display: Last Px
@@ -12033,7 +12033,7 @@ end
 -- Last Shares
 cboe_edgx_options_orderentry_boe_v2_10.last_shares = {}
 
--- Size Of: Last Shares
+-- Size: Last Shares
 cboe_edgx_options_orderentry_boe_v2_10.last_shares.size = 4
 
 -- Display: Last Shares
@@ -12056,7 +12056,7 @@ end
 -- Clearing Account
 cboe_edgx_options_orderentry_boe_v2_10.clearing_account = {}
 
--- Size Of: Clearing Account
+-- Size: Clearing Account
 cboe_edgx_options_orderentry_boe_v2_10.clearing_account.size = 4
 
 -- Display: Clearing Account
@@ -12079,7 +12079,7 @@ end
 -- Clearing Firm
 cboe_edgx_options_orderentry_boe_v2_10.clearing_firm = {}
 
--- Size Of: Clearing Firm
+-- Size: Clearing Firm
 cboe_edgx_options_orderentry_boe_v2_10.clearing_firm.size = 4
 
 -- Display: Clearing Firm
@@ -12102,7 +12102,7 @@ end
 -- Base Liquidity Indicator
 cboe_edgx_options_orderentry_boe_v2_10.base_liquidity_indicator = {}
 
--- Size Of: Base Liquidity Indicator
+-- Size: Base Liquidity Indicator
 cboe_edgx_options_orderentry_boe_v2_10.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
@@ -12138,7 +12138,7 @@ end
 -- Side
 cboe_edgx_options_orderentry_boe_v2_10.side = {}
 
--- Size Of: Side
+-- Size: Side
 cboe_edgx_options_orderentry_boe_v2_10.side.size = 1
 
 -- Display: Side
@@ -12180,7 +12180,7 @@ end
 -- Exec Ref Id
 cboe_edgx_options_orderentry_boe_v2_10.exec_ref_id = {}
 
--- Size Of: Exec Ref Id
+-- Size: Exec Ref Id
 cboe_edgx_options_orderentry_boe_v2_10.exec_ref_id.size = 8
 
 -- Display: Exec Ref Id
@@ -12203,7 +12203,7 @@ end
 -- Order Id
 cboe_edgx_options_orderentry_boe_v2_10.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 cboe_edgx_options_orderentry_boe_v2_10.order_id.size = 8
 
 -- Display: Order Id
@@ -12316,7 +12316,7 @@ end
 -- Fee Code
 cboe_edgx_options_orderentry_boe_v2_10.fee_code = {}
 
--- Size Of: Fee Code
+-- Size: Fee Code
 cboe_edgx_options_orderentry_boe_v2_10.fee_code.size = 2
 
 -- Display: Fee Code
@@ -12339,7 +12339,7 @@ end
 -- Contra Capacity
 cboe_edgx_options_orderentry_boe_v2_10.contra_capacity = {}
 
--- Size Of: Contra Capacity
+-- Size: Contra Capacity
 cboe_edgx_options_orderentry_boe_v2_10.contra_capacity.size = 1
 
 -- Display: Contra Capacity
@@ -12362,7 +12362,7 @@ end
 -- Contra Trader
 cboe_edgx_options_orderentry_boe_v2_10.contra_trader = {}
 
--- Size Of: Contra Trader
+-- Size: Contra Trader
 cboe_edgx_options_orderentry_boe_v2_10.contra_trader.size = 4
 
 -- Display: Contra Trader
@@ -12385,7 +12385,7 @@ end
 -- Leaves Qty
 cboe_edgx_options_orderentry_boe_v2_10.leaves_qty = {}
 
--- Size Of: Leaves Qty
+-- Size: Leaves Qty
 cboe_edgx_options_orderentry_boe_v2_10.leaves_qty.size = 4
 
 -- Display: Leaves Qty
@@ -12408,7 +12408,7 @@ end
 -- Exec Id
 cboe_edgx_options_orderentry_boe_v2_10.exec_id = {}
 
--- Size Of: Exec Id
+-- Size: Exec Id
 cboe_edgx_options_orderentry_boe_v2_10.exec_id.size = 8
 
 -- Display: Exec Id
@@ -12431,7 +12431,7 @@ end
 -- Quote Update Id
 cboe_edgx_options_orderentry_boe_v2_10.quote_update_id = {}
 
--- Size Of: Quote Update Id
+-- Size: Quote Update Id
 cboe_edgx_options_orderentry_boe_v2_10.quote_update_id.size = 16
 
 -- Display: Quote Update Id
@@ -12544,7 +12544,7 @@ end
 -- Alloc Qty
 cboe_edgx_options_orderentry_boe_v2_10.alloc_qty = {}
 
--- Size Of: Alloc Qty
+-- Size: Alloc Qty
 cboe_edgx_options_orderentry_boe_v2_10.alloc_qty.size = 4
 
 -- Display: Alloc Qty
@@ -12567,7 +12567,7 @@ end
 -- Stop Px
 cboe_edgx_options_orderentry_boe_v2_10.stop_px = {}
 
--- Size Of: Stop Px
+-- Size: Stop Px
 cboe_edgx_options_orderentry_boe_v2_10.stop_px.size = 8
 
 -- Display: Stop Px
@@ -12590,7 +12590,7 @@ end
 -- Echo Text
 cboe_edgx_options_orderentry_boe_v2_10.echo_text = {}
 
--- Size Of: Echo Text
+-- Size: Echo Text
 cboe_edgx_options_orderentry_boe_v2_10.echo_text.size = 64
 
 -- Display: Echo Text
@@ -12613,7 +12613,7 @@ end
 -- Max Remove Pct
 cboe_edgx_options_orderentry_boe_v2_10.max_remove_pct = {}
 
--- Size Of: Max Remove Pct
+-- Size: Max Remove Pct
 cboe_edgx_options_orderentry_boe_v2_10.max_remove_pct.size = 1
 
 -- Display: Max Remove Pct
@@ -12636,7 +12636,7 @@ end
 -- Min Qty
 cboe_edgx_options_orderentry_boe_v2_10.min_qty = {}
 
--- Size Of: Min Qty
+-- Size: Min Qty
 cboe_edgx_options_orderentry_boe_v2_10.min_qty.size = 4
 
 -- Display: Min Qty
@@ -12659,7 +12659,7 @@ end
 -- Time In Force
 cboe_edgx_options_orderentry_boe_v2_10.time_in_force = {}
 
--- Size Of: Time In Force
+-- Size: Time In Force
 cboe_edgx_options_orderentry_boe_v2_10.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -12704,7 +12704,7 @@ end
 -- Ord Type
 cboe_edgx_options_orderentry_boe_v2_10.ord_type = {}
 
--- Size Of: Ord Type
+-- Size: Ord Type
 cboe_edgx_options_orderentry_boe_v2_10.ord_type.size = 1
 
 -- Display: Ord Type
@@ -12740,7 +12740,7 @@ end
 -- Exec Inst
 cboe_edgx_options_orderentry_boe_v2_10.exec_inst = {}
 
--- Size Of: Exec Inst
+-- Size: Exec Inst
 cboe_edgx_options_orderentry_boe_v2_10.exec_inst.size = 1
 
 -- Display: Exec Inst
@@ -12773,7 +12773,7 @@ end
 -- Price
 cboe_edgx_options_orderentry_boe_v2_10.price = {}
 
--- Size Of: Price
+-- Size: Price
 cboe_edgx_options_orderentry_boe_v2_10.price.size = 8
 
 -- Display: Price
@@ -12796,7 +12796,7 @@ end
 -- Cancel Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_17 = {}
 
--- Size Of: Cancel Rejected Byte 17
+-- Size: Cancel Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_17.size = 1
 
 -- Display: Cancel Rejected Byte 17
@@ -12884,7 +12884,7 @@ end
 -- Cancel Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_16 = {}
 
--- Size Of: Cancel Rejected Byte 16
+-- Size: Cancel Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_16.size = 1
 
 -- Display: Cancel Rejected Byte 16
@@ -12972,7 +12972,7 @@ end
 -- Cancel Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_15 = {}
 
--- Size Of: Cancel Rejected Byte 15
+-- Size: Cancel Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_15.size = 1
 
 -- Display: Cancel Rejected Byte 15
@@ -13060,7 +13060,7 @@ end
 -- Cancel Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_14 = {}
 
--- Size Of: Cancel Rejected Byte 14
+-- Size: Cancel Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_14.size = 1
 
 -- Display: Cancel Rejected Byte 14
@@ -13148,7 +13148,7 @@ end
 -- Cancel Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_13 = {}
 
--- Size Of: Cancel Rejected Byte 13
+-- Size: Cancel Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_13.size = 1
 
 -- Display: Cancel Rejected Byte 13
@@ -13236,7 +13236,7 @@ end
 -- Cancel Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_12 = {}
 
--- Size Of: Cancel Rejected Byte 12
+-- Size: Cancel Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_12.size = 1
 
 -- Display: Cancel Rejected Byte 12
@@ -13324,7 +13324,7 @@ end
 -- Cancel Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_11 = {}
 
--- Size Of: Cancel Rejected Byte 11
+-- Size: Cancel Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_11.size = 1
 
 -- Display: Cancel Rejected Byte 11
@@ -13412,7 +13412,7 @@ end
 -- Cancel Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_10 = {}
 
--- Size Of: Cancel Rejected Byte 10
+-- Size: Cancel Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_10.size = 1
 
 -- Display: Cancel Rejected Byte 10
@@ -13500,7 +13500,7 @@ end
 -- Cancel Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_9 = {}
 
--- Size Of: Cancel Rejected Byte 9
+-- Size: Cancel Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_9.size = 1
 
 -- Display: Cancel Rejected Byte 9
@@ -13588,7 +13588,7 @@ end
 -- Cancel Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_8 = {}
 
--- Size Of: Cancel Rejected Byte 8
+-- Size: Cancel Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_8.size = 1
 
 -- Display: Cancel Rejected Byte 8
@@ -13676,7 +13676,7 @@ end
 -- Cancel Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_7 = {}
 
--- Size Of: Cancel Rejected Byte 7
+-- Size: Cancel Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_7.size = 1
 
 -- Display: Cancel Rejected Byte 7
@@ -13764,7 +13764,7 @@ end
 -- Cancel Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_6 = {}
 
--- Size Of: Cancel Rejected Byte 6
+-- Size: Cancel Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_6.size = 1
 
 -- Display: Cancel Rejected Byte 6
@@ -13852,7 +13852,7 @@ end
 -- Cancel Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_5 = {}
 
--- Size Of: Cancel Rejected Byte 5
+-- Size: Cancel Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_5.size = 1
 
 -- Display: Cancel Rejected Byte 5
@@ -13940,7 +13940,7 @@ end
 -- Cancel Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_4 = {}
 
--- Size Of: Cancel Rejected Byte 4
+-- Size: Cancel Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_4.size = 1
 
 -- Display: Cancel Rejected Byte 4
@@ -14028,7 +14028,7 @@ end
 -- Cancel Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_3 = {}
 
--- Size Of: Cancel Rejected Byte 3
+-- Size: Cancel Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_3.size = 1
 
 -- Display: Cancel Rejected Byte 3
@@ -14116,7 +14116,7 @@ end
 -- Cancel Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_2 = {}
 
--- Size Of: Cancel Rejected Byte 2
+-- Size: Cancel Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_2.size = 1
 
 -- Display: Cancel Rejected Byte 2
@@ -14204,7 +14204,7 @@ end
 -- Cancel Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_1 = {}
 
--- Size Of: Cancel Rejected Byte 1
+-- Size: Cancel Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_byte_1.size = 1
 
 -- Display: Cancel Rejected Byte 1
@@ -14292,7 +14292,7 @@ end
 -- Cancel Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_bitfield_count = {}
 
--- Size Of: Cancel Rejected Bitfield Count
+-- Size: Cancel Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cancel_rejected_bitfield_count.size = 1
 
 -- Display: Cancel Rejected Bitfield Count
@@ -14775,7 +14775,7 @@ end
 -- Cancel Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.cancel_reject_reason = {}
 
--- Size Of: Cancel Reject Reason
+-- Size: Cancel Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
@@ -14958,7 +14958,7 @@ end
 -- Frequent Trader Id
 cboe_edgx_options_orderentry_boe_v2_10.frequent_trader_id = {}
 
--- Size Of: Frequent Trader Id
+-- Size: Frequent Trader Id
 cboe_edgx_options_orderentry_boe_v2_10.frequent_trader_id.size = 6
 
 -- Display: Frequent Trader Id
@@ -14981,7 +14981,7 @@ end
 -- Equity Party Id
 cboe_edgx_options_orderentry_boe_v2_10.equity_party_id = {}
 
--- Size Of: Equity Party Id
+-- Size: Equity Party Id
 cboe_edgx_options_orderentry_boe_v2_10.equity_party_id.size = 4
 
 -- Display: Equity Party Id
@@ -15004,7 +15004,7 @@ end
 -- Cross Prioritization
 cboe_edgx_options_orderentry_boe_v2_10.cross_prioritization = {}
 
--- Size Of: Cross Prioritization
+-- Size: Cross Prioritization
 cboe_edgx_options_orderentry_boe_v2_10.cross_prioritization.size = 1
 
 -- Display: Cross Prioritization
@@ -15034,7 +15034,7 @@ end
 -- Cross Type
 cboe_edgx_options_orderentry_boe_v2_10.cross_type = {}
 
--- Size Of: Cross Type
+-- Size: Cross Type
 cboe_edgx_options_orderentry_boe_v2_10.cross_type.size = 1
 
 -- Display: Cross Type
@@ -15057,7 +15057,7 @@ end
 -- Attributed Quote
 cboe_edgx_options_orderentry_boe_v2_10.attributed_quote = {}
 
--- Size Of: Attributed Quote
+-- Size: Attributed Quote
 cboe_edgx_options_orderentry_boe_v2_10.attributed_quote.size = 1
 
 -- Display: Attributed Quote
@@ -15093,7 +15093,7 @@ end
 -- Prevent Match
 cboe_edgx_options_orderentry_boe_v2_10.prevent_match = {}
 
--- Size Of: Prevent Match
+-- Size: Prevent Match
 cboe_edgx_options_orderentry_boe_v2_10.prevent_match.size = 3
 
 -- Display: Prevent Match
@@ -15116,7 +15116,7 @@ end
 -- Order Qty
 cboe_edgx_options_orderentry_boe_v2_10.order_qty = {}
 
--- Size Of: Order Qty
+-- Size: Order Qty
 cboe_edgx_options_orderentry_boe_v2_10.order_qty.size = 4
 
 -- Display: Order Qty
@@ -15139,7 +15139,7 @@ end
 -- Account
 cboe_edgx_options_orderentry_boe_v2_10.account = {}
 
--- Size Of: Account
+-- Size: Account
 cboe_edgx_options_orderentry_boe_v2_10.account.size = 16
 
 -- Display: Account
@@ -15162,7 +15162,7 @@ end
 -- Cross Order Cancelled Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_17 = {}
 
--- Size Of: Cross Order Cancelled Byte 17
+-- Size: Cross Order Cancelled Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_17.size = 1
 
 -- Display: Cross Order Cancelled Byte 17
@@ -15250,7 +15250,7 @@ end
 -- Cross Order Cancelled Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_16 = {}
 
--- Size Of: Cross Order Cancelled Byte 16
+-- Size: Cross Order Cancelled Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_16.size = 1
 
 -- Display: Cross Order Cancelled Byte 16
@@ -15338,7 +15338,7 @@ end
 -- Cross Order Cancelled Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_15 = {}
 
--- Size Of: Cross Order Cancelled Byte 15
+-- Size: Cross Order Cancelled Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_15.size = 1
 
 -- Display: Cross Order Cancelled Byte 15
@@ -15426,7 +15426,7 @@ end
 -- Cross Order Cancelled Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_14 = {}
 
--- Size Of: Cross Order Cancelled Byte 14
+-- Size: Cross Order Cancelled Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_14.size = 1
 
 -- Display: Cross Order Cancelled Byte 14
@@ -15514,7 +15514,7 @@ end
 -- Cross Order Cancelled Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_13 = {}
 
--- Size Of: Cross Order Cancelled Byte 13
+-- Size: Cross Order Cancelled Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_13.size = 1
 
 -- Display: Cross Order Cancelled Byte 13
@@ -15602,7 +15602,7 @@ end
 -- Cross Order Cancelled Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_12 = {}
 
--- Size Of: Cross Order Cancelled Byte 12
+-- Size: Cross Order Cancelled Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_12.size = 1
 
 -- Display: Cross Order Cancelled Byte 12
@@ -15690,7 +15690,7 @@ end
 -- Cross Order Cancelled Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_11 = {}
 
--- Size Of: Cross Order Cancelled Byte 11
+-- Size: Cross Order Cancelled Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_11.size = 1
 
 -- Display: Cross Order Cancelled Byte 11
@@ -15778,7 +15778,7 @@ end
 -- Cross Order Cancelled Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_10 = {}
 
--- Size Of: Cross Order Cancelled Byte 10
+-- Size: Cross Order Cancelled Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_10.size = 1
 
 -- Display: Cross Order Cancelled Byte 10
@@ -15866,7 +15866,7 @@ end
 -- Cross Order Cancelled Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_9 = {}
 
--- Size Of: Cross Order Cancelled Byte 9
+-- Size: Cross Order Cancelled Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_9.size = 1
 
 -- Display: Cross Order Cancelled Byte 9
@@ -15954,7 +15954,7 @@ end
 -- Cross Order Cancelled Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_8 = {}
 
--- Size Of: Cross Order Cancelled Byte 8
+-- Size: Cross Order Cancelled Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_8.size = 1
 
 -- Display: Cross Order Cancelled Byte 8
@@ -16042,7 +16042,7 @@ end
 -- Cross Order Cancelled Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_7 = {}
 
--- Size Of: Cross Order Cancelled Byte 7
+-- Size: Cross Order Cancelled Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_7.size = 1
 
 -- Display: Cross Order Cancelled Byte 7
@@ -16130,7 +16130,7 @@ end
 -- Cross Order Cancelled Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_6 = {}
 
--- Size Of: Cross Order Cancelled Byte 6
+-- Size: Cross Order Cancelled Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_6.size = 1
 
 -- Display: Cross Order Cancelled Byte 6
@@ -16218,7 +16218,7 @@ end
 -- Cross Order Cancelled Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_5 = {}
 
--- Size Of: Cross Order Cancelled Byte 5
+-- Size: Cross Order Cancelled Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_5.size = 1
 
 -- Display: Cross Order Cancelled Byte 5
@@ -16306,7 +16306,7 @@ end
 -- Cross Order Cancelled Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_4 = {}
 
--- Size Of: Cross Order Cancelled Byte 4
+-- Size: Cross Order Cancelled Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_4.size = 1
 
 -- Display: Cross Order Cancelled Byte 4
@@ -16394,7 +16394,7 @@ end
 -- Cross Order Cancelled Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_3 = {}
 
--- Size Of: Cross Order Cancelled Byte 3
+-- Size: Cross Order Cancelled Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_3.size = 1
 
 -- Display: Cross Order Cancelled Byte 3
@@ -16482,7 +16482,7 @@ end
 -- Cross Order Cancelled Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_2 = {}
 
--- Size Of: Cross Order Cancelled Byte 2
+-- Size: Cross Order Cancelled Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_2.size = 1
 
 -- Display: Cross Order Cancelled Byte 2
@@ -16570,7 +16570,7 @@ end
 -- Cross Order Cancelled Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_1 = {}
 
--- Size Of: Cross Order Cancelled Byte 1
+-- Size: Cross Order Cancelled Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_byte_1.size = 1
 
 -- Display: Cross Order Cancelled Byte 1
@@ -16658,7 +16658,7 @@ end
 -- Cross Order Cancelled Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_bitfield_count = {}
 
--- Size Of: Cross Order Cancelled Bitfield Count
+-- Size: Cross Order Cancelled Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_cancelled_bitfield_count.size = 1
 
 -- Display: Cross Order Cancelled Bitfield Count
@@ -17117,7 +17117,7 @@ end
 -- Cancel Reason
 cboe_edgx_options_orderentry_boe_v2_10.cancel_reason = {}
 
--- Size Of: Cancel Reason
+-- Size: Cancel Reason
 cboe_edgx_options_orderentry_boe_v2_10.cancel_reason.size = 1
 
 -- Display: Cancel Reason
@@ -17357,7 +17357,7 @@ end
 -- Strategy Id
 cboe_edgx_options_orderentry_boe_v2_10.strategy_id = {}
 
--- Size Of: Strategy Id
+-- Size: Strategy Id
 cboe_edgx_options_orderentry_boe_v2_10.strategy_id.size = 1
 
 -- Display: Strategy Id
@@ -17396,7 +17396,7 @@ end
 -- Price Type
 cboe_edgx_options_orderentry_boe_v2_10.price_type = {}
 
--- Size Of: Price Type
+-- Size: Price Type
 cboe_edgx_options_orderentry_boe_v2_10.price_type.size = 1
 
 -- Display: Price Type
@@ -17432,7 +17432,7 @@ end
 -- Order Origin
 cboe_edgx_options_orderentry_boe_v2_10.order_origin = {}
 
--- Size Of: Order Origin
+-- Size: Order Origin
 cboe_edgx_options_orderentry_boe_v2_10.order_origin.size = 3
 
 -- Display: Order Origin
@@ -17455,7 +17455,7 @@ end
 -- Multi Class Sprd
 cboe_edgx_options_orderentry_boe_v2_10.multi_class_sprd = {}
 
--- Size Of: Multi Class Sprd
+-- Size: Multi Class Sprd
 cboe_edgx_options_orderentry_boe_v2_10.multi_class_sprd.size = 1
 
 -- Display: Multi Class Sprd
@@ -17485,7 +17485,7 @@ end
 -- Ex Destination
 cboe_edgx_options_orderentry_boe_v2_10.ex_destination = {}
 
--- Size Of: Ex Destination
+-- Size: Ex Destination
 cboe_edgx_options_orderentry_boe_v2_10.ex_destination.size = 1
 
 -- Display: Ex Destination
@@ -17554,7 +17554,7 @@ end
 -- Route Delivery Method
 cboe_edgx_options_orderentry_boe_v2_10.route_delivery_method = {}
 
--- Size Of: Route Delivery Method
+-- Size: Route Delivery Method
 cboe_edgx_options_orderentry_boe_v2_10.route_delivery_method.size = 3
 
 -- Display: Route Delivery Method
@@ -17584,7 +17584,7 @@ end
 -- Rout Strategy
 cboe_edgx_options_orderentry_boe_v2_10.rout_strategy = {}
 
--- Size Of: Rout Strategy
+-- Size: Rout Strategy
 cboe_edgx_options_orderentry_boe_v2_10.rout_strategy.size = 6
 
 -- Display: Rout Strategy
@@ -17607,7 +17607,7 @@ end
 -- Routing Inst
 cboe_edgx_options_orderentry_boe_v2_10.routing_inst = {}
 
--- Size Of: Routing Inst
+-- Size: Routing Inst
 cboe_edgx_options_orderentry_boe_v2_10.routing_inst.size = 4
 
 -- Display: Routing Inst
@@ -17630,7 +17630,7 @@ end
 -- Secondary Order Id
 cboe_edgx_options_orderentry_boe_v2_10.secondary_order_id = {}
 
--- Size Of: Secondary Order Id
+-- Size: Secondary Order Id
 cboe_edgx_options_orderentry_boe_v2_10.secondary_order_id.size = 8
 
 -- Display: Secondary Order Id
@@ -17653,7 +17653,7 @@ end
 -- Expire Time
 cboe_edgx_options_orderentry_boe_v2_10.expire_time = {}
 
--- Size Of: Expire Time
+-- Size: Expire Time
 cboe_edgx_options_orderentry_boe_v2_10.expire_time.size = 8
 
 -- Display: Expire Time
@@ -17676,7 +17676,7 @@ end
 -- Working Price
 cboe_edgx_options_orderentry_boe_v2_10.working_price = {}
 
--- Size Of: Working Price
+-- Size: Working Price
 cboe_edgx_options_orderentry_boe_v2_10.working_price.size = 8
 
 -- Display: Working Price
@@ -17699,7 +17699,7 @@ end
 -- Display Price
 cboe_edgx_options_orderentry_boe_v2_10.display_price = {}
 
--- Size Of: Display Price
+-- Size: Display Price
 cboe_edgx_options_orderentry_boe_v2_10.display_price.size = 8
 
 -- Display: Display Price
@@ -17722,7 +17722,7 @@ end
 -- Orig Cl Ord Id
 cboe_edgx_options_orderentry_boe_v2_10.orig_cl_ord_id = {}
 
--- Size Of: Orig Cl Ord Id
+-- Size: Orig Cl Ord Id
 cboe_edgx_options_orderentry_boe_v2_10.orig_cl_ord_id.size = 20
 
 -- Display: Orig Cl Ord Id
@@ -17745,7 +17745,7 @@ end
 -- Max Floor
 cboe_edgx_options_orderentry_boe_v2_10.max_floor = {}
 
--- Size Of: Max Floor
+-- Size: Max Floor
 cboe_edgx_options_orderentry_boe_v2_10.max_floor.size = 4
 
 -- Display: Max Floor
@@ -17768,7 +17768,7 @@ end
 -- Display Indicator
 cboe_edgx_options_orderentry_boe_v2_10.display_indicator = {}
 
--- Size Of: Display Indicator
+-- Size: Display Indicator
 cboe_edgx_options_orderentry_boe_v2_10.display_indicator.size = 1
 
 -- Display: Display Indicator
@@ -17804,7 +17804,7 @@ end
 -- Order Cancelled Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_17 = {}
 
--- Size Of: Order Cancelled Byte 17
+-- Size: Order Cancelled Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_17.size = 1
 
 -- Display: Order Cancelled Byte 17
@@ -17892,7 +17892,7 @@ end
 -- Order Cancelled Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_16 = {}
 
--- Size Of: Order Cancelled Byte 16
+-- Size: Order Cancelled Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_16.size = 1
 
 -- Display: Order Cancelled Byte 16
@@ -17980,7 +17980,7 @@ end
 -- Order Cancelled Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_15 = {}
 
--- Size Of: Order Cancelled Byte 15
+-- Size: Order Cancelled Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_15.size = 1
 
 -- Display: Order Cancelled Byte 15
@@ -18068,7 +18068,7 @@ end
 -- Order Cancelled Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_14 = {}
 
--- Size Of: Order Cancelled Byte 14
+-- Size: Order Cancelled Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_14.size = 1
 
 -- Display: Order Cancelled Byte 14
@@ -18156,7 +18156,7 @@ end
 -- Order Cancelled Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_13 = {}
 
--- Size Of: Order Cancelled Byte 13
+-- Size: Order Cancelled Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_13.size = 1
 
 -- Display: Order Cancelled Byte 13
@@ -18244,7 +18244,7 @@ end
 -- Order Cancelled Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_12 = {}
 
--- Size Of: Order Cancelled Byte 12
+-- Size: Order Cancelled Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_12.size = 1
 
 -- Display: Order Cancelled Byte 12
@@ -18332,7 +18332,7 @@ end
 -- Order Cancelled Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_11 = {}
 
--- Size Of: Order Cancelled Byte 11
+-- Size: Order Cancelled Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_11.size = 1
 
 -- Display: Order Cancelled Byte 11
@@ -18420,7 +18420,7 @@ end
 -- Order Cancelled Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_10 = {}
 
--- Size Of: Order Cancelled Byte 10
+-- Size: Order Cancelled Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_10.size = 1
 
 -- Display: Order Cancelled Byte 10
@@ -18508,7 +18508,7 @@ end
 -- Order Cancelled Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_9 = {}
 
--- Size Of: Order Cancelled Byte 9
+-- Size: Order Cancelled Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_9.size = 1
 
 -- Display: Order Cancelled Byte 9
@@ -18596,7 +18596,7 @@ end
 -- Order Cancelled Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_8 = {}
 
--- Size Of: Order Cancelled Byte 8
+-- Size: Order Cancelled Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_8.size = 1
 
 -- Display: Order Cancelled Byte 8
@@ -18684,7 +18684,7 @@ end
 -- Order Cancelled Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_7 = {}
 
--- Size Of: Order Cancelled Byte 7
+-- Size: Order Cancelled Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_7.size = 1
 
 -- Display: Order Cancelled Byte 7
@@ -18772,7 +18772,7 @@ end
 -- Order Cancelled Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_6 = {}
 
--- Size Of: Order Cancelled Byte 6
+-- Size: Order Cancelled Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_6.size = 1
 
 -- Display: Order Cancelled Byte 6
@@ -18860,7 +18860,7 @@ end
 -- Order Cancelled Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_5 = {}
 
--- Size Of: Order Cancelled Byte 5
+-- Size: Order Cancelled Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_5.size = 1
 
 -- Display: Order Cancelled Byte 5
@@ -18948,7 +18948,7 @@ end
 -- Order Cancelled Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_4 = {}
 
--- Size Of: Order Cancelled Byte 4
+-- Size: Order Cancelled Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_4.size = 1
 
 -- Display: Order Cancelled Byte 4
@@ -19036,7 +19036,7 @@ end
 -- Order Cancelled Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_3 = {}
 
--- Size Of: Order Cancelled Byte 3
+-- Size: Order Cancelled Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_3.size = 1
 
 -- Display: Order Cancelled Byte 3
@@ -19124,7 +19124,7 @@ end
 -- Order Cancelled Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_2 = {}
 
--- Size Of: Order Cancelled Byte 2
+-- Size: Order Cancelled Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_2.size = 1
 
 -- Display: Order Cancelled Byte 2
@@ -19212,7 +19212,7 @@ end
 -- Order Cancelled Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_1 = {}
 
--- Size Of: Order Cancelled Byte 1
+-- Size: Order Cancelled Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_byte_1.size = 1
 
 -- Display: Order Cancelled Byte 1
@@ -19300,7 +19300,7 @@ end
 -- Order Cancelled Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_bitfield_count = {}
 
--- Size Of: Order Cancelled Bitfield Count
+-- Size: Order Cancelled Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_cancelled_bitfield_count.size = 1
 
 -- Display: Order Cancelled Bitfield Count
@@ -20026,7 +20026,7 @@ end
 -- Transact Time
 cboe_edgx_options_orderentry_boe_v2_10.transact_time = {}
 
--- Size Of: Transact Time
+-- Size: Transact Time
 cboe_edgx_options_orderentry_boe_v2_10.transact_time.size = 8
 
 -- Display: Transact Time
@@ -20112,7 +20112,7 @@ end
 -- User Modify Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_17 = {}
 
--- Size Of: User Modify Rejected Byte 17
+-- Size: User Modify Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_17.size = 1
 
 -- Display: User Modify Rejected Byte 17
@@ -20200,7 +20200,7 @@ end
 -- User Modify Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_16 = {}
 
--- Size Of: User Modify Rejected Byte 16
+-- Size: User Modify Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_16.size = 1
 
 -- Display: User Modify Rejected Byte 16
@@ -20288,7 +20288,7 @@ end
 -- User Modify Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_15 = {}
 
--- Size Of: User Modify Rejected Byte 15
+-- Size: User Modify Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_15.size = 1
 
 -- Display: User Modify Rejected Byte 15
@@ -20376,7 +20376,7 @@ end
 -- User Modify Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_14 = {}
 
--- Size Of: User Modify Rejected Byte 14
+-- Size: User Modify Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_14.size = 1
 
 -- Display: User Modify Rejected Byte 14
@@ -20464,7 +20464,7 @@ end
 -- User Modify Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_13 = {}
 
--- Size Of: User Modify Rejected Byte 13
+-- Size: User Modify Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_13.size = 1
 
 -- Display: User Modify Rejected Byte 13
@@ -20552,7 +20552,7 @@ end
 -- User Modify Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_12 = {}
 
--- Size Of: User Modify Rejected Byte 12
+-- Size: User Modify Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_12.size = 1
 
 -- Display: User Modify Rejected Byte 12
@@ -20640,7 +20640,7 @@ end
 -- User Modify Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_11 = {}
 
--- Size Of: User Modify Rejected Byte 11
+-- Size: User Modify Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_11.size = 1
 
 -- Display: User Modify Rejected Byte 11
@@ -20728,7 +20728,7 @@ end
 -- User Modify Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_10 = {}
 
--- Size Of: User Modify Rejected Byte 10
+-- Size: User Modify Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_10.size = 1
 
 -- Display: User Modify Rejected Byte 10
@@ -20816,7 +20816,7 @@ end
 -- User Modify Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_9 = {}
 
--- Size Of: User Modify Rejected Byte 9
+-- Size: User Modify Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_9.size = 1
 
 -- Display: User Modify Rejected Byte 9
@@ -20904,7 +20904,7 @@ end
 -- User Modify Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_8 = {}
 
--- Size Of: User Modify Rejected Byte 8
+-- Size: User Modify Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_8.size = 1
 
 -- Display: User Modify Rejected Byte 8
@@ -20992,7 +20992,7 @@ end
 -- User Modify Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_7 = {}
 
--- Size Of: User Modify Rejected Byte 7
+-- Size: User Modify Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_7.size = 1
 
 -- Display: User Modify Rejected Byte 7
@@ -21080,7 +21080,7 @@ end
 -- User Modify Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_6 = {}
 
--- Size Of: User Modify Rejected Byte 6
+-- Size: User Modify Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_6.size = 1
 
 -- Display: User Modify Rejected Byte 6
@@ -21168,7 +21168,7 @@ end
 -- User Modify Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_5 = {}
 
--- Size Of: User Modify Rejected Byte 5
+-- Size: User Modify Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_5.size = 1
 
 -- Display: User Modify Rejected Byte 5
@@ -21256,7 +21256,7 @@ end
 -- User Modify Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_4 = {}
 
--- Size Of: User Modify Rejected Byte 4
+-- Size: User Modify Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_4.size = 1
 
 -- Display: User Modify Rejected Byte 4
@@ -21344,7 +21344,7 @@ end
 -- User Modify Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_3 = {}
 
--- Size Of: User Modify Rejected Byte 3
+-- Size: User Modify Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_3.size = 1
 
 -- Display: User Modify Rejected Byte 3
@@ -21432,7 +21432,7 @@ end
 -- User Modify Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_2 = {}
 
--- Size Of: User Modify Rejected Byte 2
+-- Size: User Modify Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_2.size = 1
 
 -- Display: User Modify Rejected Byte 2
@@ -21520,7 +21520,7 @@ end
 -- User Modify Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_1 = {}
 
--- Size Of: User Modify Rejected Byte 1
+-- Size: User Modify Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_byte_1.size = 1
 
 -- Display: User Modify Rejected Byte 1
@@ -21608,7 +21608,7 @@ end
 -- User Modify Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_bitfield_count = {}
 
--- Size Of: User Modify Rejected Bitfield Count
+-- Size: User Modify Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.user_modify_rejected_bitfield_count.size = 1
 
 -- Display: User Modify Rejected Bitfield Count
@@ -21902,7 +21902,7 @@ end
 -- Modify Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.modify_reject_reason = {}
 
--- Size Of: Modify Reject Reason
+-- Size: Modify Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
@@ -22085,7 +22085,7 @@ end
 -- Quote Restatement Reason
 cboe_edgx_options_orderentry_boe_v2_10.quote_restatement_reason = {}
 
--- Size Of: Quote Restatement Reason
+-- Size: Quote Restatement Reason
 cboe_edgx_options_orderentry_boe_v2_10.quote_restatement_reason.size = 1
 
 -- Display: Quote Restatement Reason
@@ -22174,7 +22174,7 @@ end
 -- Client Id Attr
 cboe_edgx_options_orderentry_boe_v2_10.client_id_attr = {}
 
--- Size Of: Client Id Attr
+-- Size: Client Id Attr
 cboe_edgx_options_orderentry_boe_v2_10.client_id_attr.size = 4
 
 -- Display: Client Id Attr
@@ -22197,7 +22197,7 @@ end
 -- Order Restated Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_17 = {}
 
--- Size Of: Order Restated Byte 17
+-- Size: Order Restated Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_17.size = 1
 
 -- Display: Order Restated Byte 17
@@ -22285,7 +22285,7 @@ end
 -- Order Restated Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_16 = {}
 
--- Size Of: Order Restated Byte 16
+-- Size: Order Restated Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_16.size = 1
 
 -- Display: Order Restated Byte 16
@@ -22373,7 +22373,7 @@ end
 -- Order Restated Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_15 = {}
 
--- Size Of: Order Restated Byte 15
+-- Size: Order Restated Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_15.size = 1
 
 -- Display: Order Restated Byte 15
@@ -22461,7 +22461,7 @@ end
 -- Order Restated Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_14 = {}
 
--- Size Of: Order Restated Byte 14
+-- Size: Order Restated Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_14.size = 1
 
 -- Display: Order Restated Byte 14
@@ -22549,7 +22549,7 @@ end
 -- Order Restated Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_13 = {}
 
--- Size Of: Order Restated Byte 13
+-- Size: Order Restated Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_13.size = 1
 
 -- Display: Order Restated Byte 13
@@ -22637,7 +22637,7 @@ end
 -- Order Restated Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_12 = {}
 
--- Size Of: Order Restated Byte 12
+-- Size: Order Restated Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_12.size = 1
 
 -- Display: Order Restated Byte 12
@@ -22725,7 +22725,7 @@ end
 -- Order Restated Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_11 = {}
 
--- Size Of: Order Restated Byte 11
+-- Size: Order Restated Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_11.size = 1
 
 -- Display: Order Restated Byte 11
@@ -22813,7 +22813,7 @@ end
 -- Order Restated Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_10 = {}
 
--- Size Of: Order Restated Byte 10
+-- Size: Order Restated Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_10.size = 1
 
 -- Display: Order Restated Byte 10
@@ -22901,7 +22901,7 @@ end
 -- Order Restated Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_9 = {}
 
--- Size Of: Order Restated Byte 9
+-- Size: Order Restated Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_9.size = 1
 
 -- Display: Order Restated Byte 9
@@ -22989,7 +22989,7 @@ end
 -- Order Restated Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_8 = {}
 
--- Size Of: Order Restated Byte 8
+-- Size: Order Restated Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_8.size = 1
 
 -- Display: Order Restated Byte 8
@@ -23077,7 +23077,7 @@ end
 -- Order Restated Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_7 = {}
 
--- Size Of: Order Restated Byte 7
+-- Size: Order Restated Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_7.size = 1
 
 -- Display: Order Restated Byte 7
@@ -23165,7 +23165,7 @@ end
 -- Order Restated Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_6 = {}
 
--- Size Of: Order Restated Byte 6
+-- Size: Order Restated Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_6.size = 1
 
 -- Display: Order Restated Byte 6
@@ -23253,7 +23253,7 @@ end
 -- Order Restated Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_5 = {}
 
--- Size Of: Order Restated Byte 5
+-- Size: Order Restated Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_5.size = 1
 
 -- Display: Order Restated Byte 5
@@ -23341,7 +23341,7 @@ end
 -- Order Restated Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_4 = {}
 
--- Size Of: Order Restated Byte 4
+-- Size: Order Restated Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_4.size = 1
 
 -- Display: Order Restated Byte 4
@@ -23429,7 +23429,7 @@ end
 -- Order Restated Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_3 = {}
 
--- Size Of: Order Restated Byte 3
+-- Size: Order Restated Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_3.size = 1
 
 -- Display: Order Restated Byte 3
@@ -23517,7 +23517,7 @@ end
 -- Order Restated Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_2 = {}
 
--- Size Of: Order Restated Byte 2
+-- Size: Order Restated Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_2.size = 1
 
 -- Display: Order Restated Byte 2
@@ -23605,7 +23605,7 @@ end
 -- Order Restated Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_1 = {}
 
--- Size Of: Order Restated Byte 1
+-- Size: Order Restated Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_byte_1.size = 1
 
 -- Display: Order Restated Byte 1
@@ -23693,7 +23693,7 @@ end
 -- Order Restated Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_bitfield_count = {}
 
--- Size Of: Order Restated Bitfield Count
+-- Size: Order Restated Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_restated_bitfield_count.size = 1
 
 -- Display: Order Restated Bitfield Count
@@ -24419,7 +24419,7 @@ end
 -- Restatement Reason
 cboe_edgx_options_orderentry_boe_v2_10.restatement_reason = {}
 
--- Size Of: Restatement Reason
+-- Size: Restatement Reason
 cboe_edgx_options_orderentry_boe_v2_10.restatement_reason.size = 1
 
 -- Display: Restatement Reason
@@ -24530,7 +24530,7 @@ end
 -- Session Eligibility
 cboe_edgx_options_orderentry_boe_v2_10.session_eligibility = {}
 
--- Size Of: Session Eligibility
+-- Size: Session Eligibility
 cboe_edgx_options_orderentry_boe_v2_10.session_eligibility.size = 1
 
 -- Display: Session Eligibility
@@ -24563,7 +24563,7 @@ end
 -- Drill Thru Protection
 cboe_edgx_options_orderentry_boe_v2_10.drill_thru_protection = {}
 
--- Size Of: Drill Thru Protection
+-- Size: Drill Thru Protection
 cboe_edgx_options_orderentry_boe_v2_10.drill_thru_protection.size = 8
 
 -- Display: Drill Thru Protection
@@ -24586,7 +24586,7 @@ end
 -- Clearing Optional Data
 cboe_edgx_options_orderentry_boe_v2_10.clearing_optional_data = {}
 
--- Size Of: Clearing Optional Data
+-- Size: Clearing Optional Data
 cboe_edgx_options_orderentry_boe_v2_10.clearing_optional_data.size = 16
 
 -- Display: Clearing Optional Data
@@ -24609,7 +24609,7 @@ end
 -- Order Modified Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_17 = {}
 
--- Size Of: Order Modified Byte 17
+-- Size: Order Modified Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_17.size = 1
 
 -- Display: Order Modified Byte 17
@@ -24697,7 +24697,7 @@ end
 -- Order Modified Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_16 = {}
 
--- Size Of: Order Modified Byte 16
+-- Size: Order Modified Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_16.size = 1
 
 -- Display: Order Modified Byte 16
@@ -24785,7 +24785,7 @@ end
 -- Order Modified Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_15 = {}
 
--- Size Of: Order Modified Byte 15
+-- Size: Order Modified Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_15.size = 1
 
 -- Display: Order Modified Byte 15
@@ -24873,7 +24873,7 @@ end
 -- Order Modified Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_14 = {}
 
--- Size Of: Order Modified Byte 14
+-- Size: Order Modified Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_14.size = 1
 
 -- Display: Order Modified Byte 14
@@ -24961,7 +24961,7 @@ end
 -- Order Modified Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_13 = {}
 
--- Size Of: Order Modified Byte 13
+-- Size: Order Modified Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_13.size = 1
 
 -- Display: Order Modified Byte 13
@@ -25049,7 +25049,7 @@ end
 -- Order Modified Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_12 = {}
 
--- Size Of: Order Modified Byte 12
+-- Size: Order Modified Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_12.size = 1
 
 -- Display: Order Modified Byte 12
@@ -25137,7 +25137,7 @@ end
 -- Order Modified Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_11 = {}
 
--- Size Of: Order Modified Byte 11
+-- Size: Order Modified Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_11.size = 1
 
 -- Display: Order Modified Byte 11
@@ -25225,7 +25225,7 @@ end
 -- Order Modified Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_10 = {}
 
--- Size Of: Order Modified Byte 10
+-- Size: Order Modified Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_10.size = 1
 
 -- Display: Order Modified Byte 10
@@ -25313,7 +25313,7 @@ end
 -- Order Modified Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_9 = {}
 
--- Size Of: Order Modified Byte 9
+-- Size: Order Modified Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_9.size = 1
 
 -- Display: Order Modified Byte 9
@@ -25401,7 +25401,7 @@ end
 -- Order Modified Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_8 = {}
 
--- Size Of: Order Modified Byte 8
+-- Size: Order Modified Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_8.size = 1
 
 -- Display: Order Modified Byte 8
@@ -25489,7 +25489,7 @@ end
 -- Order Modified Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_7 = {}
 
--- Size Of: Order Modified Byte 7
+-- Size: Order Modified Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_7.size = 1
 
 -- Display: Order Modified Byte 7
@@ -25577,7 +25577,7 @@ end
 -- Order Modified Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_6 = {}
 
--- Size Of: Order Modified Byte 6
+-- Size: Order Modified Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_6.size = 1
 
 -- Display: Order Modified Byte 6
@@ -25665,7 +25665,7 @@ end
 -- Order Modified Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_5 = {}
 
--- Size Of: Order Modified Byte 5
+-- Size: Order Modified Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_5.size = 1
 
 -- Display: Order Modified Byte 5
@@ -25753,7 +25753,7 @@ end
 -- Order Modified Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_4 = {}
 
--- Size Of: Order Modified Byte 4
+-- Size: Order Modified Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_4.size = 1
 
 -- Display: Order Modified Byte 4
@@ -25841,7 +25841,7 @@ end
 -- Order Modified Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_3 = {}
 
--- Size Of: Order Modified Byte 3
+-- Size: Order Modified Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_3.size = 1
 
 -- Display: Order Modified Byte 3
@@ -25929,7 +25929,7 @@ end
 -- Order Modified Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_2 = {}
 
--- Size Of: Order Modified Byte 2
+-- Size: Order Modified Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_2.size = 1
 
 -- Display: Order Modified Byte 2
@@ -26017,7 +26017,7 @@ end
 -- Order Modified Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_1 = {}
 
--- Size Of: Order Modified Byte 1
+-- Size: Order Modified Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_byte_1.size = 1
 
 -- Display: Order Modified Byte 1
@@ -26105,7 +26105,7 @@ end
 -- Order Modified Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_bitfield_count = {}
 
--- Size Of: Order Modified Bitfield Count
+-- Size: Order Modified Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_modified_bitfield_count.size = 1
 
 -- Display: Order Modified Bitfield Count
@@ -26930,7 +26930,7 @@ end
 -- Reserved 17
 cboe_edgx_options_orderentry_boe_v2_10.reserved_17 = {}
 
--- Size Of: Reserved 17
+-- Size: Reserved 17
 cboe_edgx_options_orderentry_boe_v2_10.reserved_17.size = 17
 
 -- Display: Reserved 17
@@ -26953,7 +26953,7 @@ end
 -- Quote Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.quote_reject_reason = {}
 
--- Size Of: Quote Reject Reason
+-- Size: Quote Reject Reason
 cboe_edgx_options_orderentry_boe_v2_10.quote_reject_reason.size = 1
 
 -- Display: Quote Reject Reason
@@ -27100,7 +27100,7 @@ end
 -- Cross Order Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_17 = {}
 
--- Size Of: Cross Order Rejected Byte 17
+-- Size: Cross Order Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_17.size = 1
 
 -- Display: Cross Order Rejected Byte 17
@@ -27188,7 +27188,7 @@ end
 -- Cross Order Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_16 = {}
 
--- Size Of: Cross Order Rejected Byte 16
+-- Size: Cross Order Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_16.size = 1
 
 -- Display: Cross Order Rejected Byte 16
@@ -27276,7 +27276,7 @@ end
 -- Cross Order Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_15 = {}
 
--- Size Of: Cross Order Rejected Byte 15
+-- Size: Cross Order Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_15.size = 1
 
 -- Display: Cross Order Rejected Byte 15
@@ -27364,7 +27364,7 @@ end
 -- Cross Order Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_14 = {}
 
--- Size Of: Cross Order Rejected Byte 14
+-- Size: Cross Order Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_14.size = 1
 
 -- Display: Cross Order Rejected Byte 14
@@ -27452,7 +27452,7 @@ end
 -- Cross Order Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_13 = {}
 
--- Size Of: Cross Order Rejected Byte 13
+-- Size: Cross Order Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_13.size = 1
 
 -- Display: Cross Order Rejected Byte 13
@@ -27540,7 +27540,7 @@ end
 -- Cross Order Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_12 = {}
 
--- Size Of: Cross Order Rejected Byte 12
+-- Size: Cross Order Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_12.size = 1
 
 -- Display: Cross Order Rejected Byte 12
@@ -27628,7 +27628,7 @@ end
 -- Cross Order Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_11 = {}
 
--- Size Of: Cross Order Rejected Byte 11
+-- Size: Cross Order Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_11.size = 1
 
 -- Display: Cross Order Rejected Byte 11
@@ -27716,7 +27716,7 @@ end
 -- Cross Order Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_10 = {}
 
--- Size Of: Cross Order Rejected Byte 10
+-- Size: Cross Order Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_10.size = 1
 
 -- Display: Cross Order Rejected Byte 10
@@ -27804,7 +27804,7 @@ end
 -- Cross Order Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_9 = {}
 
--- Size Of: Cross Order Rejected Byte 9
+-- Size: Cross Order Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_9.size = 1
 
 -- Display: Cross Order Rejected Byte 9
@@ -27892,7 +27892,7 @@ end
 -- Cross Order Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_8 = {}
 
--- Size Of: Cross Order Rejected Byte 8
+-- Size: Cross Order Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_8.size = 1
 
 -- Display: Cross Order Rejected Byte 8
@@ -27980,7 +27980,7 @@ end
 -- Cross Order Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_7 = {}
 
--- Size Of: Cross Order Rejected Byte 7
+-- Size: Cross Order Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_7.size = 1
 
 -- Display: Cross Order Rejected Byte 7
@@ -28068,7 +28068,7 @@ end
 -- Cross Order Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_6 = {}
 
--- Size Of: Cross Order Rejected Byte 6
+-- Size: Cross Order Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_6.size = 1
 
 -- Display: Cross Order Rejected Byte 6
@@ -28156,7 +28156,7 @@ end
 -- Cross Order Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_5 = {}
 
--- Size Of: Cross Order Rejected Byte 5
+-- Size: Cross Order Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_5.size = 1
 
 -- Display: Cross Order Rejected Byte 5
@@ -28244,7 +28244,7 @@ end
 -- Cross Order Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_4 = {}
 
--- Size Of: Cross Order Rejected Byte 4
+-- Size: Cross Order Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_4.size = 1
 
 -- Display: Cross Order Rejected Byte 4
@@ -28332,7 +28332,7 @@ end
 -- Cross Order Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_3 = {}
 
--- Size Of: Cross Order Rejected Byte 3
+-- Size: Cross Order Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_3.size = 1
 
 -- Display: Cross Order Rejected Byte 3
@@ -28420,7 +28420,7 @@ end
 -- Cross Order Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_2 = {}
 
--- Size Of: Cross Order Rejected Byte 2
+-- Size: Cross Order Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_2.size = 1
 
 -- Display: Cross Order Rejected Byte 2
@@ -28508,7 +28508,7 @@ end
 -- Cross Order Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_1 = {}
 
--- Size Of: Cross Order Rejected Byte 1
+-- Size: Cross Order Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_byte_1.size = 1
 
 -- Display: Cross Order Rejected Byte 1
@@ -28596,7 +28596,7 @@ end
 -- Cross Order Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_bitfield_count = {}
 
--- Size Of: Cross Order Rejected Bitfield Count
+-- Size: Cross Order Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_rejected_bitfield_count.size = 1
 
 -- Display: Cross Order Rejected Bitfield Count
@@ -29055,7 +29055,7 @@ end
 -- Order Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_17 = {}
 
--- Size Of: Order Rejected Byte 17
+-- Size: Order Rejected Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_17.size = 1
 
 -- Display: Order Rejected Byte 17
@@ -29143,7 +29143,7 @@ end
 -- Order Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_16 = {}
 
--- Size Of: Order Rejected Byte 16
+-- Size: Order Rejected Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_16.size = 1
 
 -- Display: Order Rejected Byte 16
@@ -29231,7 +29231,7 @@ end
 -- Order Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_15 = {}
 
--- Size Of: Order Rejected Byte 15
+-- Size: Order Rejected Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_15.size = 1
 
 -- Display: Order Rejected Byte 15
@@ -29319,7 +29319,7 @@ end
 -- Order Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_14 = {}
 
--- Size Of: Order Rejected Byte 14
+-- Size: Order Rejected Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_14.size = 1
 
 -- Display: Order Rejected Byte 14
@@ -29407,7 +29407,7 @@ end
 -- Order Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_13 = {}
 
--- Size Of: Order Rejected Byte 13
+-- Size: Order Rejected Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_13.size = 1
 
 -- Display: Order Rejected Byte 13
@@ -29495,7 +29495,7 @@ end
 -- Order Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_12 = {}
 
--- Size Of: Order Rejected Byte 12
+-- Size: Order Rejected Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_12.size = 1
 
 -- Display: Order Rejected Byte 12
@@ -29583,7 +29583,7 @@ end
 -- Order Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_11 = {}
 
--- Size Of: Order Rejected Byte 11
+-- Size: Order Rejected Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_11.size = 1
 
 -- Display: Order Rejected Byte 11
@@ -29671,7 +29671,7 @@ end
 -- Order Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_10 = {}
 
--- Size Of: Order Rejected Byte 10
+-- Size: Order Rejected Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_10.size = 1
 
 -- Display: Order Rejected Byte 10
@@ -29759,7 +29759,7 @@ end
 -- Order Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_9 = {}
 
--- Size Of: Order Rejected Byte 9
+-- Size: Order Rejected Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_9.size = 1
 
 -- Display: Order Rejected Byte 9
@@ -29847,7 +29847,7 @@ end
 -- Order Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_8 = {}
 
--- Size Of: Order Rejected Byte 8
+-- Size: Order Rejected Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_8.size = 1
 
 -- Display: Order Rejected Byte 8
@@ -29935,7 +29935,7 @@ end
 -- Order Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_7 = {}
 
--- Size Of: Order Rejected Byte 7
+-- Size: Order Rejected Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_7.size = 1
 
 -- Display: Order Rejected Byte 7
@@ -30023,7 +30023,7 @@ end
 -- Order Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_6 = {}
 
--- Size Of: Order Rejected Byte 6
+-- Size: Order Rejected Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_6.size = 1
 
 -- Display: Order Rejected Byte 6
@@ -30111,7 +30111,7 @@ end
 -- Order Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_5 = {}
 
--- Size Of: Order Rejected Byte 5
+-- Size: Order Rejected Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_5.size = 1
 
 -- Display: Order Rejected Byte 5
@@ -30199,7 +30199,7 @@ end
 -- Order Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_4 = {}
 
--- Size Of: Order Rejected Byte 4
+-- Size: Order Rejected Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_4.size = 1
 
 -- Display: Order Rejected Byte 4
@@ -30287,7 +30287,7 @@ end
 -- Order Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_3 = {}
 
--- Size Of: Order Rejected Byte 3
+-- Size: Order Rejected Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_3.size = 1
 
 -- Display: Order Rejected Byte 3
@@ -30375,7 +30375,7 @@ end
 -- Order Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_2 = {}
 
--- Size Of: Order Rejected Byte 2
+-- Size: Order Rejected Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_2.size = 1
 
 -- Display: Order Rejected Byte 2
@@ -30463,7 +30463,7 @@ end
 -- Order Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_1 = {}
 
--- Size Of: Order Rejected Byte 1
+-- Size: Order Rejected Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_byte_1.size = 1
 
 -- Display: Order Rejected Byte 1
@@ -30551,7 +30551,7 @@ end
 -- Order Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_bitfield_count = {}
 
--- Size Of: Order Rejected Bitfield Count
+-- Size: Order Rejected Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_rejected_bitfield_count.size = 1
 
 -- Display: Order Rejected Bitfield Count
@@ -31289,7 +31289,7 @@ end
 -- Reserved 6
 cboe_edgx_options_orderentry_boe_v2_10.reserved_6 = {}
 
--- Size Of: Reserved 6
+-- Size: Reserved 6
 cboe_edgx_options_orderentry_boe_v2_10.reserved_6.size = 6
 
 -- Display: Reserved 6
@@ -31312,7 +31312,7 @@ end
 -- Quote Liquidity Indicator
 cboe_edgx_options_orderentry_boe_v2_10.quote_liquidity_indicator = {}
 
--- Size Of: Quote Liquidity Indicator
+-- Size: Quote Liquidity Indicator
 cboe_edgx_options_orderentry_boe_v2_10.quote_liquidity_indicator.size = 1
 
 -- Display: Quote Liquidity Indicator
@@ -31351,7 +31351,7 @@ end
 -- Quote Result
 cboe_edgx_options_orderentry_boe_v2_10.quote_result = {}
 
--- Size Of: Quote Result
+-- Size: Quote Result
 cboe_edgx_options_orderentry_boe_v2_10.quote_result.size = 1
 
 -- Display: Quote Result
@@ -31426,12 +31426,20 @@ end
 -- Quote Result Group
 cboe_edgx_options_orderentry_boe_v2_10.quote_result_group = {}
 
--- Size Of: Quote Result Group
-cboe_edgx_options_orderentry_boe_v2_10.quote_result_group.size =
-  cboe_edgx_options_orderentry_boe_v2_10.order_id.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.quote_result.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.quote_liquidity_indicator.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.reserved_6.size;
+-- Calculate size of: Quote Result Group
+cboe_edgx_options_orderentry_boe_v2_10.quote_result_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.order_id.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.quote_result.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.quote_liquidity_indicator.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.reserved_6.size
+
+  return index
+end
 
 -- Display: Quote Result Group
 cboe_edgx_options_orderentry_boe_v2_10.quote_result_group.display = function(packet, parent, length)
@@ -31484,7 +31492,7 @@ end
 -- Number Of Quote Results
 cboe_edgx_options_orderentry_boe_v2_10.number_of_quote_results = {}
 
--- Size Of: Number Of Quote Results
+-- Size: Number Of Quote Results
 cboe_edgx_options_orderentry_boe_v2_10.number_of_quote_results.size = 1
 
 -- Display: Number Of Quote Results
@@ -31569,7 +31577,7 @@ end
 -- Cross Order Acknowledgment Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_17 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 17
+-- Size: Cross Order Acknowledgment Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_17.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 17
@@ -31657,7 +31665,7 @@ end
 -- Cross Order Acknowledgment Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_16 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 16
+-- Size: Cross Order Acknowledgment Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_16.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 16
@@ -31745,7 +31753,7 @@ end
 -- Cross Order Acknowledgment Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_15 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 15
+-- Size: Cross Order Acknowledgment Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_15.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 15
@@ -31833,7 +31841,7 @@ end
 -- Cross Order Acknowledgment Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_14 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 14
+-- Size: Cross Order Acknowledgment Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_14.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 14
@@ -31921,7 +31929,7 @@ end
 -- Cross Order Acknowledgment Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_13 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 13
+-- Size: Cross Order Acknowledgment Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_13.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 13
@@ -32009,7 +32017,7 @@ end
 -- Cross Order Acknowledgment Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_12 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 12
+-- Size: Cross Order Acknowledgment Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_12.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 12
@@ -32097,7 +32105,7 @@ end
 -- Cross Order Acknowledgment Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_11 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 11
+-- Size: Cross Order Acknowledgment Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_11.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 11
@@ -32185,7 +32193,7 @@ end
 -- Cross Order Acknowledgment Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_10 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 10
+-- Size: Cross Order Acknowledgment Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_10.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 10
@@ -32273,7 +32281,7 @@ end
 -- Cross Order Acknowledgment Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_9 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 9
+-- Size: Cross Order Acknowledgment Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_9.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 9
@@ -32361,7 +32369,7 @@ end
 -- Cross Order Acknowledgment Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_8 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 8
+-- Size: Cross Order Acknowledgment Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_8.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 8
@@ -32449,7 +32457,7 @@ end
 -- Cross Order Acknowledgment Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_7 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 7
+-- Size: Cross Order Acknowledgment Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_7.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 7
@@ -32537,7 +32545,7 @@ end
 -- Cross Order Acknowledgment Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_6 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 6
+-- Size: Cross Order Acknowledgment Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_6.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 6
@@ -32625,7 +32633,7 @@ end
 -- Cross Order Acknowledgment Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_5 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 5
+-- Size: Cross Order Acknowledgment Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_5.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 5
@@ -32713,7 +32721,7 @@ end
 -- Cross Order Acknowledgment Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_4 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 4
+-- Size: Cross Order Acknowledgment Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_4.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 4
@@ -32801,7 +32809,7 @@ end
 -- Cross Order Acknowledgment Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_3 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 3
+-- Size: Cross Order Acknowledgment Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_3.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 3
@@ -32889,7 +32897,7 @@ end
 -- Cross Order Acknowledgment Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_2 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 2
+-- Size: Cross Order Acknowledgment Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_2.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 2
@@ -32977,7 +32985,7 @@ end
 -- Cross Order Acknowledgment Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_1 = {}
 
--- Size Of: Cross Order Acknowledgment Byte 1
+-- Size: Cross Order Acknowledgment Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_byte_1.size = 1
 
 -- Display: Cross Order Acknowledgment Byte 1
@@ -33065,7 +33073,7 @@ end
 -- Cross Order Acknowledgment Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_bitfield_count = {}
 
--- Size Of: Cross Order Acknowledgment Bitfield Count
+-- Size: Cross Order Acknowledgment Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cross_order_acknowledgment_bitfield_count.size = 1
 
 -- Display: Cross Order Acknowledgment Bitfield Count
@@ -33620,7 +33628,7 @@ end
 -- Order Acknowledgment Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_17 = {}
 
--- Size Of: Order Acknowledgment Byte 17
+-- Size: Order Acknowledgment Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_17.size = 1
 
 -- Display: Order Acknowledgment Byte 17
@@ -33708,7 +33716,7 @@ end
 -- Order Acknowledgment Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_16 = {}
 
--- Size Of: Order Acknowledgment Byte 16
+-- Size: Order Acknowledgment Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_16.size = 1
 
 -- Display: Order Acknowledgment Byte 16
@@ -33796,7 +33804,7 @@ end
 -- Order Acknowledgment Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_15 = {}
 
--- Size Of: Order Acknowledgment Byte 15
+-- Size: Order Acknowledgment Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_15.size = 1
 
 -- Display: Order Acknowledgment Byte 15
@@ -33884,7 +33892,7 @@ end
 -- Order Acknowledgment Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_14 = {}
 
--- Size Of: Order Acknowledgment Byte 14
+-- Size: Order Acknowledgment Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_14.size = 1
 
 -- Display: Order Acknowledgment Byte 14
@@ -33972,7 +33980,7 @@ end
 -- Order Acknowledgment Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_13 = {}
 
--- Size Of: Order Acknowledgment Byte 13
+-- Size: Order Acknowledgment Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_13.size = 1
 
 -- Display: Order Acknowledgment Byte 13
@@ -34060,7 +34068,7 @@ end
 -- Order Acknowledgment Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_12 = {}
 
--- Size Of: Order Acknowledgment Byte 12
+-- Size: Order Acknowledgment Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_12.size = 1
 
 -- Display: Order Acknowledgment Byte 12
@@ -34148,7 +34156,7 @@ end
 -- Order Acknowledgment Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_11 = {}
 
--- Size Of: Order Acknowledgment Byte 11
+-- Size: Order Acknowledgment Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_11.size = 1
 
 -- Display: Order Acknowledgment Byte 11
@@ -34236,7 +34244,7 @@ end
 -- Order Acknowledgment Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_10 = {}
 
--- Size Of: Order Acknowledgment Byte 10
+-- Size: Order Acknowledgment Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_10.size = 1
 
 -- Display: Order Acknowledgment Byte 10
@@ -34324,7 +34332,7 @@ end
 -- Order Acknowledgment Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_9 = {}
 
--- Size Of: Order Acknowledgment Byte 9
+-- Size: Order Acknowledgment Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_9.size = 1
 
 -- Display: Order Acknowledgment Byte 9
@@ -34412,7 +34420,7 @@ end
 -- Order Acknowledgment Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_8 = {}
 
--- Size Of: Order Acknowledgment Byte 8
+-- Size: Order Acknowledgment Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_8.size = 1
 
 -- Display: Order Acknowledgment Byte 8
@@ -34500,7 +34508,7 @@ end
 -- Order Acknowledgment Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_7 = {}
 
--- Size Of: Order Acknowledgment Byte 7
+-- Size: Order Acknowledgment Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_7.size = 1
 
 -- Display: Order Acknowledgment Byte 7
@@ -34588,7 +34596,7 @@ end
 -- Order Acknowledgment Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_6 = {}
 
--- Size Of: Order Acknowledgment Byte 6
+-- Size: Order Acknowledgment Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_6.size = 1
 
 -- Display: Order Acknowledgment Byte 6
@@ -34676,7 +34684,7 @@ end
 -- Order Acknowledgment Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_5 = {}
 
--- Size Of: Order Acknowledgment Byte 5
+-- Size: Order Acknowledgment Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_5.size = 1
 
 -- Display: Order Acknowledgment Byte 5
@@ -34764,7 +34772,7 @@ end
 -- Order Acknowledgment Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_4 = {}
 
--- Size Of: Order Acknowledgment Byte 4
+-- Size: Order Acknowledgment Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_4.size = 1
 
 -- Display: Order Acknowledgment Byte 4
@@ -34852,7 +34860,7 @@ end
 -- Order Acknowledgment Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_3 = {}
 
--- Size Of: Order Acknowledgment Byte 3
+-- Size: Order Acknowledgment Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_3.size = 1
 
 -- Display: Order Acknowledgment Byte 3
@@ -34940,7 +34948,7 @@ end
 -- Order Acknowledgment Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_2 = {}
 
--- Size Of: Order Acknowledgment Byte 2
+-- Size: Order Acknowledgment Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_2.size = 1
 
 -- Display: Order Acknowledgment Byte 2
@@ -35028,7 +35036,7 @@ end
 -- Order Acknowledgment Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_1 = {}
 
--- Size Of: Order Acknowledgment Byte 1
+-- Size: Order Acknowledgment Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_byte_1.size = 1
 
 -- Display: Order Acknowledgment Byte 1
@@ -35116,7 +35124,7 @@ end
 -- Order Acknowledgment Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_bitfield_count = {}
 
--- Size Of: Order Acknowledgment Bitfield Count
+-- Size: Order Acknowledgment Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_acknowledgment_bitfield_count.size = 1
 
 -- Display: Order Acknowledgment Bitfield Count
@@ -35941,7 +35949,7 @@ end
 -- New Complex Instrument Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_complex_instrument_byte_1 = {}
 
--- Size Of: New Complex Instrument Byte 1
+-- Size: New Complex Instrument Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_complex_instrument_byte_1.size = 1
 
 -- Display: New Complex Instrument Byte 1
@@ -36029,7 +36037,7 @@ end
 -- New Complex Instrument Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_complex_instrument_bitfield_count = {}
 
--- Size Of: New Complex Instrument Bitfield Count
+-- Size: New Complex Instrument Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_complex_instrument_bitfield_count.size = 1
 
 -- Display: New Complex Instrument Bitfield Count
@@ -36192,7 +36200,7 @@ end
 -- Custom Group Id
 cboe_edgx_options_orderentry_boe_v2_10.custom_group_id = {}
 
--- Size Of: Custom Group Id
+-- Size: Custom Group Id
 cboe_edgx_options_orderentry_boe_v2_10.custom_group_id.size = 2
 
 -- Display: Custom Group Id
@@ -36215,7 +36223,7 @@ end
 -- Risk Root
 cboe_edgx_options_orderentry_boe_v2_10.risk_root = {}
 
--- Size Of: Risk Root
+-- Size: Risk Root
 cboe_edgx_options_orderentry_boe_v2_10.risk_root.size = 6
 
 -- Display: Risk Root
@@ -36238,7 +36246,7 @@ end
 -- Reserved 4
 cboe_edgx_options_orderentry_boe_v2_10.reserved_4 = {}
 
--- Size Of: Reserved 4
+-- Size: Reserved 4
 cboe_edgx_options_orderentry_boe_v2_10.reserved_4.size = 4
 
 -- Display: Reserved 4
@@ -36261,7 +36269,7 @@ end
 -- Risk Reset
 cboe_edgx_options_orderentry_boe_v2_10.risk_reset = {}
 
--- Size Of: Risk Reset
+-- Size: Risk Reset
 cboe_edgx_options_orderentry_boe_v2_10.risk_reset.size = 8
 
 -- Display: Risk Reset
@@ -36344,7 +36352,7 @@ end
 -- Cancel Orig On Reject
 cboe_edgx_options_orderentry_boe_v2_10.cancel_orig_on_reject = {}
 
--- Size Of: Cancel Orig On Reject
+-- Size: Cancel Orig On Reject
 cboe_edgx_options_orderentry_boe_v2_10.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
@@ -36374,7 +36382,7 @@ end
 -- Modify Order Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.modify_order_byte_2 = {}
 
--- Size Of: Modify Order Byte 2
+-- Size: Modify Order Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.modify_order_byte_2.size = 1
 
 -- Display: Modify Order Byte 2
@@ -36462,7 +36470,7 @@ end
 -- Modify Order Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.modify_order_byte_1 = {}
 
--- Size Of: Modify Order Byte 1
+-- Size: Modify Order Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.modify_order_byte_1.size = 1
 
 -- Display: Modify Order Byte 1
@@ -36550,7 +36558,7 @@ end
 -- Modify Order Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.modify_order_bitfield_count = {}
 
--- Size Of: Modify Order Bitfield Count
+-- Size: Modify Order Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.modify_order_bitfield_count.size = 1
 
 -- Display: Modify Order Bitfield Count
@@ -36724,7 +36732,7 @@ end
 -- Mass Cancel
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel = {}
 
--- Size Of: Mass Cancel
+-- Size: Mass Cancel
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel.size = 1
 
 -- Display: Mass Cancel
@@ -36801,7 +36809,7 @@ end
 -- Reserved 2
 cboe_edgx_options_orderentry_boe_v2_10.reserved_2 = {}
 
--- Size Of: Reserved 2
+-- Size: Reserved 2
 cboe_edgx_options_orderentry_boe_v2_10.reserved_2.size = 2
 
 -- Display: Reserved 2
@@ -36824,14 +36832,24 @@ end
 -- Short Quote Update
 cboe_edgx_options_orderentry_boe_v2_10.short_quote_update = {}
 
--- Size Of: Short Quote Update
-cboe_edgx_options_orderentry_boe_v2_10.short_quote_update.size =
-  cboe_edgx_options_orderentry_boe_v2_10.symbol.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.side.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.open_close.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.price.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.order_qty.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.reserved_2.size;
+-- Calculate size of: Short Quote Update
+cboe_edgx_options_orderentry_boe_v2_10.short_quote_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.symbol.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.side.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.open_close.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.price.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.order_qty.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.reserved_2.size
+
+  return index
+end
 
 -- Display: Short Quote Update
 cboe_edgx_options_orderentry_boe_v2_10.short_quote_update.display = function(packet, parent, length)
@@ -36890,7 +36908,7 @@ end
 -- Number Of Short Quote Updates
 cboe_edgx_options_orderentry_boe_v2_10.number_of_short_quote_updates = {}
 
--- Size Of: Number Of Short Quote Updates
+-- Size: Number Of Short Quote Updates
 cboe_edgx_options_orderentry_boe_v2_10.number_of_short_quote_updates.size = 1
 
 -- Display: Number Of Short Quote Updates
@@ -36913,7 +36931,7 @@ end
 -- Posting Instruction
 cboe_edgx_options_orderentry_boe_v2_10.posting_instruction = {}
 
--- Size Of: Posting Instruction
+-- Size: Posting Instruction
 cboe_edgx_options_orderentry_boe_v2_10.posting_instruction.size = 1
 
 -- Display: Posting Instruction
@@ -36949,7 +36967,7 @@ end
 -- Send Time
 cboe_edgx_options_orderentry_boe_v2_10.send_time = {}
 
--- Size Of: Send Time
+-- Size: Send Time
 cboe_edgx_options_orderentry_boe_v2_10.send_time.size = 8
 
 -- Display: Send Time
@@ -36972,7 +36990,7 @@ end
 -- Reserved 3
 cboe_edgx_options_orderentry_boe_v2_10.reserved_3 = {}
 
--- Size Of: Reserved 3
+-- Size: Reserved 3
 cboe_edgx_options_orderentry_boe_v2_10.reserved_3.size = 3
 
 -- Display: Reserved 3
@@ -37072,7 +37090,7 @@ end
 -- Reserved 12
 cboe_edgx_options_orderentry_boe_v2_10.reserved_12 = {}
 
--- Size Of: Reserved 12
+-- Size: Reserved 12
 cboe_edgx_options_orderentry_boe_v2_10.reserved_12.size = 12
 
 -- Display: Reserved 12
@@ -37095,14 +37113,24 @@ end
 -- Quote Update
 cboe_edgx_options_orderentry_boe_v2_10.quote_update = {}
 
--- Size Of: Quote Update
-cboe_edgx_options_orderentry_boe_v2_10.quote_update.size =
-  cboe_edgx_options_orderentry_boe_v2_10.symbol.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.side.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.open_close.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.price.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.order_qty.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.reserved_12.size;
+-- Calculate size of: Quote Update
+cboe_edgx_options_orderentry_boe_v2_10.quote_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.symbol.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.side.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.open_close.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.price.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.order_qty.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.reserved_12.size
+
+  return index
+end
 
 -- Display: Quote Update
 cboe_edgx_options_orderentry_boe_v2_10.quote_update.display = function(packet, parent, length)
@@ -37161,7 +37189,7 @@ end
 -- Number Of Quote Updates
 cboe_edgx_options_orderentry_boe_v2_10.number_of_quote_updates = {}
 
--- Size Of: Number Of Quote Updates
+-- Size: Number Of Quote Updates
 cboe_edgx_options_orderentry_boe_v2_10.number_of_quote_updates.size = 1
 
 -- Display: Number Of Quote Updates
@@ -37184,7 +37212,7 @@ end
 -- Reserved 15
 cboe_edgx_options_orderentry_boe_v2_10.reserved_15 = {}
 
--- Size Of: Reserved 15
+-- Size: Reserved 15
 cboe_edgx_options_orderentry_boe_v2_10.reserved_15.size = 15
 
 -- Display: Reserved 15
@@ -37347,7 +37375,7 @@ end
 -- Mass Cancel Inst
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel_inst = {}
 
--- Size Of: Mass Cancel Inst
+-- Size: Mass Cancel Inst
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel_inst.size = 16
 
 -- Display: Mass Cancel Inst
@@ -37370,7 +37398,7 @@ end
 -- Mass Cancel Lockout
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel_lockout = {}
 
--- Size Of: Mass Cancel Lockout
+-- Size: Mass Cancel Lockout
 cboe_edgx_options_orderentry_boe_v2_10.mass_cancel_lockout.size = 1
 
 -- Display: Mass Cancel Lockout
@@ -37400,7 +37428,7 @@ end
 -- Cancel Order Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cancel_order_byte_2 = {}
 
--- Size Of: Cancel Order Byte 2
+-- Size: Cancel Order Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.cancel_order_byte_2.size = 1
 
 -- Display: Cancel Order Byte 2
@@ -37488,7 +37516,7 @@ end
 -- Cancel Order Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cancel_order_byte_1 = {}
 
--- Size Of: Cancel Order Byte 1
+-- Size: Cancel Order Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.cancel_order_byte_1.size = 1
 
 -- Display: Cancel Order Byte 1
@@ -37576,7 +37604,7 @@ end
 -- Cancel Order Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cancel_order_bitfield_count = {}
 
--- Size Of: Cancel Order Bitfield Count
+-- Size: Cancel Order Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.cancel_order_bitfield_count.size = 1
 
 -- Display: Cancel Order Bitfield Count
@@ -37777,7 +37805,7 @@ end
 -- Ors
 cboe_edgx_options_orderentry_boe_v2_10.ors = {}
 
--- Size Of: Ors
+-- Size: Ors
 cboe_edgx_options_orderentry_boe_v2_10.ors.size = 1
 
 -- Display: Ors
@@ -37807,7 +37835,7 @@ end
 -- Equity Ex Destination
 cboe_edgx_options_orderentry_boe_v2_10.equity_ex_destination = {}
 
--- Size Of: Equity Ex Destination
+-- Size: Equity Ex Destination
 cboe_edgx_options_orderentry_boe_v2_10.equity_ex_destination.size = 1
 
 -- Display: Equity Ex Destination
@@ -37834,7 +37862,7 @@ end
 -- Equity Leg Short Sell
 cboe_edgx_options_orderentry_boe_v2_10.equity_leg_short_sell = {}
 
--- Size Of: Equity Leg Short Sell
+-- Size: Equity Leg Short Sell
 cboe_edgx_options_orderentry_boe_v2_10.equity_leg_short_sell.size = 1
 
 -- Display: Equity Leg Short Sell
@@ -37870,7 +37898,7 @@ end
 -- Equity Sell Clearing Firm
 cboe_edgx_options_orderentry_boe_v2_10.equity_sell_clearing_firm = {}
 
--- Size Of: Equity Sell Clearing Firm
+-- Size: Equity Sell Clearing Firm
 cboe_edgx_options_orderentry_boe_v2_10.equity_sell_clearing_firm.size = 4
 
 -- Display: Equity Sell Clearing Firm
@@ -37893,7 +37921,7 @@ end
 -- Equity Buy Clearing Firm
 cboe_edgx_options_orderentry_boe_v2_10.equity_buy_clearing_firm = {}
 
--- Size Of: Equity Buy Clearing Firm
+-- Size: Equity Buy Clearing Firm
 cboe_edgx_options_orderentry_boe_v2_10.equity_buy_clearing_firm.size = 4
 
 -- Display: Equity Buy Clearing Firm
@@ -37916,7 +37944,7 @@ end
 -- Equity Transact Time
 cboe_edgx_options_orderentry_boe_v2_10.equity_transact_time = {}
 
--- Size Of: Equity Transact Time
+-- Size: Equity Transact Time
 cboe_edgx_options_orderentry_boe_v2_10.equity_transact_time.size = 8
 
 -- Display: Equity Transact Time
@@ -37939,7 +37967,7 @@ end
 -- Equity Trade Venue
 cboe_edgx_options_orderentry_boe_v2_10.equity_trade_venue = {}
 
--- Size Of: Equity Trade Venue
+-- Size: Equity Trade Venue
 cboe_edgx_options_orderentry_boe_v2_10.equity_trade_venue.size = 1
 
 -- Display: Equity Trade Venue
@@ -38002,7 +38030,7 @@ end
 -- Equity Trade Size
 cboe_edgx_options_orderentry_boe_v2_10.equity_trade_size = {}
 
--- Size Of: Equity Trade Size
+-- Size: Equity Trade Size
 cboe_edgx_options_orderentry_boe_v2_10.equity_trade_size.size = 4
 
 -- Display: Equity Trade Size
@@ -38025,7 +38053,7 @@ end
 -- Equity Trade Price
 cboe_edgx_options_orderentry_boe_v2_10.equity_trade_price = {}
 
--- Size Of: Equity Trade Price
+-- Size: Equity Trade Price
 cboe_edgx_options_orderentry_boe_v2_10.equity_trade_price.size = 8
 
 -- Display: Equity Trade Price
@@ -38048,7 +38076,7 @@ end
 -- Last Priority
 cboe_edgx_options_orderentry_boe_v2_10.last_priority = {}
 
--- Size Of: Last Priority
+-- Size: Last Priority
 cboe_edgx_options_orderentry_boe_v2_10.last_priority.size = 1
 
 -- Display: Last Priority
@@ -38071,7 +38099,7 @@ end
 -- Auto Match Price
 cboe_edgx_options_orderentry_boe_v2_10.auto_match_price = {}
 
--- Size Of: Auto Match Price
+-- Size: Auto Match Price
 cboe_edgx_options_orderentry_boe_v2_10.auto_match_price.size = 8
 
 -- Display: Auto Match Price
@@ -38094,7 +38122,7 @@ end
 -- Auto Match
 cboe_edgx_options_orderentry_boe_v2_10.auto_match = {}
 
--- Size Of: Auto Match
+-- Size: Auto Match
 cboe_edgx_options_orderentry_boe_v2_10.auto_match.size = 1
 
 -- Display: Auto Match
@@ -38130,7 +38158,7 @@ end
 -- New Order Cross Multileg Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_5 = {}
 
--- Size Of: New Order Cross Multileg Byte 5
+-- Size: New Order Cross Multileg Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_5.size = 1
 
 -- Display: New Order Cross Multileg Byte 5
@@ -38218,7 +38246,7 @@ end
 -- New Order Cross Multileg Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_4 = {}
 
--- Size Of: New Order Cross Multileg Byte 4
+-- Size: New Order Cross Multileg Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_4.size = 1
 
 -- Display: New Order Cross Multileg Byte 4
@@ -38306,7 +38334,7 @@ end
 -- New Order Cross Multileg Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_3 = {}
 
--- Size Of: New Order Cross Multileg Byte 3
+-- Size: New Order Cross Multileg Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_3.size = 1
 
 -- Display: New Order Cross Multileg Byte 3
@@ -38394,7 +38422,7 @@ end
 -- New Order Cross Multileg Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_2 = {}
 
--- Size Of: New Order Cross Multileg Byte 2
+-- Size: New Order Cross Multileg Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_2.size = 1
 
 -- Display: New Order Cross Multileg Byte 2
@@ -38482,7 +38510,7 @@ end
 -- New Order Cross Multileg Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_1 = {}
 
--- Size Of: New Order Cross Multileg Byte 1
+-- Size: New Order Cross Multileg Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_byte_1.size = 1
 
 -- Display: New Order Cross Multileg Byte 1
@@ -38570,7 +38598,7 @@ end
 -- New Order Cross Multileg Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_bitfield_count = {}
 
--- Size Of: New Order Cross Multileg Bitfield Count
+-- Size: New Order Cross Multileg Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_multileg_bitfield_count.size = 1
 
 -- Display: New Order Cross Multileg Bitfield Count
@@ -39056,7 +39084,7 @@ end
 -- New Order Cross Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_4 = {}
 
--- Size Of: New Order Cross Byte 4
+-- Size: New Order Cross Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_4.size = 1
 
 -- Display: New Order Cross Byte 4
@@ -39144,7 +39172,7 @@ end
 -- New Order Cross Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_3 = {}
 
--- Size Of: New Order Cross Byte 3
+-- Size: New Order Cross Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_3.size = 1
 
 -- Display: New Order Cross Byte 3
@@ -39232,7 +39260,7 @@ end
 -- New Order Cross Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_2 = {}
 
--- Size Of: New Order Cross Byte 2
+-- Size: New Order Cross Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_2.size = 1
 
 -- Display: New Order Cross Byte 2
@@ -39320,7 +39348,7 @@ end
 -- New Order Cross Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_1 = {}
 
--- Size Of: New Order Cross Byte 1
+-- Size: New Order Cross Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_byte_1.size = 1
 
 -- Display: New Order Cross Byte 1
@@ -39408,7 +39436,7 @@ end
 -- New Order Cross Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_bitfield_count = {}
 
--- Size Of: New Order Cross Bitfield Count
+-- Size: New Order Cross Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_order_cross_bitfield_count.size = 1
 
 -- Display: New Order Cross Bitfield Count
@@ -39814,7 +39842,7 @@ end
 -- Display Range
 cboe_edgx_options_orderentry_boe_v2_10.display_range = {}
 
--- Size Of: Display Range
+-- Size: Display Range
 cboe_edgx_options_orderentry_boe_v2_10.display_range.size = 4
 
 -- Display: Display Range
@@ -39837,7 +39865,7 @@ end
 -- New Order Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_9 = {}
 
--- Size Of: New Order Byte 9
+-- Size: New Order Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_9.size = 1
 
 -- Display: New Order Byte 9
@@ -39925,7 +39953,7 @@ end
 -- New Order Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_8 = {}
 
--- Size Of: New Order Byte 8
+-- Size: New Order Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_8.size = 1
 
 -- Display: New Order Byte 8
@@ -40013,7 +40041,7 @@ end
 -- New Order Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_7 = {}
 
--- Size Of: New Order Byte 7
+-- Size: New Order Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_7.size = 1
 
 -- Display: New Order Byte 7
@@ -40101,7 +40129,7 @@ end
 -- New Order Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_6 = {}
 
--- Size Of: New Order Byte 6
+-- Size: New Order Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_6.size = 1
 
 -- Display: New Order Byte 6
@@ -40189,7 +40217,7 @@ end
 -- New Order Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_5 = {}
 
--- Size Of: New Order Byte 5
+-- Size: New Order Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_5.size = 1
 
 -- Display: New Order Byte 5
@@ -40277,7 +40305,7 @@ end
 -- New Order Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_4 = {}
 
--- Size Of: New Order Byte 4
+-- Size: New Order Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_4.size = 1
 
 -- Display: New Order Byte 4
@@ -40365,7 +40393,7 @@ end
 -- New Order Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_3 = {}
 
--- Size Of: New Order Byte 3
+-- Size: New Order Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_3.size = 1
 
 -- Display: New Order Byte 3
@@ -40453,7 +40481,7 @@ end
 -- New Order Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_2 = {}
 
--- Size Of: New Order Byte 2
+-- Size: New Order Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_2.size = 1
 
 -- Display: New Order Byte 2
@@ -40541,7 +40569,7 @@ end
 -- New Order Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_1 = {}
 
--- Size Of: New Order Byte 1
+-- Size: New Order Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.new_order_byte_1.size = 1
 
 -- Display: New Order Byte 1
@@ -40629,7 +40657,7 @@ end
 -- New Order Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_order_bitfield_count = {}
 
--- Size Of: New Order Bitfield Count
+-- Size: New Order Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.new_order_bitfield_count.size = 1
 
 -- Display: New Order Bitfield Count
@@ -41201,7 +41229,7 @@ end
 -- Sequence Number
 cboe_edgx_options_orderentry_boe_v2_10.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 cboe_edgx_options_orderentry_boe_v2_10.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -41224,7 +41252,7 @@ end
 -- Unit Number
 cboe_edgx_options_orderentry_boe_v2_10.unit_number = {}
 
--- Size Of: Unit Number
+-- Size: Unit Number
 cboe_edgx_options_orderentry_boe_v2_10.unit_number.size = 1
 
 -- Display: Unit Number
@@ -41247,10 +41275,16 @@ end
 -- Unit Sequence
 cboe_edgx_options_orderentry_boe_v2_10.unit_sequence = {}
 
--- Size Of: Unit Sequence
-cboe_edgx_options_orderentry_boe_v2_10.unit_sequence.size =
-  cboe_edgx_options_orderentry_boe_v2_10.unit_number.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.sequence_number.size;
+-- Calculate size of: Unit Sequence
+cboe_edgx_options_orderentry_boe_v2_10.unit_sequence.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.unit_number.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.sequence_number.size
+
+  return index
+end
 
 -- Display: Unit Sequence
 cboe_edgx_options_orderentry_boe_v2_10.unit_sequence.display = function(packet, parent, length)
@@ -41297,7 +41331,7 @@ end
 -- Number Of Units
 cboe_edgx_options_orderentry_boe_v2_10.number_of_units = {}
 
--- Size Of: Number Of Units
+-- Size: Number Of Units
 cboe_edgx_options_orderentry_boe_v2_10.number_of_units.size = 1
 
 -- Display: Number Of Units
@@ -41320,7 +41354,7 @@ end
 -- Last Received Sequence Number
 cboe_edgx_options_orderentry_boe_v2_10.last_received_sequence_number = {}
 
--- Size Of: Last Received Sequence Number
+-- Size: Last Received Sequence Number
 cboe_edgx_options_orderentry_boe_v2_10.last_received_sequence_number.size = 4
 
 -- Display: Last Received Sequence Number
@@ -41343,7 +41377,7 @@ end
 -- Logout Reason Text
 cboe_edgx_options_orderentry_boe_v2_10.logout_reason_text = {}
 
--- Size Of: Logout Reason Text
+-- Size: Logout Reason Text
 cboe_edgx_options_orderentry_boe_v2_10.logout_reason_text.size = 60
 
 -- Display: Logout Reason Text
@@ -41366,7 +41400,7 @@ end
 -- Logout Reason
 cboe_edgx_options_orderentry_boe_v2_10.logout_reason = {}
 
--- Size Of: Logout Reason
+-- Size: Logout Reason
 cboe_edgx_options_orderentry_boe_v2_10.logout_reason.size = 1
 
 -- Display: Logout Reason
@@ -42389,7 +42423,7 @@ end
 -- Order Execution Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_17 = {}
 
--- Size Of: Order Execution Byte 17
+-- Size: Order Execution Byte 17
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_17.size = 1
 
 -- Display: Order Execution Byte 17
@@ -42477,7 +42511,7 @@ end
 -- Order Execution Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_16 = {}
 
--- Size Of: Order Execution Byte 16
+-- Size: Order Execution Byte 16
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_16.size = 1
 
 -- Display: Order Execution Byte 16
@@ -42565,7 +42599,7 @@ end
 -- Order Execution Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_15 = {}
 
--- Size Of: Order Execution Byte 15
+-- Size: Order Execution Byte 15
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_15.size = 1
 
 -- Display: Order Execution Byte 15
@@ -42653,7 +42687,7 @@ end
 -- Order Execution Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_14 = {}
 
--- Size Of: Order Execution Byte 14
+-- Size: Order Execution Byte 14
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_14.size = 1
 
 -- Display: Order Execution Byte 14
@@ -42741,7 +42775,7 @@ end
 -- Order Execution Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_13 = {}
 
--- Size Of: Order Execution Byte 13
+-- Size: Order Execution Byte 13
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_13.size = 1
 
 -- Display: Order Execution Byte 13
@@ -42829,7 +42863,7 @@ end
 -- Order Execution Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_12 = {}
 
--- Size Of: Order Execution Byte 12
+-- Size: Order Execution Byte 12
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_12.size = 1
 
 -- Display: Order Execution Byte 12
@@ -42917,7 +42951,7 @@ end
 -- Order Execution Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_11 = {}
 
--- Size Of: Order Execution Byte 11
+-- Size: Order Execution Byte 11
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_11.size = 1
 
 -- Display: Order Execution Byte 11
@@ -43005,7 +43039,7 @@ end
 -- Order Execution Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_10 = {}
 
--- Size Of: Order Execution Byte 10
+-- Size: Order Execution Byte 10
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_10.size = 1
 
 -- Display: Order Execution Byte 10
@@ -43093,7 +43127,7 @@ end
 -- Order Execution Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_9 = {}
 
--- Size Of: Order Execution Byte 9
+-- Size: Order Execution Byte 9
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_9.size = 1
 
 -- Display: Order Execution Byte 9
@@ -43181,7 +43215,7 @@ end
 -- Order Execution Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_8 = {}
 
--- Size Of: Order Execution Byte 8
+-- Size: Order Execution Byte 8
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_8.size = 1
 
 -- Display: Order Execution Byte 8
@@ -43269,7 +43303,7 @@ end
 -- Order Execution Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_7 = {}
 
--- Size Of: Order Execution Byte 7
+-- Size: Order Execution Byte 7
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_7.size = 1
 
 -- Display: Order Execution Byte 7
@@ -43357,7 +43391,7 @@ end
 -- Order Execution Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_6 = {}
 
--- Size Of: Order Execution Byte 6
+-- Size: Order Execution Byte 6
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_6.size = 1
 
 -- Display: Order Execution Byte 6
@@ -43445,7 +43479,7 @@ end
 -- Order Execution Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_5 = {}
 
--- Size Of: Order Execution Byte 5
+-- Size: Order Execution Byte 5
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_5.size = 1
 
 -- Display: Order Execution Byte 5
@@ -43533,7 +43567,7 @@ end
 -- Order Execution Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_4 = {}
 
--- Size Of: Order Execution Byte 4
+-- Size: Order Execution Byte 4
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_4.size = 1
 
 -- Display: Order Execution Byte 4
@@ -43621,7 +43655,7 @@ end
 -- Order Execution Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_3 = {}
 
--- Size Of: Order Execution Byte 3
+-- Size: Order Execution Byte 3
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_3.size = 1
 
 -- Display: Order Execution Byte 3
@@ -43709,7 +43743,7 @@ end
 -- Order Execution Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_2 = {}
 
--- Size Of: Order Execution Byte 2
+-- Size: Order Execution Byte 2
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_2.size = 1
 
 -- Display: Order Execution Byte 2
@@ -43797,7 +43831,7 @@ end
 -- Order Execution Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_1 = {}
 
--- Size Of: Order Execution Byte 1
+-- Size: Order Execution Byte 1
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_byte_1.size = 1
 
 -- Display: Order Execution Byte 1
@@ -43885,7 +43919,7 @@ end
 -- Order Execution Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_bitfield_count = {}
 
--- Size Of: Order Execution Bitfield Count
+-- Size: Order Execution Bitfield Count
 cboe_edgx_options_orderentry_boe_v2_10.order_execution_bitfield_count.size = 1
 
 -- Display: Order Execution Bitfield Count
@@ -46620,7 +46654,7 @@ end
 -- Application Message Type
 cboe_edgx_options_orderentry_boe_v2_10.application_message_type = {}
 
--- Size Of: Application Message Type
+-- Size: Application Message Type
 cboe_edgx_options_orderentry_boe_v2_10.application_message_type.size = 1
 
 -- Display: Application Message Type
@@ -46737,7 +46771,7 @@ end
 -- No Unspecified Unit Replay
 cboe_edgx_options_orderentry_boe_v2_10.no_unspecified_unit_replay = {}
 
--- Size Of: No Unspecified Unit Replay
+-- Size: No Unspecified Unit Replay
 cboe_edgx_options_orderentry_boe_v2_10.no_unspecified_unit_replay.size = 1
 
 -- Display: No Unspecified Unit Replay
@@ -46880,7 +46914,7 @@ end
 -- Param Group Type
 cboe_edgx_options_orderentry_boe_v2_10.param_group_type = {}
 
--- Size Of: Param Group Type
+-- Size: Param Group Type
 cboe_edgx_options_orderentry_boe_v2_10.param_group_type.size = 1
 
 -- Display: Param Group Type
@@ -46910,7 +46944,7 @@ end
 -- Param Group Length
 cboe_edgx_options_orderentry_boe_v2_10.param_group_length = {}
 
--- Size Of: Param Group Length
+-- Size: Param Group Length
 cboe_edgx_options_orderentry_boe_v2_10.param_group_length.size = 2
 
 -- Display: Param Group Length
@@ -46933,10 +46967,16 @@ end
 -- Param Header
 cboe_edgx_options_orderentry_boe_v2_10.param_header = {}
 
--- Size Of: Param Header
-cboe_edgx_options_orderentry_boe_v2_10.param_header.size =
-  cboe_edgx_options_orderentry_boe_v2_10.param_group_length.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.param_group_type.size;
+-- Calculate size of: Param Header
+cboe_edgx_options_orderentry_boe_v2_10.param_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.param_group_length.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.param_group_type.size
+
+  return index
+end
 
 -- Display: Param Header
 cboe_edgx_options_orderentry_boe_v2_10.param_header.display = function(packet, parent, length)
@@ -47028,7 +47068,7 @@ end
 -- Number Of Param Groups
 cboe_edgx_options_orderentry_boe_v2_10.number_of_param_groups = {}
 
--- Size Of: Number Of Param Groups
+-- Size: Number Of Param Groups
 cboe_edgx_options_orderentry_boe_v2_10.number_of_param_groups.size = 1
 
 -- Display: Number Of Param Groups
@@ -47051,7 +47091,7 @@ end
 -- Login Response Text
 cboe_edgx_options_orderentry_boe_v2_10.login_response_text = {}
 
--- Size Of: Login Response Text
+-- Size: Login Response Text
 cboe_edgx_options_orderentry_boe_v2_10.login_response_text.size = 60
 
 -- Display: Login Response Text
@@ -47074,7 +47114,7 @@ end
 -- Login Response Status
 cboe_edgx_options_orderentry_boe_v2_10.login_response_status = {}
 
--- Size Of: Login Response Status
+-- Size: Login Response Status
 cboe_edgx_options_orderentry_boe_v2_10.login_response_status.size = 1
 
 -- Display: Login Response Status
@@ -47200,7 +47240,7 @@ end
 -- Password
 cboe_edgx_options_orderentry_boe_v2_10.password = {}
 
--- Size Of: Password
+-- Size: Password
 cboe_edgx_options_orderentry_boe_v2_10.password.size = 10
 
 -- Display: Password
@@ -47223,7 +47263,7 @@ end
 -- Username
 cboe_edgx_options_orderentry_boe_v2_10.username = {}
 
--- Size Of: Username
+-- Size: Username
 cboe_edgx_options_orderentry_boe_v2_10.username.size = 4
 
 -- Display: Username
@@ -47246,7 +47286,7 @@ end
 -- Session Sub Id
 cboe_edgx_options_orderentry_boe_v2_10.session_sub_id = {}
 
--- Size Of: Session Sub Id
+-- Size: Session Sub Id
 cboe_edgx_options_orderentry_boe_v2_10.session_sub_id.size = 4
 
 -- Display: Session Sub Id
@@ -47681,7 +47721,7 @@ end
 -- Matching Unit
 cboe_edgx_options_orderentry_boe_v2_10.matching_unit = {}
 
--- Size Of: Matching Unit
+-- Size: Matching Unit
 cboe_edgx_options_orderentry_boe_v2_10.matching_unit.size = 1
 
 -- Display: Matching Unit
@@ -47704,7 +47744,7 @@ end
 -- Message Type
 cboe_edgx_options_orderentry_boe_v2_10.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 cboe_edgx_options_orderentry_boe_v2_10.message_type.size = 1
 
 -- Display: Message Type
@@ -47845,7 +47885,7 @@ end
 -- Message Length
 cboe_edgx_options_orderentry_boe_v2_10.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 cboe_edgx_options_orderentry_boe_v2_10.message_length.size = 2
 
 -- Display: Message Length
@@ -47868,7 +47908,7 @@ end
 -- Start Of Message
 cboe_edgx_options_orderentry_boe_v2_10.start_of_message = {}
 
--- Size Of: Start Of Message
+-- Size: Start Of Message
 cboe_edgx_options_orderentry_boe_v2_10.start_of_message.size = 2
 
 -- Display: Start Of Message
@@ -47891,13 +47931,22 @@ end
 -- Message Header
 cboe_edgx_options_orderentry_boe_v2_10.message_header = {}
 
--- Size Of: Message Header
-cboe_edgx_options_orderentry_boe_v2_10.message_header.size =
-  cboe_edgx_options_orderentry_boe_v2_10.start_of_message.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.message_length.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.message_type.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.matching_unit.size + 
-  cboe_edgx_options_orderentry_boe_v2_10.sequence_number.size;
+-- Calculate size of: Message Header
+cboe_edgx_options_orderentry_boe_v2_10.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.start_of_message.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.message_length.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.message_type.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.matching_unit.size
+
+  index = index + cboe_edgx_options_orderentry_boe_v2_10.sequence_number.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_edgx_options_orderentry_boe_v2_10.message_header.display = function(packet, parent, length)

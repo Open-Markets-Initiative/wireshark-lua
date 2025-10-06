@@ -348,7 +348,7 @@ end
 -- Total Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_volume = {}
 
--- Size Of: Total Volume
+-- Size: Total Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_volume.size = 4
 
 -- Display: Total Volume
@@ -371,7 +371,7 @@ end
 -- Close
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.close = {}
 
--- Size Of: Close
+-- Size: Close
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.close.size = 4
 
 -- Display: Close
@@ -394,7 +394,7 @@ end
 -- Open
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.open = {}
 
--- Size Of: Open
+-- Size: Open
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.open.size = 4
 
 -- Display: Open
@@ -417,7 +417,7 @@ end
 -- Low Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.low_price = {}
 
--- Size Of: Low Price
+-- Size: Low Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.low_price.size = 4
 
 -- Display: Low Price
@@ -440,7 +440,7 @@ end
 -- High Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.high_price = {}
 
--- Size Of: High Price
+-- Size: High Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.high_price.size = 4
 
 -- Display: High Price
@@ -463,7 +463,7 @@ end
 -- Symbol Index
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index = {}
 
--- Size Of: Symbol Index
+-- Size: Symbol Index
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size = 4
 
 -- Display: Symbol Index
@@ -486,7 +486,7 @@ end
 -- Source Time Ns
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns = {}
 
--- Size Of: Source Time Ns
+-- Size: Source Time Ns
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size = 4
 
 -- Display: Source Time Ns
@@ -509,7 +509,7 @@ end
 -- Source Time
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time = {}
 
--- Size Of: Source Time
+-- Size: Source Time
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size = 4
 
 -- Display: Source Time
@@ -532,16 +532,28 @@ end
 -- Stock Summary Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.stock_summary_message = {}
 
--- Size Of: Stock Summary Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.stock_summary_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.high_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.low_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.open.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.close.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_volume.size;
+-- Calculate size of: Stock Summary Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.stock_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.high_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.low_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.open.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.close.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_volume.size
+
+  return index
+end
 
 -- Display: Stock Summary Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.stock_summary_message.display = function(packet, parent, length)
@@ -600,7 +612,7 @@ end
 -- Db Exec Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.db_exec_id = {}
 
--- Size Of: Db Exec Id
+-- Size: Db Exec Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.db_exec_id.size = 4
 
 -- Display: Db Exec Id
@@ -623,7 +635,7 @@ end
 -- Printable Flag
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.printable_flag = {}
 
--- Size Of: Printable Flag
+-- Size: Printable Flag
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.printable_flag.size = 1
 
 -- Display: Printable Flag
@@ -653,7 +665,7 @@ end
 -- Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume = {}
 
--- Size Of: Volume
+-- Size: Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size = 4
 
 -- Display: Volume
@@ -676,7 +688,7 @@ end
 -- Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price = {}
 
--- Size Of: Price
+-- Size: Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size = 4
 
 -- Display: Price
@@ -699,7 +711,7 @@ end
 -- Trade Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id = {}
 
--- Size Of: Trade Id
+-- Size: Trade Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id.size = 4
 
 -- Display: Trade Id
@@ -722,7 +734,7 @@ end
 -- Symbol Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num = {}
 
--- Size Of: Symbol Seq Num
+-- Size: Symbol Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
@@ -745,16 +757,28 @@ end
 -- Non Displayed Trade Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message = {}
 
--- Size Of: Non Displayed Trade Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.printable_flag.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.db_exec_id.size;
+-- Calculate size of: Non Displayed Trade Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.printable_flag.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.db_exec_id.size
+
+  return index
+end
 
 -- Display: Non Displayed Trade Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.display = function(packet, parent, length)
@@ -813,7 +837,7 @@ end
 -- Num Parity Splits
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits = {}
 
--- Size Of: Num Parity Splits
+-- Size: Num Parity Splits
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size = 1
 
 -- Display: Num Parity Splits
@@ -836,7 +860,7 @@ end
 -- Order Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size = 8
 
 -- Display: Order Id
@@ -859,18 +883,32 @@ end
 -- Order Execution Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_execution_message = {}
 
--- Size Of: Order Execution Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_execution_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.printable_flag.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.db_exec_id.size;
+-- Calculate size of: Order Execution Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_execution_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.printable_flag.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.db_exec_id.size
+
+  return index
+end
 
 -- Display: Order Execution Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_execution_message.display = function(packet, parent, length)
@@ -935,7 +973,7 @@ end
 -- Num Extensions
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_extensions = {}
 
--- Size Of: Num Extensions
+-- Size: Num Extensions
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_extensions.size = 1
 
 -- Display: Num Extensions
@@ -958,7 +996,7 @@ end
 -- Freeze Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.freeze_status = {}
 
--- Size Of: Freeze Status
+-- Size: Freeze Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.freeze_status.size = 1
 
 -- Display: Freeze Status
@@ -988,7 +1026,7 @@ end
 -- Auction Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_status = {}
 
--- Size Of: Auction Status
+-- Size: Auction Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_status.size = 1
 
 -- Display: Auction Status
@@ -1024,7 +1062,7 @@ end
 -- Lower Collar
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.lower_collar = {}
 
--- Size Of: Lower Collar
+-- Size: Lower Collar
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.lower_collar.size = 4
 
 -- Display: Lower Collar
@@ -1047,7 +1085,7 @@ end
 -- Upper Collar
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.upper_collar = {}
 
--- Size Of: Upper Collar
+-- Size: Upper Collar
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.upper_collar.size = 4
 
 -- Display: Upper Collar
@@ -1070,7 +1108,7 @@ end
 -- Indicative Match Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.indicative_match_price = {}
 
--- Size Of: Indicative Match Price
+-- Size: Indicative Match Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.indicative_match_price.size = 4
 
 -- Display: Indicative Match Price
@@ -1093,7 +1131,7 @@ end
 -- Ssr Filing Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_filing_price = {}
 
--- Size Of: Ssr Filing Price
+-- Size: Ssr Filing Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_filing_price.size = 4
 
 -- Display: Ssr Filing Price
@@ -1116,7 +1154,7 @@ end
 -- Closing Only Clearing Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.closing_only_clearing_price = {}
 
--- Size Of: Closing Only Clearing Price
+-- Size: Closing Only Clearing Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.closing_only_clearing_price.size = 4
 
 -- Display: Closing Only Clearing Price
@@ -1139,7 +1177,7 @@ end
 -- Continuous Book Clearing Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.continuous_book_clearing_price = {}
 
--- Size Of: Continuous Book Clearing Price
+-- Size: Continuous Book Clearing Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.continuous_book_clearing_price.size = 4
 
 -- Display: Continuous Book Clearing Price
@@ -1162,7 +1200,7 @@ end
 -- Imbalance Side
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_side = {}
 
--- Size Of: Imbalance Side
+-- Size: Imbalance Side
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_side.size = 1
 
 -- Display: Imbalance Side
@@ -1195,7 +1233,7 @@ end
 -- Auction Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_type = {}
 
--- Size Of: Auction Type
+-- Size: Auction Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_type.size = 1
 
 -- Display: Auction Type
@@ -1234,7 +1272,7 @@ end
 -- Auction Time
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_time = {}
 
--- Size Of: Auction Time
+-- Size: Auction Time
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_time.size = 2
 
 -- Display: Auction Time
@@ -1257,7 +1295,7 @@ end
 -- Market Imbalance Qty
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_imbalance_qty = {}
 
--- Size Of: Market Imbalance Qty
+-- Size: Market Imbalance Qty
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_imbalance_qty.size = 4
 
 -- Display: Market Imbalance Qty
@@ -1280,7 +1318,7 @@ end
 -- Total Imbalance Qty
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_imbalance_qty = {}
 
--- Size Of: Total Imbalance Qty
+-- Size: Total Imbalance Qty
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_imbalance_qty.size = 4
 
 -- Display: Total Imbalance Qty
@@ -1303,7 +1341,7 @@ end
 -- Paired Qty
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.paired_qty = {}
 
--- Size Of: Paired Qty
+-- Size: Paired Qty
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.paired_qty.size = 4
 
 -- Display: Paired Qty
@@ -1326,7 +1364,7 @@ end
 -- Reference Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reference_price = {}
 
--- Size Of: Reference Price
+-- Size: Reference Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reference_price.size = 4
 
 -- Display: Reference Price
@@ -1349,28 +1387,52 @@ end
 -- Imbalance Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_message = {}
 
--- Size Of: Imbalance Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.reference_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.paired_qty.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_imbalance_qty.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_imbalance_qty.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_type.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_side.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.continuous_book_clearing_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.closing_only_clearing_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_filing_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.indicative_match_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.upper_collar.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.lower_collar.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_status.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.freeze_status.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_extensions.size;
+-- Calculate size of: Imbalance Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.reference_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.paired_qty.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_imbalance_qty.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_imbalance_qty.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_type.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_side.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.continuous_book_clearing_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.closing_only_clearing_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_filing_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.indicative_match_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.upper_collar.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.lower_collar.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.auction_status.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.freeze_status.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_extensions.size
+
+  return index
+end
 
 -- Display: Imbalance Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.imbalance_message.display = function(packet, parent, length)
@@ -1465,7 +1527,7 @@ end
 -- Firm Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.firm_id = {}
 
--- Size Of: Firm Id
+-- Size: Firm Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.firm_id.size = 5
 
 -- Display: Firm Id
@@ -1488,7 +1550,7 @@ end
 -- Side
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.side = {}
 
--- Size Of: Side
+-- Size: Side
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.side.size = 1
 
 -- Display: Side
@@ -1518,18 +1580,32 @@ end
 -- Add Order Refresh Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_refresh_message = {}
 
--- Size Of: Add Order Refresh Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.side.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.firm_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size;
+-- Calculate size of: Add Order Refresh Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.side.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.firm_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size
+
+  return index
+end
 
 -- Display: Add Order Refresh Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.display = function(packet, parent, length)
@@ -1594,7 +1670,7 @@ end
 -- Rpi Indicator
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.rpi_indicator = {}
 
--- Size Of: Rpi Indicator
+-- Size: Rpi Indicator
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
@@ -1630,12 +1706,20 @@ end
 -- Retail Price Improvement Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message = {}
 
--- Size Of: Retail Price Improvement Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.rpi_indicator.size;
+-- Calculate size of: Retail Price Improvement Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.rpi_indicator.size
+
+  return index
+end
 
 -- Display: Retail Price Improvement Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.display = function(packet, parent, length)
@@ -1682,7 +1766,7 @@ end
 -- Cross Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_id = {}
 
--- Size Of: Cross Id
+-- Size: Cross Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_id.size = 4
 
 -- Display: Cross Id
@@ -1705,13 +1789,22 @@ end
 -- Cross Correction Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_correction_message = {}
 
--- Size Of: Cross Correction Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_correction_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size;
+-- Calculate size of: Cross Correction Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_correction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  return index
+end
 
 -- Display: Cross Correction Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_correction_message.display = function(packet, parent, length)
@@ -1761,7 +1854,7 @@ end
 -- Cross Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_type = {}
 
--- Size Of: Cross Type
+-- Size: Cross Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_type.size = 1
 
 -- Display: Cross Type
@@ -1797,15 +1890,26 @@ end
 -- Cross Trade Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_trade_message = {}
 
--- Size Of: Cross Trade Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_trade_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_type.size;
+-- Calculate size of: Cross Trade Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_type.size
+
+  return index
+end
 
 -- Display: Cross Trade Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.cross_trade_message.display = function(packet, parent, length)
@@ -1861,12 +1965,20 @@ end
 -- Trade Cancel Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_cancel_message = {}
 
--- Size Of: Trade Cancel Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_cancel_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id.size;
+-- Calculate size of: Trade Cancel Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_id.size
+
+  return index
+end
 
 -- Display: Trade Cancel Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.trade_cancel_message.display = function(packet, parent, length)
@@ -1913,13 +2025,22 @@ end
 -- Delete Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.delete_order_message = {}
 
--- Size Of: Delete Order Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.delete_order_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size;
+-- Calculate size of: Delete Order Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.delete_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size
+
+  return index
+end
 
 -- Display: Delete Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.delete_order_message.display = function(packet, parent, length)
@@ -1969,7 +2090,7 @@ end
 -- New Price Parity Splits
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_price_parity_splits = {}
 
--- Size Of: New Price Parity Splits
+-- Size: New Price Parity Splits
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_price_parity_splits.size = 1
 
 -- Display: New Price Parity Splits
@@ -1992,7 +2113,7 @@ end
 -- Prev Price Parity Splits
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits = {}
 
--- Size Of: Prev Price Parity Splits
+-- Size: Prev Price Parity Splits
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits.size = 1
 
 -- Display: Prev Price Parity Splits
@@ -2015,7 +2136,7 @@ end
 -- New Order Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_order_id = {}
 
--- Size Of: New Order Id
+-- Size: New Order Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_order_id.size = 8
 
 -- Display: New Order Id
@@ -2038,17 +2159,30 @@ end
 -- Replace Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.replace_order_message = {}
 
--- Size Of: Replace Order Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.replace_order_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_order_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_price_parity_splits.size;
+-- Calculate size of: Replace Order Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.replace_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_order_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_price_parity_splits.size
+
+  return index
+end
 
 -- Display: Replace Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.replace_order_message.display = function(packet, parent, length)
@@ -2110,7 +2244,7 @@ end
 -- Position Change
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.position_change = {}
 
--- Size Of: Position Change
+-- Size: Position Change
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.position_change.size = 1
 
 -- Display: Position Change
@@ -2140,17 +2274,30 @@ end
 -- Modify Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.modify_order_message = {}
 
--- Size Of: Modify Order Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.modify_order_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.position_change.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_price_parity_splits.size;
+-- Calculate size of: Modify Order Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.modify_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.position_change.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.new_price_parity_splits.size
+
+  return index
+end
 
 -- Display: Modify Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.modify_order_message.display = function(packet, parent, length)
@@ -2212,17 +2359,30 @@ end
 -- Add Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_message = {}
 
--- Size Of: Add Order Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.side.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.firm_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size;
+-- Calculate size of: Add Order Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.order_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.side.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.firm_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.num_parity_splits.size
+
+  return index
+end
 
 -- Display: Add Order Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.add_order_message.display = function(packet, parent, length)
@@ -2284,7 +2444,7 @@ end
 -- Last Symbol Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_symbol_seq_num = {}
 
--- Size Of: Last Symbol Seq Num
+-- Size: Last Symbol Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_symbol_seq_num.size = 4
 
 -- Display: Last Symbol Seq Num
@@ -2307,7 +2467,7 @@ end
 -- Last Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_seq_num = {}
 
--- Size Of: Last Seq Num
+-- Size: Last Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_seq_num.size = 4
 
 -- Display: Last Seq Num
@@ -2330,7 +2490,7 @@ end
 -- Total Refresh Pkts
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_refresh_pkts = {}
 
--- Size Of: Total Refresh Pkts
+-- Size: Total Refresh Pkts
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_refresh_pkts.size = 2
 
 -- Display: Total Refresh Pkts
@@ -2353,7 +2513,7 @@ end
 -- Current Refresh Pkt
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.current_refresh_pkt = {}
 
--- Size Of: Current Refresh Pkt
+-- Size: Current Refresh Pkt
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.current_refresh_pkt.size = 2
 
 -- Display: Current Refresh Pkt
@@ -2376,12 +2536,20 @@ end
 -- Refresh Header Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_header_message = {}
 
--- Size Of: Refresh Header Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_header_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.current_refresh_pkt.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_refresh_pkts.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_symbol_seq_num.size;
+-- Calculate size of: Refresh Header Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.current_refresh_pkt.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.total_refresh_pkts.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.last_symbol_seq_num.size
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_header_message.display = function(packet, parent, length)
@@ -2428,7 +2596,7 @@ end
 -- Session State
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.session_state = {}
 
--- Size Of: Session State
+-- Size: Session State
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.session_state.size = 1
 
 -- Display: Session State
@@ -2451,7 +2619,7 @@ end
 -- Market State
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_state = {}
 
--- Size Of: Market State
+-- Size: Market State
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_state.size = 1
 
 -- Display: Market State
@@ -2490,7 +2658,7 @@ end
 -- Ssr State
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_state = {}
 
--- Size Of: Ssr State
+-- Size: Ssr State
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_state.size = 1
 
 -- Display: Ssr State
@@ -2520,7 +2688,7 @@ end
 -- Time
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.time = {}
 
--- Size Of: Time
+-- Size: Time
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.time.size = 4
 
 -- Display: Time
@@ -2543,7 +2711,7 @@ end
 -- Ssr Triggering Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_volume = {}
 
--- Size Of: Ssr Triggering Volume
+-- Size: Ssr Triggering Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_volume.size = 4
 
 -- Display: Ssr Triggering Volume
@@ -2566,7 +2734,7 @@ end
 -- Ssr Triggering Exchange Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_exchange_id = {}
 
--- Size Of: Ssr Triggering Exchange Id
+-- Size: Ssr Triggering Exchange Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
@@ -2644,7 +2812,7 @@ end
 -- Price 2
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_2 = {}
 
--- Size Of: Price 2
+-- Size: Price 2
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_2.size = 4
 
 -- Display: Price 2
@@ -2667,7 +2835,7 @@ end
 -- Price 1
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_1 = {}
 
--- Size Of: Price 1
+-- Size: Price 1
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_1.size = 4
 
 -- Display: Price 1
@@ -2690,7 +2858,7 @@ end
 -- Reserved 4
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_4 = {}
 
--- Size Of: Reserved 4
+-- Size: Reserved 4
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_4.size = 4
 
 -- Display: Reserved 4
@@ -2713,7 +2881,7 @@ end
 -- Halt Condition
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.halt_condition = {}
 
--- Size Of: Halt Condition
+-- Size: Halt Condition
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.halt_condition.size = 1
 
 -- Display: Halt Condition
@@ -2773,7 +2941,7 @@ end
 -- Security Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status = {}
 
--- Size Of: Security Status
+-- Size: Security Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status.size = 1
 
 -- Display: Security Status
@@ -2845,23 +3013,42 @@ end
 -- Security Status Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status_message = {}
 
--- Size Of: Security Status Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.halt_condition.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_4.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_1.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_2.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_exchange_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_state.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_state.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.session_state.size;
+-- Calculate size of: Security Status Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.halt_condition.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_4.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_1.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_2.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_exchange_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_triggering_volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.ssr_state.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_state.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.session_state.size
+
+  return index
+end
 
 -- Display: Security Status Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_status_message.display = function(packet, parent, length)
@@ -2941,7 +3128,7 @@ end
 -- Next Source Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.next_source_seq_num = {}
 
--- Size Of: Next Source Seq Num
+-- Size: Next Source Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.next_source_seq_num.size = 4
 
 -- Display: Next Source Seq Num
@@ -2964,12 +3151,20 @@ end
 -- Symbol Clear Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_clear_message = {}
 
--- Size Of: Symbol Clear Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_clear_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.next_source_seq_num.size;
+-- Calculate size of: Symbol Clear Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_clear_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.next_source_seq_num.size
+
+  return index
+end
 
 -- Display: Symbol Clear Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_clear_message.display = function(packet, parent, length)
@@ -3016,7 +3211,7 @@ end
 -- Channel Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id = {}
 
--- Size Of: Channel Id
+-- Size: Channel Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size = 1
 
 -- Display: Channel Id
@@ -3039,7 +3234,7 @@ end
 -- Product Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id = {}
 
--- Size Of: Product Id
+-- Size: Product Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size = 1
 
 -- Display: Product Id
@@ -3062,7 +3257,7 @@ end
 -- End Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num = {}
 
--- Size Of: End Seq Num
+-- Size: End Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num.size = 4
 
 -- Display: End Seq Num
@@ -3085,7 +3280,7 @@ end
 -- Begin Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num = {}
 
--- Size Of: Begin Seq Num
+-- Size: Begin Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num.size = 4
 
 -- Display: Begin Seq Num
@@ -3108,12 +3303,20 @@ end
 -- Message Unavailable Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_unavailable_message = {}
 
--- Size Of: Message Unavailable Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_unavailable_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size;
+-- Calculate size of: Message Unavailable Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_unavailable_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size
+
+  return index
+end
 
 -- Display: Message Unavailable Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_unavailable_message.display = function(packet, parent, length)
@@ -3160,7 +3363,7 @@ end
 -- Source Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id = {}
 
--- Size Of: Source Id
+-- Size: Source Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size = 10
 
 -- Display: Source Id
@@ -3183,12 +3386,20 @@ end
 -- Refresh Request Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_request_message = {}
 
--- Size Of: Refresh Request Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_request_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size;
+-- Calculate size of: Refresh Request Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size
+
+  return index
+end
 
 -- Display: Refresh Request Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.refresh_request_message.display = function(packet, parent, length)
@@ -3235,7 +3446,7 @@ end
 -- Retransmit Method
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmit_method = {}
 
--- Size Of: Retransmit Method
+-- Size: Retransmit Method
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmit_method.size = 1
 
 -- Display: Retransmit Method
@@ -3262,13 +3473,22 @@ end
 -- Symbol Index Mapping Request Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message = {}
 
--- Size Of: Symbol Index Mapping Request Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmit_method.size;
+-- Calculate size of: Symbol Index Mapping Request Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmit_method.size
+
+  return index
+end
 
 -- Display: Symbol Index Mapping Request Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.display = function(packet, parent, length)
@@ -3318,9 +3538,14 @@ end
 -- Heartbeat Response Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.heartbeat_response_message = {}
 
--- Size Of: Heartbeat Response Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size;
+-- Calculate size of: Heartbeat Response Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size
+
+  return index
+end
 
 -- Display: Heartbeat Response Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.display = function(packet, parent, length)
@@ -3358,7 +3583,7 @@ end
 -- Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.status = {}
 
--- Size Of: Status
+-- Size: Status
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.status.size = 1
 
 -- Display: Status
@@ -3412,7 +3637,7 @@ end
 -- Request Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_seq_num = {}
 
--- Size Of: Request Seq Num
+-- Size: Request Seq Num
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_seq_num.size = 4
 
 -- Display: Request Seq Num
@@ -3435,15 +3660,26 @@ end
 -- Request Response Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_response_message = {}
 
--- Size Of: Request Response Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_response_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.status.size;
+-- Calculate size of: Request Response Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.status.size
+
+  return index
+end
 
 -- Display: Request Response Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.request_response_message.display = function(packet, parent, length)
@@ -3499,13 +3735,22 @@ end
 -- Retransmission Request Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmission_request_message = {}
 
--- Size Of: Retransmission Request Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmission_request_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size;
+-- Calculate size of: Retransmission Request Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmission_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.begin_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.end_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size
+
+  return index
+end
 
 -- Display: Retransmission Request Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.retransmission_request_message.display = function(packet, parent, length)
@@ -3555,7 +3800,7 @@ end
 -- Reserved 2
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_2 = {}
 
--- Size Of: Reserved 2
+-- Size: Reserved 2
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_2.size = 2
 
 -- Display: Reserved 2
@@ -3578,7 +3823,7 @@ end
 -- Unit Of Trade
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.unit_of_trade = {}
 
--- Size Of: Unit Of Trade
+-- Size: Unit Of Trade
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.unit_of_trade.size = 2
 
 -- Display: Unit Of Trade
@@ -3601,7 +3846,7 @@ end
 -- Mpv
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.mpv = {}
 
--- Size Of: Mpv
+-- Size: Mpv
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.mpv.size = 2
 
 -- Display: Mpv
@@ -3624,7 +3869,7 @@ end
 -- Round Lot
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.round_lot = {}
 
--- Size Of: Round Lot
+-- Size: Round Lot
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.round_lot.size = 1
 
 -- Display: Round Lot
@@ -3654,7 +3899,7 @@ end
 -- Price Resolution
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_resolution = {}
 
--- Size Of: Price Resolution
+-- Size: Price Resolution
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_resolution.size = 1
 
 -- Display: Price Resolution
@@ -3687,7 +3932,7 @@ end
 -- Prev Close Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_volume = {}
 
--- Size Of: Prev Close Volume
+-- Size: Prev Close Volume
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_volume.size = 4
 
 -- Display: Prev Close Volume
@@ -3710,7 +3955,7 @@ end
 -- Prev Close Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_price = {}
 
--- Size Of: Prev Close Price
+-- Size: Prev Close Price
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_price.size = 4
 
 -- Display: Prev Close Price
@@ -3733,7 +3978,7 @@ end
 -- Lot Size
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.lot_size = {}
 
--- Size Of: Lot Size
+-- Size: Lot Size
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.lot_size.size = 2
 
 -- Display: Lot Size
@@ -3756,7 +4001,7 @@ end
 -- Security Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_type = {}
 
--- Size Of: Security Type
+-- Size: Security Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_type.size = 1
 
 -- Display: Security Type
@@ -3828,7 +4073,7 @@ end
 -- Price Scale Code
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_scale_code = {}
 
--- Size Of: Price Scale Code
+-- Size: Price Scale Code
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_scale_code.size = 1
 
 -- Display: Price Scale Code
@@ -3851,7 +4096,7 @@ end
 -- Exchange Code
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.exchange_code = {}
 
--- Size Of: Exchange Code
+-- Size: Exchange Code
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.exchange_code.size = 1
 
 -- Display: Exchange Code
@@ -3905,7 +4150,7 @@ end
 -- System Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.system_id = {}
 
--- Size Of: System Id
+-- Size: System Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.system_id.size = 1
 
 -- Display: System Id
@@ -3928,7 +4173,7 @@ end
 -- Market Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_id = {}
 
--- Size Of: Market Id
+-- Size: Market Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_id.size = 2
 
 -- Display: Market Id
@@ -3976,7 +4221,7 @@ end
 -- Reserved 1
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_1 = {}
 
--- Size Of: Reserved 1
+-- Size: Reserved 1
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_1.size = 1
 
 -- Display: Reserved 1
@@ -3999,7 +4244,7 @@ end
 -- Symbol
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol = {}
 
--- Size Of: Symbol
+-- Size: Symbol
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol.size = 11
 
 -- Display: Symbol
@@ -4022,24 +4267,44 @@ end
 -- Symbol Index Mapping Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message = {}
 
--- Size Of: Symbol Index Mapping Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_1.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.system_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.exchange_code.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_scale_code.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_type.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.lot_size.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_price.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_volume.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_resolution.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.round_lot.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.mpv.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.unit_of_trade.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_2.size;
+-- Calculate size of: Symbol Index Mapping Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_1.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.market_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.system_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.exchange_code.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_scale_code.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.security_type.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.lot_size.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_price.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.prev_close_volume.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.price_resolution.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.round_lot.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.mpv.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.unit_of_trade.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.reserved_2.size
+
+  return index
+end
 
 -- Display: Symbol Index Mapping Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -4122,7 +4387,7 @@ end
 -- Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.id = {}
 
--- Size Of: Id
+-- Size: Id
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.id.size = 4
 
 -- Display: Id
@@ -4145,11 +4410,18 @@ end
 -- Source Time Reference Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_reference_message = {}
 
--- Size Of: Source Time Reference Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_reference_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size;
+-- Calculate size of: Source Time Reference Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_reference_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size
+
+  return index
+end
 
 -- Display: Source Time Reference Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_reference_message.display = function(packet, parent, length)
@@ -4193,12 +4465,20 @@ end
 -- Sequence Number Reset Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message = {}
 
--- Size Of: Sequence Number Reset Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size;
+-- Calculate size of: Sequence Number Reset Message
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.source_time_ns.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.product_id.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.channel_id.size
+
+  return index
+end
 
 -- Display: Sequence Number Reset Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.display = function(packet, parent, length)
@@ -4485,7 +4765,7 @@ end
 -- Message Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_type.size = 2
 
 -- Display: Message Type
@@ -4584,7 +4864,7 @@ end
 -- Message Size
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_size = {}
 
--- Size Of: Message Size
+-- Size: Message Size
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_size.size = 2
 
 -- Display: Message Size
@@ -4607,10 +4887,16 @@ end
 -- Message Header
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_header = {}
 
--- Size Of: Message Header
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_header.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_size.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_type.size;
+-- Calculate size of: Message Header
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_size.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_header.display = function(packet, parent, length)
@@ -4655,7 +4941,7 @@ nyse_amex_equities_integratedfeed_xdp_v2_1_g.message = {}
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_header.size
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -4708,7 +4994,7 @@ end
 -- Nanoseconds
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.nanoseconds = {}
 
--- Size Of: Nanoseconds
+-- Size: Nanoseconds
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -4731,7 +5017,7 @@ end
 -- Timestamp
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.timestamp.size = 4
 
 -- Display: Timestamp
@@ -4754,7 +5040,7 @@ end
 -- Sequence Number
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -4777,7 +5063,7 @@ end
 -- Message Count
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_count.size = 1
 
 -- Display: Message Count
@@ -4800,7 +5086,7 @@ end
 -- Delivery Flag
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.delivery_flag = {}
 
--- Size Of: Delivery Flag
+-- Size: Delivery Flag
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.delivery_flag.size = 1
 
 -- Display: Delivery Flag
@@ -4857,7 +5143,7 @@ end
 -- Packet Size
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_size = {}
 
--- Size Of: Packet Size
+-- Size: Packet Size
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_size.size = 2
 
 -- Display: Packet Size
@@ -4880,14 +5166,24 @@ end
 -- Packet Header
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_header = {}
 
--- Size Of: Packet Header
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_header.size =
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_size.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.delivery_flag.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_count.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.timestamp.size + 
-  nyse_amex_equities_integratedfeed_xdp_v2_1_g.nanoseconds.size;
+-- Calculate size of: Packet Header
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_size.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.delivery_flag.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_count.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.sequence_number.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.timestamp.size
+
+  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.nanoseconds.size
+
+  return index
+end
 
 -- Display: Packet Header
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet_header.display = function(packet, parent, length)

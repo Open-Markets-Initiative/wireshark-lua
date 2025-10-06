@@ -340,7 +340,7 @@ end
 -- Time Offset
 cboe_c1_options_complex_pitch_v2_1_37.time_offset = {}
 
--- Size Of: Time Offset
+-- Size: Time Offset
 cboe_c1_options_complex_pitch_v2_1_37.time_offset.size = 4
 
 -- Display: Time Offset
@@ -363,9 +363,14 @@ end
 -- End Of Session Message
 cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message = {}
 
--- Size Of: End Of Session Message
-cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size;
+-- Calculate size of: End Of Session Message
+cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  return index
+end
 
 -- Display: End Of Session Message
 cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.display = function(packet, parent, length)
@@ -403,7 +408,7 @@ end
 -- Quantity
 cboe_c1_options_complex_pitch_v2_1_37.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 cboe_c1_options_complex_pitch_v2_1_37.quantity.size = 4
 
 -- Display: Quantity
@@ -426,7 +431,7 @@ end
 -- Price
 cboe_c1_options_complex_pitch_v2_1_37.price = {}
 
--- Size Of: Price
+-- Size: Price
 cboe_c1_options_complex_pitch_v2_1_37.price.size = 8
 
 -- Display: Price
@@ -455,7 +460,7 @@ end
 -- Auction Opening Type
 cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type = {}
 
--- Size Of: Auction Opening Type
+-- Size: Auction Opening Type
 cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size = 1
 
 -- Display: Auction Opening Type
@@ -488,7 +493,7 @@ end
 -- Complex Instrument Id 8
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8 = {}
 
--- Size Of: Complex Instrument Id 8
+-- Size: Complex Instrument Id 8
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size = 8
 
 -- Display: Complex Instrument Id 8
@@ -511,13 +516,22 @@ end
 -- Auction Summary Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message = {}
 
--- Size Of: Auction Summary Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size;
+-- Calculate size of: Auction Summary Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+  return index
+end
 
 -- Display: Auction Summary Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.display = function(packet, parent, length)
@@ -567,7 +581,7 @@ end
 -- Composite Market Offer Price
 cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price = {}
 
--- Size Of: Composite Market Offer Price
+-- Size: Composite Market Offer Price
 cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size = 8
 
 -- Display: Composite Market Offer Price
@@ -596,7 +610,7 @@ end
 -- Composite Market Bid Price
 cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price = {}
 
--- Size Of: Composite Market Bid Price
+-- Size: Composite Market Bid Price
 cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size = 8
 
 -- Display: Composite Market Bid Price
@@ -625,7 +639,7 @@ end
 -- Opening Condition
 cboe_c1_options_complex_pitch_v2_1_37.opening_condition = {}
 
--- Size Of: Opening Condition
+-- Size: Opening Condition
 cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size = 1
 
 -- Display: Opening Condition
@@ -648,7 +662,7 @@ end
 -- Auction Only Price
 cboe_c1_options_complex_pitch_v2_1_37.auction_only_price = {}
 
--- Size Of: Auction Only Price
+-- Size: Auction Only Price
 cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.size = 8
 
 -- Display: Auction Only Price
@@ -677,7 +691,7 @@ end
 -- Indicative Price
 cboe_c1_options_complex_pitch_v2_1_37.indicative_price = {}
 
--- Size Of: Indicative Price
+-- Size: Indicative Price
 cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size = 8
 
 -- Display: Indicative Price
@@ -706,7 +720,7 @@ end
 -- Sell Contracts
 cboe_c1_options_complex_pitch_v2_1_37.sell_contracts = {}
 
--- Size Of: Sell Contracts
+-- Size: Sell Contracts
 cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size = 4
 
 -- Display: Sell Contracts
@@ -729,7 +743,7 @@ end
 -- Buy Contracts
 cboe_c1_options_complex_pitch_v2_1_37.buy_contracts = {}
 
--- Size Of: Buy Contracts
+-- Size: Buy Contracts
 cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size = 4
 
 -- Display: Buy Contracts
@@ -752,7 +766,7 @@ end
 -- Reference Price
 cboe_c1_options_complex_pitch_v2_1_37.reference_price = {}
 
--- Size Of: Reference Price
+-- Size: Reference Price
 cboe_c1_options_complex_pitch_v2_1_37.reference_price.size = 8
 
 -- Display: Reference Price
@@ -781,19 +795,34 @@ end
 -- Auction Update Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_update_message = {}
 
--- Size Of: Auction Update Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.reference_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size;
+-- Calculate size of: Auction Update Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.reference_price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size
+
+  return index
+end
 
 -- Display: Auction Update Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.display = function(packet, parent, length)
@@ -861,7 +890,7 @@ end
 -- Padding
 cboe_c1_options_complex_pitch_v2_1_37.padding = {}
 
--- Size Of: Padding
+-- Size: Padding
 cboe_c1_options_complex_pitch_v2_1_37.padding.size = 1
 
 -- Display: Padding
@@ -884,7 +913,7 @@ end
 -- Gth Trading Status
 cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status = {}
 
--- Size Of: Gth Trading Status
+-- Size: Gth Trading Status
 cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size = 1
 
 -- Display: Gth Trading Status
@@ -917,7 +946,7 @@ end
 -- Reserved
 cboe_c1_options_complex_pitch_v2_1_37.reserved = {}
 
--- Size Of: Reserved
+-- Size: Reserved
 cboe_c1_options_complex_pitch_v2_1_37.reserved.size = 1
 
 -- Display: Reserved
@@ -940,7 +969,7 @@ end
 -- Trading Status
 cboe_c1_options_complex_pitch_v2_1_37.trading_status = {}
 
--- Size Of: Trading Status
+-- Size: Trading Status
 cboe_c1_options_complex_pitch_v2_1_37.trading_status.size = 1
 
 -- Display: Trading Status
@@ -976,7 +1005,7 @@ end
 -- Unused
 cboe_c1_options_complex_pitch_v2_1_37.unused = {}
 
--- Size Of: Unused
+-- Size: Unused
 cboe_c1_options_complex_pitch_v2_1_37.unused.size = 2
 
 -- Display: Unused
@@ -999,7 +1028,7 @@ end
 -- Complex Symbol Id
 cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id = {}
 
--- Size Of: Complex Symbol Id
+-- Size: Complex Symbol Id
 cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size = 6
 
 -- Display: Complex Symbol Id
@@ -1022,15 +1051,26 @@ end
 -- Trading Status Message
 cboe_c1_options_complex_pitch_v2_1_37.trading_status_message = {}
 
--- Size Of: Trading Status Message
-cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.unused.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.trading_status.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.reserved.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.padding.size;
+-- Calculate size of: Trading Status Message
+cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.unused.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.trading_status.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.reserved.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.padding.size
+
+  return index
+end
 
 -- Display: Trading Status Message
 cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.display = function(packet, parent, length)
@@ -1086,7 +1126,7 @@ end
 -- Execution Id
 cboe_c1_options_complex_pitch_v2_1_37.execution_id = {}
 
--- Size Of: Execution Id
+-- Size: Execution Id
 cboe_c1_options_complex_pitch_v2_1_37.execution_id.size = 8
 
 -- Display: Execution Id
@@ -1109,7 +1149,7 @@ end
 -- Auction Id
 cboe_c1_options_complex_pitch_v2_1_37.auction_id = {}
 
--- Size Of: Auction Id
+-- Size: Auction Id
 cboe_c1_options_complex_pitch_v2_1_37.auction_id.size = 8
 
 -- Display: Auction Id
@@ -1132,13 +1172,22 @@ end
 -- Auction Trade Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message = {}
 
--- Size Of: Auction Trade Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.execution_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size;
+-- Calculate size of: Auction Trade Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.execution_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+  return index
+end
 
 -- Display: Auction Trade Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.display = function(packet, parent, length)
@@ -1188,10 +1237,16 @@ end
 -- Auction Cancel Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message = {}
 
--- Size Of: Auction Cancel Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size;
+-- Calculate size of: Auction Cancel Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_id.size
+
+  return index
+end
 
 -- Display: Auction Cancel Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.display = function(packet, parent, length)
@@ -1232,7 +1287,7 @@ end
 -- Client Id
 cboe_c1_options_complex_pitch_v2_1_37.client_id = {}
 
--- Size Of: Client Id
+-- Size: Client Id
 cboe_c1_options_complex_pitch_v2_1_37.client_id.size = 4
 
 -- Display: Client Id
@@ -1255,7 +1310,7 @@ end
 -- Auction End Offset
 cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset = {}
 
--- Size Of: Auction End Offset
+-- Size: Auction End Offset
 cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size = 4
 
 -- Display: Auction End Offset
@@ -1278,7 +1333,7 @@ end
 -- Participant Id
 cboe_c1_options_complex_pitch_v2_1_37.participant_id = {}
 
--- Size Of: Participant Id
+-- Size: Participant Id
 cboe_c1_options_complex_pitch_v2_1_37.participant_id.size = 4
 
 -- Display: Participant Id
@@ -1301,7 +1356,7 @@ end
 -- Customer Indicator
 cboe_c1_options_complex_pitch_v2_1_37.customer_indicator = {}
 
--- Size Of: Customer Indicator
+-- Size: Customer Indicator
 cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size = 1
 
 -- Display: Customer Indicator
@@ -1331,7 +1386,7 @@ end
 -- Side Indicator
 cboe_c1_options_complex_pitch_v2_1_37.side_indicator = {}
 
--- Size Of: Side Indicator
+-- Size: Side Indicator
 cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size = 1
 
 -- Display: Side Indicator
@@ -1361,7 +1416,7 @@ end
 -- Auction Type
 cboe_c1_options_complex_pitch_v2_1_37.auction_type = {}
 
--- Size Of: Auction Type
+-- Size: Auction Type
 cboe_c1_options_complex_pitch_v2_1_37.auction_type.size = 1
 
 -- Display: Auction Type
@@ -1397,7 +1452,7 @@ end
 -- Complex Instrument Id
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id = {}
 
--- Size Of: Complex Instrument Id
+-- Size: Complex Instrument Id
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size = 6
 
 -- Display: Complex Instrument Id
@@ -1420,19 +1475,34 @@ end
 -- Auction Notification Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message = {}
 
--- Size Of: Auction Notification Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_type.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.participant_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.client_id.size;
+-- Calculate size of: Auction Notification Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_type.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.participant_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.client_id.size
+
+  return index
+end
 
 -- Display: Auction Notification Message
 cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.display = function(packet, parent, length)
@@ -1500,7 +1570,7 @@ end
 -- Trade Condition
 cboe_c1_options_complex_pitch_v2_1_37.trade_condition = {}
 
--- Size Of: Trade Condition
+-- Size: Trade Condition
 cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size = 1
 
 -- Display: Trade Condition
@@ -1566,7 +1636,7 @@ end
 -- Price Short
 cboe_c1_options_complex_pitch_v2_1_37.price_short = {}
 
--- Size Of: Price Short
+-- Size: Price Short
 cboe_c1_options_complex_pitch_v2_1_37.price_short.size = 2
 
 -- Display: Price Short
@@ -1595,7 +1665,7 @@ end
 -- Quantity Short
 cboe_c1_options_complex_pitch_v2_1_37.quantity_short = {}
 
--- Size Of: Quantity Short
+-- Size: Quantity Short
 cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size = 2
 
 -- Display: Quantity Short
@@ -1618,7 +1688,7 @@ end
 -- Order Id
 cboe_c1_options_complex_pitch_v2_1_37.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 cboe_c1_options_complex_pitch_v2_1_37.order_id.size = 8
 
 -- Display: Order Id
@@ -1641,16 +1711,28 @@ end
 -- Trade Short Message
 cboe_c1_options_complex_pitch_v2_1_37.trade_short_message = {}
 
--- Size Of: Trade Short Message
-cboe_c1_options_complex_pitch_v2_1_37.trade_short_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price_short.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.execution_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size;
+-- Calculate size of: Trade Short Message
+cboe_c1_options_complex_pitch_v2_1_37.trade_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price_short.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.execution_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size
+
+  return index
+end
 
 -- Display: Trade Short Message
 cboe_c1_options_complex_pitch_v2_1_37.trade_short_message.display = function(packet, parent, length)
@@ -1709,16 +1791,28 @@ end
 -- Trade Long Message
 cboe_c1_options_complex_pitch_v2_1_37.trade_long_message = {}
 
--- Size Of: Trade Long Message
-cboe_c1_options_complex_pitch_v2_1_37.trade_long_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.execution_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size;
+-- Calculate size of: Trade Long Message
+cboe_c1_options_complex_pitch_v2_1_37.trade_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.execution_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size
+
+  return index
+end
 
 -- Display: Trade Long Message
 cboe_c1_options_complex_pitch_v2_1_37.trade_long_message.display = function(packet, parent, length)
@@ -1777,10 +1871,16 @@ end
 -- Delete Order Message
 cboe_c1_options_complex_pitch_v2_1_37.delete_order_message = {}
 
--- Size Of: Delete Order Message
-cboe_c1_options_complex_pitch_v2_1_37.delete_order_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size;
+-- Calculate size of: Delete Order Message
+cboe_c1_options_complex_pitch_v2_1_37.delete_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  return index
+end
 
 -- Display: Delete Order Message
 cboe_c1_options_complex_pitch_v2_1_37.delete_order_message.display = function(packet, parent, length)
@@ -1821,13 +1921,22 @@ end
 -- Modify Order Short Message
 cboe_c1_options_complex_pitch_v2_1_37.modify_order_short_message = {}
 
--- Size Of: Modify Order Short Message
-cboe_c1_options_complex_pitch_v2_1_37.modify_order_short_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price_short.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.padding.size;
+-- Calculate size of: Modify Order Short Message
+cboe_c1_options_complex_pitch_v2_1_37.modify_order_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price_short.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.padding.size
+
+  return index
+end
 
 -- Display: Modify Order Short Message
 cboe_c1_options_complex_pitch_v2_1_37.modify_order_short_message.display = function(packet, parent, length)
@@ -1877,13 +1986,22 @@ end
 -- Modify Order Long Message
 cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message = {}
 
--- Size Of: Modify Order Long Message
-cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.padding.size;
+-- Calculate size of: Modify Order Long Message
+cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.padding.size
+
+  return index
+end
 
 -- Display: Modify Order Long Message
 cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message.display = function(packet, parent, length)
@@ -1933,7 +2051,7 @@ end
 -- Canceled Quantity Short
 cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short = {}
 
--- Size Of: Canceled Quantity Short
+-- Size: Canceled Quantity Short
 cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.size = 2
 
 -- Display: Canceled Quantity Short
@@ -1956,11 +2074,18 @@ end
 -- Reduce Size Short Message
 cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message = {}
 
--- Size Of: Reduce Size Short Message
-cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.size;
+-- Calculate size of: Reduce Size Short Message
+cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.size
+
+  return index
+end
 
 -- Display: Reduce Size Short Message
 cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message.display = function(packet, parent, length)
@@ -2004,7 +2129,7 @@ end
 -- Canceled Quantity
 cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity = {}
 
--- Size Of: Canceled Quantity
+-- Size: Canceled Quantity
 cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.size = 4
 
 -- Display: Canceled Quantity
@@ -2027,11 +2152,18 @@ end
 -- Reduce Size Long Message
 cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message = {}
 
--- Size Of: Reduce Size Long Message
-cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.size;
+-- Calculate size of: Reduce Size Long Message
+cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.size
+
+  return index
+end
 
 -- Display: Reduce Size Long Message
 cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message.display = function(packet, parent, length)
@@ -2075,7 +2207,7 @@ end
 -- Remaining Quantity
 cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity = {}
 
--- Size Of: Remaining Quantity
+-- Size: Remaining Quantity
 cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.size = 4
 
 -- Display: Remaining Quantity
@@ -2098,7 +2230,7 @@ end
 -- Executed Quantity
 cboe_c1_options_complex_pitch_v2_1_37.executed_quantity = {}
 
--- Size Of: Executed Quantity
+-- Size: Executed Quantity
 cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size = 4
 
 -- Display: Executed Quantity
@@ -2121,15 +2253,26 @@ end
 -- Order Executed At Price Size Message
 cboe_c1_options_complex_pitch_v2_1_37.order_executed_at_price_size_message = {}
 
--- Size Of: Order Executed At Price Size Message
-cboe_c1_options_complex_pitch_v2_1_37.order_executed_at_price_size_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.execution_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size;
+-- Calculate size of: Order Executed At Price Size Message
+cboe_c1_options_complex_pitch_v2_1_37.order_executed_at_price_size_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.execution_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size
+
+  return index
+end
 
 -- Display: Order Executed At Price Size Message
 cboe_c1_options_complex_pitch_v2_1_37.order_executed_at_price_size_message.display = function(packet, parent, length)
@@ -2185,13 +2328,22 @@ end
 -- Order Executed Message
 cboe_c1_options_complex_pitch_v2_1_37.order_executed_message = {}
 
--- Size Of: Order Executed Message
-cboe_c1_options_complex_pitch_v2_1_37.order_executed_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.execution_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size;
+-- Calculate size of: Order Executed Message
+cboe_c1_options_complex_pitch_v2_1_37.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.execution_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.trade_condition.size
+
+  return index
+end
 
 -- Display: Order Executed Message
 cboe_c1_options_complex_pitch_v2_1_37.order_executed_message.display = function(packet, parent, length)
@@ -2241,18 +2393,32 @@ end
 -- Add Order Expanded Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_expanded_message = {}
 
--- Size Of: Add Order Expanded Message
-cboe_c1_options_complex_pitch_v2_1_37.add_order_expanded_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.reserved.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.participant_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.client_id.size;
+-- Calculate size of: Add Order Expanded Message
+cboe_c1_options_complex_pitch_v2_1_37.add_order_expanded_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.reserved.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.participant_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.client_id.size
+
+  return index
+end
 
 -- Display: Add Order Expanded Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_expanded_message.display = function(packet, parent, length)
@@ -2317,15 +2483,26 @@ end
 -- Add Order Short Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_short_message = {}
 
--- Size Of: Add Order Short Message
-cboe_c1_options_complex_pitch_v2_1_37.add_order_short_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price_short.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.padding.size;
+-- Calculate size of: Add Order Short Message
+cboe_c1_options_complex_pitch_v2_1_37.add_order_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price_short.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.padding.size
+
+  return index
+end
 
 -- Display: Add Order Short Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_short_message.display = function(packet, parent, length)
@@ -2381,15 +2558,26 @@ end
 -- Add Order Long Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message = {}
 
--- Size Of: Add Order Long Message
-cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.order_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.padding.size;
+-- Calculate size of: Add Order Long Message
+cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.price.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.padding.size
+
+  return index
+end
 
 -- Display: Add Order Long Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message.display = function(packet, parent, length)
@@ -2445,7 +2633,7 @@ end
 -- Underlying
 cboe_c1_options_complex_pitch_v2_1_37.underlying = {}
 
--- Size Of: Underlying
+-- Size: Underlying
 cboe_c1_options_complex_pitch_v2_1_37.underlying.size = 8
 
 -- Display: Underlying
@@ -2468,7 +2656,7 @@ end
 -- Symbol Condition
 cboe_c1_options_complex_pitch_v2_1_37.symbol_condition = {}
 
--- Size Of: Symbol Condition
+-- Size: Symbol Condition
 cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.size = 1
 
 -- Display: Symbol Condition
@@ -2498,7 +2686,7 @@ end
 -- Osi Symbol
 cboe_c1_options_complex_pitch_v2_1_37.osi_symbol = {}
 
--- Size Of: Osi Symbol
+-- Size: Osi Symbol
 cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size = 21
 
 -- Display: Osi Symbol
@@ -2521,7 +2709,7 @@ end
 -- Feed Symbol
 cboe_c1_options_complex_pitch_v2_1_37.feed_symbol = {}
 
--- Size Of: Feed Symbol
+-- Size: Feed Symbol
 cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size = 6
 
 -- Display: Feed Symbol
@@ -2544,12 +2732,20 @@ end
 -- Symbol Mapping Message
 cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message = {}
 
--- Size Of: Symbol Mapping Message
-cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.underlying.size;
+-- Calculate size of: Symbol Mapping Message
+cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.underlying.size
+
+  return index
+end
 
 -- Display: Symbol Mapping Message
 cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message.display = function(packet, parent, length)
@@ -2596,7 +2792,7 @@ end
 -- Leg Security Type
 cboe_c1_options_complex_pitch_v2_1_37.leg_security_type = {}
 
--- Size Of: Leg Security Type
+-- Size: Leg Security Type
 cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.size = 1
 
 -- Display: Leg Security Type
@@ -2626,7 +2822,7 @@ end
 -- Leg Ratio
 cboe_c1_options_complex_pitch_v2_1_37.leg_ratio = {}
 
--- Size Of: Leg Ratio
+-- Size: Leg Ratio
 cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.size = 4
 
 -- Display: Leg Ratio
@@ -2649,7 +2845,7 @@ end
 -- Leg Symbol
 cboe_c1_options_complex_pitch_v2_1_37.leg_symbol = {}
 
--- Size Of: Leg Symbol
+-- Size: Leg Symbol
 cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size = 8
 
 -- Display: Leg Symbol
@@ -2672,11 +2868,18 @@ end
 -- Complex Instrument Leg
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_leg = {}
 
--- Size Of: Complex Instrument Leg
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_leg.size =
-  cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.size;
+-- Calculate size of: Complex Instrument Leg
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_leg.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.size
+
+  return index
+end
 
 -- Display: Complex Instrument Leg
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_leg.display = function(packet, parent, length)
@@ -2726,7 +2929,7 @@ end
 -- Leg Count
 cboe_c1_options_complex_pitch_v2_1_37.leg_count = {}
 
--- Size Of: Leg Count
+-- Size: Leg Count
 cboe_c1_options_complex_pitch_v2_1_37.leg_count.size = 1
 
 -- Display: Leg Count
@@ -2749,7 +2952,7 @@ end
 -- Complex Auction Reserved Bytes
 cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes = {}
 
--- Size Of: Complex Auction Reserved Bytes
+-- Size: Complex Auction Reserved Bytes
 cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.size = 3
 
 -- Display: Complex Auction Reserved Bytes
@@ -2772,7 +2975,7 @@ end
 -- Complex Auction Type
 cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type = {}
 
--- Size Of: Complex Auction Type
+-- Size: Complex Auction Type
 cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.size = 1
 
 -- Display: Complex Auction Type
@@ -2841,7 +3044,7 @@ end
 -- Complex Instrument Underlying
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying = {}
 
--- Size Of: Complex Instrument Underlying
+-- Size: Complex Instrument Underlying
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.size = 8
 
 -- Display: Complex Instrument Underlying
@@ -2874,7 +3077,7 @@ cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_mes
 
   index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.size
 
-  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.size
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.size(buffer, offset + index)
 
   index = index + cboe_c1_options_complex_pitch_v2_1_37.leg_count.size
 
@@ -2933,9 +3136,14 @@ end
 -- Transaction End Message
 cboe_c1_options_complex_pitch_v2_1_37.transaction_end_message = {}
 
--- Size Of: Transaction End Message
-cboe_c1_options_complex_pitch_v2_1_37.transaction_end_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size;
+-- Calculate size of: Transaction End Message
+cboe_c1_options_complex_pitch_v2_1_37.transaction_end_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  return index
+end
 
 -- Display: Transaction End Message
 cboe_c1_options_complex_pitch_v2_1_37.transaction_end_message.display = function(packet, parent, length)
@@ -2973,9 +3181,14 @@ end
 -- Transaction Begin
 cboe_c1_options_complex_pitch_v2_1_37.transaction_begin = {}
 
--- Size Of: Transaction Begin
-cboe_c1_options_complex_pitch_v2_1_37.transaction_begin.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size;
+-- Calculate size of: Transaction Begin
+cboe_c1_options_complex_pitch_v2_1_37.transaction_begin.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  return index
+end
 
 -- Display: Transaction Begin
 cboe_c1_options_complex_pitch_v2_1_37.transaction_begin.display = function(packet, parent, length)
@@ -3013,9 +3226,14 @@ end
 -- Unit Clear Message
 cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message = {}
 
--- Size Of: Unit Clear Message
-cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size;
+-- Calculate size of: Unit Clear Message
+cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  return index
+end
 
 -- Display: Unit Clear Message
 cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message.display = function(packet, parent, length)
@@ -3053,7 +3271,7 @@ end
 -- Epoch Time
 cboe_c1_options_complex_pitch_v2_1_37.epoch_time = {}
 
--- Size Of: Epoch Time
+-- Size: Epoch Time
 cboe_c1_options_complex_pitch_v2_1_37.epoch_time.size = 4
 
 -- Display: Epoch Time
@@ -3076,7 +3294,7 @@ end
 -- Time
 cboe_c1_options_complex_pitch_v2_1_37.time = {}
 
--- Size Of: Time
+-- Size: Time
 cboe_c1_options_complex_pitch_v2_1_37.time.size = 4
 
 -- Display: Time
@@ -3099,10 +3317,16 @@ end
 -- Time Message
 cboe_c1_options_complex_pitch_v2_1_37.time_message = {}
 
--- Size Of: Time Message
-cboe_c1_options_complex_pitch_v2_1_37.time_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.epoch_time.size;
+-- Calculate size of: Time Message
+cboe_c1_options_complex_pitch_v2_1_37.time_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.epoch_time.size
+
+  return index
+end
 
 -- Display: Time Message
 cboe_c1_options_complex_pitch_v2_1_37.time_message.display = function(packet, parent, length)
@@ -3143,7 +3367,7 @@ end
 -- Trade Date
 cboe_c1_options_complex_pitch_v2_1_37.trade_date = {}
 
--- Size Of: Trade Date
+-- Size: Trade Date
 cboe_c1_options_complex_pitch_v2_1_37.trade_date.size = 4
 
 -- Display: Trade Date
@@ -3166,7 +3390,7 @@ end
 -- Midnight Reference
 cboe_c1_options_complex_pitch_v2_1_37.midnight_reference = {}
 
--- Size Of: Midnight Reference
+-- Size: Midnight Reference
 cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.size = 4
 
 -- Display: Midnight Reference
@@ -3189,12 +3413,20 @@ end
 -- Time Reference Message
 cboe_c1_options_complex_pitch_v2_1_37.time_reference_message = {}
 
--- Size Of: Time Reference Message
-cboe_c1_options_complex_pitch_v2_1_37.time_reference_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.time.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.trade_date.size;
+-- Calculate size of: Time Reference Message
+cboe_c1_options_complex_pitch_v2_1_37.time_reference_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.trade_date.size
+
+  return index
+end
 
 -- Display: Time Reference Message
 cboe_c1_options_complex_pitch_v2_1_37.time_reference_message.display = function(packet, parent, length)
@@ -3489,7 +3721,7 @@ end
 -- Message Type
 cboe_c1_options_complex_pitch_v2_1_37.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 cboe_c1_options_complex_pitch_v2_1_37.message_type.size = 1
 
 -- Display: Message Type
@@ -3591,7 +3823,7 @@ end
 -- Message Length
 cboe_c1_options_complex_pitch_v2_1_37.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 cboe_c1_options_complex_pitch_v2_1_37.message_length.size = 1
 
 -- Display: Message Length
@@ -3614,10 +3846,16 @@ end
 -- Message Header
 cboe_c1_options_complex_pitch_v2_1_37.message_header = {}
 
--- Size Of: Message Header
-cboe_c1_options_complex_pitch_v2_1_37.message_header.size =
-  cboe_c1_options_complex_pitch_v2_1_37.message_length.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.message_type.size;
+-- Calculate size of: Message Header
+cboe_c1_options_complex_pitch_v2_1_37.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.message_length.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_c1_options_complex_pitch_v2_1_37.message_header.display = function(packet, parent, length)
@@ -3709,7 +3947,7 @@ end
 -- Sequence
 cboe_c1_options_complex_pitch_v2_1_37.sequence = {}
 
--- Size Of: Sequence
+-- Size: Sequence
 cboe_c1_options_complex_pitch_v2_1_37.sequence.size = 4
 
 -- Display: Sequence
@@ -3732,7 +3970,7 @@ end
 -- Unit
 cboe_c1_options_complex_pitch_v2_1_37.unit = {}
 
--- Size Of: Unit
+-- Size: Unit
 cboe_c1_options_complex_pitch_v2_1_37.unit.size = 1
 
 -- Display: Unit
@@ -3755,7 +3993,7 @@ end
 -- Count
 cboe_c1_options_complex_pitch_v2_1_37.count = {}
 
--- Size Of: Count
+-- Size: Count
 cboe_c1_options_complex_pitch_v2_1_37.count.size = 1
 
 -- Display: Count
@@ -3778,7 +4016,7 @@ end
 -- Length
 cboe_c1_options_complex_pitch_v2_1_37.length = {}
 
--- Size Of: Length
+-- Size: Length
 cboe_c1_options_complex_pitch_v2_1_37.length.size = 2
 
 -- Display: Length
@@ -3801,12 +4039,20 @@ end
 -- Packet Header
 cboe_c1_options_complex_pitch_v2_1_37.packet_header = {}
 
--- Size Of: Packet Header
-cboe_c1_options_complex_pitch_v2_1_37.packet_header.size =
-  cboe_c1_options_complex_pitch_v2_1_37.length.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.count.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.unit.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.sequence.size;
+-- Calculate size of: Packet Header
+cboe_c1_options_complex_pitch_v2_1_37.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.length.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.count.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.unit.size
+
+  index = index + cboe_c1_options_complex_pitch_v2_1_37.sequence.size
+
+  return index
+end
 
 -- Display: Packet Header
 cboe_c1_options_complex_pitch_v2_1_37.packet_header.display = function(packet, parent, length)

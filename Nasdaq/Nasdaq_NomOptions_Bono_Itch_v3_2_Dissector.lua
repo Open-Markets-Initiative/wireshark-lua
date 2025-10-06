@@ -238,7 +238,7 @@ end
 -- Original Volume
 nasdaq_nomoptions_bono_itch_v3_2.original_volume = {}
 
--- Size Of: Original Volume
+-- Size: Original Volume
 nasdaq_nomoptions_bono_itch_v3_2.original_volume.size = 4
 
 -- Display: Original Volume
@@ -261,7 +261,7 @@ end
 -- Original Price
 nasdaq_nomoptions_bono_itch_v3_2.original_price = {}
 
--- Size Of: Original Price
+-- Size: Original Price
 nasdaq_nomoptions_bono_itch_v3_2.original_price.size = 4
 
 -- Display: Original Price
@@ -290,7 +290,7 @@ end
 -- Original Cross Id
 nasdaq_nomoptions_bono_itch_v3_2.original_cross_id = {}
 
--- Size Of: Original Cross Id
+-- Size: Original Cross Id
 nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.size = 4
 
 -- Display: Original Cross Id
@@ -313,7 +313,7 @@ end
 -- Option Id
 nasdaq_nomoptions_bono_itch_v3_2.option_id = {}
 
--- Size Of: Option Id
+-- Size: Option Id
 nasdaq_nomoptions_bono_itch_v3_2.option_id.size = 4
 
 -- Display: Option Id
@@ -336,7 +336,7 @@ end
 -- Nanoseconds
 nasdaq_nomoptions_bono_itch_v3_2.nanoseconds = {}
 
--- Size Of: Nanoseconds
+-- Size: Nanoseconds
 nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -359,13 +359,22 @@ end
 -- Broken Trade Report Message
 nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message = {}
 
--- Size Of: Broken Trade Report Message
-nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.original_price.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.original_volume.size;
+-- Calculate size of: Broken Trade Report Message
+nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.original_price.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.original_volume.size
+
+  return index
+end
 
 -- Display: Broken Trade Report Message
 nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message.display = function(packet, parent, length)
@@ -415,7 +424,7 @@ end
 -- Volume
 nasdaq_nomoptions_bono_itch_v3_2.volume = {}
 
--- Size Of: Volume
+-- Size: Volume
 nasdaq_nomoptions_bono_itch_v3_2.volume.size = 4
 
 -- Display: Volume
@@ -438,7 +447,7 @@ end
 -- Price 4
 nasdaq_nomoptions_bono_itch_v3_2.price_4 = {}
 
--- Size Of: Price 4
+-- Size: Price 4
 nasdaq_nomoptions_bono_itch_v3_2.price_4.size = 4
 
 -- Display: Price 4
@@ -467,7 +476,7 @@ end
 -- Trade Condition
 nasdaq_nomoptions_bono_itch_v3_2.trade_condition = {}
 
--- Size Of: Trade Condition
+-- Size: Trade Condition
 nasdaq_nomoptions_bono_itch_v3_2.trade_condition.size = 1
 
 -- Display: Trade Condition
@@ -490,7 +499,7 @@ end
 -- Cross Id
 nasdaq_nomoptions_bono_itch_v3_2.cross_id = {}
 
--- Size Of: Cross Id
+-- Size: Cross Id
 nasdaq_nomoptions_bono_itch_v3_2.cross_id.size = 4
 
 -- Display: Cross Id
@@ -513,14 +522,24 @@ end
 -- Trade Report Message
 nasdaq_nomoptions_bono_itch_v3_2.trade_report_message = {}
 
--- Size Of: Trade Report Message
-nasdaq_nomoptions_bono_itch_v3_2.trade_report_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.cross_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.trade_condition.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.price_4.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.volume.size;
+-- Calculate size of: Trade Report Message
+nasdaq_nomoptions_bono_itch_v3_2.trade_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.cross_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.trade_condition.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.price_4.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.volume.size
+
+  return index
+end
 
 -- Display: Trade Report Message
 nasdaq_nomoptions_bono_itch_v3_2.trade_report_message.display = function(packet, parent, length)
@@ -573,7 +592,7 @@ end
 -- Size 4
 nasdaq_nomoptions_bono_itch_v3_2.size_4 = {}
 
--- Size Of: Size 4
+-- Size: Size 4
 nasdaq_nomoptions_bono_itch_v3_2.size_4.size = 4
 
 -- Display: Size 4
@@ -596,7 +615,7 @@ end
 -- Quote Condition
 nasdaq_nomoptions_bono_itch_v3_2.quote_condition = {}
 
--- Size Of: Quote Condition
+-- Size: Quote Condition
 nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -632,13 +651,22 @@ end
 -- Long Best Bid Update Message
 nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_update_message = {}
 
--- Size Of: Long Best Bid Update Message
-nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_update_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.price_4.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.size_4.size;
+-- Calculate size of: Long Best Bid Update Message
+nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.price_4.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.size_4.size
+
+  return index
+end
 
 -- Display: Long Best Bid Update Message
 nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_update_message.display = function(packet, parent, length)
@@ -688,13 +716,22 @@ end
 -- Long Best Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.long_best_ask_update_message = {}
 
--- Size Of: Long Best Ask Update Message
-nasdaq_nomoptions_bono_itch_v3_2.long_best_ask_update_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.price_4.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.size_4.size;
+-- Calculate size of: Long Best Ask Update Message
+nasdaq_nomoptions_bono_itch_v3_2.long_best_ask_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.price_4.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.size_4.size
+
+  return index
+end
 
 -- Display: Long Best Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.long_best_ask_update_message.display = function(packet, parent, length)
@@ -744,7 +781,7 @@ end
 -- Size 2
 nasdaq_nomoptions_bono_itch_v3_2.size_2 = {}
 
--- Size Of: Size 2
+-- Size: Size 2
 nasdaq_nomoptions_bono_itch_v3_2.size_2.size = 2
 
 -- Display: Size 2
@@ -767,7 +804,7 @@ end
 -- Price 2
 nasdaq_nomoptions_bono_itch_v3_2.price_2 = {}
 
--- Size Of: Price 2
+-- Size: Price 2
 nasdaq_nomoptions_bono_itch_v3_2.price_2.size = 2
 
 -- Display: Price 2
@@ -796,13 +833,22 @@ end
 -- Short Best Bid Update Message
 nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_update_message = {}
 
--- Size Of: Short Best Bid Update Message
-nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_update_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.price_2.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.size_2.size;
+-- Calculate size of: Short Best Bid Update Message
+nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.price_2.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.size_2.size
+
+  return index
+end
 
 -- Display: Short Best Bid Update Message
 nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_update_message.display = function(packet, parent, length)
@@ -852,13 +898,22 @@ end
 -- Short Best Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.short_best_ask_update_message = {}
 
--- Size Of: Short Best Ask Update Message
-nasdaq_nomoptions_bono_itch_v3_2.short_best_ask_update_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.price_2.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.size_2.size;
+-- Calculate size of: Short Best Ask Update Message
+nasdaq_nomoptions_bono_itch_v3_2.short_best_ask_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.price_2.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.size_2.size
+
+  return index
+end
 
 -- Display: Short Best Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.short_best_ask_update_message.display = function(packet, parent, length)
@@ -908,7 +963,7 @@ end
 -- Ask Size 4
 nasdaq_nomoptions_bono_itch_v3_2.ask_size_4 = {}
 
--- Size Of: Ask Size 4
+-- Size: Ask Size 4
 nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.size = 4
 
 -- Display: Ask Size 4
@@ -931,7 +986,7 @@ end
 -- Ask Price 4
 nasdaq_nomoptions_bono_itch_v3_2.ask_price_4 = {}
 
--- Size Of: Ask Price 4
+-- Size: Ask Price 4
 nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size = 4
 
 -- Display: Ask Price 4
@@ -960,7 +1015,7 @@ end
 -- Bid Size 4
 nasdaq_nomoptions_bono_itch_v3_2.bid_size_4 = {}
 
--- Size Of: Bid Size 4
+-- Size: Bid Size 4
 nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.size = 4
 
 -- Display: Bid Size 4
@@ -983,7 +1038,7 @@ end
 -- Bid Price 4
 nasdaq_nomoptions_bono_itch_v3_2.bid_price_4 = {}
 
--- Size Of: Bid Price 4
+-- Size: Bid Price 4
 nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size = 4
 
 -- Display: Bid Price 4
@@ -1012,15 +1067,26 @@ end
 -- Long Best Bid And Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message = {}
 
--- Size Of: Long Best Bid And Ask Update Message
-nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.size;
+-- Calculate size of: Long Best Bid And Ask Update Message
+nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.size
+
+  return index
+end
 
 -- Display: Long Best Bid And Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message.display = function(packet, parent, length)
@@ -1076,7 +1142,7 @@ end
 -- Ask Size 2
 nasdaq_nomoptions_bono_itch_v3_2.ask_size_2 = {}
 
--- Size Of: Ask Size 2
+-- Size: Ask Size 2
 nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.size = 2
 
 -- Display: Ask Size 2
@@ -1099,7 +1165,7 @@ end
 -- Ask Price 2
 nasdaq_nomoptions_bono_itch_v3_2.ask_price_2 = {}
 
--- Size Of: Ask Price 2
+-- Size: Ask Price 2
 nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size = 2
 
 -- Display: Ask Price 2
@@ -1128,7 +1194,7 @@ end
 -- Bid Size 2
 nasdaq_nomoptions_bono_itch_v3_2.bid_size_2 = {}
 
--- Size Of: Bid Size 2
+-- Size: Bid Size 2
 nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.size = 2
 
 -- Display: Bid Size 2
@@ -1151,7 +1217,7 @@ end
 -- Bid Price 2
 nasdaq_nomoptions_bono_itch_v3_2.bid_price_2 = {}
 
--- Size Of: Bid Price 2
+-- Size: Bid Price 2
 nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size = 2
 
 -- Display: Bid Price 2
@@ -1180,15 +1246,26 @@ end
 -- Short Best Bid And Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_and_ask_update_message = {}
 
--- Size Of: Short Best Bid And Ask Update Message
-nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_and_ask_update_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.size;
+-- Calculate size of: Short Best Bid And Ask Update Message
+nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_and_ask_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.size
+
+  return index
+end
 
 -- Display: Short Best Bid And Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_and_ask_update_message.display = function(packet, parent, length)
@@ -1244,7 +1321,7 @@ end
 -- Open State
 nasdaq_nomoptions_bono_itch_v3_2.open_state = {}
 
--- Size Of: Open State
+-- Size: Open State
 nasdaq_nomoptions_bono_itch_v3_2.open_state.size = 1
 
 -- Display: Open State
@@ -1274,11 +1351,18 @@ end
 -- Security Open Closed Message
 nasdaq_nomoptions_bono_itch_v3_2.security_open_closed_message = {}
 
--- Size Of: Security Open Closed Message
-nasdaq_nomoptions_bono_itch_v3_2.security_open_closed_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.open_state.size;
+-- Calculate size of: Security Open Closed Message
+nasdaq_nomoptions_bono_itch_v3_2.security_open_closed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.open_state.size
+
+  return index
+end
 
 -- Display: Security Open Closed Message
 nasdaq_nomoptions_bono_itch_v3_2.security_open_closed_message.display = function(packet, parent, length)
@@ -1322,7 +1406,7 @@ end
 -- Current Trading State
 nasdaq_nomoptions_bono_itch_v3_2.current_trading_state = {}
 
--- Size Of: Current Trading State
+-- Size: Current Trading State
 nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.size = 1
 
 -- Display: Current Trading State
@@ -1352,11 +1436,18 @@ end
 -- Trading Action Message
 nasdaq_nomoptions_bono_itch_v3_2.trading_action_message = {}
 
--- Size Of: Trading Action Message
-nasdaq_nomoptions_bono_itch_v3_2.trading_action_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.size;
+-- Calculate size of: Trading Action Message
+nasdaq_nomoptions_bono_itch_v3_2.trading_action_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.size
+
+  return index
+end
 
 -- Display: Trading Action Message
 nasdaq_nomoptions_bono_itch_v3_2.trading_action_message.display = function(packet, parent, length)
@@ -1400,7 +1491,7 @@ end
 -- Mpv
 nasdaq_nomoptions_bono_itch_v3_2.mpv = {}
 
--- Size Of: Mpv
+-- Size: Mpv
 nasdaq_nomoptions_bono_itch_v3_2.mpv.size = 1
 
 -- Display: Mpv
@@ -1433,7 +1524,7 @@ end
 -- Tradable
 nasdaq_nomoptions_bono_itch_v3_2.tradable = {}
 
--- Size Of: Tradable
+-- Size: Tradable
 nasdaq_nomoptions_bono_itch_v3_2.tradable.size = 1
 
 -- Display: Tradable
@@ -1463,7 +1554,7 @@ end
 -- Option Closing Type
 nasdaq_nomoptions_bono_itch_v3_2.option_closing_type = {}
 
--- Size Of: Option Closing Type
+-- Size: Option Closing Type
 nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.size = 1
 
 -- Display: Option Closing Type
@@ -1493,7 +1584,7 @@ end
 -- Underlying Symbol
 nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol = {}
 
--- Size Of: Underlying Symbol
+-- Size: Underlying Symbol
 nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.size = 13
 
 -- Display: Underlying Symbol
@@ -1516,7 +1607,7 @@ end
 -- Source
 nasdaq_nomoptions_bono_itch_v3_2.source = {}
 
--- Size Of: Source
+-- Size: Source
 nasdaq_nomoptions_bono_itch_v3_2.source.size = 1
 
 -- Display: Source
@@ -1539,7 +1630,7 @@ end
 -- Option Type
 nasdaq_nomoptions_bono_itch_v3_2.option_type = {}
 
--- Size Of: Option Type
+-- Size: Option Type
 nasdaq_nomoptions_bono_itch_v3_2.option_type.size = 1
 
 -- Display: Option Type
@@ -1569,7 +1660,7 @@ end
 -- Strike Price
 nasdaq_nomoptions_bono_itch_v3_2.strike_price = {}
 
--- Size Of: Strike Price
+-- Size: Strike Price
 nasdaq_nomoptions_bono_itch_v3_2.strike_price.size = 4
 
 -- Display: Strike Price
@@ -1598,7 +1689,7 @@ end
 -- Expiration Day
 nasdaq_nomoptions_bono_itch_v3_2.expiration_day = {}
 
--- Size Of: Expiration Day
+-- Size: Expiration Day
 nasdaq_nomoptions_bono_itch_v3_2.expiration_day.size = 1
 
 -- Display: Expiration Day
@@ -1621,7 +1712,7 @@ end
 -- Expiration Month
 nasdaq_nomoptions_bono_itch_v3_2.expiration_month = {}
 
--- Size Of: Expiration Month
+-- Size: Expiration Month
 nasdaq_nomoptions_bono_itch_v3_2.expiration_month.size = 1
 
 -- Display: Expiration Month
@@ -1644,7 +1735,7 @@ end
 -- Expiration Year
 nasdaq_nomoptions_bono_itch_v3_2.expiration_year = {}
 
--- Size Of: Expiration Year
+-- Size: Expiration Year
 nasdaq_nomoptions_bono_itch_v3_2.expiration_year.size = 1
 
 -- Display: Expiration Year
@@ -1667,7 +1758,7 @@ end
 -- Security Symbol
 nasdaq_nomoptions_bono_itch_v3_2.security_symbol = {}
 
--- Size Of: Security Symbol
+-- Size: Security Symbol
 nasdaq_nomoptions_bono_itch_v3_2.security_symbol.size = 6
 
 -- Display: Security Symbol
@@ -1690,21 +1781,38 @@ end
 -- Options Directory Message
 nasdaq_nomoptions_bono_itch_v3_2.options_directory_message = {}
 
--- Size Of: Options Directory Message
-nasdaq_nomoptions_bono_itch_v3_2.options_directory_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_id.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.security_symbol.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.expiration_year.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.expiration_month.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.expiration_day.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.strike_price.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_type.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.source.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.tradable.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.mpv.size;
+-- Calculate size of: Options Directory Message
+nasdaq_nomoptions_bono_itch_v3_2.options_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.security_symbol.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.expiration_year.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.expiration_month.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.expiration_day.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.strike_price.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_type.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.source.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.tradable.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.mpv.size
+
+  return index
+end
 
 -- Display: Options Directory Message
 nasdaq_nomoptions_bono_itch_v3_2.options_directory_message.display = function(packet, parent, length)
@@ -1778,7 +1886,7 @@ end
 -- Subversion
 nasdaq_nomoptions_bono_itch_v3_2.subversion = {}
 
--- Size Of: Subversion
+-- Size: Subversion
 nasdaq_nomoptions_bono_itch_v3_2.subversion.size = 1
 
 -- Display: Subversion
@@ -1801,7 +1909,7 @@ end
 -- Version
 nasdaq_nomoptions_bono_itch_v3_2.version = {}
 
--- Size Of: Version
+-- Size: Version
 nasdaq_nomoptions_bono_itch_v3_2.version.size = 1
 
 -- Display: Version
@@ -1824,7 +1932,7 @@ end
 -- Event Code
 nasdaq_nomoptions_bono_itch_v3_2.event_code = {}
 
--- Size Of: Event Code
+-- Size: Event Code
 nasdaq_nomoptions_bono_itch_v3_2.event_code.size = 1
 
 -- Display: Event Code
@@ -1869,12 +1977,20 @@ end
 -- System Event Message
 nasdaq_nomoptions_bono_itch_v3_2.system_event_message = {}
 
--- Size Of: System Event Message
-nasdaq_nomoptions_bono_itch_v3_2.system_event_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.event_code.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.version.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.subversion.size;
+-- Calculate size of: System Event Message
+nasdaq_nomoptions_bono_itch_v3_2.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.event_code.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.version.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.subversion.size
+
+  return index
+end
 
 -- Display: System Event Message
 nasdaq_nomoptions_bono_itch_v3_2.system_event_message.display = function(packet, parent, length)
@@ -1921,7 +2037,7 @@ end
 -- Seconds
 nasdaq_nomoptions_bono_itch_v3_2.seconds = {}
 
--- Size Of: Seconds
+-- Size: Seconds
 nasdaq_nomoptions_bono_itch_v3_2.seconds.size = 4
 
 -- Display: Seconds
@@ -1944,9 +2060,14 @@ end
 -- Timestamp Message
 nasdaq_nomoptions_bono_itch_v3_2.timestamp_message = {}
 
--- Size Of: Timestamp Message
-nasdaq_nomoptions_bono_itch_v3_2.timestamp_message.size =
-  nasdaq_nomoptions_bono_itch_v3_2.seconds.size;
+-- Calculate size of: Timestamp Message
+nasdaq_nomoptions_bono_itch_v3_2.timestamp_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.seconds.size
+
+  return index
+end
 
 -- Display: Timestamp Message
 nasdaq_nomoptions_bono_itch_v3_2.timestamp_message.display = function(packet, parent, length)
@@ -2128,7 +2249,7 @@ end
 -- Message Type
 nasdaq_nomoptions_bono_itch_v3_2.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nasdaq_nomoptions_bono_itch_v3_2.message_type.size = 1
 
 -- Display: Message Type
@@ -2191,7 +2312,7 @@ end
 -- Message Length
 nasdaq_nomoptions_bono_itch_v3_2.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 nasdaq_nomoptions_bono_itch_v3_2.message_length.size = 2
 
 -- Display: Message Length
@@ -2214,10 +2335,16 @@ end
 -- Message Header
 nasdaq_nomoptions_bono_itch_v3_2.message_header = {}
 
--- Size Of: Message Header
-nasdaq_nomoptions_bono_itch_v3_2.message_header.size =
-  nasdaq_nomoptions_bono_itch_v3_2.message_length.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.message_type.size;
+-- Calculate size of: Message Header
+nasdaq_nomoptions_bono_itch_v3_2.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.message_length.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_nomoptions_bono_itch_v3_2.message_header.display = function(packet, parent, length)
@@ -2309,7 +2436,7 @@ end
 -- Message Count
 nasdaq_nomoptions_bono_itch_v3_2.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nasdaq_nomoptions_bono_itch_v3_2.message_count.size = 2
 
 -- Display: Message Count
@@ -2332,7 +2459,7 @@ end
 -- Sequence Number
 nasdaq_nomoptions_bono_itch_v3_2.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nasdaq_nomoptions_bono_itch_v3_2.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -2355,7 +2482,7 @@ end
 -- Session
 nasdaq_nomoptions_bono_itch_v3_2.session = {}
 
--- Size Of: Session
+-- Size: Session
 nasdaq_nomoptions_bono_itch_v3_2.session.size = 10
 
 -- Display: Session
@@ -2394,11 +2521,18 @@ end
 -- Packet Header
 nasdaq_nomoptions_bono_itch_v3_2.packet_header = {}
 
--- Size Of: Packet Header
-nasdaq_nomoptions_bono_itch_v3_2.packet_header.size =
-  nasdaq_nomoptions_bono_itch_v3_2.session.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.sequence_number.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.message_count.size;
+-- Calculate size of: Packet Header
+nasdaq_nomoptions_bono_itch_v3_2.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.session.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.sequence_number.size
+
+  index = index + nasdaq_nomoptions_bono_itch_v3_2.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_nomoptions_bono_itch_v3_2.packet_header.display = function(packet, parent, length)

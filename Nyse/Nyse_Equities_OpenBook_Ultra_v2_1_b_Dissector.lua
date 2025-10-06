@@ -150,7 +150,7 @@ end
 -- Next Sequence Number
 nyse_equities_openbook_ultra_v2_1_b.next_sequence_number = {}
 
--- Size Of: Next Sequence Number
+-- Size: Next Sequence Number
 nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size = 4
 
 -- Display: Next Sequence Number
@@ -173,9 +173,14 @@ end
 -- Sequence Number Reset Message
 nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message = {}
 
--- Size Of: Sequence Number Reset Message
-nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size =
-  nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size;
+-- Calculate size of: Sequence Number Reset Message
+nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size
+
+  return index
+end
 
 -- Display: Sequence Number Reset Message
 nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display = function(packet, parent, length)
@@ -213,7 +218,7 @@ end
 -- Link Id 3
 nyse_equities_openbook_ultra_v2_1_b.link_id_3 = {}
 
--- Size Of: Link Id 3
+-- Size: Link Id 3
 nyse_equities_openbook_ultra_v2_1_b.link_id_3.size = 4
 
 -- Display: Link Id 3
@@ -236,7 +241,7 @@ end
 -- Link Id 2
 nyse_equities_openbook_ultra_v2_1_b.link_id_2 = {}
 
--- Size Of: Link Id 2
+-- Size: Link Id 2
 nyse_equities_openbook_ultra_v2_1_b.link_id_2.size = 4
 
 -- Display: Link Id 2
@@ -259,7 +264,7 @@ end
 -- Link Id 1
 nyse_equities_openbook_ultra_v2_1_b.link_id_1 = {}
 
--- Size Of: Link Id 1
+-- Size: Link Id 1
 nyse_equities_openbook_ultra_v2_1_b.link_id_1.size = 4
 
 -- Display: Link Id 1
@@ -282,7 +287,7 @@ end
 -- Reason Code
 nyse_equities_openbook_ultra_v2_1_b.reason_code = {}
 
--- Size Of: Reason Code
+-- Size: Reason Code
 nyse_equities_openbook_ultra_v2_1_b.reason_code.size = 1
 
 -- Display: Reason Code
@@ -318,7 +323,7 @@ end
 -- Side
 nyse_equities_openbook_ultra_v2_1_b.side = {}
 
--- Size Of: Side
+-- Size: Side
 nyse_equities_openbook_ultra_v2_1_b.side.size = 1
 
 -- Display: Side
@@ -348,7 +353,7 @@ end
 -- Num Orders
 nyse_equities_openbook_ultra_v2_1_b.num_orders = {}
 
--- Size Of: Num Orders
+-- Size: Num Orders
 nyse_equities_openbook_ultra_v2_1_b.num_orders.size = 2
 
 -- Display: Num Orders
@@ -371,7 +376,7 @@ end
 -- Chg Qty
 nyse_equities_openbook_ultra_v2_1_b.chg_qty = {}
 
--- Size Of: Chg Qty
+-- Size: Chg Qty
 nyse_equities_openbook_ultra_v2_1_b.chg_qty.size = 4
 
 -- Display: Chg Qty
@@ -394,7 +399,7 @@ end
 -- Volume
 nyse_equities_openbook_ultra_v2_1_b.volume = {}
 
--- Size Of: Volume
+-- Size: Volume
 nyse_equities_openbook_ultra_v2_1_b.volume.size = 4
 
 -- Display: Volume
@@ -417,7 +422,7 @@ end
 -- Price Numerator
 nyse_equities_openbook_ultra_v2_1_b.price_numerator = {}
 
--- Size Of: Price Numerator
+-- Size: Price Numerator
 nyse_equities_openbook_ultra_v2_1_b.price_numerator.size = 4
 
 -- Display: Price Numerator
@@ -440,17 +445,30 @@ end
 -- Delta Price Point
 nyse_equities_openbook_ultra_v2_1_b.delta_price_point = {}
 
--- Size Of: Delta Price Point
-nyse_equities_openbook_ultra_v2_1_b.delta_price_point.size =
-  nyse_equities_openbook_ultra_v2_1_b.price_numerator.size + 
-  nyse_equities_openbook_ultra_v2_1_b.volume.size + 
-  nyse_equities_openbook_ultra_v2_1_b.chg_qty.size + 
-  nyse_equities_openbook_ultra_v2_1_b.num_orders.size + 
-  nyse_equities_openbook_ultra_v2_1_b.side.size + 
-  nyse_equities_openbook_ultra_v2_1_b.reason_code.size + 
-  nyse_equities_openbook_ultra_v2_1_b.link_id_1.size + 
-  nyse_equities_openbook_ultra_v2_1_b.link_id_2.size + 
-  nyse_equities_openbook_ultra_v2_1_b.link_id_3.size;
+-- Calculate size of: Delta Price Point
+nyse_equities_openbook_ultra_v2_1_b.delta_price_point.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.price_numerator.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.volume.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.chg_qty.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.num_orders.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.side.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.reason_code.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_1.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_2.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_3.size
+
+  return index
+end
 
 -- Display: Delta Price Point
 nyse_equities_openbook_ultra_v2_1_b.delta_price_point.display = function(packet, parent, length)
@@ -512,7 +530,7 @@ end
 -- Price Scale Code
 nyse_equities_openbook_ultra_v2_1_b.price_scale_code = {}
 
--- Size Of: Price Scale Code
+-- Size: Price Scale Code
 nyse_equities_openbook_ultra_v2_1_b.price_scale_code.size = 1
 
 -- Display: Price Scale Code
@@ -535,7 +553,7 @@ end
 -- Trading Status
 nyse_equities_openbook_ultra_v2_1_b.trading_status = {}
 
--- Size Of: Trading Status
+-- Size: Trading Status
 nyse_equities_openbook_ultra_v2_1_b.trading_status.size = 1
 
 -- Display: Trading Status
@@ -571,7 +589,7 @@ end
 -- Quote Condition
 nyse_equities_openbook_ultra_v2_1_b.quote_condition = {}
 
--- Size Of: Quote Condition
+-- Size: Quote Condition
 nyse_equities_openbook_ultra_v2_1_b.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -601,7 +619,7 @@ end
 -- Source Session Id
 nyse_equities_openbook_ultra_v2_1_b.source_session_id = {}
 
--- Size Of: Source Session Id
+-- Size: Source Session Id
 nyse_equities_openbook_ultra_v2_1_b.source_session_id.size = 1
 
 -- Display: Source Session Id
@@ -624,7 +642,7 @@ end
 -- Source Seq Num
 nyse_equities_openbook_ultra_v2_1_b.source_seq_num = {}
 
--- Size Of: Source Seq Num
+-- Size: Source Seq Num
 nyse_equities_openbook_ultra_v2_1_b.source_seq_num.size = 4
 
 -- Display: Source Seq Num
@@ -647,7 +665,7 @@ end
 -- Source Time Micro Secs
 nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs = {}
 
--- Size Of: Source Time Micro Secs
+-- Size: Source Time Micro Secs
 nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.size = 2
 
 -- Display: Source Time Micro Secs
@@ -670,7 +688,7 @@ end
 -- Source Time
 nyse_equities_openbook_ultra_v2_1_b.source_time = {}
 
--- Size Of: Source Time
+-- Size: Source Time
 nyse_equities_openbook_ultra_v2_1_b.source_time.size = 4
 
 -- Display: Source Time
@@ -693,7 +711,7 @@ end
 -- Symbol Index
 nyse_equities_openbook_ultra_v2_1_b.symbol_index = {}
 
--- Size Of: Symbol Index
+-- Size: Symbol Index
 nyse_equities_openbook_ultra_v2_1_b.symbol_index.size = 4
 
 -- Display: Symbol Index
@@ -716,7 +734,7 @@ end
 -- Delta Size
 nyse_equities_openbook_ultra_v2_1_b.delta_size = {}
 
--- Size Of: Delta Size
+-- Size: Delta Size
 nyse_equities_openbook_ultra_v2_1_b.delta_size.size = 2
 
 -- Display: Delta Size
@@ -856,7 +874,7 @@ end
 -- Reserved 1
 nyse_equities_openbook_ultra_v2_1_b.reserved_1 = {}
 
--- Size Of: Reserved 1
+-- Size: Reserved 1
 nyse_equities_openbook_ultra_v2_1_b.reserved_1.size = 1
 
 -- Display: Reserved 1
@@ -879,13 +897,22 @@ end
 -- Full Price Point
 nyse_equities_openbook_ultra_v2_1_b.full_price_point = {}
 
--- Size Of: Full Price Point
-nyse_equities_openbook_ultra_v2_1_b.full_price_point.size =
-  nyse_equities_openbook_ultra_v2_1_b.price_numerator.size + 
-  nyse_equities_openbook_ultra_v2_1_b.volume.size + 
-  nyse_equities_openbook_ultra_v2_1_b.num_orders.size + 
-  nyse_equities_openbook_ultra_v2_1_b.side.size + 
-  nyse_equities_openbook_ultra_v2_1_b.reserved_1.size;
+-- Calculate size of: Full Price Point
+nyse_equities_openbook_ultra_v2_1_b.full_price_point.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.price_numerator.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.volume.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.num_orders.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.side.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.reserved_1.size
+
+  return index
+end
 
 -- Display: Full Price Point
 nyse_equities_openbook_ultra_v2_1_b.full_price_point.display = function(packet, parent, length)
@@ -935,7 +962,7 @@ end
 -- Mpv
 nyse_equities_openbook_ultra_v2_1_b.mpv = {}
 
--- Size Of: Mpv
+-- Size: Mpv
 nyse_equities_openbook_ultra_v2_1_b.mpv.size = 2
 
 -- Display: Mpv
@@ -958,7 +985,7 @@ end
 -- Symbol
 nyse_equities_openbook_ultra_v2_1_b.symbol = {}
 
--- Size Of: Symbol
+-- Size: Symbol
 nyse_equities_openbook_ultra_v2_1_b.symbol.size = 11
 
 -- Display: Symbol
@@ -981,7 +1008,7 @@ end
 -- Symbol Seq Num
 nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num = {}
 
--- Size Of: Symbol Seq Num
+-- Size: Symbol Seq Num
 nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
@@ -1004,7 +1031,7 @@ end
 -- Update Size
 nyse_equities_openbook_ultra_v2_1_b.update_size = {}
 
--- Size Of: Update Size
+-- Size: Update Size
 nyse_equities_openbook_ultra_v2_1_b.update_size.size = 2
 
 -- Display: Update Size
@@ -1224,7 +1251,7 @@ end
 -- Link Flag
 nyse_equities_openbook_ultra_v2_1_b.link_flag = {}
 
--- Size Of: Link Flag
+-- Size: Link Flag
 nyse_equities_openbook_ultra_v2_1_b.link_flag.size = 1
 
 -- Display: Link Flag
@@ -1247,7 +1274,7 @@ end
 -- Message Count
 nyse_equities_openbook_ultra_v2_1_b.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nyse_equities_openbook_ultra_v2_1_b.message_count.size = 1
 
 -- Display: Message Count
@@ -1270,7 +1297,7 @@ end
 -- Retransmission Flag
 nyse_equities_openbook_ultra_v2_1_b.retransmission_flag = {}
 
--- Size Of: Retransmission Flag
+-- Size: Retransmission Flag
 nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size = 1
 
 -- Display: Retransmission Flag
@@ -1293,7 +1320,7 @@ end
 -- Product Id
 nyse_equities_openbook_ultra_v2_1_b.product_id = {}
 
--- Size Of: Product Id
+-- Size: Product Id
 nyse_equities_openbook_ultra_v2_1_b.product_id.size = 1
 
 -- Display: Product Id
@@ -1316,7 +1343,7 @@ end
 -- Timestamp
 nyse_equities_openbook_ultra_v2_1_b.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nyse_equities_openbook_ultra_v2_1_b.timestamp.size = 4
 
 -- Display: Timestamp
@@ -1339,7 +1366,7 @@ end
 -- Sequence Number
 nyse_equities_openbook_ultra_v2_1_b.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nyse_equities_openbook_ultra_v2_1_b.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -1362,7 +1389,7 @@ end
 -- Message Type
 nyse_equities_openbook_ultra_v2_1_b.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nyse_equities_openbook_ultra_v2_1_b.message_type.size = 2
 
 -- Display: Message Type
@@ -1398,7 +1425,7 @@ end
 -- Packet Size
 nyse_equities_openbook_ultra_v2_1_b.packet_size = {}
 
--- Size Of: Packet Size
+-- Size: Packet Size
 nyse_equities_openbook_ultra_v2_1_b.packet_size.size = 2
 
 -- Display: Packet Size
@@ -1421,16 +1448,28 @@ end
 -- Packet Header
 nyse_equities_openbook_ultra_v2_1_b.packet_header = {}
 
--- Size Of: Packet Header
-nyse_equities_openbook_ultra_v2_1_b.packet_header.size =
-  nyse_equities_openbook_ultra_v2_1_b.packet_size.size + 
-  nyse_equities_openbook_ultra_v2_1_b.message_type.size + 
-  nyse_equities_openbook_ultra_v2_1_b.sequence_number.size + 
-  nyse_equities_openbook_ultra_v2_1_b.timestamp.size + 
-  nyse_equities_openbook_ultra_v2_1_b.product_id.size + 
-  nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size + 
-  nyse_equities_openbook_ultra_v2_1_b.message_count.size + 
-  nyse_equities_openbook_ultra_v2_1_b.link_flag.size;
+-- Calculate size of: Packet Header
+nyse_equities_openbook_ultra_v2_1_b.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.packet_size.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.message_type.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.sequence_number.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.timestamp.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.product_id.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.message_count.size
+
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_flag.size
+
+  return index
+end
 
 -- Display: Packet Header
 nyse_equities_openbook_ultra_v2_1_b.packet_header.display = function(packet, parent, length)

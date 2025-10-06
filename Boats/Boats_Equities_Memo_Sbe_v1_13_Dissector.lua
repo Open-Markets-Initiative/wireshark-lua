@@ -445,7 +445,7 @@ end
 -- Mass Cancel Reject Reason
 boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason = {}
 
--- Size Of: Mass Cancel Reject Reason
+-- Size: Mass Cancel Reject Reason
 boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size = 1
 
 -- Display: Mass Cancel Reject Reason
@@ -508,7 +508,7 @@ end
 -- Cancel Group Id
 boats_equities_memo_sbe_v1_13.cancel_group_id = {}
 
--- Size Of: Cancel Group Id
+-- Size: Cancel Group Id
 boats_equities_memo_sbe_v1_13.cancel_group_id.size = 2
 
 -- Display: Cancel Group Id
@@ -536,7 +536,7 @@ end
 -- Higher Than Price
 boats_equities_memo_sbe_v1_13.higher_than_price = {}
 
--- Size Of: Higher Than Price
+-- Size: Higher Than Price
 boats_equities_memo_sbe_v1_13.higher_than_price.size = 8
 
 -- Display: Higher Than Price
@@ -575,7 +575,7 @@ end
 -- Lower Than Price
 boats_equities_memo_sbe_v1_13.lower_than_price = {}
 
--- Size Of: Lower Than Price
+-- Size: Lower Than Price
 boats_equities_memo_sbe_v1_13.lower_than_price.size = 8
 
 -- Display: Lower Than Price
@@ -614,7 +614,7 @@ end
 -- Side Optional
 boats_equities_memo_sbe_v1_13.side_optional = {}
 
--- Size Of: Side Optional
+-- Size: Side Optional
 boats_equities_memo_sbe_v1_13.side_optional.size = 1
 
 -- Display: Side Optional
@@ -666,7 +666,7 @@ end
 -- Symbol Sfx
 boats_equities_memo_sbe_v1_13.symbol_sfx = {}
 
--- Size Of: Symbol Sfx
+-- Size: Symbol Sfx
 boats_equities_memo_sbe_v1_13.symbol_sfx.size = 6
 
 -- Display: Symbol Sfx
@@ -705,7 +705,7 @@ end
 -- Symbol
 boats_equities_memo_sbe_v1_13.symbol = {}
 
--- Size Of: Symbol
+-- Size: Symbol
 boats_equities_memo_sbe_v1_13.symbol.size = 6
 
 -- Display: Symbol
@@ -744,7 +744,7 @@ end
 -- ClOrdId
 boats_equities_memo_sbe_v1_13.clordid = {}
 
--- Size Of: ClOrdId
+-- Size: ClOrdId
 boats_equities_memo_sbe_v1_13.clordid.size = 16
 
 -- Display: ClOrdId
@@ -783,7 +783,7 @@ end
 -- Sending Time
 boats_equities_memo_sbe_v1_13.sending_time = {}
 
--- Size Of: Sending Time
+-- Size: Sending Time
 boats_equities_memo_sbe_v1_13.sending_time.size = 8
 
 -- Display: Sending Time
@@ -810,17 +810,30 @@ end
 -- Mass Cancel Reject Message
 boats_equities_memo_sbe_v1_13.mass_cancel_reject_message = {}
 
--- Size Of: Mass Cancel Reject Message
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.size =
-  boats_equities_memo_sbe_v1_13.sending_time.size + 
-  boats_equities_memo_sbe_v1_13.clordid.size + 
-  boats_equities_memo_sbe_v1_13.symbol.size + 
-  boats_equities_memo_sbe_v1_13.symbol_sfx.size + 
-  boats_equities_memo_sbe_v1_13.side_optional.size + 
-  boats_equities_memo_sbe_v1_13.lower_than_price.size + 
-  boats_equities_memo_sbe_v1_13.higher_than_price.size + 
-  boats_equities_memo_sbe_v1_13.cancel_group_id.size + 
-  boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size;
+-- Calculate size of: Mass Cancel Reject Message
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.sending_time.size
+
+  index = index + boats_equities_memo_sbe_v1_13.clordid.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol_sfx.size
+
+  index = index + boats_equities_memo_sbe_v1_13.side_optional.size
+
+  index = index + boats_equities_memo_sbe_v1_13.lower_than_price.size
+
+  index = index + boats_equities_memo_sbe_v1_13.higher_than_price.size
+
+  index = index + boats_equities_memo_sbe_v1_13.cancel_group_id.size
+
+  index = index + boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size
+
+  return index
+end
 
 -- Display: Mass Cancel Reject Message
 boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.display = function(packet, parent, length)
@@ -882,7 +895,7 @@ end
 -- Link Id Optional
 boats_equities_memo_sbe_v1_13.link_id_optional = {}
 
--- Size Of: Link Id Optional
+-- Size: Link Id Optional
 boats_equities_memo_sbe_v1_13.link_id_optional.size = 4
 
 -- Display: Link Id Optional
@@ -921,7 +934,7 @@ end
 -- Cxl Rej Reason
 boats_equities_memo_sbe_v1_13.cxl_rej_reason = {}
 
--- Size Of: Cxl Rej Reason
+-- Size: Cxl Rej Reason
 boats_equities_memo_sbe_v1_13.cxl_rej_reason.size = 1
 
 -- Display: Cxl Rej Reason
@@ -1062,7 +1075,7 @@ end
 -- Cxl Rej Response To
 boats_equities_memo_sbe_v1_13.cxl_rej_response_to = {}
 
--- Size Of: Cxl Rej Response To
+-- Size: Cxl Rej Response To
 boats_equities_memo_sbe_v1_13.cxl_rej_response_to.size = 1
 
 -- Display: Cxl Rej Response To
@@ -1105,13 +1118,22 @@ end
 -- Order Cancel Reject Message
 boats_equities_memo_sbe_v1_13.order_cancel_reject_message = {}
 
--- Size Of: Order Cancel Reject Message
-boats_equities_memo_sbe_v1_13.order_cancel_reject_message.size =
-  boats_equities_memo_sbe_v1_13.sending_time.size + 
-  boats_equities_memo_sbe_v1_13.clordid.size + 
-  boats_equities_memo_sbe_v1_13.cxl_rej_response_to.size + 
-  boats_equities_memo_sbe_v1_13.cxl_rej_reason.size + 
-  boats_equities_memo_sbe_v1_13.link_id_optional.size;
+-- Calculate size of: Order Cancel Reject Message
+boats_equities_memo_sbe_v1_13.order_cancel_reject_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.sending_time.size
+
+  index = index + boats_equities_memo_sbe_v1_13.clordid.size
+
+  index = index + boats_equities_memo_sbe_v1_13.cxl_rej_response_to.size
+
+  index = index + boats_equities_memo_sbe_v1_13.cxl_rej_reason.size
+
+  index = index + boats_equities_memo_sbe_v1_13.link_id_optional.size
+
+  return index
+end
 
 -- Display: Order Cancel Reject Message
 boats_equities_memo_sbe_v1_13.order_cancel_reject_message.display = function(packet, parent, length)
@@ -1161,7 +1183,7 @@ end
 -- Party Role
 boats_equities_memo_sbe_v1_13.party_role = {}
 
--- Size Of: Party Role
+-- Size: Party Role
 boats_equities_memo_sbe_v1_13.party_role.size = 1
 
 -- Display: Party Role
@@ -1188,7 +1210,7 @@ end
 -- Party Id Source
 boats_equities_memo_sbe_v1_13.party_id_source = {}
 
--- Size Of: Party Id Source
+-- Size: Party Id Source
 boats_equities_memo_sbe_v1_13.party_id_source.size = 1
 
 -- Display: Party Id Source
@@ -1224,7 +1246,7 @@ end
 -- Party I D New Order Single Party Id
 boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id = {}
 
--- Size Of: Party I D New Order Single Party Id
+-- Size: Party I D New Order Single Party Id
 boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size = 16
 
 -- Display: Party I D New Order Single Party Id
@@ -1263,11 +1285,18 @@ end
 -- Parties Group
 boats_equities_memo_sbe_v1_13.parties_group = {}
 
--- Size Of: Parties Group
-boats_equities_memo_sbe_v1_13.parties_group.size =
-  boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size + 
-  boats_equities_memo_sbe_v1_13.party_id_source.size + 
-  boats_equities_memo_sbe_v1_13.party_role.size;
+-- Calculate size of: Parties Group
+boats_equities_memo_sbe_v1_13.parties_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size
+
+  index = index + boats_equities_memo_sbe_v1_13.party_id_source.size
+
+  index = index + boats_equities_memo_sbe_v1_13.party_role.size
+
+  return index
+end
 
 -- Display: Parties Group
 boats_equities_memo_sbe_v1_13.parties_group.display = function(packet, parent, length)
@@ -1317,7 +1346,7 @@ end
 -- Num In Group
 boats_equities_memo_sbe_v1_13.num_in_group = {}
 
--- Size Of: Num In Group
+-- Size: Num In Group
 boats_equities_memo_sbe_v1_13.num_in_group.size = 1
 
 -- Display: Num In Group
@@ -1340,7 +1369,7 @@ end
 -- Block Length uint 8
 boats_equities_memo_sbe_v1_13.block_length_uint_8 = {}
 
--- Size Of: Block Length uint 8
+-- Size: Block Length uint 8
 boats_equities_memo_sbe_v1_13.block_length_uint_8.size = 1
 
 -- Display: Block Length uint 8
@@ -1363,10 +1392,16 @@ end
 -- Repeating Group Dimensions
 boats_equities_memo_sbe_v1_13.repeating_group_dimensions = {}
 
--- Size Of: Repeating Group Dimensions
-boats_equities_memo_sbe_v1_13.repeating_group_dimensions.size =
-  boats_equities_memo_sbe_v1_13.block_length_uint_8.size + 
-  boats_equities_memo_sbe_v1_13.num_in_group.size;
+-- Calculate size of: Repeating Group Dimensions
+boats_equities_memo_sbe_v1_13.repeating_group_dimensions.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.block_length_uint_8.size
+
+  index = index + boats_equities_memo_sbe_v1_13.num_in_group.size
+
+  return index
+end
 
 -- Display: Repeating Group Dimensions
 boats_equities_memo_sbe_v1_13.repeating_group_dimensions.display = function(packet, parent, length)
@@ -1411,7 +1446,7 @@ boats_equities_memo_sbe_v1_13.parties_groups = {}
 boats_equities_memo_sbe_v1_13.parties_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memo_sbe_v1_13.repeating_group_dimensions.size
+  index = index + boats_equities_memo_sbe_v1_13.repeating_group_dimensions.size(buffer, offset + index)
 
   -- Calculate field size from count
   local parties_group_count = buffer(offset + index - 1, 1):uint()
@@ -1459,7 +1494,7 @@ end
 -- Extended Restatement Reason
 boats_equities_memo_sbe_v1_13.extended_restatement_reason = {}
 
--- Size Of: Extended Restatement Reason
+-- Size: Extended Restatement Reason
 boats_equities_memo_sbe_v1_13.extended_restatement_reason.size = 1
 
 -- Display: Extended Restatement Reason
@@ -1513,7 +1548,7 @@ end
 -- Transact Time
 boats_equities_memo_sbe_v1_13.transact_time = {}
 
--- Size Of: Transact Time
+-- Size: Transact Time
 boats_equities_memo_sbe_v1_13.transact_time.size = 8
 
 -- Display: Transact Time
@@ -1536,7 +1571,7 @@ end
 -- Exec Restatement Reason
 boats_equities_memo_sbe_v1_13.exec_restatement_reason = {}
 
--- Size Of: Exec Restatement Reason
+-- Size: Exec Restatement Reason
 boats_equities_memo_sbe_v1_13.exec_restatement_reason.size = 1
 
 -- Display: Exec Restatement Reason
@@ -1572,7 +1607,7 @@ end
 -- Last Shares
 boats_equities_memo_sbe_v1_13.last_shares = {}
 
--- Size Of: Last Shares
+-- Size: Last Shares
 boats_equities_memo_sbe_v1_13.last_shares.size = 4
 
 -- Display: Last Shares
@@ -1600,7 +1635,7 @@ end
 -- Cum Qty
 boats_equities_memo_sbe_v1_13.cum_qty = {}
 
--- Size Of: Cum Qty
+-- Size: Cum Qty
 boats_equities_memo_sbe_v1_13.cum_qty.size = 4
 
 -- Display: Cum Qty
@@ -1623,7 +1658,7 @@ end
 -- Leaves Qty
 boats_equities_memo_sbe_v1_13.leaves_qty = {}
 
--- Size Of: Leaves Qty
+-- Size: Leaves Qty
 boats_equities_memo_sbe_v1_13.leaves_qty.size = 4
 
 -- Display: Leaves Qty
@@ -1646,7 +1681,7 @@ end
 -- Last Px Optional
 boats_equities_memo_sbe_v1_13.last_px_optional = {}
 
--- Size Of: Last Px Optional
+-- Size: Last Px Optional
 boats_equities_memo_sbe_v1_13.last_px_optional.size = 8
 
 -- Display: Last Px Optional
@@ -1685,7 +1720,7 @@ end
 -- Ord Status
 boats_equities_memo_sbe_v1_13.ord_status = {}
 
--- Size Of: Ord Status
+-- Size: Ord Status
 boats_equities_memo_sbe_v1_13.ord_status.size = 1
 
 -- Display: Ord Status
@@ -1749,7 +1784,7 @@ end
 -- Exec Id
 boats_equities_memo_sbe_v1_13.exec_id = {}
 
--- Size Of: Exec Id
+-- Size: Exec Id
 boats_equities_memo_sbe_v1_13.exec_id.size = 8
 
 -- Display: Exec Id
@@ -1772,7 +1807,7 @@ end
 -- Order Id
 boats_equities_memo_sbe_v1_13.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 boats_equities_memo_sbe_v1_13.order_id.size = 8
 
 -- Display: Order Id
@@ -1900,7 +1935,7 @@ end
 -- Security Group
 boats_equities_memo_sbe_v1_13.security_group = {}
 
--- Size Of: Security Group
+-- Size: Security Group
 boats_equities_memo_sbe_v1_13.security_group.size = 1
 
 -- Display: Security Group
@@ -1936,7 +1971,7 @@ end
 -- Trd Match Id
 boats_equities_memo_sbe_v1_13.trd_match_id = {}
 
--- Size Of: Trd Match Id
+-- Size: Trd Match Id
 boats_equities_memo_sbe_v1_13.trd_match_id.size = 8
 
 -- Display: Trd Match Id
@@ -1959,7 +1994,7 @@ end
 -- Exec Ref Id
 boats_equities_memo_sbe_v1_13.exec_ref_id = {}
 
--- Size Of: Exec Ref Id
+-- Size: Exec Ref Id
 boats_equities_memo_sbe_v1_13.exec_ref_id.size = 8
 
 -- Display: Exec Ref Id
@@ -2077,7 +2112,7 @@ end
 -- Last Qty Optional
 boats_equities_memo_sbe_v1_13.last_qty_optional = {}
 
--- Size Of: Last Qty Optional
+-- Size: Last Qty Optional
 boats_equities_memo_sbe_v1_13.last_qty_optional.size = 4
 
 -- Display: Last Qty Optional
@@ -2105,7 +2140,7 @@ end
 -- Last Px
 boats_equities_memo_sbe_v1_13.last_px = {}
 
--- Size Of: Last Px
+-- Size: Last Px
 boats_equities_memo_sbe_v1_13.last_px.size = 8
 
 -- Display: Last Px
@@ -2239,7 +2274,7 @@ end
 -- Locate Broker Optional
 boats_equities_memo_sbe_v1_13.locate_broker_optional = {}
 
--- Size Of: Locate Broker Optional
+-- Size: Locate Broker Optional
 boats_equities_memo_sbe_v1_13.locate_broker_optional.size = 4
 
 -- Display: Locate Broker Optional
@@ -2278,7 +2313,7 @@ end
 -- Locate Reqd
 boats_equities_memo_sbe_v1_13.locate_reqd = {}
 
--- Size Of: Locate Reqd
+-- Size: Locate Reqd
 boats_equities_memo_sbe_v1_13.locate_reqd.size = 1
 
 -- Display: Locate Reqd
@@ -2314,7 +2349,7 @@ end
 -- Display Qty
 boats_equities_memo_sbe_v1_13.display_qty = {}
 
--- Size Of: Display Qty
+-- Size: Display Qty
 boats_equities_memo_sbe_v1_13.display_qty.size = 4
 
 -- Display: Display Qty
@@ -2342,7 +2377,7 @@ end
 -- Price
 boats_equities_memo_sbe_v1_13.price = {}
 
--- Size Of: Price
+-- Size: Price
 boats_equities_memo_sbe_v1_13.price.size = 8
 
 -- Display: Price
@@ -2381,7 +2416,7 @@ end
 -- Ord Type
 boats_equities_memo_sbe_v1_13.ord_type = {}
 
--- Size Of: Ord Type
+-- Size: Ord Type
 boats_equities_memo_sbe_v1_13.ord_type.size = 1
 
 -- Display: Ord Type
@@ -2427,7 +2462,7 @@ end
 -- Order Qty
 boats_equities_memo_sbe_v1_13.order_qty = {}
 
--- Size Of: Order Qty
+-- Size: Order Qty
 boats_equities_memo_sbe_v1_13.order_qty.size = 4
 
 -- Display: Order Qty
@@ -2450,7 +2485,7 @@ end
 -- Side
 boats_equities_memo_sbe_v1_13.side = {}
 
--- Size Of: Side
+-- Size: Side
 boats_equities_memo_sbe_v1_13.side.size = 1
 
 -- Display: Side
@@ -2499,7 +2534,7 @@ end
 -- OrigClOrdId Optional
 boats_equities_memo_sbe_v1_13.origclordid_optional = {}
 
--- Size Of: OrigClOrdId Optional
+-- Size: OrigClOrdId Optional
 boats_equities_memo_sbe_v1_13.origclordid_optional.size = 16
 
 -- Display: OrigClOrdId Optional
@@ -2803,10 +2838,16 @@ end
 -- Mass Cancel Done Message
 boats_equities_memo_sbe_v1_13.mass_cancel_done_message = {}
 
--- Size Of: Mass Cancel Done Message
-boats_equities_memo_sbe_v1_13.mass_cancel_done_message.size =
-  boats_equities_memo_sbe_v1_13.sending_time.size + 
-  boats_equities_memo_sbe_v1_13.clordid.size;
+-- Calculate size of: Mass Cancel Done Message
+boats_equities_memo_sbe_v1_13.mass_cancel_done_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.sending_time.size
+
+  index = index + boats_equities_memo_sbe_v1_13.clordid.size
+
+  return index
+end
 
 -- Display: Mass Cancel Done Message
 boats_equities_memo_sbe_v1_13.mass_cancel_done_message.display = function(packet, parent, length)
@@ -2847,7 +2888,7 @@ end
 -- Cancel Reason
 boats_equities_memo_sbe_v1_13.cancel_reason = {}
 
--- Size Of: Cancel Reason
+-- Size: Cancel Reason
 boats_equities_memo_sbe_v1_13.cancel_reason.size = 1
 
 -- Display: Cancel Reason
@@ -3029,16 +3070,28 @@ end
 -- Pending Mass Cancel Message
 boats_equities_memo_sbe_v1_13.pending_mass_cancel_message = {}
 
--- Size Of: Pending Mass Cancel Message
-boats_equities_memo_sbe_v1_13.pending_mass_cancel_message.size =
-  boats_equities_memo_sbe_v1_13.sending_time.size + 
-  boats_equities_memo_sbe_v1_13.clordid.size + 
-  boats_equities_memo_sbe_v1_13.symbol.size + 
-  boats_equities_memo_sbe_v1_13.symbol_sfx.size + 
-  boats_equities_memo_sbe_v1_13.side_optional.size + 
-  boats_equities_memo_sbe_v1_13.lower_than_price.size + 
-  boats_equities_memo_sbe_v1_13.higher_than_price.size + 
-  boats_equities_memo_sbe_v1_13.cancel_group_id.size;
+-- Calculate size of: Pending Mass Cancel Message
+boats_equities_memo_sbe_v1_13.pending_mass_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.sending_time.size
+
+  index = index + boats_equities_memo_sbe_v1_13.clordid.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol_sfx.size
+
+  index = index + boats_equities_memo_sbe_v1_13.side_optional.size
+
+  index = index + boats_equities_memo_sbe_v1_13.lower_than_price.size
+
+  index = index + boats_equities_memo_sbe_v1_13.higher_than_price.size
+
+  index = index + boats_equities_memo_sbe_v1_13.cancel_group_id.size
+
+  return index
+end
 
 -- Display: Pending Mass Cancel Message
 boats_equities_memo_sbe_v1_13.pending_mass_cancel_message.display = function(packet, parent, length)
@@ -3192,7 +3245,7 @@ end
 -- Trd Matching Id
 boats_equities_memo_sbe_v1_13.trd_matching_id = {}
 
--- Size Of: Trd Matching Id
+-- Size: Trd Matching Id
 boats_equities_memo_sbe_v1_13.trd_matching_id.size = 8
 
 -- Display: Trd Matching Id
@@ -3215,7 +3268,7 @@ end
 -- Last Mkt
 boats_equities_memo_sbe_v1_13.last_mkt = {}
 
--- Size Of: Last Mkt
+-- Size: Last Mkt
 boats_equities_memo_sbe_v1_13.last_mkt.size = 4
 
 -- Display: Last Mkt
@@ -3254,7 +3307,7 @@ end
 -- Last Liquidity Ind
 boats_equities_memo_sbe_v1_13.last_liquidity_ind = {}
 
--- Size Of: Last Liquidity Ind
+-- Size: Last Liquidity Ind
 boats_equities_memo_sbe_v1_13.last_liquidity_ind.size = 1
 
 -- Display: Last Liquidity Ind
@@ -3350,7 +3403,7 @@ end
 -- Last Qty
 boats_equities_memo_sbe_v1_13.last_qty = {}
 
--- Size Of: Last Qty
+-- Size: Last Qty
 boats_equities_memo_sbe_v1_13.last_qty.size = 4
 
 -- Display: Last Qty
@@ -3488,7 +3541,7 @@ end
 -- Order Reject Reason
 boats_equities_memo_sbe_v1_13.order_reject_reason = {}
 
--- Size Of: Order Reject Reason
+-- Size: Order Reject Reason
 boats_equities_memo_sbe_v1_13.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
@@ -3887,7 +3940,7 @@ end
 -- Risk Group Id
 boats_equities_memo_sbe_v1_13.risk_group_id = {}
 
--- Size Of: Risk Group Id
+-- Size: Risk Group Id
 boats_equities_memo_sbe_v1_13.risk_group_id.size = 2
 
 -- Display: Risk Group Id
@@ -3915,7 +3968,7 @@ end
 -- Self Trade Prevention
 boats_equities_memo_sbe_v1_13.self_trade_prevention = {}
 
--- Size Of: Self Trade Prevention
+-- Size: Self Trade Prevention
 boats_equities_memo_sbe_v1_13.self_trade_prevention.size = 1
 
 -- Display: Self Trade Prevention
@@ -3960,7 +4013,7 @@ end
 -- Stp Group Id
 boats_equities_memo_sbe_v1_13.stp_group_id = {}
 
--- Size Of: Stp Group Id
+-- Size: Stp Group Id
 boats_equities_memo_sbe_v1_13.stp_group_id.size = 2
 
 -- Display: Stp Group Id
@@ -3988,7 +4041,7 @@ end
 -- Reprice Behavior
 boats_equities_memo_sbe_v1_13.reprice_behavior = {}
 
--- Size Of: Reprice Behavior
+-- Size: Reprice Behavior
 boats_equities_memo_sbe_v1_13.reprice_behavior.size = 1
 
 -- Display: Reprice Behavior
@@ -4024,7 +4077,7 @@ end
 -- Reprice Frequency
 boats_equities_memo_sbe_v1_13.reprice_frequency = {}
 
--- Size Of: Reprice Frequency
+-- Size: Reprice Frequency
 boats_equities_memo_sbe_v1_13.reprice_frequency.size = 1
 
 -- Display: Reprice Frequency
@@ -4063,7 +4116,7 @@ end
 -- Display Min Incr
 boats_equities_memo_sbe_v1_13.display_min_incr = {}
 
--- Size Of: Display Min Incr
+-- Size: Display Min Incr
 boats_equities_memo_sbe_v1_13.display_min_incr.size = 4
 
 -- Display: Display Min Incr
@@ -4091,7 +4144,7 @@ end
 -- Reserve Replenish Timing
 boats_equities_memo_sbe_v1_13.reserve_replenish_timing = {}
 
--- Size Of: Reserve Replenish Timing
+-- Size: Reserve Replenish Timing
 boats_equities_memo_sbe_v1_13.reserve_replenish_timing.size = 1
 
 -- Display: Reserve Replenish Timing
@@ -4127,7 +4180,7 @@ end
 -- Display Method
 boats_equities_memo_sbe_v1_13.display_method = {}
 
--- Size Of: Display Method
+-- Size: Display Method
 boats_equities_memo_sbe_v1_13.display_method.size = 1
 
 -- Display: Display Method
@@ -4176,7 +4229,7 @@ end
 -- Min Qty
 boats_equities_memo_sbe_v1_13.min_qty = {}
 
--- Size Of: Min Qty
+-- Size: Min Qty
 boats_equities_memo_sbe_v1_13.min_qty.size = 4
 
 -- Display: Min Qty
@@ -4204,7 +4257,7 @@ end
 -- Expire Time
 boats_equities_memo_sbe_v1_13.expire_time = {}
 
--- Size Of: Expire Time
+-- Size: Expire Time
 boats_equities_memo_sbe_v1_13.expire_time.size = 8
 
 -- Display: Expire Time
@@ -4232,7 +4285,7 @@ end
 -- Peg Price Type
 boats_equities_memo_sbe_v1_13.peg_price_type = {}
 
--- Size Of: Peg Price Type
+-- Size: Peg Price Type
 boats_equities_memo_sbe_v1_13.peg_price_type.size = 1
 
 -- Display: Peg Price Type
@@ -4268,7 +4321,7 @@ end
 -- Peg Offset Value
 boats_equities_memo_sbe_v1_13.peg_offset_value = {}
 
--- Size Of: Peg Offset Value
+-- Size: Peg Offset Value
 boats_equities_memo_sbe_v1_13.peg_offset_value.size = 8
 
 -- Display: Peg Offset Value
@@ -4307,7 +4360,7 @@ end
 -- Exec Inst
 boats_equities_memo_sbe_v1_13.exec_inst = {}
 
--- Size Of: Exec Inst
+-- Size: Exec Inst
 boats_equities_memo_sbe_v1_13.exec_inst.size = 2
 
 -- Display: Exec Inst
@@ -4363,7 +4416,7 @@ end
 -- Cust Order Capacity
 boats_equities_memo_sbe_v1_13.cust_order_capacity = {}
 
--- Size Of: Cust Order Capacity
+-- Size: Cust Order Capacity
 boats_equities_memo_sbe_v1_13.cust_order_capacity.size = 1
 
 -- Display: Cust Order Capacity
@@ -4396,7 +4449,7 @@ end
 -- Order Capacity
 boats_equities_memo_sbe_v1_13.order_capacity = {}
 
--- Size Of: Order Capacity
+-- Size: Order Capacity
 boats_equities_memo_sbe_v1_13.order_capacity.size = 1
 
 -- Display: Order Capacity
@@ -4442,7 +4495,7 @@ end
 -- Time In Force
 boats_equities_memo_sbe_v1_13.time_in_force = {}
 
--- Size Of: Time In Force
+-- Size: Time In Force
 boats_equities_memo_sbe_v1_13.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -4919,15 +4972,26 @@ end
 -- Mass Cancel Request Message
 boats_equities_memo_sbe_v1_13.mass_cancel_request_message = {}
 
--- Size Of: Mass Cancel Request Message
-boats_equities_memo_sbe_v1_13.mass_cancel_request_message.size =
-  boats_equities_memo_sbe_v1_13.clordid.size + 
-  boats_equities_memo_sbe_v1_13.symbol.size + 
-  boats_equities_memo_sbe_v1_13.symbol_sfx.size + 
-  boats_equities_memo_sbe_v1_13.side_optional.size + 
-  boats_equities_memo_sbe_v1_13.lower_than_price.size + 
-  boats_equities_memo_sbe_v1_13.higher_than_price.size + 
-  boats_equities_memo_sbe_v1_13.cancel_group_id.size;
+-- Calculate size of: Mass Cancel Request Message
+boats_equities_memo_sbe_v1_13.mass_cancel_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.clordid.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol_sfx.size
+
+  index = index + boats_equities_memo_sbe_v1_13.side_optional.size
+
+  index = index + boats_equities_memo_sbe_v1_13.lower_than_price.size
+
+  index = index + boats_equities_memo_sbe_v1_13.higher_than_price.size
+
+  index = index + boats_equities_memo_sbe_v1_13.cancel_group_id.size
+
+  return index
+end
 
 -- Display: Mass Cancel Request Message
 boats_equities_memo_sbe_v1_13.mass_cancel_request_message.display = function(packet, parent, length)
@@ -4983,7 +5047,7 @@ end
 -- Order Id Optional
 boats_equities_memo_sbe_v1_13.order_id_optional = {}
 
--- Size Of: Order Id Optional
+-- Size: Order Id Optional
 boats_equities_memo_sbe_v1_13.order_id_optional.size = 8
 
 -- Display: Order Id Optional
@@ -5011,13 +5075,22 @@ end
 -- Order Cancel Request Message
 boats_equities_memo_sbe_v1_13.order_cancel_request_message = {}
 
--- Size Of: Order Cancel Request Message
-boats_equities_memo_sbe_v1_13.order_cancel_request_message.size =
-  boats_equities_memo_sbe_v1_13.origclordid_optional.size + 
-  boats_equities_memo_sbe_v1_13.order_id_optional.size + 
-  boats_equities_memo_sbe_v1_13.clordid.size + 
-  boats_equities_memo_sbe_v1_13.symbol.size + 
-  boats_equities_memo_sbe_v1_13.symbol_sfx.size;
+-- Calculate size of: Order Cancel Request Message
+boats_equities_memo_sbe_v1_13.order_cancel_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.origclordid_optional.size
+
+  index = index + boats_equities_memo_sbe_v1_13.order_id_optional.size
+
+  index = index + boats_equities_memo_sbe_v1_13.clordid.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol_sfx.size
+
+  return index
+end
 
 -- Display: Order Cancel Request Message
 boats_equities_memo_sbe_v1_13.order_cancel_request_message.display = function(packet, parent, length)
@@ -5067,7 +5140,7 @@ end
 -- OrigClOrdId
 boats_equities_memo_sbe_v1_13.origclordid = {}
 
--- Size Of: OrigClOrdId
+-- Size: OrigClOrdId
 boats_equities_memo_sbe_v1_13.origclordid.size = 16
 
 -- Display: OrigClOrdId
@@ -5106,20 +5179,36 @@ end
 -- Order Cancel Replace Request Message
 boats_equities_memo_sbe_v1_13.order_cancel_replace_request_message = {}
 
--- Size Of: Order Cancel Replace Request Message
-boats_equities_memo_sbe_v1_13.order_cancel_replace_request_message.size =
-  boats_equities_memo_sbe_v1_13.origclordid.size + 
-  boats_equities_memo_sbe_v1_13.clordid.size + 
-  boats_equities_memo_sbe_v1_13.symbol.size + 
-  boats_equities_memo_sbe_v1_13.symbol_sfx.size + 
-  boats_equities_memo_sbe_v1_13.side.size + 
-  boats_equities_memo_sbe_v1_13.order_qty.size + 
-  boats_equities_memo_sbe_v1_13.ord_type.size + 
-  boats_equities_memo_sbe_v1_13.price.size + 
-  boats_equities_memo_sbe_v1_13.display_qty.size + 
-  boats_equities_memo_sbe_v1_13.locate_reqd.size + 
-  boats_equities_memo_sbe_v1_13.link_id_optional.size + 
-  boats_equities_memo_sbe_v1_13.locate_broker_optional.size;
+-- Calculate size of: Order Cancel Replace Request Message
+boats_equities_memo_sbe_v1_13.order_cancel_replace_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.origclordid.size
+
+  index = index + boats_equities_memo_sbe_v1_13.clordid.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol.size
+
+  index = index + boats_equities_memo_sbe_v1_13.symbol_sfx.size
+
+  index = index + boats_equities_memo_sbe_v1_13.side.size
+
+  index = index + boats_equities_memo_sbe_v1_13.order_qty.size
+
+  index = index + boats_equities_memo_sbe_v1_13.ord_type.size
+
+  index = index + boats_equities_memo_sbe_v1_13.price.size
+
+  index = index + boats_equities_memo_sbe_v1_13.display_qty.size
+
+  index = index + boats_equities_memo_sbe_v1_13.locate_reqd.size
+
+  index = index + boats_equities_memo_sbe_v1_13.link_id_optional.size
+
+  index = index + boats_equities_memo_sbe_v1_13.locate_broker_optional.size
+
+  return index
+end
 
 -- Display: Order Cancel Replace Request Message
 boats_equities_memo_sbe_v1_13.order_cancel_replace_request_message.display = function(packet, parent, length)
@@ -5562,7 +5651,7 @@ end
 -- Version
 boats_equities_memo_sbe_v1_13.version = {}
 
--- Size Of: Version
+-- Size: Version
 boats_equities_memo_sbe_v1_13.version.size = 2
 
 -- Display: Version
@@ -5585,7 +5674,7 @@ end
 -- Schema Id
 boats_equities_memo_sbe_v1_13.schema_id = {}
 
--- Size Of: Schema Id
+-- Size: Schema Id
 boats_equities_memo_sbe_v1_13.schema_id.size = 1
 
 -- Display: Schema Id
@@ -5608,7 +5697,7 @@ end
 -- Template Id
 boats_equities_memo_sbe_v1_13.template_id = {}
 
--- Size Of: Template Id
+-- Size: Template Id
 boats_equities_memo_sbe_v1_13.template_id.size = 1
 
 -- Display: Template Id
@@ -5689,7 +5778,7 @@ end
 -- Block Length
 boats_equities_memo_sbe_v1_13.block_length = {}
 
--- Size Of: Block Length
+-- Size: Block Length
 boats_equities_memo_sbe_v1_13.block_length.size = 2
 
 -- Display: Block Length
@@ -5712,12 +5801,20 @@ end
 -- Sbe Header
 boats_equities_memo_sbe_v1_13.sbe_header = {}
 
--- Size Of: Sbe Header
-boats_equities_memo_sbe_v1_13.sbe_header.size =
-  boats_equities_memo_sbe_v1_13.block_length.size + 
-  boats_equities_memo_sbe_v1_13.template_id.size + 
-  boats_equities_memo_sbe_v1_13.schema_id.size + 
-  boats_equities_memo_sbe_v1_13.version.size;
+-- Calculate size of: Sbe Header
+boats_equities_memo_sbe_v1_13.sbe_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.block_length.size
+
+  index = index + boats_equities_memo_sbe_v1_13.template_id.size
+
+  index = index + boats_equities_memo_sbe_v1_13.schema_id.size
+
+  index = index + boats_equities_memo_sbe_v1_13.version.size
+
+  return index
+end
 
 -- Display: Sbe Header
 boats_equities_memo_sbe_v1_13.sbe_header.display = function(packet, parent, length)
@@ -5856,7 +5953,7 @@ end
 -- Total Sequence Count
 boats_equities_memo_sbe_v1_13.total_sequence_count = {}
 
--- Size Of: Total Sequence Count
+-- Size: Total Sequence Count
 boats_equities_memo_sbe_v1_13.total_sequence_count.size = 8
 
 -- Display: Total Sequence Count
@@ -5879,9 +5976,14 @@ end
 -- Stream Complete Message
 boats_equities_memo_sbe_v1_13.stream_complete_message = {}
 
--- Size Of: Stream Complete Message
-boats_equities_memo_sbe_v1_13.stream_complete_message.size =
-  boats_equities_memo_sbe_v1_13.total_sequence_count.size;
+-- Calculate size of: Stream Complete Message
+boats_equities_memo_sbe_v1_13.stream_complete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.total_sequence_count.size
+
+  return index
+end
 
 -- Display: Stream Complete Message
 boats_equities_memo_sbe_v1_13.stream_complete_message.display = function(packet, parent, length)
@@ -5919,7 +6021,7 @@ end
 -- Stream Reject Code
 boats_equities_memo_sbe_v1_13.stream_reject_code = {}
 
--- Size Of: Stream Reject Code
+-- Size: Stream Reject Code
 boats_equities_memo_sbe_v1_13.stream_reject_code.size = 1
 
 -- Display: Stream Reject Code
@@ -5952,9 +6054,14 @@ end
 -- Stream Rejected Message
 boats_equities_memo_sbe_v1_13.stream_rejected_message = {}
 
--- Size Of: Stream Rejected Message
-boats_equities_memo_sbe_v1_13.stream_rejected_message.size =
-  boats_equities_memo_sbe_v1_13.stream_reject_code.size;
+-- Calculate size of: Stream Rejected Message
+boats_equities_memo_sbe_v1_13.stream_rejected_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.stream_reject_code.size
+
+  return index
+end
 
 -- Display: Stream Rejected Message
 boats_equities_memo_sbe_v1_13.stream_rejected_message.display = function(packet, parent, length)
@@ -5992,7 +6099,7 @@ end
 -- Max Sequence Number
 boats_equities_memo_sbe_v1_13.max_sequence_number = {}
 
--- Size Of: Max Sequence Number
+-- Size: Max Sequence Number
 boats_equities_memo_sbe_v1_13.max_sequence_number.size = 8
 
 -- Display: Max Sequence Number
@@ -6015,7 +6122,7 @@ end
 -- Next Sequence Number
 boats_equities_memo_sbe_v1_13.next_sequence_number = {}
 
--- Size Of: Next Sequence Number
+-- Size: Next Sequence Number
 boats_equities_memo_sbe_v1_13.next_sequence_number.size = 8
 
 -- Display: Next Sequence Number
@@ -6038,10 +6145,16 @@ end
 -- Stream Begin Message
 boats_equities_memo_sbe_v1_13.stream_begin_message = {}
 
--- Size Of: Stream Begin Message
-boats_equities_memo_sbe_v1_13.stream_begin_message.size =
-  boats_equities_memo_sbe_v1_13.next_sequence_number.size + 
-  boats_equities_memo_sbe_v1_13.max_sequence_number.size;
+-- Calculate size of: Stream Begin Message
+boats_equities_memo_sbe_v1_13.stream_begin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.next_sequence_number.size
+
+  index = index + boats_equities_memo_sbe_v1_13.max_sequence_number.size
+
+  return index
+end
 
 -- Display: Stream Begin Message
 boats_equities_memo_sbe_v1_13.stream_begin_message.display = function(packet, parent, length)
@@ -6082,7 +6195,7 @@ end
 -- Message Count
 boats_equities_memo_sbe_v1_13.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 boats_equities_memo_sbe_v1_13.message_count.size = 8
 
 -- Display: Message Count
@@ -6105,9 +6218,14 @@ end
 -- Replay Complete Message
 boats_equities_memo_sbe_v1_13.replay_complete_message = {}
 
--- Size Of: Replay Complete Message
-boats_equities_memo_sbe_v1_13.replay_complete_message.size =
-  boats_equities_memo_sbe_v1_13.message_count.size;
+-- Calculate size of: Replay Complete Message
+boats_equities_memo_sbe_v1_13.replay_complete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.message_count.size
+
+  return index
+end
 
 -- Display: Replay Complete Message
 boats_equities_memo_sbe_v1_13.replay_complete_message.display = function(packet, parent, length)
@@ -6145,7 +6263,7 @@ end
 -- Replay Reject Code
 boats_equities_memo_sbe_v1_13.replay_reject_code = {}
 
--- Size Of: Replay Reject Code
+-- Size: Replay Reject Code
 boats_equities_memo_sbe_v1_13.replay_reject_code.size = 1
 
 -- Display: Replay Reject Code
@@ -6181,9 +6299,14 @@ end
 -- Replay Rejected Message
 boats_equities_memo_sbe_v1_13.replay_rejected_message = {}
 
--- Size Of: Replay Rejected Message
-boats_equities_memo_sbe_v1_13.replay_rejected_message.size =
-  boats_equities_memo_sbe_v1_13.replay_reject_code.size;
+-- Calculate size of: Replay Rejected Message
+boats_equities_memo_sbe_v1_13.replay_rejected_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.replay_reject_code.size
+
+  return index
+end
 
 -- Display: Replay Rejected Message
 boats_equities_memo_sbe_v1_13.replay_rejected_message.display = function(packet, parent, length)
@@ -6221,7 +6344,7 @@ end
 -- Pending Message Count
 boats_equities_memo_sbe_v1_13.pending_message_count = {}
 
--- Size Of: Pending Message Count
+-- Size: Pending Message Count
 boats_equities_memo_sbe_v1_13.pending_message_count.size = 4
 
 -- Display: Pending Message Count
@@ -6244,10 +6367,16 @@ end
 -- Replay Begin Message
 boats_equities_memo_sbe_v1_13.replay_begin_message = {}
 
--- Size Of: Replay Begin Message
-boats_equities_memo_sbe_v1_13.replay_begin_message.size =
-  boats_equities_memo_sbe_v1_13.next_sequence_number.size + 
-  boats_equities_memo_sbe_v1_13.pending_message_count.size;
+-- Calculate size of: Replay Begin Message
+boats_equities_memo_sbe_v1_13.replay_begin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.next_sequence_number.size
+
+  index = index + boats_equities_memo_sbe_v1_13.pending_message_count.size
+
+  return index
+end
 
 -- Display: Replay Begin Message
 boats_equities_memo_sbe_v1_13.replay_begin_message.display = function(packet, parent, length)
@@ -6288,7 +6417,7 @@ end
 -- Session Id
 boats_equities_memo_sbe_v1_13.session_id = {}
 
--- Size Of: Session Id
+-- Size: Session Id
 boats_equities_memo_sbe_v1_13.session_id.size = 8
 
 -- Display: Session Id
@@ -6311,9 +6440,14 @@ end
 -- Start Of Session Message
 boats_equities_memo_sbe_v1_13.start_of_session_message = {}
 
--- Size Of: Start Of Session Message
-boats_equities_memo_sbe_v1_13.start_of_session_message.size =
-  boats_equities_memo_sbe_v1_13.session_id.size;
+-- Calculate size of: Start Of Session Message
+boats_equities_memo_sbe_v1_13.start_of_session_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.session_id.size
+
+  return index
+end
 
 -- Display: Start Of Session Message
 boats_equities_memo_sbe_v1_13.start_of_session_message.display = function(packet, parent, length)
@@ -6351,7 +6485,7 @@ end
 -- Login Reject Code
 boats_equities_memo_sbe_v1_13.login_reject_code = {}
 
--- Size Of: Login Reject Code
+-- Size: Login Reject Code
 boats_equities_memo_sbe_v1_13.login_reject_code.size = 1
 
 -- Display: Login Reject Code
@@ -6387,9 +6521,14 @@ end
 -- Login Rejected Message
 boats_equities_memo_sbe_v1_13.login_rejected_message = {}
 
--- Size Of: Login Rejected Message
-boats_equities_memo_sbe_v1_13.login_rejected_message.size =
-  boats_equities_memo_sbe_v1_13.login_reject_code.size;
+-- Calculate size of: Login Rejected Message
+boats_equities_memo_sbe_v1_13.login_rejected_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.login_reject_code.size
+
+  return index
+end
 
 -- Display: Login Rejected Message
 boats_equities_memo_sbe_v1_13.login_rejected_message.display = function(packet, parent, length)
@@ -6427,7 +6566,7 @@ end
 -- Supported Request Mode
 boats_equities_memo_sbe_v1_13.supported_request_mode = {}
 
--- Size Of: Supported Request Mode
+-- Size: Supported Request Mode
 boats_equities_memo_sbe_v1_13.supported_request_mode.size = 1
 
 -- Display: Supported Request Mode
@@ -6460,9 +6599,14 @@ end
 -- Login Accepted Message
 boats_equities_memo_sbe_v1_13.login_accepted_message = {}
 
--- Size Of: Login Accepted Message
-boats_equities_memo_sbe_v1_13.login_accepted_message.size =
-  boats_equities_memo_sbe_v1_13.supported_request_mode.size;
+-- Calculate size of: Login Accepted Message
+boats_equities_memo_sbe_v1_13.login_accepted_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.supported_request_mode.size
+
+  return index
+end
 
 -- Display: Login Accepted Message
 boats_equities_memo_sbe_v1_13.login_accepted_message.display = function(packet, parent, length)
@@ -6547,10 +6691,16 @@ end
 -- Stream Request Message
 boats_equities_memo_sbe_v1_13.stream_request_message = {}
 
--- Size Of: Stream Request Message
-boats_equities_memo_sbe_v1_13.stream_request_message.size =
-  boats_equities_memo_sbe_v1_13.session_id.size + 
-  boats_equities_memo_sbe_v1_13.next_sequence_number.size;
+-- Calculate size of: Stream Request Message
+boats_equities_memo_sbe_v1_13.stream_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.session_id.size
+
+  index = index + boats_equities_memo_sbe_v1_13.next_sequence_number.size
+
+  return index
+end
 
 -- Display: Stream Request Message
 boats_equities_memo_sbe_v1_13.stream_request_message.display = function(packet, parent, length)
@@ -6591,9 +6741,14 @@ end
 -- Replay All Request Message
 boats_equities_memo_sbe_v1_13.replay_all_request_message = {}
 
--- Size Of: Replay All Request Message
-boats_equities_memo_sbe_v1_13.replay_all_request_message.size =
-  boats_equities_memo_sbe_v1_13.session_id.size;
+-- Calculate size of: Replay All Request Message
+boats_equities_memo_sbe_v1_13.replay_all_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.session_id.size
+
+  return index
+end
 
 -- Display: Replay All Request Message
 boats_equities_memo_sbe_v1_13.replay_all_request_message.display = function(packet, parent, length)
@@ -6631,7 +6786,7 @@ end
 -- Count
 boats_equities_memo_sbe_v1_13.count = {}
 
--- Size Of: Count
+-- Size: Count
 boats_equities_memo_sbe_v1_13.count.size = 4
 
 -- Display: Count
@@ -6654,11 +6809,18 @@ end
 -- Replay Request Message
 boats_equities_memo_sbe_v1_13.replay_request_message = {}
 
--- Size Of: Replay Request Message
-boats_equities_memo_sbe_v1_13.replay_request_message.size =
-  boats_equities_memo_sbe_v1_13.session_id.size + 
-  boats_equities_memo_sbe_v1_13.next_sequence_number.size + 
-  boats_equities_memo_sbe_v1_13.count.size;
+-- Calculate size of: Replay Request Message
+boats_equities_memo_sbe_v1_13.replay_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.session_id.size
+
+  index = index + boats_equities_memo_sbe_v1_13.next_sequence_number.size
+
+  index = index + boats_equities_memo_sbe_v1_13.count.size
+
+  return index
+end
 
 -- Display: Replay Request Message
 boats_equities_memo_sbe_v1_13.replay_request_message.display = function(packet, parent, length)
@@ -6702,7 +6864,7 @@ end
 -- Token
 boats_equities_memo_sbe_v1_13.token = {}
 
--- Size Of: Token
+-- Size: Token
 boats_equities_memo_sbe_v1_13.token.size = 1
 
 -- Display: Token
@@ -6725,7 +6887,7 @@ end
 -- Token Type
 boats_equities_memo_sbe_v1_13.token_type = {}
 
--- Size Of: Token Type
+-- Size: Token Type
 boats_equities_memo_sbe_v1_13.token_type.size = 1
 
 -- Display: Token Type
@@ -6748,10 +6910,16 @@ end
 -- Login Request Message
 boats_equities_memo_sbe_v1_13.login_request_message = {}
 
--- Size Of: Login Request Message
-boats_equities_memo_sbe_v1_13.login_request_message.size =
-  boats_equities_memo_sbe_v1_13.token_type.size + 
-  boats_equities_memo_sbe_v1_13.token.size;
+-- Calculate size of: Login Request Message
+boats_equities_memo_sbe_v1_13.login_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.token_type.size
+
+  index = index + boats_equities_memo_sbe_v1_13.token.size
+
+  return index
+end
 
 -- Display: Login Request Message
 boats_equities_memo_sbe_v1_13.login_request_message.display = function(packet, parent, length)
@@ -6952,7 +7120,7 @@ end
 -- Message Length
 boats_equities_memo_sbe_v1_13.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 boats_equities_memo_sbe_v1_13.message_length.size = 2
 
 -- Display: Message Length
@@ -6975,7 +7143,7 @@ end
 -- Message Type
 boats_equities_memo_sbe_v1_13.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 boats_equities_memo_sbe_v1_13.message_type.size = 1
 
 -- Display: Message Type
@@ -7047,10 +7215,16 @@ end
 -- Common Header
 boats_equities_memo_sbe_v1_13.common_header = {}
 
--- Size Of: Common Header
-boats_equities_memo_sbe_v1_13.common_header.size =
-  boats_equities_memo_sbe_v1_13.message_type.size + 
-  boats_equities_memo_sbe_v1_13.message_length.size;
+-- Calculate size of: Common Header
+boats_equities_memo_sbe_v1_13.common_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + boats_equities_memo_sbe_v1_13.message_type.size
+
+  index = index + boats_equities_memo_sbe_v1_13.message_length.size
+
+  return index
+end
 
 -- Display: Common Header
 boats_equities_memo_sbe_v1_13.common_header.display = function(packet, parent, length)

@@ -287,7 +287,7 @@ end
 -- Retail Price Improvement
 cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement = {}
 
--- Size Of: Retail Price Improvement
+-- Size: Retail Price Improvement
 cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement.size = 1
 
 -- Display: Retail Price Improvement
@@ -323,7 +323,7 @@ end
 -- Symbol Printable Ascii 8
 cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8 = {}
 
--- Size Of: Symbol Printable Ascii 8
+-- Size: Symbol Printable Ascii 8
 cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size = 8
 
 -- Display: Symbol Printable Ascii 8
@@ -346,7 +346,7 @@ end
 -- Time Offset
 cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset = {}
 
--- Size Of: Time Offset
+-- Size: Time Offset
 cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size = 4
 
 -- Display: Time Offset
@@ -369,11 +369,18 @@ end
 -- Retail Price Improvement Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement_message = {}
 
--- Size Of: Retail Price Improvement Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement.size;
+-- Calculate size of: Retail Price Improvement Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement.size
+
+  return index
+end
 
 -- Display: Retail Price Improvement Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.retail_price_improvement_message.display = function(packet, parent, length)
@@ -417,7 +424,7 @@ end
 -- Shares Contracts
 cboe_byx_equities_topofbook_pitch_v1_3_2.shares_contracts = {}
 
--- Size Of: Shares Contracts
+-- Size: Shares Contracts
 cboe_byx_equities_topofbook_pitch_v1_3_2.shares_contracts.size = 4
 
 -- Display: Shares Contracts
@@ -440,7 +447,7 @@ end
 -- Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.price = {}
 
--- Size Of: Price
+-- Size: Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.price.size = 8
 
 -- Display: Price
@@ -469,7 +476,7 @@ end
 -- Auction Opening Type
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_opening_type = {}
 
--- Size Of: Auction Opening Type
+-- Size: Auction Opening Type
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_opening_type.size = 1
 
 -- Display: Auction Opening Type
@@ -492,13 +499,22 @@ end
 -- Auction Summary Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_summary_message = {}
 
--- Size Of: Auction Summary Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.auction_summary_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.auction_opening_type.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.shares_contracts.size;
+-- Calculate size of: Auction Summary Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.auction_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.auction_opening_type.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.shares_contracts.size
+
+  return index
+end
 
 -- Display: Auction Summary Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_summary_message.display = function(packet, parent, length)
@@ -548,7 +564,7 @@ end
 -- Auction Only Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_only_price = {}
 
--- Size Of: Auction Only Price
+-- Size: Auction Only Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_only_price.size = 8
 
 -- Display: Auction Only Price
@@ -571,7 +587,7 @@ end
 -- Indicative Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.indicative_price = {}
 
--- Size Of: Indicative Price
+-- Size: Indicative Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.indicative_price.size = 8
 
 -- Display: Indicative Price
@@ -594,7 +610,7 @@ end
 -- Sell Shares
 cboe_byx_equities_topofbook_pitch_v1_3_2.sell_shares = {}
 
--- Size Of: Sell Shares
+-- Size: Sell Shares
 cboe_byx_equities_topofbook_pitch_v1_3_2.sell_shares.size = 4
 
 -- Display: Sell Shares
@@ -617,7 +633,7 @@ end
 -- Buy Shares
 cboe_byx_equities_topofbook_pitch_v1_3_2.buy_shares = {}
 
--- Size Of: Buy Shares
+-- Size: Buy Shares
 cboe_byx_equities_topofbook_pitch_v1_3_2.buy_shares.size = 4
 
 -- Display: Buy Shares
@@ -640,7 +656,7 @@ end
 -- Reference Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.reference_price = {}
 
--- Size Of: Reference Price
+-- Size: Reference Price
 cboe_byx_equities_topofbook_pitch_v1_3_2.reference_price.size = 8
 
 -- Display: Reference Price
@@ -663,7 +679,7 @@ end
 -- Auction Type
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_type = {}
 
--- Size Of: Auction Type
+-- Size: Auction Type
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_type.size = 1
 
 -- Display: Auction Type
@@ -708,16 +724,28 @@ end
 -- Auction Update Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_update_message = {}
 
--- Size Of: Auction Update Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.auction_update_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.auction_type.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.reference_price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.buy_shares.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.sell_shares.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.indicative_price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.auction_only_price.size;
+-- Calculate size of: Auction Update Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.auction_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.auction_type.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.reference_price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.buy_shares.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.sell_shares.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.indicative_price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.auction_only_price.size
+
+  return index
+end
 
 -- Display: Auction Update Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.auction_update_message.display = function(packet, parent, length)
@@ -776,7 +804,7 @@ end
 -- Padding
 cboe_byx_equities_topofbook_pitch_v1_3_2.padding = {}
 
--- Size Of: Padding
+-- Size: Padding
 cboe_byx_equities_topofbook_pitch_v1_3_2.padding.size = 2
 
 -- Display: Padding
@@ -799,7 +827,7 @@ end
 -- Reg Sho Action
 cboe_byx_equities_topofbook_pitch_v1_3_2.reg_sho_action = {}
 
--- Size Of: Reg Sho Action
+-- Size: Reg Sho Action
 cboe_byx_equities_topofbook_pitch_v1_3_2.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
@@ -829,7 +857,7 @@ end
 -- Trading Status
 cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status = {}
 
--- Size Of: Trading Status
+-- Size: Trading Status
 cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status.size = 1
 
 -- Display: Trading Status
@@ -868,13 +896,22 @@ end
 -- Trading Status Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status_message = {}
 
--- Size Of: Trading Status Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.reg_sho_action.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.padding.size;
+-- Calculate size of: Trading Status Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.reg_sho_action.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.padding.size
+
+  return index
+end
 
 -- Display: Trading Status Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trading_status_message.display = function(packet, parent, length)
@@ -924,7 +961,7 @@ end
 -- Timestamp
 cboe_byx_equities_topofbook_pitch_v1_3_2.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 cboe_byx_equities_topofbook_pitch_v1_3_2.timestamp.size = 4
 
 -- Display: Timestamp
@@ -947,9 +984,14 @@ end
 -- End Of Session
 cboe_byx_equities_topofbook_pitch_v1_3_2.end_of_session = {}
 
--- Size Of: End Of Session
-cboe_byx_equities_topofbook_pitch_v1_3_2.end_of_session.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.timestamp.size;
+-- Calculate size of: End Of Session
+cboe_byx_equities_topofbook_pitch_v1_3_2.end_of_session.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.timestamp.size
+
+  return index
+end
 
 -- Display: End Of Session
 cboe_byx_equities_topofbook_pitch_v1_3_2.end_of_session.display = function(packet, parent, length)
@@ -987,7 +1029,7 @@ end
 -- Execution Id
 cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id = {}
 
--- Size Of: Execution Id
+-- Size: Execution Id
 cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size = 8
 
 -- Display: Execution Id
@@ -1010,10 +1052,16 @@ end
 -- Trade Break Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_break_message = {}
 
--- Size Of: Trade Break Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.trade_break_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size;
+-- Calculate size of: Trade Break Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.trade_break_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size
+
+  return index
+end
 
 -- Display: Trade Break Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_break_message.display = function(packet, parent, length)
@@ -1054,7 +1102,7 @@ end
 -- Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size = 4
 
 -- Display: Quantity
@@ -1077,7 +1125,7 @@ end
 -- Side Indicator
 cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator = {}
 
--- Size Of: Side Indicator
+-- Size: Side Indicator
 cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size = 1
 
 -- Display: Side Indicator
@@ -1107,7 +1155,7 @@ end
 -- Order Id
 cboe_byx_equities_topofbook_pitch_v1_3_2.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size = 8
 
 -- Display: Order Id
@@ -1130,15 +1178,26 @@ end
 -- Trade Expanded Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_expanded_message = {}
 
--- Size Of: Trade Expanded Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.trade_expanded_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size;
+-- Calculate size of: Trade Expanded Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.trade_expanded_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size
+
+  return index
+end
 
 -- Display: Trade Expanded Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_expanded_message.display = function(packet, parent, length)
@@ -1194,7 +1253,7 @@ end
 -- Price Short
 cboe_byx_equities_topofbook_pitch_v1_3_2.price_short = {}
 
--- Size Of: Price Short
+-- Size: Price Short
 cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size = 2
 
 -- Display: Price Short
@@ -1223,7 +1282,7 @@ end
 -- Symbol Printable Ascii 6
 cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6 = {}
 
--- Size Of: Symbol Printable Ascii 6
+-- Size: Symbol Printable Ascii 6
 cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size = 6
 
 -- Display: Symbol Printable Ascii 6
@@ -1246,7 +1305,7 @@ end
 -- Quantity Short
 cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short = {}
 
--- Size Of: Quantity Short
+-- Size: Quantity Short
 cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short.size = 2
 
 -- Display: Quantity Short
@@ -1269,15 +1328,26 @@ end
 -- Trade Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_short_message = {}
 
--- Size Of: Trade Short Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.trade_short_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size;
+-- Calculate size of: Trade Short Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.trade_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size
+
+  return index
+end
 
 -- Display: Trade Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_short_message.display = function(packet, parent, length)
@@ -1333,15 +1403,26 @@ end
 -- Trade Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_long_message = {}
 
--- Size Of: Trade Long Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.trade_long_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size;
+-- Calculate size of: Trade Long Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.trade_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size
+
+  return index
+end
 
 -- Display: Trade Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.trade_long_message.display = function(packet, parent, length)
@@ -1397,10 +1478,16 @@ end
 -- Delete Order Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.delete_order_message = {}
 
--- Size Of: Delete Order Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.delete_order_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size;
+-- Calculate size of: Delete Order Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.delete_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  return index
+end
 
 -- Display: Delete Order Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.delete_order_message.display = function(packet, parent, length)
@@ -1441,7 +1528,7 @@ end
 -- Modify Order Flags
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags = {}
 
--- Size Of: Modify Order Flags
+-- Size: Modify Order Flags
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.size = 1
 
 -- Display: Modify Order Flags
@@ -1490,13 +1577,22 @@ end
 -- Modify Order Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_short_message = {}
 
--- Size Of: Modify Order Short Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_short_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.size;
+-- Calculate size of: Modify Order Short Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.size
+
+  return index
+end
 
 -- Display: Modify Order Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_short_message.display = function(packet, parent, length)
@@ -1546,13 +1642,22 @@ end
 -- Modify Order Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_long_message = {}
 
--- Size Of: Modify Order Long Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_long_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.size;
+-- Calculate size of: Modify Order Long Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_flags.size
+
+  return index
+end
 
 -- Display: Modify Order Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.modify_order_long_message.display = function(packet, parent, length)
@@ -1602,7 +1707,7 @@ end
 -- Canceled Quantity Short
 cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity_short = {}
 
--- Size Of: Canceled Quantity Short
+-- Size: Canceled Quantity Short
 cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity_short.size = 2
 
 -- Display: Canceled Quantity Short
@@ -1625,11 +1730,18 @@ end
 -- Reduce Size Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_short_message = {}
 
--- Size Of: Reduce Size Short Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_short_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity_short.size;
+-- Calculate size of: Reduce Size Short Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity_short.size
+
+  return index
+end
 
 -- Display: Reduce Size Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_short_message.display = function(packet, parent, length)
@@ -1673,7 +1785,7 @@ end
 -- Canceled Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity = {}
 
--- Size Of: Canceled Quantity
+-- Size: Canceled Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity.size = 4
 
 -- Display: Canceled Quantity
@@ -1696,11 +1808,18 @@ end
 -- Reduce Size Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_long_message = {}
 
--- Size Of: Reduce Size Long Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_long_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity.size;
+-- Calculate size of: Reduce Size Long Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.canceled_quantity.size
+
+  return index
+end
 
 -- Display: Reduce Size Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.reduce_size_long_message.display = function(packet, parent, length)
@@ -1744,7 +1863,7 @@ end
 -- Remaining Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.remaining_quantity = {}
 
--- Size Of: Remaining Quantity
+-- Size: Remaining Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.remaining_quantity.size = 4
 
 -- Display: Remaining Quantity
@@ -1767,7 +1886,7 @@ end
 -- Executed Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.executed_quantity = {}
 
--- Size Of: Executed Quantity
+-- Size: Executed Quantity
 cboe_byx_equities_topofbook_pitch_v1_3_2.executed_quantity.size = 4
 
 -- Display: Executed Quantity
@@ -1790,14 +1909,24 @@ end
 -- Order Executed At Price Size Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_at_price_size_message = {}
 
--- Size Of: Order Executed At Price Size Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_at_price_size_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.executed_quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.remaining_quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price.size;
+-- Calculate size of: Order Executed At Price Size Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_at_price_size_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.executed_quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.remaining_quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
+
+  return index
+end
 
 -- Display: Order Executed At Price Size Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_at_price_size_message.display = function(packet, parent, length)
@@ -1850,12 +1979,20 @@ end
 -- Order Executed Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_message = {}
 
--- Size Of: Order Executed Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.executed_quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size;
+-- Calculate size of: Order Executed Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.executed_quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.execution_id.size
+
+  return index
+end
 
 -- Display: Order Executed Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.order_executed_message.display = function(packet, parent, length)
@@ -1902,7 +2039,7 @@ end
 -- Customer Indicator
 cboe_byx_equities_topofbook_pitch_v1_3_2.customer_indicator = {}
 
--- Size Of: Customer Indicator
+-- Size: Customer Indicator
 cboe_byx_equities_topofbook_pitch_v1_3_2.customer_indicator.size = 1
 
 -- Display: Customer Indicator
@@ -1925,7 +2062,7 @@ end
 -- Participant Id
 cboe_byx_equities_topofbook_pitch_v1_3_2.participant_id = {}
 
--- Size Of: Participant Id
+-- Size: Participant Id
 cboe_byx_equities_topofbook_pitch_v1_3_2.participant_id.size = 4
 
 -- Display: Participant Id
@@ -1948,7 +2085,7 @@ end
 -- Add Order Flags
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags = {}
 
--- Size Of: Add Order Flags
+-- Size: Add Order Flags
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags.size = 1
 
 -- Display: Add Order Flags
@@ -1990,17 +2127,30 @@ end
 -- Add Order Expanded Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_expanded_message = {}
 
--- Size Of: Add Order Expanded Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_expanded_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.participant_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.customer_indicator.size;
+-- Calculate size of: Add Order Expanded Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_expanded_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_8.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.participant_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.customer_indicator.size
+
+  return index
+end
 
 -- Display: Add Order Expanded Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_expanded_message.display = function(packet, parent, length)
@@ -2062,15 +2212,26 @@ end
 -- Add Order Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_short_message = {}
 
--- Size Of: Add Order Short Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_short_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags.size;
+-- Calculate size of: Add Order Short Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity_short.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price_short.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags.size
+
+  return index
+end
 
 -- Display: Add Order Short Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_short_message.display = function(packet, parent, length)
@@ -2126,15 +2287,26 @@ end
 -- Add Order Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_long_message = {}
 
--- Size Of: Add Order Long Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_long_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.price.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags.size;
+-- Calculate size of: Add Order Long Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_long_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.order_id.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.side_indicator.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.quantity.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.symbol_printable_ascii_6.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.price.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_flags.size
+
+  return index
+end
 
 -- Display: Add Order Long Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.add_order_long_message.display = function(packet, parent, length)
@@ -2190,9 +2362,14 @@ end
 -- Unit Clear Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.unit_clear_message = {}
 
--- Size Of: Unit Clear Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.unit_clear_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size;
+-- Calculate size of: Unit Clear Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.unit_clear_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time_offset.size
+
+  return index
+end
 
 -- Display: Unit Clear Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.unit_clear_message.display = function(packet, parent, length)
@@ -2230,7 +2407,7 @@ end
 -- Time
 cboe_byx_equities_topofbook_pitch_v1_3_2.time = {}
 
--- Size Of: Time
+-- Size: Time
 cboe_byx_equities_topofbook_pitch_v1_3_2.time.size = 4
 
 -- Display: Time
@@ -2253,9 +2430,14 @@ end
 -- Time Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.time_message = {}
 
--- Size Of: Time Message
-cboe_byx_equities_topofbook_pitch_v1_3_2.time_message.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.time.size;
+-- Calculate size of: Time Message
+cboe_byx_equities_topofbook_pitch_v1_3_2.time_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.time.size
+
+  return index
+end
 
 -- Display: Time Message
 cboe_byx_equities_topofbook_pitch_v1_3_2.time_message.display = function(packet, parent, length)
@@ -2501,7 +2683,7 @@ end
 -- Message Type
 cboe_byx_equities_topofbook_pitch_v1_3_2.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 cboe_byx_equities_topofbook_pitch_v1_3_2.message_type.size = 1
 
 -- Display: Message Type
@@ -2588,7 +2770,7 @@ end
 -- Message Length
 cboe_byx_equities_topofbook_pitch_v1_3_2.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 cboe_byx_equities_topofbook_pitch_v1_3_2.message_length.size = 1
 
 -- Display: Message Length
@@ -2611,10 +2793,16 @@ end
 -- Message Header
 cboe_byx_equities_topofbook_pitch_v1_3_2.message_header = {}
 
--- Size Of: Message Header
-cboe_byx_equities_topofbook_pitch_v1_3_2.message_header.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.message_length.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.message_type.size;
+-- Calculate size of: Message Header
+cboe_byx_equities_topofbook_pitch_v1_3_2.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.message_length.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 cboe_byx_equities_topofbook_pitch_v1_3_2.message_header.display = function(packet, parent, length)
@@ -2706,7 +2894,7 @@ end
 -- Sequence
 cboe_byx_equities_topofbook_pitch_v1_3_2.sequence = {}
 
--- Size Of: Sequence
+-- Size: Sequence
 cboe_byx_equities_topofbook_pitch_v1_3_2.sequence.size = 4
 
 -- Display: Sequence
@@ -2729,7 +2917,7 @@ end
 -- Unit
 cboe_byx_equities_topofbook_pitch_v1_3_2.unit = {}
 
--- Size Of: Unit
+-- Size: Unit
 cboe_byx_equities_topofbook_pitch_v1_3_2.unit.size = 1
 
 -- Display: Unit
@@ -2752,7 +2940,7 @@ end
 -- Count
 cboe_byx_equities_topofbook_pitch_v1_3_2.count = {}
 
--- Size Of: Count
+-- Size: Count
 cboe_byx_equities_topofbook_pitch_v1_3_2.count.size = 1
 
 -- Display: Count
@@ -2775,7 +2963,7 @@ end
 -- Length
 cboe_byx_equities_topofbook_pitch_v1_3_2.length = {}
 
--- Size Of: Length
+-- Size: Length
 cboe_byx_equities_topofbook_pitch_v1_3_2.length.size = 2
 
 -- Display: Length
@@ -2798,12 +2986,20 @@ end
 -- Packet Header
 cboe_byx_equities_topofbook_pitch_v1_3_2.packet_header = {}
 
--- Size Of: Packet Header
-cboe_byx_equities_topofbook_pitch_v1_3_2.packet_header.size =
-  cboe_byx_equities_topofbook_pitch_v1_3_2.length.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.count.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.unit.size + 
-  cboe_byx_equities_topofbook_pitch_v1_3_2.sequence.size;
+-- Calculate size of: Packet Header
+cboe_byx_equities_topofbook_pitch_v1_3_2.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.length.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.count.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.unit.size
+
+  index = index + cboe_byx_equities_topofbook_pitch_v1_3_2.sequence.size
+
+  return index
+end
 
 -- Display: Packet Header
 cboe_byx_equities_topofbook_pitch_v1_3_2.packet_header.display = function(packet, parent, length)

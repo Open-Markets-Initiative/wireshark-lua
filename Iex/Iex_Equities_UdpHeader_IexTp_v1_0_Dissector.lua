@@ -109,7 +109,7 @@ end
 -- Message Type
 iex_equities_udpheader_iextp_v1_0.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 iex_equities_udpheader_iextp_v1_0.message_type.size = 1
 
 -- Display: Message Type
@@ -132,7 +132,7 @@ end
 -- Message Length
 iex_equities_udpheader_iextp_v1_0.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 iex_equities_udpheader_iextp_v1_0.message_length.size = 2
 
 -- Display: Message Length
@@ -155,10 +155,16 @@ end
 -- Message Header
 iex_equities_udpheader_iextp_v1_0.message_header = {}
 
--- Size Of: Message Header
-iex_equities_udpheader_iextp_v1_0.message_header.size =
-  iex_equities_udpheader_iextp_v1_0.message_length.size + 
-  iex_equities_udpheader_iextp_v1_0.message_type.size;
+-- Calculate size of: Message Header
+iex_equities_udpheader_iextp_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_length.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 iex_equities_udpheader_iextp_v1_0.message_header.display = function(packet, parent, length)
@@ -253,7 +259,7 @@ end
 -- Send Time
 iex_equities_udpheader_iextp_v1_0.send_time = {}
 
--- Size Of: Send Time
+-- Size: Send Time
 iex_equities_udpheader_iextp_v1_0.send_time.size = 8
 
 -- Display: Send Time
@@ -280,7 +286,7 @@ end
 -- First Message Sequence Number
 iex_equities_udpheader_iextp_v1_0.first_message_sequence_number = {}
 
--- Size Of: First Message Sequence Number
+-- Size: First Message Sequence Number
 iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size = 8
 
 -- Display: First Message Sequence Number
@@ -303,7 +309,7 @@ end
 -- Stream Offset
 iex_equities_udpheader_iextp_v1_0.stream_offset = {}
 
--- Size Of: Stream Offset
+-- Size: Stream Offset
 iex_equities_udpheader_iextp_v1_0.stream_offset.size = 8
 
 -- Display: Stream Offset
@@ -326,7 +332,7 @@ end
 -- Message Count
 iex_equities_udpheader_iextp_v1_0.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 iex_equities_udpheader_iextp_v1_0.message_count.size = 2
 
 -- Display: Message Count
@@ -349,7 +355,7 @@ end
 -- Payload Length
 iex_equities_udpheader_iextp_v1_0.payload_length = {}
 
--- Size Of: Payload Length
+-- Size: Payload Length
 iex_equities_udpheader_iextp_v1_0.payload_length.size = 2
 
 -- Display: Payload Length
@@ -372,7 +378,7 @@ end
 -- Session Id
 iex_equities_udpheader_iextp_v1_0.session_id = {}
 
--- Size Of: Session Id
+-- Size: Session Id
 iex_equities_udpheader_iextp_v1_0.session_id.size = 4
 
 -- Display: Session Id
@@ -395,7 +401,7 @@ end
 -- Channel Id
 iex_equities_udpheader_iextp_v1_0.channel_id = {}
 
--- Size Of: Channel Id
+-- Size: Channel Id
 iex_equities_udpheader_iextp_v1_0.channel_id.size = 4
 
 -- Display: Channel Id
@@ -418,7 +424,7 @@ end
 -- Message Protocol Id
 iex_equities_udpheader_iextp_v1_0.message_protocol_id = {}
 
--- Size Of: Message Protocol Id
+-- Size: Message Protocol Id
 iex_equities_udpheader_iextp_v1_0.message_protocol_id.size = 2
 
 -- Display: Message Protocol Id
@@ -441,7 +447,7 @@ end
 -- Reserved
 iex_equities_udpheader_iextp_v1_0.reserved = {}
 
--- Size Of: Reserved
+-- Size: Reserved
 iex_equities_udpheader_iextp_v1_0.reserved.size = 1
 
 -- Display: Reserved
@@ -464,7 +470,7 @@ end
 -- Version
 iex_equities_udpheader_iextp_v1_0.version = {}
 
--- Size Of: Version
+-- Size: Version
 iex_equities_udpheader_iextp_v1_0.version.size = 1
 
 -- Display: Version
@@ -487,18 +493,32 @@ end
 -- Iex Tp Header
 iex_equities_udpheader_iextp_v1_0.iex_tp_header = {}
 
--- Size Of: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0.iex_tp_header.size =
-  iex_equities_udpheader_iextp_v1_0.version.size + 
-  iex_equities_udpheader_iextp_v1_0.reserved.size + 
-  iex_equities_udpheader_iextp_v1_0.message_protocol_id.size + 
-  iex_equities_udpheader_iextp_v1_0.channel_id.size + 
-  iex_equities_udpheader_iextp_v1_0.session_id.size + 
-  iex_equities_udpheader_iextp_v1_0.payload_length.size + 
-  iex_equities_udpheader_iextp_v1_0.message_count.size + 
-  iex_equities_udpheader_iextp_v1_0.stream_offset.size + 
-  iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size + 
-  iex_equities_udpheader_iextp_v1_0.send_time.size;
+-- Calculate size of: Iex Tp Header
+iex_equities_udpheader_iextp_v1_0.iex_tp_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_equities_udpheader_iextp_v1_0.version.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.reserved.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_protocol_id.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.channel_id.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.session_id.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.payload_length.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.message_count.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.stream_offset.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size
+
+  index = index + iex_equities_udpheader_iextp_v1_0.send_time.size
+
+  return index
+end
 
 -- Display: Iex Tp Header
 iex_equities_udpheader_iextp_v1_0.iex_tp_header.display = function(packet, parent, length)

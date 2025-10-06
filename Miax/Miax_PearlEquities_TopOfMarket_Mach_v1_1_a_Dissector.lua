@@ -186,7 +186,7 @@ end
 -- Size
 miax_pearlequities_topofmarket_mach_v1_1_a.size = {}
 
--- Size Of: Size
+-- Size: Size
 miax_pearlequities_topofmarket_mach_v1_1_a.size.size = 4
 
 -- Display: Size
@@ -209,7 +209,7 @@ end
 -- Price
 miax_pearlequities_topofmarket_mach_v1_1_a.price = {}
 
--- Size Of: Price
+-- Size: Price
 miax_pearlequities_topofmarket_mach_v1_1_a.price.size = 8
 
 -- Display: Price
@@ -238,7 +238,7 @@ end
 -- Correction Number
 miax_pearlequities_topofmarket_mach_v1_1_a.correction_number = {}
 
--- Size Of: Correction Number
+-- Size: Correction Number
 miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size = 1
 
 -- Display: Correction Number
@@ -261,7 +261,7 @@ end
 -- Trade Id
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_id = {}
 
--- Size Of: Trade Id
+-- Size: Trade Id
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size = 8
 
 -- Display: Trade Id
@@ -284,7 +284,7 @@ end
 -- Symbol Id
 miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id = {}
 
--- Size Of: Symbol Id
+-- Size: Symbol Id
 miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size = 4
 
 -- Display: Symbol Id
@@ -307,7 +307,7 @@ end
 -- Timestamp
 miax_pearlequities_topofmarket_mach_v1_1_a.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size = 4
 
 -- Display: Timestamp
@@ -330,14 +330,24 @@ end
 -- Trade Cancel Message
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message = {}
 
--- Size Of: Trade Cancel Message
-miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.price.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.size.size;
+-- Calculate size of: Trade Cancel Message
+miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.price.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.size.size
+
+  return index
+end
 
 -- Display: Trade Cancel Message
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.display = function(packet, parent, length)
@@ -390,7 +400,7 @@ end
 -- Flags
 miax_pearlequities_topofmarket_mach_v1_1_a.flags = {}
 
--- Size Of: Flags
+-- Size: Flags
 miax_pearlequities_topofmarket_mach_v1_1_a.flags.size = 0
 
 -- Display: Flags
@@ -413,15 +423,26 @@ end
 -- Last Sale Message
 miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message = {}
 
--- Size Of: Last Sale Message
-miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.price.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.size.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.flags.size;
+-- Calculate size of: Last Sale Message
+miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.price.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.size.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.flags.size
+
+  return index
+end
 
 -- Display: Last Sale Message
 miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.display = function(packet, parent, length)
@@ -477,7 +498,7 @@ end
 -- Offer Size
 miax_pearlequities_topofmarket_mach_v1_1_a.offer_size = {}
 
--- Size Of: Offer Size
+-- Size: Offer Size
 miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size = 2
 
 -- Display: Offer Size
@@ -500,7 +521,7 @@ end
 -- Offer Price
 miax_pearlequities_topofmarket_mach_v1_1_a.offer_price = {}
 
--- Size Of: Offer Price
+-- Size: Offer Price
 miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size = 2
 
 -- Display: Offer Price
@@ -529,7 +550,7 @@ end
 -- Bid Size
 miax_pearlequities_topofmarket_mach_v1_1_a.bid_size = {}
 
--- Size Of: Bid Size
+-- Size: Bid Size
 miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size = 2
 
 -- Display: Bid Size
@@ -552,7 +573,7 @@ end
 -- Bid Price
 miax_pearlequities_topofmarket_mach_v1_1_a.bid_price = {}
 
--- Size Of: Bid Price
+-- Size: Bid Price
 miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size = 2
 
 -- Display: Bid Price
@@ -581,14 +602,24 @@ end
 -- Wide Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message = {}
 
--- Size Of: Wide Top Of Market Best Bid And Offer Message
-miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size;
+-- Calculate size of: Wide Top Of Market Best Bid And Offer Message
+miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size
+
+  return index
+end
 
 -- Display: Wide Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.display = function(packet, parent, length)
@@ -641,14 +672,24 @@ end
 -- Compact Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message = {}
 
--- Size Of: Compact Top Of Market Best Bid And Offer Message
-miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size;
+-- Calculate size of: Compact Top Of Market Best Bid And Offer Message
+miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size
+
+  return index
+end
 
 -- Display: Compact Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.display = function(packet, parent, length)
@@ -701,7 +742,7 @@ end
 -- Short Sale Restriction
 miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction = {}
 
--- Size Of: Short Sale Restriction
+-- Size: Short Sale Restriction
 miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
@@ -731,7 +772,7 @@ end
 -- Market State
 miax_pearlequities_topofmarket_mach_v1_1_a.market_state = {}
 
--- Size Of: Market State
+-- Size: Market State
 miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size = 1
 
 -- Display: Market State
@@ -767,7 +808,7 @@ end
 -- Trading Status
 miax_pearlequities_topofmarket_mach_v1_1_a.trading_status = {}
 
--- Size Of: Trading Status
+-- Size: Trading Status
 miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size = 1
 
 -- Display: Trading Status
@@ -806,13 +847,22 @@ end
 -- Security Trading Status Notification Message
 miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message = {}
 
--- Size Of: Security Trading Status Notification Message
-miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.size;
+-- Calculate size of: Security Trading Status Notification Message
+miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.size
+
+  return index
+end
 
 -- Display: Security Trading Status Notification Message
 miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.display = function(packet, parent, length)
@@ -862,7 +912,7 @@ end
 -- System Status
 miax_pearlequities_topofmarket_mach_v1_1_a.system_status = {}
 
--- Size Of: System Status
+-- Size: System Status
 miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size = 1
 
 -- Display: System Status
@@ -898,7 +948,7 @@ end
 -- Session Id
 miax_pearlequities_topofmarket_mach_v1_1_a.session_id = {}
 
--- Size Of: Session Id
+-- Size: Session Id
 miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size = 1
 
 -- Display: Session Id
@@ -921,7 +971,7 @@ end
 -- To M Version
 miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version = {}
 
--- Size Of: To M Version
+-- Size: To M Version
 miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size = 8
 
 -- Display: To M Version
@@ -944,12 +994,20 @@ end
 -- System State Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message = {}
 
--- Size Of: System State Message
-miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size;
+-- Calculate size of: System State Message
+miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size
+
+  return index
+end
 
 -- Display: System State Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.display = function(packet, parent, length)
@@ -996,7 +1054,7 @@ end
 -- Primary Market Code
 miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code = {}
 
--- Size Of: Primary Market Code
+-- Size: Primary Market Code
 miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.size = 1
 
 -- Display: Primary Market Code
@@ -1074,7 +1132,7 @@ end
 -- Closing Time
 miax_pearlequities_topofmarket_mach_v1_1_a.closing_time = {}
 
--- Size Of: Closing Time
+-- Size: Closing Time
 miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.size = 8
 
 -- Display: Closing Time
@@ -1097,7 +1155,7 @@ end
 -- Opening Time
 miax_pearlequities_topofmarket_mach_v1_1_a.opening_time = {}
 
--- Size Of: Opening Time
+-- Size: Opening Time
 miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.size = 8
 
 -- Display: Opening Time
@@ -1120,7 +1178,7 @@ end
 -- Lot Size
 miax_pearlequities_topofmarket_mach_v1_1_a.lot_size = {}
 
--- Size Of: Lot Size
+-- Size: Lot Size
 miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.size = 2
 
 -- Display: Lot Size
@@ -1143,7 +1201,7 @@ end
 -- Reserved 1
 miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1 = {}
 
--- Size Of: Reserved 1
+-- Size: Reserved 1
 miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size = 1
 
 -- Display: Reserved 1
@@ -1166,7 +1224,7 @@ end
 -- Test Security Indicator
 miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator = {}
 
--- Size Of: Test Security Indicator
+-- Size: Test Security Indicator
 miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.size = 1
 
 -- Display: Test Security Indicator
@@ -1196,7 +1254,7 @@ end
 -- Ticker Symbol
 miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol = {}
 
--- Size Of: Ticker Symbol
+-- Size: Ticker Symbol
 miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size = 11
 
 -- Display: Ticker Symbol
@@ -1219,18 +1277,32 @@ end
 -- Symbol Update Message
 miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message = {}
 
--- Size Of: Symbol Update Message
-miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.size;
+-- Calculate size of: Symbol Update Message
+miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.size
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.size
+
+  return index
+end
 
 -- Display: Symbol Update Message
 miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.display = function(packet, parent, length)
@@ -1295,9 +1367,14 @@ end
 -- System Time Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message = {}
 
--- Size Of: System Time Message
-miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size;
+-- Calculate size of: System Time Message
+miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+
+  return index
+end
 
 -- Display: System Time Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.display = function(packet, parent, length)
@@ -1439,7 +1516,7 @@ end
 -- Message Type
 miax_pearlequities_topofmarket_mach_v1_1_a.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 miax_pearlequities_topofmarket_mach_v1_1_a.message_type.size = 1
 
 -- Display: Message Type
@@ -1583,7 +1660,7 @@ end
 -- Session Number
 miax_pearlequities_topofmarket_mach_v1_1_a.session_number = {}
 
--- Size Of: Session Number
+-- Size: Session Number
 miax_pearlequities_topofmarket_mach_v1_1_a.session_number.size = 1
 
 -- Display: Session Number
@@ -1606,7 +1683,7 @@ end
 -- Packet Type
 miax_pearlequities_topofmarket_mach_v1_1_a.packet_type = {}
 
--- Size Of: Packet Type
+-- Size: Packet Type
 miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.size = 1
 
 -- Display: Packet Type
@@ -1642,7 +1719,7 @@ end
 -- Packet Length
 miax_pearlequities_topofmarket_mach_v1_1_a.packet_length = {}
 
--- Size Of: Packet Length
+-- Size: Packet Length
 miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.size = 2
 
 -- Display: Packet Length
@@ -1665,7 +1742,7 @@ end
 -- Sequence Number
 miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.size = 8
 
 -- Display: Sequence Number

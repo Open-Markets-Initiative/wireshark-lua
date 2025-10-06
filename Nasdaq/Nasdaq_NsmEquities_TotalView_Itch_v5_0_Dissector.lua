@@ -340,7 +340,7 @@ end
 -- Upper Price Range Collar
 nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar = {}
 
--- Size Of: Upper Price Range Collar
+-- Size: Upper Price Range Collar
 nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.size = 4
 
 -- Display: Upper Price Range Collar
@@ -369,7 +369,7 @@ end
 -- Lower Price Range Collar
 nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar = {}
 
--- Size Of: Lower Price Range Collar
+-- Size: Lower Price Range Collar
 nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.size = 4
 
 -- Display: Lower Price Range Collar
@@ -398,7 +398,7 @@ end
 -- Near Execution Time
 nasdaq_nsmequities_totalview_itch_v5_0.near_execution_time = {}
 
--- Size Of: Near Execution Time
+-- Size: Near Execution Time
 nasdaq_nsmequities_totalview_itch_v5_0.near_execution_time.size = 8
 
 -- Display: Near Execution Time
@@ -421,7 +421,7 @@ end
 -- Near Execution Price
 nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price = {}
 
--- Size Of: Near Execution Price
+-- Size: Near Execution Price
 nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.size = 4
 
 -- Display: Near Execution Price
@@ -450,7 +450,7 @@ end
 -- Maximum Allowable Price
 nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price = {}
 
--- Size Of: Maximum Allowable Price
+-- Size: Maximum Allowable Price
 nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.size = 4
 
 -- Display: Maximum Allowable Price
@@ -479,7 +479,7 @@ end
 -- Minimum Allowable Price
 nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price = {}
 
--- Size Of: Minimum Allowable Price
+-- Size: Minimum Allowable Price
 nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.size = 4
 
 -- Display: Minimum Allowable Price
@@ -508,7 +508,7 @@ end
 -- Open Eligibility Status
 nasdaq_nsmequities_totalview_itch_v5_0.open_eligibility_status = {}
 
--- Size Of: Open Eligibility Status
+-- Size: Open Eligibility Status
 nasdaq_nsmequities_totalview_itch_v5_0.open_eligibility_status.size = 1
 
 -- Display: Open Eligibility Status
@@ -538,7 +538,7 @@ end
 -- Stock
 nasdaq_nsmequities_totalview_itch_v5_0.stock = {}
 
--- Size Of: Stock
+-- Size: Stock
 nasdaq_nsmequities_totalview_itch_v5_0.stock.size = 8
 
 -- Display: Stock
@@ -561,7 +561,7 @@ end
 -- Timestamp
 nasdaq_nsmequities_totalview_itch_v5_0.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size = 6
 
 -- Display: Timestamp
@@ -584,7 +584,7 @@ end
 -- Tracking Number
 nasdaq_nsmequities_totalview_itch_v5_0.tracking_number = {}
 
--- Size Of: Tracking Number
+-- Size: Tracking Number
 nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size = 2
 
 -- Display: Tracking Number
@@ -607,7 +607,7 @@ end
 -- Stock Locate
 nasdaq_nsmequities_totalview_itch_v5_0.stock_locate = {}
 
--- Size Of: Stock Locate
+-- Size: Stock Locate
 nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size = 2
 
 -- Display: Stock Locate
@@ -630,19 +630,34 @@ end
 -- Direct Listing With Capital Raise Price Discovery Message
 nasdaq_nsmequities_totalview_itch_v5_0.direct_listing_with_capital_raise_price_discovery_message = {}
 
--- Size Of: Direct Listing With Capital Raise Price Discovery Message
-nasdaq_nsmequities_totalview_itch_v5_0.direct_listing_with_capital_raise_price_discovery_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.open_eligibility_status.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.near_execution_time.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.size;
+-- Calculate size of: Direct Listing With Capital Raise Price Discovery Message
+nasdaq_nsmequities_totalview_itch_v5_0.direct_listing_with_capital_raise_price_discovery_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.open_eligibility_status.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.minimum_allowable_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.maximum_allowable_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.near_execution_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.near_execution_time.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.lower_price_range_collar.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.upper_price_range_collar.size
+
+  return index
+end
 
 -- Display: Direct Listing With Capital Raise Price Discovery Message
 nasdaq_nsmequities_totalview_itch_v5_0.direct_listing_with_capital_raise_price_discovery_message.display = function(packet, parent, length)
@@ -710,7 +725,7 @@ end
 -- Interest Flag
 nasdaq_nsmequities_totalview_itch_v5_0.interest_flag = {}
 
--- Size Of: Interest Flag
+-- Size: Interest Flag
 nasdaq_nsmequities_totalview_itch_v5_0.interest_flag.size = 1
 
 -- Display: Interest Flag
@@ -746,13 +761,22 @@ end
 -- Retail Price Improvement Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0.retail_price_improvement_indicator_message = {}
 
--- Size Of: Retail Price Improvement Indicator Message
-nasdaq_nsmequities_totalview_itch_v5_0.retail_price_improvement_indicator_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.interest_flag.size;
+-- Calculate size of: Retail Price Improvement Indicator Message
+nasdaq_nsmequities_totalview_itch_v5_0.retail_price_improvement_indicator_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.interest_flag.size
+
+  return index
+end
 
 -- Display: Retail Price Improvement Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0.retail_price_improvement_indicator_message.display = function(packet, parent, length)
@@ -802,7 +826,7 @@ end
 -- Price Variation Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.price_variation_indicator = {}
 
--- Size Of: Price Variation Indicator
+-- Size: Price Variation Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.price_variation_indicator.size = 1
 
 -- Display: Price Variation Indicator
@@ -868,7 +892,7 @@ end
 -- Cross Type
 nasdaq_nsmequities_totalview_itch_v5_0.cross_type = {}
 
--- Size Of: Cross Type
+-- Size: Cross Type
 nasdaq_nsmequities_totalview_itch_v5_0.cross_type.size = 1
 
 -- Display: Cross Type
@@ -904,7 +928,7 @@ end
 -- Current Reference Price
 nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price = {}
 
--- Size Of: Current Reference Price
+-- Size: Current Reference Price
 nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.size = 4
 
 -- Display: Current Reference Price
@@ -933,7 +957,7 @@ end
 -- Near Price
 nasdaq_nsmequities_totalview_itch_v5_0.near_price = {}
 
--- Size Of: Near Price
+-- Size: Near Price
 nasdaq_nsmequities_totalview_itch_v5_0.near_price.size = 4
 
 -- Display: Near Price
@@ -962,7 +986,7 @@ end
 -- Far Price
 nasdaq_nsmequities_totalview_itch_v5_0.far_price = {}
 
--- Size Of: Far Price
+-- Size: Far Price
 nasdaq_nsmequities_totalview_itch_v5_0.far_price.size = 4
 
 -- Display: Far Price
@@ -991,7 +1015,7 @@ end
 -- Imbalance Direction
 nasdaq_nsmequities_totalview_itch_v5_0.imbalance_direction = {}
 
--- Size Of: Imbalance Direction
+-- Size: Imbalance Direction
 nasdaq_nsmequities_totalview_itch_v5_0.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
@@ -1030,7 +1054,7 @@ end
 -- Imbalance Shares
 nasdaq_nsmequities_totalview_itch_v5_0.imbalance_shares = {}
 
--- Size Of: Imbalance Shares
+-- Size: Imbalance Shares
 nasdaq_nsmequities_totalview_itch_v5_0.imbalance_shares.size = 8
 
 -- Display: Imbalance Shares
@@ -1053,7 +1077,7 @@ end
 -- Paired Shares
 nasdaq_nsmequities_totalview_itch_v5_0.paired_shares = {}
 
--- Size Of: Paired Shares
+-- Size: Paired Shares
 nasdaq_nsmequities_totalview_itch_v5_0.paired_shares.size = 8
 
 -- Display: Paired Shares
@@ -1076,20 +1100,36 @@ end
 -- Net Order Imbalance Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0.net_order_imbalance_indicator_message = {}
 
--- Size Of: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_totalview_itch_v5_0.net_order_imbalance_indicator_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.paired_shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.imbalance_shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.imbalance_direction.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.far_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.near_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.cross_type.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.price_variation_indicator.size;
+-- Calculate size of: Net Order Imbalance Indicator Message
+nasdaq_nsmequities_totalview_itch_v5_0.net_order_imbalance_indicator_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.paired_shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.imbalance_shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.imbalance_direction.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.far_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.near_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.current_reference_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.cross_type.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.price_variation_indicator.size
+
+  return index
+end
 
 -- Display: Net Order Imbalance Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0.net_order_imbalance_indicator_message.display = function(packet, parent, length)
@@ -1160,7 +1200,7 @@ end
 -- Match Number
 nasdaq_nsmequities_totalview_itch_v5_0.match_number = {}
 
--- Size Of: Match Number
+-- Size: Match Number
 nasdaq_nsmequities_totalview_itch_v5_0.match_number.size = 8
 
 -- Display: Match Number
@@ -1183,12 +1223,20 @@ end
 -- Broken Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0.broken_trade_message = {}
 
--- Size Of: Broken Trade Message
-nasdaq_nsmequities_totalview_itch_v5_0.broken_trade_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.match_number.size;
+-- Calculate size of: Broken Trade Message
+nasdaq_nsmequities_totalview_itch_v5_0.broken_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.match_number.size
+
+  return index
+end
 
 -- Display: Broken Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0.broken_trade_message.display = function(packet, parent, length)
@@ -1235,7 +1283,7 @@ end
 -- Cross Price
 nasdaq_nsmequities_totalview_itch_v5_0.cross_price = {}
 
--- Size Of: Cross Price
+-- Size: Cross Price
 nasdaq_nsmequities_totalview_itch_v5_0.cross_price.size = 4
 
 -- Display: Cross Price
@@ -1264,7 +1312,7 @@ end
 -- Cross Shares
 nasdaq_nsmequities_totalview_itch_v5_0.cross_shares = {}
 
--- Size Of: Cross Shares
+-- Size: Cross Shares
 nasdaq_nsmequities_totalview_itch_v5_0.cross_shares.size = 8
 
 -- Display: Cross Shares
@@ -1287,16 +1335,28 @@ end
 -- Cross Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0.cross_trade_message = {}
 
--- Size Of: Cross Trade Message
-nasdaq_nsmequities_totalview_itch_v5_0.cross_trade_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.cross_shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.cross_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.match_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.cross_type.size;
+-- Calculate size of: Cross Trade Message
+nasdaq_nsmequities_totalview_itch_v5_0.cross_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.cross_shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.cross_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.match_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.cross_type.size
+
+  return index
+end
 
 -- Display: Cross Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0.cross_trade_message.display = function(packet, parent, length)
@@ -1355,7 +1415,7 @@ end
 -- Price
 nasdaq_nsmequities_totalview_itch_v5_0.price = {}
 
--- Size Of: Price
+-- Size: Price
 nasdaq_nsmequities_totalview_itch_v5_0.price.size = 4
 
 -- Display: Price
@@ -1384,7 +1444,7 @@ end
 -- Shares
 nasdaq_nsmequities_totalview_itch_v5_0.shares = {}
 
--- Size Of: Shares
+-- Size: Shares
 nasdaq_nsmequities_totalview_itch_v5_0.shares.size = 4
 
 -- Display: Shares
@@ -1407,7 +1467,7 @@ end
 -- Buy Sell Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator = {}
 
--- Size Of: Buy Sell Indicator
+-- Size: Buy Sell Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
@@ -1437,7 +1497,7 @@ end
 -- Order Reference Number
 nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number = {}
 
--- Size Of: Order Reference Number
+-- Size: Order Reference Number
 nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size = 8
 
 -- Display: Order Reference Number
@@ -1460,17 +1520,30 @@ end
 -- Non Cross Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0.non_cross_trade_message = {}
 
--- Size Of: Non Cross Trade Message
-nasdaq_nsmequities_totalview_itch_v5_0.non_cross_trade_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.match_number.size;
+-- Calculate size of: Non Cross Trade Message
+nasdaq_nsmequities_totalview_itch_v5_0.non_cross_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.match_number.size
+
+  return index
+end
 
 -- Display: Non Cross Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0.non_cross_trade_message.display = function(packet, parent, length)
@@ -1532,7 +1605,7 @@ end
 -- New Order Reference Number
 nasdaq_nsmequities_totalview_itch_v5_0.new_order_reference_number = {}
 
--- Size Of: New Order Reference Number
+-- Size: New Order Reference Number
 nasdaq_nsmequities_totalview_itch_v5_0.new_order_reference_number.size = 8
 
 -- Display: New Order Reference Number
@@ -1555,7 +1628,7 @@ end
 -- Original Order Reference Number
 nasdaq_nsmequities_totalview_itch_v5_0.original_order_reference_number = {}
 
--- Size Of: Original Order Reference Number
+-- Size: Original Order Reference Number
 nasdaq_nsmequities_totalview_itch_v5_0.original_order_reference_number.size = 8
 
 -- Display: Original Order Reference Number
@@ -1578,15 +1651,26 @@ end
 -- Order Replace Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_replace_message = {}
 
--- Size Of: Order Replace Message
-nasdaq_nsmequities_totalview_itch_v5_0.order_replace_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.original_order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.new_order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.price.size;
+-- Calculate size of: Order Replace Message
+nasdaq_nsmequities_totalview_itch_v5_0.order_replace_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.original_order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.new_order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.price.size
+
+  return index
+end
 
 -- Display: Order Replace Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_replace_message.display = function(packet, parent, length)
@@ -1642,12 +1726,20 @@ end
 -- Order Delete Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_delete_message = {}
 
--- Size Of: Order Delete Message
-nasdaq_nsmequities_totalview_itch_v5_0.order_delete_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size;
+-- Calculate size of: Order Delete Message
+nasdaq_nsmequities_totalview_itch_v5_0.order_delete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size
+
+  return index
+end
 
 -- Display: Order Delete Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_delete_message.display = function(packet, parent, length)
@@ -1694,7 +1786,7 @@ end
 -- Canceled Shares
 nasdaq_nsmequities_totalview_itch_v5_0.canceled_shares = {}
 
--- Size Of: Canceled Shares
+-- Size: Canceled Shares
 nasdaq_nsmequities_totalview_itch_v5_0.canceled_shares.size = 4
 
 -- Display: Canceled Shares
@@ -1717,13 +1809,22 @@ end
 -- Order Cancel Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_cancel_message = {}
 
--- Size Of: Order Cancel Message
-nasdaq_nsmequities_totalview_itch_v5_0.order_cancel_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.canceled_shares.size;
+-- Calculate size of: Order Cancel Message
+nasdaq_nsmequities_totalview_itch_v5_0.order_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.canceled_shares.size
+
+  return index
+end
 
 -- Display: Order Cancel Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_cancel_message.display = function(packet, parent, length)
@@ -1773,7 +1874,7 @@ end
 -- Execution Price
 nasdaq_nsmequities_totalview_itch_v5_0.execution_price = {}
 
--- Size Of: Execution Price
+-- Size: Execution Price
 nasdaq_nsmequities_totalview_itch_v5_0.execution_price.size = 4
 
 -- Display: Execution Price
@@ -1802,7 +1903,7 @@ end
 -- Printable
 nasdaq_nsmequities_totalview_itch_v5_0.printable = {}
 
--- Size Of: Printable
+-- Size: Printable
 nasdaq_nsmequities_totalview_itch_v5_0.printable.size = 1
 
 -- Display: Printable
@@ -1832,7 +1933,7 @@ end
 -- Executed Shares
 nasdaq_nsmequities_totalview_itch_v5_0.executed_shares = {}
 
--- Size Of: Executed Shares
+-- Size: Executed Shares
 nasdaq_nsmequities_totalview_itch_v5_0.executed_shares.size = 4
 
 -- Display: Executed Shares
@@ -1855,16 +1956,28 @@ end
 -- Order Executed With Price Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_executed_with_price_message = {}
 
--- Size Of: Order Executed With Price Message
-nasdaq_nsmequities_totalview_itch_v5_0.order_executed_with_price_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.executed_shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.match_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.printable.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.execution_price.size;
+-- Calculate size of: Order Executed With Price Message
+nasdaq_nsmequities_totalview_itch_v5_0.order_executed_with_price_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.executed_shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.match_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.printable.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.execution_price.size
+
+  return index
+end
 
 -- Display: Order Executed With Price Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_executed_with_price_message.display = function(packet, parent, length)
@@ -1923,14 +2036,24 @@ end
 -- Order Executed Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_executed_message = {}
 
--- Size Of: Order Executed Message
-nasdaq_nsmequities_totalview_itch_v5_0.order_executed_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.executed_shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.match_number.size;
+-- Calculate size of: Order Executed Message
+nasdaq_nsmequities_totalview_itch_v5_0.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.executed_shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.match_number.size
+
+  return index
+end
 
 -- Display: Order Executed Message
 nasdaq_nsmequities_totalview_itch_v5_0.order_executed_message.display = function(packet, parent, length)
@@ -1983,7 +2106,7 @@ end
 -- Attribution
 nasdaq_nsmequities_totalview_itch_v5_0.attribution = {}
 
--- Size Of: Attribution
+-- Size: Attribution
 nasdaq_nsmequities_totalview_itch_v5_0.attribution.size = 4
 
 -- Display: Attribution
@@ -2006,17 +2129,30 @@ end
 -- Add Order With Mpid Attribution Message
 nasdaq_nsmequities_totalview_itch_v5_0.add_order_with_mpid_attribution_message = {}
 
--- Size Of: Add Order With Mpid Attribution Message
-nasdaq_nsmequities_totalview_itch_v5_0.add_order_with_mpid_attribution_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.attribution.size;
+-- Calculate size of: Add Order With Mpid Attribution Message
+nasdaq_nsmequities_totalview_itch_v5_0.add_order_with_mpid_attribution_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.attribution.size
+
+  return index
+end
 
 -- Display: Add Order With Mpid Attribution Message
 nasdaq_nsmequities_totalview_itch_v5_0.add_order_with_mpid_attribution_message.display = function(packet, parent, length)
@@ -2078,16 +2214,28 @@ end
 -- Add Order No Mpid Attribution Message
 nasdaq_nsmequities_totalview_itch_v5_0.add_order_no_mpid_attribution_message = {}
 
--- Size Of: Add Order No Mpid Attribution Message
-nasdaq_nsmequities_totalview_itch_v5_0.add_order_no_mpid_attribution_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.shares.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.price.size;
+-- Calculate size of: Add Order No Mpid Attribution Message
+nasdaq_nsmequities_totalview_itch_v5_0.add_order_no_mpid_attribution_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.buy_sell_indicator.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.shares.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.price.size
+
+  return index
+end
 
 -- Display: Add Order No Mpid Attribution Message
 nasdaq_nsmequities_totalview_itch_v5_0.add_order_no_mpid_attribution_message.display = function(packet, parent, length)
@@ -2146,7 +2294,7 @@ end
 -- Operational Halt Action
 nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_action = {}
 
--- Size Of: Operational Halt Action
+-- Size: Operational Halt Action
 nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_action.size = 1
 
 -- Display: Operational Halt Action
@@ -2176,7 +2324,7 @@ end
 -- Market Code
 nasdaq_nsmequities_totalview_itch_v5_0.market_code = {}
 
--- Size Of: Market Code
+-- Size: Market Code
 nasdaq_nsmequities_totalview_itch_v5_0.market_code.size = 1
 
 -- Display: Market Code
@@ -2209,14 +2357,24 @@ end
 -- Operational Halt Message
 nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_message = {}
 
--- Size Of: Operational Halt Message
-nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.market_code.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_action.size;
+-- Calculate size of: Operational Halt Message
+nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.market_code.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_action.size
+
+  return index
+end
 
 -- Display: Operational Halt Message
 nasdaq_nsmequities_totalview_itch_v5_0.operational_halt_message.display = function(packet, parent, length)
@@ -2269,7 +2427,7 @@ end
 -- Auction Collar Extension
 nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_extension = {}
 
--- Size Of: Auction Collar Extension
+-- Size: Auction Collar Extension
 nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_extension.size = 4
 
 -- Display: Auction Collar Extension
@@ -2292,7 +2450,7 @@ end
 -- Lower Auction Collar Price
 nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price = {}
 
--- Size Of: Lower Auction Collar Price
+-- Size: Lower Auction Collar Price
 nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.size = 4
 
 -- Display: Lower Auction Collar Price
@@ -2321,7 +2479,7 @@ end
 -- Upper Auction Collar Price
 nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price = {}
 
--- Size Of: Upper Auction Collar Price
+-- Size: Upper Auction Collar Price
 nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.size = 4
 
 -- Display: Upper Auction Collar Price
@@ -2350,7 +2508,7 @@ end
 -- Auction Collar Reference Price
 nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price = {}
 
--- Size Of: Auction Collar Reference Price
+-- Size: Auction Collar Reference Price
 nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.size = 4
 
 -- Display: Auction Collar Reference Price
@@ -2379,16 +2537,28 @@ end
 -- Luld Auction Collar Message
 nasdaq_nsmequities_totalview_itch_v5_0.luld_auction_collar_message = {}
 
--- Size Of: Luld Auction Collar Message
-nasdaq_nsmequities_totalview_itch_v5_0.luld_auction_collar_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_extension.size;
+-- Calculate size of: Luld Auction Collar Message
+nasdaq_nsmequities_totalview_itch_v5_0.luld_auction_collar_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_reference_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.upper_auction_collar_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.lower_auction_collar_price.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.auction_collar_extension.size
+
+  return index
+end
 
 -- Display: Luld Auction Collar Message
 nasdaq_nsmequities_totalview_itch_v5_0.luld_auction_collar_message.display = function(packet, parent, length)
@@ -2447,7 +2617,7 @@ end
 -- Ipo Price
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_price = {}
 
--- Size Of: Ipo Price
+-- Size: Ipo Price
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.size = 4
 
 -- Display: Ipo Price
@@ -2476,7 +2646,7 @@ end
 -- Ipo Quotation Release Qualifier
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_qualifier = {}
 
--- Size Of: Ipo Quotation Release Qualifier
+-- Size: Ipo Quotation Release Qualifier
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_qualifier.size = 1
 
 -- Display: Ipo Quotation Release Qualifier
@@ -2506,7 +2676,7 @@ end
 -- Ipo Quotation Release Time
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_time = {}
 
--- Size Of: Ipo Quotation Release Time
+-- Size: Ipo Quotation Release Time
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_time.size = 4
 
 -- Display: Ipo Quotation Release Time
@@ -2529,15 +2699,26 @@ end
 -- Ipo Quoting Period Update
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_quoting_period_update = {}
 
--- Size Of: Ipo Quoting Period Update
-nasdaq_nsmequities_totalview_itch_v5_0.ipo_quoting_period_update.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_time.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_qualifier.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.size;
+-- Calculate size of: Ipo Quoting Period Update
+nasdaq_nsmequities_totalview_itch_v5_0.ipo_quoting_period_update.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_time.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.ipo_quotation_release_qualifier.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.ipo_price.size
+
+  return index
+end
 
 -- Display: Ipo Quoting Period Update
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_quoting_period_update.display = function(packet, parent, length)
@@ -2593,7 +2774,7 @@ end
 -- Breached Level
 nasdaq_nsmequities_totalview_itch_v5_0.breached_level = {}
 
--- Size Of: Breached Level
+-- Size: Breached Level
 nasdaq_nsmequities_totalview_itch_v5_0.breached_level.size = 1
 
 -- Display: Breached Level
@@ -2626,12 +2807,20 @@ end
 -- Mwcb Status Level Message
 nasdaq_nsmequities_totalview_itch_v5_0.mwcb_status_level_message = {}
 
--- Size Of: Mwcb Status Level Message
-nasdaq_nsmequities_totalview_itch_v5_0.mwcb_status_level_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.breached_level.size;
+-- Calculate size of: Mwcb Status Level Message
+nasdaq_nsmequities_totalview_itch_v5_0.mwcb_status_level_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.breached_level.size
+
+  return index
+end
 
 -- Display: Mwcb Status Level Message
 nasdaq_nsmequities_totalview_itch_v5_0.mwcb_status_level_message.display = function(packet, parent, length)
@@ -2678,7 +2867,7 @@ end
 -- Level 3
 nasdaq_nsmequities_totalview_itch_v5_0.level_3 = {}
 
--- Size Of: Level 3
+-- Size: Level 3
 nasdaq_nsmequities_totalview_itch_v5_0.level_3.size = 8
 
 -- Display: Level 3
@@ -2707,7 +2896,7 @@ end
 -- Level 2
 nasdaq_nsmequities_totalview_itch_v5_0.level_2 = {}
 
--- Size Of: Level 2
+-- Size: Level 2
 nasdaq_nsmequities_totalview_itch_v5_0.level_2.size = 8
 
 -- Display: Level 2
@@ -2736,7 +2925,7 @@ end
 -- Level 1
 nasdaq_nsmequities_totalview_itch_v5_0.level_1 = {}
 
--- Size Of: Level 1
+-- Size: Level 1
 nasdaq_nsmequities_totalview_itch_v5_0.level_1.size = 8
 
 -- Display: Level 1
@@ -2765,14 +2954,24 @@ end
 -- Mwcb Decline Level Message
 nasdaq_nsmequities_totalview_itch_v5_0.mwcb_decline_level_message = {}
 
--- Size Of: Mwcb Decline Level Message
-nasdaq_nsmequities_totalview_itch_v5_0.mwcb_decline_level_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.level_1.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.level_2.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.level_3.size;
+-- Calculate size of: Mwcb Decline Level Message
+nasdaq_nsmequities_totalview_itch_v5_0.mwcb_decline_level_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.level_1.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.level_2.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.level_3.size
+
+  return index
+end
 
 -- Display: Mwcb Decline Level Message
 nasdaq_nsmequities_totalview_itch_v5_0.mwcb_decline_level_message.display = function(packet, parent, length)
@@ -2825,7 +3024,7 @@ end
 -- Market Participant State
 nasdaq_nsmequities_totalview_itch_v5_0.market_participant_state = {}
 
--- Size Of: Market Participant State
+-- Size: Market Participant State
 nasdaq_nsmequities_totalview_itch_v5_0.market_participant_state.size = 1
 
 -- Display: Market Participant State
@@ -2864,7 +3063,7 @@ end
 -- Market Maker Mode
 nasdaq_nsmequities_totalview_itch_v5_0.market_maker_mode = {}
 
--- Size Of: Market Maker Mode
+-- Size: Market Maker Mode
 nasdaq_nsmequities_totalview_itch_v5_0.market_maker_mode.size = 1
 
 -- Display: Market Maker Mode
@@ -2903,7 +3102,7 @@ end
 -- Primary Market Maker
 nasdaq_nsmequities_totalview_itch_v5_0.primary_market_maker = {}
 
--- Size Of: Primary Market Maker
+-- Size: Primary Market Maker
 nasdaq_nsmequities_totalview_itch_v5_0.primary_market_maker.size = 1
 
 -- Display: Primary Market Maker
@@ -2933,7 +3132,7 @@ end
 -- Mpid
 nasdaq_nsmequities_totalview_itch_v5_0.mpid = {}
 
--- Size Of: Mpid
+-- Size: Mpid
 nasdaq_nsmequities_totalview_itch_v5_0.mpid.size = 4
 
 -- Display: Mpid
@@ -2956,16 +3155,28 @@ end
 -- Market Participant Position Message
 nasdaq_nsmequities_totalview_itch_v5_0.market_participant_position_message = {}
 
--- Size Of: Market Participant Position Message
-nasdaq_nsmequities_totalview_itch_v5_0.market_participant_position_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.mpid.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.primary_market_maker.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.market_maker_mode.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.market_participant_state.size;
+-- Calculate size of: Market Participant Position Message
+nasdaq_nsmequities_totalview_itch_v5_0.market_participant_position_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.mpid.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.primary_market_maker.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.market_maker_mode.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.market_participant_state.size
+
+  return index
+end
 
 -- Display: Market Participant Position Message
 nasdaq_nsmequities_totalview_itch_v5_0.market_participant_position_message.display = function(packet, parent, length)
@@ -3024,7 +3235,7 @@ end
 -- Reg Sho Action
 nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_action = {}
 
--- Size Of: Reg Sho Action
+-- Size: Reg Sho Action
 nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
@@ -3057,7 +3268,7 @@ end
 -- Locate Code
 nasdaq_nsmequities_totalview_itch_v5_0.locate_code = {}
 
--- Size Of: Locate Code
+-- Size: Locate Code
 nasdaq_nsmequities_totalview_itch_v5_0.locate_code.size = 2
 
 -- Display: Locate Code
@@ -3080,13 +3291,22 @@ end
 -- Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_short_sale_price_test_restricted_indicator_message = {}
 
--- Size Of: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_short_sale_price_test_restricted_indicator_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.locate_code.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_action.size;
+-- Calculate size of: Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_short_sale_price_test_restricted_indicator_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.locate_code.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_action.size
+
+  return index
+end
 
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0.reg_sho_short_sale_price_test_restricted_indicator_message.display = function(packet, parent, length)
@@ -3136,7 +3356,7 @@ end
 -- Reason Code
 nasdaq_nsmequities_totalview_itch_v5_0.reason_code = {}
 
--- Size Of: Reason Code
+-- Size: Reason Code
 nasdaq_nsmequities_totalview_itch_v5_0.reason_code.size = 4
 
 -- Display: Reason Code
@@ -3262,7 +3482,7 @@ end
 -- Reserved
 nasdaq_nsmequities_totalview_itch_v5_0.reserved = {}
 
--- Size Of: Reserved
+-- Size: Reserved
 nasdaq_nsmequities_totalview_itch_v5_0.reserved.size = 1
 
 -- Display: Reserved
@@ -3285,7 +3505,7 @@ end
 -- Trading State
 nasdaq_nsmequities_totalview_itch_v5_0.trading_state = {}
 
--- Size Of: Trading State
+-- Size: Trading State
 nasdaq_nsmequities_totalview_itch_v5_0.trading_state.size = 1
 
 -- Display: Trading State
@@ -3321,15 +3541,26 @@ end
 -- Stock Trading Action Message
 nasdaq_nsmequities_totalview_itch_v5_0.stock_trading_action_message = {}
 
--- Size Of: Stock Trading Action Message
-nasdaq_nsmequities_totalview_itch_v5_0.stock_trading_action_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.trading_state.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.reserved.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.reason_code.size;
+-- Calculate size of: Stock Trading Action Message
+nasdaq_nsmequities_totalview_itch_v5_0.stock_trading_action_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.trading_state.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.reserved.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.reason_code.size
+
+  return index
+end
 
 -- Display: Stock Trading Action Message
 nasdaq_nsmequities_totalview_itch_v5_0.stock_trading_action_message.display = function(packet, parent, length)
@@ -3385,7 +3616,7 @@ end
 -- Inverse Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.inverse_indicator = {}
 
--- Size Of: Inverse Indicator
+-- Size: Inverse Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.inverse_indicator.size = 1
 
 -- Display: Inverse Indicator
@@ -3415,7 +3646,7 @@ end
 -- Etp Leverage Factor
 nasdaq_nsmequities_totalview_itch_v5_0.etp_leverage_factor = {}
 
--- Size Of: Etp Leverage Factor
+-- Size: Etp Leverage Factor
 nasdaq_nsmequities_totalview_itch_v5_0.etp_leverage_factor.size = 4
 
 -- Display: Etp Leverage Factor
@@ -3438,7 +3669,7 @@ end
 -- Etp Flag
 nasdaq_nsmequities_totalview_itch_v5_0.etp_flag = {}
 
--- Size Of: Etp Flag
+-- Size: Etp Flag
 nasdaq_nsmequities_totalview_itch_v5_0.etp_flag.size = 1
 
 -- Display: Etp Flag
@@ -3471,7 +3702,7 @@ end
 -- Luld Reference Price Tier
 nasdaq_nsmequities_totalview_itch_v5_0.luld_reference_price_tier = {}
 
--- Size Of: Luld Reference Price Tier
+-- Size: Luld Reference Price Tier
 nasdaq_nsmequities_totalview_itch_v5_0.luld_reference_price_tier.size = 1
 
 -- Display: Luld Reference Price Tier
@@ -3504,7 +3735,7 @@ end
 -- Ipo Flag
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_flag = {}
 
--- Size Of: Ipo Flag
+-- Size: Ipo Flag
 nasdaq_nsmequities_totalview_itch_v5_0.ipo_flag.size = 1
 
 -- Display: Ipo Flag
@@ -3537,7 +3768,7 @@ end
 -- Short Sale Threshold Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.short_sale_threshold_indicator = {}
 
--- Size Of: Short Sale Threshold Indicator
+-- Size: Short Sale Threshold Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.short_sale_threshold_indicator.size = 1
 
 -- Display: Short Sale Threshold Indicator
@@ -3570,7 +3801,7 @@ end
 -- Authenticity
 nasdaq_nsmequities_totalview_itch_v5_0.authenticity = {}
 
--- Size Of: Authenticity
+-- Size: Authenticity
 nasdaq_nsmequities_totalview_itch_v5_0.authenticity.size = 1
 
 -- Display: Authenticity
@@ -3600,7 +3831,7 @@ end
 -- Issue Sub Type
 nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type = {}
 
--- Size Of: Issue Sub Type
+-- Size: Issue Sub Type
 nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.size = 2
 
 -- Display: Issue Sub Type
@@ -3798,7 +4029,7 @@ end
 -- Issue Classification
 nasdaq_nsmequities_totalview_itch_v5_0.issue_classification = {}
 
--- Size Of: Issue Classification
+-- Size: Issue Classification
 nasdaq_nsmequities_totalview_itch_v5_0.issue_classification.size = 1
 
 -- Display: Issue Classification
@@ -3870,7 +4101,7 @@ end
 -- Round Lots Only
 nasdaq_nsmequities_totalview_itch_v5_0.round_lots_only = {}
 
--- Size Of: Round Lots Only
+-- Size: Round Lots Only
 nasdaq_nsmequities_totalview_itch_v5_0.round_lots_only.size = 1
 
 -- Display: Round Lots Only
@@ -3900,7 +4131,7 @@ end
 -- Round Lot Size
 nasdaq_nsmequities_totalview_itch_v5_0.round_lot_size = {}
 
--- Size Of: Round Lot Size
+-- Size: Round Lot Size
 nasdaq_nsmequities_totalview_itch_v5_0.round_lot_size.size = 4
 
 -- Display: Round Lot Size
@@ -3923,7 +4154,7 @@ end
 -- Financial Status Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.financial_status_indicator = {}
 
--- Size Of: Financial Status Indicator
+-- Size: Financial Status Indicator
 nasdaq_nsmequities_totalview_itch_v5_0.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
@@ -3980,7 +4211,7 @@ end
 -- Market Category
 nasdaq_nsmequities_totalview_itch_v5_0.market_category = {}
 
--- Size Of: Market Category
+-- Size: Market Category
 nasdaq_nsmequities_totalview_itch_v5_0.market_category.size = 1
 
 -- Display: Market Category
@@ -4031,25 +4262,46 @@ end
 -- Stock Directory Message
 nasdaq_nsmequities_totalview_itch_v5_0.stock_directory_message = {}
 
--- Size Of: Stock Directory Message
-nasdaq_nsmequities_totalview_itch_v5_0.stock_directory_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.market_category.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.financial_status_indicator.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.round_lot_size.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.round_lots_only.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.issue_classification.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.authenticity.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.short_sale_threshold_indicator.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.ipo_flag.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.luld_reference_price_tier.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.etp_flag.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.etp_leverage_factor.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.inverse_indicator.size;
+-- Calculate size of: Stock Directory Message
+nasdaq_nsmequities_totalview_itch_v5_0.stock_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.market_category.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.financial_status_indicator.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.round_lot_size.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.round_lots_only.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.issue_classification.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.issue_sub_type.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.authenticity.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.short_sale_threshold_indicator.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.ipo_flag.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.luld_reference_price_tier.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.etp_flag.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.etp_leverage_factor.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.inverse_indicator.size
+
+  return index
+end
 
 -- Display: Stock Directory Message
 nasdaq_nsmequities_totalview_itch_v5_0.stock_directory_message.display = function(packet, parent, length)
@@ -4135,7 +4387,7 @@ end
 -- Event Code
 nasdaq_nsmequities_totalview_itch_v5_0.event_code = {}
 
--- Size Of: Event Code
+-- Size: Event Code
 nasdaq_nsmequities_totalview_itch_v5_0.event_code.size = 1
 
 -- Display: Event Code
@@ -4177,12 +4429,20 @@ end
 -- System Event Message
 nasdaq_nsmequities_totalview_itch_v5_0.system_event_message = {}
 
--- Size Of: System Event Message
-nasdaq_nsmequities_totalview_itch_v5_0.system_event_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.event_code.size;
+-- Calculate size of: System Event Message
+nasdaq_nsmequities_totalview_itch_v5_0.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.stock_locate.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.tracking_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.event_code.size
+
+  return index
+end
 
 -- Display: System Event Message
 nasdaq_nsmequities_totalview_itch_v5_0.system_event_message.display = function(packet, parent, length)
@@ -4453,7 +4713,7 @@ end
 -- Message Type
 nasdaq_nsmequities_totalview_itch_v5_0.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nasdaq_nsmequities_totalview_itch_v5_0.message_type.size = 1
 
 -- Display: Message Type
@@ -4546,7 +4806,7 @@ end
 -- Message Length
 nasdaq_nsmequities_totalview_itch_v5_0.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 nasdaq_nsmequities_totalview_itch_v5_0.message_length.size = 2
 
 -- Display: Message Length
@@ -4569,10 +4829,16 @@ end
 -- Message Header
 nasdaq_nsmequities_totalview_itch_v5_0.message_header = {}
 
--- Size Of: Message Header
-nasdaq_nsmequities_totalview_itch_v5_0.message_header.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.message_length.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.message_type.size;
+-- Calculate size of: Message Header
+nasdaq_nsmequities_totalview_itch_v5_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.message_length.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nasdaq_nsmequities_totalview_itch_v5_0.message_header.display = function(packet, parent, length)
@@ -4664,7 +4930,7 @@ end
 -- Message Count
 nasdaq_nsmequities_totalview_itch_v5_0.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nasdaq_nsmequities_totalview_itch_v5_0.message_count.size = 2
 
 -- Display: Message Count
@@ -4687,7 +4953,7 @@ end
 -- Sequence Number
 nasdaq_nsmequities_totalview_itch_v5_0.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nasdaq_nsmequities_totalview_itch_v5_0.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -4710,7 +4976,7 @@ end
 -- Session
 nasdaq_nsmequities_totalview_itch_v5_0.session = {}
 
--- Size Of: Session
+-- Size: Session
 nasdaq_nsmequities_totalview_itch_v5_0.session.size = 10
 
 -- Display: Session
@@ -4749,11 +5015,18 @@ end
 -- Packet Header
 nasdaq_nsmequities_totalview_itch_v5_0.packet_header = {}
 
--- Size Of: Packet Header
-nasdaq_nsmequities_totalview_itch_v5_0.packet_header.size =
-  nasdaq_nsmequities_totalview_itch_v5_0.session.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.sequence_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0.message_count.size;
+-- Calculate size of: Packet Header
+nasdaq_nsmequities_totalview_itch_v5_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.session.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.sequence_number.size
+
+  index = index + nasdaq_nsmequities_totalview_itch_v5_0.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 nasdaq_nsmequities_totalview_itch_v5_0.packet_header.display = function(packet, parent, length)

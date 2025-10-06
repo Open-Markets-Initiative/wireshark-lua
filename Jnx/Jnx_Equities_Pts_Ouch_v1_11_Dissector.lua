@@ -261,7 +261,7 @@ end
 -- Quantity
 jnx_equities_pts_ouch_v1_11.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 jnx_equities_pts_ouch_v1_11.quantity.size = 4
 
 -- Display: Quantity
@@ -284,7 +284,7 @@ end
 -- Order Token
 jnx_equities_pts_ouch_v1_11.order_token = {}
 
--- Size Of: Order Token
+-- Size: Order Token
 jnx_equities_pts_ouch_v1_11.order_token.size = 4
 
 -- Display: Order Token
@@ -307,10 +307,16 @@ end
 -- Cancel Order Message
 jnx_equities_pts_ouch_v1_11.cancel_order_message = {}
 
--- Size Of: Cancel Order Message
-jnx_equities_pts_ouch_v1_11.cancel_order_message.size =
-  jnx_equities_pts_ouch_v1_11.order_token.size + 
-  jnx_equities_pts_ouch_v1_11.quantity.size;
+-- Calculate size of: Cancel Order Message
+jnx_equities_pts_ouch_v1_11.cancel_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.quantity.size
+
+  return index
+end
 
 -- Display: Cancel Order Message
 jnx_equities_pts_ouch_v1_11.cancel_order_message.display = function(packet, parent, length)
@@ -351,7 +357,7 @@ end
 -- Minimum Quantity
 jnx_equities_pts_ouch_v1_11.minimum_quantity = {}
 
--- Size Of: Minimum Quantity
+-- Size: Minimum Quantity
 jnx_equities_pts_ouch_v1_11.minimum_quantity.size = 4
 
 -- Display: Minimum Quantity
@@ -374,7 +380,7 @@ end
 -- Display
 jnx_equities_pts_ouch_v1_11.display = {}
 
--- Size Of: Display
+-- Size: Display
 jnx_equities_pts_ouch_v1_11.display.size = 1
 
 -- Display: Display
@@ -404,7 +410,7 @@ end
 -- Time In Force
 jnx_equities_pts_ouch_v1_11.time_in_force = {}
 
--- Size Of: Time In Force
+-- Size: Time In Force
 jnx_equities_pts_ouch_v1_11.time_in_force.size = 4
 
 -- Display: Time In Force
@@ -434,7 +440,7 @@ end
 -- Price
 jnx_equities_pts_ouch_v1_11.price = {}
 
--- Size Of: Price
+-- Size: Price
 jnx_equities_pts_ouch_v1_11.price.size = 4
 
 -- Display: Price
@@ -463,7 +469,7 @@ end
 -- Replacement Order Token
 jnx_equities_pts_ouch_v1_11.replacement_order_token = {}
 
--- Size Of: Replacement Order Token
+-- Size: Replacement Order Token
 jnx_equities_pts_ouch_v1_11.replacement_order_token.size = 4
 
 -- Display: Replacement Order Token
@@ -486,7 +492,7 @@ end
 -- Existing Order Token
 jnx_equities_pts_ouch_v1_11.existing_order_token = {}
 
--- Size Of: Existing Order Token
+-- Size: Existing Order Token
 jnx_equities_pts_ouch_v1_11.existing_order_token.size = 4
 
 -- Display: Existing Order Token
@@ -509,15 +515,26 @@ end
 -- Replace Order Message
 jnx_equities_pts_ouch_v1_11.replace_order_message = {}
 
--- Size Of: Replace Order Message
-jnx_equities_pts_ouch_v1_11.replace_order_message.size =
-  jnx_equities_pts_ouch_v1_11.existing_order_token.size + 
-  jnx_equities_pts_ouch_v1_11.replacement_order_token.size + 
-  jnx_equities_pts_ouch_v1_11.quantity.size + 
-  jnx_equities_pts_ouch_v1_11.price.size + 
-  jnx_equities_pts_ouch_v1_11.time_in_force.size + 
-  jnx_equities_pts_ouch_v1_11.display.size + 
-  jnx_equities_pts_ouch_v1_11.minimum_quantity.size;
+-- Calculate size of: Replace Order Message
+jnx_equities_pts_ouch_v1_11.replace_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.existing_order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.replacement_order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.price.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.time_in_force.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.display.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.minimum_quantity.size
+
+  return index
+end
 
 -- Display: Replace Order Message
 jnx_equities_pts_ouch_v1_11.replace_order_message.display = function(packet, parent, length)
@@ -573,7 +590,7 @@ end
 -- Cash Margin Type
 jnx_equities_pts_ouch_v1_11.cash_margin_type = {}
 
--- Size Of: Cash Margin Type
+-- Size: Cash Margin Type
 jnx_equities_pts_ouch_v1_11.cash_margin_type.size = 1
 
 -- Display: Cash Margin Type
@@ -612,7 +629,7 @@ end
 -- Order Classification
 jnx_equities_pts_ouch_v1_11.order_classification = {}
 
--- Size Of: Order Classification
+-- Size: Order Classification
 jnx_equities_pts_ouch_v1_11.order_classification.size = 1
 
 -- Display: Order Classification
@@ -651,7 +668,7 @@ end
 -- Capacity
 jnx_equities_pts_ouch_v1_11.capacity = {}
 
--- Size Of: Capacity
+-- Size: Capacity
 jnx_equities_pts_ouch_v1_11.capacity.size = 1
 
 -- Display: Capacity
@@ -681,7 +698,7 @@ end
 -- Firm Id
 jnx_equities_pts_ouch_v1_11.firm_id = {}
 
--- Size Of: Firm Id
+-- Size: Firm Id
 jnx_equities_pts_ouch_v1_11.firm_id.size = 4
 
 -- Display: Firm Id
@@ -704,7 +721,7 @@ end
 -- Group
 jnx_equities_pts_ouch_v1_11.group = {}
 
--- Size Of: Group
+-- Size: Group
 jnx_equities_pts_ouch_v1_11.group.size = 4
 
 -- Display: Group
@@ -740,7 +757,7 @@ end
 -- Orderbook Id
 jnx_equities_pts_ouch_v1_11.orderbook_id = {}
 
--- Size Of: Orderbook Id
+-- Size: Orderbook Id
 jnx_equities_pts_ouch_v1_11.orderbook_id.size = 4
 
 -- Display: Orderbook Id
@@ -763,7 +780,7 @@ end
 -- Buy Sell Indicator
 jnx_equities_pts_ouch_v1_11.buy_sell_indicator = {}
 
--- Size Of: Buy Sell Indicator
+-- Size: Buy Sell Indicator
 jnx_equities_pts_ouch_v1_11.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
@@ -799,7 +816,7 @@ end
 -- Client Reference
 jnx_equities_pts_ouch_v1_11.client_reference = {}
 
--- Size Of: Client Reference
+-- Size: Client Reference
 jnx_equities_pts_ouch_v1_11.client_reference.size = 10
 
 -- Display: Client Reference
@@ -822,22 +839,40 @@ end
 -- Enter Order Message
 jnx_equities_pts_ouch_v1_11.enter_order_message = {}
 
--- Size Of: Enter Order Message
-jnx_equities_pts_ouch_v1_11.enter_order_message.size =
-  jnx_equities_pts_ouch_v1_11.order_token.size + 
-  jnx_equities_pts_ouch_v1_11.client_reference.size + 
-  jnx_equities_pts_ouch_v1_11.buy_sell_indicator.size + 
-  jnx_equities_pts_ouch_v1_11.quantity.size + 
-  jnx_equities_pts_ouch_v1_11.orderbook_id.size + 
-  jnx_equities_pts_ouch_v1_11.group.size + 
-  jnx_equities_pts_ouch_v1_11.price.size + 
-  jnx_equities_pts_ouch_v1_11.time_in_force.size + 
-  jnx_equities_pts_ouch_v1_11.firm_id.size + 
-  jnx_equities_pts_ouch_v1_11.display.size + 
-  jnx_equities_pts_ouch_v1_11.capacity.size + 
-  jnx_equities_pts_ouch_v1_11.minimum_quantity.size + 
-  jnx_equities_pts_ouch_v1_11.order_classification.size + 
-  jnx_equities_pts_ouch_v1_11.cash_margin_type.size;
+-- Calculate size of: Enter Order Message
+jnx_equities_pts_ouch_v1_11.enter_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.client_reference.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.buy_sell_indicator.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.orderbook_id.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.group.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.price.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.time_in_force.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.firm_id.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.display.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.capacity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.minimum_quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_classification.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.cash_margin_type.size
+
+  return index
+end
 
 -- Display: Enter Order Message
 jnx_equities_pts_ouch_v1_11.enter_order_message.display = function(packet, parent, length)
@@ -978,7 +1013,7 @@ end
 -- Unsequenced Message Type
 jnx_equities_pts_ouch_v1_11.unsequenced_message_type = {}
 
--- Size Of: Unsequenced Message Type
+-- Size: Unsequenced Message Type
 jnx_equities_pts_ouch_v1_11.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
@@ -1059,7 +1094,7 @@ end
 -- Requested Sequence Number
 jnx_equities_pts_ouch_v1_11.requested_sequence_number = {}
 
--- Size Of: Requested Sequence Number
+-- Size: Requested Sequence Number
 jnx_equities_pts_ouch_v1_11.requested_sequence_number.size = 20
 
 -- Display: Requested Sequence Number
@@ -1082,7 +1117,7 @@ end
 -- Requested Session
 jnx_equities_pts_ouch_v1_11.requested_session = {}
 
--- Size Of: Requested Session
+-- Size: Requested Session
 jnx_equities_pts_ouch_v1_11.requested_session.size = 10
 
 -- Display: Requested Session
@@ -1105,7 +1140,7 @@ end
 -- Password
 jnx_equities_pts_ouch_v1_11.password = {}
 
--- Size Of: Password
+-- Size: Password
 jnx_equities_pts_ouch_v1_11.password.size = 10
 
 -- Display: Password
@@ -1128,7 +1163,7 @@ end
 -- Username
 jnx_equities_pts_ouch_v1_11.username = {}
 
--- Size Of: Username
+-- Size: Username
 jnx_equities_pts_ouch_v1_11.username.size = 6
 
 -- Display: Username
@@ -1151,12 +1186,20 @@ end
 -- Login Request Packet
 jnx_equities_pts_ouch_v1_11.login_request_packet = {}
 
--- Size Of: Login Request Packet
-jnx_equities_pts_ouch_v1_11.login_request_packet.size =
-  jnx_equities_pts_ouch_v1_11.username.size + 
-  jnx_equities_pts_ouch_v1_11.password.size + 
-  jnx_equities_pts_ouch_v1_11.requested_session.size + 
-  jnx_equities_pts_ouch_v1_11.requested_sequence_number.size;
+-- Calculate size of: Login Request Packet
+jnx_equities_pts_ouch_v1_11.login_request_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.username.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.password.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.requested_session.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.requested_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Request Packet
 jnx_equities_pts_ouch_v1_11.login_request_packet.display = function(packet, parent, length)
@@ -1203,7 +1246,7 @@ end
 -- Order Rejected Reason
 jnx_equities_pts_ouch_v1_11.order_rejected_reason = {}
 
--- Size Of: Order Rejected Reason
+-- Size: Order Rejected Reason
 jnx_equities_pts_ouch_v1_11.order_rejected_reason.size = 1
 
 -- Display: Order Rejected Reason
@@ -1272,7 +1315,7 @@ end
 -- Timestamp
 jnx_equities_pts_ouch_v1_11.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 jnx_equities_pts_ouch_v1_11.timestamp.size = 8
 
 -- Display: Timestamp
@@ -1295,11 +1338,18 @@ end
 -- Order Rejected Message
 jnx_equities_pts_ouch_v1_11.order_rejected_message = {}
 
--- Size Of: Order Rejected Message
-jnx_equities_pts_ouch_v1_11.order_rejected_message.size =
-  jnx_equities_pts_ouch_v1_11.timestamp.size + 
-  jnx_equities_pts_ouch_v1_11.order_token.size + 
-  jnx_equities_pts_ouch_v1_11.order_rejected_reason.size;
+-- Calculate size of: Order Rejected Message
+jnx_equities_pts_ouch_v1_11.order_rejected_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.timestamp.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_rejected_reason.size
+
+  return index
+end
 
 -- Display: Order Rejected Message
 jnx_equities_pts_ouch_v1_11.order_rejected_message.display = function(packet, parent, length)
@@ -1343,7 +1393,7 @@ end
 -- Match Number
 jnx_equities_pts_ouch_v1_11.match_number = {}
 
--- Size Of: Match Number
+-- Size: Match Number
 jnx_equities_pts_ouch_v1_11.match_number.size = 8
 
 -- Display: Match Number
@@ -1366,7 +1416,7 @@ end
 -- Liquidity Indicator
 jnx_equities_pts_ouch_v1_11.liquidity_indicator = {}
 
--- Size Of: Liquidity Indicator
+-- Size: Liquidity Indicator
 jnx_equities_pts_ouch_v1_11.liquidity_indicator.size = 1
 
 -- Display: Liquidity Indicator
@@ -1396,7 +1446,7 @@ end
 -- Execution Price
 jnx_equities_pts_ouch_v1_11.execution_price = {}
 
--- Size Of: Execution Price
+-- Size: Execution Price
 jnx_equities_pts_ouch_v1_11.execution_price.size = 4
 
 -- Display: Execution Price
@@ -1425,7 +1475,7 @@ end
 -- Executed Quantity
 jnx_equities_pts_ouch_v1_11.executed_quantity = {}
 
--- Size Of: Executed Quantity
+-- Size: Executed Quantity
 jnx_equities_pts_ouch_v1_11.executed_quantity.size = 4
 
 -- Display: Executed Quantity
@@ -1448,14 +1498,24 @@ end
 -- Order Executed Message
 jnx_equities_pts_ouch_v1_11.order_executed_message = {}
 
--- Size Of: Order Executed Message
-jnx_equities_pts_ouch_v1_11.order_executed_message.size =
-  jnx_equities_pts_ouch_v1_11.timestamp.size + 
-  jnx_equities_pts_ouch_v1_11.order_token.size + 
-  jnx_equities_pts_ouch_v1_11.executed_quantity.size + 
-  jnx_equities_pts_ouch_v1_11.execution_price.size + 
-  jnx_equities_pts_ouch_v1_11.liquidity_indicator.size + 
-  jnx_equities_pts_ouch_v1_11.match_number.size;
+-- Calculate size of: Order Executed Message
+jnx_equities_pts_ouch_v1_11.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.timestamp.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.executed_quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.execution_price.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.liquidity_indicator.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.match_number.size
+
+  return index
+end
 
 -- Display: Order Executed Message
 jnx_equities_pts_ouch_v1_11.order_executed_message.display = function(packet, parent, length)
@@ -1508,7 +1568,7 @@ end
 -- Quantity Prevented From Trading
 jnx_equities_pts_ouch_v1_11.quantity_prevented_from_trading = {}
 
--- Size Of: Quantity Prevented From Trading
+-- Size: Quantity Prevented From Trading
 jnx_equities_pts_ouch_v1_11.quantity_prevented_from_trading.size = 4
 
 -- Display: Quantity Prevented From Trading
@@ -1531,7 +1591,7 @@ end
 -- Order Canceled Reason
 jnx_equities_pts_ouch_v1_11.order_canceled_reason = {}
 
--- Size Of: Order Canceled Reason
+-- Size: Order Canceled Reason
 jnx_equities_pts_ouch_v1_11.order_canceled_reason.size = 1
 
 -- Display: Order Canceled Reason
@@ -1603,7 +1663,7 @@ end
 -- Decrement Quantity
 jnx_equities_pts_ouch_v1_11.decrement_quantity = {}
 
--- Size Of: Decrement Quantity
+-- Size: Decrement Quantity
 jnx_equities_pts_ouch_v1_11.decrement_quantity.size = 4
 
 -- Display: Decrement Quantity
@@ -1626,15 +1686,26 @@ end
 -- Order Aiq Canceled Message
 jnx_equities_pts_ouch_v1_11.order_aiq_canceled_message = {}
 
--- Size Of: Order Aiq Canceled Message
-jnx_equities_pts_ouch_v1_11.order_aiq_canceled_message.size =
-  jnx_equities_pts_ouch_v1_11.timestamp.size + 
-  jnx_equities_pts_ouch_v1_11.order_token.size + 
-  jnx_equities_pts_ouch_v1_11.decrement_quantity.size + 
-  jnx_equities_pts_ouch_v1_11.order_canceled_reason.size + 
-  jnx_equities_pts_ouch_v1_11.quantity_prevented_from_trading.size + 
-  jnx_equities_pts_ouch_v1_11.execution_price.size + 
-  jnx_equities_pts_ouch_v1_11.liquidity_indicator.size;
+-- Calculate size of: Order Aiq Canceled Message
+jnx_equities_pts_ouch_v1_11.order_aiq_canceled_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.timestamp.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.decrement_quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_canceled_reason.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.quantity_prevented_from_trading.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.execution_price.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.liquidity_indicator.size
+
+  return index
+end
 
 -- Display: Order Aiq Canceled Message
 jnx_equities_pts_ouch_v1_11.order_aiq_canceled_message.display = function(packet, parent, length)
@@ -1690,12 +1761,20 @@ end
 -- Order Canceled Message
 jnx_equities_pts_ouch_v1_11.order_canceled_message = {}
 
--- Size Of: Order Canceled Message
-jnx_equities_pts_ouch_v1_11.order_canceled_message.size =
-  jnx_equities_pts_ouch_v1_11.timestamp.size + 
-  jnx_equities_pts_ouch_v1_11.order_token.size + 
-  jnx_equities_pts_ouch_v1_11.decrement_quantity.size + 
-  jnx_equities_pts_ouch_v1_11.order_canceled_reason.size;
+-- Calculate size of: Order Canceled Message
+jnx_equities_pts_ouch_v1_11.order_canceled_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.timestamp.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.decrement_quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_canceled_reason.size
+
+  return index
+end
 
 -- Display: Order Canceled Message
 jnx_equities_pts_ouch_v1_11.order_canceled_message.display = function(packet, parent, length)
@@ -1742,7 +1821,7 @@ end
 -- Previous Order Token
 jnx_equities_pts_ouch_v1_11.previous_order_token = {}
 
--- Size Of: Previous Order Token
+-- Size: Previous Order Token
 jnx_equities_pts_ouch_v1_11.previous_order_token.size = 4
 
 -- Display: Previous Order Token
@@ -1765,7 +1844,7 @@ end
 -- Order State
 jnx_equities_pts_ouch_v1_11.order_state = {}
 
--- Size Of: Order State
+-- Size: Order State
 jnx_equities_pts_ouch_v1_11.order_state.size = 1
 
 -- Display: Order State
@@ -1795,7 +1874,7 @@ end
 -- Order Number
 jnx_equities_pts_ouch_v1_11.order_number = {}
 
--- Size Of: Order Number
+-- Size: Order Number
 jnx_equities_pts_ouch_v1_11.order_number.size = 8
 
 -- Display: Order Number
@@ -1818,21 +1897,38 @@ end
 -- Order Replaced Message
 jnx_equities_pts_ouch_v1_11.order_replaced_message = {}
 
--- Size Of: Order Replaced Message
-jnx_equities_pts_ouch_v1_11.order_replaced_message.size =
-  jnx_equities_pts_ouch_v1_11.timestamp.size + 
-  jnx_equities_pts_ouch_v1_11.replacement_order_token.size + 
-  jnx_equities_pts_ouch_v1_11.buy_sell_indicator.size + 
-  jnx_equities_pts_ouch_v1_11.quantity.size + 
-  jnx_equities_pts_ouch_v1_11.orderbook_id.size + 
-  jnx_equities_pts_ouch_v1_11.group.size + 
-  jnx_equities_pts_ouch_v1_11.price.size + 
-  jnx_equities_pts_ouch_v1_11.time_in_force.size + 
-  jnx_equities_pts_ouch_v1_11.display.size + 
-  jnx_equities_pts_ouch_v1_11.order_number.size + 
-  jnx_equities_pts_ouch_v1_11.minimum_quantity.size + 
-  jnx_equities_pts_ouch_v1_11.order_state.size + 
-  jnx_equities_pts_ouch_v1_11.previous_order_token.size;
+-- Calculate size of: Order Replaced Message
+jnx_equities_pts_ouch_v1_11.order_replaced_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.timestamp.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.replacement_order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.buy_sell_indicator.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.orderbook_id.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.group.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.price.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.time_in_force.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.display.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_number.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.minimum_quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_state.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.previous_order_token.size
+
+  return index
+end
 
 -- Display: Order Replaced Message
 jnx_equities_pts_ouch_v1_11.order_replaced_message.display = function(packet, parent, length)
@@ -1906,25 +2002,46 @@ end
 -- Order Accepted Message
 jnx_equities_pts_ouch_v1_11.order_accepted_message = {}
 
--- Size Of: Order Accepted Message
-jnx_equities_pts_ouch_v1_11.order_accepted_message.size =
-  jnx_equities_pts_ouch_v1_11.timestamp.size + 
-  jnx_equities_pts_ouch_v1_11.order_token.size + 
-  jnx_equities_pts_ouch_v1_11.client_reference.size + 
-  jnx_equities_pts_ouch_v1_11.buy_sell_indicator.size + 
-  jnx_equities_pts_ouch_v1_11.quantity.size + 
-  jnx_equities_pts_ouch_v1_11.orderbook_id.size + 
-  jnx_equities_pts_ouch_v1_11.group.size + 
-  jnx_equities_pts_ouch_v1_11.price.size + 
-  jnx_equities_pts_ouch_v1_11.time_in_force.size + 
-  jnx_equities_pts_ouch_v1_11.firm_id.size + 
-  jnx_equities_pts_ouch_v1_11.display.size + 
-  jnx_equities_pts_ouch_v1_11.capacity.size + 
-  jnx_equities_pts_ouch_v1_11.order_number.size + 
-  jnx_equities_pts_ouch_v1_11.minimum_quantity.size + 
-  jnx_equities_pts_ouch_v1_11.order_state.size + 
-  jnx_equities_pts_ouch_v1_11.order_classification.size + 
-  jnx_equities_pts_ouch_v1_11.cash_margin_type.size;
+-- Calculate size of: Order Accepted Message
+jnx_equities_pts_ouch_v1_11.order_accepted_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.timestamp.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_token.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.client_reference.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.buy_sell_indicator.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.orderbook_id.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.group.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.price.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.time_in_force.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.firm_id.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.display.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.capacity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_number.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.minimum_quantity.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_state.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.order_classification.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.cash_margin_type.size
+
+  return index
+end
 
 -- Display: Order Accepted Message
 jnx_equities_pts_ouch_v1_11.order_accepted_message.display = function(packet, parent, length)
@@ -2010,7 +2127,7 @@ end
 -- System Event
 jnx_equities_pts_ouch_v1_11.system_event = {}
 
--- Size Of: System Event
+-- Size: System Event
 jnx_equities_pts_ouch_v1_11.system_event.size = 1
 
 -- Display: System Event
@@ -2040,10 +2157,16 @@ end
 -- System Event Message
 jnx_equities_pts_ouch_v1_11.system_event_message = {}
 
--- Size Of: System Event Message
-jnx_equities_pts_ouch_v1_11.system_event_message.size =
-  jnx_equities_pts_ouch_v1_11.timestamp.size + 
-  jnx_equities_pts_ouch_v1_11.system_event.size;
+-- Calculate size of: System Event Message
+jnx_equities_pts_ouch_v1_11.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.timestamp.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.system_event.size
+
+  return index
+end
 
 -- Display: System Event Message
 jnx_equities_pts_ouch_v1_11.system_event_message.display = function(packet, parent, length)
@@ -2180,7 +2303,7 @@ end
 -- Sequenced Message Type
 jnx_equities_pts_ouch_v1_11.sequenced_message_type = {}
 
--- Size Of: Sequenced Message Type
+-- Size: Sequenced Message Type
 jnx_equities_pts_ouch_v1_11.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
@@ -2273,7 +2396,7 @@ end
 -- Reject Reason Code
 jnx_equities_pts_ouch_v1_11.reject_reason_code = {}
 
--- Size Of: Reject Reason Code
+-- Size: Reject Reason Code
 jnx_equities_pts_ouch_v1_11.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
@@ -2296,9 +2419,14 @@ end
 -- Login Rejected Packet
 jnx_equities_pts_ouch_v1_11.login_rejected_packet = {}
 
--- Size Of: Login Rejected Packet
-jnx_equities_pts_ouch_v1_11.login_rejected_packet.size =
-  jnx_equities_pts_ouch_v1_11.reject_reason_code.size;
+-- Calculate size of: Login Rejected Packet
+jnx_equities_pts_ouch_v1_11.login_rejected_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.reject_reason_code.size
+
+  return index
+end
 
 -- Display: Login Rejected Packet
 jnx_equities_pts_ouch_v1_11.login_rejected_packet.display = function(packet, parent, length)
@@ -2336,7 +2464,7 @@ end
 -- Sequence Number
 jnx_equities_pts_ouch_v1_11.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 jnx_equities_pts_ouch_v1_11.sequence_number.size = 20
 
 -- Display: Sequence Number
@@ -2359,7 +2487,7 @@ end
 -- Session
 jnx_equities_pts_ouch_v1_11.session = {}
 
--- Size Of: Session
+-- Size: Session
 jnx_equities_pts_ouch_v1_11.session.size = 10
 
 -- Display: Session
@@ -2382,10 +2510,16 @@ end
 -- Login Accepted Packet
 jnx_equities_pts_ouch_v1_11.login_accepted_packet = {}
 
--- Size Of: Login Accepted Packet
-jnx_equities_pts_ouch_v1_11.login_accepted_packet.size =
-  jnx_equities_pts_ouch_v1_11.session.size + 
-  jnx_equities_pts_ouch_v1_11.sequence_number.size;
+-- Calculate size of: Login Accepted Packet
+jnx_equities_pts_ouch_v1_11.login_accepted_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.session.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.sequence_number.size
+
+  return index
+end
 
 -- Display: Login Accepted Packet
 jnx_equities_pts_ouch_v1_11.login_accepted_packet.display = function(packet, parent, length)
@@ -2426,7 +2560,7 @@ end
 -- Text
 jnx_equities_pts_ouch_v1_11.text = {}
 
--- Size Of: Text
+-- Size: Text
 jnx_equities_pts_ouch_v1_11.text.size = 1
 
 -- Display: Text
@@ -2449,9 +2583,14 @@ end
 -- Debug Packet
 jnx_equities_pts_ouch_v1_11.debug_packet = {}
 
--- Size Of: Debug Packet
-jnx_equities_pts_ouch_v1_11.debug_packet.size =
-  jnx_equities_pts_ouch_v1_11.text.size;
+-- Calculate size of: Debug Packet
+jnx_equities_pts_ouch_v1_11.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.text.size
+
+  return index
+end
 
 -- Display: Debug Packet
 jnx_equities_pts_ouch_v1_11.debug_packet.display = function(packet, parent, length)
@@ -2577,7 +2716,7 @@ end
 -- Packet Type
 jnx_equities_pts_ouch_v1_11.packet_type = {}
 
--- Size Of: Packet Type
+-- Size: Packet Type
 jnx_equities_pts_ouch_v1_11.packet_type.size = 1
 
 -- Display: Packet Type
@@ -2631,7 +2770,7 @@ end
 -- Packet Length
 jnx_equities_pts_ouch_v1_11.packet_length = {}
 
--- Size Of: Packet Length
+-- Size: Packet Length
 jnx_equities_pts_ouch_v1_11.packet_length.size = 2
 
 -- Display: Packet Length
@@ -2654,10 +2793,16 @@ end
 -- Packet Header
 jnx_equities_pts_ouch_v1_11.packet_header = {}
 
--- Size Of: Packet Header
-jnx_equities_pts_ouch_v1_11.packet_header.size =
-  jnx_equities_pts_ouch_v1_11.packet_length.size + 
-  jnx_equities_pts_ouch_v1_11.packet_type.size;
+-- Calculate size of: Packet Header
+jnx_equities_pts_ouch_v1_11.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_ouch_v1_11.packet_length.size
+
+  index = index + jnx_equities_pts_ouch_v1_11.packet_type.size
+
+  return index
+end
 
 -- Display: Packet Header
 jnx_equities_pts_ouch_v1_11.packet_header.display = function(packet, parent, length)

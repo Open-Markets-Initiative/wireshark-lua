@@ -597,7 +597,7 @@ end
 -- Period In Milli Seconds
 memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds = {}
 
--- Size Of: Period In Milli Seconds
+-- Size: Period In Milli Seconds
 memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size = 4
 
 -- Display: Period In Milli Seconds
@@ -620,7 +620,7 @@ end
 -- Max Order Msgs
 memx_options_riskcontrol_sbe_v1_6.max_order_msgs = {}
 
--- Size Of: Max Order Msgs
+-- Size: Max Order Msgs
 memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size = 4
 
 -- Display: Max Order Msgs
@@ -643,7 +643,7 @@ end
 -- Risk Group Id
 memx_options_riskcontrol_sbe_v1_6.risk_group_id = {}
 
--- Size Of: Risk Group Id
+-- Size: Risk Group Id
 memx_options_riskcontrol_sbe_v1_6.risk_group_id.size = 2
 
 -- Display: Risk Group Id
@@ -671,7 +671,7 @@ end
 -- Efid Optional
 memx_options_riskcontrol_sbe_v1_6.efid_optional = {}
 
--- Size Of: Efid Optional
+-- Size: Efid Optional
 memx_options_riskcontrol_sbe_v1_6.efid_optional.size = 4
 
 -- Display: Efid Optional
@@ -710,7 +710,7 @@ end
 -- Underlier Optional
 memx_options_riskcontrol_sbe_v1_6.underlier_optional = {}
 
--- Size Of: Underlier Optional
+-- Size: Underlier Optional
 memx_options_riskcontrol_sbe_v1_6.underlier_optional.size = 6
 
 -- Display: Underlier Optional
@@ -749,7 +749,7 @@ end
 -- ClOrdId Optional
 memx_options_riskcontrol_sbe_v1_6.clordid_optional = {}
 
--- Size Of: ClOrdId Optional
+-- Size: ClOrdId Optional
 memx_options_riskcontrol_sbe_v1_6.clordid_optional.size = 20
 
 -- Display: ClOrdId Optional
@@ -788,14 +788,24 @@ end
 -- Cp Order Rate Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message = {}
 
--- Size Of: Cp Order Rate Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Order Rate Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Order Rate Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message.display = function(packet, parent, length)
@@ -848,7 +858,7 @@ end
 -- Use Order Price In Dup Check
 memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check = {}
 
--- Size Of: Use Order Price In Dup Check
+-- Size: Use Order Price In Dup Check
 memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.size = 1
 
 -- Display: Use Order Price In Dup Check
@@ -878,7 +888,7 @@ end
 -- Max Dup Orders
 memx_options_riskcontrol_sbe_v1_6.max_dup_orders = {}
 
--- Size Of: Max Dup Orders
+-- Size: Max Dup Orders
 memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size = 4
 
 -- Display: Max Dup Orders
@@ -901,15 +911,26 @@ end
 -- Cp Duplicate Order Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_state_message = {}
 
--- Size Of: Cp Duplicate Order Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size + 
-  memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Duplicate Order Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Duplicate Order Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_state_message.display = function(packet, parent, length)
@@ -965,7 +986,7 @@ end
 -- Price In Dollars
 memx_options_riskcontrol_sbe_v1_6.price_in_dollars = {}
 
--- Size Of: Price In Dollars
+-- Size: Price In Dollars
 memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size = 8
 
 -- Display: Price In Dollars
@@ -988,13 +1009,22 @@ end
 -- Cp Market Order Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_state_message = {}
 
--- Size Of: Cp Market Order Net Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Market Order Net Notional Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Market Order Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_state_message.display = function(packet, parent, length)
@@ -1044,13 +1074,22 @@ end
 -- Cp Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_state_message = {}
 
--- Size Of: Cp Net Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Net Notional Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_state_message.display = function(packet, parent, length)
@@ -1100,13 +1139,22 @@ end
 -- Cp Market Order Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_state_message = {}
 
--- Size Of: Cp Market Order Gross Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Market Order Gross Notional Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Market Order Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_state_message.display = function(packet, parent, length)
@@ -1156,13 +1204,22 @@ end
 -- Cp Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_state_message = {}
 
--- Size Of: Cp Gross Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Gross Notional Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_state_message.display = function(packet, parent, length)
@@ -1212,7 +1269,7 @@ end
 -- Breach Id Optional
 memx_options_riskcontrol_sbe_v1_6.breach_id_optional = {}
 
--- Size Of: Breach Id Optional
+-- Size: Breach Id Optional
 memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size = 8
 
 -- Display: Breach Id Optional
@@ -1240,10 +1297,16 @@ end
 -- Breach Cleared Message
 memx_options_riskcontrol_sbe_v1_6.breach_cleared_message = {}
 
--- Size Of: Breach Cleared Message
-memx_options_riskcontrol_sbe_v1_6.breach_cleared_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size;
+-- Calculate size of: Breach Cleared Message
+memx_options_riskcontrol_sbe_v1_6.breach_cleared_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size
+
+  return index
+end
 
 -- Display: Breach Cleared Message
 memx_options_riskcontrol_sbe_v1_6.breach_cleared_message.display = function(packet, parent, length)
@@ -1284,7 +1347,7 @@ end
 -- Reject Reason
 memx_options_riskcontrol_sbe_v1_6.reject_reason = {}
 
--- Size Of: Reject Reason
+-- Size: Reject Reason
 memx_options_riskcontrol_sbe_v1_6.reject_reason.size = 2
 
 -- Display: Reject Reason
@@ -1458,7 +1521,7 @@ end
 -- ClOrdId
 memx_options_riskcontrol_sbe_v1_6.clordid = {}
 
--- Size Of: ClOrdId
+-- Size: ClOrdId
 memx_options_riskcontrol_sbe_v1_6.clordid.size = 20
 
 -- Display: ClOrdId
@@ -1497,11 +1560,18 @@ end
 -- Breach Clear Rej Message
 memx_options_riskcontrol_sbe_v1_6.breach_clear_rej_message = {}
 
--- Size Of: Breach Clear Rej Message
-memx_options_riskcontrol_sbe_v1_6.breach_clear_rej_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.reject_reason.size;
+-- Calculate size of: Breach Clear Rej Message
+memx_options_riskcontrol_sbe_v1_6.breach_clear_rej_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.reject_reason.size
+
+  return index
+end
 
 -- Display: Breach Clear Rej Message
 memx_options_riskcontrol_sbe_v1_6.breach_clear_rej_message.display = function(packet, parent, length)
@@ -1545,13 +1615,22 @@ end
 -- Manual Cp Breach Trigger Rej Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_rej_message = {}
 
--- Size Of: Manual Cp Breach Trigger Rej Message
-memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_rej_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.reject_reason.size;
+-- Calculate size of: Manual Cp Breach Trigger Rej Message
+memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_rej_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.reject_reason.size
+
+  return index
+end
 
 -- Display: Manual Cp Breach Trigger Rej Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_rej_message.display = function(packet, parent, length)
@@ -1601,10 +1680,16 @@ end
 -- Risk Settings Query Rej Message
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_rej_message = {}
 
--- Size Of: Risk Settings Query Rej Message
-memx_options_riskcontrol_sbe_v1_6.risk_settings_query_rej_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.reject_reason.size;
+-- Calculate size of: Risk Settings Query Rej Message
+memx_options_riskcontrol_sbe_v1_6.risk_settings_query_rej_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.reject_reason.size
+
+  return index
+end
 
 -- Display: Risk Settings Query Rej Message
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_rej_message.display = function(packet, parent, length)
@@ -1645,7 +1730,7 @@ end
 -- Number Msgs Sent
 memx_options_riskcontrol_sbe_v1_6.number_msgs_sent = {}
 
--- Size Of: Number Msgs Sent
+-- Size: Number Msgs Sent
 memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.size = 4
 
 -- Display: Number Msgs Sent
@@ -1668,10 +1753,16 @@ end
 -- Risk Settings Query Done Message
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message = {}
 
--- Size Of: Risk Settings Query Done Message
-memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.size;
+-- Calculate size of: Risk Settings Query Done Message
+memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.size
+
+  return index
+end
 
 -- Display: Risk Settings Query Done Message
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message.display = function(packet, parent, length)
@@ -1712,7 +1803,7 @@ end
 -- Max Contracts
 memx_options_riskcontrol_sbe_v1_6.max_contracts = {}
 
--- Size Of: Max Contracts
+-- Size: Max Contracts
 memx_options_riskcontrol_sbe_v1_6.max_contracts.size = 4
 
 -- Display: Max Contracts
@@ -1735,13 +1826,22 @@ end
 -- Single Order Max Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_threshold_state_message = {}
 
--- Size Of: Single Order Max Contracts Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_contracts.size;
+-- Calculate size of: Single Order Max Contracts Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_contracts.size
+
+  return index
+end
 
 -- Display: Single Order Max Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_threshold_state_message.display = function(packet, parent, length)
@@ -1791,7 +1891,7 @@ end
 -- Max Notional In Dollars
 memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars = {}
 
--- Size Of: Max Notional In Dollars
+-- Size: Max Notional In Dollars
 memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size = 8
 
 -- Display: Max Notional In Dollars
@@ -1814,13 +1914,22 @@ end
 -- Single Order Max Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_message = {}
 
--- Size Of: Single Order Max Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size;
+-- Calculate size of: Single Order Max Notional Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size
+
+  return index
+end
 
 -- Display: Single Order Max Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_message.display = function(packet, parent, length)
@@ -1870,7 +1979,7 @@ end
 -- Allow Orders
 memx_options_riskcontrol_sbe_v1_6.allow_orders = {}
 
--- Size Of: Allow Orders
+-- Size: Allow Orders
 memx_options_riskcontrol_sbe_v1_6.allow_orders.size = 1
 
 -- Display: Allow Orders
@@ -1900,13 +2009,22 @@ end
 -- Single Order Allow Orders In Crossed Market State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_state_message = {}
 
--- Size Of: Single Order Allow Orders In Crossed Market State Message
-memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.allow_orders.size;
+-- Calculate size of: Single Order Allow Orders In Crossed Market State Message
+memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.allow_orders.size
+
+  return index
+end
 
 -- Display: Single Order Allow Orders In Crossed Market State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_state_message.display = function(packet, parent, length)
@@ -1956,7 +2074,7 @@ end
 -- Allow Iso Orders
 memx_options_riskcontrol_sbe_v1_6.allow_iso_orders = {}
 
--- Size Of: Allow Iso Orders
+-- Size: Allow Iso Orders
 memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size = 1
 
 -- Display: Allow Iso Orders
@@ -1986,13 +2104,22 @@ end
 -- Single Order Allow Iso Orders State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message = {}
 
--- Size Of: Single Order Allow Iso Orders State Message
-memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size;
+-- Calculate size of: Single Order Allow Iso Orders State Message
+memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size
+
+  return index
+end
 
 -- Display: Single Order Allow Iso Orders State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message.display = function(packet, parent, length)
@@ -2042,7 +2169,7 @@ end
 -- Transact Time
 memx_options_riskcontrol_sbe_v1_6.transact_time = {}
 
--- Size Of: Transact Time
+-- Size: Transact Time
 memx_options_riskcontrol_sbe_v1_6.transact_time.size = 8
 
 -- Display: Transact Time
@@ -2065,7 +2192,7 @@ end
 -- Latest Percentage
 memx_options_riskcontrol_sbe_v1_6.latest_percentage = {}
 
--- Size Of: Latest Percentage
+-- Size: Latest Percentage
 memx_options_riskcontrol_sbe_v1_6.latest_percentage.size = 1
 
 -- Display: Latest Percentage
@@ -2088,7 +2215,7 @@ end
 -- Rule Type
 memx_options_riskcontrol_sbe_v1_6.rule_type = {}
 
--- Size Of: Rule Type
+-- Size: Rule Type
 memx_options_riskcontrol_sbe_v1_6.rule_type.size = 1
 
 -- Display: Rule Type
@@ -2160,15 +2287,26 @@ end
 -- Passive Risk Threshold Notification Message
 memx_options_riskcontrol_sbe_v1_6.passive_risk_threshold_notification_message = {}
 
--- Size Of: Passive Risk Threshold Notification Message
-memx_options_riskcontrol_sbe_v1_6.passive_risk_threshold_notification_message.size =
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.rule_type.size + 
-  memx_options_riskcontrol_sbe_v1_6.latest_percentage.size + 
-  memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.transact_time.size;
+-- Calculate size of: Passive Risk Threshold Notification Message
+memx_options_riskcontrol_sbe_v1_6.passive_risk_threshold_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.rule_type.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.latest_percentage.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.transact_time.size
+
+  return index
+end
 
 -- Display: Passive Risk Threshold Notification Message
 memx_options_riskcontrol_sbe_v1_6.passive_risk_threshold_notification_message.display = function(packet, parent, length)
@@ -2224,7 +2362,7 @@ end
 -- Risk Type
 memx_options_riskcontrol_sbe_v1_6.risk_type = {}
 
--- Size Of: Risk Type
+-- Size: Risk Type
 memx_options_riskcontrol_sbe_v1_6.risk_type.size = 1
 
 -- Display: Risk Type
@@ -2296,11 +2434,18 @@ end
 -- Risk Threshold Update Rej Message
 memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message = {}
 
--- Size Of: Risk Threshold Update Rej Message
-memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_type.size + 
-  memx_options_riskcontrol_sbe_v1_6.reject_reason.size;
+-- Calculate size of: Risk Threshold Update Rej Message
+memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_type.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.reject_reason.size
+
+  return index
+end
 
 -- Display: Risk Threshold Update Rej Message
 memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message.display = function(packet, parent, length)
@@ -2344,7 +2489,7 @@ end
 -- Total Affected Orders
 memx_options_riskcontrol_sbe_v1_6.total_affected_orders = {}
 
--- Size Of: Total Affected Orders
+-- Size: Total Affected Orders
 memx_options_riskcontrol_sbe_v1_6.total_affected_orders.size = 4
 
 -- Display: Total Affected Orders
@@ -2367,7 +2512,7 @@ end
 -- Breach Id
 memx_options_riskcontrol_sbe_v1_6.breach_id = {}
 
--- Size Of: Breach Id
+-- Size: Breach Id
 memx_options_riskcontrol_sbe_v1_6.breach_id.size = 8
 
 -- Display: Breach Id
@@ -2390,14 +2535,24 @@ end
 -- Manual Cp Breach Trigger Done Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_done_message = {}
 
--- Size Of: Manual Cp Breach Trigger Done Message
-memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_done_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.breach_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.total_affected_orders.size;
+-- Calculate size of: Manual Cp Breach Trigger Done Message
+memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_done_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.breach_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.total_affected_orders.size
+
+  return index
+end
 
 -- Display: Manual Cp Breach Trigger Done Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_done_message.display = function(packet, parent, length)
@@ -2450,13 +2605,22 @@ end
 -- Manual Cp Breach Trigger Pending Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_pending_message = {}
 
--- Size Of: Manual Cp Breach Trigger Pending Message
-memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_pending_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.breach_id.size;
+-- Calculate size of: Manual Cp Breach Trigger Pending Message
+memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_pending_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.breach_id.size
+
+  return index
+end
 
 -- Display: Manual Cp Breach Trigger Pending Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_pending_message.display = function(packet, parent, length)
@@ -2506,7 +2670,7 @@ end
 -- Count
 memx_options_riskcontrol_sbe_v1_6.count = {}
 
--- Size Of: Count
+-- Size: Count
 memx_options_riskcontrol_sbe_v1_6.count.size = 4
 
 -- Display: Count
@@ -2529,14 +2693,24 @@ end
 -- Cp Breach Count Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_state_message = {}
 
--- Size Of: Cp Breach Count Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.count.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Breach Count Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.count.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Breach Count Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_state_message.display = function(packet, parent, length)
@@ -2589,7 +2763,7 @@ end
 -- Percent
 memx_options_riskcontrol_sbe_v1_6.percent = {}
 
--- Size Of: Percent
+-- Size: Percent
 memx_options_riskcontrol_sbe_v1_6.percent.size = 4
 
 -- Display: Percent
@@ -2612,13 +2786,22 @@ end
 -- Cp Percent Outstanding Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_state_message = {}
 
--- Size Of: Cp Percent Outstanding Contracts Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.percent.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Percent Outstanding Contracts Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.percent.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Percent Outstanding Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_state_message.display = function(packet, parent, length)
@@ -2668,7 +2851,7 @@ end
 -- Total Executions
 memx_options_riskcontrol_sbe_v1_6.total_executions = {}
 
--- Size Of: Total Executions
+-- Size: Total Executions
 memx_options_riskcontrol_sbe_v1_6.total_executions.size = 4
 
 -- Display: Total Executions
@@ -2691,14 +2874,24 @@ end
 -- Cp Total Executions Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_state_message = {}
 
--- Size Of: Cp Total Executions Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.total_executions.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Total Executions Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.total_executions.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Total Executions Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_state_message.display = function(packet, parent, length)
@@ -2751,14 +2944,24 @@ end
 -- Cp Executed Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_state_message = {}
 
--- Size Of: Cp Executed Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Executed Notional Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Executed Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_state_message.display = function(packet, parent, length)
@@ -2811,7 +3014,7 @@ end
 -- Volume
 memx_options_riskcontrol_sbe_v1_6.volume = {}
 
--- Size Of: Volume
+-- Size: Volume
 memx_options_riskcontrol_sbe_v1_6.volume.size = 8
 
 -- Display: Volume
@@ -2834,14 +3037,24 @@ end
 -- Cp Volume Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message = {}
 
--- Size Of: Cp Volume Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.volume.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Volume Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.volume.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Volume Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message.display = function(packet, parent, length)
@@ -2894,7 +3107,7 @@ end
 -- Unacked Quantity
 memx_options_riskcontrol_sbe_v1_6.unacked_quantity = {}
 
--- Size Of: Unacked Quantity
+-- Size: Unacked Quantity
 memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size = 4
 
 -- Display: Unacked Quantity
@@ -2917,7 +3130,7 @@ end
 -- Last Qty
 memx_options_riskcontrol_sbe_v1_6.last_qty = {}
 
--- Size Of: Last Qty
+-- Size: Last Qty
 memx_options_riskcontrol_sbe_v1_6.last_qty.size = 4
 
 -- Display: Last Qty
@@ -2940,7 +3153,7 @@ end
 -- Last Px
 memx_options_riskcontrol_sbe_v1_6.last_px = {}
 
--- Size Of: Last Px
+-- Size: Last Px
 memx_options_riskcontrol_sbe_v1_6.last_px.size = 8
 
 -- Display: Last Px
@@ -2969,7 +3182,7 @@ end
 -- Side
 memx_options_riskcontrol_sbe_v1_6.side = {}
 
--- Size Of: Side
+-- Size: Side
 memx_options_riskcontrol_sbe_v1_6.side.size = 1
 
 -- Display: Side
@@ -3012,7 +3225,7 @@ end
 -- Option Security Id
 memx_options_riskcontrol_sbe_v1_6.option_security_id = {}
 
--- Size Of: Option Security Id
+-- Size: Option Security Id
 memx_options_riskcontrol_sbe_v1_6.option_security_id.size = 8
 
 -- Display: Option Security Id
@@ -3051,7 +3264,7 @@ end
 -- Underlier
 memx_options_riskcontrol_sbe_v1_6.underlier = {}
 
--- Size Of: Underlier
+-- Size: Underlier
 memx_options_riskcontrol_sbe_v1_6.underlier.size = 6
 
 -- Display: Underlier
@@ -3090,7 +3303,7 @@ end
 -- Efid
 memx_options_riskcontrol_sbe_v1_6.efid = {}
 
--- Size Of: Efid
+-- Size: Efid
 memx_options_riskcontrol_sbe_v1_6.efid.size = 4
 
 -- Display: Efid
@@ -3129,7 +3342,7 @@ end
 -- Trd Match Id
 memx_options_riskcontrol_sbe_v1_6.trd_match_id = {}
 
--- Size Of: Trd Match Id
+-- Size: Trd Match Id
 memx_options_riskcontrol_sbe_v1_6.trd_match_id.size = 8
 
 -- Display: Trd Match Id
@@ -3152,7 +3365,7 @@ end
 -- Order Id
 memx_options_riskcontrol_sbe_v1_6.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 memx_options_riskcontrol_sbe_v1_6.order_id.size = 8
 
 -- Display: Order Id
@@ -3175,7 +3388,7 @@ end
 -- Sending Time
 memx_options_riskcontrol_sbe_v1_6.sending_time = {}
 
--- Size Of: Sending Time
+-- Size: Sending Time
 memx_options_riskcontrol_sbe_v1_6.sending_time.size = 8
 
 -- Display: Sending Time
@@ -3198,19 +3411,34 @@ end
 -- Active Risk Quantity Update Notification Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_quantity_update_notification_message = {}
 
--- Size Of: Active Risk Quantity Update Notification Message
-memx_options_riskcontrol_sbe_v1_6.active_risk_quantity_update_notification_message.size =
-  memx_options_riskcontrol_sbe_v1_6.sending_time.size + 
-  memx_options_riskcontrol_sbe_v1_6.transact_time.size + 
-  memx_options_riskcontrol_sbe_v1_6.order_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.trd_match_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier.size + 
-  memx_options_riskcontrol_sbe_v1_6.option_security_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.side.size + 
-  memx_options_riskcontrol_sbe_v1_6.last_px.size + 
-  memx_options_riskcontrol_sbe_v1_6.last_qty.size + 
-  memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size;
+-- Calculate size of: Active Risk Quantity Update Notification Message
+memx_options_riskcontrol_sbe_v1_6.active_risk_quantity_update_notification_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.sending_time.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.transact_time.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.order_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.trd_match_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.option_security_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.side.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.last_px.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.last_qty.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size
+
+  return index
+end
 
 -- Display: Active Risk Quantity Update Notification Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_quantity_update_notification_message.display = function(packet, parent, length)
@@ -3278,7 +3506,7 @@ end
 -- Threshold Quantity
 memx_options_riskcontrol_sbe_v1_6.threshold_quantity = {}
 
--- Size Of: Threshold Quantity
+-- Size: Threshold Quantity
 memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size = 4
 
 -- Display: Threshold Quantity
@@ -3301,13 +3529,22 @@ end
 -- Active Risk Acknowledge Rej Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message = {}
 
--- Size Of: Active Risk Acknowledge Rej Message
-memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid.size + 
-  memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size + 
-  memx_options_riskcontrol_sbe_v1_6.reject_reason.size;
+-- Calculate size of: Active Risk Acknowledge Rej Message
+memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.reject_reason.size
+
+  return index
+end
 
 -- Display: Active Risk Acknowledge Rej Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message.display = function(packet, parent, length)
@@ -3357,7 +3594,7 @@ end
 -- Quantity
 memx_options_riskcontrol_sbe_v1_6.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 memx_options_riskcontrol_sbe_v1_6.quantity.size = 4
 
 -- Display: Quantity
@@ -3380,13 +3617,22 @@ end
 -- Active Risk Acknowledged Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledged_message = {}
 
--- Size Of: Active Risk Acknowledged Message
-memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledged_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid.size + 
-  memx_options_riskcontrol_sbe_v1_6.quantity.size + 
-  memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size;
+-- Calculate size of: Active Risk Acknowledged Message
+memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledged_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.quantity.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size
+
+  return index
+end
 
 -- Display: Active Risk Acknowledged Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledged_message.display = function(packet, parent, length)
@@ -3436,13 +3682,22 @@ end
 -- Active Risk Threshold Change Rej Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_rej_message = {}
 
--- Size Of: Active Risk Threshold Change Rej Message
-memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_rej_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size + 
-  memx_options_riskcontrol_sbe_v1_6.reject_reason.size;
+-- Calculate size of: Active Risk Threshold Change Rej Message
+memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_rej_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.reject_reason.size
+
+  return index
+end
 
 -- Display: Active Risk Threshold Change Rej Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_rej_message.display = function(packet, parent, length)
@@ -3492,13 +3747,22 @@ end
 -- Active Risk Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_state_message = {}
 
--- Size Of: Active Risk Threshold State Message
-memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_state_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid.size + 
-  memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size + 
-  memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size;
+-- Calculate size of: Active Risk Threshold State Message
+memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size
+
+  return index
+end
 
 -- Display: Active Risk Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_state_message.display = function(packet, parent, length)
@@ -3548,14 +3812,24 @@ end
 -- Cp Order Rate Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message = {}
 
--- Size Of: Cp Order Rate Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Order Rate Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Order Rate Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message.display = function(packet, parent, length)
@@ -3608,7 +3882,7 @@ end
 -- Use Order Price In Dup Check Optional
 memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional = {}
 
--- Size Of: Use Order Price In Dup Check Optional
+-- Size: Use Order Price In Dup Check Optional
 memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.size = 1
 
 -- Display: Use Order Price In Dup Check Optional
@@ -3641,15 +3915,26 @@ end
 -- Cp Duplicate Order Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_change_req_message = {}
 
--- Size Of: Cp Duplicate Order Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size + 
-  memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Duplicate Order Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Duplicate Order Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_change_req_message.display = function(packet, parent, length)
@@ -3705,13 +3990,22 @@ end
 -- Cp Market Order Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_change_req_message = {}
 
--- Size Of: Cp Market Order Net Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Market Order Net Notional Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Market Order Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_net_notional_threshold_change_req_message.display = function(packet, parent, length)
@@ -3761,13 +4055,22 @@ end
 -- Cp Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_change_req_message = {}
 
--- Size Of: Cp Net Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Net Notional Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_net_notional_threshold_change_req_message.display = function(packet, parent, length)
@@ -3817,13 +4120,22 @@ end
 -- Cp Market Order Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_change_req_message = {}
 
--- Size Of: Cp Market Order Gross Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Market Order Gross Notional Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Market Order Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_market_order_gross_notional_threshold_change_req_message.display = function(packet, parent, length)
@@ -3873,13 +4185,22 @@ end
 -- Cp Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_change_req_message = {}
 
--- Size Of: Cp Gross Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size;
+-- Calculate size of: Cp Gross Notional Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  return index
+end
 
 -- Display: Cp Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_change_req_message.display = function(packet, parent, length)
@@ -3929,13 +4250,22 @@ end
 -- Single Order Max Contracts Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_change_req_message = {}
 
--- Size Of: Single Order Max Contracts Change Req Message
-memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_contracts.size;
+-- Calculate size of: Single Order Max Contracts Change Req Message
+memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_contracts.size
+
+  return index
+end
 
 -- Display: Single Order Max Contracts Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_change_req_message.display = function(packet, parent, length)
@@ -3985,13 +4315,22 @@ end
 -- Single Order Max Notional Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_change_req_message = {}
 
--- Size Of: Single Order Max Notional Change Req Message
-memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size;
+-- Calculate size of: Single Order Max Notional Change Req Message
+memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size
+
+  return index
+end
 
 -- Display: Single Order Max Notional Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_change_req_message.display = function(packet, parent, length)
@@ -4041,13 +4380,22 @@ end
 -- Single Order Allow Orders In Crossed Market Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_change_req_message = {}
 
--- Size Of: Single Order Allow Orders In Crossed Market Change Req Message
-memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.allow_orders.size;
+-- Calculate size of: Single Order Allow Orders In Crossed Market Change Req Message
+memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.allow_orders.size
+
+  return index
+end
 
 -- Display: Single Order Allow Orders In Crossed Market Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_change_req_message.display = function(packet, parent, length)
@@ -4097,13 +4445,22 @@ end
 -- Single Order Allow Iso Orders Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_change_req_message = {}
 
--- Size Of: Single Order Allow Iso Orders Change Req Message
-memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size;
+-- Calculate size of: Single Order Allow Iso Orders Change Req Message
+memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size
+
+  return index
+end
 
 -- Display: Single Order Allow Iso Orders Change Req Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_change_req_message.display = function(packet, parent, length)
@@ -4153,10 +4510,16 @@ end
 -- Cp Clear Breach Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_clear_breach_req_message = {}
 
--- Size Of: Cp Clear Breach Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_clear_breach_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size;
+-- Calculate size of: Cp Clear Breach Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_clear_breach_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size
+
+  return index
+end
 
 -- Display: Cp Clear Breach Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_clear_breach_req_message.display = function(packet, parent, length)
@@ -4197,7 +4560,7 @@ end
 -- Send Cancels
 memx_options_riskcontrol_sbe_v1_6.send_cancels = {}
 
--- Size Of: Send Cancels
+-- Size: Send Cancels
 memx_options_riskcontrol_sbe_v1_6.send_cancels.size = 1
 
 -- Display: Send Cancels
@@ -4230,13 +4593,22 @@ end
 -- Manual Cp Breach Trigger Req Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_req_message = {}
 
--- Size Of: Manual Cp Breach Trigger Req Message
-memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.send_cancels.size;
+-- Calculate size of: Manual Cp Breach Trigger Req Message
+memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.send_cancels.size
+
+  return index
+end
 
 -- Display: Manual Cp Breach Trigger Req Message
 memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_req_message.display = function(packet, parent, length)
@@ -4286,14 +4658,24 @@ end
 -- Cp Breach Count Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_change_req_message = {}
 
--- Size Of: Cp Breach Count Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.count.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Breach Count Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.count.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Breach Count Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_change_req_message.display = function(packet, parent, length)
@@ -4346,13 +4728,22 @@ end
 -- Cp Percent Outstanding Contracts Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_change_req_message = {}
 
--- Size Of: Cp Percent Outstanding Contracts Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.percent.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Percent Outstanding Contracts Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.percent.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Percent Outstanding Contracts Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_change_req_message.display = function(packet, parent, length)
@@ -4402,14 +4793,24 @@ end
 -- Cp Total Executions Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_change_req_message = {}
 
--- Size Of: Cp Total Executions Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.total_executions.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Total Executions Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.total_executions.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Total Executions Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_total_executions_threshold_change_req_message.display = function(packet, parent, length)
@@ -4462,14 +4863,24 @@ end
 -- Cp Executed Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_change_req_message = {}
 
--- Size Of: Cp Executed Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Executed Notional Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Executed Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_change_req_message.display = function(packet, parent, length)
@@ -4522,14 +4933,24 @@ end
 -- Cp Volume Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_change_req_message = {}
 
--- Size Of: Cp Volume Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.risk_group_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.volume.size + 
-  memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size;
+-- Calculate size of: Cp Volume Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.volume.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+
+  return index
+end
 
 -- Display: Cp Volume Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_change_req_message.display = function(packet, parent, length)
@@ -4582,12 +5003,20 @@ end
 -- Active Risk Acknowledgement Req Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledgement_req_message = {}
 
--- Size Of: Active Risk Acknowledgement Req Message
-memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledgement_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid.size + 
-  memx_options_riskcontrol_sbe_v1_6.quantity.size;
+-- Calculate size of: Active Risk Acknowledgement Req Message
+memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledgement_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.quantity.size
+
+  return index
+end
 
 -- Display: Active Risk Acknowledgement Req Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledgement_req_message.display = function(packet, parent, length)
@@ -4634,12 +5063,20 @@ end
 -- Active Risk Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_req_message = {}
 
--- Size Of: Active Risk Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_req_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size + 
-  memx_options_riskcontrol_sbe_v1_6.underlier_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.efid_optional.size + 
-  memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size;
+-- Calculate size of: Active Risk Threshold Change Req Message
+memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_req_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.underlier_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.efid_optional.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size
+
+  return index
+end
 
 -- Display: Active Risk Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_threshold_change_req_message.display = function(packet, parent, length)
@@ -4686,9 +5123,14 @@ end
 -- Risk Settings Query Message
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_message = {}
 
--- Size Of: Risk Settings Query Message
-memx_options_riskcontrol_sbe_v1_6.risk_settings_query_message.size =
-  memx_options_riskcontrol_sbe_v1_6.clordid.size;
+-- Calculate size of: Risk Settings Query Message
+memx_options_riskcontrol_sbe_v1_6.risk_settings_query_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.clordid.size
+
+  return index
+end
 
 -- Display: Risk Settings Query Message
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_message.display = function(packet, parent, length)
@@ -5158,7 +5600,7 @@ end
 -- Version
 memx_options_riskcontrol_sbe_v1_6.version = {}
 
--- Size Of: Version
+-- Size: Version
 memx_options_riskcontrol_sbe_v1_6.version.size = 2
 
 -- Display: Version
@@ -5181,7 +5623,7 @@ end
 -- Schema Id
 memx_options_riskcontrol_sbe_v1_6.schema_id = {}
 
--- Size Of: Schema Id
+-- Size: Schema Id
 memx_options_riskcontrol_sbe_v1_6.schema_id.size = 1
 
 -- Display: Schema Id
@@ -5204,7 +5646,7 @@ end
 -- Template Id
 memx_options_riskcontrol_sbe_v1_6.template_id = {}
 
--- Size Of: Template Id
+-- Size: Template Id
 memx_options_riskcontrol_sbe_v1_6.template_id.size = 1
 
 -- Display: Template Id
@@ -5375,7 +5817,7 @@ end
 -- Block Length
 memx_options_riskcontrol_sbe_v1_6.block_length = {}
 
--- Size Of: Block Length
+-- Size: Block Length
 memx_options_riskcontrol_sbe_v1_6.block_length.size = 2
 
 -- Display: Block Length
@@ -5398,12 +5840,20 @@ end
 -- Sbe Header
 memx_options_riskcontrol_sbe_v1_6.sbe_header = {}
 
--- Size Of: Sbe Header
-memx_options_riskcontrol_sbe_v1_6.sbe_header.size =
-  memx_options_riskcontrol_sbe_v1_6.block_length.size + 
-  memx_options_riskcontrol_sbe_v1_6.template_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.schema_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.version.size;
+-- Calculate size of: Sbe Header
+memx_options_riskcontrol_sbe_v1_6.sbe_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.block_length.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.template_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.schema_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.version.size
+
+  return index
+end
 
 -- Display: Sbe Header
 memx_options_riskcontrol_sbe_v1_6.sbe_header.display = function(packet, parent, length)
@@ -5454,7 +5904,7 @@ memx_options_riskcontrol_sbe_v1_6.sbe_message = {}
 memx_options_riskcontrol_sbe_v1_6.sbe_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_6.sbe_header.size
+  index = index + memx_options_riskcontrol_sbe_v1_6.sbe_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -5541,7 +5991,7 @@ end
 -- Total Sequence Count
 memx_options_riskcontrol_sbe_v1_6.total_sequence_count = {}
 
--- Size Of: Total Sequence Count
+-- Size: Total Sequence Count
 memx_options_riskcontrol_sbe_v1_6.total_sequence_count.size = 8
 
 -- Display: Total Sequence Count
@@ -5564,9 +6014,14 @@ end
 -- Stream Complete Message
 memx_options_riskcontrol_sbe_v1_6.stream_complete_message = {}
 
--- Size Of: Stream Complete Message
-memx_options_riskcontrol_sbe_v1_6.stream_complete_message.size =
-  memx_options_riskcontrol_sbe_v1_6.total_sequence_count.size;
+-- Calculate size of: Stream Complete Message
+memx_options_riskcontrol_sbe_v1_6.stream_complete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.total_sequence_count.size
+
+  return index
+end
 
 -- Display: Stream Complete Message
 memx_options_riskcontrol_sbe_v1_6.stream_complete_message.display = function(packet, parent, length)
@@ -5604,7 +6059,7 @@ end
 -- Stream Reject Code
 memx_options_riskcontrol_sbe_v1_6.stream_reject_code = {}
 
--- Size Of: Stream Reject Code
+-- Size: Stream Reject Code
 memx_options_riskcontrol_sbe_v1_6.stream_reject_code.size = 1
 
 -- Display: Stream Reject Code
@@ -5637,9 +6092,14 @@ end
 -- Stream Rejected Message
 memx_options_riskcontrol_sbe_v1_6.stream_rejected_message = {}
 
--- Size Of: Stream Rejected Message
-memx_options_riskcontrol_sbe_v1_6.stream_rejected_message.size =
-  memx_options_riskcontrol_sbe_v1_6.stream_reject_code.size;
+-- Calculate size of: Stream Rejected Message
+memx_options_riskcontrol_sbe_v1_6.stream_rejected_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.stream_reject_code.size
+
+  return index
+end
 
 -- Display: Stream Rejected Message
 memx_options_riskcontrol_sbe_v1_6.stream_rejected_message.display = function(packet, parent, length)
@@ -5677,7 +6137,7 @@ end
 -- Max Sequence Number
 memx_options_riskcontrol_sbe_v1_6.max_sequence_number = {}
 
--- Size Of: Max Sequence Number
+-- Size: Max Sequence Number
 memx_options_riskcontrol_sbe_v1_6.max_sequence_number.size = 8
 
 -- Display: Max Sequence Number
@@ -5700,7 +6160,7 @@ end
 -- Next Sequence Number
 memx_options_riskcontrol_sbe_v1_6.next_sequence_number = {}
 
--- Size Of: Next Sequence Number
+-- Size: Next Sequence Number
 memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size = 8
 
 -- Display: Next Sequence Number
@@ -5723,10 +6183,16 @@ end
 -- Stream Begin Message
 memx_options_riskcontrol_sbe_v1_6.stream_begin_message = {}
 
--- Size Of: Stream Begin Message
-memx_options_riskcontrol_sbe_v1_6.stream_begin_message.size =
-  memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size + 
-  memx_options_riskcontrol_sbe_v1_6.max_sequence_number.size;
+-- Calculate size of: Stream Begin Message
+memx_options_riskcontrol_sbe_v1_6.stream_begin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.max_sequence_number.size
+
+  return index
+end
 
 -- Display: Stream Begin Message
 memx_options_riskcontrol_sbe_v1_6.stream_begin_message.display = function(packet, parent, length)
@@ -5767,7 +6233,7 @@ end
 -- Message Count
 memx_options_riskcontrol_sbe_v1_6.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 memx_options_riskcontrol_sbe_v1_6.message_count.size = 8
 
 -- Display: Message Count
@@ -5790,9 +6256,14 @@ end
 -- Replay Complete Message
 memx_options_riskcontrol_sbe_v1_6.replay_complete_message = {}
 
--- Size Of: Replay Complete Message
-memx_options_riskcontrol_sbe_v1_6.replay_complete_message.size =
-  memx_options_riskcontrol_sbe_v1_6.message_count.size;
+-- Calculate size of: Replay Complete Message
+memx_options_riskcontrol_sbe_v1_6.replay_complete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.message_count.size
+
+  return index
+end
 
 -- Display: Replay Complete Message
 memx_options_riskcontrol_sbe_v1_6.replay_complete_message.display = function(packet, parent, length)
@@ -5830,7 +6301,7 @@ end
 -- Replay Reject Code
 memx_options_riskcontrol_sbe_v1_6.replay_reject_code = {}
 
--- Size Of: Replay Reject Code
+-- Size: Replay Reject Code
 memx_options_riskcontrol_sbe_v1_6.replay_reject_code.size = 1
 
 -- Display: Replay Reject Code
@@ -5866,9 +6337,14 @@ end
 -- Replay Rejected Message
 memx_options_riskcontrol_sbe_v1_6.replay_rejected_message = {}
 
--- Size Of: Replay Rejected Message
-memx_options_riskcontrol_sbe_v1_6.replay_rejected_message.size =
-  memx_options_riskcontrol_sbe_v1_6.replay_reject_code.size;
+-- Calculate size of: Replay Rejected Message
+memx_options_riskcontrol_sbe_v1_6.replay_rejected_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.replay_reject_code.size
+
+  return index
+end
 
 -- Display: Replay Rejected Message
 memx_options_riskcontrol_sbe_v1_6.replay_rejected_message.display = function(packet, parent, length)
@@ -5906,7 +6382,7 @@ end
 -- Pending Message Count
 memx_options_riskcontrol_sbe_v1_6.pending_message_count = {}
 
--- Size Of: Pending Message Count
+-- Size: Pending Message Count
 memx_options_riskcontrol_sbe_v1_6.pending_message_count.size = 4
 
 -- Display: Pending Message Count
@@ -5929,10 +6405,16 @@ end
 -- Replay Begin Message
 memx_options_riskcontrol_sbe_v1_6.replay_begin_message = {}
 
--- Size Of: Replay Begin Message
-memx_options_riskcontrol_sbe_v1_6.replay_begin_message.size =
-  memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size + 
-  memx_options_riskcontrol_sbe_v1_6.pending_message_count.size;
+-- Calculate size of: Replay Begin Message
+memx_options_riskcontrol_sbe_v1_6.replay_begin_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.pending_message_count.size
+
+  return index
+end
 
 -- Display: Replay Begin Message
 memx_options_riskcontrol_sbe_v1_6.replay_begin_message.display = function(packet, parent, length)
@@ -5973,7 +6455,7 @@ end
 -- Session Id
 memx_options_riskcontrol_sbe_v1_6.session_id = {}
 
--- Size Of: Session Id
+-- Size: Session Id
 memx_options_riskcontrol_sbe_v1_6.session_id.size = 8
 
 -- Display: Session Id
@@ -5996,9 +6478,14 @@ end
 -- Start Of Session Message
 memx_options_riskcontrol_sbe_v1_6.start_of_session_message = {}
 
--- Size Of: Start Of Session Message
-memx_options_riskcontrol_sbe_v1_6.start_of_session_message.size =
-  memx_options_riskcontrol_sbe_v1_6.session_id.size;
+-- Calculate size of: Start Of Session Message
+memx_options_riskcontrol_sbe_v1_6.start_of_session_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.session_id.size
+
+  return index
+end
 
 -- Display: Start Of Session Message
 memx_options_riskcontrol_sbe_v1_6.start_of_session_message.display = function(packet, parent, length)
@@ -6036,7 +6523,7 @@ end
 -- Login Reject Code
 memx_options_riskcontrol_sbe_v1_6.login_reject_code = {}
 
--- Size Of: Login Reject Code
+-- Size: Login Reject Code
 memx_options_riskcontrol_sbe_v1_6.login_reject_code.size = 1
 
 -- Display: Login Reject Code
@@ -6072,9 +6559,14 @@ end
 -- Login Rejected Message
 memx_options_riskcontrol_sbe_v1_6.login_rejected_message = {}
 
--- Size Of: Login Rejected Message
-memx_options_riskcontrol_sbe_v1_6.login_rejected_message.size =
-  memx_options_riskcontrol_sbe_v1_6.login_reject_code.size;
+-- Calculate size of: Login Rejected Message
+memx_options_riskcontrol_sbe_v1_6.login_rejected_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.login_reject_code.size
+
+  return index
+end
 
 -- Display: Login Rejected Message
 memx_options_riskcontrol_sbe_v1_6.login_rejected_message.display = function(packet, parent, length)
@@ -6112,7 +6604,7 @@ end
 -- Supported Request Mode
 memx_options_riskcontrol_sbe_v1_6.supported_request_mode = {}
 
--- Size Of: Supported Request Mode
+-- Size: Supported Request Mode
 memx_options_riskcontrol_sbe_v1_6.supported_request_mode.size = 1
 
 -- Display: Supported Request Mode
@@ -6145,9 +6637,14 @@ end
 -- Login Accepted Message
 memx_options_riskcontrol_sbe_v1_6.login_accepted_message = {}
 
--- Size Of: Login Accepted Message
-memx_options_riskcontrol_sbe_v1_6.login_accepted_message.size =
-  memx_options_riskcontrol_sbe_v1_6.supported_request_mode.size;
+-- Calculate size of: Login Accepted Message
+memx_options_riskcontrol_sbe_v1_6.login_accepted_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.supported_request_mode.size
+
+  return index
+end
 
 -- Display: Login Accepted Message
 memx_options_riskcontrol_sbe_v1_6.login_accepted_message.display = function(packet, parent, length)
@@ -6225,10 +6722,16 @@ end
 -- Stream Request Message
 memx_options_riskcontrol_sbe_v1_6.stream_request_message = {}
 
--- Size Of: Stream Request Message
-memx_options_riskcontrol_sbe_v1_6.stream_request_message.size =
-  memx_options_riskcontrol_sbe_v1_6.session_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size;
+-- Calculate size of: Stream Request Message
+memx_options_riskcontrol_sbe_v1_6.stream_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.session_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size
+
+  return index
+end
 
 -- Display: Stream Request Message
 memx_options_riskcontrol_sbe_v1_6.stream_request_message.display = function(packet, parent, length)
@@ -6269,9 +6772,14 @@ end
 -- Replay All Request Message
 memx_options_riskcontrol_sbe_v1_6.replay_all_request_message = {}
 
--- Size Of: Replay All Request Message
-memx_options_riskcontrol_sbe_v1_6.replay_all_request_message.size =
-  memx_options_riskcontrol_sbe_v1_6.session_id.size;
+-- Calculate size of: Replay All Request Message
+memx_options_riskcontrol_sbe_v1_6.replay_all_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.session_id.size
+
+  return index
+end
 
 -- Display: Replay All Request Message
 memx_options_riskcontrol_sbe_v1_6.replay_all_request_message.display = function(packet, parent, length)
@@ -6309,11 +6817,18 @@ end
 -- Replay Request Message
 memx_options_riskcontrol_sbe_v1_6.replay_request_message = {}
 
--- Size Of: Replay Request Message
-memx_options_riskcontrol_sbe_v1_6.replay_request_message.size =
-  memx_options_riskcontrol_sbe_v1_6.session_id.size + 
-  memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size + 
-  memx_options_riskcontrol_sbe_v1_6.count.size;
+-- Calculate size of: Replay Request Message
+memx_options_riskcontrol_sbe_v1_6.replay_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.session_id.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.count.size
+
+  return index
+end
 
 -- Display: Replay Request Message
 memx_options_riskcontrol_sbe_v1_6.replay_request_message.display = function(packet, parent, length)
@@ -6357,7 +6872,7 @@ end
 -- Token
 memx_options_riskcontrol_sbe_v1_6.token = {}
 
--- Size Of: Token
+-- Size: Token
 memx_options_riskcontrol_sbe_v1_6.token.size = 1
 
 -- Display: Token
@@ -6380,7 +6895,7 @@ end
 -- Token Type
 memx_options_riskcontrol_sbe_v1_6.token_type = {}
 
--- Size Of: Token Type
+-- Size: Token Type
 memx_options_riskcontrol_sbe_v1_6.token_type.size = 1
 
 -- Display: Token Type
@@ -6403,10 +6918,16 @@ end
 -- Login Request Message
 memx_options_riskcontrol_sbe_v1_6.login_request_message = {}
 
--- Size Of: Login Request Message
-memx_options_riskcontrol_sbe_v1_6.login_request_message.size =
-  memx_options_riskcontrol_sbe_v1_6.token_type.size + 
-  memx_options_riskcontrol_sbe_v1_6.token.size;
+-- Calculate size of: Login Request Message
+memx_options_riskcontrol_sbe_v1_6.login_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.token_type.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.token.size
+
+  return index
+end
 
 -- Display: Login Request Message
 memx_options_riskcontrol_sbe_v1_6.login_request_message.display = function(packet, parent, length)
@@ -6607,7 +7128,7 @@ end
 -- Message Length
 memx_options_riskcontrol_sbe_v1_6.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 memx_options_riskcontrol_sbe_v1_6.message_length.size = 2
 
 -- Display: Message Length
@@ -6630,7 +7151,7 @@ end
 -- Message Type
 memx_options_riskcontrol_sbe_v1_6.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 memx_options_riskcontrol_sbe_v1_6.message_type.size = 1
 
 -- Display: Message Type
@@ -6702,10 +7223,16 @@ end
 -- Common Header
 memx_options_riskcontrol_sbe_v1_6.common_header = {}
 
--- Size Of: Common Header
-memx_options_riskcontrol_sbe_v1_6.common_header.size =
-  memx_options_riskcontrol_sbe_v1_6.message_type.size + 
-  memx_options_riskcontrol_sbe_v1_6.message_length.size;
+-- Calculate size of: Common Header
+memx_options_riskcontrol_sbe_v1_6.common_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.message_type.size
+
+  index = index + memx_options_riskcontrol_sbe_v1_6.message_length.size
+
+  return index
+end
 
 -- Display: Common Header
 memx_options_riskcontrol_sbe_v1_6.common_header.display = function(packet, parent, length)

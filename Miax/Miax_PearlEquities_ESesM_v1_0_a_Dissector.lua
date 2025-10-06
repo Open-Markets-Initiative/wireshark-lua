@@ -263,7 +263,7 @@ end
 -- Logout Reason
 miax_pearlequities_esesm_v1_0_a.logout_reason = {}
 
--- Size Of: Logout Reason
+-- Size: Logout Reason
 miax_pearlequities_esesm_v1_0_a.logout_reason.size = 1
 
 -- Display: Logout Reason
@@ -403,7 +403,7 @@ end
 -- End Sequence Number
 miax_pearlequities_esesm_v1_0_a.end_sequence_number = {}
 
--- Size Of: End Sequence Number
+-- Size: End Sequence Number
 miax_pearlequities_esesm_v1_0_a.end_sequence_number.size = 8
 
 -- Display: End Sequence Number
@@ -426,7 +426,7 @@ end
 -- Start Sequence Number
 miax_pearlequities_esesm_v1_0_a.start_sequence_number = {}
 
--- Size Of: Start Sequence Number
+-- Size: Start Sequence Number
 miax_pearlequities_esesm_v1_0_a.start_sequence_number.size = 8
 
 -- Display: Start Sequence Number
@@ -449,10 +449,16 @@ end
 -- Retransmission Request
 miax_pearlequities_esesm_v1_0_a.retransmission_request = {}
 
--- Size Of: Retransmission Request
-miax_pearlequities_esesm_v1_0_a.retransmission_request.size =
-  miax_pearlequities_esesm_v1_0_a.start_sequence_number.size + 
-  miax_pearlequities_esesm_v1_0_a.end_sequence_number.size;
+-- Calculate size of: Retransmission Request
+miax_pearlequities_esesm_v1_0_a.retransmission_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.start_sequence_number.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.end_sequence_number.size
+
+  return index
+end
 
 -- Display: Retransmission Request
 miax_pearlequities_esesm_v1_0_a.retransmission_request.display = function(packet, parent, length)
@@ -493,7 +499,7 @@ end
 -- Number Of Matching Engines
 miax_pearlequities_esesm_v1_0_a.number_of_matching_engines = {}
 
--- Size Of: Number Of Matching Engines
+-- Size: Number Of Matching Engines
 miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size = 1
 
 -- Display: Number Of Matching Engines
@@ -516,9 +522,14 @@ end
 -- Synchronization Complete
 miax_pearlequities_esesm_v1_0_a.synchronization_complete = {}
 
--- Size Of: Synchronization Complete
-miax_pearlequities_esesm_v1_0_a.synchronization_complete.size =
-  miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size;
+-- Calculate size of: Synchronization Complete
+miax_pearlequities_esesm_v1_0_a.synchronization_complete.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
+
+  return index
+end
 
 -- Display: Synchronization Complete
 miax_pearlequities_esesm_v1_0_a.synchronization_complete.display = function(packet, parent, length)
@@ -556,7 +567,7 @@ end
 -- Highest Sequence Number
 miax_pearlequities_esesm_v1_0_a.highest_sequence_number = {}
 
--- Size Of: Highest Sequence Number
+-- Size: Highest Sequence Number
 miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size = 8
 
 -- Display: Highest Sequence Number
@@ -579,7 +590,7 @@ end
 -- Trading Session Id
 miax_pearlequities_esesm_v1_0_a.trading_session_id = {}
 
--- Size Of: Trading Session Id
+-- Size: Trading Session Id
 miax_pearlequities_esesm_v1_0_a.trading_session_id.size = 1
 
 -- Display: Trading Session Id
@@ -602,7 +613,7 @@ end
 -- Login Status
 miax_pearlequities_esesm_v1_0_a.login_status = {}
 
--- Size Of: Login Status
+-- Size: Login Status
 miax_pearlequities_esesm_v1_0_a.login_status.size = 1
 
 -- Display: Login Status
@@ -653,12 +664,20 @@ end
 -- Login Response
 miax_pearlequities_esesm_v1_0_a.login_response = {}
 
--- Size Of: Login Response
-miax_pearlequities_esesm_v1_0_a.login_response.size =
-  miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size + 
-  miax_pearlequities_esesm_v1_0_a.login_status.size + 
-  miax_pearlequities_esesm_v1_0_a.trading_session_id.size + 
-  miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size;
+-- Calculate size of: Login Response
+miax_pearlequities_esesm_v1_0_a.login_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.login_status.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.trading_session_id.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Response
 miax_pearlequities_esesm_v1_0_a.login_response.display = function(packet, parent, length)
@@ -705,7 +724,7 @@ end
 -- Requested Sequence Number
 miax_pearlequities_esesm_v1_0_a.requested_sequence_number = {}
 
--- Size Of: Requested Sequence Number
+-- Size: Requested Sequence Number
 miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size = 8
 
 -- Display: Requested Sequence Number
@@ -728,7 +747,7 @@ end
 -- Requested Trading Session Id
 miax_pearlequities_esesm_v1_0_a.requested_trading_session_id = {}
 
--- Size Of: Requested Trading Session Id
+-- Size: Requested Trading Session Id
 miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size = 1
 
 -- Display: Requested Trading Session Id
@@ -751,7 +770,7 @@ end
 -- Application Protocol
 miax_pearlequities_esesm_v1_0_a.application_protocol = {}
 
--- Size Of: Application Protocol
+-- Size: Application Protocol
 miax_pearlequities_esesm_v1_0_a.application_protocol.size = 8
 
 -- Display: Application Protocol
@@ -774,7 +793,7 @@ end
 -- Computer Id
 miax_pearlequities_esesm_v1_0_a.computer_id = {}
 
--- Size Of: Computer Id
+-- Size: Computer Id
 miax_pearlequities_esesm_v1_0_a.computer_id.size = 8
 
 -- Display: Computer Id
@@ -797,7 +816,7 @@ end
 -- Username
 miax_pearlequities_esesm_v1_0_a.username = {}
 
--- Size Of: Username
+-- Size: Username
 miax_pearlequities_esesm_v1_0_a.username.size = 5
 
 -- Display: Username
@@ -820,7 +839,7 @@ end
 -- Esesm Version
 miax_pearlequities_esesm_v1_0_a.esesm_version = {}
 
--- Size Of: Esesm Version
+-- Size: Esesm Version
 miax_pearlequities_esesm_v1_0_a.esesm_version.size = 5
 
 -- Display: Esesm Version
@@ -843,14 +862,24 @@ end
 -- Login Request
 miax_pearlequities_esesm_v1_0_a.login_request = {}
 
--- Size Of: Login Request
-miax_pearlequities_esesm_v1_0_a.login_request.size =
-  miax_pearlequities_esesm_v1_0_a.esesm_version.size + 
-  miax_pearlequities_esesm_v1_0_a.username.size + 
-  miax_pearlequities_esesm_v1_0_a.computer_id.size + 
-  miax_pearlequities_esesm_v1_0_a.application_protocol.size + 
-  miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size + 
-  miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size;
+-- Calculate size of: Login Request
+miax_pearlequities_esesm_v1_0_a.login_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.esesm_version.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.username.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.computer_id.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.application_protocol.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size
+
+  return index
+end
 
 -- Display: Login Request
 miax_pearlequities_esesm_v1_0_a.login_request.display = function(packet, parent, length)
@@ -903,7 +932,7 @@ end
 -- Unsequenced Message
 miax_pearlequities_esesm_v1_0_a.unsequenced_message = {}
 
--- Size Of: Unsequenced Message
+-- Size: Unsequenced Message
 miax_pearlequities_esesm_v1_0_a.unsequenced_message.size = 0
 
 -- Display: Unsequenced Message
@@ -926,7 +955,7 @@ end
 -- Unsequenced Message Type
 miax_pearlequities_esesm_v1_0_a.unsequenced_message_type = {}
 
--- Size Of: Unsequenced Message Type
+-- Size: Unsequenced Message Type
 miax_pearlequities_esesm_v1_0_a.unsequenced_message_type.size = 2
 
 -- Display: Unsequenced Message Type
@@ -997,7 +1026,7 @@ end
 -- Sequenced Message
 miax_pearlequities_esesm_v1_0_a.sequenced_message = {}
 
--- Size Of: Sequenced Message
+-- Size: Sequenced Message
 miax_pearlequities_esesm_v1_0_a.sequenced_message.size = 0
 
 -- Display: Sequenced Message
@@ -1020,7 +1049,7 @@ end
 -- Sequenced Message Type
 miax_pearlequities_esesm_v1_0_a.sequenced_message_type = {}
 
--- Size Of: Sequenced Message Type
+-- Size: Sequenced Message Type
 miax_pearlequities_esesm_v1_0_a.sequenced_message_type.size = 2
 
 -- Display: Sequenced Message Type
@@ -1043,7 +1072,7 @@ end
 -- Matching Engine Id
 miax_pearlequities_esesm_v1_0_a.matching_engine_id = {}
 
--- Size Of: Matching Engine Id
+-- Size: Matching Engine Id
 miax_pearlequities_esesm_v1_0_a.matching_engine_id.size = 1
 
 -- Display: Matching Engine Id
@@ -1066,7 +1095,7 @@ end
 -- Sequence Number
 miax_pearlequities_esesm_v1_0_a.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 miax_pearlequities_esesm_v1_0_a.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -1276,7 +1305,7 @@ end
 -- Packet Type
 miax_pearlequities_esesm_v1_0_a.packet_type = {}
 
--- Size Of: Packet Type
+-- Size: Packet Type
 miax_pearlequities_esesm_v1_0_a.packet_type.size = 1
 
 -- Display: Packet Type
@@ -1336,7 +1365,7 @@ end
 -- Packet Length
 miax_pearlequities_esesm_v1_0_a.packet_length = {}
 
--- Size Of: Packet Length
+-- Size: Packet Length
 miax_pearlequities_esesm_v1_0_a.packet_length.size = 2
 
 -- Display: Packet Length
@@ -1359,10 +1388,16 @@ end
 -- Packet Header
 miax_pearlequities_esesm_v1_0_a.packet_header = {}
 
--- Size Of: Packet Header
-miax_pearlequities_esesm_v1_0_a.packet_header.size =
-  miax_pearlequities_esesm_v1_0_a.packet_length.size + 
-  miax_pearlequities_esesm_v1_0_a.packet_type.size;
+-- Calculate size of: Packet Header
+miax_pearlequities_esesm_v1_0_a.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_esesm_v1_0_a.packet_length.size
+
+  index = index + miax_pearlequities_esesm_v1_0_a.packet_type.size
+
+  return index
+end
 
 -- Display: Packet Header
 miax_pearlequities_esesm_v1_0_a.packet_header.display = function(packet, parent, length)

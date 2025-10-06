@@ -115,7 +115,7 @@ end
 -- Version
 smallx_headers_sbe_v1_0.version = {}
 
--- Size Of: Version
+-- Size: Version
 smallx_headers_sbe_v1_0.version.size = 2
 
 -- Display: Version
@@ -138,7 +138,7 @@ end
 -- Schema Id
 smallx_headers_sbe_v1_0.schema_id = {}
 
--- Size Of: Schema Id
+-- Size: Schema Id
 smallx_headers_sbe_v1_0.schema_id.size = 2
 
 -- Display: Schema Id
@@ -161,7 +161,7 @@ end
 -- Template Id
 smallx_headers_sbe_v1_0.template_id = {}
 
--- Size Of: Template Id
+-- Size: Template Id
 smallx_headers_sbe_v1_0.template_id.size = 2
 
 -- Display: Template Id
@@ -184,7 +184,7 @@ end
 -- Block Length
 smallx_headers_sbe_v1_0.block_length = {}
 
--- Size Of: Block Length
+-- Size: Block Length
 smallx_headers_sbe_v1_0.block_length.size = 2
 
 -- Display: Block Length
@@ -207,12 +207,20 @@ end
 -- Message Header
 smallx_headers_sbe_v1_0.message_header = {}
 
--- Size Of: Message Header
-smallx_headers_sbe_v1_0.message_header.size =
-  smallx_headers_sbe_v1_0.block_length.size + 
-  smallx_headers_sbe_v1_0.template_id.size + 
-  smallx_headers_sbe_v1_0.schema_id.size + 
-  smallx_headers_sbe_v1_0.version.size;
+-- Calculate size of: Message Header
+smallx_headers_sbe_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + smallx_headers_sbe_v1_0.block_length.size
+
+  index = index + smallx_headers_sbe_v1_0.template_id.size
+
+  index = index + smallx_headers_sbe_v1_0.schema_id.size
+
+  index = index + smallx_headers_sbe_v1_0.version.size
+
+  return index
+end
 
 -- Display: Message Header
 smallx_headers_sbe_v1_0.message_header.display = function(packet, parent, length)
@@ -259,7 +267,7 @@ end
 -- Frame Length
 smallx_headers_sbe_v1_0.frame_length = {}
 
--- Size Of: Frame Length
+-- Size: Frame Length
 smallx_headers_sbe_v1_0.frame_length.size = 1
 
 -- Display: Frame Length
@@ -330,7 +338,7 @@ end
 -- Message Count
 smallx_headers_sbe_v1_0.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 smallx_headers_sbe_v1_0.message_count.size = 1
 
 -- Display: Message Count
@@ -353,7 +361,7 @@ end
 -- Message Sequence
 smallx_headers_sbe_v1_0.message_sequence = {}
 
--- Size Of: Message Sequence
+-- Size: Message Sequence
 smallx_headers_sbe_v1_0.message_sequence.size = 4
 
 -- Display: Message Sequence
@@ -376,7 +384,7 @@ end
 -- Packet Flags
 smallx_headers_sbe_v1_0.packet_flags = {}
 
--- Size Of: Packet Flags
+-- Size: Packet Flags
 smallx_headers_sbe_v1_0.packet_flags.size = 1
 
 -- Display: Packet Flags
@@ -432,7 +440,7 @@ end
 -- Source
 smallx_headers_sbe_v1_0.source = {}
 
--- Size Of: Source
+-- Size: Source
 smallx_headers_sbe_v1_0.source.size = 1
 
 -- Display: Source
@@ -455,7 +463,7 @@ end
 -- Incarnation
 smallx_headers_sbe_v1_0.incarnation = {}
 
--- Size Of: Incarnation
+-- Size: Incarnation
 smallx_headers_sbe_v1_0.incarnation.size = 2
 
 -- Display: Incarnation
@@ -478,7 +486,7 @@ end
 -- Channel Id
 smallx_headers_sbe_v1_0.channel_id = {}
 
--- Size Of: Channel Id
+-- Size: Channel Id
 smallx_headers_sbe_v1_0.channel_id.size = 1
 
 -- Display: Channel Id
@@ -501,14 +509,24 @@ end
 -- Packet Header
 smallx_headers_sbe_v1_0.packet_header = {}
 
--- Size Of: Packet Header
-smallx_headers_sbe_v1_0.packet_header.size =
-  smallx_headers_sbe_v1_0.channel_id.size + 
-  smallx_headers_sbe_v1_0.incarnation.size + 
-  smallx_headers_sbe_v1_0.source.size + 
-  smallx_headers_sbe_v1_0.packet_flags.size + 
-  smallx_headers_sbe_v1_0.message_sequence.size + 
-  smallx_headers_sbe_v1_0.message_count.size;
+-- Calculate size of: Packet Header
+smallx_headers_sbe_v1_0.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + smallx_headers_sbe_v1_0.channel_id.size
+
+  index = index + smallx_headers_sbe_v1_0.incarnation.size
+
+  index = index + smallx_headers_sbe_v1_0.source.size
+
+  index = index + smallx_headers_sbe_v1_0.packet_flags.size
+
+  index = index + smallx_headers_sbe_v1_0.message_sequence.size
+
+  index = index + smallx_headers_sbe_v1_0.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 smallx_headers_sbe_v1_0.packet_header.display = function(packet, parent, length)

@@ -565,7 +565,7 @@ end
 -- Block Pad Byte
 siac_cts_output_cta_v1_91.block_pad_byte = {}
 
--- Size Of: Block Pad Byte
+-- Size: Block Pad Byte
 siac_cts_output_cta_v1_91.block_pad_byte.size = 1
 
 -- Display: Block Pad Byte
@@ -588,7 +588,7 @@ end
 -- Tick
 siac_cts_output_cta_v1_91.tick = {}
 
--- Size Of: Tick
+-- Size: Tick
 siac_cts_output_cta_v1_91.tick.size = 1
 
 -- Display: Tick
@@ -627,7 +627,7 @@ end
 -- Total Volume
 siac_cts_output_cta_v1_91.total_volume = {}
 
--- Size Of: Total Volume
+-- Size: Total Volume
 siac_cts_output_cta_v1_91.total_volume.size = 8
 
 -- Display: Total Volume
@@ -650,7 +650,7 @@ end
 -- Low Price
 siac_cts_output_cta_v1_91.low_price = {}
 
--- Size Of: Low Price
+-- Size: Low Price
 siac_cts_output_cta_v1_91.low_price.size = 8
 
 -- Display: Low Price
@@ -679,7 +679,7 @@ end
 -- High Price
 siac_cts_output_cta_v1_91.high_price = {}
 
--- Size Of: High Price
+-- Size: High Price
 siac_cts_output_cta_v1_91.high_price.size = 8
 
 -- Display: High Price
@@ -708,7 +708,7 @@ end
 -- Last Price
 siac_cts_output_cta_v1_91.last_price = {}
 
--- Size Of: Last Price
+-- Size: Last Price
 siac_cts_output_cta_v1_91.last_price.size = 8
 
 -- Display: Last Price
@@ -737,7 +737,7 @@ end
 -- Last Participant Id
 siac_cts_output_cta_v1_91.last_participant_id = {}
 
--- Size Of: Last Participant Id
+-- Size: Last Participant Id
 siac_cts_output_cta_v1_91.last_participant_id.size = 1
 
 -- Display: Last Participant Id
@@ -815,7 +815,7 @@ end
 -- Previous Close Price Date
 siac_cts_output_cta_v1_91.previous_close_price_date = {}
 
--- Size Of: Previous Close Price Date
+-- Size: Previous Close Price Date
 siac_cts_output_cta_v1_91.previous_close_price_date.size = 4
 
 -- Display: Previous Close Price Date
@@ -838,15 +838,26 @@ end
 -- Participant Data
 siac_cts_output_cta_v1_91.participant_data = {}
 
--- Size Of: Participant Data
-siac_cts_output_cta_v1_91.participant_data.size =
-  siac_cts_output_cta_v1_91.previous_close_price_date.size + 
-  siac_cts_output_cta_v1_91.last_participant_id.size + 
-  siac_cts_output_cta_v1_91.last_price.size + 
-  siac_cts_output_cta_v1_91.high_price.size + 
-  siac_cts_output_cta_v1_91.low_price.size + 
-  siac_cts_output_cta_v1_91.total_volume.size + 
-  siac_cts_output_cta_v1_91.tick.size;
+-- Calculate size of: Participant Data
+siac_cts_output_cta_v1_91.participant_data.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.previous_close_price_date.size
+
+  index = index + siac_cts_output_cta_v1_91.last_participant_id.size
+
+  index = index + siac_cts_output_cta_v1_91.last_price.size
+
+  index = index + siac_cts_output_cta_v1_91.high_price.size
+
+  index = index + siac_cts_output_cta_v1_91.low_price.size
+
+  index = index + siac_cts_output_cta_v1_91.total_volume.size
+
+  index = index + siac_cts_output_cta_v1_91.tick.size
+
+  return index
+end
 
 -- Display: Participant Data
 siac_cts_output_cta_v1_91.participant_data.display = function(packet, parent, length)
@@ -902,15 +913,26 @@ end
 -- Consolidated Data
 siac_cts_output_cta_v1_91.consolidated_data = {}
 
--- Size Of: Consolidated Data
-siac_cts_output_cta_v1_91.consolidated_data.size =
-  siac_cts_output_cta_v1_91.previous_close_price_date.size + 
-  siac_cts_output_cta_v1_91.last_participant_id.size + 
-  siac_cts_output_cta_v1_91.last_price.size + 
-  siac_cts_output_cta_v1_91.high_price.size + 
-  siac_cts_output_cta_v1_91.low_price.size + 
-  siac_cts_output_cta_v1_91.total_volume.size + 
-  siac_cts_output_cta_v1_91.tick.size;
+-- Calculate size of: Consolidated Data
+siac_cts_output_cta_v1_91.consolidated_data.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.previous_close_price_date.size
+
+  index = index + siac_cts_output_cta_v1_91.last_participant_id.size
+
+  index = index + siac_cts_output_cta_v1_91.last_price.size
+
+  index = index + siac_cts_output_cta_v1_91.high_price.size
+
+  index = index + siac_cts_output_cta_v1_91.low_price.size
+
+  index = index + siac_cts_output_cta_v1_91.total_volume.size
+
+  index = index + siac_cts_output_cta_v1_91.tick.size
+
+  return index
+end
 
 -- Display: Consolidated Data
 siac_cts_output_cta_v1_91.consolidated_data.display = function(packet, parent, length)
@@ -966,7 +988,7 @@ end
 -- Financial Status Indicator
 siac_cts_output_cta_v1_91.financial_status_indicator = {}
 
--- Size Of: Financial Status Indicator
+-- Size: Financial Status Indicator
 siac_cts_output_cta_v1_91.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
@@ -1023,7 +1045,7 @@ end
 -- Primary Listing Market Participant Id
 siac_cts_output_cta_v1_91.primary_listing_market_participant_id = {}
 
--- Size Of: Primary Listing Market Participant Id
+-- Size: Primary Listing Market Participant Id
 siac_cts_output_cta_v1_91.primary_listing_market_participant_id.size = 1
 
 -- Display: Primary Listing Market Participant Id
@@ -1095,7 +1117,7 @@ end
 -- Short Sale Restriction Indicator
 siac_cts_output_cta_v1_91.short_sale_restriction_indicator = {}
 
--- Size Of: Short Sale Restriction Indicator
+-- Size: Short Sale Restriction Indicator
 siac_cts_output_cta_v1_91.short_sale_restriction_indicator.size = 1
 
 -- Display: Short Sale Restriction Indicator
@@ -1134,7 +1156,7 @@ end
 -- Cancel Error Action
 siac_cts_output_cta_v1_91.cancel_error_action = {}
 
--- Size Of: Cancel Error Action
+-- Size: Cancel Error Action
 siac_cts_output_cta_v1_91.cancel_error_action.size = 1
 
 -- Display: Cancel Error Action
@@ -1164,7 +1186,7 @@ end
 -- Nanoseconds
 siac_cts_output_cta_v1_91.nanoseconds = {}
 
--- Size Of: Nanoseconds
+-- Size: Nanoseconds
 siac_cts_output_cta_v1_91.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -1187,7 +1209,7 @@ end
 -- Seconds
 siac_cts_output_cta_v1_91.seconds = {}
 
--- Size Of: Seconds
+-- Size: Seconds
 siac_cts_output_cta_v1_91.seconds.size = 4
 
 -- Display: Seconds
@@ -1210,10 +1232,16 @@ end
 -- Timestamp 2
 siac_cts_output_cta_v1_91.timestamp_2 = {}
 
--- Size Of: Timestamp 2
-siac_cts_output_cta_v1_91.timestamp_2.size =
-  siac_cts_output_cta_v1_91.seconds.size + 
-  siac_cts_output_cta_v1_91.nanoseconds.size;
+-- Calculate size of: Timestamp 2
+siac_cts_output_cta_v1_91.timestamp_2.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.seconds.size
+
+  index = index + siac_cts_output_cta_v1_91.nanoseconds.size
+
+  return index
+end
 
 -- Display: Timestamp 2
 siac_cts_output_cta_v1_91.timestamp_2.display = function(packet, parent, length)
@@ -1254,7 +1282,7 @@ end
 -- Trade Reporting Facility Id
 siac_cts_output_cta_v1_91.trade_reporting_facility_id = {}
 
--- Size Of: Trade Reporting Facility Id
+-- Size: Trade Reporting Facility Id
 siac_cts_output_cta_v1_91.trade_reporting_facility_id.size = 1
 
 -- Display: Trade Reporting Facility Id
@@ -1329,7 +1357,7 @@ end
 -- Trade Through Exempt Indicator
 siac_cts_output_cta_v1_91.trade_through_exempt_indicator = {}
 
--- Size Of: Trade Through Exempt Indicator
+-- Size: Trade Through Exempt Indicator
 siac_cts_output_cta_v1_91.trade_through_exempt_indicator.size = 1
 
 -- Display: Trade Through Exempt Indicator
@@ -1359,7 +1387,7 @@ end
 -- Stop Stock Indicator
 siac_cts_output_cta_v1_91.stop_stock_indicator = {}
 
--- Size Of: Stop Stock Indicator
+-- Size: Stop Stock Indicator
 siac_cts_output_cta_v1_91.stop_stock_indicator.size = 1
 
 -- Display: Stop Stock Indicator
@@ -1389,7 +1417,7 @@ end
 -- Sellers Sale Days
 siac_cts_output_cta_v1_91.sellers_sale_days = {}
 
--- Size Of: Sellers Sale Days
+-- Size: Sellers Sale Days
 siac_cts_output_cta_v1_91.sellers_sale_days.size = 1
 
 -- Display: Sellers Sale Days
@@ -1412,7 +1440,7 @@ end
 -- Trade Volume
 siac_cts_output_cta_v1_91.trade_volume = {}
 
--- Size Of: Trade Volume
+-- Size: Trade Volume
 siac_cts_output_cta_v1_91.trade_volume.size = 4
 
 -- Display: Trade Volume
@@ -1435,7 +1463,7 @@ end
 -- Trade Price
 siac_cts_output_cta_v1_91.trade_price = {}
 
--- Size Of: Trade Price
+-- Size: Trade Price
 siac_cts_output_cta_v1_91.trade_price.size = 8
 
 -- Display: Trade Price
@@ -1464,7 +1492,7 @@ end
 -- Category 4
 siac_cts_output_cta_v1_91.category_4 = {}
 
--- Size Of: Category 4
+-- Size: Category 4
 siac_cts_output_cta_v1_91.category_4.size = 1
 
 -- Display: Category 4
@@ -1521,7 +1549,7 @@ end
 -- Category 3
 siac_cts_output_cta_v1_91.category_3 = {}
 
--- Size Of: Category 3
+-- Size: Category 3
 siac_cts_output_cta_v1_91.category_3.size = 1
 
 -- Display: Category 3
@@ -1560,7 +1588,7 @@ end
 -- Category 2
 siac_cts_output_cta_v1_91.category_2 = {}
 
--- Size Of: Category 2
+-- Size: Category 2
 siac_cts_output_cta_v1_91.category_2.size = 1
 
 -- Display: Category 2
@@ -1611,7 +1639,7 @@ end
 -- Category 1
 siac_cts_output_cta_v1_91.category_1 = {}
 
--- Size Of: Category 1
+-- Size: Category 1
 siac_cts_output_cta_v1_91.category_1.size = 1
 
 -- Display: Category 1
@@ -1634,12 +1662,20 @@ end
 -- Sale Conditions
 siac_cts_output_cta_v1_91.sale_conditions = {}
 
--- Size Of: Sale Conditions
-siac_cts_output_cta_v1_91.sale_conditions.size =
-  siac_cts_output_cta_v1_91.category_1.size + 
-  siac_cts_output_cta_v1_91.category_2.size + 
-  siac_cts_output_cta_v1_91.category_3.size + 
-  siac_cts_output_cta_v1_91.category_4.size;
+-- Calculate size of: Sale Conditions
+siac_cts_output_cta_v1_91.sale_conditions.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.category_1.size
+
+  index = index + siac_cts_output_cta_v1_91.category_2.size
+
+  index = index + siac_cts_output_cta_v1_91.category_3.size
+
+  index = index + siac_cts_output_cta_v1_91.category_4.size
+
+  return index
+end
 
 -- Display: Sale Conditions
 siac_cts_output_cta_v1_91.sale_conditions.display = function(packet, parent, length)
@@ -1686,7 +1722,7 @@ end
 -- Instrument Type
 siac_cts_output_cta_v1_91.instrument_type = {}
 
--- Size Of: Instrument Type
+-- Size: Instrument Type
 siac_cts_output_cta_v1_91.instrument_type.size = 1
 
 -- Display: Instrument Type
@@ -1722,7 +1758,7 @@ end
 -- Security Symbol
 siac_cts_output_cta_v1_91.security_symbol = {}
 
--- Size Of: Security Symbol
+-- Size: Security Symbol
 siac_cts_output_cta_v1_91.security_symbol.size = 11
 
 -- Display: Security Symbol
@@ -1745,7 +1781,7 @@ end
 -- Participant Reference Number
 siac_cts_output_cta_v1_91.participant_reference_number = {}
 
--- Size Of: Participant Reference Number
+-- Size: Participant Reference Number
 siac_cts_output_cta_v1_91.participant_reference_number.size = 8
 
 -- Display: Participant Reference Number
@@ -1768,7 +1804,7 @@ end
 -- Transaction Id
 siac_cts_output_cta_v1_91.transaction_id = {}
 
--- Size Of: Transaction Id
+-- Size: Transaction Id
 siac_cts_output_cta_v1_91.transaction_id.size = 4
 
 -- Display: Transaction Id
@@ -1791,7 +1827,7 @@ end
 -- Message Id
 siac_cts_output_cta_v1_91.message_id = {}
 
--- Size Of: Message Id
+-- Size: Message Id
 siac_cts_output_cta_v1_91.message_id.size = 1
 
 -- Display: Message Id
@@ -1814,10 +1850,16 @@ end
 -- Timestamp 1
 siac_cts_output_cta_v1_91.timestamp_1 = {}
 
--- Size Of: Timestamp 1
-siac_cts_output_cta_v1_91.timestamp_1.size =
-  siac_cts_output_cta_v1_91.seconds.size + 
-  siac_cts_output_cta_v1_91.nanoseconds.size;
+-- Calculate size of: Timestamp 1
+siac_cts_output_cta_v1_91.timestamp_1.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.seconds.size
+
+  index = index + siac_cts_output_cta_v1_91.nanoseconds.size
+
+  return index
+end
 
 -- Display: Timestamp 1
 siac_cts_output_cta_v1_91.timestamp_1.display = function(packet, parent, length)
@@ -1858,7 +1900,7 @@ end
 -- Participant Id
 siac_cts_output_cta_v1_91.participant_id = {}
 
--- Size Of: Participant Id
+-- Size: Participant Id
 siac_cts_output_cta_v1_91.participant_id.size = 1
 
 -- Display: Participant Id
@@ -2044,7 +2086,7 @@ end
 -- Participant Open High Low Last Indicator
 siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator = {}
 
--- Size Of: Participant Open High Low Last Indicator
+-- Size: Participant Open High Low Last Indicator
 siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator.size = 1
 
 -- Display: Participant Open High Low Last Indicator
@@ -2119,7 +2161,7 @@ end
 -- Consolidated High Low Last Indicator
 siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator = {}
 
--- Size Of: Consolidated High Low Last Indicator
+-- Size: Consolidated High Low Last Indicator
 siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator.size = 1
 
 -- Display: Consolidated High Low Last Indicator
@@ -2167,7 +2209,7 @@ end
 -- Trade Volume Short
 siac_cts_output_cta_v1_91.trade_volume_short = {}
 
--- Size Of: Trade Volume Short
+-- Size: Trade Volume Short
 siac_cts_output_cta_v1_91.trade_volume_short.size = 2
 
 -- Display: Trade Volume Short
@@ -2190,7 +2232,7 @@ end
 -- Trade Price Short
 siac_cts_output_cta_v1_91.trade_price_short = {}
 
--- Size Of: Trade Price Short
+-- Size: Trade Price Short
 siac_cts_output_cta_v1_91.trade_price_short.size = 2
 
 -- Display: Trade Price Short
@@ -2219,7 +2261,7 @@ end
 -- Sale Condition Category
 siac_cts_output_cta_v1_91.sale_condition_category = {}
 
--- Size Of: Sale Condition Category
+-- Size: Sale Condition Category
 siac_cts_output_cta_v1_91.sale_condition_category.size = 1
 
 -- Display: Sale Condition Category
@@ -2258,7 +2300,7 @@ end
 -- Sale Condition
 siac_cts_output_cta_v1_91.sale_condition = {}
 
--- Size Of: Sale Condition
+-- Size: Sale Condition
 siac_cts_output_cta_v1_91.sale_condition.size = 1
 
 -- Display: Sale Condition
@@ -2360,7 +2402,7 @@ end
 -- Security Symbol Short
 siac_cts_output_cta_v1_91.security_symbol_short = {}
 
--- Size Of: Security Symbol Short
+-- Size: Security Symbol Short
 siac_cts_output_cta_v1_91.security_symbol_short.size = 5
 
 -- Display: Security Symbol Short
@@ -2464,7 +2506,7 @@ end
 -- Limit Up Limit Down Indicator
 siac_cts_output_cta_v1_91.limit_up_limit_down_indicator = {}
 
--- Size Of: Limit Up Limit Down Indicator
+-- Size: Limit Up Limit Down Indicator
 siac_cts_output_cta_v1_91.limit_up_limit_down_indicator.size = 1
 
 -- Display: Limit Up Limit Down Indicator
@@ -2521,7 +2563,7 @@ end
 -- Halt Reason
 siac_cts_output_cta_v1_91.halt_reason = {}
 
--- Size Of: Halt Reason
+-- Size: Halt Reason
 siac_cts_output_cta_v1_91.halt_reason.size = 1
 
 -- Display: Halt Reason
@@ -2575,7 +2617,7 @@ end
 -- Security Status
 siac_cts_output_cta_v1_91.security_status = {}
 
--- Size Of: Security Status
+-- Size: Security Status
 siac_cts_output_cta_v1_91.security_status.size = 1
 
 -- Display: Security Status
@@ -2647,7 +2689,7 @@ end
 -- Sell Volume
 siac_cts_output_cta_v1_91.sell_volume = {}
 
--- Size Of: Sell Volume
+-- Size: Sell Volume
 siac_cts_output_cta_v1_91.sell_volume.size = 4
 
 -- Display: Sell Volume
@@ -2670,7 +2712,7 @@ end
 -- Buy Volume
 siac_cts_output_cta_v1_91.buy_volume = {}
 
--- Size Of: Buy Volume
+-- Size: Buy Volume
 siac_cts_output_cta_v1_91.buy_volume.size = 4
 
 -- Display: Buy Volume
@@ -2693,7 +2735,7 @@ end
 -- Low Indication Price Lower Limit Price Band
 siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band = {}
 
--- Size Of: Low Indication Price Lower Limit Price Band
+-- Size: Low Indication Price Lower Limit Price Band
 siac_cts_output_cta_v1_91.low_indication_price_lower_limit_price_band.size = 8
 
 -- Display: Low Indication Price Lower Limit Price Band
@@ -2722,7 +2764,7 @@ end
 -- High Indication Price Upper Limit Price Band
 siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band = {}
 
--- Size Of: High Indication Price Upper Limit Price Band
+-- Size: High Indication Price Upper Limit Price Band
 siac_cts_output_cta_v1_91.high_indication_price_upper_limit_price_band.size = 8
 
 -- Display: High Indication Price Upper Limit Price Band
@@ -2847,7 +2889,7 @@ end
 -- Held Trade Indicator
 siac_cts_output_cta_v1_91.held_trade_indicator = {}
 
--- Size Of: Held Trade Indicator
+-- Size: Held Trade Indicator
 siac_cts_output_cta_v1_91.held_trade_indicator.size = 1
 
 -- Display: Held Trade Indicator
@@ -2988,10 +3030,16 @@ end
 -- Prior Day Trade Date And Time
 siac_cts_output_cta_v1_91.prior_day_trade_date_and_time = {}
 
--- Size Of: Prior Day Trade Date And Time
-siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.size =
-  siac_cts_output_cta_v1_91.seconds.size + 
-  siac_cts_output_cta_v1_91.nanoseconds.size;
+-- Calculate size of: Prior Day Trade Date And Time
+siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.seconds.size
+
+  index = index + siac_cts_output_cta_v1_91.nanoseconds.size
+
+  return index
+end
 
 -- Display: Prior Day Trade Date And Time
 siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.display = function(packet, parent, length)
@@ -3032,16 +3080,28 @@ end
 -- Original Trade
 siac_cts_output_cta_v1_91.original_trade = {}
 
--- Size Of: Original Trade
-siac_cts_output_cta_v1_91.original_trade.size =
-  siac_cts_output_cta_v1_91.sale_conditions.size + 
-  siac_cts_output_cta_v1_91.trade_price_long.size + 
-  siac_cts_output_cta_v1_91.trade_volume_long.size + 
-  siac_cts_output_cta_v1_91.sellers_sale_days.size + 
-  siac_cts_output_cta_v1_91.stop_stock_indicator.size + 
-  siac_cts_output_cta_v1_91.trade_through_exempt_indicator.size + 
-  siac_cts_output_cta_v1_91.short_sale_restriction_indicator.size + 
-  siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.size;
+-- Calculate size of: Original Trade
+siac_cts_output_cta_v1_91.original_trade.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.sale_conditions.size(buffer, offset + index)
+
+  index = index + siac_cts_output_cta_v1_91.trade_price_long.size
+
+  index = index + siac_cts_output_cta_v1_91.trade_volume_long.size
+
+  index = index + siac_cts_output_cta_v1_91.sellers_sale_days.size
+
+  index = index + siac_cts_output_cta_v1_91.stop_stock_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.trade_through_exempt_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.short_sale_restriction_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Original Trade
 siac_cts_output_cta_v1_91.original_trade.display = function(packet, parent, length)
@@ -3100,7 +3160,7 @@ end
 -- Original Participant Reference Number
 siac_cts_output_cta_v1_91.original_participant_reference_number = {}
 
--- Size Of: Original Participant Reference Number
+-- Size: Original Participant Reference Number
 siac_cts_output_cta_v1_91.original_participant_reference_number.size = 8
 
 -- Display: Original Participant Reference Number
@@ -3123,16 +3183,28 @@ end
 -- Corrected Trade
 siac_cts_output_cta_v1_91.corrected_trade = {}
 
--- Size Of: Corrected Trade
-siac_cts_output_cta_v1_91.corrected_trade.size =
-  siac_cts_output_cta_v1_91.sale_conditions.size + 
-  siac_cts_output_cta_v1_91.trade_price_long.size + 
-  siac_cts_output_cta_v1_91.trade_volume_long.size + 
-  siac_cts_output_cta_v1_91.sellers_sale_days.size + 
-  siac_cts_output_cta_v1_91.stop_stock_indicator.size + 
-  siac_cts_output_cta_v1_91.trade_through_exempt_indicator.size + 
-  siac_cts_output_cta_v1_91.short_sale_restriction_indicator.size + 
-  siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.size;
+-- Calculate size of: Corrected Trade
+siac_cts_output_cta_v1_91.corrected_trade.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.sale_conditions.size(buffer, offset + index)
+
+  index = index + siac_cts_output_cta_v1_91.trade_price_long.size
+
+  index = index + siac_cts_output_cta_v1_91.trade_volume_long.size
+
+  index = index + siac_cts_output_cta_v1_91.sellers_sale_days.size
+
+  index = index + siac_cts_output_cta_v1_91.stop_stock_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.trade_through_exempt_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.short_sale_restriction_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Corrected Trade
 siac_cts_output_cta_v1_91.corrected_trade.display = function(packet, parent, length)
@@ -3281,7 +3353,7 @@ end
 -- Future Use
 siac_cts_output_cta_v1_91.future_use = {}
 
--- Size Of: Future Use
+-- Size: Future Use
 siac_cts_output_cta_v1_91.future_use.size = 62
 
 -- Display: Future Use
@@ -3304,7 +3376,7 @@ end
 -- Number Of Extensions
 siac_cts_output_cta_v1_91.number_of_extensions = {}
 
--- Size Of: Number Of Extensions
+-- Size: Number Of Extensions
 siac_cts_output_cta_v1_91.number_of_extensions.size = 1
 
 -- Display: Number Of Extensions
@@ -3327,7 +3399,7 @@ end
 -- Auction Collar Lower Threshold Price
 siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price = {}
 
--- Size Of: Auction Collar Lower Threshold Price
+-- Size: Auction Collar Lower Threshold Price
 siac_cts_output_cta_v1_91.auction_collar_lower_threshold_price.size = 8
 
 -- Display: Auction Collar Lower Threshold Price
@@ -3356,7 +3428,7 @@ end
 -- Auction Collar Reference Price
 siac_cts_output_cta_v1_91.auction_collar_reference_price = {}
 
--- Size Of: Auction Collar Reference Price
+-- Size: Auction Collar Reference Price
 siac_cts_output_cta_v1_91.auction_collar_reference_price.size = 8
 
 -- Display: Auction Collar Reference Price
@@ -3560,7 +3632,7 @@ end
 -- Trade Message Type
 siac_cts_output_cta_v1_91.trade_message_type = {}
 
--- Size Of: Trade Message Type
+-- Size: Trade Message Type
 siac_cts_output_cta_v1_91.trade_message_type.size = 1
 
 -- Display: Trade Message Type
@@ -3650,7 +3722,7 @@ end
 -- Open Price
 siac_cts_output_cta_v1_91.open_price = {}
 
--- Size Of: Open Price
+-- Size: Open Price
 siac_cts_output_cta_v1_91.open_price.size = 8
 
 -- Display: Open Price
@@ -3766,7 +3838,7 @@ end
 -- Number Of Participants
 siac_cts_output_cta_v1_91.number_of_participants = {}
 
--- Size Of: Number Of Participants
+-- Size: Number Of Participants
 siac_cts_output_cta_v1_91.number_of_participants.size = 1
 
 -- Display: Number Of Participants
@@ -3882,7 +3954,7 @@ end
 -- Previous Close Price
 siac_cts_output_cta_v1_91.previous_close_price = {}
 
--- Size Of: Previous Close Price
+-- Size: Previous Close Price
 siac_cts_output_cta_v1_91.previous_close_price.size = 8
 
 -- Display: Previous Close Price
@@ -4139,7 +4211,7 @@ end
 -- Summary Message Type
 siac_cts_output_cta_v1_91.summary_message_type = {}
 
--- Size Of: Summary Message Type
+-- Size: Summary Message Type
 siac_cts_output_cta_v1_91.summary_message_type.size = 1
 
 -- Display: Summary Message Type
@@ -4449,7 +4521,7 @@ end
 -- Prior Day Message Type
 siac_cts_output_cta_v1_91.prior_day_message_type = {}
 
--- Size Of: Prior Day Message Type
+-- Size: Prior Day Message Type
 siac_cts_output_cta_v1_91.prior_day_message_type.size = 1
 
 -- Display: Prior Day Message Type
@@ -4530,7 +4602,7 @@ end
 -- Crossing Session 2 Total Trades Volume
 siac_cts_output_cta_v1_91.crossing_session_2_total_trades_volume = {}
 
--- Size Of: Crossing Session 2 Total Trades Volume
+-- Size: Crossing Session 2 Total Trades Volume
 siac_cts_output_cta_v1_91.crossing_session_2_total_trades_volume.size = 8
 
 -- Display: Crossing Session 2 Total Trades Volume
@@ -4553,7 +4625,7 @@ end
 -- Crossing Session 2 Dollar Value
 siac_cts_output_cta_v1_91.crossing_session_2_dollar_value = {}
 
--- Size Of: Crossing Session 2 Dollar Value
+-- Size: Crossing Session 2 Dollar Value
 siac_cts_output_cta_v1_91.crossing_session_2_dollar_value.size = 8
 
 -- Display: Crossing Session 2 Dollar Value
@@ -4576,7 +4648,7 @@ end
 -- Crossing Session 1 Total Trades Volume
 siac_cts_output_cta_v1_91.crossing_session_1_total_trades_volume = {}
 
--- Size Of: Crossing Session 1 Total Trades Volume
+-- Size: Crossing Session 1 Total Trades Volume
 siac_cts_output_cta_v1_91.crossing_session_1_total_trades_volume.size = 8
 
 -- Display: Crossing Session 1 Total Trades Volume
@@ -4665,7 +4737,7 @@ end
 -- Dollar Value
 siac_cts_output_cta_v1_91.dollar_value = {}
 
--- Size Of: Dollar Value
+-- Size: Dollar Value
 siac_cts_output_cta_v1_91.dollar_value.size = 8
 
 -- Display: Dollar Value
@@ -4688,7 +4760,7 @@ end
 -- Total Trades
 siac_cts_output_cta_v1_91.total_trades = {}
 
--- Size Of: Total Trades
+-- Size: Total Trades
 siac_cts_output_cta_v1_91.total_trades.size = 4
 
 -- Display: Total Trades
@@ -4774,7 +4846,7 @@ end
 -- Trade Total Volume
 siac_cts_output_cta_v1_91.trade_total_volume = {}
 
--- Size Of: Trade Total Volume
+-- Size: Trade Total Volume
 siac_cts_output_cta_v1_91.trade_total_volume.size = 8
 
 -- Display: Trade Total Volume
@@ -4797,10 +4869,16 @@ end
 -- Participants
 siac_cts_output_cta_v1_91.participants = {}
 
--- Size Of: Participants
-siac_cts_output_cta_v1_91.participants.size =
-  siac_cts_output_cta_v1_91.participant_id.size + 
-  siac_cts_output_cta_v1_91.trade_total_volume.size;
+-- Calculate size of: Participants
+siac_cts_output_cta_v1_91.participants.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.participant_id.size
+
+  index = index + siac_cts_output_cta_v1_91.trade_total_volume.size
+
+  return index
+end
 
 -- Display: Participants
 siac_cts_output_cta_v1_91.participants.display = function(packet, parent, length)
@@ -4912,7 +4990,7 @@ end
 -- Reserved
 siac_cts_output_cta_v1_91.reserved = {}
 
--- Size Of: Reserved
+-- Size: Reserved
 siac_cts_output_cta_v1_91.reserved.size = 1
 
 -- Display: Reserved
@@ -4998,7 +5076,7 @@ end
 -- Mwcb Level 3
 siac_cts_output_cta_v1_91.mwcb_level_3 = {}
 
--- Size Of: Mwcb Level 3
+-- Size: Mwcb Level 3
 siac_cts_output_cta_v1_91.mwcb_level_3.size = 8
 
 -- Display: Mwcb Level 3
@@ -5021,7 +5099,7 @@ end
 -- Mwcb Level 2
 siac_cts_output_cta_v1_91.mwcb_level_2 = {}
 
--- Size Of: Mwcb Level 2
+-- Size: Mwcb Level 2
 siac_cts_output_cta_v1_91.mwcb_level_2.size = 8
 
 -- Display: Mwcb Level 2
@@ -5193,7 +5271,7 @@ end
 -- Market Status Message Type
 siac_cts_output_cta_v1_91.market_status_message_type = {}
 
--- Size Of: Market Status Message Type
+-- Size: Market Status Message Type
 siac_cts_output_cta_v1_91.market_status_message_type.size = 1
 
 -- Display: Market Status Message Type
@@ -5280,7 +5358,7 @@ end
 -- Offer Index Value
 siac_cts_output_cta_v1_91.offer_index_value = {}
 
--- Size Of: Offer Index Value
+-- Size: Offer Index Value
 siac_cts_output_cta_v1_91.offer_index_value.size = 8
 
 -- Display: Offer Index Value
@@ -5303,7 +5381,7 @@ end
 -- Bid Index Value
 siac_cts_output_cta_v1_91.bid_index_value = {}
 
--- Size Of: Bid Index Value
+-- Size: Bid Index Value
 siac_cts_output_cta_v1_91.bid_index_value.size = 8
 
 -- Display: Bid Index Value
@@ -5326,7 +5404,7 @@ end
 -- Index Symbol
 siac_cts_output_cta_v1_91.index_symbol = {}
 
--- Size Of: Index Symbol
+-- Size: Index Symbol
 siac_cts_output_cta_v1_91.index_symbol.size = 11
 
 -- Display: Index Symbol
@@ -5415,7 +5493,7 @@ end
 -- Index Value
 siac_cts_output_cta_v1_91.index_value = {}
 
--- Size Of: Index Value
+-- Size: Index Value
 siac_cts_output_cta_v1_91.index_value.size = 8
 
 -- Display: Index Value
@@ -5557,7 +5635,7 @@ end
 -- Index Message Type
 siac_cts_output_cta_v1_91.index_message_type = {}
 
--- Size Of: Index Message Type
+-- Size: Index Message Type
 siac_cts_output_cta_v1_91.index_message_type.size = 1
 
 -- Display: Index Message Type
@@ -6130,7 +6208,7 @@ end
 -- Control Message Type
 siac_cts_output_cta_v1_91.control_message_type = {}
 
--- Size Of: Control Message Type
+-- Size: Control Message Type
 siac_cts_output_cta_v1_91.control_message_type.size = 1
 
 -- Display: Control Message Type
@@ -6223,7 +6301,7 @@ end
 -- Text
 siac_cts_output_cta_v1_91.text = {}
 
--- Size Of: Text
+-- Size: Text
 siac_cts_output_cta_v1_91.text.size = 4
 
 -- Display: Text
@@ -6614,7 +6692,7 @@ end
 -- Administrative Message Type
 siac_cts_output_cta_v1_91.administrative_message_type = {}
 
--- Size Of: Administrative Message Type
+-- Size: Administrative Message Type
 siac_cts_output_cta_v1_91.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
@@ -6797,7 +6875,7 @@ end
 -- Message Category
 siac_cts_output_cta_v1_91.message_category = {}
 
--- Size Of: Message Category
+-- Size: Message Category
 siac_cts_output_cta_v1_91.message_category.size = 1
 
 -- Display: Message Category
@@ -6842,7 +6920,7 @@ end
 -- Message Length
 siac_cts_output_cta_v1_91.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 siac_cts_output_cta_v1_91.message_length.size = 2
 
 -- Display: Message Length
@@ -6865,10 +6943,16 @@ end
 -- Message Header
 siac_cts_output_cta_v1_91.message_header = {}
 
--- Size Of: Message Header
-siac_cts_output_cta_v1_91.message_header.size =
-  siac_cts_output_cta_v1_91.message_length.size + 
-  siac_cts_output_cta_v1_91.message_category.size;
+-- Calculate size of: Message Header
+siac_cts_output_cta_v1_91.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.message_length.size
+
+  index = index + siac_cts_output_cta_v1_91.message_category.size
+
+  return index
+end
 
 -- Display: Message Header
 siac_cts_output_cta_v1_91.message_header.display = function(packet, parent, length)
@@ -6960,7 +7044,7 @@ end
 -- Block Checksum
 siac_cts_output_cta_v1_91.block_checksum = {}
 
--- Size Of: Block Checksum
+-- Size: Block Checksum
 siac_cts_output_cta_v1_91.block_checksum.size = 2
 
 -- Display: Block Checksum
@@ -6983,10 +7067,16 @@ end
 -- Sip Block Timestamp
 siac_cts_output_cta_v1_91.sip_block_timestamp = {}
 
--- Size Of: Sip Block Timestamp
-siac_cts_output_cta_v1_91.sip_block_timestamp.size =
-  siac_cts_output_cta_v1_91.seconds.size + 
-  siac_cts_output_cta_v1_91.nanoseconds.size;
+-- Calculate size of: Sip Block Timestamp
+siac_cts_output_cta_v1_91.sip_block_timestamp.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.seconds.size
+
+  index = index + siac_cts_output_cta_v1_91.nanoseconds.size
+
+  return index
+end
 
 -- Display: Sip Block Timestamp
 siac_cts_output_cta_v1_91.sip_block_timestamp.display = function(packet, parent, length)
@@ -7027,7 +7117,7 @@ end
 -- Messages In Block
 siac_cts_output_cta_v1_91.messages_in_block = {}
 
--- Size Of: Messages In Block
+-- Size: Messages In Block
 siac_cts_output_cta_v1_91.messages_in_block.size = 1
 
 -- Display: Messages In Block
@@ -7050,7 +7140,7 @@ end
 -- Block Sequence Number
 siac_cts_output_cta_v1_91.block_sequence_number = {}
 
--- Size Of: Block Sequence Number
+-- Size: Block Sequence Number
 siac_cts_output_cta_v1_91.block_sequence_number.size = 4
 
 -- Display: Block Sequence Number
@@ -7073,7 +7163,7 @@ end
 -- Retransmission Indicator
 siac_cts_output_cta_v1_91.retransmission_indicator = {}
 
--- Size Of: Retransmission Indicator
+-- Size: Retransmission Indicator
 siac_cts_output_cta_v1_91.retransmission_indicator.size = 1
 
 -- Display: Retransmission Indicator
@@ -7103,7 +7193,7 @@ end
 -- Data Feed Indicator
 siac_cts_output_cta_v1_91.data_feed_indicator = {}
 
--- Size Of: Data Feed Indicator
+-- Size: Data Feed Indicator
 siac_cts_output_cta_v1_91.data_feed_indicator.size = 1
 
 -- Display: Data Feed Indicator
@@ -7126,7 +7216,7 @@ end
 -- Block Size
 siac_cts_output_cta_v1_91.block_size = {}
 
--- Size Of: Block Size
+-- Size: Block Size
 siac_cts_output_cta_v1_91.block_size.size = 2
 
 -- Display: Block Size
@@ -7149,7 +7239,7 @@ end
 -- Version
 siac_cts_output_cta_v1_91.version = {}
 
--- Size Of: Version
+-- Size: Version
 siac_cts_output_cta_v1_91.version.size = 1
 
 -- Display: Version
@@ -7172,16 +7262,28 @@ end
 -- Block Header
 siac_cts_output_cta_v1_91.block_header = {}
 
--- Size Of: Block Header
-siac_cts_output_cta_v1_91.block_header.size =
-  siac_cts_output_cta_v1_91.version.size + 
-  siac_cts_output_cta_v1_91.block_size.size + 
-  siac_cts_output_cta_v1_91.data_feed_indicator.size + 
-  siac_cts_output_cta_v1_91.retransmission_indicator.size + 
-  siac_cts_output_cta_v1_91.block_sequence_number.size + 
-  siac_cts_output_cta_v1_91.messages_in_block.size + 
-  siac_cts_output_cta_v1_91.sip_block_timestamp.size + 
-  siac_cts_output_cta_v1_91.block_checksum.size;
+-- Calculate size of: Block Header
+siac_cts_output_cta_v1_91.block_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v1_91.version.size
+
+  index = index + siac_cts_output_cta_v1_91.block_size.size
+
+  index = index + siac_cts_output_cta_v1_91.data_feed_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.retransmission_indicator.size
+
+  index = index + siac_cts_output_cta_v1_91.block_sequence_number.size
+
+  index = index + siac_cts_output_cta_v1_91.messages_in_block.size
+
+  index = index + siac_cts_output_cta_v1_91.sip_block_timestamp.size(buffer, offset + index)
+
+  index = index + siac_cts_output_cta_v1_91.block_checksum.size
+
+  return index
+end
 
 -- Display: Block Header
 siac_cts_output_cta_v1_91.block_header.display = function(packet, parent, length)

@@ -211,7 +211,7 @@ end
 -- Price
 jnx_equities_pts_itch_v1_7.price = {}
 
--- Size Of: Price
+-- Size: Price
 jnx_equities_pts_itch_v1_7.price.size = 4
 
 -- Display: Price
@@ -240,7 +240,7 @@ end
 -- Quantity
 jnx_equities_pts_itch_v1_7.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 jnx_equities_pts_itch_v1_7.quantity.size = 4
 
 -- Display: Quantity
@@ -263,7 +263,7 @@ end
 -- New Order Number
 jnx_equities_pts_itch_v1_7.new_order_number = {}
 
--- Size Of: New Order Number
+-- Size: New Order Number
 jnx_equities_pts_itch_v1_7.new_order_number.size = 8
 
 -- Display: New Order Number
@@ -286,7 +286,7 @@ end
 -- Original Order Number
 jnx_equities_pts_itch_v1_7.original_order_number = {}
 
--- Size Of: Original Order Number
+-- Size: Original Order Number
 jnx_equities_pts_itch_v1_7.original_order_number.size = 8
 
 -- Display: Original Order Number
@@ -309,7 +309,7 @@ end
 -- Timestamp Nanoseconds
 jnx_equities_pts_itch_v1_7.timestamp_nanoseconds = {}
 
--- Size Of: Timestamp Nanoseconds
+-- Size: Timestamp Nanoseconds
 jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size = 4
 
 -- Display: Timestamp Nanoseconds
@@ -332,13 +332,22 @@ end
 -- Order Replaced Message
 jnx_equities_pts_itch_v1_7.order_replaced_message = {}
 
--- Size Of: Order Replaced Message
-jnx_equities_pts_itch_v1_7.order_replaced_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.original_order_number.size + 
-  jnx_equities_pts_itch_v1_7.new_order_number.size + 
-  jnx_equities_pts_itch_v1_7.quantity.size + 
-  jnx_equities_pts_itch_v1_7.price.size;
+-- Calculate size of: Order Replaced Message
+jnx_equities_pts_itch_v1_7.order_replaced_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.original_order_number.size
+
+  index = index + jnx_equities_pts_itch_v1_7.new_order_number.size
+
+  index = index + jnx_equities_pts_itch_v1_7.quantity.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price.size
+
+  return index
+end
 
 -- Display: Order Replaced Message
 jnx_equities_pts_itch_v1_7.order_replaced_message.display = function(packet, parent, length)
@@ -388,7 +397,7 @@ end
 -- Order Number
 jnx_equities_pts_itch_v1_7.order_number = {}
 
--- Size Of: Order Number
+-- Size: Order Number
 jnx_equities_pts_itch_v1_7.order_number.size = 8
 
 -- Display: Order Number
@@ -411,10 +420,16 @@ end
 -- Order Deleted Message
 jnx_equities_pts_itch_v1_7.order_deleted_message = {}
 
--- Size Of: Order Deleted Message
-jnx_equities_pts_itch_v1_7.order_deleted_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.order_number.size;
+-- Calculate size of: Order Deleted Message
+jnx_equities_pts_itch_v1_7.order_deleted_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.order_number.size
+
+  return index
+end
 
 -- Display: Order Deleted Message
 jnx_equities_pts_itch_v1_7.order_deleted_message.display = function(packet, parent, length)
@@ -455,7 +470,7 @@ end
 -- Match Number
 jnx_equities_pts_itch_v1_7.match_number = {}
 
--- Size Of: Match Number
+-- Size: Match Number
 jnx_equities_pts_itch_v1_7.match_number.size = 8
 
 -- Display: Match Number
@@ -478,7 +493,7 @@ end
 -- Executed Quantity
 jnx_equities_pts_itch_v1_7.executed_quantity = {}
 
--- Size Of: Executed Quantity
+-- Size: Executed Quantity
 jnx_equities_pts_itch_v1_7.executed_quantity.size = 4
 
 -- Display: Executed Quantity
@@ -501,12 +516,20 @@ end
 -- Order Executed Message
 jnx_equities_pts_itch_v1_7.order_executed_message = {}
 
--- Size Of: Order Executed Message
-jnx_equities_pts_itch_v1_7.order_executed_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.order_number.size + 
-  jnx_equities_pts_itch_v1_7.executed_quantity.size + 
-  jnx_equities_pts_itch_v1_7.match_number.size;
+-- Calculate size of: Order Executed Message
+jnx_equities_pts_itch_v1_7.order_executed_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.order_number.size
+
+  index = index + jnx_equities_pts_itch_v1_7.executed_quantity.size
+
+  index = index + jnx_equities_pts_itch_v1_7.match_number.size
+
+  return index
+end
 
 -- Display: Order Executed Message
 jnx_equities_pts_itch_v1_7.order_executed_message.display = function(packet, parent, length)
@@ -553,7 +576,7 @@ end
 -- Order Type
 jnx_equities_pts_itch_v1_7.order_type = {}
 
--- Size Of: Order Type
+-- Size: Order Type
 jnx_equities_pts_itch_v1_7.order_type.size = 1
 
 -- Display: Order Type
@@ -580,7 +603,7 @@ end
 -- Attribution
 jnx_equities_pts_itch_v1_7.attribution = {}
 
--- Size Of: Attribution
+-- Size: Attribution
 jnx_equities_pts_itch_v1_7.attribution.size = 4
 
 -- Display: Attribution
@@ -603,7 +626,7 @@ end
 -- Group
 jnx_equities_pts_itch_v1_7.group = {}
 
--- Size Of: Group
+-- Size: Group
 jnx_equities_pts_itch_v1_7.group.size = 4
 
 -- Display: Group
@@ -639,7 +662,7 @@ end
 -- Orderbook Id
 jnx_equities_pts_itch_v1_7.orderbook_id = {}
 
--- Size Of: Orderbook Id
+-- Size: Orderbook Id
 jnx_equities_pts_itch_v1_7.orderbook_id.size = 4
 
 -- Display: Orderbook Id
@@ -662,7 +685,7 @@ end
 -- Buy Sell Indicator
 jnx_equities_pts_itch_v1_7.buy_sell_indicator = {}
 
--- Size Of: Buy Sell Indicator
+-- Size: Buy Sell Indicator
 jnx_equities_pts_itch_v1_7.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
@@ -692,17 +715,30 @@ end
 -- Order Added With Attributes Message
 jnx_equities_pts_itch_v1_7.order_added_with_attributes_message = {}
 
--- Size Of: Order Added With Attributes Message
-jnx_equities_pts_itch_v1_7.order_added_with_attributes_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.order_number.size + 
-  jnx_equities_pts_itch_v1_7.buy_sell_indicator.size + 
-  jnx_equities_pts_itch_v1_7.quantity.size + 
-  jnx_equities_pts_itch_v1_7.orderbook_id.size + 
-  jnx_equities_pts_itch_v1_7.group.size + 
-  jnx_equities_pts_itch_v1_7.price.size + 
-  jnx_equities_pts_itch_v1_7.attribution.size + 
-  jnx_equities_pts_itch_v1_7.order_type.size;
+-- Calculate size of: Order Added With Attributes Message
+jnx_equities_pts_itch_v1_7.order_added_with_attributes_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.order_number.size
+
+  index = index + jnx_equities_pts_itch_v1_7.buy_sell_indicator.size
+
+  index = index + jnx_equities_pts_itch_v1_7.quantity.size
+
+  index = index + jnx_equities_pts_itch_v1_7.orderbook_id.size
+
+  index = index + jnx_equities_pts_itch_v1_7.group.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price.size
+
+  index = index + jnx_equities_pts_itch_v1_7.attribution.size
+
+  index = index + jnx_equities_pts_itch_v1_7.order_type.size
+
+  return index
+end
 
 -- Display: Order Added With Attributes Message
 jnx_equities_pts_itch_v1_7.order_added_with_attributes_message.display = function(packet, parent, length)
@@ -764,15 +800,26 @@ end
 -- Order Added Without Attributes Message
 jnx_equities_pts_itch_v1_7.order_added_without_attributes_message = {}
 
--- Size Of: Order Added Without Attributes Message
-jnx_equities_pts_itch_v1_7.order_added_without_attributes_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.order_number.size + 
-  jnx_equities_pts_itch_v1_7.buy_sell_indicator.size + 
-  jnx_equities_pts_itch_v1_7.quantity.size + 
-  jnx_equities_pts_itch_v1_7.orderbook_id.size + 
-  jnx_equities_pts_itch_v1_7.group.size + 
-  jnx_equities_pts_itch_v1_7.price.size;
+-- Calculate size of: Order Added Without Attributes Message
+jnx_equities_pts_itch_v1_7.order_added_without_attributes_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.order_number.size
+
+  index = index + jnx_equities_pts_itch_v1_7.buy_sell_indicator.size
+
+  index = index + jnx_equities_pts_itch_v1_7.quantity.size
+
+  index = index + jnx_equities_pts_itch_v1_7.orderbook_id.size
+
+  index = index + jnx_equities_pts_itch_v1_7.group.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price.size
+
+  return index
+end
 
 -- Display: Order Added Without Attributes Message
 jnx_equities_pts_itch_v1_7.order_added_without_attributes_message.display = function(packet, parent, length)
@@ -828,7 +875,7 @@ end
 -- Short Selling State
 jnx_equities_pts_itch_v1_7.short_selling_state = {}
 
--- Size Of: Short Selling State
+-- Size: Short Selling State
 jnx_equities_pts_itch_v1_7.short_selling_state.size = 1
 
 -- Display: Short Selling State
@@ -858,12 +905,20 @@ end
 -- Short Selling Price Restriction State Message
 jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message = {}
 
--- Size Of: Short Selling Price Restriction State Message
-jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.orderbook_id.size + 
-  jnx_equities_pts_itch_v1_7.group.size + 
-  jnx_equities_pts_itch_v1_7.short_selling_state.size;
+-- Calculate size of: Short Selling Price Restriction State Message
+jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.orderbook_id.size
+
+  index = index + jnx_equities_pts_itch_v1_7.group.size
+
+  index = index + jnx_equities_pts_itch_v1_7.short_selling_state.size
+
+  return index
+end
 
 -- Display: Short Selling Price Restriction State Message
 jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message.display = function(packet, parent, length)
@@ -910,7 +965,7 @@ end
 -- Trading State
 jnx_equities_pts_itch_v1_7.trading_state = {}
 
--- Size Of: Trading State
+-- Size: Trading State
 jnx_equities_pts_itch_v1_7.trading_state.size = 1
 
 -- Display: Trading State
@@ -940,12 +995,20 @@ end
 -- Trading State Message
 jnx_equities_pts_itch_v1_7.trading_state_message = {}
 
--- Size Of: Trading State Message
-jnx_equities_pts_itch_v1_7.trading_state_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.orderbook_id.size + 
-  jnx_equities_pts_itch_v1_7.group.size + 
-  jnx_equities_pts_itch_v1_7.trading_state.size;
+-- Calculate size of: Trading State Message
+jnx_equities_pts_itch_v1_7.trading_state_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.orderbook_id.size
+
+  index = index + jnx_equities_pts_itch_v1_7.group.size
+
+  index = index + jnx_equities_pts_itch_v1_7.trading_state.size
+
+  return index
+end
 
 -- Display: Trading State Message
 jnx_equities_pts_itch_v1_7.trading_state_message.display = function(packet, parent, length)
@@ -992,7 +1055,7 @@ end
 -- Lower Price Limit
 jnx_equities_pts_itch_v1_7.lower_price_limit = {}
 
--- Size Of: Lower Price Limit
+-- Size: Lower Price Limit
 jnx_equities_pts_itch_v1_7.lower_price_limit.size = 4
 
 -- Display: Lower Price Limit
@@ -1021,7 +1084,7 @@ end
 -- Upper Price Limit
 jnx_equities_pts_itch_v1_7.upper_price_limit = {}
 
--- Size Of: Upper Price Limit
+-- Size: Upper Price Limit
 jnx_equities_pts_itch_v1_7.upper_price_limit.size = 4
 
 -- Display: Upper Price Limit
@@ -1050,7 +1113,7 @@ end
 -- Price Decimals
 jnx_equities_pts_itch_v1_7.price_decimals = {}
 
--- Size Of: Price Decimals
+-- Size: Price Decimals
 jnx_equities_pts_itch_v1_7.price_decimals.size = 4
 
 -- Display: Price Decimals
@@ -1079,7 +1142,7 @@ end
 -- Price Tick Size Table Id
 jnx_equities_pts_itch_v1_7.price_tick_size_table_id = {}
 
--- Size Of: Price Tick Size Table Id
+-- Size: Price Tick Size Table Id
 jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size = 4
 
 -- Display: Price Tick Size Table Id
@@ -1108,7 +1171,7 @@ end
 -- Round Lot Size
 jnx_equities_pts_itch_v1_7.round_lot_size = {}
 
--- Size Of: Round Lot Size
+-- Size: Round Lot Size
 jnx_equities_pts_itch_v1_7.round_lot_size.size = 4
 
 -- Display: Round Lot Size
@@ -1131,7 +1194,7 @@ end
 -- Orderbook Code
 jnx_equities_pts_itch_v1_7.orderbook_code = {}
 
--- Size Of: Orderbook Code
+-- Size: Orderbook Code
 jnx_equities_pts_itch_v1_7.orderbook_code.size = 12
 
 -- Display: Orderbook Code
@@ -1154,17 +1217,30 @@ end
 -- Orderbook Directory Message
 jnx_equities_pts_itch_v1_7.orderbook_directory_message = {}
 
--- Size Of: Orderbook Directory Message
-jnx_equities_pts_itch_v1_7.orderbook_directory_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.orderbook_id.size + 
-  jnx_equities_pts_itch_v1_7.orderbook_code.size + 
-  jnx_equities_pts_itch_v1_7.group.size + 
-  jnx_equities_pts_itch_v1_7.round_lot_size.size + 
-  jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size + 
-  jnx_equities_pts_itch_v1_7.price_decimals.size + 
-  jnx_equities_pts_itch_v1_7.upper_price_limit.size + 
-  jnx_equities_pts_itch_v1_7.lower_price_limit.size;
+-- Calculate size of: Orderbook Directory Message
+jnx_equities_pts_itch_v1_7.orderbook_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.orderbook_id.size
+
+  index = index + jnx_equities_pts_itch_v1_7.orderbook_code.size
+
+  index = index + jnx_equities_pts_itch_v1_7.group.size
+
+  index = index + jnx_equities_pts_itch_v1_7.round_lot_size.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price_decimals.size
+
+  index = index + jnx_equities_pts_itch_v1_7.upper_price_limit.size
+
+  index = index + jnx_equities_pts_itch_v1_7.lower_price_limit.size
+
+  return index
+end
 
 -- Display: Orderbook Directory Message
 jnx_equities_pts_itch_v1_7.orderbook_directory_message.display = function(packet, parent, length)
@@ -1226,7 +1302,7 @@ end
 -- Price Start
 jnx_equities_pts_itch_v1_7.price_start = {}
 
--- Size Of: Price Start
+-- Size: Price Start
 jnx_equities_pts_itch_v1_7.price_start.size = 4
 
 -- Display: Price Start
@@ -1255,7 +1331,7 @@ end
 -- Price Tick Size
 jnx_equities_pts_itch_v1_7.price_tick_size = {}
 
--- Size Of: Price Tick Size
+-- Size: Price Tick Size
 jnx_equities_pts_itch_v1_7.price_tick_size.size = 4
 
 -- Display: Price Tick Size
@@ -1284,12 +1360,20 @@ end
 -- Price Tick Size Message
 jnx_equities_pts_itch_v1_7.price_tick_size_message = {}
 
--- Size Of: Price Tick Size Message
-jnx_equities_pts_itch_v1_7.price_tick_size_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size + 
-  jnx_equities_pts_itch_v1_7.price_tick_size.size + 
-  jnx_equities_pts_itch_v1_7.price_start.size;
+-- Calculate size of: Price Tick Size Message
+jnx_equities_pts_itch_v1_7.price_tick_size_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price_tick_size.size
+
+  index = index + jnx_equities_pts_itch_v1_7.price_start.size
+
+  return index
+end
 
 -- Display: Price Tick Size Message
 jnx_equities_pts_itch_v1_7.price_tick_size_message.display = function(packet, parent, length)
@@ -1336,7 +1420,7 @@ end
 -- System Event
 jnx_equities_pts_itch_v1_7.system_event = {}
 
--- Size Of: System Event
+-- Size: System Event
 jnx_equities_pts_itch_v1_7.system_event.size = 1
 
 -- Display: System Event
@@ -1359,11 +1443,18 @@ end
 -- System Event Message
 jnx_equities_pts_itch_v1_7.system_event_message = {}
 
--- Size Of: System Event Message
-jnx_equities_pts_itch_v1_7.system_event_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size + 
-  jnx_equities_pts_itch_v1_7.group.size + 
-  jnx_equities_pts_itch_v1_7.system_event.size;
+-- Calculate size of: System Event Message
+jnx_equities_pts_itch_v1_7.system_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.size
+
+  index = index + jnx_equities_pts_itch_v1_7.group.size
+
+  index = index + jnx_equities_pts_itch_v1_7.system_event.size
+
+  return index
+end
 
 -- Display: System Event Message
 jnx_equities_pts_itch_v1_7.system_event_message.display = function(packet, parent, length)
@@ -1407,7 +1498,7 @@ end
 -- Timestamp Seconds
 jnx_equities_pts_itch_v1_7.timestamp_seconds = {}
 
--- Size Of: Timestamp Seconds
+-- Size: Timestamp Seconds
 jnx_equities_pts_itch_v1_7.timestamp_seconds.size = 4
 
 -- Display: Timestamp Seconds
@@ -1430,9 +1521,14 @@ end
 -- Timestamp Seconds Message
 jnx_equities_pts_itch_v1_7.timestamp_seconds_message = {}
 
--- Size Of: Timestamp Seconds Message
-jnx_equities_pts_itch_v1_7.timestamp_seconds_message.size =
-  jnx_equities_pts_itch_v1_7.timestamp_seconds.size;
+-- Calculate size of: Timestamp Seconds Message
+jnx_equities_pts_itch_v1_7.timestamp_seconds_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.timestamp_seconds.size
+
+  return index
+end
 
 -- Display: Timestamp Seconds Message
 jnx_equities_pts_itch_v1_7.timestamp_seconds_message.display = function(packet, parent, length)
@@ -1598,7 +1694,7 @@ end
 -- Message Type
 jnx_equities_pts_itch_v1_7.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 jnx_equities_pts_itch_v1_7.message_type.size = 1
 
 -- Display: Message Type
@@ -1655,7 +1751,7 @@ end
 -- Message Length
 jnx_equities_pts_itch_v1_7.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 jnx_equities_pts_itch_v1_7.message_length.size = 2
 
 -- Display: Message Length
@@ -1678,10 +1774,16 @@ end
 -- Message Header
 jnx_equities_pts_itch_v1_7.message_header = {}
 
--- Size Of: Message Header
-jnx_equities_pts_itch_v1_7.message_header.size =
-  jnx_equities_pts_itch_v1_7.message_length.size + 
-  jnx_equities_pts_itch_v1_7.message_type.size;
+-- Calculate size of: Message Header
+jnx_equities_pts_itch_v1_7.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.message_length.size
+
+  index = index + jnx_equities_pts_itch_v1_7.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 jnx_equities_pts_itch_v1_7.message_header.display = function(packet, parent, length)
@@ -1773,7 +1875,7 @@ end
 -- Message Count
 jnx_equities_pts_itch_v1_7.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 jnx_equities_pts_itch_v1_7.message_count.size = 2
 
 -- Display: Message Count
@@ -1796,7 +1898,7 @@ end
 -- Sequence Number
 jnx_equities_pts_itch_v1_7.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 jnx_equities_pts_itch_v1_7.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -1819,7 +1921,7 @@ end
 -- Session
 jnx_equities_pts_itch_v1_7.session = {}
 
--- Size Of: Session
+-- Size: Session
 jnx_equities_pts_itch_v1_7.session.size = 10
 
 -- Display: Session
@@ -1858,11 +1960,18 @@ end
 -- Packet Header
 jnx_equities_pts_itch_v1_7.packet_header = {}
 
--- Size Of: Packet Header
-jnx_equities_pts_itch_v1_7.packet_header.size =
-  jnx_equities_pts_itch_v1_7.session.size + 
-  jnx_equities_pts_itch_v1_7.sequence_number.size + 
-  jnx_equities_pts_itch_v1_7.message_count.size;
+-- Calculate size of: Packet Header
+jnx_equities_pts_itch_v1_7.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + jnx_equities_pts_itch_v1_7.session.size
+
+  index = index + jnx_equities_pts_itch_v1_7.sequence_number.size
+
+  index = index + jnx_equities_pts_itch_v1_7.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 jnx_equities_pts_itch_v1_7.packet_header.display = function(packet, parent, length)

@@ -254,7 +254,7 @@ end
 -- Etx
 currenex_forex_orderservice_cbp_v26_0.etx = {}
 
--- Size Of: Etx
+-- Size: Etx
 currenex_forex_orderservice_cbp_v26_0.etx.size = 1
 
 -- Display: Etx
@@ -277,7 +277,7 @@ end
 -- Reason Code
 currenex_forex_orderservice_cbp_v26_0.reason_code = {}
 
--- Size Of: Reason Code
+-- Size: Reason Code
 currenex_forex_orderservice_cbp_v26_0.reason_code.size = 1
 
 -- Display: Reason Code
@@ -320,7 +320,7 @@ end
 -- New Seq No
 currenex_forex_orderservice_cbp_v26_0.new_seq_no = {}
 
--- Size Of: New Seq No
+-- Size: New Seq No
 currenex_forex_orderservice_cbp_v26_0.new_seq_no.size = 4
 
 -- Display: New Seq No
@@ -343,10 +343,16 @@ end
 -- Gap Fill
 currenex_forex_orderservice_cbp_v26_0.gap_fill = {}
 
--- Size Of: Gap Fill
-currenex_forex_orderservice_cbp_v26_0.gap_fill.size =
-  currenex_forex_orderservice_cbp_v26_0.new_seq_no.size + 
-  currenex_forex_orderservice_cbp_v26_0.reason_code.size;
+-- Calculate size of: Gap Fill
+currenex_forex_orderservice_cbp_v26_0.gap_fill.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.new_seq_no.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.reason_code.size
+
+  return index
+end
 
 -- Display: Gap Fill
 currenex_forex_orderservice_cbp_v26_0.gap_fill.display = function(packet, parent, length)
@@ -387,7 +393,7 @@ end
 -- Begin Seq No
 currenex_forex_orderservice_cbp_v26_0.begin_seq_no = {}
 
--- Size Of: Begin Seq No
+-- Size: Begin Seq No
 currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size = 4
 
 -- Display: Begin Seq No
@@ -410,9 +416,14 @@ end
 -- Resend Request
 currenex_forex_orderservice_cbp_v26_0.resend_request = {}
 
--- Size Of: Resend Request
-currenex_forex_orderservice_cbp_v26_0.resend_request.size =
-  currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size;
+-- Calculate size of: Resend Request
+currenex_forex_orderservice_cbp_v26_0.resend_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size
+
+  return index
+end
 
 -- Display: Resend Request
 currenex_forex_orderservice_cbp_v26_0.resend_request.display = function(packet, parent, length)
@@ -450,7 +461,7 @@ end
 -- Aggressor Flag
 currenex_forex_orderservice_cbp_v26_0.aggressor_flag = {}
 
--- Size Of: Aggressor Flag
+-- Size: Aggressor Flag
 currenex_forex_orderservice_cbp_v26_0.aggressor_flag.size = 1
 
 -- Display: Aggressor Flag
@@ -496,7 +507,7 @@ end
 -- Leaves Amt
 currenex_forex_orderservice_cbp_v26_0.leaves_amt = {}
 
--- Size Of: Leaves Amt
+-- Size: Leaves Amt
 currenex_forex_orderservice_cbp_v26_0.leaves_amt.size = 8
 
 -- Display: Leaves Amt
@@ -519,7 +530,7 @@ end
 -- Transact Time
 currenex_forex_orderservice_cbp_v26_0.transact_time = {}
 
--- Size Of: Transact Time
+-- Size: Transact Time
 currenex_forex_orderservice_cbp_v26_0.transact_time.size = 8
 
 -- Display: Transact Time
@@ -542,7 +553,7 @@ end
 -- Trade Date
 currenex_forex_orderservice_cbp_v26_0.trade_date = {}
 
--- Size Of: Trade Date
+-- Size: Trade Date
 currenex_forex_orderservice_cbp_v26_0.trade_date.size = 8
 
 -- Display: Trade Date
@@ -565,7 +576,7 @@ end
 -- Settle Date
 currenex_forex_orderservice_cbp_v26_0.settle_date = {}
 
--- Size Of: Settle Date
+-- Size: Settle Date
 currenex_forex_orderservice_cbp_v26_0.settle_date.size = 8
 
 -- Display: Settle Date
@@ -588,7 +599,7 @@ end
 -- Exec Type
 currenex_forex_orderservice_cbp_v26_0.exec_type = {}
 
--- Size Of: Exec Type
+-- Size: Exec Type
 currenex_forex_orderservice_cbp_v26_0.exec_type.size = 1
 
 -- Display: Exec Type
@@ -628,14 +639,24 @@ end
 -- Trade Pending
 currenex_forex_orderservice_cbp_v26_0.trade_pending = {}
 
--- Size Of: Trade Pending
-currenex_forex_orderservice_cbp_v26_0.trade_pending.size =
-  currenex_forex_orderservice_cbp_v26_0.exec_type.size + 
-  currenex_forex_orderservice_cbp_v26_0.settle_date.size + 
-  currenex_forex_orderservice_cbp_v26_0.trade_date.size + 
-  currenex_forex_orderservice_cbp_v26_0.transact_time.size + 
-  currenex_forex_orderservice_cbp_v26_0.leaves_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.aggressor_flag.size;
+-- Calculate size of: Trade Pending
+currenex_forex_orderservice_cbp_v26_0.trade_pending.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.exec_type.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.settle_date.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.trade_date.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.transact_time.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.leaves_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.aggressor_flag.size
+
+  return index
+end
 
 -- Display: Trade Pending
 currenex_forex_orderservice_cbp_v26_0.trade_pending.display = function(packet, parent, length)
@@ -688,7 +709,7 @@ end
 -- Trade Link Id
 currenex_forex_orderservice_cbp_v26_0.trade_link_id = {}
 
--- Size Of: Trade Link Id
+-- Size: Trade Link Id
 currenex_forex_orderservice_cbp_v26_0.trade_link_id.size = 4
 
 -- Display: Trade Link Id
@@ -711,7 +732,7 @@ end
 -- Order Id
 currenex_forex_orderservice_cbp_v26_0.order_id = {}
 
--- Size Of: Order Id
+-- Size: Order Id
 currenex_forex_orderservice_cbp_v26_0.order_id.size = 8
 
 -- Display: Order Id
@@ -734,7 +755,7 @@ end
 -- Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.cl_order_id = {}
 
--- Size Of: Cl Order Id
+-- Size: Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.cl_order_id.size = 4
 
 -- Display: Cl Order Id
@@ -757,11 +778,18 @@ end
 -- Pending Fill Cancel
 currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel = {}
 
--- Size Of: Pending Fill Cancel
-currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.size =
-  currenex_forex_orderservice_cbp_v26_0.cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.trade_link_id.size;
+-- Calculate size of: Pending Fill Cancel
+currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.trade_link_id.size
+
+  return index
+end
 
 -- Display: Pending Fill Cancel
 currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.display = function(packet, parent, length)
@@ -805,7 +833,7 @@ end
 -- Exec Broker
 currenex_forex_orderservice_cbp_v26_0.exec_broker = {}
 
--- Size Of: Exec Broker
+-- Size: Exec Broker
 currenex_forex_orderservice_cbp_v26_0.exec_broker.size = 4
 
 -- Display: Exec Broker
@@ -828,7 +856,7 @@ end
 -- Fill Rate
 currenex_forex_orderservice_cbp_v26_0.fill_rate = {}
 
--- Size Of: Fill Rate
+-- Size: Fill Rate
 currenex_forex_orderservice_cbp_v26_0.fill_rate.size = 4
 
 -- Display: Fill Rate
@@ -851,7 +879,7 @@ end
 -- Fill Amt
 currenex_forex_orderservice_cbp_v26_0.fill_amt = {}
 
--- Size Of: Fill Amt
+-- Size: Fill Amt
 currenex_forex_orderservice_cbp_v26_0.fill_amt.size = 8
 
 -- Display: Fill Amt
@@ -874,15 +902,26 @@ end
 -- Pending Fill
 currenex_forex_orderservice_cbp_v26_0.pending_fill = {}
 
--- Size Of: Pending Fill
-currenex_forex_orderservice_cbp_v26_0.pending_fill.size =
-  currenex_forex_orderservice_cbp_v26_0.cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.trade_link_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.fill_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.fill_rate.size + 
-  currenex_forex_orderservice_cbp_v26_0.aggressor_flag.size + 
-  currenex_forex_orderservice_cbp_v26_0.exec_broker.size;
+-- Calculate size of: Pending Fill
+currenex_forex_orderservice_cbp_v26_0.pending_fill.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.trade_link_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.fill_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.fill_rate.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.aggressor_flag.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.exec_broker.size
+
+  return index
+end
 
 -- Display: Pending Fill
 currenex_forex_orderservice_cbp_v26_0.pending_fill.display = function(packet, parent, length)
@@ -938,7 +977,7 @@ end
 -- Execution Id
 currenex_forex_orderservice_cbp_v26_0.execution_id = {}
 
--- Size Of: Execution Id
+-- Size: Execution Id
 currenex_forex_orderservice_cbp_v26_0.execution_id.size = 20
 
 -- Display: Execution Id
@@ -961,7 +1000,7 @@ end
 -- Side
 currenex_forex_orderservice_cbp_v26_0.side = {}
 
--- Size Of: Side
+-- Size: Side
 currenex_forex_orderservice_cbp_v26_0.side.size = 1
 
 -- Display: Side
@@ -1004,7 +1043,7 @@ end
 -- Instrument Index
 currenex_forex_orderservice_cbp_v26_0.instrument_index = {}
 
--- Size Of: Instrument Index
+-- Size: Instrument Index
 currenex_forex_orderservice_cbp_v26_0.instrument_index.size = 2
 
 -- Display: Instrument Index
@@ -1027,22 +1066,40 @@ end
 -- Trade
 currenex_forex_orderservice_cbp_v26_0.trade = {}
 
--- Size Of: Trade
-currenex_forex_orderservice_cbp_v26_0.trade.size =
-  currenex_forex_orderservice_cbp_v26_0.cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.instrument_index.size + 
-  currenex_forex_orderservice_cbp_v26_0.side.size + 
-  currenex_forex_orderservice_cbp_v26_0.fill_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.fill_rate.size + 
-  currenex_forex_orderservice_cbp_v26_0.exec_broker.size + 
-  currenex_forex_orderservice_cbp_v26_0.execution_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.exec_type.size + 
-  currenex_forex_orderservice_cbp_v26_0.settle_date.size + 
-  currenex_forex_orderservice_cbp_v26_0.trade_date.size + 
-  currenex_forex_orderservice_cbp_v26_0.transact_time.size + 
-  currenex_forex_orderservice_cbp_v26_0.leaves_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.aggressor_flag.size;
+-- Calculate size of: Trade
+currenex_forex_orderservice_cbp_v26_0.trade.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.instrument_index.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.side.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.fill_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.fill_rate.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.exec_broker.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.execution_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.exec_type.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.settle_date.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.trade_date.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.transact_time.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.leaves_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.aggressor_flag.size
+
+  return index
+end
 
 -- Display: Trade
 currenex_forex_orderservice_cbp_v26_0.trade.display = function(packet, parent, length)
@@ -1119,7 +1176,7 @@ end
 -- Type
 currenex_forex_orderservice_cbp_v26_0.type = {}
 
--- Size Of: Type
+-- Size: Type
 currenex_forex_orderservice_cbp_v26_0.type.size = 2
 
 -- Display: Type
@@ -1152,7 +1209,7 @@ end
 -- Status
 currenex_forex_orderservice_cbp_v26_0.status = {}
 
--- Size Of: Status
+-- Size: Status
 currenex_forex_orderservice_cbp_v26_0.status.size = 1
 
 -- Display: Status
@@ -1204,12 +1261,20 @@ end
 -- Order Canceled Or Expired
 currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired = {}
 
--- Size Of: Order Canceled Or Expired
-currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired.size =
-  currenex_forex_orderservice_cbp_v26_0.cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.status.size + 
-  currenex_forex_orderservice_cbp_v26_0.type.size;
+-- Calculate size of: Order Canceled Or Expired
+currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.status.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.type.size
+
+  return index
+end
 
 -- Display: Order Canceled Or Expired
 currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired.display = function(packet, parent, length)
@@ -1256,7 +1321,7 @@ end
 -- Error Code
 currenex_forex_orderservice_cbp_v26_0.error_code = {}
 
--- Size Of: Error Code
+-- Size: Error Code
 currenex_forex_orderservice_cbp_v26_0.error_code.size = 2
 
 -- Display: Error Code
@@ -1279,7 +1344,7 @@ end
 -- Prev Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id = {}
 
--- Size Of: Prev Cl Order Id
+-- Size: Prev Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size = 4
 
 -- Display: Prev Cl Order Id
@@ -1302,7 +1367,7 @@ end
 -- New Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.new_cl_order_id = {}
 
--- Size Of: New Cl Order Id
+-- Size: New Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size = 4
 
 -- Display: New Cl Order Id
@@ -1325,12 +1390,20 @@ end
 -- Order Replace Or Cancel Ack
 currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack = {}
 
--- Size Of: Order Replace Or Cancel Ack
-currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.size =
-  currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.status.size + 
-  currenex_forex_orderservice_cbp_v26_0.error_code.size;
+-- Calculate size of: Order Replace Or Cancel Ack
+currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.status.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.error_code.size
+
+  return index
+end
 
 -- Display: Order Replace Or Cancel Ack
 currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.display = function(packet, parent, length)
@@ -1377,7 +1450,7 @@ end
 -- Price
 currenex_forex_orderservice_cbp_v26_0.price = {}
 
--- Size Of: Price
+-- Size: Price
 currenex_forex_orderservice_cbp_v26_0.price.size = 4
 
 -- Display: Price
@@ -1400,7 +1473,7 @@ end
 -- Order Amt
 currenex_forex_orderservice_cbp_v26_0.order_amt = {}
 
--- Size Of: Order Amt
+-- Size: Order Amt
 currenex_forex_orderservice_cbp_v26_0.order_amt.size = 8
 
 -- Display: Order Amt
@@ -1423,7 +1496,7 @@ end
 -- Orig Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id = {}
 
--- Size Of: Orig Cl Order Id
+-- Size: Orig Cl Order Id
 currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.size = 4
 
 -- Display: Orig Cl Order Id
@@ -1446,13 +1519,22 @@ end
 -- Order Replace Or Cancel Request
 currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_request = {}
 
--- Size Of: Order Replace Or Cancel Request
-currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_request.size =
-  currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.price.size + 
-  currenex_forex_orderservice_cbp_v26_0.instrument_index.size;
+-- Calculate size of: Order Replace Or Cancel Request
+currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.price.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.instrument_index.size
+
+  return index
+end
 
 -- Display: Order Replace Or Cancel Request
 currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_request.display = function(packet, parent, length)
@@ -1502,11 +1584,18 @@ end
 -- Order Cancel Reject
 currenex_forex_orderservice_cbp_v26_0.order_cancel_reject = {}
 
--- Size Of: Order Cancel Reject
-currenex_forex_orderservice_cbp_v26_0.order_cancel_reject.size =
-  currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.error_code.size;
+-- Calculate size of: Order Cancel Reject
+currenex_forex_orderservice_cbp_v26_0.order_cancel_reject.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.error_code.size
+
+  return index
+end
 
 -- Display: Order Cancel Reject
 currenex_forex_orderservice_cbp_v26_0.order_cancel_reject.display = function(packet, parent, length)
@@ -1550,11 +1639,18 @@ end
 -- Order Cancel Request
 currenex_forex_orderservice_cbp_v26_0.order_cancel_request = {}
 
--- Size Of: Order Cancel Request
-currenex_forex_orderservice_cbp_v26_0.order_cancel_request.size =
-  currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.instrument_index.size;
+-- Calculate size of: Order Cancel Request
+currenex_forex_orderservice_cbp_v26_0.order_cancel_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.instrument_index.size
+
+  return index
+end
 
 -- Display: Order Cancel Request
 currenex_forex_orderservice_cbp_v26_0.order_cancel_request.display = function(packet, parent, length)
@@ -1598,12 +1694,20 @@ end
 -- New Order Ack
 currenex_forex_orderservice_cbp_v26_0.new_order_ack = {}
 
--- Size Of: New Order Ack
-currenex_forex_orderservice_cbp_v26_0.new_order_ack.size =
-  currenex_forex_orderservice_cbp_v26_0.cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.status.size + 
-  currenex_forex_orderservice_cbp_v26_0.error_code.size;
+-- Calculate size of: New Order Ack
+currenex_forex_orderservice_cbp_v26_0.new_order_ack.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.status.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.error_code.size
+
+  return index
+end
 
 -- Display: New Order Ack
 currenex_forex_orderservice_cbp_v26_0.new_order_ack.display = function(packet, parent, length)
@@ -1650,7 +1754,7 @@ end
 -- Expire Type
 currenex_forex_orderservice_cbp_v26_0.expire_type = {}
 
--- Size Of: Expire Type
+-- Size: Expire Type
 currenex_forex_orderservice_cbp_v26_0.expire_type.size = 1
 
 -- Display: Expire Type
@@ -1693,7 +1797,7 @@ end
 -- Show Amt
 currenex_forex_orderservice_cbp_v26_0.show_amt = {}
 
--- Size Of: Show Amt
+-- Size: Show Amt
 currenex_forex_orderservice_cbp_v26_0.show_amt.size = 8
 
 -- Display: Show Amt
@@ -1716,7 +1820,7 @@ end
 -- Min Amt
 currenex_forex_orderservice_cbp_v26_0.min_amt = {}
 
--- Size Of: Min Amt
+-- Size: Min Amt
 currenex_forex_orderservice_cbp_v26_0.min_amt.size = 8
 
 -- Display: Min Amt
@@ -1739,7 +1843,7 @@ end
 -- Order Type
 currenex_forex_orderservice_cbp_v26_0.order_type = {}
 
--- Size Of: Order Type
+-- Size: Order Type
 currenex_forex_orderservice_cbp_v26_0.order_type.size = 1
 
 -- Display: Order Type
@@ -1782,17 +1886,30 @@ end
 -- New Order Request
 currenex_forex_orderservice_cbp_v26_0.new_order_request = {}
 
--- Size Of: New Order Request
-currenex_forex_orderservice_cbp_v26_0.new_order_request.size =
-  currenex_forex_orderservice_cbp_v26_0.cl_order_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_type.size + 
-  currenex_forex_orderservice_cbp_v26_0.instrument_index.size + 
-  currenex_forex_orderservice_cbp_v26_0.side.size + 
-  currenex_forex_orderservice_cbp_v26_0.order_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.min_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.price.size + 
-  currenex_forex_orderservice_cbp_v26_0.show_amt.size + 
-  currenex_forex_orderservice_cbp_v26_0.expire_type.size;
+-- Calculate size of: New Order Request
+currenex_forex_orderservice_cbp_v26_0.new_order_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_type.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.instrument_index.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.side.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.order_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.min_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.price.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.show_amt.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.expire_type.size
+
+  return index
+end
 
 -- Display: New Order Request
 currenex_forex_orderservice_cbp_v26_0.new_order_request.display = function(packet, parent, length)
@@ -1854,7 +1971,7 @@ end
 -- Settlement Date
 currenex_forex_orderservice_cbp_v26_0.settlement_date = {}
 
--- Size Of: Settlement Date
+-- Size: Settlement Date
 currenex_forex_orderservice_cbp_v26_0.settlement_date.size = 8
 
 -- Display: Settlement Date
@@ -1877,7 +1994,7 @@ end
 -- Instrument Id
 currenex_forex_orderservice_cbp_v26_0.instrument_id = {}
 
--- Size Of: Instrument Id
+-- Size: Instrument Id
 currenex_forex_orderservice_cbp_v26_0.instrument_id.size = 20
 
 -- Display: Instrument Id
@@ -1900,7 +2017,7 @@ end
 -- Instrument Type
 currenex_forex_orderservice_cbp_v26_0.instrument_type = {}
 
--- Size Of: Instrument Type
+-- Size: Instrument Type
 currenex_forex_orderservice_cbp_v26_0.instrument_type.size = 1
 
 -- Display: Instrument Type
@@ -1943,7 +2060,7 @@ end
 -- Session Id
 currenex_forex_orderservice_cbp_v26_0.session_id = {}
 
--- Size Of: Session Id
+-- Size: Session Id
 currenex_forex_orderservice_cbp_v26_0.session_id.size = 4
 
 -- Display: Session Id
@@ -1966,13 +2083,22 @@ end
 -- Instrument Info
 currenex_forex_orderservice_cbp_v26_0.instrument_info = {}
 
--- Size Of: Instrument Info
-currenex_forex_orderservice_cbp_v26_0.instrument_info.size =
-  currenex_forex_orderservice_cbp_v26_0.session_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.instrument_index.size + 
-  currenex_forex_orderservice_cbp_v26_0.instrument_type.size + 
-  currenex_forex_orderservice_cbp_v26_0.instrument_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.settlement_date.size;
+-- Calculate size of: Instrument Info
+currenex_forex_orderservice_cbp_v26_0.instrument_info.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.session_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.instrument_index.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.instrument_type.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.instrument_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.settlement_date.size
+
+  return index
+end
 
 -- Display: Instrument Info
 currenex_forex_orderservice_cbp_v26_0.instrument_info.display = function(packet, parent, length)
@@ -2022,9 +2148,14 @@ end
 -- Instrument Info Request
 currenex_forex_orderservice_cbp_v26_0.instrument_info_request = {}
 
--- Size Of: Instrument Info Request
-currenex_forex_orderservice_cbp_v26_0.instrument_info_request.size =
-  currenex_forex_orderservice_cbp_v26_0.session_id.size;
+-- Calculate size of: Instrument Info Request
+currenex_forex_orderservice_cbp_v26_0.instrument_info_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.session_id.size
+
+  return index
+end
 
 -- Display: Instrument Info Request
 currenex_forex_orderservice_cbp_v26_0.instrument_info_request.display = function(packet, parent, length)
@@ -2062,9 +2193,14 @@ end
 -- Heartbeat
 currenex_forex_orderservice_cbp_v26_0.heartbeat = {}
 
--- Size Of: Heartbeat
-currenex_forex_orderservice_cbp_v26_0.heartbeat.size =
-  currenex_forex_orderservice_cbp_v26_0.session_id.size;
+-- Calculate size of: Heartbeat
+currenex_forex_orderservice_cbp_v26_0.heartbeat.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.session_id.size
+
+  return index
+end
 
 -- Display: Heartbeat
 currenex_forex_orderservice_cbp_v26_0.heartbeat.display = function(packet, parent, length)
@@ -2102,7 +2238,7 @@ end
 -- Reason
 currenex_forex_orderservice_cbp_v26_0.reason = {}
 
--- Size Of: Reason
+-- Size: Reason
 currenex_forex_orderservice_cbp_v26_0.reason.size = 3
 
 -- Display: Reason
@@ -2125,7 +2261,7 @@ end
 -- User Id
 currenex_forex_orderservice_cbp_v26_0.user_id = {}
 
--- Size Of: User Id
+-- Size: User Id
 currenex_forex_orderservice_cbp_v26_0.user_id.size = 20
 
 -- Display: User Id
@@ -2148,11 +2284,18 @@ end
 -- Logout
 currenex_forex_orderservice_cbp_v26_0.logout = {}
 
--- Size Of: Logout
-currenex_forex_orderservice_cbp_v26_0.logout.size =
-  currenex_forex_orderservice_cbp_v26_0.user_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.session_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.reason.size;
+-- Calculate size of: Logout
+currenex_forex_orderservice_cbp_v26_0.logout.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.user_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.session_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.reason.size
+
+  return index
+end
 
 -- Display: Logout
 currenex_forex_orderservice_cbp_v26_0.logout.display = function(packet, parent, length)
@@ -2196,7 +2339,7 @@ end
 -- Password
 currenex_forex_orderservice_cbp_v26_0.password = {}
 
--- Size Of: Password
+-- Size: Password
 currenex_forex_orderservice_cbp_v26_0.password.size = 20
 
 -- Display: Password
@@ -2219,11 +2362,18 @@ end
 -- Logon
 currenex_forex_orderservice_cbp_v26_0.logon = {}
 
--- Size Of: Logon
-currenex_forex_orderservice_cbp_v26_0.logon.size =
-  currenex_forex_orderservice_cbp_v26_0.user_id.size + 
-  currenex_forex_orderservice_cbp_v26_0.password.size + 
-  currenex_forex_orderservice_cbp_v26_0.session_id.size;
+-- Calculate size of: Logon
+currenex_forex_orderservice_cbp_v26_0.logon.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.user_id.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.password.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.session_id.size
+
+  return index
+end
 
 -- Display: Logon
 currenex_forex_orderservice_cbp_v26_0.logon.display = function(packet, parent, length)
@@ -2451,7 +2601,7 @@ end
 -- Message Type
 currenex_forex_orderservice_cbp_v26_0.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 currenex_forex_orderservice_cbp_v26_0.message_type.size = 1
 
 -- Display: Message Type
@@ -2529,7 +2679,7 @@ end
 -- Sequence Number
 currenex_forex_orderservice_cbp_v26_0.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 currenex_forex_orderservice_cbp_v26_0.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -2552,11 +2702,18 @@ end
 -- Message Header
 currenex_forex_orderservice_cbp_v26_0.message_header = {}
 
--- Size Of: Message Header
-currenex_forex_orderservice_cbp_v26_0.message_header.size =
-  currenex_forex_orderservice_cbp_v26_0.sequence_number.size + 
-  currenex_forex_orderservice_cbp_v26_0.sequence_number.size + 
-  currenex_forex_orderservice_cbp_v26_0.message_type.size;
+-- Calculate size of: Message Header
+currenex_forex_orderservice_cbp_v26_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.sequence_number.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.sequence_number.size
+
+  index = index + currenex_forex_orderservice_cbp_v26_0.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 currenex_forex_orderservice_cbp_v26_0.message_header.display = function(packet, parent, length)
@@ -2600,7 +2757,7 @@ end
 -- Soh
 currenex_forex_orderservice_cbp_v26_0.soh = {}
 
--- Size Of: Soh
+-- Size: Soh
 currenex_forex_orderservice_cbp_v26_0.soh.size = 1
 
 -- Display: Soh

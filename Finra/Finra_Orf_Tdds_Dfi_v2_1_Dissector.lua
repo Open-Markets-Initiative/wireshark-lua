@@ -365,7 +365,7 @@ end
 -- Fractional Second
 finra_orf_tdds_dfi_v2_1.fractional_second = {}
 
--- Size Of: Fractional Second
+-- Size: Fractional Second
 finra_orf_tdds_dfi_v2_1.fractional_second.size = 9
 
 -- Display: Fractional Second
@@ -393,7 +393,7 @@ end
 -- Second
 finra_orf_tdds_dfi_v2_1.second = {}
 
--- Size Of: Second
+-- Size: Second
 finra_orf_tdds_dfi_v2_1.second.size = 2
 
 -- Display: Second
@@ -421,7 +421,7 @@ end
 -- Minute
 finra_orf_tdds_dfi_v2_1.minute = {}
 
--- Size Of: Minute
+-- Size: Minute
 finra_orf_tdds_dfi_v2_1.minute.size = 2
 
 -- Display: Minute
@@ -449,7 +449,7 @@ end
 -- Hour
 finra_orf_tdds_dfi_v2_1.hour = {}
 
--- Size Of: Hour
+-- Size: Hour
 finra_orf_tdds_dfi_v2_1.hour.size = 2
 
 -- Display: Hour
@@ -477,7 +477,7 @@ end
 -- Day
 finra_orf_tdds_dfi_v2_1.day = {}
 
--- Size Of: Day
+-- Size: Day
 finra_orf_tdds_dfi_v2_1.day.size = 2
 
 -- Display: Day
@@ -505,7 +505,7 @@ end
 -- Month
 finra_orf_tdds_dfi_v2_1.month = {}
 
--- Size Of: Month
+-- Size: Month
 finra_orf_tdds_dfi_v2_1.month.size = 2
 
 -- Display: Month
@@ -533,7 +533,7 @@ end
 -- Year
 finra_orf_tdds_dfi_v2_1.year = {}
 
--- Size Of: Year
+-- Size: Year
 finra_orf_tdds_dfi_v2_1.year.size = 4
 
 -- Display: Year
@@ -561,15 +561,26 @@ end
 -- Datetime
 finra_orf_tdds_dfi_v2_1.datetime = {}
 
--- Size Of: Datetime
-finra_orf_tdds_dfi_v2_1.datetime.size =
-  finra_orf_tdds_dfi_v2_1.year.size + 
-  finra_orf_tdds_dfi_v2_1.month.size + 
-  finra_orf_tdds_dfi_v2_1.day.size + 
-  finra_orf_tdds_dfi_v2_1.hour.size + 
-  finra_orf_tdds_dfi_v2_1.minute.size + 
-  finra_orf_tdds_dfi_v2_1.second.size + 
-  finra_orf_tdds_dfi_v2_1.fractional_second.size;
+-- Calculate size of: Datetime
+finra_orf_tdds_dfi_v2_1.datetime.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.year.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.month.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.day.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.hour.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.minute.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.second.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.fractional_second.size
+
+  return index
+end
 
 -- Display: Datetime
 finra_orf_tdds_dfi_v2_1.datetime.display = function(packet, parent, length)
@@ -625,7 +636,7 @@ end
 -- Market Center Originator Id
 finra_orf_tdds_dfi_v2_1.market_center_originator_id = {}
 
--- Size Of: Market Center Originator Id
+-- Size: Market Center Originator Id
 finra_orf_tdds_dfi_v2_1.market_center_originator_id.size = 2
 
 -- Display: Market Center Originator Id
@@ -655,7 +666,7 @@ end
 -- Trade Identifier
 finra_orf_tdds_dfi_v2_1.trade_identifier = {}
 
--- Size Of: Trade Identifier
+-- Size: Trade Identifier
 finra_orf_tdds_dfi_v2_1.trade_identifier.size = 8
 
 -- Display: Trade Identifier
@@ -678,11 +689,18 @@ end
 -- Message Header
 finra_orf_tdds_dfi_v2_1.message_header = {}
 
--- Size Of: Message Header
-finra_orf_tdds_dfi_v2_1.message_header.size =
-  finra_orf_tdds_dfi_v2_1.trade_identifier.size + 
-  finra_orf_tdds_dfi_v2_1.market_center_originator_id.size + 
-  finra_orf_tdds_dfi_v2_1.datetime.size;
+-- Calculate size of: Message Header
+finra_orf_tdds_dfi_v2_1.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_identifier.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.market_center_originator_id.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.datetime.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Message Header
 finra_orf_tdds_dfi_v2_1.message_header.display = function(packet, parent, length)
@@ -726,9 +744,14 @@ end
 -- End Of Trade Reporting Message
 finra_orf_tdds_dfi_v2_1.end_of_trade_reporting_message = {}
 
--- Size Of: End Of Trade Reporting Message
-finra_orf_tdds_dfi_v2_1.end_of_trade_reporting_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: End Of Trade Reporting Message
+finra_orf_tdds_dfi_v2_1.end_of_trade_reporting_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: End Of Trade Reporting Message
 finra_orf_tdds_dfi_v2_1.end_of_trade_reporting_message.display = function(packet, parent, length)
@@ -766,9 +789,14 @@ end
 -- Sequence Number Reset Message
 finra_orf_tdds_dfi_v2_1.sequence_number_reset_message = {}
 
--- Size Of: Sequence Number Reset Message
-finra_orf_tdds_dfi_v2_1.sequence_number_reset_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: Sequence Number Reset Message
+finra_orf_tdds_dfi_v2_1.sequence_number_reset_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Sequence Number Reset Message
 finra_orf_tdds_dfi_v2_1.sequence_number_reset_message.display = function(packet, parent, length)
@@ -806,9 +834,14 @@ end
 -- Line Integrity Message
 finra_orf_tdds_dfi_v2_1.line_integrity_message = {}
 
--- Size Of: Line Integrity Message
-finra_orf_tdds_dfi_v2_1.line_integrity_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: Line Integrity Message
+finra_orf_tdds_dfi_v2_1.line_integrity_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Line Integrity Message
 finra_orf_tdds_dfi_v2_1.line_integrity_message.display = function(packet, parent, length)
@@ -846,9 +879,14 @@ end
 -- End Of Transmissions Message
 finra_orf_tdds_dfi_v2_1.end_of_transmissions_message = {}
 
--- Size Of: End Of Transmissions Message
-finra_orf_tdds_dfi_v2_1.end_of_transmissions_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: End Of Transmissions Message
+finra_orf_tdds_dfi_v2_1.end_of_transmissions_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: End Of Transmissions Message
 finra_orf_tdds_dfi_v2_1.end_of_transmissions_message.display = function(packet, parent, length)
@@ -886,9 +924,14 @@ end
 -- End Of Retransmission Requests Message
 finra_orf_tdds_dfi_v2_1.end_of_retransmission_requests_message = {}
 
--- Size Of: End Of Retransmission Requests Message
-finra_orf_tdds_dfi_v2_1.end_of_retransmission_requests_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: End Of Retransmission Requests Message
+finra_orf_tdds_dfi_v2_1.end_of_retransmission_requests_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: End Of Retransmission Requests Message
 finra_orf_tdds_dfi_v2_1.end_of_retransmission_requests_message.display = function(packet, parent, length)
@@ -926,9 +969,14 @@ end
 -- Market Session Close Message
 finra_orf_tdds_dfi_v2_1.market_session_close_message = {}
 
--- Size Of: Market Session Close Message
-finra_orf_tdds_dfi_v2_1.market_session_close_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: Market Session Close Message
+finra_orf_tdds_dfi_v2_1.market_session_close_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Market Session Close Message
 finra_orf_tdds_dfi_v2_1.market_session_close_message.display = function(packet, parent, length)
@@ -966,9 +1014,14 @@ end
 -- Market Session Open Message
 finra_orf_tdds_dfi_v2_1.market_session_open_message = {}
 
--- Size Of: Market Session Open Message
-finra_orf_tdds_dfi_v2_1.market_session_open_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: Market Session Open Message
+finra_orf_tdds_dfi_v2_1.market_session_open_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Market Session Open Message
 finra_orf_tdds_dfi_v2_1.market_session_open_message.display = function(packet, parent, length)
@@ -1006,9 +1059,14 @@ end
 -- End Of Day Message
 finra_orf_tdds_dfi_v2_1.end_of_day_message = {}
 
--- Size Of: End Of Day Message
-finra_orf_tdds_dfi_v2_1.end_of_day_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: End Of Day Message
+finra_orf_tdds_dfi_v2_1.end_of_day_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: End Of Day Message
 finra_orf_tdds_dfi_v2_1.end_of_day_message.display = function(packet, parent, length)
@@ -1046,9 +1104,14 @@ end
 -- Start Of Day Message
 finra_orf_tdds_dfi_v2_1.start_of_day_message = {}
 
--- Size Of: Start Of Day Message
-finra_orf_tdds_dfi_v2_1.start_of_day_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size;
+-- Calculate size of: Start Of Day Message
+finra_orf_tdds_dfi_v2_1.start_of_day_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Start Of Day Message
 finra_orf_tdds_dfi_v2_1.start_of_day_message.display = function(packet, parent, length)
@@ -1198,7 +1261,7 @@ end
 -- Control Message Type
 finra_orf_tdds_dfi_v2_1.control_message_type = {}
 
--- Size Of: Control Message Type
+-- Size: Control Message Type
 finra_orf_tdds_dfi_v2_1.control_message_type.size = 1
 
 -- Display: Control Message Type
@@ -1297,7 +1360,7 @@ end
 -- Reason Code
 finra_orf_tdds_dfi_v2_1.reason_code = {}
 
--- Size Of: Reason Code
+-- Size: Reason Code
 finra_orf_tdds_dfi_v2_1.reason_code.size = 6
 
 -- Display: Reason Code
@@ -1320,15 +1383,26 @@ end
 -- Action Datetime
 finra_orf_tdds_dfi_v2_1.action_datetime = {}
 
--- Size Of: Action Datetime
-finra_orf_tdds_dfi_v2_1.action_datetime.size =
-  finra_orf_tdds_dfi_v2_1.year.size + 
-  finra_orf_tdds_dfi_v2_1.month.size + 
-  finra_orf_tdds_dfi_v2_1.day.size + 
-  finra_orf_tdds_dfi_v2_1.hour.size + 
-  finra_orf_tdds_dfi_v2_1.minute.size + 
-  finra_orf_tdds_dfi_v2_1.second.size + 
-  finra_orf_tdds_dfi_v2_1.fractional_second.size;
+-- Calculate size of: Action Datetime
+finra_orf_tdds_dfi_v2_1.action_datetime.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.year.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.month.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.day.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.hour.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.minute.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.second.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.fractional_second.size
+
+  return index
+end
 
 -- Display: Action Datetime
 finra_orf_tdds_dfi_v2_1.action_datetime.display = function(packet, parent, length)
@@ -1384,7 +1458,7 @@ end
 -- Action
 finra_orf_tdds_dfi_v2_1.action = {}
 
--- Size Of: Action
+-- Size: Action
 finra_orf_tdds_dfi_v2_1.action.size = 1
 
 -- Display: Action
@@ -1420,12 +1494,20 @@ end
 -- Market Wide Circuit Breaker Event Message
 finra_orf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message = {}
 
--- Size Of: Market Wide Circuit Breaker Event Message
-finra_orf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.action.size + 
-  finra_orf_tdds_dfi_v2_1.action_datetime.size + 
-  finra_orf_tdds_dfi_v2_1.reason_code.size;
+-- Calculate size of: Market Wide Circuit Breaker Event Message
+finra_orf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.action.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.action_datetime.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.reason_code.size
+
+  return index
+end
 
 -- Display: Market Wide Circuit Breaker Event Message
 finra_orf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message.display = function(packet, parent, length)
@@ -1472,7 +1554,7 @@ end
 -- Security Symbol
 finra_orf_tdds_dfi_v2_1.security_symbol = {}
 
--- Size Of: Security Symbol
+-- Size: Security Symbol
 finra_orf_tdds_dfi_v2_1.security_symbol.size = 14
 
 -- Display: Security Symbol
@@ -1495,13 +1577,22 @@ end
 -- Trading Action Message
 finra_orf_tdds_dfi_v2_1.trading_action_message = {}
 
--- Size Of: Trading Action Message
-finra_orf_tdds_dfi_v2_1.trading_action_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.security_symbol.size + 
-  finra_orf_tdds_dfi_v2_1.action.size + 
-  finra_orf_tdds_dfi_v2_1.action_datetime.size + 
-  finra_orf_tdds_dfi_v2_1.reason_code.size;
+-- Calculate size of: Trading Action Message
+finra_orf_tdds_dfi_v2_1.trading_action_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.security_symbol.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.action.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.action_datetime.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.reason_code.size
+
+  return index
+end
 
 -- Display: Trading Action Message
 finra_orf_tdds_dfi_v2_1.trading_action_message.display = function(packet, parent, length)
@@ -1551,7 +1642,7 @@ end
 -- Total Security Volume
 finra_orf_tdds_dfi_v2_1.total_security_volume = {}
 
--- Size Of: Total Security Volume
+-- Size: Total Security Volume
 finra_orf_tdds_dfi_v2_1.total_security_volume.size = 11
 
 -- Display: Total Security Volume
@@ -1579,7 +1670,7 @@ end
 -- Currency
 finra_orf_tdds_dfi_v2_1.currency = {}
 
--- Size Of: Currency
+-- Size: Currency
 finra_orf_tdds_dfi_v2_1.currency.size = 3
 
 -- Display: Currency
@@ -1602,7 +1693,7 @@ end
 -- Net Change Direction
 finra_orf_tdds_dfi_v2_1.net_change_direction = {}
 
--- Size Of: Net Change Direction
+-- Size: Net Change Direction
 finra_orf_tdds_dfi_v2_1.net_change_direction.size = 1
 
 -- Display: Net Change Direction
@@ -1635,7 +1726,7 @@ end
 -- Net Change Amount
 finra_orf_tdds_dfi_v2_1.net_change_amount = {}
 
--- Size Of: Net Change Amount
+-- Size: Net Change Amount
 finra_orf_tdds_dfi_v2_1.net_change_amount.size = 10
 
 -- Display: Net Change Amount
@@ -1663,7 +1754,7 @@ end
 -- Net Change Denominator
 finra_orf_tdds_dfi_v2_1.net_change_denominator = {}
 
--- Size Of: Net Change Denominator
+-- Size: Net Change Denominator
 finra_orf_tdds_dfi_v2_1.net_change_denominator.size = 1
 
 -- Display: Net Change Denominator
@@ -1686,7 +1777,7 @@ end
 -- Reserved
 finra_orf_tdds_dfi_v2_1.reserved = {}
 
--- Size Of: Reserved
+-- Size: Reserved
 finra_orf_tdds_dfi_v2_1.reserved.size = 1
 
 -- Display: Reserved
@@ -1709,7 +1800,7 @@ end
 -- Closing Price
 finra_orf_tdds_dfi_v2_1.closing_price = {}
 
--- Size Of: Closing Price
+-- Size: Closing Price
 finra_orf_tdds_dfi_v2_1.closing_price.size = 12
 
 -- Display: Closing Price
@@ -1737,7 +1828,7 @@ end
 -- Closing Price Denominator
 finra_orf_tdds_dfi_v2_1.closing_price_denominator = {}
 
--- Size Of: Closing Price Denominator
+-- Size: Closing Price Denominator
 finra_orf_tdds_dfi_v2_1.closing_price_denominator.size = 1
 
 -- Display: Closing Price Denominator
@@ -1760,7 +1851,7 @@ end
 -- Closing Price Market Center
 finra_orf_tdds_dfi_v2_1.closing_price_market_center = {}
 
--- Size Of: Closing Price Market Center
+-- Size: Closing Price Market Center
 finra_orf_tdds_dfi_v2_1.closing_price_market_center.size = 1
 
 -- Display: Closing Price Market Center
@@ -1790,7 +1881,7 @@ end
 -- Daily Low Price
 finra_orf_tdds_dfi_v2_1.daily_low_price = {}
 
--- Size Of: Daily Low Price
+-- Size: Daily Low Price
 finra_orf_tdds_dfi_v2_1.daily_low_price.size = 12
 
 -- Display: Daily Low Price
@@ -1818,7 +1909,7 @@ end
 -- Daily Low Price Denominator
 finra_orf_tdds_dfi_v2_1.daily_low_price_denominator = {}
 
--- Size Of: Daily Low Price Denominator
+-- Size: Daily Low Price Denominator
 finra_orf_tdds_dfi_v2_1.daily_low_price_denominator.size = 1
 
 -- Display: Daily Low Price Denominator
@@ -1841,7 +1932,7 @@ end
 -- Daily High Price
 finra_orf_tdds_dfi_v2_1.daily_high_price = {}
 
--- Size Of: Daily High Price
+-- Size: Daily High Price
 finra_orf_tdds_dfi_v2_1.daily_high_price.size = 12
 
 -- Display: Daily High Price
@@ -1869,7 +1960,7 @@ end
 -- Daily High Price Denominator
 finra_orf_tdds_dfi_v2_1.daily_high_price_denominator = {}
 
--- Size Of: Daily High Price Denominator
+-- Size: Daily High Price Denominator
 finra_orf_tdds_dfi_v2_1.daily_high_price_denominator.size = 1
 
 -- Display: Daily High Price Denominator
@@ -1892,23 +1983,42 @@ end
 -- Closing Trade Summary Report Message
 finra_orf_tdds_dfi_v2_1.closing_trade_summary_report_message = {}
 
--- Size Of: Closing Trade Summary Report Message
-finra_orf_tdds_dfi_v2_1.closing_trade_summary_report_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.security_symbol.size + 
-  finra_orf_tdds_dfi_v2_1.daily_high_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.daily_high_price.size + 
-  finra_orf_tdds_dfi_v2_1.daily_low_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.daily_low_price.size + 
-  finra_orf_tdds_dfi_v2_1.closing_price_market_center.size + 
-  finra_orf_tdds_dfi_v2_1.closing_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.closing_price.size + 
-  finra_orf_tdds_dfi_v2_1.reserved.size + 
-  finra_orf_tdds_dfi_v2_1.net_change_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.net_change_amount.size + 
-  finra_orf_tdds_dfi_v2_1.net_change_direction.size + 
-  finra_orf_tdds_dfi_v2_1.currency.size + 
-  finra_orf_tdds_dfi_v2_1.total_security_volume.size;
+-- Calculate size of: Closing Trade Summary Report Message
+finra_orf_tdds_dfi_v2_1.closing_trade_summary_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.security_symbol.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.daily_high_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.daily_high_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.daily_low_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.daily_low_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.closing_price_market_center.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.closing_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.closing_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.reserved.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.net_change_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.net_change_amount.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.net_change_direction.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.currency.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.total_security_volume.size
+
+  return index
+end
 
 -- Display: Closing Trade Summary Report Message
 finra_orf_tdds_dfi_v2_1.closing_trade_summary_report_message.display = function(packet, parent, length)
@@ -1988,7 +2098,7 @@ end
 -- Text
 finra_orf_tdds_dfi_v2_1.text = {}
 
--- Size Of: Text
+-- Size: Text
 finra_orf_tdds_dfi_v2_1.text.size = 2
 
 -- Display: Text
@@ -2011,10 +2121,16 @@ end
 -- General Administrative Message
 finra_orf_tdds_dfi_v2_1.general_administrative_message = {}
 
--- Size Of: General Administrative Message
-finra_orf_tdds_dfi_v2_1.general_administrative_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.text.size;
+-- Calculate size of: General Administrative Message
+finra_orf_tdds_dfi_v2_1.general_administrative_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.text.size
+
+  return index
+end
 
 -- Display: General Administrative Message
 finra_orf_tdds_dfi_v2_1.general_administrative_message.display = function(packet, parent, length)
@@ -2127,7 +2243,7 @@ end
 -- Administrative Message Type
 finra_orf_tdds_dfi_v2_1.administrative_message_type = {}
 
--- Size Of: Administrative Message Type
+-- Size: Administrative Message Type
 finra_orf_tdds_dfi_v2_1.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
@@ -2211,7 +2327,7 @@ end
 -- Price Change Indicator
 finra_orf_tdds_dfi_v2_1.price_change_indicator = {}
 
--- Size Of: Price Change Indicator
+-- Size: Price Change Indicator
 finra_orf_tdds_dfi_v2_1.price_change_indicator.size = 1
 
 -- Display: Price Change Indicator
@@ -2259,7 +2375,7 @@ end
 -- Last Sale Price Market Center
 finra_orf_tdds_dfi_v2_1.last_sale_price_market_center = {}
 
--- Size Of: Last Sale Price Market Center
+-- Size: Last Sale Price Market Center
 finra_orf_tdds_dfi_v2_1.last_sale_price_market_center.size = 1
 
 -- Display: Last Sale Price Market Center
@@ -2289,7 +2405,7 @@ end
 -- Last Sale Price
 finra_orf_tdds_dfi_v2_1.last_sale_price = {}
 
--- Size Of: Last Sale Price
+-- Size: Last Sale Price
 finra_orf_tdds_dfi_v2_1.last_sale_price.size = 12
 
 -- Display: Last Sale Price
@@ -2317,7 +2433,7 @@ end
 -- Last Sale Price Denominator
 finra_orf_tdds_dfi_v2_1.last_sale_price_denominator = {}
 
--- Size Of: Last Sale Price Denominator
+-- Size: Last Sale Price Denominator
 finra_orf_tdds_dfi_v2_1.last_sale_price_denominator.size = 1
 
 -- Display: Last Sale Price Denominator
@@ -2340,7 +2456,7 @@ end
 -- Low Price
 finra_orf_tdds_dfi_v2_1.low_price = {}
 
--- Size Of: Low Price
+-- Size: Low Price
 finra_orf_tdds_dfi_v2_1.low_price.size = 12
 
 -- Display: Low Price
@@ -2368,7 +2484,7 @@ end
 -- Low Price Denominator
 finra_orf_tdds_dfi_v2_1.low_price_denominator = {}
 
--- Size Of: Low Price Denominator
+-- Size: Low Price Denominator
 finra_orf_tdds_dfi_v2_1.low_price_denominator.size = 1
 
 -- Display: Low Price Denominator
@@ -2391,7 +2507,7 @@ end
 -- High Price
 finra_orf_tdds_dfi_v2_1.high_price = {}
 
--- Size Of: High Price
+-- Size: High Price
 finra_orf_tdds_dfi_v2_1.high_price.size = 12
 
 -- Display: High Price
@@ -2419,7 +2535,7 @@ end
 -- High Price Denominator
 finra_orf_tdds_dfi_v2_1.high_price_denominator = {}
 
--- Size Of: High Price Denominator
+-- Size: High Price Denominator
 finra_orf_tdds_dfi_v2_1.high_price_denominator.size = 1
 
 -- Display: High Price Denominator
@@ -2442,17 +2558,30 @@ end
 -- Trade Summary Information
 finra_orf_tdds_dfi_v2_1.trade_summary_information = {}
 
--- Size Of: Trade Summary Information
-finra_orf_tdds_dfi_v2_1.trade_summary_information.size =
-  finra_orf_tdds_dfi_v2_1.high_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.high_price.size + 
-  finra_orf_tdds_dfi_v2_1.low_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.low_price.size + 
-  finra_orf_tdds_dfi_v2_1.last_sale_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.last_sale_price.size + 
-  finra_orf_tdds_dfi_v2_1.last_sale_price_market_center.size + 
-  finra_orf_tdds_dfi_v2_1.total_security_volume.size + 
-  finra_orf_tdds_dfi_v2_1.price_change_indicator.size;
+-- Calculate size of: Trade Summary Information
+finra_orf_tdds_dfi_v2_1.trade_summary_information.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.high_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.high_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.low_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.low_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.last_sale_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.last_sale_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.last_sale_price_market_center.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.total_security_volume.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.price_change_indicator.size
+
+  return index
+end
 
 -- Display: Trade Summary Information
 finra_orf_tdds_dfi_v2_1.trade_summary_information.display = function(packet, parent, length)
@@ -2514,7 +2643,7 @@ end
 -- Sellers Sale Days
 finra_orf_tdds_dfi_v2_1.sellers_sale_days = {}
 
--- Size Of: Sellers Sale Days
+-- Size: Sellers Sale Days
 finra_orf_tdds_dfi_v2_1.sellers_sale_days.size = 2
 
 -- Display: Sellers Sale Days
@@ -2542,7 +2671,7 @@ end
 -- Sale Condition Level 4
 finra_orf_tdds_dfi_v2_1.sale_condition_level_4 = {}
 
--- Size Of: Sale Condition Level 4
+-- Size: Sale Condition Level 4
 finra_orf_tdds_dfi_v2_1.sale_condition_level_4.size = 1
 
 -- Display: Sale Condition Level 4
@@ -2578,7 +2707,7 @@ end
 -- Sale Condition Level 3
 finra_orf_tdds_dfi_v2_1.sale_condition_level_3 = {}
 
--- Size Of: Sale Condition Level 3
+-- Size: Sale Condition Level 3
 finra_orf_tdds_dfi_v2_1.sale_condition_level_3.size = 1
 
 -- Display: Sale Condition Level 3
@@ -2614,7 +2743,7 @@ end
 -- Sale Condition Level 2
 finra_orf_tdds_dfi_v2_1.sale_condition_level_2 = {}
 
--- Size Of: Sale Condition Level 2
+-- Size: Sale Condition Level 2
 finra_orf_tdds_dfi_v2_1.sale_condition_level_2.size = 1
 
 -- Display: Sale Condition Level 2
@@ -2637,7 +2766,7 @@ end
 -- Sale Condition Level 1
 finra_orf_tdds_dfi_v2_1.sale_condition_level_1 = {}
 
--- Size Of: Sale Condition Level 1
+-- Size: Sale Condition Level 1
 finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size = 1
 
 -- Display: Sale Condition Level 1
@@ -2673,15 +2802,26 @@ end
 -- Execution Datetime
 finra_orf_tdds_dfi_v2_1.execution_datetime = {}
 
--- Size Of: Execution Datetime
-finra_orf_tdds_dfi_v2_1.execution_datetime.size =
-  finra_orf_tdds_dfi_v2_1.year.size + 
-  finra_orf_tdds_dfi_v2_1.month.size + 
-  finra_orf_tdds_dfi_v2_1.day.size + 
-  finra_orf_tdds_dfi_v2_1.hour.size + 
-  finra_orf_tdds_dfi_v2_1.minute.size + 
-  finra_orf_tdds_dfi_v2_1.second.size + 
-  finra_orf_tdds_dfi_v2_1.fractional_second.size;
+-- Calculate size of: Execution Datetime
+finra_orf_tdds_dfi_v2_1.execution_datetime.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.year.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.month.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.day.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.hour.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.minute.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.second.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.fractional_second.size
+
+  return index
+end
 
 -- Display: Execution Datetime
 finra_orf_tdds_dfi_v2_1.execution_datetime.display = function(packet, parent, length)
@@ -2737,7 +2877,7 @@ end
 -- As Of Indicator
 finra_orf_tdds_dfi_v2_1.as_of_indicator = {}
 
--- Size Of: As Of Indicator
+-- Size: As Of Indicator
 finra_orf_tdds_dfi_v2_1.as_of_indicator.size = 1
 
 -- Display: As Of Indicator
@@ -2770,7 +2910,7 @@ end
 -- Trade Price
 finra_orf_tdds_dfi_v2_1.trade_price = {}
 
--- Size Of: Trade Price
+-- Size: Trade Price
 finra_orf_tdds_dfi_v2_1.trade_price.size = 12
 
 -- Display: Trade Price
@@ -2793,7 +2933,7 @@ end
 -- Trade Price Denominator
 finra_orf_tdds_dfi_v2_1.trade_price_denominator = {}
 
--- Size Of: Trade Price Denominator
+-- Size: Trade Price Denominator
 finra_orf_tdds_dfi_v2_1.trade_price_denominator.size = 1
 
 -- Display: Trade Price Denominator
@@ -2816,7 +2956,7 @@ end
 -- Report Volume
 finra_orf_tdds_dfi_v2_1.report_volume = {}
 
--- Size Of: Report Volume
+-- Size: Report Volume
 finra_orf_tdds_dfi_v2_1.report_volume.size = 8
 
 -- Display: Report Volume
@@ -2844,19 +2984,34 @@ end
 -- Corrected Trade Information
 finra_orf_tdds_dfi_v2_1.corrected_trade_information = {}
 
--- Size Of: Corrected Trade Information
-finra_orf_tdds_dfi_v2_1.corrected_trade_information.size =
-  finra_orf_tdds_dfi_v2_1.report_volume.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price.size + 
-  finra_orf_tdds_dfi_v2_1.currency.size + 
-  finra_orf_tdds_dfi_v2_1.as_of_indicator.size + 
-  finra_orf_tdds_dfi_v2_1.execution_datetime.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_2.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_3.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_4.size + 
-  finra_orf_tdds_dfi_v2_1.sellers_sale_days.size;
+-- Calculate size of: Corrected Trade Information
+finra_orf_tdds_dfi_v2_1.corrected_trade_information.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.report_volume.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.currency.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.as_of_indicator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.execution_datetime.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_2.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_3.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_4.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sellers_sale_days.size
+
+  return index
+end
 
 -- Display: Corrected Trade Information
 finra_orf_tdds_dfi_v2_1.corrected_trade_information.display = function(packet, parent, length)
@@ -2924,19 +3079,34 @@ end
 -- Original Trade Information
 finra_orf_tdds_dfi_v2_1.original_trade_information = {}
 
--- Size Of: Original Trade Information
-finra_orf_tdds_dfi_v2_1.original_trade_information.size =
-  finra_orf_tdds_dfi_v2_1.report_volume.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price.size + 
-  finra_orf_tdds_dfi_v2_1.currency.size + 
-  finra_orf_tdds_dfi_v2_1.as_of_indicator.size + 
-  finra_orf_tdds_dfi_v2_1.execution_datetime.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_2.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_3.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_4.size + 
-  finra_orf_tdds_dfi_v2_1.sellers_sale_days.size;
+-- Calculate size of: Original Trade Information
+finra_orf_tdds_dfi_v2_1.original_trade_information.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.report_volume.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.currency.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.as_of_indicator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.execution_datetime.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_2.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_3.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_4.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sellers_sale_days.size
+
+  return index
+end
 
 -- Display: Original Trade Information
 finra_orf_tdds_dfi_v2_1.original_trade_information.display = function(packet, parent, length)
@@ -3004,7 +3174,7 @@ end
 -- Report Function
 finra_orf_tdds_dfi_v2_1.report_function = {}
 
--- Size Of: Report Function
+-- Size: Report Function
 finra_orf_tdds_dfi_v2_1.report_function.size = 1
 
 -- Display: Report Function
@@ -3037,11 +3207,18 @@ end
 -- Original Dissemination Date
 finra_orf_tdds_dfi_v2_1.original_dissemination_date = {}
 
--- Size Of: Original Dissemination Date
-finra_orf_tdds_dfi_v2_1.original_dissemination_date.size =
-  finra_orf_tdds_dfi_v2_1.year.size + 
-  finra_orf_tdds_dfi_v2_1.month.size + 
-  finra_orf_tdds_dfi_v2_1.day.size;
+-- Calculate size of: Original Dissemination Date
+finra_orf_tdds_dfi_v2_1.original_dissemination_date.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.year.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.month.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.day.size
+
+  return index
+end
 
 -- Display: Original Dissemination Date
 finra_orf_tdds_dfi_v2_1.original_dissemination_date.display = function(packet, parent, length)
@@ -3085,15 +3262,26 @@ end
 -- Trade Correction Message
 finra_orf_tdds_dfi_v2_1.trade_correction_message = {}
 
--- Size Of: Trade Correction Message
-finra_orf_tdds_dfi_v2_1.trade_correction_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.security_symbol.size + 
-  finra_orf_tdds_dfi_v2_1.original_dissemination_date.size + 
-  finra_orf_tdds_dfi_v2_1.report_function.size + 
-  finra_orf_tdds_dfi_v2_1.original_trade_information.size + 
-  finra_orf_tdds_dfi_v2_1.corrected_trade_information.size + 
-  finra_orf_tdds_dfi_v2_1.trade_summary_information.size;
+-- Calculate size of: Trade Correction Message
+finra_orf_tdds_dfi_v2_1.trade_correction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.security_symbol.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.original_dissemination_date.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.report_function.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.original_trade_information.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.corrected_trade_information.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_summary_information.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Trade Correction Message
 finra_orf_tdds_dfi_v2_1.trade_correction_message.display = function(packet, parent, length)
@@ -3149,14 +3337,24 @@ end
 -- Trade Cancel Error Message
 finra_orf_tdds_dfi_v2_1.trade_cancel_error_message = {}
 
--- Size Of: Trade Cancel Error Message
-finra_orf_tdds_dfi_v2_1.trade_cancel_error_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.security_symbol.size + 
-  finra_orf_tdds_dfi_v2_1.original_dissemination_date.size + 
-  finra_orf_tdds_dfi_v2_1.report_function.size + 
-  finra_orf_tdds_dfi_v2_1.original_trade_information.size + 
-  finra_orf_tdds_dfi_v2_1.trade_summary_information.size;
+-- Calculate size of: Trade Cancel Error Message
+finra_orf_tdds_dfi_v2_1.trade_cancel_error_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.security_symbol.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.original_dissemination_date.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.report_function.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.original_trade_information.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_summary_information.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Trade Cancel Error Message
 finra_orf_tdds_dfi_v2_1.trade_cancel_error_message.display = function(packet, parent, length)
@@ -3209,20 +3407,36 @@ end
 -- Trade Information
 finra_orf_tdds_dfi_v2_1.trade_information = {}
 
--- Size Of: Trade Information
-finra_orf_tdds_dfi_v2_1.trade_information.size =
-  finra_orf_tdds_dfi_v2_1.report_volume.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price.size + 
-  finra_orf_tdds_dfi_v2_1.currency.size + 
-  finra_orf_tdds_dfi_v2_1.as_of_indicator.size + 
-  finra_orf_tdds_dfi_v2_1.execution_datetime.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_2.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_3.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_4.size + 
-  finra_orf_tdds_dfi_v2_1.sellers_sale_days.size + 
-  finra_orf_tdds_dfi_v2_1.price_change_indicator.size;
+-- Calculate size of: Trade Information
+finra_orf_tdds_dfi_v2_1.trade_information.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.report_volume.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.currency.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.as_of_indicator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.execution_datetime.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_2.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_3.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_4.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sellers_sale_days.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.price_change_indicator.size
+
+  return index
+end
 
 -- Display: Trade Information
 finra_orf_tdds_dfi_v2_1.trade_information.display = function(packet, parent, length)
@@ -3293,12 +3507,20 @@ end
 -- Trade Report Long Form Message
 finra_orf_tdds_dfi_v2_1.trade_report_long_form_message = {}
 
--- Size Of: Trade Report Long Form Message
-finra_orf_tdds_dfi_v2_1.trade_report_long_form_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.security_symbol.size + 
-  finra_orf_tdds_dfi_v2_1.original_dissemination_date.size + 
-  finra_orf_tdds_dfi_v2_1.trade_information.size;
+-- Calculate size of: Trade Report Long Form Message
+finra_orf_tdds_dfi_v2_1.trade_report_long_form_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.security_symbol.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.original_dissemination_date.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_information.size(buffer, offset + index)
+
+  return index
+end
 
 -- Display: Trade Report Long Form Message
 finra_orf_tdds_dfi_v2_1.trade_report_long_form_message.display = function(packet, parent, length)
@@ -3345,7 +3567,7 @@ end
 -- Report Volume Short
 finra_orf_tdds_dfi_v2_1.report_volume_short = {}
 
--- Size Of: Report Volume Short
+-- Size: Report Volume Short
 finra_orf_tdds_dfi_v2_1.report_volume_short.size = 6
 
 -- Display: Report Volume Short
@@ -3373,7 +3595,7 @@ end
 -- Trade Price Short
 finra_orf_tdds_dfi_v2_1.trade_price_short = {}
 
--- Size Of: Trade Price Short
+-- Size: Trade Price Short
 finra_orf_tdds_dfi_v2_1.trade_price_short.size = 6
 
 -- Display: Trade Price Short
@@ -3401,7 +3623,7 @@ end
 -- Security Symbol Short
 finra_orf_tdds_dfi_v2_1.security_symbol_short = {}
 
--- Size Of: Security Symbol Short
+-- Size: Security Symbol Short
 finra_orf_tdds_dfi_v2_1.security_symbol_short.size = 5
 
 -- Display: Security Symbol Short
@@ -3424,15 +3646,26 @@ end
 -- Trade Report Short Form Message
 finra_orf_tdds_dfi_v2_1.trade_report_short_form_message = {}
 
--- Size Of: Trade Report Short Form Message
-finra_orf_tdds_dfi_v2_1.trade_report_short_form_message.size =
-  finra_orf_tdds_dfi_v2_1.message_header.size + 
-  finra_orf_tdds_dfi_v2_1.security_symbol_short.size + 
-  finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price_denominator.size + 
-  finra_orf_tdds_dfi_v2_1.trade_price_short.size + 
-  finra_orf_tdds_dfi_v2_1.report_volume_short.size + 
-  finra_orf_tdds_dfi_v2_1.price_change_indicator.size;
+-- Calculate size of: Trade Report Short Form Message
+finra_orf_tdds_dfi_v2_1.trade_report_short_form_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_header.size(buffer, offset + index)
+
+  index = index + finra_orf_tdds_dfi_v2_1.security_symbol_short.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sale_condition_level_1.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price_denominator.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.trade_price_short.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.report_volume_short.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.price_change_indicator.size
+
+  return index
+end
 
 -- Display: Trade Report Short Form Message
 finra_orf_tdds_dfi_v2_1.trade_report_short_form_message.display = function(packet, parent, length)
@@ -3560,7 +3793,7 @@ end
 -- Trade Message Type
 finra_orf_tdds_dfi_v2_1.trade_message_type = {}
 
--- Size Of: Trade Message Type
+-- Size: Trade Message Type
 finra_orf_tdds_dfi_v2_1.trade_message_type.size = 1
 
 -- Display: Trade Message Type
@@ -3708,7 +3941,7 @@ end
 -- Message Category
 finra_orf_tdds_dfi_v2_1.message_category = {}
 
--- Size Of: Message Category
+-- Size: Message Category
 finra_orf_tdds_dfi_v2_1.message_category.size = 1
 
 -- Display: Message Category
@@ -3741,7 +3974,7 @@ end
 -- Length
 finra_orf_tdds_dfi_v2_1.length = {}
 
--- Size Of: Length
+-- Size: Length
 finra_orf_tdds_dfi_v2_1.length.size = 2
 
 -- Display: Length
@@ -3764,10 +3997,16 @@ end
 -- Mold Udp64
 finra_orf_tdds_dfi_v2_1.mold_udp64 = {}
 
--- Size Of: Mold Udp64
-finra_orf_tdds_dfi_v2_1.mold_udp64.size =
-  finra_orf_tdds_dfi_v2_1.length.size + 
-  finra_orf_tdds_dfi_v2_1.message_category.size;
+-- Calculate size of: Mold Udp64
+finra_orf_tdds_dfi_v2_1.mold_udp64.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.length.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.message_category.size
+
+  return index
+end
 
 -- Display: Mold Udp64
 finra_orf_tdds_dfi_v2_1.mold_udp64.display = function(packet, parent, length)
@@ -3812,7 +4051,7 @@ finra_orf_tdds_dfi_v2_1.message = {}
 finra_orf_tdds_dfi_v2_1.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + finra_orf_tdds_dfi_v2_1.mold_udp64.size
+  index = index + finra_orf_tdds_dfi_v2_1.mold_udp64.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3865,7 +4104,7 @@ end
 -- Count
 finra_orf_tdds_dfi_v2_1.count = {}
 
--- Size Of: Count
+-- Size: Count
 finra_orf_tdds_dfi_v2_1.count.size = 2
 
 -- Display: Count
@@ -3888,7 +4127,7 @@ end
 -- Sequence
 finra_orf_tdds_dfi_v2_1.sequence = {}
 
--- Size Of: Sequence
+-- Size: Sequence
 finra_orf_tdds_dfi_v2_1.sequence.size = 8
 
 -- Display: Sequence
@@ -3911,7 +4150,7 @@ end
 -- Session
 finra_orf_tdds_dfi_v2_1.session = {}
 
--- Size Of: Session
+-- Size: Session
 finra_orf_tdds_dfi_v2_1.session.size = 10
 
 -- Display: Session
@@ -3934,11 +4173,18 @@ end
 -- Packet Header
 finra_orf_tdds_dfi_v2_1.packet_header = {}
 
--- Size Of: Packet Header
-finra_orf_tdds_dfi_v2_1.packet_header.size =
-  finra_orf_tdds_dfi_v2_1.session.size + 
-  finra_orf_tdds_dfi_v2_1.sequence.size + 
-  finra_orf_tdds_dfi_v2_1.count.size;
+-- Calculate size of: Packet Header
+finra_orf_tdds_dfi_v2_1.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_orf_tdds_dfi_v2_1.session.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.sequence.size
+
+  index = index + finra_orf_tdds_dfi_v2_1.count.size
+
+  return index
+end
 
 -- Display: Packet Header
 finra_orf_tdds_dfi_v2_1.packet_header.display = function(packet, parent, length)

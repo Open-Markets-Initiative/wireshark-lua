@@ -211,7 +211,7 @@ end
 -- Security Id
 memx_equities_memoirtopofbook_sbe_v1_3.security_id = {}
 
--- Size Of: Security Id
+-- Size: Security Id
 memx_equities_memoirtopofbook_sbe_v1_3.security_id.size = 2
 
 -- Display: Security Id
@@ -234,7 +234,7 @@ end
 -- Timestamp
 memx_equities_memoirtopofbook_sbe_v1_3.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size = 8
 
 -- Display: Timestamp
@@ -261,10 +261,16 @@ end
 -- Clear Book Message
 memx_equities_memoirtopofbook_sbe_v1_3.clear_book_message = {}
 
--- Size Of: Clear Book Message
-memx_equities_memoirtopofbook_sbe_v1_3.clear_book_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size;
+-- Calculate size of: Clear Book Message
+memx_equities_memoirtopofbook_sbe_v1_3.clear_book_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  return index
+end
 
 -- Display: Clear Book Message
 memx_equities_memoirtopofbook_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
@@ -305,7 +311,7 @@ end
 -- Offer Price Short
 memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short = {}
 
--- Size Of: Offer Price Short
+-- Size: Offer Price Short
 memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size = 2
 
 -- Display: Offer Price Short
@@ -334,7 +340,7 @@ end
 -- Offer Size uint 16
 memx_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16 = {}
 
--- Size Of: Offer Size uint 16
+-- Size: Offer Size uint 16
 memx_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size = 2
 
 -- Display: Offer Size uint 16
@@ -357,12 +363,20 @@ end
 -- Best Offer Short Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message = {}
 
--- Size Of: Best Offer Short Message
-memx_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size;
+-- Calculate size of: Best Offer Short Message
+memx_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size
+
+  return index
+end
 
 -- Display: Best Offer Short Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.display = function(packet, parent, length)
@@ -409,7 +423,7 @@ end
 -- Bid Price Short
 memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short = {}
 
--- Size Of: Bid Price Short
+-- Size: Bid Price Short
 memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size = 2
 
 -- Display: Bid Price Short
@@ -438,7 +452,7 @@ end
 -- Bid Size Short
 memx_equities_memoirtopofbook_sbe_v1_3.bid_size_short = {}
 
--- Size Of: Bid Size Short
+-- Size: Bid Size Short
 memx_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size = 2
 
 -- Display: Bid Size Short
@@ -461,12 +475,20 @@ end
 -- Best Bid Short Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message = {}
 
--- Size Of: Best Bid Short Message
-memx_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size;
+-- Calculate size of: Best Bid Short Message
+memx_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size
+
+  return index
+end
 
 -- Display: Best Bid Short Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.display = function(packet, parent, length)
@@ -513,7 +535,7 @@ end
 -- Offer Price
 memx_equities_memoirtopofbook_sbe_v1_3.offer_price = {}
 
--- Size Of: Offer Price
+-- Size: Offer Price
 memx_equities_memoirtopofbook_sbe_v1_3.offer_price.size = 8
 
 -- Display: Offer Price
@@ -542,7 +564,7 @@ end
 -- Offer size
 memx_equities_memoirtopofbook_sbe_v1_3.offer_size = {}
 
--- Size Of: Offer size
+-- Size: Offer size
 memx_equities_memoirtopofbook_sbe_v1_3.offer_size.size = 4
 
 -- Display: Offer size
@@ -565,12 +587,20 @@ end
 -- Best Offer Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_offer_message = {}
 
--- Size Of: Best Offer Message
-memx_equities_memoirtopofbook_sbe_v1_3.best_offer_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.offer_size.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.offer_price.size;
+-- Calculate size of: Best Offer Message
+memx_equities_memoirtopofbook_sbe_v1_3.best_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.offer_size.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.offer_price.size
+
+  return index
+end
 
 -- Display: Best Offer Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_offer_message.display = function(packet, parent, length)
@@ -617,7 +647,7 @@ end
 -- Bid Price
 memx_equities_memoirtopofbook_sbe_v1_3.bid_price = {}
 
--- Size Of: Bid Price
+-- Size: Bid Price
 memx_equities_memoirtopofbook_sbe_v1_3.bid_price.size = 8
 
 -- Display: Bid Price
@@ -646,7 +676,7 @@ end
 -- Bid Size
 memx_equities_memoirtopofbook_sbe_v1_3.bid_size = {}
 
--- Size Of: Bid Size
+-- Size: Bid Size
 memx_equities_memoirtopofbook_sbe_v1_3.bid_size.size = 4
 
 -- Display: Bid Size
@@ -669,12 +699,20 @@ end
 -- Best Bid Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_message = {}
 
--- Size Of: Best Bid Message
-memx_equities_memoirtopofbook_sbe_v1_3.best_bid_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.bid_size.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.bid_price.size;
+-- Calculate size of: Best Bid Message
+memx_equities_memoirtopofbook_sbe_v1_3.best_bid_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.bid_size.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.bid_price.size
+
+  return index
+end
 
 -- Display: Best Bid Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_message.display = function(packet, parent, length)
@@ -721,14 +759,24 @@ end
 -- Best Bid Offer Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message = {}
 
--- Size Of: Best Bid Offer Message
-memx_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.bid_size.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.bid_price.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.offer_size.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.offer_price.size;
+-- Calculate size of: Best Bid Offer Message
+memx_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.bid_size.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.bid_price.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.offer_size.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.offer_price.size
+
+  return index
+end
 
 -- Display: Best Bid Offer Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.display = function(packet, parent, length)
@@ -781,7 +829,7 @@ end
 -- Trading Session
 memx_equities_memoirtopofbook_sbe_v1_3.trading_session = {}
 
--- Size Of: Trading Session
+-- Size: Trading Session
 memx_equities_memoirtopofbook_sbe_v1_3.trading_session.size = 1
 
 -- Display: Trading Session
@@ -830,10 +878,16 @@ end
 -- Trading Session Status Message
 memx_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message = {}
 
--- Size Of: Trading Session Status Message
-memx_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.trading_session.size;
+-- Calculate size of: Trading Session Status Message
+memx_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.trading_session.size
+
+  return index
+end
 
 -- Display: Trading Session Status Message
 memx_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.display = function(packet, parent, length)
@@ -874,7 +928,7 @@ end
 -- As Of Sequence Number
 memx_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number = {}
 
--- Size Of: As Of Sequence Number
+-- Size: As Of Sequence Number
 memx_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size = 8
 
 -- Display: As Of Sequence Number
@@ -897,10 +951,16 @@ end
 -- Snapshot Complete Message
 memx_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message = {}
 
--- Size Of: Snapshot Complete Message
-memx_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size;
+-- Calculate size of: Snapshot Complete Message
+memx_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
+
+  return index
+end
 
 -- Display: Snapshot Complete Message
 memx_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
@@ -941,7 +1001,7 @@ end
 -- Security Trading Status Reason
 memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason = {}
 
--- Size Of: Security Trading Status Reason
+-- Size: Security Trading Status Reason
 memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size = 1
 
 -- Display: Security Trading Status Reason
@@ -987,7 +1047,7 @@ end
 -- Security Trading Status
 memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status = {}
 
--- Size Of: Security Trading Status
+-- Size: Security Trading Status
 memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size = 1
 
 -- Display: Security Trading Status
@@ -1036,12 +1096,20 @@ end
 -- Security Trading Status Message
 memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message = {}
 
--- Size Of: Security Trading Status Message
-memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size;
+-- Calculate size of: Security Trading Status Message
+memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size
+
+  return index
+end
 
 -- Display: Security Trading Status Message
 memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.display = function(packet, parent, length)
@@ -1088,7 +1156,7 @@ end
 -- Short Sale Restriction
 memx_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction = {}
 
--- Size Of: Short Sale Restriction
+-- Size: Short Sale Restriction
 memx_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
@@ -1118,11 +1186,18 @@ end
 -- Reg Sho Restriction Message
 memx_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message = {}
 
--- Size Of: Reg Sho Restriction Message
-memx_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size;
+-- Calculate size of: Reg Sho Restriction Message
+memx_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size
+
+  return index
+end
 
 -- Display: Reg Sho Restriction Message
 memx_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.display = function(packet, parent, length)
@@ -1166,7 +1241,7 @@ end
 -- Mpv
 memx_equities_memoirtopofbook_sbe_v1_3.mpv = {}
 
--- Size Of: Mpv
+-- Size: Mpv
 memx_equities_memoirtopofbook_sbe_v1_3.mpv.size = 8
 
 -- Display: Mpv
@@ -1195,7 +1270,7 @@ end
 -- Is Test Symbol
 memx_equities_memoirtopofbook_sbe_v1_3.is_test_symbol = {}
 
--- Size Of: Is Test Symbol
+-- Size: Is Test Symbol
 memx_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
@@ -1225,7 +1300,7 @@ end
 -- Round Lot
 memx_equities_memoirtopofbook_sbe_v1_3.round_lot = {}
 
--- Size Of: Round Lot
+-- Size: Round Lot
 memx_equities_memoirtopofbook_sbe_v1_3.round_lot.size = 4
 
 -- Display: Round Lot
@@ -1248,7 +1323,7 @@ end
 -- Symbol Sfx
 memx_equities_memoirtopofbook_sbe_v1_3.symbol_sfx = {}
 
--- Size Of: Symbol Sfx
+-- Size: Symbol Sfx
 memx_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size = 6
 
 -- Display: Symbol Sfx
@@ -1287,7 +1362,7 @@ end
 -- Symbol
 memx_equities_memoirtopofbook_sbe_v1_3.symbol = {}
 
--- Size Of: Symbol
+-- Size: Symbol
 memx_equities_memoirtopofbook_sbe_v1_3.symbol.size = 6
 
 -- Display: Symbol
@@ -1326,15 +1401,26 @@ end
 -- Instrument Directory Message
 memx_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message = {}
 
--- Size Of: Instrument Directory Message
-memx_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.symbol.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.round_lot.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.mpv.size;
+-- Calculate size of: Instrument Directory Message
+memx_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.timestamp.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.security_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.symbol.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.round_lot.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.mpv.size
+
+  return index
+end
 
 -- Display: Instrument Directory Message
 memx_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.display = function(packet, parent, length)
@@ -1518,7 +1604,7 @@ end
 -- Version
 memx_equities_memoirtopofbook_sbe_v1_3.version = {}
 
--- Size Of: Version
+-- Size: Version
 memx_equities_memoirtopofbook_sbe_v1_3.version.size = 2
 
 -- Display: Version
@@ -1541,7 +1627,7 @@ end
 -- Schema Id
 memx_equities_memoirtopofbook_sbe_v1_3.schema_id = {}
 
--- Size Of: Schema Id
+-- Size: Schema Id
 memx_equities_memoirtopofbook_sbe_v1_3.schema_id.size = 1
 
 -- Display: Schema Id
@@ -1564,7 +1650,7 @@ end
 -- Template Id
 memx_equities_memoirtopofbook_sbe_v1_3.template_id = {}
 
--- Size Of: Template Id
+-- Size: Template Id
 memx_equities_memoirtopofbook_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
@@ -1621,7 +1707,7 @@ end
 -- Block Length
 memx_equities_memoirtopofbook_sbe_v1_3.block_length = {}
 
--- Size Of: Block Length
+-- Size: Block Length
 memx_equities_memoirtopofbook_sbe_v1_3.block_length.size = 2
 
 -- Display: Block Length
@@ -1644,12 +1730,20 @@ end
 -- Sbe Header
 memx_equities_memoirtopofbook_sbe_v1_3.sbe_header = {}
 
--- Size Of: Sbe Header
-memx_equities_memoirtopofbook_sbe_v1_3.sbe_header.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.block_length.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.template_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.schema_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.version.size;
+-- Calculate size of: Sbe Header
+memx_equities_memoirtopofbook_sbe_v1_3.sbe_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.block_length.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.template_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.schema_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.version.size
+
+  return index
+end
 
 -- Display: Sbe Header
 memx_equities_memoirtopofbook_sbe_v1_3.sbe_header.display = function(packet, parent, length)
@@ -1700,7 +1794,7 @@ memx_equities_memoirtopofbook_sbe_v1_3.sbe_message = {}
 memx_equities_memoirtopofbook_sbe_v1_3.sbe_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_equities_memoirtopofbook_sbe_v1_3.sbe_header.size
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.sbe_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1747,7 +1841,7 @@ end
 -- Message Length
 memx_equities_memoirtopofbook_sbe_v1_3.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 memx_equities_memoirtopofbook_sbe_v1_3.message_length.size = 2
 
 -- Display: Message Length
@@ -1815,7 +1909,7 @@ end
 -- Message Count
 memx_equities_memoirtopofbook_sbe_v1_3.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 memx_equities_memoirtopofbook_sbe_v1_3.message_count.size = 2
 
 -- Display: Message Count
@@ -1932,7 +2026,7 @@ end
 -- Sequence Number
 memx_equities_memoirtopofbook_sbe_v1_3.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 memx_equities_memoirtopofbook_sbe_v1_3.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -1955,7 +2049,7 @@ end
 -- Session Id
 memx_equities_memoirtopofbook_sbe_v1_3.session_id = {}
 
--- Size Of: Session Id
+-- Size: Session Id
 memx_equities_memoirtopofbook_sbe_v1_3.session_id.size = 8
 
 -- Display: Session Id
@@ -1978,7 +2072,7 @@ end
 -- Header Length
 memx_equities_memoirtopofbook_sbe_v1_3.header_length = {}
 
--- Size Of: Header Length
+-- Size: Header Length
 memx_equities_memoirtopofbook_sbe_v1_3.header_length.size = 1
 
 -- Display: Header Length
@@ -2001,7 +2095,7 @@ end
 -- Message Type
 memx_equities_memoirtopofbook_sbe_v1_3.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 memx_equities_memoirtopofbook_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
@@ -2034,12 +2128,20 @@ end
 -- Common Header
 memx_equities_memoirtopofbook_sbe_v1_3.common_header = {}
 
--- Size Of: Common Header
-memx_equities_memoirtopofbook_sbe_v1_3.common_header.size =
-  memx_equities_memoirtopofbook_sbe_v1_3.message_type.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.header_length.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.session_id.size + 
-  memx_equities_memoirtopofbook_sbe_v1_3.sequence_number.size;
+-- Calculate size of: Common Header
+memx_equities_memoirtopofbook_sbe_v1_3.common_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.message_type.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.header_length.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.session_id.size
+
+  index = index + memx_equities_memoirtopofbook_sbe_v1_3.sequence_number.size
+
+  return index
+end
 
 -- Display: Common Header
 memx_equities_memoirtopofbook_sbe_v1_3.common_header.display = function(packet, parent, length)

@@ -453,7 +453,7 @@ end
 -- Voi Trade Date
 asx_securities_t24_itch_v1_13.voi_trade_date = {}
 
--- Size Of: Voi Trade Date
+-- Size: Voi Trade Date
 asx_securities_t24_itch_v1_13.voi_trade_date.size = 2
 
 -- Display: Voi Trade Date
@@ -476,7 +476,7 @@ end
 -- Open Interest
 asx_securities_t24_itch_v1_13.open_interest = {}
 
--- Size Of: Open Interest
+-- Size: Open Interest
 asx_securities_t24_itch_v1_13.open_interest.size = 4
 
 -- Display: Open Interest
@@ -499,7 +499,7 @@ end
 -- Cumulative Volume
 asx_securities_t24_itch_v1_13.cumulative_volume = {}
 
--- Size Of: Cumulative Volume
+-- Size: Cumulative Volume
 asx_securities_t24_itch_v1_13.cumulative_volume.size = 4
 
 -- Display: Cumulative Volume
@@ -522,7 +522,7 @@ end
 -- Contract Number
 asx_securities_t24_itch_v1_13.contract_number = {}
 
--- Size Of: Contract Number
+-- Size: Contract Number
 asx_securities_t24_itch_v1_13.contract_number.size = 4
 
 -- Display: Contract Number
@@ -545,7 +545,7 @@ end
 -- Trade Date
 asx_securities_t24_itch_v1_13.trade_date = {}
 
--- Size Of: Trade Date
+-- Size: Trade Date
 asx_securities_t24_itch_v1_13.trade_date.size = 2
 
 -- Display: Trade Date
@@ -568,7 +568,7 @@ end
 -- Timestamp
 asx_securities_t24_itch_v1_13.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 asx_securities_t24_itch_v1_13.timestamp.size = 4
 
 -- Display: Timestamp
@@ -591,14 +591,24 @@ end
 -- Volume And Open Interest
 asx_securities_t24_itch_v1_13.volume_and_open_interest = {}
 
--- Size Of: Volume And Open Interest
-asx_securities_t24_itch_v1_13.volume_and_open_interest.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.cumulative_volume.size + 
-  asx_securities_t24_itch_v1_13.open_interest.size + 
-  asx_securities_t24_itch_v1_13.voi_trade_date.size;
+-- Calculate size of: Volume And Open Interest
+asx_securities_t24_itch_v1_13.volume_and_open_interest.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.cumulative_volume.size
+
+  index = index + asx_securities_t24_itch_v1_13.open_interest.size
+
+  index = index + asx_securities_t24_itch_v1_13.voi_trade_date.size
+
+  return index
+end
 
 -- Display: Volume And Open Interest
 asx_securities_t24_itch_v1_13.volume_and_open_interest.display = function(packet, parent, length)
@@ -651,7 +661,7 @@ end
 -- Etr Lower Price
 asx_securities_t24_itch_v1_13.etr_lower_price = {}
 
--- Size Of: Etr Lower Price
+-- Size: Etr Lower Price
 asx_securities_t24_itch_v1_13.etr_lower_price.size = 4
 
 -- Display: Etr Lower Price
@@ -674,7 +684,7 @@ end
 -- Etr Upper Price
 asx_securities_t24_itch_v1_13.etr_upper_price = {}
 
--- Size Of: Etr Upper Price
+-- Size: Etr Upper Price
 asx_securities_t24_itch_v1_13.etr_upper_price.size = 4
 
 -- Display: Etr Upper Price
@@ -697,7 +707,7 @@ end
 -- Etr Price
 asx_securities_t24_itch_v1_13.etr_price = {}
 
--- Size Of: Etr Price
+-- Size: Etr Price
 asx_securities_t24_itch_v1_13.etr_price.size = 4
 
 -- Display: Etr Price
@@ -720,7 +730,7 @@ end
 -- Aot Lower Price
 asx_securities_t24_itch_v1_13.aot_lower_price = {}
 
--- Size Of: Aot Lower Price
+-- Size: Aot Lower Price
 asx_securities_t24_itch_v1_13.aot_lower_price.size = 4
 
 -- Display: Aot Lower Price
@@ -743,7 +753,7 @@ end
 -- Aot Upper Price
 asx_securities_t24_itch_v1_13.aot_upper_price = {}
 
--- Size Of: Aot Upper Price
+-- Size: Aot Upper Price
 asx_securities_t24_itch_v1_13.aot_upper_price.size = 4
 
 -- Display: Aot Upper Price
@@ -766,7 +776,7 @@ end
 -- Aot Price
 asx_securities_t24_itch_v1_13.aot_price = {}
 
--- Size Of: Aot Price
+-- Size: Aot Price
 asx_securities_t24_itch_v1_13.aot_price.size = 4
 
 -- Display: Aot Price
@@ -789,17 +799,30 @@ end
 -- Anomalous Order Threshold Publish
 asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish = {}
 
--- Size Of: Anomalous Order Threshold Publish
-asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.aot_price.size + 
-  asx_securities_t24_itch_v1_13.aot_upper_price.size + 
-  asx_securities_t24_itch_v1_13.aot_lower_price.size + 
-  asx_securities_t24_itch_v1_13.etr_price.size + 
-  asx_securities_t24_itch_v1_13.etr_upper_price.size + 
-  asx_securities_t24_itch_v1_13.etr_lower_price.size;
+-- Calculate size of: Anomalous Order Threshold Publish
+asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.aot_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.aot_upper_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.aot_lower_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.etr_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.etr_upper_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.etr_lower_price.size
+
+  return index
+end
 
 -- Display: Anomalous Order Threshold Publish
 asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish.display = function(packet, parent, length)
@@ -861,7 +884,7 @@ end
 -- Quantity
 asx_securities_t24_itch_v1_13.quantity = {}
 
--- Size Of: Quantity
+-- Size: Quantity
 asx_securities_t24_itch_v1_13.quantity.size = 4
 
 -- Display: Quantity
@@ -884,7 +907,7 @@ end
 -- Price
 asx_securities_t24_itch_v1_13.price = {}
 
--- Size Of: Price
+-- Size: Price
 asx_securities_t24_itch_v1_13.price.size = 4
 
 -- Display: Price
@@ -907,13 +930,22 @@ end
 -- Request For Quote
 asx_securities_t24_itch_v1_13.request_for_quote = {}
 
--- Size Of: Request For Quote
-asx_securities_t24_itch_v1_13.request_for_quote.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.price.size + 
-  asx_securities_t24_itch_v1_13.quantity.size;
+-- Calculate size of: Request For Quote
+asx_securities_t24_itch_v1_13.request_for_quote.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.price.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  return index
+end
 
 -- Display: Request For Quote
 asx_securities_t24_itch_v1_13.request_for_quote.display = function(packet, parent, length)
@@ -963,7 +995,7 @@ end
 -- Text Message
 asx_securities_t24_itch_v1_13.text_message = {}
 
--- Size Of: Text Message
+-- Size: Text Message
 asx_securities_t24_itch_v1_13.text_message.size = 100
 
 -- Display: Text Message
@@ -986,7 +1018,7 @@ end
 -- Source Id
 asx_securities_t24_itch_v1_13.source_id = {}
 
--- Size Of: Source Id
+-- Size: Source Id
 asx_securities_t24_itch_v1_13.source_id.size = 6
 
 -- Display: Source Id
@@ -1009,12 +1041,20 @@ end
 -- Ad Hoc Text
 asx_securities_t24_itch_v1_13.ad_hoc_text = {}
 
--- Size Of: Ad Hoc Text
-asx_securities_t24_itch_v1_13.ad_hoc_text.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.source_id.size + 
-  asx_securities_t24_itch_v1_13.text_message.size;
+-- Calculate size of: Ad Hoc Text
+asx_securities_t24_itch_v1_13.ad_hoc_text.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.source_id.size
+
+  index = index + asx_securities_t24_itch_v1_13.text_message.size
+
+  return index
+end
 
 -- Display: Ad Hoc Text
 asx_securities_t24_itch_v1_13.ad_hoc_text.display = function(packet, parent, length)
@@ -1061,7 +1101,7 @@ end
 -- Settlement Type
 asx_securities_t24_itch_v1_13.settlement_type = {}
 
--- Size Of: Settlement Type
+-- Size: Settlement Type
 asx_securities_t24_itch_v1_13.settlement_type.size = 1
 
 -- Display: Settlement Type
@@ -1084,7 +1124,7 @@ end
 -- Volatility
 asx_securities_t24_itch_v1_13.volatility = {}
 
--- Size Of: Volatility
+-- Size: Volatility
 asx_securities_t24_itch_v1_13.volatility.size = 4
 
 -- Display: Volatility
@@ -1107,7 +1147,7 @@ end
 -- Settlement Price
 asx_securities_t24_itch_v1_13.settlement_price = {}
 
--- Size Of: Settlement Price
+-- Size: Settlement Price
 asx_securities_t24_itch_v1_13.settlement_price.size = 4
 
 -- Display: Settlement Price
@@ -1130,14 +1170,24 @@ end
 -- Market Settlement
 asx_securities_t24_itch_v1_13.market_settlement = {}
 
--- Size Of: Market Settlement
-asx_securities_t24_itch_v1_13.market_settlement.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.settlement_price.size + 
-  asx_securities_t24_itch_v1_13.volatility.size + 
-  asx_securities_t24_itch_v1_13.settlement_type.size;
+-- Calculate size of: Market Settlement
+asx_securities_t24_itch_v1_13.market_settlement.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.settlement_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.volatility.size
+
+  index = index + asx_securities_t24_itch_v1_13.settlement_type.size
+
+  return index
+end
 
 -- Display: Market Settlement
 asx_securities_t24_itch_v1_13.market_settlement.display = function(packet, parent, length)
@@ -1190,7 +1240,7 @@ end
 -- Market Updates
 asx_securities_t24_itch_v1_13.market_updates = {}
 
--- Size Of: Market Updates
+-- Size: Market Updates
 asx_securities_t24_itch_v1_13.market_updates.size = 1
 
 -- Display: Market Updates
@@ -1267,7 +1317,7 @@ end
 -- Total Trades
 asx_securities_t24_itch_v1_13.total_trades = {}
 
--- Size Of: Total Trades
+-- Size: Total Trades
 asx_securities_t24_itch_v1_13.total_trades.size = 4
 
 -- Display: Total Trades
@@ -1290,7 +1340,7 @@ end
 -- Total Traded Volume
 asx_securities_t24_itch_v1_13.total_traded_volume = {}
 
--- Size Of: Total Traded Volume
+-- Size: Total Traded Volume
 asx_securities_t24_itch_v1_13.total_traded_volume.size = 4
 
 -- Display: Total Traded Volume
@@ -1313,7 +1363,7 @@ end
 -- Last Volume
 asx_securities_t24_itch_v1_13.last_volume = {}
 
--- Size Of: Last Volume
+-- Size: Last Volume
 asx_securities_t24_itch_v1_13.last_volume.size = 4
 
 -- Display: Last Volume
@@ -1336,7 +1386,7 @@ end
 -- Last Trade
 asx_securities_t24_itch_v1_13.last_trade = {}
 
--- Size Of: Last Trade
+-- Size: Last Trade
 asx_securities_t24_itch_v1_13.last_trade.size = 4
 
 -- Display: Last Trade
@@ -1359,7 +1409,7 @@ end
 -- Lowest Trade
 asx_securities_t24_itch_v1_13.lowest_trade = {}
 
--- Size Of: Lowest Trade
+-- Size: Lowest Trade
 asx_securities_t24_itch_v1_13.lowest_trade.size = 4
 
 -- Display: Lowest Trade
@@ -1382,7 +1432,7 @@ end
 -- Highest Trade
 asx_securities_t24_itch_v1_13.highest_trade = {}
 
--- Size Of: Highest Trade
+-- Size: Highest Trade
 asx_securities_t24_itch_v1_13.highest_trade.size = 4
 
 -- Display: Highest Trade
@@ -1405,7 +1455,7 @@ end
 -- Opening Trade
 asx_securities_t24_itch_v1_13.opening_trade = {}
 
--- Size Of: Opening Trade
+-- Size: Opening Trade
 asx_securities_t24_itch_v1_13.opening_trade.size = 4
 
 -- Display: Opening Trade
@@ -1428,19 +1478,34 @@ end
 -- Open High Low Last Trade Adjustment
 asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment = {}
 
--- Size Of: Open High Low Last Trade Adjustment
-asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.opening_trade.size + 
-  asx_securities_t24_itch_v1_13.highest_trade.size + 
-  asx_securities_t24_itch_v1_13.lowest_trade.size + 
-  asx_securities_t24_itch_v1_13.last_trade.size + 
-  asx_securities_t24_itch_v1_13.last_volume.size + 
-  asx_securities_t24_itch_v1_13.total_traded_volume.size + 
-  asx_securities_t24_itch_v1_13.total_trades.size + 
-  asx_securities_t24_itch_v1_13.market_updates.size;
+-- Calculate size of: Open High Low Last Trade Adjustment
+asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.opening_trade.size
+
+  index = index + asx_securities_t24_itch_v1_13.highest_trade.size
+
+  index = index + asx_securities_t24_itch_v1_13.lowest_trade.size
+
+  index = index + asx_securities_t24_itch_v1_13.last_trade.size
+
+  index = index + asx_securities_t24_itch_v1_13.last_volume.size
+
+  index = index + asx_securities_t24_itch_v1_13.total_traded_volume.size
+
+  index = index + asx_securities_t24_itch_v1_13.total_trades.size
+
+  index = index + asx_securities_t24_itch_v1_13.market_updates.size
+
+  return index
+end
 
 -- Display: Open High Low Last Trade Adjustment
 asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment.display = function(packet, parent, length)
@@ -1508,7 +1573,7 @@ end
 -- Best Ask Quantity
 asx_securities_t24_itch_v1_13.best_ask_quantity = {}
 
--- Size Of: Best Ask Quantity
+-- Size: Best Ask Quantity
 asx_securities_t24_itch_v1_13.best_ask_quantity.size = 4
 
 -- Display: Best Ask Quantity
@@ -1531,7 +1596,7 @@ end
 -- Best Bid Quantity
 asx_securities_t24_itch_v1_13.best_bid_quantity = {}
 
--- Size Of: Best Bid Quantity
+-- Size: Best Bid Quantity
 asx_securities_t24_itch_v1_13.best_bid_quantity.size = 4
 
 -- Display: Best Bid Quantity
@@ -1554,7 +1619,7 @@ end
 -- Best Ask Price
 asx_securities_t24_itch_v1_13.best_ask_price = {}
 
--- Size Of: Best Ask Price
+-- Size: Best Ask Price
 asx_securities_t24_itch_v1_13.best_ask_price.size = 4
 
 -- Display: Best Ask Price
@@ -1577,7 +1642,7 @@ end
 -- Best Bid Price
 asx_securities_t24_itch_v1_13.best_bid_price = {}
 
--- Size Of: Best Bid Price
+-- Size: Best Bid Price
 asx_securities_t24_itch_v1_13.best_bid_price.size = 4
 
 -- Display: Best Bid Price
@@ -1600,7 +1665,7 @@ end
 -- Equilibrium Price
 asx_securities_t24_itch_v1_13.equilibrium_price = {}
 
--- Size Of: Equilibrium Price
+-- Size: Equilibrium Price
 asx_securities_t24_itch_v1_13.equilibrium_price.size = 4
 
 -- Display: Equilibrium Price
@@ -1623,16 +1688,28 @@ end
 -- Equilibrium Price Auction Info
 asx_securities_t24_itch_v1_13.equilibrium_price_auction_info = {}
 
--- Size Of: Equilibrium Price Auction Info
-asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.equilibrium_price.size + 
-  asx_securities_t24_itch_v1_13.best_bid_price.size + 
-  asx_securities_t24_itch_v1_13.best_ask_price.size + 
-  asx_securities_t24_itch_v1_13.best_bid_quantity.size + 
-  asx_securities_t24_itch_v1_13.best_ask_quantity.size;
+-- Calculate size of: Equilibrium Price Auction Info
+asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.equilibrium_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.best_bid_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.best_ask_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.best_bid_quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.best_ask_quantity.size
+
+  return index
+end
 
 -- Display: Equilibrium Price Auction Info
 asx_securities_t24_itch_v1_13.equilibrium_price_auction_info.display = function(packet, parent, length)
@@ -1691,7 +1768,7 @@ end
 -- Match Number
 asx_securities_t24_itch_v1_13.match_number = {}
 
--- Size Of: Match Number
+-- Size: Match Number
 asx_securities_t24_itch_v1_13.match_number.size = 4
 
 -- Display: Match Number
@@ -1714,11 +1791,18 @@ end
 -- Trade Cancellation
 asx_securities_t24_itch_v1_13.trade_cancellation = {}
 
--- Size Of: Trade Cancellation
-asx_securities_t24_itch_v1_13.trade_cancellation.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.match_number.size;
+-- Calculate size of: Trade Cancellation
+asx_securities_t24_itch_v1_13.trade_cancellation.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.match_number.size
+
+  return index
+end
 
 -- Display: Trade Cancellation
 asx_securities_t24_itch_v1_13.trade_cancellation.display = function(packet, parent, length)
@@ -1762,7 +1846,7 @@ end
 -- Printable
 asx_securities_t24_itch_v1_13.printable = {}
 
--- Size Of: Printable
+-- Size: Printable
 asx_securities_t24_itch_v1_13.printable.size = 1
 
 -- Display: Printable
@@ -1792,7 +1876,7 @@ end
 -- Trade Side Of Non Custom Order
 asx_securities_t24_itch_v1_13.trade_side_of_non_custom_order = {}
 
--- Size Of: Trade Side Of Non Custom Order
+-- Size: Trade Side Of Non Custom Order
 asx_securities_t24_itch_v1_13.trade_side_of_non_custom_order.size = 1
 
 -- Display: Trade Side Of Non Custom Order
@@ -1815,7 +1899,7 @@ end
 -- Traded Contract Number
 asx_securities_t24_itch_v1_13.traded_contract_number = {}
 
--- Size Of: Traded Contract Number
+-- Size: Traded Contract Number
 asx_securities_t24_itch_v1_13.traded_contract_number.size = 4
 
 -- Display: Traded Contract Number
@@ -1838,7 +1922,7 @@ end
 -- Trade Price
 asx_securities_t24_itch_v1_13.trade_price = {}
 
--- Size Of: Trade Price
+-- Size: Trade Price
 asx_securities_t24_itch_v1_13.trade_price.size = 4
 
 -- Display: Trade Price
@@ -1861,7 +1945,7 @@ end
 -- Executed Quantity
 asx_securities_t24_itch_v1_13.executed_quantity = {}
 
--- Size Of: Executed Quantity
+-- Size: Executed Quantity
 asx_securities_t24_itch_v1_13.executed_quantity.size = 4
 
 -- Display: Executed Quantity
@@ -1884,7 +1968,7 @@ end
 -- Trade Type
 asx_securities_t24_itch_v1_13.trade_type = {}
 
--- Size Of: Trade Type
+-- Size: Trade Type
 asx_securities_t24_itch_v1_13.trade_type.size = 1
 
 -- Display: Trade Type
@@ -1950,7 +2034,7 @@ end
 -- Custom Market Quantity Remaining
 asx_securities_t24_itch_v1_13.custom_market_quantity_remaining = {}
 
--- Size Of: Custom Market Quantity Remaining
+-- Size: Custom Market Quantity Remaining
 asx_securities_t24_itch_v1_13.custom_market_quantity_remaining.size = 4
 
 -- Display: Custom Market Quantity Remaining
@@ -1973,7 +2057,7 @@ end
 -- Custom Market Order Number
 asx_securities_t24_itch_v1_13.custom_market_order_number = {}
 
--- Size Of: Custom Market Order Number
+-- Size: Custom Market Order Number
 asx_securities_t24_itch_v1_13.custom_market_order_number.size = 8
 
 -- Display: Custom Market Order Number
@@ -1996,7 +2080,7 @@ end
 -- Quantity Remaining
 asx_securities_t24_itch_v1_13.quantity_remaining = {}
 
--- Size Of: Quantity Remaining
+-- Size: Quantity Remaining
 asx_securities_t24_itch_v1_13.quantity_remaining.size = 4
 
 -- Display: Quantity Remaining
@@ -2019,7 +2103,7 @@ end
 -- Order Number
 asx_securities_t24_itch_v1_13.order_number = {}
 
--- Size Of: Order Number
+-- Size: Order Number
 asx_securities_t24_itch_v1_13.order_number.size = 8
 
 -- Display: Order Number
@@ -2042,7 +2126,7 @@ end
 -- Side
 asx_securities_t24_itch_v1_13.side = {}
 
--- Size Of: Side
+-- Size: Side
 asx_securities_t24_itch_v1_13.side.size = 1
 
 -- Display: Side
@@ -2072,23 +2156,42 @@ end
 -- Custom Market Trade
 asx_securities_t24_itch_v1_13.custom_market_trade = {}
 
--- Size Of: Custom Market Trade
-asx_securities_t24_itch_v1_13.custom_market_trade.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.custom_market_order_number.size + 
-  asx_securities_t24_itch_v1_13.custom_market_quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.trade_type.size + 
-  asx_securities_t24_itch_v1_13.match_number.size + 
-  asx_securities_t24_itch_v1_13.executed_quantity.size + 
-  asx_securities_t24_itch_v1_13.trade_price.size + 
-  asx_securities_t24_itch_v1_13.traded_contract_number.size + 
-  asx_securities_t24_itch_v1_13.trade_side_of_non_custom_order.size + 
-  asx_securities_t24_itch_v1_13.printable.size;
+-- Calculate size of: Custom Market Trade
+asx_securities_t24_itch_v1_13.custom_market_trade.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.custom_market_order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.custom_market_quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.match_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.executed_quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.traded_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_side_of_non_custom_order.size
+
+  index = index + asx_securities_t24_itch_v1_13.printable.size
+
+  return index
+end
 
 -- Display: Custom Market Trade
 asx_securities_t24_itch_v1_13.custom_market_trade.display = function(packet, parent, length)
@@ -2168,7 +2271,7 @@ end
 -- Trade Side Of Leg
 asx_securities_t24_itch_v1_13.trade_side_of_leg = {}
 
--- Size Of: Trade Side Of Leg
+-- Size: Trade Side Of Leg
 asx_securities_t24_itch_v1_13.trade_side_of_leg.size = 1
 
 -- Display: Trade Side Of Leg
@@ -2191,19 +2294,34 @@ end
 -- Custom Market Executed
 asx_securities_t24_itch_v1_13.custom_market_executed = {}
 
--- Size Of: Custom Market Executed
-asx_securities_t24_itch_v1_13.custom_market_executed.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.trade_type.size + 
-  asx_securities_t24_itch_v1_13.match_number.size + 
-  asx_securities_t24_itch_v1_13.executed_quantity.size + 
-  asx_securities_t24_itch_v1_13.trade_price.size + 
-  asx_securities_t24_itch_v1_13.traded_contract_number.size + 
-  asx_securities_t24_itch_v1_13.trade_side_of_leg.size + 
-  asx_securities_t24_itch_v1_13.printable.size;
+-- Calculate size of: Custom Market Executed
+asx_securities_t24_itch_v1_13.custom_market_executed.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.match_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.executed_quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.traded_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_side_of_leg.size
+
+  index = index + asx_securities_t24_itch_v1_13.printable.size
+
+  return index
+end
 
 -- Display: Custom Market Executed
 asx_securities_t24_itch_v1_13.custom_market_executed.display = function(packet, parent, length)
@@ -2271,7 +2389,7 @@ end
 -- Spread Trade Price
 asx_securities_t24_itch_v1_13.spread_trade_price = {}
 
--- Size Of: Spread Trade Price
+-- Size: Spread Trade Price
 asx_securities_t24_itch_v1_13.spread_trade_price.size = 4
 
 -- Display: Spread Trade Price
@@ -2294,7 +2412,7 @@ end
 -- Seller Quantity Remaining
 asx_securities_t24_itch_v1_13.seller_quantity_remaining = {}
 
--- Size Of: Seller Quantity Remaining
+-- Size: Seller Quantity Remaining
 asx_securities_t24_itch_v1_13.seller_quantity_remaining.size = 4
 
 -- Display: Seller Quantity Remaining
@@ -2317,7 +2435,7 @@ end
 -- Selling Order Number
 asx_securities_t24_itch_v1_13.selling_order_number = {}
 
--- Size Of: Selling Order Number
+-- Size: Selling Order Number
 asx_securities_t24_itch_v1_13.selling_order_number.size = 8
 
 -- Display: Selling Order Number
@@ -2340,7 +2458,7 @@ end
 -- Side Of Seller
 asx_securities_t24_itch_v1_13.side_of_seller = {}
 
--- Size Of: Side Of Seller
+-- Size: Side Of Seller
 asx_securities_t24_itch_v1_13.side_of_seller.size = 1
 
 -- Display: Side Of Seller
@@ -2363,7 +2481,7 @@ end
 -- Seller Contract Number
 asx_securities_t24_itch_v1_13.seller_contract_number = {}
 
--- Size Of: Seller Contract Number
+-- Size: Seller Contract Number
 asx_securities_t24_itch_v1_13.seller_contract_number.size = 4
 
 -- Display: Seller Contract Number
@@ -2386,7 +2504,7 @@ end
 -- Buyer Quantity Remaining
 asx_securities_t24_itch_v1_13.buyer_quantity_remaining = {}
 
--- Size Of: Buyer Quantity Remaining
+-- Size: Buyer Quantity Remaining
 asx_securities_t24_itch_v1_13.buyer_quantity_remaining.size = 4
 
 -- Display: Buyer Quantity Remaining
@@ -2409,7 +2527,7 @@ end
 -- Buyer Order Number
 asx_securities_t24_itch_v1_13.buyer_order_number = {}
 
--- Size Of: Buyer Order Number
+-- Size: Buyer Order Number
 asx_securities_t24_itch_v1_13.buyer_order_number.size = 8
 
 -- Display: Buyer Order Number
@@ -2432,7 +2550,7 @@ end
 -- Side Of Buyer
 asx_securities_t24_itch_v1_13.side_of_buyer = {}
 
--- Size Of: Side Of Buyer
+-- Size: Side Of Buyer
 asx_securities_t24_itch_v1_13.side_of_buyer.size = 1
 
 -- Display: Side Of Buyer
@@ -2455,7 +2573,7 @@ end
 -- Buyer
 asx_securities_t24_itch_v1_13.buyer = {}
 
--- Size Of: Buyer
+-- Size: Buyer
 asx_securities_t24_itch_v1_13.buyer.size = 4
 
 -- Display: Buyer
@@ -2478,25 +2596,46 @@ end
 -- Trade Spread Execution Chain
 asx_securities_t24_itch_v1_13.trade_spread_execution_chain = {}
 
--- Size Of: Trade Spread Execution Chain
-asx_securities_t24_itch_v1_13.trade_spread_execution_chain.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.buyer.size + 
-  asx_securities_t24_itch_v1_13.side_of_buyer.size + 
-  asx_securities_t24_itch_v1_13.buyer_order_number.size + 
-  asx_securities_t24_itch_v1_13.buyer_quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.seller_contract_number.size + 
-  asx_securities_t24_itch_v1_13.side_of_seller.size + 
-  asx_securities_t24_itch_v1_13.selling_order_number.size + 
-  asx_securities_t24_itch_v1_13.seller_quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.trade_type.size + 
-  asx_securities_t24_itch_v1_13.match_number.size + 
-  asx_securities_t24_itch_v1_13.executed_quantity.size + 
-  asx_securities_t24_itch_v1_13.trade_price.size + 
-  asx_securities_t24_itch_v1_13.traded_contract_number.size + 
-  asx_securities_t24_itch_v1_13.spread_trade_price.size + 
-  asx_securities_t24_itch_v1_13.printable.size;
+-- Calculate size of: Trade Spread Execution Chain
+asx_securities_t24_itch_v1_13.trade_spread_execution_chain.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.buyer.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_of_buyer.size
+
+  index = index + asx_securities_t24_itch_v1_13.buyer_order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.buyer_quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.seller_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_of_seller.size
+
+  index = index + asx_securities_t24_itch_v1_13.selling_order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.seller_quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.match_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.executed_quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.traded_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.spread_trade_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.printable.size
+
+  return index
+end
 
 -- Display: Trade Spread Execution Chain
 asx_securities_t24_itch_v1_13.trade_spread_execution_chain.display = function(packet, parent, length)
@@ -2582,22 +2721,40 @@ end
 -- Spread Executed
 asx_securities_t24_itch_v1_13.spread_executed = {}
 
--- Size Of: Spread Executed
-asx_securities_t24_itch_v1_13.spread_executed.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.trade_type.size + 
-  asx_securities_t24_itch_v1_13.match_number.size + 
-  asx_securities_t24_itch_v1_13.executed_quantity.size + 
-  asx_securities_t24_itch_v1_13.trade_price.size + 
-  asx_securities_t24_itch_v1_13.traded_contract_number.size + 
-  asx_securities_t24_itch_v1_13.spread_trade_price.size + 
-  asx_securities_t24_itch_v1_13.trade_side_of_leg.size + 
-  asx_securities_t24_itch_v1_13.printable.size;
+-- Calculate size of: Spread Executed
+asx_securities_t24_itch_v1_13.spread_executed.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.match_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.executed_quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.traded_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.spread_trade_price.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_side_of_leg.size
+
+  index = index + asx_securities_t24_itch_v1_13.printable.size
+
+  return index
+end
 
 -- Display: Spread Executed
 asx_securities_t24_itch_v1_13.spread_executed.display = function(packet, parent, length)
@@ -2674,7 +2831,7 @@ end
 -- Buying Order Number
 asx_securities_t24_itch_v1_13.buying_order_number = {}
 
--- Size Of: Buying Order Number
+-- Size: Buying Order Number
 asx_securities_t24_itch_v1_13.buying_order_number.size = 8
 
 -- Display: Buying Order Number
@@ -2697,19 +2854,34 @@ end
 -- Order Executed With Price
 asx_securities_t24_itch_v1_13.order_executed_with_price = {}
 
--- Size Of: Order Executed With Price
-asx_securities_t24_itch_v1_13.order_executed_with_price.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.buying_order_number.size + 
-  asx_securities_t24_itch_v1_13.buyer_quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.selling_order_number.size + 
-  asx_securities_t24_itch_v1_13.seller_quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.trade_type.size + 
-  asx_securities_t24_itch_v1_13.match_number.size + 
-  asx_securities_t24_itch_v1_13.executed_quantity.size + 
-  asx_securities_t24_itch_v1_13.trade_price.size;
+-- Calculate size of: Order Executed With Price
+asx_securities_t24_itch_v1_13.order_executed_with_price.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.buying_order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.buyer_quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.selling_order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.seller_quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.match_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.executed_quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_price.size
+
+  return index
+end
 
 -- Display: Order Executed With Price
 asx_securities_t24_itch_v1_13.order_executed_with_price.display = function(packet, parent, length)
@@ -2777,18 +2949,32 @@ end
 -- Order Executed
 asx_securities_t24_itch_v1_13.order_executed = {}
 
--- Size Of: Order Executed
-asx_securities_t24_itch_v1_13.order_executed.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.quantity_remaining.size + 
-  asx_securities_t24_itch_v1_13.trade_type.size + 
-  asx_securities_t24_itch_v1_13.match_number.size + 
-  asx_securities_t24_itch_v1_13.executed_quantity.size + 
-  asx_securities_t24_itch_v1_13.trade_price.size;
+-- Calculate size of: Order Executed
+asx_securities_t24_itch_v1_13.order_executed.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity_remaining.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.match_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.executed_quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_price.size
+
+  return index
+end
 
 -- Display: Order Executed
 asx_securities_t24_itch_v1_13.order_executed.display = function(packet, parent, length)
@@ -2853,11 +3039,18 @@ end
 -- Custom Market Order Deleted
 asx_securities_t24_itch_v1_13.custom_market_order_deleted = {}
 
--- Size Of: Custom Market Order Deleted
-asx_securities_t24_itch_v1_13.custom_market_order_deleted.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.order_number.size;
+-- Calculate size of: Custom Market Order Deleted
+asx_securities_t24_itch_v1_13.custom_market_order_deleted.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  return index
+end
 
 -- Display: Custom Market Order Deleted
 asx_securities_t24_itch_v1_13.custom_market_order_deleted.display = function(packet, parent, length)
@@ -2901,7 +3094,7 @@ end
 -- Order Book Priority
 asx_securities_t24_itch_v1_13.order_book_priority = {}
 
--- Size Of: Order Book Priority
+-- Size: Order Book Priority
 asx_securities_t24_itch_v1_13.order_book_priority.size = 4
 
 -- Display: Order Book Priority
@@ -2924,13 +3117,22 @@ end
 -- Custom Market Order Replaced
 asx_securities_t24_itch_v1_13.custom_market_order_replaced = {}
 
--- Size Of: Custom Market Order Replaced
-asx_securities_t24_itch_v1_13.custom_market_order_replaced.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.order_book_priority.size + 
-  asx_securities_t24_itch_v1_13.quantity.size;
+-- Calculate size of: Custom Market Order Replaced
+asx_securities_t24_itch_v1_13.custom_market_order_replaced.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_book_priority.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  return index
+end
 
 -- Display: Custom Market Order Replaced
 asx_securities_t24_itch_v1_13.custom_market_order_replaced.display = function(packet, parent, length)
@@ -2980,7 +3182,7 @@ end
 -- Price Leg 6
 asx_securities_t24_itch_v1_13.price_leg_6 = {}
 
--- Size Of: Price Leg 6
+-- Size: Price Leg 6
 asx_securities_t24_itch_v1_13.price_leg_6.size = 4
 
 -- Display: Price Leg 6
@@ -3003,7 +3205,7 @@ end
 -- Ratio Leg 6
 asx_securities_t24_itch_v1_13.ratio_leg_6 = {}
 
--- Size Of: Ratio Leg 6
+-- Size: Ratio Leg 6
 asx_securities_t24_itch_v1_13.ratio_leg_6.size = 2
 
 -- Display: Ratio Leg 6
@@ -3026,7 +3228,7 @@ end
 -- Side Leg 6
 asx_securities_t24_itch_v1_13.side_leg_6 = {}
 
--- Size Of: Side Leg 6
+-- Size: Side Leg 6
 asx_securities_t24_itch_v1_13.side_leg_6.size = 1
 
 -- Display: Side Leg 6
@@ -3049,7 +3251,7 @@ end
 -- Contract Number Leg 6
 asx_securities_t24_itch_v1_13.contract_number_leg_6 = {}
 
--- Size Of: Contract Number Leg 6
+-- Size: Contract Number Leg 6
 asx_securities_t24_itch_v1_13.contract_number_leg_6.size = 4
 
 -- Display: Contract Number Leg 6
@@ -3072,7 +3274,7 @@ end
 -- Price Leg 5
 asx_securities_t24_itch_v1_13.price_leg_5 = {}
 
--- Size Of: Price Leg 5
+-- Size: Price Leg 5
 asx_securities_t24_itch_v1_13.price_leg_5.size = 4
 
 -- Display: Price Leg 5
@@ -3095,7 +3297,7 @@ end
 -- Ratio Leg 5
 asx_securities_t24_itch_v1_13.ratio_leg_5 = {}
 
--- Size Of: Ratio Leg 5
+-- Size: Ratio Leg 5
 asx_securities_t24_itch_v1_13.ratio_leg_5.size = 2
 
 -- Display: Ratio Leg 5
@@ -3118,7 +3320,7 @@ end
 -- Side Leg 5
 asx_securities_t24_itch_v1_13.side_leg_5 = {}
 
--- Size Of: Side Leg 5
+-- Size: Side Leg 5
 asx_securities_t24_itch_v1_13.side_leg_5.size = 1
 
 -- Display: Side Leg 5
@@ -3141,7 +3343,7 @@ end
 -- Contract Number Leg 5
 asx_securities_t24_itch_v1_13.contract_number_leg_5 = {}
 
--- Size Of: Contract Number Leg 5
+-- Size: Contract Number Leg 5
 asx_securities_t24_itch_v1_13.contract_number_leg_5.size = 4
 
 -- Display: Contract Number Leg 5
@@ -3164,7 +3366,7 @@ end
 -- Price Leg 4
 asx_securities_t24_itch_v1_13.price_leg_4 = {}
 
--- Size Of: Price Leg 4
+-- Size: Price Leg 4
 asx_securities_t24_itch_v1_13.price_leg_4.size = 4
 
 -- Display: Price Leg 4
@@ -3187,7 +3389,7 @@ end
 -- Ratio Leg 4
 asx_securities_t24_itch_v1_13.ratio_leg_4 = {}
 
--- Size Of: Ratio Leg 4
+-- Size: Ratio Leg 4
 asx_securities_t24_itch_v1_13.ratio_leg_4.size = 2
 
 -- Display: Ratio Leg 4
@@ -3210,7 +3412,7 @@ end
 -- Side Leg 4
 asx_securities_t24_itch_v1_13.side_leg_4 = {}
 
--- Size Of: Side Leg 4
+-- Size: Side Leg 4
 asx_securities_t24_itch_v1_13.side_leg_4.size = 1
 
 -- Display: Side Leg 4
@@ -3233,7 +3435,7 @@ end
 -- Contract Number Leg 4
 asx_securities_t24_itch_v1_13.contract_number_leg_4 = {}
 
--- Size Of: Contract Number Leg 4
+-- Size: Contract Number Leg 4
 asx_securities_t24_itch_v1_13.contract_number_leg_4.size = 4
 
 -- Display: Contract Number Leg 4
@@ -3256,7 +3458,7 @@ end
 -- Price Leg 3
 asx_securities_t24_itch_v1_13.price_leg_3 = {}
 
--- Size Of: Price Leg 3
+-- Size: Price Leg 3
 asx_securities_t24_itch_v1_13.price_leg_3.size = 4
 
 -- Display: Price Leg 3
@@ -3279,7 +3481,7 @@ end
 -- Ratio Leg 3
 asx_securities_t24_itch_v1_13.ratio_leg_3 = {}
 
--- Size Of: Ratio Leg 3
+-- Size: Ratio Leg 3
 asx_securities_t24_itch_v1_13.ratio_leg_3.size = 2
 
 -- Display: Ratio Leg 3
@@ -3302,7 +3504,7 @@ end
 -- Side Leg 3
 asx_securities_t24_itch_v1_13.side_leg_3 = {}
 
--- Size Of: Side Leg 3
+-- Size: Side Leg 3
 asx_securities_t24_itch_v1_13.side_leg_3.size = 1
 
 -- Display: Side Leg 3
@@ -3325,7 +3527,7 @@ end
 -- Contract Number Leg 3
 asx_securities_t24_itch_v1_13.contract_number_leg_3 = {}
 
--- Size Of: Contract Number Leg 3
+-- Size: Contract Number Leg 3
 asx_securities_t24_itch_v1_13.contract_number_leg_3.size = 4
 
 -- Display: Contract Number Leg 3
@@ -3348,7 +3550,7 @@ end
 -- Price Leg 2
 asx_securities_t24_itch_v1_13.price_leg_2 = {}
 
--- Size Of: Price Leg 2
+-- Size: Price Leg 2
 asx_securities_t24_itch_v1_13.price_leg_2.size = 4
 
 -- Display: Price Leg 2
@@ -3371,7 +3573,7 @@ end
 -- Ratio Leg 2
 asx_securities_t24_itch_v1_13.ratio_leg_2 = {}
 
--- Size Of: Ratio Leg 2
+-- Size: Ratio Leg 2
 asx_securities_t24_itch_v1_13.ratio_leg_2.size = 2
 
 -- Display: Ratio Leg 2
@@ -3394,7 +3596,7 @@ end
 -- Side Leg 2
 asx_securities_t24_itch_v1_13.side_leg_2 = {}
 
--- Size Of: Side Leg 2
+-- Size: Side Leg 2
 asx_securities_t24_itch_v1_13.side_leg_2.size = 1
 
 -- Display: Side Leg 2
@@ -3417,7 +3619,7 @@ end
 -- Contract Number Leg 2
 asx_securities_t24_itch_v1_13.contract_number_leg_2 = {}
 
--- Size Of: Contract Number Leg 2
+-- Size: Contract Number Leg 2
 asx_securities_t24_itch_v1_13.contract_number_leg_2.size = 4
 
 -- Display: Contract Number Leg 2
@@ -3440,7 +3642,7 @@ end
 -- Price Leg 1
 asx_securities_t24_itch_v1_13.price_leg_1 = {}
 
--- Size Of: Price Leg 1
+-- Size: Price Leg 1
 asx_securities_t24_itch_v1_13.price_leg_1.size = 4
 
 -- Display: Price Leg 1
@@ -3463,7 +3665,7 @@ end
 -- Ratio Leg 1
 asx_securities_t24_itch_v1_13.ratio_leg_1 = {}
 
--- Size Of: Ratio Leg 1
+-- Size: Ratio Leg 1
 asx_securities_t24_itch_v1_13.ratio_leg_1.size = 2
 
 -- Display: Ratio Leg 1
@@ -3486,7 +3688,7 @@ end
 -- Side Leg 1
 asx_securities_t24_itch_v1_13.side_leg_1 = {}
 
--- Size Of: Side Leg 1
+-- Size: Side Leg 1
 asx_securities_t24_itch_v1_13.side_leg_1.size = 1
 
 -- Display: Side Leg 1
@@ -3509,7 +3711,7 @@ end
 -- Contract Number Leg 1
 asx_securities_t24_itch_v1_13.contract_number_leg_1 = {}
 
--- Size Of: Contract Number Leg 1
+-- Size: Contract Number Leg 1
 asx_securities_t24_itch_v1_13.contract_number_leg_1.size = 4
 
 -- Display: Contract Number Leg 1
@@ -3532,7 +3734,7 @@ end
 -- Legs
 asx_securities_t24_itch_v1_13.legs = {}
 
--- Size Of: Legs
+-- Size: Legs
 asx_securities_t24_itch_v1_13.legs.size = 1
 
 -- Display: Legs
@@ -3555,38 +3757,72 @@ end
 -- Custom Market Order Added
 asx_securities_t24_itch_v1_13.custom_market_order_added = {}
 
--- Size Of: Custom Market Order Added
-asx_securities_t24_itch_v1_13.custom_market_order_added.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.order_book_priority.size + 
-  asx_securities_t24_itch_v1_13.quantity.size + 
-  asx_securities_t24_itch_v1_13.legs.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_1.size + 
-  asx_securities_t24_itch_v1_13.side_leg_1.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_1.size + 
-  asx_securities_t24_itch_v1_13.price_leg_1.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_2.size + 
-  asx_securities_t24_itch_v1_13.side_leg_2.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_2.size + 
-  asx_securities_t24_itch_v1_13.price_leg_2.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_3.size + 
-  asx_securities_t24_itch_v1_13.side_leg_3.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_3.size + 
-  asx_securities_t24_itch_v1_13.price_leg_3.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_4.size + 
-  asx_securities_t24_itch_v1_13.side_leg_4.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_4.size + 
-  asx_securities_t24_itch_v1_13.price_leg_4.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_5.size + 
-  asx_securities_t24_itch_v1_13.side_leg_5.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_5.size + 
-  asx_securities_t24_itch_v1_13.price_leg_5.size + 
-  asx_securities_t24_itch_v1_13.contract_number_leg_6.size + 
-  asx_securities_t24_itch_v1_13.side_leg_6.size + 
-  asx_securities_t24_itch_v1_13.ratio_leg_6.size + 
-  asx_securities_t24_itch_v1_13.price_leg_6.size;
+-- Calculate size of: Custom Market Order Added
+asx_securities_t24_itch_v1_13.custom_market_order_added.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_book_priority.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.legs.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number_leg_1.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_leg_1.size
+
+  index = index + asx_securities_t24_itch_v1_13.ratio_leg_1.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_leg_1.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number_leg_2.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_leg_2.size
+
+  index = index + asx_securities_t24_itch_v1_13.ratio_leg_2.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_leg_2.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number_leg_3.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_leg_3.size
+
+  index = index + asx_securities_t24_itch_v1_13.ratio_leg_3.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_leg_3.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number_leg_4.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_leg_4.size
+
+  index = index + asx_securities_t24_itch_v1_13.ratio_leg_4.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_leg_4.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number_leg_5.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_leg_5.size
+
+  index = index + asx_securities_t24_itch_v1_13.ratio_leg_5.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_leg_5.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number_leg_6.size
+
+  index = index + asx_securities_t24_itch_v1_13.side_leg_6.size
+
+  index = index + asx_securities_t24_itch_v1_13.ratio_leg_6.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_leg_6.size
+
+  return index
+end
 
 -- Display: Custom Market Order Added
 asx_securities_t24_itch_v1_13.custom_market_order_added.display = function(packet, parent, length)
@@ -3711,13 +3947,22 @@ end
 -- Implied Order Deleted
 asx_securities_t24_itch_v1_13.implied_order_deleted = {}
 
--- Size Of: Implied Order Deleted
-asx_securities_t24_itch_v1_13.implied_order_deleted.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size;
+-- Calculate size of: Implied Order Deleted
+asx_securities_t24_itch_v1_13.implied_order_deleted.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  return index
+end
 
 -- Display: Implied Order Deleted
 asx_securities_t24_itch_v1_13.implied_order_deleted.display = function(packet, parent, length)
@@ -3767,16 +4012,28 @@ end
 -- Implied Order Replaced
 asx_securities_t24_itch_v1_13.implied_order_replaced = {}
 
--- Size Of: Implied Order Replaced
-asx_securities_t24_itch_v1_13.implied_order_replaced.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.order_book_priority.size + 
-  asx_securities_t24_itch_v1_13.quantity.size + 
-  asx_securities_t24_itch_v1_13.price.size;
+-- Calculate size of: Implied Order Replaced
+asx_securities_t24_itch_v1_13.implied_order_replaced.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_book_priority.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.price.size
+
+  return index
+end
 
 -- Display: Implied Order Replaced
 asx_securities_t24_itch_v1_13.implied_order_replaced.display = function(packet, parent, length)
@@ -3835,16 +4092,28 @@ end
 -- Implied Order Added
 asx_securities_t24_itch_v1_13.implied_order_added = {}
 
--- Size Of: Implied Order Added
-asx_securities_t24_itch_v1_13.implied_order_added.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.order_book_priority.size + 
-  asx_securities_t24_itch_v1_13.quantity.size + 
-  asx_securities_t24_itch_v1_13.price.size;
+-- Calculate size of: Implied Order Added
+asx_securities_t24_itch_v1_13.implied_order_added.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_book_priority.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.price.size
+
+  return index
+end
 
 -- Display: Implied Order Added
 asx_securities_t24_itch_v1_13.implied_order_added.display = function(packet, parent, length)
@@ -3903,13 +4172,22 @@ end
 -- Order Deleted
 asx_securities_t24_itch_v1_13.order_deleted = {}
 
--- Size Of: Order Deleted
-asx_securities_t24_itch_v1_13.order_deleted.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size;
+-- Calculate size of: Order Deleted
+asx_securities_t24_itch_v1_13.order_deleted.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  return index
+end
 
 -- Display: Order Deleted
 asx_securities_t24_itch_v1_13.order_deleted.display = function(packet, parent, length)
@@ -3959,14 +4237,24 @@ end
 -- Order Volume Cancelled
 asx_securities_t24_itch_v1_13.order_volume_cancelled = {}
 
--- Size Of: Order Volume Cancelled
-asx_securities_t24_itch_v1_13.order_volume_cancelled.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.quantity.size;
+-- Calculate size of: Order Volume Cancelled
+asx_securities_t24_itch_v1_13.order_volume_cancelled.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  return index
+end
 
 -- Display: Order Volume Cancelled
 asx_securities_t24_itch_v1_13.order_volume_cancelled.display = function(packet, parent, length)
@@ -4019,16 +4307,28 @@ end
 -- Order Replaced
 asx_securities_t24_itch_v1_13.order_replaced = {}
 
--- Size Of: Order Replaced
-asx_securities_t24_itch_v1_13.order_replaced.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.order_book_priority.size + 
-  asx_securities_t24_itch_v1_13.quantity.size + 
-  asx_securities_t24_itch_v1_13.price.size;
+-- Calculate size of: Order Replaced
+asx_securities_t24_itch_v1_13.order_replaced.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_book_priority.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.price.size
+
+  return index
+end
 
 -- Display: Order Replaced
 asx_securities_t24_itch_v1_13.order_replaced.display = function(packet, parent, length)
@@ -4087,16 +4387,28 @@ end
 -- Order Added
 asx_securities_t24_itch_v1_13.order_added = {}
 
--- Size Of: Order Added
-asx_securities_t24_itch_v1_13.order_added.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.side.size + 
-  asx_securities_t24_itch_v1_13.order_number.size + 
-  asx_securities_t24_itch_v1_13.order_book_priority.size + 
-  asx_securities_t24_itch_v1_13.quantity.size + 
-  asx_securities_t24_itch_v1_13.price.size;
+-- Calculate size of: Order Added
+asx_securities_t24_itch_v1_13.order_added.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.side.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.order_book_priority.size
+
+  index = index + asx_securities_t24_itch_v1_13.quantity.size
+
+  index = index + asx_securities_t24_itch_v1_13.price.size
+
+  return index
+end
 
 -- Display: Order Added
 asx_securities_t24_itch_v1_13.order_added.display = function(packet, parent, length)
@@ -4155,7 +4467,7 @@ end
 -- Trading Status
 asx_securities_t24_itch_v1_13.trading_status = {}
 
--- Size Of: Trading Status
+-- Size: Trading Status
 asx_securities_t24_itch_v1_13.trading_status.size = 1
 
 -- Display: Trading Status
@@ -4218,12 +4530,20 @@ end
 -- Order Book State
 asx_securities_t24_itch_v1_13.order_book_state = {}
 
--- Size Of: Order Book State
-asx_securities_t24_itch_v1_13.order_book_state.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.trading_status.size;
+-- Calculate size of: Order Book State
+asx_securities_t24_itch_v1_13.order_book_state.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.trading_status.size
+
+  return index
+end
 
 -- Display: Order Book State
 asx_securities_t24_itch_v1_13.order_book_state.display = function(packet, parent, length)
@@ -4270,7 +4590,7 @@ end
 -- Activated
 asx_securities_t24_itch_v1_13.activated = {}
 
--- Size Of: Activated
+-- Size: Activated
 asx_securities_t24_itch_v1_13.activated.size = 1
 
 -- Display: Activated
@@ -4300,7 +4620,7 @@ end
 -- Payments Per Year
 asx_securities_t24_itch_v1_13.payments_per_year = {}
 
--- Size Of: Payments Per Year
+-- Size: Payments Per Year
 asx_securities_t24_itch_v1_13.payments_per_year.size = 1
 
 -- Display: Payments Per Year
@@ -4323,7 +4643,7 @@ end
 -- Coupon Rate
 asx_securities_t24_itch_v1_13.coupon_rate = {}
 
--- Size Of: Coupon Rate
+-- Size: Coupon Rate
 asx_securities_t24_itch_v1_13.coupon_rate.size = 2
 
 -- Display: Coupon Rate
@@ -4346,7 +4666,7 @@ end
 -- Maturity Value
 asx_securities_t24_itch_v1_13.maturity_value = {}
 
--- Size Of: Maturity Value
+-- Size: Maturity Value
 asx_securities_t24_itch_v1_13.maturity_value.size = 1
 
 -- Display: Maturity Value
@@ -4369,7 +4689,7 @@ end
 -- Lot Size Or Face Value
 asx_securities_t24_itch_v1_13.lot_size_or_face_value = {}
 
--- Size Of: Lot Size Or Face Value
+-- Size: Lot Size Or Face Value
 asx_securities_t24_itch_v1_13.lot_size_or_face_value.size = 4
 
 -- Display: Lot Size Or Face Value
@@ -4392,7 +4712,7 @@ end
 -- Currency
 asx_securities_t24_itch_v1_13.currency = {}
 
--- Size Of: Currency
+-- Size: Currency
 asx_securities_t24_itch_v1_13.currency.size = 3
 
 -- Display: Currency
@@ -4415,7 +4735,7 @@ end
 -- Financial Type
 asx_securities_t24_itch_v1_13.financial_type = {}
 
--- Size Of: Financial Type
+-- Size: Financial Type
 asx_securities_t24_itch_v1_13.financial_type.size = 1
 
 -- Display: Financial Type
@@ -4454,7 +4774,7 @@ end
 -- Prior Day Settlement
 asx_securities_t24_itch_v1_13.prior_day_settlement = {}
 
--- Size Of: Prior Day Settlement
+-- Size: Prior Day Settlement
 asx_securities_t24_itch_v1_13.prior_day_settlement.size = 4
 
 -- Display: Prior Day Settlement
@@ -4477,7 +4797,7 @@ end
 -- Last Trading Date
 asx_securities_t24_itch_v1_13.last_trading_date = {}
 
--- Size Of: Last Trading Date
+-- Size: Last Trading Date
 asx_securities_t24_itch_v1_13.last_trading_date.size = 4
 
 -- Display: Last Trading Date
@@ -4500,7 +4820,7 @@ end
 -- Strike Price Minimum Tick
 asx_securities_t24_itch_v1_13.strike_price_minimum_tick = {}
 
--- Size Of: Strike Price Minimum Tick
+-- Size: Strike Price Minimum Tick
 asx_securities_t24_itch_v1_13.strike_price_minimum_tick.size = 2
 
 -- Display: Strike Price Minimum Tick
@@ -4523,7 +4843,7 @@ end
 -- Strike Price Fractional Denominator
 asx_securities_t24_itch_v1_13.strike_price_fractional_denominator = {}
 
--- Size Of: Strike Price Fractional Denominator
+-- Size: Strike Price Fractional Denominator
 asx_securities_t24_itch_v1_13.strike_price_fractional_denominator.size = 4
 
 -- Display: Strike Price Fractional Denominator
@@ -4546,7 +4866,7 @@ end
 -- Strike Price Decimal Position
 asx_securities_t24_itch_v1_13.strike_price_decimal_position = {}
 
--- Size Of: Strike Price Decimal Position
+-- Size: Strike Price Decimal Position
 asx_securities_t24_itch_v1_13.strike_price_decimal_position.size = 1
 
 -- Display: Strike Price Decimal Position
@@ -4569,7 +4889,7 @@ end
 -- Price Minimum Tick
 asx_securities_t24_itch_v1_13.price_minimum_tick = {}
 
--- Size Of: Price Minimum Tick
+-- Size: Price Minimum Tick
 asx_securities_t24_itch_v1_13.price_minimum_tick.size = 2
 
 -- Display: Price Minimum Tick
@@ -4592,7 +4912,7 @@ end
 -- Price Fractional Denominator
 asx_securities_t24_itch_v1_13.price_fractional_denominator = {}
 
--- Size Of: Price Fractional Denominator
+-- Size: Price Fractional Denominator
 asx_securities_t24_itch_v1_13.price_fractional_denominator.size = 4
 
 -- Display: Price Fractional Denominator
@@ -4615,7 +4935,7 @@ end
 -- Price Decimal Position
 asx_securities_t24_itch_v1_13.price_decimal_position = {}
 
--- Size Of: Price Decimal Position
+-- Size: Price Decimal Position
 asx_securities_t24_itch_v1_13.price_decimal_position.size = 1
 
 -- Display: Price Decimal Position
@@ -4638,7 +4958,7 @@ end
 -- Underlying Contract Number
 asx_securities_t24_itch_v1_13.underlying_contract_number = {}
 
--- Size Of: Underlying Contract Number
+-- Size: Underlying Contract Number
 asx_securities_t24_itch_v1_13.underlying_contract_number.size = 4
 
 -- Display: Underlying Contract Number
@@ -4661,7 +4981,7 @@ end
 -- Strike
 asx_securities_t24_itch_v1_13.strike = {}
 
--- Size Of: Strike
+-- Size: Strike
 asx_securities_t24_itch_v1_13.strike.size = 4
 
 -- Display: Strike
@@ -4684,7 +5004,7 @@ end
 -- Option Type
 asx_securities_t24_itch_v1_13.option_type = {}
 
--- Size Of: Option Type
+-- Size: Option Type
 asx_securities_t24_itch_v1_13.option_type.size = 1
 
 -- Display: Option Type
@@ -4714,7 +5034,7 @@ end
 -- Expiry Month
 asx_securities_t24_itch_v1_13.expiry_month = {}
 
--- Size Of: Expiry Month
+-- Size: Expiry Month
 asx_securities_t24_itch_v1_13.expiry_month.size = 1
 
 -- Display: Expiry Month
@@ -4737,7 +5057,7 @@ end
 -- Expiry Year
 asx_securities_t24_itch_v1_13.expiry_year = {}
 
--- Size Of: Expiry Year
+-- Size: Expiry Year
 asx_securities_t24_itch_v1_13.expiry_year.size = 2
 
 -- Display: Expiry Year
@@ -4760,7 +5080,7 @@ end
 -- Contract Type
 asx_securities_t24_itch_v1_13.contract_type = {}
 
--- Size Of: Contract Type
+-- Size: Contract Type
 asx_securities_t24_itch_v1_13.contract_type.size = 1
 
 -- Display: Contract Type
@@ -4805,7 +5125,7 @@ end
 -- Instrument
 asx_securities_t24_itch_v1_13.instrument = {}
 
--- Size Of: Instrument
+-- Size: Instrument
 asx_securities_t24_itch_v1_13.instrument.size = 6
 
 -- Display: Instrument
@@ -4828,7 +5148,7 @@ end
 -- Exchange
 asx_securities_t24_itch_v1_13.exchange = {}
 
--- Size Of: Exchange
+-- Size: Exchange
 asx_securities_t24_itch_v1_13.exchange.size = 6
 
 -- Display: Exchange
@@ -4851,35 +5171,66 @@ end
 -- Option Symbol Directory
 asx_securities_t24_itch_v1_13.option_symbol_directory = {}
 
--- Size Of: Option Symbol Directory
-asx_securities_t24_itch_v1_13.option_symbol_directory.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.exchange.size + 
-  asx_securities_t24_itch_v1_13.instrument.size + 
-  asx_securities_t24_itch_v1_13.contract_type.size + 
-  asx_securities_t24_itch_v1_13.expiry_year.size + 
-  asx_securities_t24_itch_v1_13.expiry_month.size + 
-  asx_securities_t24_itch_v1_13.option_type.size + 
-  asx_securities_t24_itch_v1_13.strike.size + 
-  asx_securities_t24_itch_v1_13.underlying_contract_number.size + 
-  asx_securities_t24_itch_v1_13.price_decimal_position.size + 
-  asx_securities_t24_itch_v1_13.price_fractional_denominator.size + 
-  asx_securities_t24_itch_v1_13.price_minimum_tick.size + 
-  asx_securities_t24_itch_v1_13.strike_price_decimal_position.size + 
-  asx_securities_t24_itch_v1_13.strike_price_fractional_denominator.size + 
-  asx_securities_t24_itch_v1_13.strike_price_minimum_tick.size + 
-  asx_securities_t24_itch_v1_13.last_trading_date.size + 
-  asx_securities_t24_itch_v1_13.prior_day_settlement.size + 
-  asx_securities_t24_itch_v1_13.volatility.size + 
-  asx_securities_t24_itch_v1_13.financial_type.size + 
-  asx_securities_t24_itch_v1_13.currency.size + 
-  asx_securities_t24_itch_v1_13.lot_size_or_face_value.size + 
-  asx_securities_t24_itch_v1_13.maturity_value.size + 
-  asx_securities_t24_itch_v1_13.coupon_rate.size + 
-  asx_securities_t24_itch_v1_13.payments_per_year.size + 
-  asx_securities_t24_itch_v1_13.activated.size;
+-- Calculate size of: Option Symbol Directory
+asx_securities_t24_itch_v1_13.option_symbol_directory.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.exchange.size
+
+  index = index + asx_securities_t24_itch_v1_13.instrument.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.expiry_year.size
+
+  index = index + asx_securities_t24_itch_v1_13.expiry_month.size
+
+  index = index + asx_securities_t24_itch_v1_13.option_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.strike.size
+
+  index = index + asx_securities_t24_itch_v1_13.underlying_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_decimal_position.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_fractional_denominator.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_minimum_tick.size
+
+  index = index + asx_securities_t24_itch_v1_13.strike_price_decimal_position.size
+
+  index = index + asx_securities_t24_itch_v1_13.strike_price_fractional_denominator.size
+
+  index = index + asx_securities_t24_itch_v1_13.strike_price_minimum_tick.size
+
+  index = index + asx_securities_t24_itch_v1_13.last_trading_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.prior_day_settlement.size
+
+  index = index + asx_securities_t24_itch_v1_13.volatility.size
+
+  index = index + asx_securities_t24_itch_v1_13.financial_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.currency.size
+
+  index = index + asx_securities_t24_itch_v1_13.lot_size_or_face_value.size
+
+  index = index + asx_securities_t24_itch_v1_13.maturity_value.size
+
+  index = index + asx_securities_t24_itch_v1_13.coupon_rate.size
+
+  index = index + asx_securities_t24_itch_v1_13.payments_per_year.size
+
+  index = index + asx_securities_t24_itch_v1_13.activated.size
+
+  return index
+end
 
 -- Display: Option Symbol Directory
 asx_securities_t24_itch_v1_13.option_symbol_directory.display = function(packet, parent, length)
@@ -4995,7 +5346,7 @@ end
 -- Secondary Ratio
 asx_securities_t24_itch_v1_13.secondary_ratio = {}
 
--- Size Of: Secondary Ratio
+-- Size: Secondary Ratio
 asx_securities_t24_itch_v1_13.secondary_ratio.size = 1
 
 -- Display: Secondary Ratio
@@ -5018,7 +5369,7 @@ end
 -- Primary Ratio
 asx_securities_t24_itch_v1_13.primary_ratio = {}
 
--- Size Of: Primary Ratio
+-- Size: Primary Ratio
 asx_securities_t24_itch_v1_13.primary_ratio.size = 1
 
 -- Display: Primary Ratio
@@ -5041,7 +5392,7 @@ end
 -- Second Leg Contract Number
 asx_securities_t24_itch_v1_13.second_leg_contract_number = {}
 
--- Size Of: Second Leg Contract Number
+-- Size: Second Leg Contract Number
 asx_securities_t24_itch_v1_13.second_leg_contract_number.size = 4
 
 -- Display: Second Leg Contract Number
@@ -5064,7 +5415,7 @@ end
 -- First Leg Contract Number
 asx_securities_t24_itch_v1_13.first_leg_contract_number = {}
 
--- Size Of: First Leg Contract Number
+-- Size: First Leg Contract Number
 asx_securities_t24_itch_v1_13.first_leg_contract_number.size = 4
 
 -- Display: First Leg Contract Number
@@ -5087,20 +5438,36 @@ end
 -- Spread Symbol Directory
 asx_securities_t24_itch_v1_13.spread_symbol_directory = {}
 
--- Size Of: Spread Symbol Directory
-asx_securities_t24_itch_v1_13.spread_symbol_directory.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.exchange.size + 
-  asx_securities_t24_itch_v1_13.contract_type.size + 
-  asx_securities_t24_itch_v1_13.first_leg_contract_number.size + 
-  asx_securities_t24_itch_v1_13.second_leg_contract_number.size + 
-  asx_securities_t24_itch_v1_13.primary_ratio.size + 
-  asx_securities_t24_itch_v1_13.secondary_ratio.size + 
-  asx_securities_t24_itch_v1_13.price_decimal_position.size + 
-  asx_securities_t24_itch_v1_13.price_fractional_denominator.size + 
-  asx_securities_t24_itch_v1_13.price_minimum_tick.size;
+-- Calculate size of: Spread Symbol Directory
+asx_securities_t24_itch_v1_13.spread_symbol_directory.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.exchange.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.first_leg_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.second_leg_contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.primary_ratio.size
+
+  index = index + asx_securities_t24_itch_v1_13.secondary_ratio.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_decimal_position.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_fractional_denominator.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_minimum_tick.size
+
+  return index
+end
 
 -- Display: Spread Symbol Directory
 asx_securities_t24_itch_v1_13.spread_symbol_directory.display = function(packet, parent, length)
@@ -5171,27 +5538,50 @@ end
 -- Future Symbol Directory
 asx_securities_t24_itch_v1_13.future_symbol_directory = {}
 
--- Size Of: Future Symbol Directory
-asx_securities_t24_itch_v1_13.future_symbol_directory.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.contract_number.size + 
-  asx_securities_t24_itch_v1_13.exchange.size + 
-  asx_securities_t24_itch_v1_13.instrument.size + 
-  asx_securities_t24_itch_v1_13.contract_type.size + 
-  asx_securities_t24_itch_v1_13.expiry_year.size + 
-  asx_securities_t24_itch_v1_13.expiry_month.size + 
-  asx_securities_t24_itch_v1_13.price_decimal_position.size + 
-  asx_securities_t24_itch_v1_13.price_fractional_denominator.size + 
-  asx_securities_t24_itch_v1_13.price_minimum_tick.size + 
-  asx_securities_t24_itch_v1_13.last_trading_date.size + 
-  asx_securities_t24_itch_v1_13.prior_day_settlement.size + 
-  asx_securities_t24_itch_v1_13.financial_type.size + 
-  asx_securities_t24_itch_v1_13.currency.size + 
-  asx_securities_t24_itch_v1_13.lot_size_or_face_value.size + 
-  asx_securities_t24_itch_v1_13.maturity_value.size + 
-  asx_securities_t24_itch_v1_13.coupon_rate.size + 
-  asx_securities_t24_itch_v1_13.payments_per_year.size;
+-- Calculate size of: Future Symbol Directory
+asx_securities_t24_itch_v1_13.future_symbol_directory.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.exchange.size
+
+  index = index + asx_securities_t24_itch_v1_13.instrument.size
+
+  index = index + asx_securities_t24_itch_v1_13.contract_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.expiry_year.size
+
+  index = index + asx_securities_t24_itch_v1_13.expiry_month.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_decimal_position.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_fractional_denominator.size
+
+  index = index + asx_securities_t24_itch_v1_13.price_minimum_tick.size
+
+  index = index + asx_securities_t24_itch_v1_13.last_trading_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.prior_day_settlement.size
+
+  index = index + asx_securities_t24_itch_v1_13.financial_type.size
+
+  index = index + asx_securities_t24_itch_v1_13.currency.size
+
+  index = index + asx_securities_t24_itch_v1_13.lot_size_or_face_value.size
+
+  index = index + asx_securities_t24_itch_v1_13.maturity_value.size
+
+  index = index + asx_securities_t24_itch_v1_13.coupon_rate.size
+
+  index = index + asx_securities_t24_itch_v1_13.payments_per_year.size
+
+  return index
+end
 
 -- Display: Future Symbol Directory
 asx_securities_t24_itch_v1_13.future_symbol_directory.display = function(packet, parent, length)
@@ -5283,7 +5673,7 @@ end
 -- Event Code
 asx_securities_t24_itch_v1_13.event_code = {}
 
--- Size Of: Event Code
+-- Size: Event Code
 asx_securities_t24_itch_v1_13.event_code.size = 1
 
 -- Display: Event Code
@@ -5322,11 +5712,18 @@ end
 -- System Event
 asx_securities_t24_itch_v1_13.system_event = {}
 
--- Size Of: System Event
-asx_securities_t24_itch_v1_13.system_event.size =
-  asx_securities_t24_itch_v1_13.timestamp.size + 
-  asx_securities_t24_itch_v1_13.trade_date.size + 
-  asx_securities_t24_itch_v1_13.event_code.size;
+-- Calculate size of: System Event
+asx_securities_t24_itch_v1_13.system_event.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.timestamp.size
+
+  index = index + asx_securities_t24_itch_v1_13.trade_date.size
+
+  index = index + asx_securities_t24_itch_v1_13.event_code.size
+
+  return index
+end
 
 -- Display: System Event
 asx_securities_t24_itch_v1_13.system_event.display = function(packet, parent, length)
@@ -5370,7 +5767,7 @@ end
 -- Second
 asx_securities_t24_itch_v1_13.second = {}
 
--- Size Of: Second
+-- Size: Second
 asx_securities_t24_itch_v1_13.second.size = 4
 
 -- Display: Second
@@ -5393,9 +5790,14 @@ end
 -- Time Message
 asx_securities_t24_itch_v1_13.time_message = {}
 
--- Size Of: Time Message
-asx_securities_t24_itch_v1_13.time_message.size =
-  asx_securities_t24_itch_v1_13.second.size;
+-- Calculate size of: Time Message
+asx_securities_t24_itch_v1_13.time_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.second.size
+
+  return index
+end
 
 -- Display: Time Message
 asx_securities_t24_itch_v1_13.time_message.display = function(packet, parent, length)
@@ -5713,7 +6115,7 @@ end
 -- Message Type
 asx_securities_t24_itch_v1_13.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 asx_securities_t24_itch_v1_13.message_type.size = 1
 
 -- Display: Message Type
@@ -5827,7 +6229,7 @@ end
 -- Message Length
 asx_securities_t24_itch_v1_13.message_length = {}
 
--- Size Of: Message Length
+-- Size: Message Length
 asx_securities_t24_itch_v1_13.message_length.size = 2
 
 -- Display: Message Length
@@ -5850,10 +6252,16 @@ end
 -- Message Header
 asx_securities_t24_itch_v1_13.message_header = {}
 
--- Size Of: Message Header
-asx_securities_t24_itch_v1_13.message_header.size =
-  asx_securities_t24_itch_v1_13.message_length.size + 
-  asx_securities_t24_itch_v1_13.message_type.size;
+-- Calculate size of: Message Header
+asx_securities_t24_itch_v1_13.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.message_length.size
+
+  index = index + asx_securities_t24_itch_v1_13.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 asx_securities_t24_itch_v1_13.message_header.display = function(packet, parent, length)
@@ -5945,7 +6353,7 @@ end
 -- Message Count
 asx_securities_t24_itch_v1_13.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 asx_securities_t24_itch_v1_13.message_count.size = 2
 
 -- Display: Message Count
@@ -5968,7 +6376,7 @@ end
 -- Sequence Number
 asx_securities_t24_itch_v1_13.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 asx_securities_t24_itch_v1_13.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -5991,7 +6399,7 @@ end
 -- Trading Service
 asx_securities_t24_itch_v1_13.trading_service = {}
 
--- Size Of: Trading Service
+-- Size: Trading Service
 asx_securities_t24_itch_v1_13.trading_service.size = 3
 
 -- Display: Trading Service
@@ -6014,7 +6422,7 @@ end
 -- Session Week
 asx_securities_t24_itch_v1_13.session_week = {}
 
--- Size Of: Session Week
+-- Size: Session Week
 asx_securities_t24_itch_v1_13.session_week.size = 2
 
 -- Display: Session Week
@@ -6037,7 +6445,7 @@ end
 -- Session Year
 asx_securities_t24_itch_v1_13.session_year = {}
 
--- Size Of: Session Year
+-- Size: Session Year
 asx_securities_t24_itch_v1_13.session_year.size = 2
 
 -- Display: Session Year
@@ -6060,7 +6468,7 @@ end
 -- Protocol Version
 asx_securities_t24_itch_v1_13.protocol_version = {}
 
--- Size Of: Protocol Version
+-- Size: Protocol Version
 asx_securities_t24_itch_v1_13.protocol_version.size = 3
 
 -- Display: Protocol Version
@@ -6139,11 +6547,18 @@ end
 -- Packet Header
 asx_securities_t24_itch_v1_13.packet_header = {}
 
--- Size Of: Packet Header
-asx_securities_t24_itch_v1_13.packet_header.size =
-  asx_securities_t24_itch_v1_13.session.size + 
-  asx_securities_t24_itch_v1_13.sequence_number.size + 
-  asx_securities_t24_itch_v1_13.message_count.size;
+-- Calculate size of: Packet Header
+asx_securities_t24_itch_v1_13.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_t24_itch_v1_13.session.size(buffer, offset + index)
+
+  index = index + asx_securities_t24_itch_v1_13.sequence_number.size
+
+  index = index + asx_securities_t24_itch_v1_13.message_count.size
+
+  return index
+end
 
 -- Display: Packet Header
 asx_securities_t24_itch_v1_13.packet_header.display = function(packet, parent, length)

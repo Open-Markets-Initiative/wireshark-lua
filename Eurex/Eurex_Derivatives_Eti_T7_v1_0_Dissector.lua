@@ -89,7 +89,7 @@ end
 -- Template Id
 eurex_derivatives_eti_t7_v1_0.template_id = {}
 
--- Size Of: Template Id
+-- Size: Template Id
 eurex_derivatives_eti_t7_v1_0.template_id.size = 2
 
 -- Display: Template Id
@@ -112,7 +112,7 @@ end
 -- Body Len
 eurex_derivatives_eti_t7_v1_0.body_len = {}
 
--- Size Of: Body Len
+-- Size: Body Len
 eurex_derivatives_eti_t7_v1_0.body_len.size = 4
 
 -- Display: Body Len
@@ -135,10 +135,16 @@ end
 -- Message Header
 eurex_derivatives_eti_t7_v1_0.message_header = {}
 
--- Size Of: Message Header
-eurex_derivatives_eti_t7_v1_0.message_header.size =
-  eurex_derivatives_eti_t7_v1_0.body_len.size + 
-  eurex_derivatives_eti_t7_v1_0.template_id.size;
+-- Calculate size of: Message Header
+eurex_derivatives_eti_t7_v1_0.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v1_0.body_len.size
+
+  index = index + eurex_derivatives_eti_t7_v1_0.template_id.size
+
+  return index
+end
 
 -- Display: Message Header
 eurex_derivatives_eti_t7_v1_0.message_header.display = function(packet, parent, length)

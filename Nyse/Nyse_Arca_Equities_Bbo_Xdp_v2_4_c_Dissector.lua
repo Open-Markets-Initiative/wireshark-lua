@@ -241,7 +241,7 @@ end
 -- Reserved 4
 nyse_arca_equities_bbo_xdp_v2_4_c.reserved_4 = {}
 
--- Size Of: Reserved 4
+-- Size: Reserved 4
 nyse_arca_equities_bbo_xdp_v2_4_c.reserved_4.size = 4
 
 -- Display: Reserved 4
@@ -264,7 +264,7 @@ end
 -- Rpi Indicator
 nyse_arca_equities_bbo_xdp_v2_4_c.rpi_indicator = {}
 
--- Size Of: Rpi Indicator
+-- Size: Rpi Indicator
 nyse_arca_equities_bbo_xdp_v2_4_c.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
@@ -300,7 +300,7 @@ end
 -- Quote Condition
 nyse_arca_equities_bbo_xdp_v2_4_c.quote_condition = {}
 
--- Size Of: Quote Condition
+-- Size: Quote Condition
 nyse_arca_equities_bbo_xdp_v2_4_c.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -336,7 +336,7 @@ end
 -- Bid Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.bid_volume = {}
 
--- Size Of: Bid Volume
+-- Size: Bid Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.bid_volume.size = 4
 
 -- Display: Bid Volume
@@ -359,7 +359,7 @@ end
 -- Bid Price
 nyse_arca_equities_bbo_xdp_v2_4_c.bid_price = {}
 
--- Size Of: Bid Price
+-- Size: Bid Price
 nyse_arca_equities_bbo_xdp_v2_4_c.bid_price.size = 4
 
 -- Display: Bid Price
@@ -382,7 +382,7 @@ end
 -- Ask Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.ask_volume = {}
 
--- Size Of: Ask Volume
+-- Size: Ask Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.ask_volume.size = 4
 
 -- Display: Ask Volume
@@ -405,7 +405,7 @@ end
 -- Ask Price
 nyse_arca_equities_bbo_xdp_v2_4_c.ask_price = {}
 
--- Size Of: Ask Price
+-- Size: Ask Price
 nyse_arca_equities_bbo_xdp_v2_4_c.ask_price.size = 4
 
 -- Display: Ask Price
@@ -428,7 +428,7 @@ end
 -- Symbol Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num = {}
 
--- Size Of: Symbol Seq Num
+-- Size: Symbol Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
@@ -451,7 +451,7 @@ end
 -- Symbol Index
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index = {}
 
--- Size Of: Symbol Index
+-- Size: Symbol Index
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size = 4
 
 -- Display: Symbol Index
@@ -474,7 +474,7 @@ end
 -- Source Time Ns
 nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns = {}
 
--- Size Of: Source Time Ns
+-- Size: Source Time Ns
 nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size = 4
 
 -- Display: Source Time Ns
@@ -497,18 +497,32 @@ end
 -- Quote Message
 nyse_arca_equities_bbo_xdp_v2_4_c.quote_message = {}
 
--- Size Of: Quote Message
-nyse_arca_equities_bbo_xdp_v2_4_c.quote_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.ask_price.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.ask_volume.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.bid_price.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.bid_volume.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.quote_condition.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.rpi_indicator.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.reserved_4.size;
+-- Calculate size of: Quote Message
+nyse_arca_equities_bbo_xdp_v2_4_c.quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.ask_price.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.ask_volume.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.bid_price.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.bid_volume.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.quote_condition.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.rpi_indicator.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.reserved_4.size
+
+  return index
+end
 
 -- Display: Quote Message
 nyse_arca_equities_bbo_xdp_v2_4_c.quote_message.display = function(packet, parent, length)
@@ -573,7 +587,7 @@ end
 -- Last Symbol Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.last_symbol_seq_num = {}
 
--- Size Of: Last Symbol Seq Num
+-- Size: Last Symbol Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.last_symbol_seq_num.size = 4
 
 -- Display: Last Symbol Seq Num
@@ -596,7 +610,7 @@ end
 -- Last Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.last_seq_num = {}
 
--- Size Of: Last Seq Num
+-- Size: Last Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.last_seq_num.size = 4
 
 -- Display: Last Seq Num
@@ -619,7 +633,7 @@ end
 -- Total Refresh Pkts
 nyse_arca_equities_bbo_xdp_v2_4_c.total_refresh_pkts = {}
 
--- Size Of: Total Refresh Pkts
+-- Size: Total Refresh Pkts
 nyse_arca_equities_bbo_xdp_v2_4_c.total_refresh_pkts.size = 2
 
 -- Display: Total Refresh Pkts
@@ -642,7 +656,7 @@ end
 -- Current Refresh Pkt
 nyse_arca_equities_bbo_xdp_v2_4_c.current_refresh_pkt = {}
 
--- Size Of: Current Refresh Pkt
+-- Size: Current Refresh Pkt
 nyse_arca_equities_bbo_xdp_v2_4_c.current_refresh_pkt.size = 2
 
 -- Display: Current Refresh Pkt
@@ -665,12 +679,20 @@ end
 -- Refresh Header Message
 nyse_arca_equities_bbo_xdp_v2_4_c.refresh_header_message = {}
 
--- Size Of: Refresh Header Message
-nyse_arca_equities_bbo_xdp_v2_4_c.refresh_header_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.current_refresh_pkt.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.total_refresh_pkts.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.last_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.last_symbol_seq_num.size;
+-- Calculate size of: Refresh Header Message
+nyse_arca_equities_bbo_xdp_v2_4_c.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.current_refresh_pkt.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.total_refresh_pkts.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.last_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.last_symbol_seq_num.size
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_arca_equities_bbo_xdp_v2_4_c.refresh_header_message.display = function(packet, parent, length)
@@ -717,7 +739,7 @@ end
 -- Session State
 nyse_arca_equities_bbo_xdp_v2_4_c.session_state = {}
 
--- Size Of: Session State
+-- Size: Session State
 nyse_arca_equities_bbo_xdp_v2_4_c.session_state.size = 1
 
 -- Display: Session State
@@ -740,7 +762,7 @@ end
 -- Market State
 nyse_arca_equities_bbo_xdp_v2_4_c.market_state = {}
 
--- Size Of: Market State
+-- Size: Market State
 nyse_arca_equities_bbo_xdp_v2_4_c.market_state.size = 1
 
 -- Display: Market State
@@ -763,7 +785,7 @@ end
 -- Ssr State
 nyse_arca_equities_bbo_xdp_v2_4_c.ssr_state = {}
 
--- Size Of: Ssr State
+-- Size: Ssr State
 nyse_arca_equities_bbo_xdp_v2_4_c.ssr_state.size = 1
 
 -- Display: Ssr State
@@ -786,7 +808,7 @@ end
 -- Time
 nyse_arca_equities_bbo_xdp_v2_4_c.time = {}
 
--- Size Of: Time
+-- Size: Time
 nyse_arca_equities_bbo_xdp_v2_4_c.time.size = 4
 
 -- Display: Time
@@ -809,7 +831,7 @@ end
 -- Ssr Triggering Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_volume = {}
 
--- Size Of: Ssr Triggering Volume
+-- Size: Ssr Triggering Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_volume.size = 4
 
 -- Display: Ssr Triggering Volume
@@ -832,7 +854,7 @@ end
 -- Ssr Triggering Exchange Id
 nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id = {}
 
--- Size Of: Ssr Triggering Exchange Id
+-- Size: Ssr Triggering Exchange Id
 nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
@@ -910,7 +932,7 @@ end
 -- Price 2
 nyse_arca_equities_bbo_xdp_v2_4_c.price_2 = {}
 
--- Size Of: Price 2
+-- Size: Price 2
 nyse_arca_equities_bbo_xdp_v2_4_c.price_2.size = 4
 
 -- Display: Price 2
@@ -933,7 +955,7 @@ end
 -- Price 1
 nyse_arca_equities_bbo_xdp_v2_4_c.price_1 = {}
 
--- Size Of: Price 1
+-- Size: Price 1
 nyse_arca_equities_bbo_xdp_v2_4_c.price_1.size = 4
 
 -- Display: Price 1
@@ -956,7 +978,7 @@ end
 -- Halt Condition
 nyse_arca_equities_bbo_xdp_v2_4_c.halt_condition = {}
 
--- Size Of: Halt Condition
+-- Size: Halt Condition
 nyse_arca_equities_bbo_xdp_v2_4_c.halt_condition.size = 1
 
 -- Display: Halt Condition
@@ -1016,7 +1038,7 @@ end
 -- Security Status
 nyse_arca_equities_bbo_xdp_v2_4_c.security_status = {}
 
--- Size Of: Security Status
+-- Size: Security Status
 nyse_arca_equities_bbo_xdp_v2_4_c.security_status.size = 1
 
 -- Display: Security Status
@@ -1088,7 +1110,7 @@ end
 -- Source Time
 nyse_arca_equities_bbo_xdp_v2_4_c.source_time = {}
 
--- Size Of: Source Time
+-- Size: Source Time
 nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size = 4
 
 -- Display: Source Time
@@ -1111,23 +1133,42 @@ end
 -- Security Status Message
 nyse_arca_equities_bbo_xdp_v2_4_c.security_status_message = {}
 
--- Size Of: Security Status Message
-nyse_arca_equities_bbo_xdp_v2_4_c.security_status_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.security_status.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.halt_condition.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.reserved_4.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.price_1.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.price_2.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_volume.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.time.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.ssr_state.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.market_state.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.session_state.size;
+-- Calculate size of: Security Status Message
+nyse_arca_equities_bbo_xdp_v2_4_c.security_status_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.security_status.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.halt_condition.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.reserved_4.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.price_1.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.price_2.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.ssr_triggering_volume.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.time.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.ssr_state.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.market_state.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.session_state.size
+
+  return index
+end
 
 -- Display: Security Status Message
 nyse_arca_equities_bbo_xdp_v2_4_c.security_status_message.display = function(packet, parent, length)
@@ -1207,7 +1248,7 @@ end
 -- Trading Session
 nyse_arca_equities_bbo_xdp_v2_4_c.trading_session = {}
 
--- Size Of: Trading Session
+-- Size: Trading Session
 nyse_arca_equities_bbo_xdp_v2_4_c.trading_session.size = 1
 
 -- Display: Trading Session
@@ -1230,13 +1271,22 @@ end
 -- Trading Session Change Message
 nyse_arca_equities_bbo_xdp_v2_4_c.trading_session_change_message = {}
 
--- Size Of: Trading Session Change Message
-nyse_arca_equities_bbo_xdp_v2_4_c.trading_session_change_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.trading_session.size;
+-- Calculate size of: Trading Session Change Message
+nyse_arca_equities_bbo_xdp_v2_4_c.trading_session_change_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.trading_session.size
+
+  return index
+end
 
 -- Display: Trading Session Change Message
 nyse_arca_equities_bbo_xdp_v2_4_c.trading_session_change_message.display = function(packet, parent, length)
@@ -1286,7 +1336,7 @@ end
 -- Next Source Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.next_source_seq_num = {}
 
--- Size Of: Next Source Seq Num
+-- Size: Next Source Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.next_source_seq_num.size = 4
 
 -- Display: Next Source Seq Num
@@ -1309,12 +1359,20 @@ end
 -- Symbol Clear Message
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_clear_message = {}
 
--- Size Of: Symbol Clear Message
-nyse_arca_equities_bbo_xdp_v2_4_c.symbol_clear_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.next_source_seq_num.size;
+-- Calculate size of: Symbol Clear Message
+nyse_arca_equities_bbo_xdp_v2_4_c.symbol_clear_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.next_source_seq_num.size
+
+  return index
+end
 
 -- Display: Symbol Clear Message
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_clear_message.display = function(packet, parent, length)
@@ -1361,7 +1419,7 @@ end
 -- Channel Id
 nyse_arca_equities_bbo_xdp_v2_4_c.channel_id = {}
 
--- Size Of: Channel Id
+-- Size: Channel Id
 nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size = 1
 
 -- Display: Channel Id
@@ -1384,7 +1442,7 @@ end
 -- Product Id
 nyse_arca_equities_bbo_xdp_v2_4_c.product_id = {}
 
--- Size Of: Product Id
+-- Size: Product Id
 nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size = 1
 
 -- Display: Product Id
@@ -1407,7 +1465,7 @@ end
 -- End Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num = {}
 
--- Size Of: End Seq Num
+-- Size: End Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num.size = 4
 
 -- Display: End Seq Num
@@ -1430,7 +1488,7 @@ end
 -- Begin Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num = {}
 
--- Size Of: Begin Seq Num
+-- Size: Begin Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num.size = 4
 
 -- Display: Begin Seq Num
@@ -1453,12 +1511,20 @@ end
 -- Message Unavailable Message
 nyse_arca_equities_bbo_xdp_v2_4_c.message_unavailable_message = {}
 
--- Size Of: Message Unavailable Message
-nyse_arca_equities_bbo_xdp_v2_4_c.message_unavailable_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size;
+-- Calculate size of: Message Unavailable Message
+nyse_arca_equities_bbo_xdp_v2_4_c.message_unavailable_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size
+
+  return index
+end
 
 -- Display: Message Unavailable Message
 nyse_arca_equities_bbo_xdp_v2_4_c.message_unavailable_message.display = function(packet, parent, length)
@@ -1505,7 +1571,7 @@ end
 -- Source Id
 nyse_arca_equities_bbo_xdp_v2_4_c.source_id = {}
 
--- Size Of: Source Id
+-- Size: Source Id
 nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size = 10
 
 -- Display: Source Id
@@ -1528,12 +1594,20 @@ end
 -- Refresh Request Message
 nyse_arca_equities_bbo_xdp_v2_4_c.refresh_request_message = {}
 
--- Size Of: Refresh Request Message
-nyse_arca_equities_bbo_xdp_v2_4_c.refresh_request_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size;
+-- Calculate size of: Refresh Request Message
+nyse_arca_equities_bbo_xdp_v2_4_c.refresh_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size
+
+  return index
+end
 
 -- Display: Refresh Request Message
 nyse_arca_equities_bbo_xdp_v2_4_c.refresh_request_message.display = function(packet, parent, length)
@@ -1580,7 +1654,7 @@ end
 -- Retransmit Method
 nyse_arca_equities_bbo_xdp_v2_4_c.retransmit_method = {}
 
--- Size Of: Retransmit Method
+-- Size: Retransmit Method
 nyse_arca_equities_bbo_xdp_v2_4_c.retransmit_method.size = 1
 
 -- Display: Retransmit Method
@@ -1607,13 +1681,22 @@ end
 -- Symbol Index Mapping Request Message
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message = {}
 
--- Size Of: Symbol Index Mapping Request Message
-nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.retransmit_method.size;
+-- Calculate size of: Symbol Index Mapping Request Message
+nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.retransmit_method.size
+
+  return index
+end
 
 -- Display: Symbol Index Mapping Request Message
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message.display = function(packet, parent, length)
@@ -1663,9 +1746,14 @@ end
 -- Heartbeat Response Message
 nyse_arca_equities_bbo_xdp_v2_4_c.heartbeat_response_message = {}
 
--- Size Of: Heartbeat Response Message
-nyse_arca_equities_bbo_xdp_v2_4_c.heartbeat_response_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size;
+-- Calculate size of: Heartbeat Response Message
+nyse_arca_equities_bbo_xdp_v2_4_c.heartbeat_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size
+
+  return index
+end
 
 -- Display: Heartbeat Response Message
 nyse_arca_equities_bbo_xdp_v2_4_c.heartbeat_response_message.display = function(packet, parent, length)
@@ -1703,7 +1791,7 @@ end
 -- Status
 nyse_arca_equities_bbo_xdp_v2_4_c.status = {}
 
--- Size Of: Status
+-- Size: Status
 nyse_arca_equities_bbo_xdp_v2_4_c.status.size = 1
 
 -- Display: Status
@@ -1726,7 +1814,7 @@ end
 -- Request Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.request_seq_num = {}
 
--- Size Of: Request Seq Num
+-- Size: Request Seq Num
 nyse_arca_equities_bbo_xdp_v2_4_c.request_seq_num.size = 4
 
 -- Display: Request Seq Num
@@ -1749,15 +1837,26 @@ end
 -- Request Response Message
 nyse_arca_equities_bbo_xdp_v2_4_c.request_response_message = {}
 
--- Size Of: Request Response Message
-nyse_arca_equities_bbo_xdp_v2_4_c.request_response_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.request_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.status.size;
+-- Calculate size of: Request Response Message
+nyse_arca_equities_bbo_xdp_v2_4_c.request_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.request_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.status.size
+
+  return index
+end
 
 -- Display: Request Response Message
 nyse_arca_equities_bbo_xdp_v2_4_c.request_response_message.display = function(packet, parent, length)
@@ -1813,13 +1912,22 @@ end
 -- Retransmission Request Message
 nyse_arca_equities_bbo_xdp_v2_4_c.retransmission_request_message = {}
 
--- Size Of: Retransmission Request Message
-nyse_arca_equities_bbo_xdp_v2_4_c.retransmission_request_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size;
+-- Calculate size of: Retransmission Request Message
+nyse_arca_equities_bbo_xdp_v2_4_c.retransmission_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.begin_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.end_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size
+
+  return index
+end
 
 -- Display: Retransmission Request Message
 nyse_arca_equities_bbo_xdp_v2_4_c.retransmission_request_message.display = function(packet, parent, length)
@@ -1869,7 +1977,7 @@ end
 -- Reserved 2
 nyse_arca_equities_bbo_xdp_v2_4_c.reserved_2 = {}
 
--- Size Of: Reserved 2
+-- Size: Reserved 2
 nyse_arca_equities_bbo_xdp_v2_4_c.reserved_2.size = 2
 
 -- Display: Reserved 2
@@ -1892,7 +2000,7 @@ end
 -- Unit Of Trade
 nyse_arca_equities_bbo_xdp_v2_4_c.unit_of_trade = {}
 
--- Size Of: Unit Of Trade
+-- Size: Unit Of Trade
 nyse_arca_equities_bbo_xdp_v2_4_c.unit_of_trade.size = 2
 
 -- Display: Unit Of Trade
@@ -1915,7 +2023,7 @@ end
 -- Mpv
 nyse_arca_equities_bbo_xdp_v2_4_c.mpv = {}
 
--- Size Of: Mpv
+-- Size: Mpv
 nyse_arca_equities_bbo_xdp_v2_4_c.mpv.size = 2
 
 -- Display: Mpv
@@ -1938,7 +2046,7 @@ end
 -- Round Lot
 nyse_arca_equities_bbo_xdp_v2_4_c.round_lot = {}
 
--- Size Of: Round Lot
+-- Size: Round Lot
 nyse_arca_equities_bbo_xdp_v2_4_c.round_lot.size = 1
 
 -- Display: Round Lot
@@ -1961,7 +2069,7 @@ end
 -- Price Resolution
 nyse_arca_equities_bbo_xdp_v2_4_c.price_resolution = {}
 
--- Size Of: Price Resolution
+-- Size: Price Resolution
 nyse_arca_equities_bbo_xdp_v2_4_c.price_resolution.size = 1
 
 -- Display: Price Resolution
@@ -1984,7 +2092,7 @@ end
 -- Prev Close Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_volume = {}
 
--- Size Of: Prev Close Volume
+-- Size: Prev Close Volume
 nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_volume.size = 4
 
 -- Display: Prev Close Volume
@@ -2007,7 +2115,7 @@ end
 -- Prev Close Price
 nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_price = {}
 
--- Size Of: Prev Close Price
+-- Size: Prev Close Price
 nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_price.size = 4
 
 -- Display: Prev Close Price
@@ -2030,7 +2138,7 @@ end
 -- Lot Size
 nyse_arca_equities_bbo_xdp_v2_4_c.lot_size = {}
 
--- Size Of: Lot Size
+-- Size: Lot Size
 nyse_arca_equities_bbo_xdp_v2_4_c.lot_size.size = 2
 
 -- Display: Lot Size
@@ -2053,7 +2161,7 @@ end
 -- Security Type
 nyse_arca_equities_bbo_xdp_v2_4_c.security_type = {}
 
--- Size Of: Security Type
+-- Size: Security Type
 nyse_arca_equities_bbo_xdp_v2_4_c.security_type.size = 1
 
 -- Display: Security Type
@@ -2125,7 +2233,7 @@ end
 -- Price Scale Code
 nyse_arca_equities_bbo_xdp_v2_4_c.price_scale_code = {}
 
--- Size Of: Price Scale Code
+-- Size: Price Scale Code
 nyse_arca_equities_bbo_xdp_v2_4_c.price_scale_code.size = 1
 
 -- Display: Price Scale Code
@@ -2148,7 +2256,7 @@ end
 -- Exchange Code
 nyse_arca_equities_bbo_xdp_v2_4_c.exchange_code = {}
 
--- Size Of: Exchange Code
+-- Size: Exchange Code
 nyse_arca_equities_bbo_xdp_v2_4_c.exchange_code.size = 1
 
 -- Display: Exchange Code
@@ -2202,7 +2310,7 @@ end
 -- System Id
 nyse_arca_equities_bbo_xdp_v2_4_c.system_id = {}
 
--- Size Of: System Id
+-- Size: System Id
 nyse_arca_equities_bbo_xdp_v2_4_c.system_id.size = 1
 
 -- Display: System Id
@@ -2225,7 +2333,7 @@ end
 -- Market Id
 nyse_arca_equities_bbo_xdp_v2_4_c.market_id = {}
 
--- Size Of: Market Id
+-- Size: Market Id
 nyse_arca_equities_bbo_xdp_v2_4_c.market_id.size = 2
 
 -- Display: Market Id
@@ -2273,7 +2381,7 @@ end
 -- Reserved 1
 nyse_arca_equities_bbo_xdp_v2_4_c.reserved_1 = {}
 
--- Size Of: Reserved 1
+-- Size: Reserved 1
 nyse_arca_equities_bbo_xdp_v2_4_c.reserved_1.size = 1
 
 -- Display: Reserved 1
@@ -2296,7 +2404,7 @@ end
 -- Symbol
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol = {}
 
--- Size Of: Symbol
+-- Size: Symbol
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol.size = 11
 
 -- Display: Symbol
@@ -2319,24 +2427,44 @@ end
 -- Symbol Index Mapping Message
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_message = {}
 
--- Size Of: Symbol Index Mapping Message
-nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.reserved_1.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.market_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.system_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.exchange_code.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.price_scale_code.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.security_type.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.lot_size.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_price.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_volume.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.price_resolution.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.round_lot.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.mpv.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.unit_of_trade.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.reserved_2.size;
+-- Calculate size of: Symbol Index Mapping Message
+nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.reserved_1.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.market_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.system_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.exchange_code.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.price_scale_code.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.security_type.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.lot_size.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_price.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.prev_close_volume.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.price_resolution.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.round_lot.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.mpv.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.unit_of_trade.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.reserved_2.size
+
+  return index
+end
 
 -- Display: Symbol Index Mapping Message
 nyse_arca_equities_bbo_xdp_v2_4_c.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -2419,7 +2547,7 @@ end
 -- Id
 nyse_arca_equities_bbo_xdp_v2_4_c.id = {}
 
--- Size Of: Id
+-- Size: Id
 nyse_arca_equities_bbo_xdp_v2_4_c.id.size = 4
 
 -- Display: Id
@@ -2442,11 +2570,18 @@ end
 -- Source Time Reference Message
 nyse_arca_equities_bbo_xdp_v2_4_c.source_time_reference_message = {}
 
--- Size Of: Source Time Reference Message
-nyse_arca_equities_bbo_xdp_v2_4_c.source_time_reference_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size;
+-- Calculate size of: Source Time Reference Message
+nyse_arca_equities_bbo_xdp_v2_4_c.source_time_reference_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.symbol_seq_num.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size
+
+  return index
+end
 
 -- Display: Source Time Reference Message
 nyse_arca_equities_bbo_xdp_v2_4_c.source_time_reference_message.display = function(packet, parent, length)
@@ -2490,12 +2625,20 @@ end
 -- Sequence Number Reset Message
 nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number_reset_message = {}
 
--- Size Of: Sequence Number Reset Message
-nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number_reset_message.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size;
+-- Calculate size of: Sequence Number Reset Message
+nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number_reset_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.source_time_ns.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.product_id.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.channel_id.size
+
+  return index
+end
 
 -- Display: Sequence Number Reset Message
 nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number_reset_message.display = function(packet, parent, length)
@@ -2694,7 +2837,7 @@ end
 -- Message Type
 nyse_arca_equities_bbo_xdp_v2_4_c.message_type = {}
 
--- Size Of: Message Type
+-- Size: Message Type
 nyse_arca_equities_bbo_xdp_v2_4_c.message_type.size = 2
 
 -- Display: Message Type
@@ -2760,7 +2903,7 @@ end
 -- Message Size
 nyse_arca_equities_bbo_xdp_v2_4_c.message_size = {}
 
--- Size Of: Message Size
+-- Size: Message Size
 nyse_arca_equities_bbo_xdp_v2_4_c.message_size.size = 2
 
 -- Display: Message Size
@@ -2783,10 +2926,16 @@ end
 -- Message Header
 nyse_arca_equities_bbo_xdp_v2_4_c.message_header = {}
 
--- Size Of: Message Header
-nyse_arca_equities_bbo_xdp_v2_4_c.message_header.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.message_size.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.message_type.size;
+-- Calculate size of: Message Header
+nyse_arca_equities_bbo_xdp_v2_4_c.message_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.message_size.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.message_type.size
+
+  return index
+end
 
 -- Display: Message Header
 nyse_arca_equities_bbo_xdp_v2_4_c.message_header.display = function(packet, parent, length)
@@ -2831,7 +2980,7 @@ nyse_arca_equities_bbo_xdp_v2_4_c.message = {}
 nyse_arca_equities_bbo_xdp_v2_4_c.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.message_header.size
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2884,7 +3033,7 @@ end
 -- Nanoseconds
 nyse_arca_equities_bbo_xdp_v2_4_c.nanoseconds = {}
 
--- Size Of: Nanoseconds
+-- Size: Nanoseconds
 nyse_arca_equities_bbo_xdp_v2_4_c.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -2907,7 +3056,7 @@ end
 -- Timestamp
 nyse_arca_equities_bbo_xdp_v2_4_c.timestamp = {}
 
--- Size Of: Timestamp
+-- Size: Timestamp
 nyse_arca_equities_bbo_xdp_v2_4_c.timestamp.size = 4
 
 -- Display: Timestamp
@@ -2930,7 +3079,7 @@ end
 -- Sequence Number
 nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number = {}
 
--- Size Of: Sequence Number
+-- Size: Sequence Number
 nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -2953,7 +3102,7 @@ end
 -- Message Count
 nyse_arca_equities_bbo_xdp_v2_4_c.message_count = {}
 
--- Size Of: Message Count
+-- Size: Message Count
 nyse_arca_equities_bbo_xdp_v2_4_c.message_count.size = 1
 
 -- Display: Message Count
@@ -2976,7 +3125,7 @@ end
 -- Delivery Flag
 nyse_arca_equities_bbo_xdp_v2_4_c.delivery_flag = {}
 
--- Size Of: Delivery Flag
+-- Size: Delivery Flag
 nyse_arca_equities_bbo_xdp_v2_4_c.delivery_flag.size = 1
 
 -- Display: Delivery Flag
@@ -3033,7 +3182,7 @@ end
 -- Packet Size
 nyse_arca_equities_bbo_xdp_v2_4_c.packet_size = {}
 
--- Size Of: Packet Size
+-- Size: Packet Size
 nyse_arca_equities_bbo_xdp_v2_4_c.packet_size.size = 2
 
 -- Display: Packet Size
@@ -3056,14 +3205,24 @@ end
 -- Packet Header
 nyse_arca_equities_bbo_xdp_v2_4_c.packet_header = {}
 
--- Size Of: Packet Header
-nyse_arca_equities_bbo_xdp_v2_4_c.packet_header.size =
-  nyse_arca_equities_bbo_xdp_v2_4_c.packet_size.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.delivery_flag.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.message_count.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.timestamp.size + 
-  nyse_arca_equities_bbo_xdp_v2_4_c.nanoseconds.size;
+-- Calculate size of: Packet Header
+nyse_arca_equities_bbo_xdp_v2_4_c.packet_header.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.packet_size.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.delivery_flag.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.message_count.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.sequence_number.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.timestamp.size
+
+  index = index + nyse_arca_equities_bbo_xdp_v2_4_c.nanoseconds.size
+
+  return index
+end
 
 -- Display: Packet Header
 nyse_arca_equities_bbo_xdp_v2_4_c.packet_header.display = function(packet, parent, length)
