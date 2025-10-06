@@ -711,7 +711,7 @@ end
 -- Text Length
 b3_equities_binaryentrypoint_sbe_v8_0.text_length = {}
 
--- Size: Text Length
+-- Size Of: Text Length
 b3_equities_binaryentrypoint_sbe_v8_0.text_length.size = 1
 
 -- Display: Text Length
@@ -805,7 +805,7 @@ end
 -- Document
 b3_equities_binaryentrypoint_sbe_v8_0.document = {}
 
--- Size: Document
+-- Size Of: Document
 b3_equities_binaryentrypoint_sbe_v8_0.document.size = 4
 
 -- Display: Document
@@ -828,7 +828,7 @@ end
 -- Prefix
 b3_equities_binaryentrypoint_sbe_v8_0.prefix = {}
 
--- Size: Prefix
+-- Size Of: Prefix
 b3_equities_binaryentrypoint_sbe_v8_0.prefix.size = 2
 
 -- Display: Prefix
@@ -851,16 +851,10 @@ end
 -- Investor Id
 b3_equities_binaryentrypoint_sbe_v8_0.investor_id = {}
 
--- Calculate size of: Investor Id
-b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.prefix.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.document.size
-
-  return index
-end
+-- Size Of: Investor Id
+b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.prefix.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.document.size;
 
 -- Display: Investor Id
 b3_equities_binaryentrypoint_sbe_v8_0.investor_id.display = function(packet, parent, length)
@@ -901,7 +895,7 @@ end
 -- Security Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.security_id_optional = {}
 
--- Size: Security Id Optional
+-- Size Of: Security Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.security_id_optional.size = 8
 
 -- Display: Security Id Optional
@@ -924,7 +918,7 @@ end
 -- Asset
 b3_equities_binaryentrypoint_sbe_v8_0.asset = {}
 
--- Size: Asset
+-- Size Of: Asset
 b3_equities_binaryentrypoint_sbe_v8_0.asset.size = 6
 
 -- Display: Asset
@@ -963,7 +957,7 @@ end
 -- Offset 49 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_49_padding_1 = {}
 
--- Size: Offset 49 Padding 1
+-- Size Of: Offset 49 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_49_padding_1.size = 1
 
 -- Display: Offset 49 Padding 1
@@ -986,7 +980,7 @@ end
 -- Side Optional
 b3_equities_binaryentrypoint_sbe_v8_0.side_optional = {}
 
--- Size: Side Optional
+-- Size Of: Side Optional
 b3_equities_binaryentrypoint_sbe_v8_0.side_optional.size = 1
 
 -- Display: Side Optional
@@ -1032,7 +1026,7 @@ end
 -- Ord Tag Id
 b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id = {}
 
--- Size: Ord Tag Id
+-- Size Of: Ord Tag Id
 b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id.size = 1
 
 -- Display: Ord Tag Id
@@ -1055,7 +1049,7 @@ end
 -- Mass Cancel Restatement Reason
 b3_equities_binaryentrypoint_sbe_v8_0.mass_cancel_restatement_reason = {}
 
--- Size: Mass Cancel Restatement Reason
+-- Size Of: Mass Cancel Restatement Reason
 b3_equities_binaryentrypoint_sbe_v8_0.mass_cancel_restatement_reason.size = 1
 
 -- Display: Mass Cancel Restatement Reason
@@ -1088,7 +1082,7 @@ end
 -- Mass Action Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_reject_reason = {}
 
--- Size: Mass Action Reject Reason
+-- Size Of: Mass Action Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_reject_reason.size = 1
 
 -- Display: Mass Action Reject Reason
@@ -1124,7 +1118,7 @@ end
 -- Mass Action Response
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_response = {}
 
--- Size: Mass Action Response
+-- Size Of: Mass Action Response
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_response.size = 1
 
 -- Display: Mass Action Response
@@ -1167,7 +1161,7 @@ end
 -- Transact Time
 b3_equities_binaryentrypoint_sbe_v8_0.transact_time = {}
 
--- Size: Transact Time
+-- Size Of: Transact Time
 b3_equities_binaryentrypoint_sbe_v8_0.transact_time.size = 8
 
 -- Display: Transact Time
@@ -1194,7 +1188,7 @@ end
 -- Mass Action Report Id
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_report_id = {}
 
--- Size: Mass Action Report Id
+-- Size Of: Mass Action Report Id
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_report_id.size = 8
 
 -- Display: Mass Action Report Id
@@ -1217,7 +1211,7 @@ end
 -- ClOrdId
 b3_equities_binaryentrypoint_sbe_v8_0.clordid = {}
 
--- Size: ClOrdId
+-- Size Of: ClOrdId
 b3_equities_binaryentrypoint_sbe_v8_0.clordid.size = 8
 
 -- Display: ClOrdId
@@ -1240,7 +1234,7 @@ end
 -- Mass Action Scope
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_scope = {}
 
--- Size: Mass Action Scope
+-- Size Of: Mass Action Scope
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_scope.size = 1
 
 -- Display: Mass Action Scope
@@ -1270,7 +1264,7 @@ end
 -- Mass Action Type
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_type = {}
 
--- Size: Mass Action Type
+-- Size Of: Mass Action Type
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_type.size = 1
 
 -- Display: Mass Action Type
@@ -1303,7 +1297,7 @@ end
 -- Padding
 b3_equities_binaryentrypoint_sbe_v8_0.padding = {}
 
--- Size: Padding
+-- Size Of: Padding
 b3_equities_binaryentrypoint_sbe_v8_0.padding.size = 1
 
 -- Display: Padding
@@ -1339,7 +1333,7 @@ end
 -- Poss Resend
 b3_equities_binaryentrypoint_sbe_v8_0.poss_resend = {}
 
--- Size: Poss Resend
+-- Size Of: Poss Resend
 b3_equities_binaryentrypoint_sbe_v8_0.poss_resend.size = 1
 
 -- Display: Poss Resend
@@ -1362,7 +1356,7 @@ end
 -- Sending Time
 b3_equities_binaryentrypoint_sbe_v8_0.sending_time = {}
 
--- Size: Sending Time
+-- Size Of: Sending Time
 b3_equities_binaryentrypoint_sbe_v8_0.sending_time.size = 8
 
 -- Display: Sending Time
@@ -1393,7 +1387,7 @@ end
 -- Msg Seq Num
 b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num = {}
 
--- Size: Msg Seq Num
+-- Size Of: Msg Seq Num
 b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num.size = 4
 
 -- Display: Msg Seq Num
@@ -1416,7 +1410,7 @@ end
 -- Session Id
 b3_equities_binaryentrypoint_sbe_v8_0.session_id = {}
 
--- Size: Session Id
+-- Size Of: Session Id
 b3_equities_binaryentrypoint_sbe_v8_0.session_id.size = 4
 
 -- Display: Session Id
@@ -1439,22 +1433,13 @@ end
 -- Outbound Business Header
 b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header = {}
 
--- Calculate size of: Outbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.sending_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.poss_resend.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.padding.size
-
-  return index
-end
+-- Size Of: Outbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.sending_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.poss_resend.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.padding.size;
 
 -- Display: Outbound Business Header
 b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.display = function(packet, parent, length)
@@ -1508,7 +1493,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.order_mass_action_report_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.order_mass_action_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.mass_action_type.size
 
@@ -1536,7 +1521,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.order_mass_action_report_message.size = fu
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id_optional.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.text.size(buffer, offset + index)
 
@@ -1619,7 +1604,7 @@ end
 -- Offset 31 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_31_padding_1 = {}
 
--- Size: Offset 31 Padding 1
+-- Size Of: Offset 31 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_31_padding_1.size = 1
 
 -- Display: Offset 31 Padding 1
@@ -1642,7 +1627,7 @@ end
 -- Market Segment Id
 b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id = {}
 
--- Size: Market Segment Id
+-- Size Of: Market Segment Id
 b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id.size = 1
 
 -- Display: Market Segment Id
@@ -1665,22 +1650,13 @@ end
 -- Inbound Business Header
 b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header = {}
 
--- Calculate size of: Inbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.sending_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.padding.size
-
-  return index
-end
+-- Size Of: Inbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.sending_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.padding.size;
 
 -- Display: Inbound Business Header
 b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.display = function(packet, parent, length)
@@ -1730,34 +1706,19 @@ end
 -- Order Mass Action Request Message
 b3_equities_binaryentrypoint_sbe_v8_0.order_mass_action_request_message = {}
 
--- Calculate size of: Order Mass Action Request Message
-b3_equities_binaryentrypoint_sbe_v8_0.order_mass_action_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.mass_action_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.mass_action_scope.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.clordid.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.mass_cancel_restatement_reason.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.side_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.offset_31_padding_1.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.asset.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Order Mass Action Request Message
+b3_equities_binaryentrypoint_sbe_v8_0.order_mass_action_request_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.mass_action_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.mass_action_scope.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.clordid.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.mass_cancel_restatement_reason.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.side_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.offset_31_padding_1.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.asset.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_id_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size;
 
 -- Display: Order Mass Action Request Message
 b3_equities_binaryentrypoint_sbe_v8_0.order_mass_action_request_message.display = function(packet, parent, length)
@@ -1825,7 +1786,7 @@ end
 -- Entering Trader
 b3_equities_binaryentrypoint_sbe_v8_0.entering_trader = {}
 
--- Size: Entering Trader
+-- Size Of: Entering Trader
 b3_equities_binaryentrypoint_sbe_v8_0.entering_trader.size = 5
 
 -- Display: Entering Trader
@@ -1864,7 +1825,7 @@ end
 -- Sender Location
 b3_equities_binaryentrypoint_sbe_v8_0.sender_location = {}
 
--- Size: Sender Location
+-- Size Of: Sender Location
 b3_equities_binaryentrypoint_sbe_v8_0.sender_location.size = 10
 
 -- Display: Sender Location
@@ -1903,7 +1864,7 @@ end
 -- Side
 b3_equities_binaryentrypoint_sbe_v8_0.side = {}
 
--- Size: Side
+-- Size Of: Side
 b3_equities_binaryentrypoint_sbe_v8_0.side.size = 1
 
 -- Display: Side
@@ -1946,7 +1907,7 @@ end
 -- Trade Date Optional
 b3_equities_binaryentrypoint_sbe_v8_0.trade_date_optional = {}
 
--- Size: Trade Date Optional
+-- Size Of: Trade Date Optional
 b3_equities_binaryentrypoint_sbe_v8_0.trade_date_optional.size = 2
 
 -- Display: Trade Date Optional
@@ -1969,7 +1930,7 @@ end
 -- Alloc Status
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_status = {}
 
--- Size: Alloc Status
+-- Size Of: Alloc Status
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_status.size = 1
 
 -- Display: Alloc Status
@@ -2012,7 +1973,7 @@ end
 -- Quantity
 b3_equities_binaryentrypoint_sbe_v8_0.quantity = {}
 
--- Size: Quantity
+-- Size Of: Quantity
 b3_equities_binaryentrypoint_sbe_v8_0.quantity.size = 8
 
 -- Display: Quantity
@@ -2035,7 +1996,7 @@ end
 -- Alloc Rej Code
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_rej_code = {}
 
--- Size: Alloc Rej Code
+-- Size Of: Alloc Rej Code
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_rej_code.size = 4
 
 -- Display: Alloc Rej Code
@@ -2058,7 +2019,7 @@ end
 -- Alloc No Orders Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_no_orders_type = {}
 
--- Size: Alloc No Orders Type
+-- Size Of: Alloc No Orders Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_no_orders_type.size = 1
 
 -- Display: Alloc No Orders Type
@@ -2098,7 +2059,7 @@ end
 -- Alloc Report Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_type = {}
 
--- Size: Alloc Report Type
+-- Size Of: Alloc Report Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_type.size = 1
 
 -- Display: Alloc Report Type
@@ -2138,7 +2099,7 @@ end
 -- Alloc Trans Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_trans_type = {}
 
--- Size: Alloc Trans Type
+-- Size Of: Alloc Trans Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_trans_type.size = 1
 
 -- Display: Alloc Trans Type
@@ -2181,7 +2142,7 @@ end
 -- Alloc Report Id
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_id = {}
 
--- Size: Alloc Report Id
+-- Size Of: Alloc Report Id
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_id.size = 8
 
 -- Display: Alloc Report Id
@@ -2204,7 +2165,7 @@ end
 -- Security Id
 b3_equities_binaryentrypoint_sbe_v8_0.security_id = {}
 
--- Size: Security Id
+-- Size Of: Security Id
 b3_equities_binaryentrypoint_sbe_v8_0.security_id.size = 8
 
 -- Display: Security Id
@@ -2227,7 +2188,7 @@ end
 -- Alloc Id
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_id = {}
 
--- Size: Alloc Id
+-- Size Of: Alloc Id
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_id.size = 8
 
 -- Display: Alloc Id
@@ -2250,42 +2211,23 @@ end
 -- Allocation Report Message
 b3_equities_binaryentrypoint_sbe_v8_0.allocation_report_message = {}
 
--- Calculate size of: Allocation Report Message
-b3_equities_binaryentrypoint_sbe_v8_0.allocation_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_trans_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_no_orders_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_rej_code.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.quantity.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_status.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.trade_date_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.entering_trader.size
-
-  return index
-end
+-- Size Of: Allocation Report Message
+b3_equities_binaryentrypoint_sbe_v8_0.allocation_report_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.alloc_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.alloc_trans_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.alloc_report_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.alloc_no_orders_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.alloc_rej_code.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.quantity.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.alloc_status.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.trade_date_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.transact_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.sender_location.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.entering_trader.size;
 
 -- Display: Allocation Report Message
 b3_equities_binaryentrypoint_sbe_v8_0.allocation_report_message.display = function(packet, parent, length)
@@ -2384,7 +2326,7 @@ end
 -- Memo Length
 b3_equities_binaryentrypoint_sbe_v8_0.memo_length = {}
 
--- Size: Memo Length
+-- Size Of: Memo Length
 b3_equities_binaryentrypoint_sbe_v8_0.memo_length.size = 1
 
 -- Display: Memo Length
@@ -2497,7 +2439,7 @@ end
 -- Desk Id Length
 b3_equities_binaryentrypoint_sbe_v8_0.desk_id_length = {}
 
--- Size: Desk Id Length
+-- Size Of: Desk Id Length
 b3_equities_binaryentrypoint_sbe_v8_0.desk_id_length.size = 1
 
 -- Display: Desk Id Length
@@ -2591,7 +2533,7 @@ end
 -- Alloc Qty
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_qty = {}
 
--- Size: Alloc Qty
+-- Size Of: Alloc Qty
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_qty.size = 8
 
 -- Display: Alloc Qty
@@ -2614,7 +2556,7 @@ end
 -- Alloc Account
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_account = {}
 
--- Size: Alloc Account
+-- Size Of: Alloc Account
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_account.size = 4
 
 -- Display: Alloc Account
@@ -2637,7 +2579,7 @@ end
 -- Individual Alloc Id
 b3_equities_binaryentrypoint_sbe_v8_0.individual_alloc_id = {}
 
--- Size: Individual Alloc Id
+-- Size Of: Individual Alloc Id
 b3_equities_binaryentrypoint_sbe_v8_0.individual_alloc_id.size = 8
 
 -- Display: Individual Alloc Id
@@ -2660,7 +2602,7 @@ end
 -- Trade Id
 b3_equities_binaryentrypoint_sbe_v8_0.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 b3_equities_binaryentrypoint_sbe_v8_0.trade_id.size = 4
 
 -- Display: Trade Id
@@ -2683,7 +2625,7 @@ end
 -- Alloc Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_type = {}
 
--- Size: Alloc Type
+-- Size Of: Alloc Type
 b3_equities_binaryentrypoint_sbe_v8_0.alloc_type.size = 1
 
 -- Display: Alloc Type
@@ -2727,7 +2669,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.allocation_instruction_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.allocation_instruction_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.alloc_id.size
 
@@ -2838,7 +2780,7 @@ end
 -- Short Qty
 b3_equities_binaryentrypoint_sbe_v8_0.short_qty = {}
 
--- Size: Short Qty
+-- Size Of: Short Qty
 b3_equities_binaryentrypoint_sbe_v8_0.short_qty.size = 8
 
 -- Display: Short Qty
@@ -2861,7 +2803,7 @@ end
 -- Long Qty Optional
 b3_equities_binaryentrypoint_sbe_v8_0.long_qty_optional = {}
 
--- Size: Long Qty Optional
+-- Size Of: Long Qty Optional
 b3_equities_binaryentrypoint_sbe_v8_0.long_qty_optional.size = 8
 
 -- Display: Long Qty Optional
@@ -2884,7 +2826,7 @@ end
 -- Pos Type
 b3_equities_binaryentrypoint_sbe_v8_0.pos_type = {}
 
--- Size: Pos Type
+-- Size Of: Pos Type
 b3_equities_binaryentrypoint_sbe_v8_0.pos_type.size = 1
 
 -- Display: Pos Type
@@ -2939,18 +2881,11 @@ end
 -- No Positions Group
 b3_equities_binaryentrypoint_sbe_v8_0.no_positions_group = {}
 
--- Calculate size of: No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_0.no_positions_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.pos_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.long_qty_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.short_qty.size
-
-  return index
-end
+-- Size Of: No Positions Group
+b3_equities_binaryentrypoint_sbe_v8_0.no_positions_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.pos_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.long_qty_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.short_qty.size;
 
 -- Display: No Positions Group
 b3_equities_binaryentrypoint_sbe_v8_0.no_positions_group.display = function(packet, parent, length)
@@ -3000,7 +2935,7 @@ end
 -- Num In Group
 b3_equities_binaryentrypoint_sbe_v8_0.num_in_group = {}
 
--- Size: Num In Group
+-- Size Of: Num In Group
 b3_equities_binaryentrypoint_sbe_v8_0.num_in_group.size = 1
 
 -- Display: Num In Group
@@ -3023,7 +2958,7 @@ end
 -- Block Length
 b3_equities_binaryentrypoint_sbe_v8_0.block_length = {}
 
--- Size: Block Length
+-- Size Of: Block Length
 b3_equities_binaryentrypoint_sbe_v8_0.block_length.size = 2
 
 -- Display: Block Length
@@ -3046,16 +2981,10 @@ end
 -- Group Size Encoding
 b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding = {}
 
--- Calculate size of: Group Size Encoding
-b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.block_length.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.num_in_group.size
-
-  return index
-end
+-- Size Of: Group Size Encoding
+b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.block_length.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.num_in_group.size;
 
 -- Display: Group Size Encoding
 b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.display = function(packet, parent, length)
@@ -3100,7 +3029,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.no_positions_groups = {}
 b3_equities_binaryentrypoint_sbe_v8_0.no_positions_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size
 
   -- Calculate field size from count
   local no_positions_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3148,7 +3077,7 @@ end
 -- Contrary Instruction Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.contrary_instruction_indicator = {}
 
--- Size: Contrary Instruction Indicator
+-- Size Of: Contrary Instruction Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.contrary_instruction_indicator.size = 1
 
 -- Display: Contrary Instruction Indicator
@@ -3178,7 +3107,7 @@ end
 -- Pos Maint Result
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_result = {}
 
--- Size: Pos Maint Result
+-- Size Of: Pos Maint Result
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_result.size = 4
 
 -- Display: Pos Maint Result
@@ -3201,7 +3130,7 @@ end
 -- Account
 b3_equities_binaryentrypoint_sbe_v8_0.account = {}
 
--- Size: Account
+-- Size Of: Account
 b3_equities_binaryentrypoint_sbe_v8_0.account.size = 4
 
 -- Display: Account
@@ -3224,7 +3153,7 @@ end
 -- Threshold Amount
 b3_equities_binaryentrypoint_sbe_v8_0.threshold_amount = {}
 
--- Size: Threshold Amount
+-- Size Of: Threshold Amount
 b3_equities_binaryentrypoint_sbe_v8_0.threshold_amount.size = 8
 
 -- Display: Threshold Amount
@@ -3263,7 +3192,7 @@ end
 -- Clearing Business Date
 b3_equities_binaryentrypoint_sbe_v8_0.clearing_business_date = {}
 
--- Size: Clearing Business Date
+-- Size Of: Clearing Business Date
 b3_equities_binaryentrypoint_sbe_v8_0.clearing_business_date.size = 2
 
 -- Display: Clearing Business Date
@@ -3286,7 +3215,7 @@ end
 -- Account Type
 b3_equities_binaryentrypoint_sbe_v8_0.account_type = {}
 
--- Size: Account Type
+-- Size Of: Account Type
 b3_equities_binaryentrypoint_sbe_v8_0.account_type.size = 1
 
 -- Display: Account Type
@@ -3319,7 +3248,7 @@ end
 -- Orig Pos Req Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.orig_pos_req_ref_id = {}
 
--- Size: Orig Pos Req Ref Id
+-- Size Of: Orig Pos Req Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.orig_pos_req_ref_id.size = 8
 
 -- Display: Orig Pos Req Ref Id
@@ -3342,7 +3271,7 @@ end
 -- Trade Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.trade_id_optional = {}
 
--- Size: Trade Id Optional
+-- Size Of: Trade Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.trade_id_optional.size = 4
 
 -- Display: Trade Id Optional
@@ -3365,7 +3294,7 @@ end
 -- Pos Maint Status
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_status = {}
 
--- Size: Pos Maint Status
+-- Size Of: Pos Maint Status
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_status.size = 1
 
 -- Display: Pos Maint Status
@@ -3414,7 +3343,7 @@ end
 -- Pos Maint Action
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_action = {}
 
--- Size: Pos Maint Action
+-- Size Of: Pos Maint Action
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_action.size = 1
 
 -- Display: Pos Maint Action
@@ -3457,7 +3386,7 @@ end
 -- Pos Trans Type
 b3_equities_binaryentrypoint_sbe_v8_0.pos_trans_type = {}
 
--- Size: Pos Trans Type
+-- Size Of: Pos Trans Type
 b3_equities_binaryentrypoint_sbe_v8_0.pos_trans_type.size = 1
 
 -- Display: Pos Trans Type
@@ -3490,7 +3419,7 @@ end
 -- Pos Maint Rpt Id
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_rpt_id = {}
 
--- Size: Pos Maint Rpt Id
+-- Size Of: Pos Maint Rpt Id
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_rpt_id.size = 8
 
 -- Display: Pos Maint Rpt Id
@@ -3513,7 +3442,7 @@ end
 -- Pos Req Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id_optional = {}
 
--- Size: Pos Req Id Optional
+-- Size Of: Pos Req Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id_optional.size = 8
 
 -- Display: Pos Req Id Optional
@@ -3540,7 +3469,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_report_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id_optional.size
 
@@ -3676,7 +3605,7 @@ end
 -- Long Qty
 b3_equities_binaryentrypoint_sbe_v8_0.long_qty = {}
 
--- Size: Long Qty
+-- Size Of: Long Qty
 b3_equities_binaryentrypoint_sbe_v8_0.long_qty.size = 8
 
 -- Display: Long Qty
@@ -3699,7 +3628,7 @@ end
 -- Pos Req Id
 b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id = {}
 
--- Size: Pos Req Id
+-- Size Of: Pos Req Id
 b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id.size = 8
 
 -- Display: Pos Req Id
@@ -3726,7 +3655,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_request_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id.size
 
@@ -3822,7 +3751,7 @@ end
 -- Pos Maint Rpt Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_rpt_ref_id = {}
 
--- Size: Pos Maint Rpt Ref Id
+-- Size Of: Pos Maint Rpt Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_rpt_ref_id.size = 8
 
 -- Display: Pos Maint Rpt Ref Id
@@ -3845,26 +3774,15 @@ end
 -- Position Maintenance Cancel Request Message
 b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_cancel_request_message = {}
 
--- Calculate size of: Position Maintenance Cancel Request Message
-b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_cancel_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.orig_pos_req_ref_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_rpt_ref_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.entering_trader.size
-
-  return index
-end
+-- Size Of: Position Maintenance Cancel Request Message
+b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_cancel_request_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.pos_req_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.orig_pos_req_ref_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.pos_maint_rpt_ref_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.sender_location.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.entering_trader.size;
 
 -- Display: Position Maintenance Cancel Request Message
 b3_equities_binaryentrypoint_sbe_v8_0.position_maintenance_cancel_request_message.display = function(packet, parent, length)
@@ -3939,7 +3857,7 @@ end
 -- Quote Req Id Length
 b3_equities_binaryentrypoint_sbe_v8_0.quote_req_id_length = {}
 
--- Size: Quote Req Id Length
+-- Size Of: Quote Req Id Length
 b3_equities_binaryentrypoint_sbe_v8_0.quote_req_id_length.size = 1
 
 -- Display: Quote Req Id Length
@@ -4021,7 +3939,7 @@ end
 -- Entering Firm Optional
 b3_equities_binaryentrypoint_sbe_v8_0.entering_firm_optional = {}
 
--- Size: Entering Firm Optional
+-- Size Of: Entering Firm Optional
 b3_equities_binaryentrypoint_sbe_v8_0.entering_firm_optional.size = 4
 
 -- Display: Entering Firm Optional
@@ -4044,7 +3962,7 @@ end
 -- Offset 1 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_1_padding_1 = {}
 
--- Size: Offset 1 Padding 1
+-- Size Of: Offset 1 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_1_padding_1.size = 1
 
 -- Display: Offset 1 Padding 1
@@ -4067,22 +3985,13 @@ end
 -- No Sides Group
 b3_equities_binaryentrypoint_sbe_v8_0.no_sides_group = {}
 
--- Calculate size of: No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_0.no_sides_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.offset_1_padding_1.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.entering_firm_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.clordid.size
-
-  return index
-end
+-- Size Of: No Sides Group
+b3_equities_binaryentrypoint_sbe_v8_0.no_sides_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.offset_1_padding_1.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.account.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.entering_firm_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.clordid.size;
 
 -- Display: No Sides Group
 b3_equities_binaryentrypoint_sbe_v8_0.no_sides_group.display = function(packet, parent, length)
@@ -4142,7 +4051,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.no_sides_groups = {}
 b3_equities_binaryentrypoint_sbe_v8_0.no_sides_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size
 
   -- Calculate field size from count
   local no_sides_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4190,7 +4099,7 @@ end
 -- Days To Settlement Optional
 b3_equities_binaryentrypoint_sbe_v8_0.days_to_settlement_optional = {}
 
--- Size: Days To Settlement Optional
+-- Size Of: Days To Settlement Optional
 b3_equities_binaryentrypoint_sbe_v8_0.days_to_settlement_optional.size = 2
 
 -- Display: Days To Settlement Optional
@@ -4213,7 +4122,7 @@ end
 -- Fixed Rate Optional
 b3_equities_binaryentrypoint_sbe_v8_0.fixed_rate_optional = {}
 
--- Size: Fixed Rate Optional
+-- Size Of: Fixed Rate Optional
 b3_equities_binaryentrypoint_sbe_v8_0.fixed_rate_optional.size = 8
 
 -- Display: Fixed Rate Optional
@@ -4252,7 +4161,7 @@ end
 -- Executing Trader
 b3_equities_binaryentrypoint_sbe_v8_0.executing_trader = {}
 
--- Size: Executing Trader
+-- Size Of: Executing Trader
 b3_equities_binaryentrypoint_sbe_v8_0.executing_trader.size = 5
 
 -- Display: Executing Trader
@@ -4291,7 +4200,7 @@ end
 -- Order Qty Optional
 b3_equities_binaryentrypoint_sbe_v8_0.order_qty_optional = {}
 
--- Size: Order Qty Optional
+-- Size Of: Order Qty Optional
 b3_equities_binaryentrypoint_sbe_v8_0.order_qty_optional.size = 8
 
 -- Display: Order Qty Optional
@@ -4314,7 +4223,7 @@ end
 -- Price Optional
 b3_equities_binaryentrypoint_sbe_v8_0.price_optional = {}
 
--- Size: Price Optional
+-- Size Of: Price Optional
 b3_equities_binaryentrypoint_sbe_v8_0.price_optional.size = 8
 
 -- Display: Price Optional
@@ -4353,7 +4262,7 @@ end
 -- SettlType Optional
 b3_equities_binaryentrypoint_sbe_v8_0.settltype_optional = {}
 
--- Size: SettlType Optional
+-- Size Of: SettlType Optional
 b3_equities_binaryentrypoint_sbe_v8_0.settltype_optional.size = 1
 
 -- Display: SettlType Optional
@@ -4402,7 +4311,7 @@ end
 -- Contra Broker
 b3_equities_binaryentrypoint_sbe_v8_0.contra_broker = {}
 
--- Size: Contra Broker
+-- Size Of: Contra Broker
 b3_equities_binaryentrypoint_sbe_v8_0.contra_broker.size = 4
 
 -- Display: Contra Broker
@@ -4425,7 +4334,7 @@ end
 -- Quote Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.quote_id_optional = {}
 
--- Size: Quote Id Optional
+-- Size Of: Quote Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.quote_id_optional.size = 8
 
 -- Display: Quote Id Optional
@@ -4448,7 +4357,7 @@ end
 -- Quote Request Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.quote_request_reject_reason = {}
 
--- Size: Quote Request Reject Reason
+-- Size Of: Quote Request Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.quote_request_reject_reason.size = 4
 
 -- Display: Quote Request Reject Reason
@@ -4471,7 +4380,7 @@ end
 -- Market Segment Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id_optional = {}
 
--- Size: Market Segment Id Optional
+-- Size Of: Market Segment Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id_optional.size = 1
 
 -- Display: Market Segment Id Optional
@@ -4494,24 +4403,14 @@ end
 -- Bidirectional Business Header
 b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header = {}
 
--- Calculate size of: Bidirectional Business Header
-b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.sending_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.poss_resend.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.padding.size
-
-  return index
-end
+-- Size Of: Bidirectional Business Header
+b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.msg_seq_num.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.sending_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.poss_resend.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.market_segment_id_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.padding.size;
 
 -- Display: Bidirectional Business Header
 b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.display = function(packet, parent, length)
@@ -4568,7 +4467,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.quote_request_reject_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.quote_request_reject_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.quote_request_reject_reason.size
 
@@ -4703,7 +4602,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.quote_cancel_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.quote_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id.size
 
@@ -4784,7 +4683,7 @@ end
 -- Days To Settlement
 b3_equities_binaryentrypoint_sbe_v8_0.days_to_settlement = {}
 
--- Size: Days To Settlement
+-- Size Of: Days To Settlement
 b3_equities_binaryentrypoint_sbe_v8_0.days_to_settlement.size = 2
 
 -- Display: Days To Settlement
@@ -4807,7 +4706,7 @@ end
 -- Execute Underlying Trade
 b3_equities_binaryentrypoint_sbe_v8_0.execute_underlying_trade = {}
 
--- Size: Execute Underlying Trade
+-- Size Of: Execute Underlying Trade
 b3_equities_binaryentrypoint_sbe_v8_0.execute_underlying_trade.size = 1
 
 -- Display: Execute Underlying Trade
@@ -4853,7 +4752,7 @@ end
 -- Fixed Rate
 b3_equities_binaryentrypoint_sbe_v8_0.fixed_rate = {}
 
--- Size: Fixed Rate
+-- Size Of: Fixed Rate
 b3_equities_binaryentrypoint_sbe_v8_0.fixed_rate.size = 8
 
 -- Display: Fixed Rate
@@ -4882,7 +4781,7 @@ end
 -- SettlType
 b3_equities_binaryentrypoint_sbe_v8_0.settltype = {}
 
--- Size: SettlType
+-- Size Of: SettlType
 b3_equities_binaryentrypoint_sbe_v8_0.settltype.size = 1
 
 -- Display: SettlType
@@ -4928,7 +4827,7 @@ end
 -- Order Qty
 b3_equities_binaryentrypoint_sbe_v8_0.order_qty = {}
 
--- Size: Order Qty
+-- Size Of: Order Qty
 b3_equities_binaryentrypoint_sbe_v8_0.order_qty.size = 8
 
 -- Display: Order Qty
@@ -4951,7 +4850,7 @@ end
 -- Quote Id
 b3_equities_binaryentrypoint_sbe_v8_0.quote_id = {}
 
--- Size: Quote Id
+-- Size Of: Quote Id
 b3_equities_binaryentrypoint_sbe_v8_0.quote_id.size = 8
 
 -- Display: Quote Id
@@ -4978,7 +4877,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.quote_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.quote_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id.size
 
@@ -5099,7 +4998,7 @@ end
 -- Quote Status Response To
 b3_equities_binaryentrypoint_sbe_v8_0.quote_status_response_to = {}
 
--- Size: Quote Status Response To
+-- Size Of: Quote Status Response To
 b3_equities_binaryentrypoint_sbe_v8_0.quote_status_response_to.size = 1
 
 -- Display: Quote Status Response To
@@ -5151,7 +5050,7 @@ end
 -- Quote Status
 b3_equities_binaryentrypoint_sbe_v8_0.quote_status = {}
 
--- Size: Quote Status
+-- Size Of: Quote Status
 b3_equities_binaryentrypoint_sbe_v8_0.quote_status.size = 1
 
 -- Display: Quote Status
@@ -5196,7 +5095,7 @@ end
 -- Quote Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.quote_reject_reason = {}
 
--- Size: Quote Reject Reason
+-- Size Of: Quote Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.quote_reject_reason.size = 4
 
 -- Display: Quote Reject Reason
@@ -5311,7 +5210,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.quote_status_report_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.quote_status_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.quote_reject_reason.size
 
@@ -5462,7 +5361,7 @@ end
 -- Price
 b3_equities_binaryentrypoint_sbe_v8_0.price = {}
 
--- Size: Price
+-- Size Of: Price
 b3_equities_binaryentrypoint_sbe_v8_0.price.size = 8
 
 -- Display: Price
@@ -5495,7 +5394,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.quote_request_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.quote_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.bidirectional_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id.size
 
@@ -5621,7 +5520,7 @@ end
 -- Security Response Id
 b3_equities_binaryentrypoint_sbe_v8_0.security_response_id = {}
 
--- Size: Security Response Id
+-- Size Of: Security Response Id
 b3_equities_binaryentrypoint_sbe_v8_0.security_response_id.size = 8
 
 -- Display: Security Response Id
@@ -5644,7 +5543,7 @@ end
 -- Symbol
 b3_equities_binaryentrypoint_sbe_v8_0.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 b3_equities_binaryentrypoint_sbe_v8_0.symbol.size = 20
 
 -- Display: Symbol
@@ -5683,7 +5582,7 @@ end
 -- Security Strategy Type
 b3_equities_binaryentrypoint_sbe_v8_0.security_strategy_type = {}
 
--- Size: Security Strategy Type
+-- Size Of: Security Strategy Type
 b3_equities_binaryentrypoint_sbe_v8_0.security_strategy_type.size = 3
 
 -- Display: Security Strategy Type
@@ -5722,7 +5621,7 @@ end
 -- Security Response Type
 b3_equities_binaryentrypoint_sbe_v8_0.security_response_type = {}
 
--- Size: Security Response Type
+-- Size Of: Security Response Type
 b3_equities_binaryentrypoint_sbe_v8_0.security_response_type.size = 1
 
 -- Display: Security Response Type
@@ -5755,7 +5654,7 @@ end
 -- Security Req Id
 b3_equities_binaryentrypoint_sbe_v8_0.security_req_id = {}
 
--- Size: Security Req Id
+-- Size Of: Security Req Id
 b3_equities_binaryentrypoint_sbe_v8_0.security_req_id.size = 8
 
 -- Display: Security Req Id
@@ -5778,7 +5677,7 @@ end
 -- Offset 18 Padding 2
 b3_equities_binaryentrypoint_sbe_v8_0.offset_18_padding_2 = {}
 
--- Size: Offset 18 Padding 2
+-- Size Of: Offset 18 Padding 2
 b3_equities_binaryentrypoint_sbe_v8_0.offset_18_padding_2.size = 2
 
 -- Display: Offset 18 Padding 2
@@ -5801,32 +5700,18 @@ end
 -- Security Definition Response Message
 b3_equities_binaryentrypoint_sbe_v8_0.security_definition_response_message = {}
 
--- Calculate size of: Security Definition Response Message
-b3_equities_binaryentrypoint_sbe_v8_0.security_definition_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.offset_18_padding_2.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_response_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_strategy_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.symbol.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_response_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.entering_trader.size
-
-  return index
-end
+-- Size Of: Security Definition Response Message
+b3_equities_binaryentrypoint_sbe_v8_0.security_definition_response_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.offset_18_padding_2.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_req_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_response_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_strategy_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.symbol.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.security_response_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.sender_location.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.entering_trader.size;
 
 -- Display: Security Definition Response Message
 b3_equities_binaryentrypoint_sbe_v8_0.security_definition_response_message.display = function(packet, parent, length)
@@ -5891,7 +5776,7 @@ end
 -- Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.padding_1 = {}
 
--- Size: Padding 1
+-- Size Of: Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.padding_1.size = 1
 
 -- Display: Padding 1
@@ -5914,7 +5799,7 @@ end
 -- Leg Side
 b3_equities_binaryentrypoint_sbe_v8_0.leg_side = {}
 
--- Size: Leg Side
+-- Size Of: Leg Side
 b3_equities_binaryentrypoint_sbe_v8_0.leg_side.size = 1
 
 -- Display: Leg Side
@@ -5960,7 +5845,7 @@ end
 -- Leg Ratio Qty
 b3_equities_binaryentrypoint_sbe_v8_0.leg_ratio_qty = {}
 
--- Size: Leg Ratio Qty
+-- Size Of: Leg Ratio Qty
 b3_equities_binaryentrypoint_sbe_v8_0.leg_ratio_qty.size = 8
 
 -- Display: Leg Ratio Qty
@@ -5989,7 +5874,7 @@ end
 -- Leg Symbol
 b3_equities_binaryentrypoint_sbe_v8_0.leg_symbol = {}
 
--- Size: Leg Symbol
+-- Size Of: Leg Symbol
 b3_equities_binaryentrypoint_sbe_v8_0.leg_symbol.size = 20
 
 -- Display: Leg Symbol
@@ -6028,20 +5913,12 @@ end
 -- No Legs Group
 b3_equities_binaryentrypoint_sbe_v8_0.no_legs_group = {}
 
--- Calculate size of: No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_0.no_legs_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.leg_symbol.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.leg_ratio_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.leg_side.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.padding_1.size
-
-  return index
-end
+-- Size Of: No Legs Group
+b3_equities_binaryentrypoint_sbe_v8_0.no_legs_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.leg_symbol.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.leg_ratio_qty.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.leg_side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.padding_1.size;
 
 -- Display: No Legs Group
 b3_equities_binaryentrypoint_sbe_v8_0.no_legs_group.display = function(packet, parent, length)
@@ -6098,7 +5975,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.no_legs_groups = {}
 b3_equities_binaryentrypoint_sbe_v8_0.no_legs_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.group_size_encoding.size
 
   -- Calculate field size from count
   local no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6150,7 +6027,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.security_definition_request_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.security_definition_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.security_req_id.size
 
@@ -6206,7 +6083,7 @@ end
 -- Business Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.business_reject_reason = {}
 
--- Size: Business Reject Reason
+-- Size Of: Business Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0.business_reject_reason.size = 4
 
 -- Display: Business Reject Reason
@@ -6229,7 +6106,7 @@ end
 -- Business Reject Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.business_reject_ref_id = {}
 
--- Size: Business Reject Ref Id
+-- Size Of: Business Reject Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.business_reject_ref_id.size = 8
 
 -- Display: Business Reject Ref Id
@@ -6252,7 +6129,7 @@ end
 -- Ref Seq Num
 b3_equities_binaryentrypoint_sbe_v8_0.ref_seq_num = {}
 
--- Size: Ref Seq Num
+-- Size Of: Ref Seq Num
 b3_equities_binaryentrypoint_sbe_v8_0.ref_seq_num.size = 4
 
 -- Display: Ref Seq Num
@@ -6275,7 +6152,7 @@ end
 -- Offset 19 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_19_padding_1 = {}
 
--- Size: Offset 19 Padding 1
+-- Size Of: Offset 19 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_19_padding_1.size = 1
 
 -- Display: Offset 19 Padding 1
@@ -6298,7 +6175,7 @@ end
 -- Ref Msg Type
 b3_equities_binaryentrypoint_sbe_v8_0.ref_msg_type = {}
 
--- Size: Ref Msg Type
+-- Size Of: Ref Msg Type
 b3_equities_binaryentrypoint_sbe_v8_0.ref_msg_type.size = 1
 
 -- Display: Ref Msg Type
@@ -6443,7 +6320,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.business_message_reject_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.business_message_reject_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.ref_msg_type.size
 
@@ -6514,7 +6391,7 @@ end
 -- Exec Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.exec_ref_id = {}
 
--- Size: Exec Ref Id
+-- Size Of: Exec Ref Id
 b3_equities_binaryentrypoint_sbe_v8_0.exec_ref_id.size = 8
 
 -- Display: Exec Ref Id
@@ -6537,7 +6414,7 @@ end
 -- Secondary Exec Id
 b3_equities_binaryentrypoint_sbe_v8_0.secondary_exec_id = {}
 
--- Size: Secondary Exec Id
+-- Size Of: Secondary Exec Id
 b3_equities_binaryentrypoint_sbe_v8_0.secondary_exec_id.size = 8
 
 -- Display: Secondary Exec Id
@@ -6560,7 +6437,7 @@ end
 -- Offset 118 Padding 2
 b3_equities_binaryentrypoint_sbe_v8_0.offset_118_padding_2 = {}
 
--- Size: Offset 118 Padding 2
+-- Size Of: Offset 118 Padding 2
 b3_equities_binaryentrypoint_sbe_v8_0.offset_118_padding_2.size = 2
 
 -- Display: Offset 118 Padding 2
@@ -6583,7 +6460,7 @@ end
 -- Trade Date
 b3_equities_binaryentrypoint_sbe_v8_0.trade_date = {}
 
--- Size: Trade Date
+-- Size Of: Trade Date
 b3_equities_binaryentrypoint_sbe_v8_0.trade_date.size = 2
 
 -- Display: Trade Date
@@ -6606,7 +6483,7 @@ end
 -- Aggressor Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.aggressor_indicator = {}
 
--- Size: Aggressor Indicator
+-- Size Of: Aggressor Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.aggressor_indicator.size = 1
 
 -- Display: Aggressor Indicator
@@ -6636,7 +6513,7 @@ end
 -- Order Id
 b3_equities_binaryentrypoint_sbe_v8_0.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 b3_equities_binaryentrypoint_sbe_v8_0.order_id.size = 8
 
 -- Display: Order Id
@@ -6659,7 +6536,7 @@ end
 -- Cum Qty
 b3_equities_binaryentrypoint_sbe_v8_0.cum_qty = {}
 
--- Size: Cum Qty
+-- Size Of: Cum Qty
 b3_equities_binaryentrypoint_sbe_v8_0.cum_qty.size = 8
 
 -- Display: Cum Qty
@@ -6682,7 +6559,7 @@ end
 -- Leaves Qty
 b3_equities_binaryentrypoint_sbe_v8_0.leaves_qty = {}
 
--- Size: Leaves Qty
+-- Size Of: Leaves Qty
 b3_equities_binaryentrypoint_sbe_v8_0.leaves_qty.size = 8
 
 -- Display: Leaves Qty
@@ -6705,7 +6582,7 @@ end
 -- Exec Id
 b3_equities_binaryentrypoint_sbe_v8_0.exec_id = {}
 
--- Size: Exec Id
+-- Size Of: Exec Id
 b3_equities_binaryentrypoint_sbe_v8_0.exec_id.size = 8
 
 -- Display: Exec Id
@@ -6728,7 +6605,7 @@ end
 -- Last Px
 b3_equities_binaryentrypoint_sbe_v8_0.last_px = {}
 
--- Size: Last Px
+-- Size Of: Last Px
 b3_equities_binaryentrypoint_sbe_v8_0.last_px.size = 8
 
 -- Display: Last Px
@@ -6757,7 +6634,7 @@ end
 -- Last Qty
 b3_equities_binaryentrypoint_sbe_v8_0.last_qty = {}
 
--- Size: Last Qty
+-- Size Of: Last Qty
 b3_equities_binaryentrypoint_sbe_v8_0.last_qty.size = 8
 
 -- Display: Last Qty
@@ -6780,7 +6657,7 @@ end
 -- Secondary Order Id
 b3_equities_binaryentrypoint_sbe_v8_0.secondary_order_id = {}
 
--- Size: Secondary Order Id
+-- Size Of: Secondary Order Id
 b3_equities_binaryentrypoint_sbe_v8_0.secondary_order_id.size = 8
 
 -- Display: Secondary Order Id
@@ -6803,7 +6680,7 @@ end
 -- ClOrdId Optional
 b3_equities_binaryentrypoint_sbe_v8_0.clordid_optional = {}
 
--- Size: ClOrdId Optional
+-- Size Of: ClOrdId Optional
 b3_equities_binaryentrypoint_sbe_v8_0.clordid_optional.size = 8
 
 -- Display: ClOrdId Optional
@@ -6826,7 +6703,7 @@ end
 -- Ord Status
 b3_equities_binaryentrypoint_sbe_v8_0.ord_status = {}
 
--- Size: Ord Status
+-- Size Of: Ord Status
 b3_equities_binaryentrypoint_sbe_v8_0.ord_status.size = 1
 
 -- Display: Ord Status
@@ -6894,7 +6771,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.execution_report_forward_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.execution_report_forward_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
 
@@ -7060,7 +6937,7 @@ end
 -- Crossed Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.crossed_indicator = {}
 
--- Size: Crossed Indicator
+-- Size Of: Crossed Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.crossed_indicator.size = 2
 
 -- Display: Crossed Indicator
@@ -7096,7 +6973,7 @@ end
 -- CrossId Optional
 b3_equities_binaryentrypoint_sbe_v8_0.crossid_optional = {}
 
--- Size: CrossId Optional
+-- Size Of: CrossId Optional
 b3_equities_binaryentrypoint_sbe_v8_0.crossid_optional.size = 8
 
 -- Display: CrossId Optional
@@ -7119,7 +6996,7 @@ end
 -- Max Floor
 b3_equities_binaryentrypoint_sbe_v8_0.max_floor = {}
 
--- Size: Max Floor
+-- Size Of: Max Floor
 b3_equities_binaryentrypoint_sbe_v8_0.max_floor.size = 8
 
 -- Display: Max Floor
@@ -7142,7 +7019,7 @@ end
 -- Min Qty
 b3_equities_binaryentrypoint_sbe_v8_0.min_qty = {}
 
--- Size: Min Qty
+-- Size Of: Min Qty
 b3_equities_binaryentrypoint_sbe_v8_0.min_qty.size = 8
 
 -- Display: Min Qty
@@ -7165,7 +7042,7 @@ end
 -- Stop Px
 b3_equities_binaryentrypoint_sbe_v8_0.stop_px = {}
 
--- Size: Stop Px
+-- Size Of: Stop Px
 b3_equities_binaryentrypoint_sbe_v8_0.stop_px.size = 8
 
 -- Display: Stop Px
@@ -7204,7 +7081,7 @@ end
 -- Expire Date
 b3_equities_binaryentrypoint_sbe_v8_0.expire_date = {}
 
--- Size: Expire Date
+-- Size Of: Expire Date
 b3_equities_binaryentrypoint_sbe_v8_0.expire_date.size = 2
 
 -- Display: Expire Date
@@ -7227,7 +7104,7 @@ end
 -- Time In Force
 b3_equities_binaryentrypoint_sbe_v8_0.time_in_force = {}
 
--- Size: Time In Force
+-- Size Of: Time In Force
 b3_equities_binaryentrypoint_sbe_v8_0.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -7285,7 +7162,7 @@ end
 -- OrdType
 b3_equities_binaryentrypoint_sbe_v8_0.ordtype = {}
 
--- Size: OrdType
+-- Size Of: OrdType
 b3_equities_binaryentrypoint_sbe_v8_0.ordtype.size = 1
 
 -- Display: OrdType
@@ -7343,7 +7220,7 @@ end
 -- OrigClOrdId
 b3_equities_binaryentrypoint_sbe_v8_0.origclordid = {}
 
--- Size: OrigClOrdId
+-- Size Of: OrigClOrdId
 b3_equities_binaryentrypoint_sbe_v8_0.origclordid.size = 8
 
 -- Display: OrigClOrdId
@@ -7366,7 +7243,7 @@ end
 -- Order Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.order_id_optional = {}
 
--- Size: Order Id Optional
+-- Size Of: Order Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.order_id_optional.size = 8
 
 -- Display: Order Id Optional
@@ -7389,7 +7266,7 @@ end
 -- Ord Rej Reason
 b3_equities_binaryentrypoint_sbe_v8_0.ord_rej_reason = {}
 
--- Size: Ord Rej Reason
+-- Size Of: Ord Rej Reason
 b3_equities_binaryentrypoint_sbe_v8_0.ord_rej_reason.size = 4
 
 -- Display: Ord Rej Reason
@@ -8892,7 +8769,7 @@ end
 -- Secondary Order Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.secondary_order_id_optional = {}
 
--- Size: Secondary Order Id Optional
+-- Size Of: Secondary Order Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.secondary_order_id_optional.size = 8
 
 -- Display: Secondary Order Id Optional
@@ -8915,7 +8792,7 @@ end
 -- Cxl Rej Response To
 b3_equities_binaryentrypoint_sbe_v8_0.cxl_rej_response_to = {}
 
--- Size: Cxl Rej Response To
+-- Size Of: Cxl Rej Response To
 b3_equities_binaryentrypoint_sbe_v8_0.cxl_rej_response_to.size = 1
 
 -- Display: Cxl Rej Response To
@@ -8952,7 +8829,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.execution_report_reject_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.execution_report_reject_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
 
@@ -9108,7 +8985,7 @@ end
 -- Offset 119 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_119_padding_1 = {}
 
--- Size: Offset 119 Padding 1
+-- Size Of: Offset 119 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_119_padding_1.size = 1
 
 -- Display: Offset 119 Padding 1
@@ -9131,7 +9008,7 @@ end
 -- Tot No Related Sym
 b3_equities_binaryentrypoint_sbe_v8_0.tot_no_related_sym = {}
 
--- Size: Tot No Related Sym
+-- Size Of: Tot No Related Sym
 b3_equities_binaryentrypoint_sbe_v8_0.tot_no_related_sym.size = 1
 
 -- Display: Tot No Related Sym
@@ -9154,7 +9031,7 @@ end
 -- Multi Leg Reporting Type
 b3_equities_binaryentrypoint_sbe_v8_0.multi_leg_reporting_type = {}
 
--- Size: Multi Leg Reporting Type
+-- Size Of: Multi Leg Reporting Type
 b3_equities_binaryentrypoint_sbe_v8_0.multi_leg_reporting_type.size = 1
 
 -- Display: Multi Leg Reporting Type
@@ -9203,7 +9080,7 @@ end
 -- Order Category
 b3_equities_binaryentrypoint_sbe_v8_0.order_category = {}
 
--- Size: Order Category
+-- Size Of: Order Category
 b3_equities_binaryentrypoint_sbe_v8_0.order_category.size = 1
 
 -- Display: Order Category
@@ -9264,7 +9141,7 @@ end
 -- Exec Type
 b3_equities_binaryentrypoint_sbe_v8_0.exec_type = {}
 
--- Size: Exec Type
+-- Size Of: Exec Type
 b3_equities_binaryentrypoint_sbe_v8_0.exec_type.size = 1
 
 -- Display: Exec Type
@@ -9311,7 +9188,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.execution_report_trade_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.execution_report_trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
 
@@ -9492,7 +9369,7 @@ end
 -- Mass Action Report Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_report_id_optional = {}
 
--- Size: Mass Action Report Id Optional
+-- Size Of: Mass Action Report Id Optional
 b3_equities_binaryentrypoint_sbe_v8_0.mass_action_report_id_optional.size = 8
 
 -- Display: Mass Action Report Id Optional
@@ -9515,7 +9392,7 @@ end
 -- Offset 100 Padding 4
 b3_equities_binaryentrypoint_sbe_v8_0.offset_100_padding_4 = {}
 
--- Size: Offset 100 Padding 4
+-- Size Of: Offset 100 Padding 4
 b3_equities_binaryentrypoint_sbe_v8_0.offset_100_padding_4.size = 4
 
 -- Display: Offset 100 Padding 4
@@ -9538,7 +9415,7 @@ end
 -- Exec Restatement Reason
 b3_equities_binaryentrypoint_sbe_v8_0.exec_restatement_reason = {}
 
--- Size: Exec Restatement Reason
+-- Size Of: Exec Restatement Reason
 b3_equities_binaryentrypoint_sbe_v8_0.exec_restatement_reason.size = 1
 
 -- Display: Exec Restatement Reason
@@ -9616,7 +9493,7 @@ end
 -- Working Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.working_indicator = {}
 
--- Size: Working Indicator
+-- Size Of: Working Indicator
 b3_equities_binaryentrypoint_sbe_v8_0.working_indicator.size = 1
 
 -- Display: Working Indicator
@@ -9646,7 +9523,7 @@ end
 -- Market Segment Received Time
 b3_equities_binaryentrypoint_sbe_v8_0.market_segment_received_time = {}
 
--- Size: Market Segment Received Time
+-- Size Of: Market Segment Received Time
 b3_equities_binaryentrypoint_sbe_v8_0.market_segment_received_time.size = 8
 
 -- Display: Market Segment Received Time
@@ -9681,7 +9558,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.execution_report_cancel_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.execution_report_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
 
@@ -9852,7 +9729,7 @@ end
 -- Protection Price
 b3_equities_binaryentrypoint_sbe_v8_0.protection_price = {}
 
--- Size: Protection Price
+-- Size Of: Protection Price
 b3_equities_binaryentrypoint_sbe_v8_0.protection_price.size = 8
 
 -- Display: Protection Price
@@ -9895,7 +9772,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.execution_report_modify_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.execution_report_modify_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
 
@@ -10070,7 +9947,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.execution_report_new_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.execution_report_new_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.outbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.side.size
 
@@ -10231,7 +10108,7 @@ end
 -- Executing Trader Optional
 b3_equities_binaryentrypoint_sbe_v8_0.executing_trader_optional = {}
 
--- Size: Executing Trader Optional
+-- Size Of: Executing Trader Optional
 b3_equities_binaryentrypoint_sbe_v8_0.executing_trader_optional.size = 5
 
 -- Display: Executing Trader Optional
@@ -10270,7 +10147,7 @@ end
 -- CrossId
 b3_equities_binaryentrypoint_sbe_v8_0.crossid = {}
 
--- Size: CrossId
+-- Size Of: CrossId
 b3_equities_binaryentrypoint_sbe_v8_0.crossid.size = 8
 
 -- Display: CrossId
@@ -10297,7 +10174,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.new_order_cross_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.new_order_cross_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.offset_18_padding_2.size
 
@@ -10393,7 +10270,7 @@ end
 -- Offset 54 Padding 2
 b3_equities_binaryentrypoint_sbe_v8_0.offset_54_padding_2 = {}
 
--- Size: Offset 54 Padding 2
+-- Size Of: Offset 54 Padding 2
 b3_equities_binaryentrypoint_sbe_v8_0.offset_54_padding_2.size = 2
 
 -- Display: Offset 54 Padding 2
@@ -10416,7 +10293,7 @@ end
 -- Single Cancel Restatement Reason
 b3_equities_binaryentrypoint_sbe_v8_0.single_cancel_restatement_reason = {}
 
--- Size: Single Cancel Restatement Reason
+-- Size Of: Single Cancel Restatement Reason
 b3_equities_binaryentrypoint_sbe_v8_0.single_cancel_restatement_reason.size = 1
 
 -- Display: Single Cancel Restatement Reason
@@ -10450,7 +10327,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.order_cancel_request_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.order_cancel_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.offset_18_padding_2.size
 
@@ -10551,7 +10428,7 @@ end
 -- Custody Allocation Type
 b3_equities_binaryentrypoint_sbe_v8_0.custody_allocation_type = {}
 
--- Size: Custody Allocation Type
+-- Size Of: Custody Allocation Type
 b3_equities_binaryentrypoint_sbe_v8_0.custody_allocation_type.size = 4
 
 -- Display: Custody Allocation Type
@@ -10574,7 +10451,7 @@ end
 -- Custody Account
 b3_equities_binaryentrypoint_sbe_v8_0.custody_account = {}
 
--- Size: Custody Account
+-- Size Of: Custody Account
 b3_equities_binaryentrypoint_sbe_v8_0.custody_account.size = 4
 
 -- Display: Custody Account
@@ -10597,7 +10474,7 @@ end
 -- Custodian
 b3_equities_binaryentrypoint_sbe_v8_0.custodian = {}
 
--- Size: Custodian
+-- Size Of: Custodian
 b3_equities_binaryentrypoint_sbe_v8_0.custodian.size = 4
 
 -- Display: Custodian
@@ -10620,18 +10497,11 @@ end
 -- Custodian Info
 b3_equities_binaryentrypoint_sbe_v8_0.custodian_info = {}
 
--- Calculate size of: Custodian Info
-b3_equities_binaryentrypoint_sbe_v8_0.custodian_info.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.custodian.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.custody_account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.custody_allocation_type.size
-
-  return index
-end
+-- Size Of: Custodian Info
+b3_equities_binaryentrypoint_sbe_v8_0.custodian_info.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.custodian.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.custody_account.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.custody_allocation_type.size;
 
 -- Display: Custodian Info
 b3_equities_binaryentrypoint_sbe_v8_0.custodian_info.display = function(packet, parent, length)
@@ -10675,7 +10545,7 @@ end
 -- Routing Instruction
 b3_equities_binaryentrypoint_sbe_v8_0.routing_instruction = {}
 
--- Size: Routing Instruction
+-- Size Of: Routing Instruction
 b3_equities_binaryentrypoint_sbe_v8_0.routing_instruction.size = 1
 
 -- Display: Routing Instruction
@@ -10714,7 +10584,7 @@ end
 -- Time In Force Optional
 b3_equities_binaryentrypoint_sbe_v8_0.time_in_force_optional = {}
 
--- Size: Time In Force Optional
+-- Size Of: Time In Force Optional
 b3_equities_binaryentrypoint_sbe_v8_0.time_in_force_optional.size = 1
 
 -- Display: Time In Force Optional
@@ -10775,7 +10645,7 @@ end
 -- Self Trade Prevention Instruction
 b3_equities_binaryentrypoint_sbe_v8_0.self_trade_prevention_instruction = {}
 
--- Size: Self Trade Prevention Instruction
+-- Size Of: Self Trade Prevention Instruction
 b3_equities_binaryentrypoint_sbe_v8_0.self_trade_prevention_instruction.size = 1
 
 -- Display: Self Trade Prevention Instruction
@@ -10811,7 +10681,7 @@ end
 -- Mm Protection Reset
 b3_equities_binaryentrypoint_sbe_v8_0.mm_protection_reset = {}
 
--- Size: Mm Protection Reset
+-- Size Of: Mm Protection Reset
 b3_equities_binaryentrypoint_sbe_v8_0.mm_protection_reset.size = 1
 
 -- Display: Mm Protection Reset
@@ -10845,7 +10715,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.order_cancel_replace_request_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.order_cancel_replace_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id.size
 
@@ -10891,9 +10761,9 @@ b3_equities_binaryentrypoint_sbe_v8_0.order_cancel_replace_request_message.size 
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.expire_date.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.custodian_info.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.custodian_info.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.desk_id.size(buffer, offset + index)
 
@@ -11015,7 +10885,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.new_order_single_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.new_order_single_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id.size
 
@@ -11055,9 +10925,9 @@ b3_equities_binaryentrypoint_sbe_v8_0.new_order_single_message.size = function(b
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.expire_date.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.custodian_info.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.custodian_info.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.desk_id.size(buffer, offset + index)
 
@@ -11166,7 +11036,7 @@ end
 -- Time In Force Simple
 b3_equities_binaryentrypoint_sbe_v8_0.time_in_force_simple = {}
 
--- Size: Time In Force Simple
+-- Size Of: Time In Force Simple
 b3_equities_binaryentrypoint_sbe_v8_0.time_in_force_simple.size = 1
 
 -- Display: Time In Force Simple
@@ -11212,7 +11082,7 @@ end
 -- Simple OrdType
 b3_equities_binaryentrypoint_sbe_v8_0.simple_ordtype = {}
 
--- Size: Simple OrdType
+-- Size Of: Simple OrdType
 b3_equities_binaryentrypoint_sbe_v8_0.simple_ordtype.size = 1
 
 -- Display: Simple OrdType
@@ -11259,7 +11129,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.simple_modify_order_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.simple_modify_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id.size
 
@@ -11293,7 +11163,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.simple_modify_order_message.size = functio
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.origclordid.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.memo.size(buffer, offset + index)
 
@@ -11389,7 +11259,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.simple_new_order_message = {}
 b3_equities_binaryentrypoint_sbe_v8_0.simple_new_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.inbound_business_header.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.ord_tag_id.size
 
@@ -11419,7 +11289,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.simple_new_order_message.size = function(b
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.price_optional.size
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size(buffer, offset + index)
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0.investor_id.size
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0.memo.size(buffer, offset + index)
 
@@ -11505,7 +11375,7 @@ end
 -- Retransmit Reject Code
 b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_code = {}
 
--- Size: Retransmit Reject Code
+-- Size Of: Retransmit Reject Code
 b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_code.size = 1
 
 -- Display: Retransmit Reject Code
@@ -11556,7 +11426,7 @@ end
 -- Request Timestamp
 b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp = {}
 
--- Size: Request Timestamp
+-- Size Of: Request Timestamp
 b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size = 8
 
 -- Display: Request Timestamp
@@ -11579,18 +11449,11 @@ end
 -- Retransmit Reject Message
 b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_message = {}
 
--- Calculate size of: Retransmit Reject Message
-b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_code.size
-
-  return index
-end
+-- Size Of: Retransmit Reject Message
+b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_code.size;
 
 -- Display: Retransmit Reject Message
 b3_equities_binaryentrypoint_sbe_v8_0.retransmit_reject_message.display = function(packet, parent, length)
@@ -11634,7 +11497,7 @@ end
 -- Count
 b3_equities_binaryentrypoint_sbe_v8_0.count = {}
 
--- Size: Count
+-- Size Of: Count
 b3_equities_binaryentrypoint_sbe_v8_0.count.size = 4
 
 -- Display: Count
@@ -11657,7 +11520,7 @@ end
 -- Next Seq No
 b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no = {}
 
--- Size: Next Seq No
+-- Size Of: Next Seq No
 b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no.size = 4
 
 -- Display: Next Seq No
@@ -11680,20 +11543,12 @@ end
 -- Retransmission Message
 b3_equities_binaryentrypoint_sbe_v8_0.retransmission_message = {}
 
--- Calculate size of: Retransmission Message
-b3_equities_binaryentrypoint_sbe_v8_0.retransmission_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.count.size
-
-  return index
-end
+-- Size Of: Retransmission Message
+b3_equities_binaryentrypoint_sbe_v8_0.retransmission_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.count.size;
 
 -- Display: Retransmission Message
 b3_equities_binaryentrypoint_sbe_v8_0.retransmission_message.display = function(packet, parent, length)
@@ -11740,7 +11595,7 @@ end
 -- From Seq No
 b3_equities_binaryentrypoint_sbe_v8_0.from_seq_no = {}
 
--- Size: From Seq No
+-- Size Of: From Seq No
 b3_equities_binaryentrypoint_sbe_v8_0.from_seq_no.size = 4
 
 -- Display: From Seq No
@@ -11763,7 +11618,7 @@ end
 -- Timestamp
 b3_equities_binaryentrypoint_sbe_v8_0.timestamp = {}
 
--- Size: Timestamp
+-- Size Of: Timestamp
 b3_equities_binaryentrypoint_sbe_v8_0.timestamp.size = 8
 
 -- Display: Timestamp
@@ -11786,20 +11641,12 @@ end
 -- Retransmit Request Message
 b3_equities_binaryentrypoint_sbe_v8_0.retransmit_request_message = {}
 
--- Calculate size of: Retransmit Request Message
-b3_equities_binaryentrypoint_sbe_v8_0.retransmit_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.timestamp.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.from_seq_no.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.count.size
-
-  return index
-end
+-- Size Of: Retransmit Request Message
+b3_equities_binaryentrypoint_sbe_v8_0.retransmit_request_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.timestamp.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.from_seq_no.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.count.size;
 
 -- Display: Retransmit Request Message
 b3_equities_binaryentrypoint_sbe_v8_0.retransmit_request_message.display = function(packet, parent, length)
@@ -11846,14 +11693,9 @@ end
 -- Sequence Message
 b3_equities_binaryentrypoint_sbe_v8_0.sequence_message = {}
 
--- Calculate size of: Sequence Message
-b3_equities_binaryentrypoint_sbe_v8_0.sequence_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no.size
-
-  return index
-end
+-- Size Of: Sequence Message
+b3_equities_binaryentrypoint_sbe_v8_0.sequence_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no.size;
 
 -- Display: Sequence Message
 b3_equities_binaryentrypoint_sbe_v8_0.sequence_message.display = function(packet, parent, length)
@@ -11891,16 +11733,10 @@ end
 -- Not Applied Message
 b3_equities_binaryentrypoint_sbe_v8_0.not_applied_message = {}
 
--- Calculate size of: Not Applied Message
-b3_equities_binaryentrypoint_sbe_v8_0.not_applied_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.from_seq_no.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.count.size
-
-  return index
-end
+-- Size Of: Not Applied Message
+b3_equities_binaryentrypoint_sbe_v8_0.not_applied_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.from_seq_no.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.count.size;
 
 -- Display: Not Applied Message
 b3_equities_binaryentrypoint_sbe_v8_0.not_applied_message.display = function(packet, parent, length)
@@ -11941,7 +11777,7 @@ end
 -- Termination Code
 b3_equities_binaryentrypoint_sbe_v8_0.termination_code = {}
 
--- Size: Termination Code
+-- Size Of: Termination Code
 b3_equities_binaryentrypoint_sbe_v8_0.termination_code.size = 1
 
 -- Display: Termination Code
@@ -12022,7 +11858,7 @@ end
 -- Session Ver Id
 b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id = {}
 
--- Size: Session Ver Id
+-- Size Of: Session Ver Id
 b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size = 8
 
 -- Display: Session Ver Id
@@ -12045,18 +11881,11 @@ end
 -- Terminate Message
 b3_equities_binaryentrypoint_sbe_v8_0.terminate_message = {}
 
--- Calculate size of: Terminate Message
-b3_equities_binaryentrypoint_sbe_v8_0.terminate_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.termination_code.size
-
-  return index
-end
+-- Size Of: Terminate Message
+b3_equities_binaryentrypoint_sbe_v8_0.terminate_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.termination_code.size;
 
 -- Display: Terminate Message
 b3_equities_binaryentrypoint_sbe_v8_0.terminate_message.display = function(packet, parent, length)
@@ -12100,7 +11929,7 @@ end
 -- Last Incoming Seq No Optional
 b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no_optional = {}
 
--- Size: Last Incoming Seq No Optional
+-- Size Of: Last Incoming Seq No Optional
 b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no_optional.size = 4
 
 -- Display: Last Incoming Seq No Optional
@@ -12123,7 +11952,7 @@ end
 -- Offset 21 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_21_padding_1 = {}
 
--- Size: Offset 21 Padding 1
+-- Size Of: Offset 21 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_21_padding_1.size = 1
 
 -- Display: Offset 21 Padding 1
@@ -12146,7 +11975,7 @@ end
 -- Establishment Reject Code
 b3_equities_binaryentrypoint_sbe_v8_0.establishment_reject_code = {}
 
--- Size: Establishment Reject Code
+-- Size Of: Establishment Reject Code
 b3_equities_binaryentrypoint_sbe_v8_0.establishment_reject_code.size = 1
 
 -- Display: Establishment Reject Code
@@ -12215,24 +12044,14 @@ end
 -- Establish Reject Message
 b3_equities_binaryentrypoint_sbe_v8_0.establish_reject_message = {}
 
--- Calculate size of: Establish Reject Message
-b3_equities_binaryentrypoint_sbe_v8_0.establish_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.establishment_reject_code.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.offset_21_padding_1.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no_optional.size
-
-  return index
-end
+-- Size Of: Establish Reject Message
+b3_equities_binaryentrypoint_sbe_v8_0.establish_reject_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.establishment_reject_code.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.offset_21_padding_1.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no_optional.size;
 
 -- Display: Establish Reject Message
 b3_equities_binaryentrypoint_sbe_v8_0.establish_reject_message.display = function(packet, parent, length)
@@ -12285,7 +12104,7 @@ end
 -- Last Incoming Seq No
 b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no = {}
 
--- Size: Last Incoming Seq No
+-- Size Of: Last Incoming Seq No
 b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no.size = 4
 
 -- Display: Last Incoming Seq No
@@ -12308,7 +12127,7 @@ end
 -- Keep Alive Interval
 b3_equities_binaryentrypoint_sbe_v8_0.keep_alive_interval = {}
 
--- Size: Keep Alive Interval
+-- Size Of: Keep Alive Interval
 b3_equities_binaryentrypoint_sbe_v8_0.keep_alive_interval.size = 8
 
 -- Display: Keep Alive Interval
@@ -12331,24 +12150,14 @@ end
 -- Establish Ack Message
 b3_equities_binaryentrypoint_sbe_v8_0.establish_ack_message = {}
 
--- Calculate size of: Establish Ack Message
-b3_equities_binaryentrypoint_sbe_v8_0.establish_ack_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.keep_alive_interval.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no.size
-
-  return index
-end
+-- Size Of: Establish Ack Message
+b3_equities_binaryentrypoint_sbe_v8_0.establish_ack_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.keep_alive_interval.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.next_seq_no.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.last_incoming_seq_no.size;
 
 -- Display: Establish Ack Message
 b3_equities_binaryentrypoint_sbe_v8_0.establish_ack_message.display = function(packet, parent, length)
@@ -12420,7 +12229,7 @@ end
 -- Credentials Length
 b3_equities_binaryentrypoint_sbe_v8_0.credentials_length = {}
 
--- Size: Credentials Length
+-- Size Of: Credentials Length
 b3_equities_binaryentrypoint_sbe_v8_0.credentials_length.size = 1
 
 -- Display: Credentials Length
@@ -12514,7 +12323,7 @@ end
 -- Cod Timeout Window
 b3_equities_binaryentrypoint_sbe_v8_0.cod_timeout_window = {}
 
--- Size: Cod Timeout Window
+-- Size Of: Cod Timeout Window
 b3_equities_binaryentrypoint_sbe_v8_0.cod_timeout_window.size = 8
 
 -- Display: Cod Timeout Window
@@ -12537,7 +12346,7 @@ end
 -- Offset 33 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_33_padding_1 = {}
 
--- Size: Offset 33 Padding 1
+-- Size Of: Offset 33 Padding 1
 b3_equities_binaryentrypoint_sbe_v8_0.offset_33_padding_1.size = 1
 
 -- Display: Offset 33 Padding 1
@@ -12560,7 +12369,7 @@ end
 -- Cancel On Disconnect Type
 b3_equities_binaryentrypoint_sbe_v8_0.cancel_on_disconnect_type = {}
 
--- Size: Cancel On Disconnect Type
+-- Size Of: Cancel On Disconnect Type
 b3_equities_binaryentrypoint_sbe_v8_0.cancel_on_disconnect_type.size = 1
 
 -- Display: Cancel On Disconnect Type
@@ -12676,7 +12485,7 @@ end
 -- Current Session Ver Id
 b3_equities_binaryentrypoint_sbe_v8_0.current_session_ver_id = {}
 
--- Size: Current Session Ver Id
+-- Size Of: Current Session Ver Id
 b3_equities_binaryentrypoint_sbe_v8_0.current_session_ver_id.size = 8
 
 -- Display: Current Session Ver Id
@@ -12699,7 +12508,7 @@ end
 -- Offset 25 Padding 3
 b3_equities_binaryentrypoint_sbe_v8_0.offset_25_padding_3 = {}
 
--- Size: Offset 25 Padding 3
+-- Size Of: Offset 25 Padding 3
 b3_equities_binaryentrypoint_sbe_v8_0.offset_25_padding_3.size = 3
 
 -- Display: Offset 25 Padding 3
@@ -12722,7 +12531,7 @@ end
 -- Negotiation Reject Code
 b3_equities_binaryentrypoint_sbe_v8_0.negotiation_reject_code = {}
 
--- Size: Negotiation Reject Code
+-- Size Of: Negotiation Reject Code
 b3_equities_binaryentrypoint_sbe_v8_0.negotiation_reject_code.size = 1
 
 -- Display: Negotiation Reject Code
@@ -12785,26 +12594,15 @@ end
 -- Negotiate Reject Message
 b3_equities_binaryentrypoint_sbe_v8_0.negotiate_reject_message = {}
 
--- Calculate size of: Negotiate Reject Message
-b3_equities_binaryentrypoint_sbe_v8_0.negotiate_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.entering_firm_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.negotiation_reject_code.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.offset_25_padding_3.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.current_session_ver_id.size
-
-  return index
-end
+-- Size Of: Negotiate Reject Message
+b3_equities_binaryentrypoint_sbe_v8_0.negotiate_reject_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.entering_firm_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.negotiation_reject_code.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.offset_25_padding_3.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.current_session_ver_id.size;
 
 -- Display: Negotiate Reject Message
 b3_equities_binaryentrypoint_sbe_v8_0.negotiate_reject_message.display = function(packet, parent, length)
@@ -12860,7 +12658,7 @@ end
 -- Entering Firm
 b3_equities_binaryentrypoint_sbe_v8_0.entering_firm = {}
 
--- Size: Entering Firm
+-- Size Of: Entering Firm
 b3_equities_binaryentrypoint_sbe_v8_0.entering_firm.size = 4
 
 -- Display: Entering Firm
@@ -12883,20 +12681,12 @@ end
 -- Negotiate Response Message
 b3_equities_binaryentrypoint_sbe_v8_0.negotiate_response_message = {}
 
--- Calculate size of: Negotiate Response Message
-b3_equities_binaryentrypoint_sbe_v8_0.negotiate_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.entering_firm.size
-
-  return index
-end
+-- Size Of: Negotiate Response Message
+b3_equities_binaryentrypoint_sbe_v8_0.negotiate_response_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.session_ver_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.request_timestamp.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.entering_firm.size;
 
 -- Display: Negotiate Response Message
 b3_equities_binaryentrypoint_sbe_v8_0.negotiate_response_message.display = function(packet, parent, length)
@@ -12962,7 +12752,7 @@ end
 -- Client App Version Length
 b3_equities_binaryentrypoint_sbe_v8_0.client_app_version_length = {}
 
--- Size: Client App Version Length
+-- Size Of: Client App Version Length
 b3_equities_binaryentrypoint_sbe_v8_0.client_app_version_length.size = 1
 
 -- Display: Client App Version Length
@@ -13075,7 +12865,7 @@ end
 -- Client App Name Length
 b3_equities_binaryentrypoint_sbe_v8_0.client_app_name_length = {}
 
--- Size: Client App Name Length
+-- Size Of: Client App Name Length
 b3_equities_binaryentrypoint_sbe_v8_0.client_app_name_length.size = 1
 
 -- Display: Client App Name Length
@@ -13188,7 +12978,7 @@ end
 -- Client Ip Length
 b3_equities_binaryentrypoint_sbe_v8_0.client_ip_length = {}
 
--- Size: Client Ip Length
+-- Size Of: Client Ip Length
 b3_equities_binaryentrypoint_sbe_v8_0.client_ip_length.size = 1
 
 -- Display: Client Ip Length
@@ -13282,7 +13072,7 @@ end
 -- Onbehalf Firm
 b3_equities_binaryentrypoint_sbe_v8_0.onbehalf_firm = {}
 
--- Size: Onbehalf Firm
+-- Size Of: Onbehalf Firm
 b3_equities_binaryentrypoint_sbe_v8_0.onbehalf_firm.size = 4
 
 -- Display: Onbehalf Firm
@@ -13737,7 +13527,7 @@ end
 -- Version
 b3_equities_binaryentrypoint_sbe_v8_0.version = {}
 
--- Size: Version
+-- Size Of: Version
 b3_equities_binaryentrypoint_sbe_v8_0.version.size = 2
 
 -- Display: Version
@@ -13760,7 +13550,7 @@ end
 -- Schema Id
 b3_equities_binaryentrypoint_sbe_v8_0.schema_id = {}
 
--- Size: Schema Id
+-- Size Of: Schema Id
 b3_equities_binaryentrypoint_sbe_v8_0.schema_id.size = 2
 
 -- Display: Schema Id
@@ -13783,7 +13573,7 @@ end
 -- Template Id
 b3_equities_binaryentrypoint_sbe_v8_0.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 b3_equities_binaryentrypoint_sbe_v8_0.template_id.size = 2
 
 -- Display: Template Id
@@ -13924,20 +13714,12 @@ end
 -- Message Header
 b3_equities_binaryentrypoint_sbe_v8_0.message_header = {}
 
--- Calculate size of: Message Header
-b3_equities_binaryentrypoint_sbe_v8_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.block_length.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.template_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.schema_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.version.size
-
-  return index
-end
+-- Size Of: Message Header
+b3_equities_binaryentrypoint_sbe_v8_0.message_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.block_length.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.template_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.schema_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.version.size;
 
 -- Display: Message Header
 b3_equities_binaryentrypoint_sbe_v8_0.message_header.display = function(packet, parent, length)
@@ -13984,7 +13766,7 @@ end
 -- Encoding Type
 b3_equities_binaryentrypoint_sbe_v8_0.encoding_type = {}
 
--- Size: Encoding Type
+-- Size Of: Encoding Type
 b3_equities_binaryentrypoint_sbe_v8_0.encoding_type.size = 2
 
 -- Display: Encoding Type
@@ -14007,7 +13789,7 @@ end
 -- Message Length
 b3_equities_binaryentrypoint_sbe_v8_0.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 b3_equities_binaryentrypoint_sbe_v8_0.message_length.size = 2
 
 -- Display: Message Length
@@ -14030,16 +13812,10 @@ end
 -- Simple Open Framing Header
 b3_equities_binaryentrypoint_sbe_v8_0.simple_open_framing_header = {}
 
--- Calculate size of: Simple Open Framing Header
-b3_equities_binaryentrypoint_sbe_v8_0.simple_open_framing_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.message_length.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0.encoding_type.size
-
-  return index
-end
+-- Size Of: Simple Open Framing Header
+b3_equities_binaryentrypoint_sbe_v8_0.simple_open_framing_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_0.message_length.size + 
+  b3_equities_binaryentrypoint_sbe_v8_0.encoding_type.size;
 
 -- Display: Simple Open Framing Header
 b3_equities_binaryentrypoint_sbe_v8_0.simple_open_framing_header.display = function(packet, parent, length)

@@ -376,7 +376,7 @@ end
 -- Participant Token
 nasdaq_uqdf_output_utp_v1_5.participant_token = {}
 
--- Size: Participant Token
+-- Size Of: Participant Token
 nasdaq_uqdf_output_utp_v1_5.participant_token.size = 8
 
 -- Display: Participant Token
@@ -399,7 +399,7 @@ end
 -- Participant Timestamp
 nasdaq_uqdf_output_utp_v1_5.participant_timestamp = {}
 
--- Size: Participant Timestamp
+-- Size Of: Participant Timestamp
 nasdaq_uqdf_output_utp_v1_5.participant_timestamp.size = 8
 
 -- Display: Participant Timestamp
@@ -422,7 +422,7 @@ end
 -- Sip Timestamp
 nasdaq_uqdf_output_utp_v1_5.sip_timestamp = {}
 
--- Size: Sip Timestamp
+-- Size Of: Sip Timestamp
 nasdaq_uqdf_output_utp_v1_5.sip_timestamp.size = 8
 
 -- Display: Sip Timestamp
@@ -445,7 +445,7 @@ end
 -- Sub Market Center Id
 nasdaq_uqdf_output_utp_v1_5.sub_market_center_id = {}
 
--- Size: Sub Market Center Id
+-- Size Of: Sub Market Center Id
 nasdaq_uqdf_output_utp_v1_5.sub_market_center_id.size = 1
 
 -- Display: Sub Market Center Id
@@ -481,7 +481,7 @@ end
 -- Market Center Originator Id
 nasdaq_uqdf_output_utp_v1_5.market_center_originator_id = {}
 
--- Size: Market Center Originator Id
+-- Size Of: Market Center Originator Id
 nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.size = 1
 
 -- Display: Market Center Originator Id
@@ -565,22 +565,13 @@ end
 -- Message Info
 nasdaq_uqdf_output_utp_v1_5.message_info = {}
 
--- Calculate size of: Message Info
-nasdaq_uqdf_output_utp_v1_5.message_info.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.sub_market_center_id.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.sip_timestamp.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.participant_timestamp.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.participant_token.size
-
-  return index
-end
+-- Size Of: Message Info
+nasdaq_uqdf_output_utp_v1_5.message_info.size =
+  nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.size + 
+  nasdaq_uqdf_output_utp_v1_5.sub_market_center_id.size + 
+  nasdaq_uqdf_output_utp_v1_5.sip_timestamp.size + 
+  nasdaq_uqdf_output_utp_v1_5.participant_timestamp.size + 
+  nasdaq_uqdf_output_utp_v1_5.participant_token.size;
 
 -- Display: Message Info
 nasdaq_uqdf_output_utp_v1_5.message_info.display = function(packet, parent, length)
@@ -988,7 +979,7 @@ end
 -- Control Message Type
 nasdaq_uqdf_output_utp_v1_5.control_message_type = {}
 
--- Size: Control Message Type
+-- Size Of: Control Message Type
 nasdaq_uqdf_output_utp_v1_5.control_message_type.size = 1
 
 -- Display: Control Message Type
@@ -1078,7 +1069,7 @@ end
 -- Market Center Ask Size
 nasdaq_uqdf_output_utp_v1_5.market_center_ask_size = {}
 
--- Size: Market Center Ask Size
+-- Size Of: Market Center Ask Size
 nasdaq_uqdf_output_utp_v1_5.market_center_ask_size.size = 8
 
 -- Display: Market Center Ask Size
@@ -1101,7 +1092,7 @@ end
 -- Market Center Ask Price
 nasdaq_uqdf_output_utp_v1_5.market_center_ask_price = {}
 
--- Size: Market Center Ask Price
+-- Size Of: Market Center Ask Price
 nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.size = 8
 
 -- Display: Market Center Ask Price
@@ -1130,7 +1121,7 @@ end
 -- Market Center Bid Size
 nasdaq_uqdf_output_utp_v1_5.market_center_bid_size = {}
 
--- Size: Market Center Bid Size
+-- Size Of: Market Center Bid Size
 nasdaq_uqdf_output_utp_v1_5.market_center_bid_size.size = 8
 
 -- Display: Market Center Bid Size
@@ -1153,7 +1144,7 @@ end
 -- Market Center Bid Price
 nasdaq_uqdf_output_utp_v1_5.market_center_bid_price = {}
 
--- Size: Market Center Bid Price
+-- Size Of: Market Center Bid Price
 nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.size = 8
 
 -- Display: Market Center Bid Price
@@ -1182,7 +1173,7 @@ end
 -- Market Center Identifier
 nasdaq_uqdf_output_utp_v1_5.market_center_identifier = {}
 
--- Size: Market Center Identifier
+-- Size Of: Market Center Identifier
 nasdaq_uqdf_output_utp_v1_5.market_center_identifier.size = 1
 
 -- Display: Market Center Identifier
@@ -1205,22 +1196,13 @@ end
 -- Market Center Close Recap
 nasdaq_uqdf_output_utp_v1_5.market_center_close_recap = {}
 
--- Calculate size of: Market Center Close Recap
-nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_identifier.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_bid_size.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.market_center_ask_size.size
-
-  return index
-end
+-- Size Of: Market Center Close Recap
+nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.size =
+  nasdaq_uqdf_output_utp_v1_5.market_center_identifier.size + 
+  nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.market_center_bid_size.size + 
+  nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.market_center_ask_size.size;
 
 -- Display: Market Center Close Recap
 nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.display = function(packet, parent, length)
@@ -1276,7 +1258,7 @@ end
 -- Number Of Market Center Attachments
 nasdaq_uqdf_output_utp_v1_5.number_of_market_center_attachments = {}
 
--- Size: Number Of Market Center Attachments
+-- Size Of: Number Of Market Center Attachments
 nasdaq_uqdf_output_utp_v1_5.number_of_market_center_attachments.size = 2
 
 -- Display: Number Of Market Center Attachments
@@ -1299,7 +1281,7 @@ end
 -- Special Condition
 nasdaq_uqdf_output_utp_v1_5.special_condition = {}
 
--- Size: Special Condition
+-- Size Of: Special Condition
 nasdaq_uqdf_output_utp_v1_5.special_condition.size = 1
 
 -- Display: Special Condition
@@ -1335,7 +1317,7 @@ end
 -- National Best Ask Size
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_size = {}
 
--- Size: National Best Ask Size
+-- Size Of: National Best Ask Size
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_size.size = 8
 
 -- Display: National Best Ask Size
@@ -1358,7 +1340,7 @@ end
 -- National Best Ask Price
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_price = {}
 
--- Size: National Best Ask Price
+-- Size Of: National Best Ask Price
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.size = 8
 
 -- Display: National Best Ask Price
@@ -1387,7 +1369,7 @@ end
 -- National Best Ask Market Center
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center = {}
 
--- Size: National Best Ask Market Center
+-- Size Of: National Best Ask Market Center
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.size = 1
 
 -- Display: National Best Ask Market Center
@@ -1410,7 +1392,7 @@ end
 -- National Best Bid Size
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_size = {}
 
--- Size: National Best Bid Size
+-- Size Of: National Best Bid Size
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_size.size = 8
 
 -- Display: National Best Bid Size
@@ -1433,7 +1415,7 @@ end
 -- National Best Bid Price
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_price = {}
 
--- Size: National Best Bid Price
+-- Size Of: National Best Bid Price
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.size = 8
 
 -- Display: National Best Bid Price
@@ -1462,7 +1444,7 @@ end
 -- National Best Bid Market Center
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center = {}
 
--- Size: National Best Bid Market Center
+-- Size Of: National Best Bid Market Center
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.size = 1
 
 -- Display: National Best Bid Market Center
@@ -1485,7 +1467,7 @@ end
 -- Symbol
 nasdaq_uqdf_output_utp_v1_5.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 nasdaq_uqdf_output_utp_v1_5.symbol.size = 11
 
 -- Display: Symbol
@@ -1585,7 +1567,7 @@ end
 -- Collar Extension Indicator
 nasdaq_uqdf_output_utp_v1_5.collar_extension_indicator = {}
 
--- Size: Collar Extension Indicator
+-- Size Of: Collar Extension Indicator
 nasdaq_uqdf_output_utp_v1_5.collar_extension_indicator.size = 1
 
 -- Display: Collar Extension Indicator
@@ -1608,7 +1590,7 @@ end
 -- Collar Down Price
 nasdaq_uqdf_output_utp_v1_5.collar_down_price = {}
 
--- Size: Collar Down Price
+-- Size Of: Collar Down Price
 nasdaq_uqdf_output_utp_v1_5.collar_down_price.size = 8
 
 -- Display: Collar Down Price
@@ -1637,7 +1619,7 @@ end
 -- Collar Up Price
 nasdaq_uqdf_output_utp_v1_5.collar_up_price = {}
 
--- Size: Collar Up Price
+-- Size Of: Collar Up Price
 nasdaq_uqdf_output_utp_v1_5.collar_up_price.size = 8
 
 -- Display: Collar Up Price
@@ -1666,7 +1648,7 @@ end
 -- Collar Reference Price
 nasdaq_uqdf_output_utp_v1_5.collar_reference_price = {}
 
--- Size: Collar Reference Price
+-- Size Of: Collar Reference Price
 nasdaq_uqdf_output_utp_v1_5.collar_reference_price.size = 8
 
 -- Display: Collar Reference Price
@@ -1695,7 +1677,7 @@ end
 -- Trading Action Sequence Number
 nasdaq_uqdf_output_utp_v1_5.trading_action_sequence_number = {}
 
--- Size: Trading Action Sequence Number
+-- Size Of: Trading Action Sequence Number
 nasdaq_uqdf_output_utp_v1_5.trading_action_sequence_number.size = 4
 
 -- Display: Trading Action Sequence Number
@@ -1781,7 +1763,7 @@ end
 -- Mwcb Level 3
 nasdaq_uqdf_output_utp_v1_5.mwcb_level_3 = {}
 
--- Size: Mwcb Level 3
+-- Size Of: Mwcb Level 3
 nasdaq_uqdf_output_utp_v1_5.mwcb_level_3.size = 8
 
 -- Display: Mwcb Level 3
@@ -1804,7 +1786,7 @@ end
 -- Mwcb Level 2
 nasdaq_uqdf_output_utp_v1_5.mwcb_level_2 = {}
 
--- Size: Mwcb Level 2
+-- Size Of: Mwcb Level 2
 nasdaq_uqdf_output_utp_v1_5.mwcb_level_2.size = 8
 
 -- Display: Mwcb Level 2
@@ -1827,7 +1809,7 @@ end
 -- Mwcb Level 1
 nasdaq_uqdf_output_utp_v1_5.mwcb_level_1 = {}
 
--- Size: Mwcb Level 1
+-- Size Of: Mwcb Level 1
 nasdaq_uqdf_output_utp_v1_5.mwcb_level_1.size = 8
 
 -- Display: Mwcb Level 1
@@ -1904,7 +1886,7 @@ end
 -- Limit Up Price
 nasdaq_uqdf_output_utp_v1_5.limit_up_price = {}
 
--- Size: Limit Up Price
+-- Size Of: Limit Up Price
 nasdaq_uqdf_output_utp_v1_5.limit_up_price.size = 8
 
 -- Display: Limit Up Price
@@ -1933,7 +1915,7 @@ end
 -- Limit Down Price
 nasdaq_uqdf_output_utp_v1_5.limit_down_price = {}
 
--- Size: Limit Down Price
+-- Size Of: Limit Down Price
 nasdaq_uqdf_output_utp_v1_5.limit_down_price.size = 8
 
 -- Display: Limit Down Price
@@ -1962,7 +1944,7 @@ end
 -- Luld Timestamp
 nasdaq_uqdf_output_utp_v1_5.luld_timestamp = {}
 
--- Size: Luld Timestamp
+-- Size Of: Luld Timestamp
 nasdaq_uqdf_output_utp_v1_5.luld_timestamp.size = 8
 
 -- Display: Luld Timestamp
@@ -1985,7 +1967,7 @@ end
 -- Luld Price Band Indicator
 nasdaq_uqdf_output_utp_v1_5.luld_price_band_indicator = {}
 
--- Size: Luld Price Band Indicator
+-- Size Of: Luld Price Band Indicator
 nasdaq_uqdf_output_utp_v1_5.luld_price_band_indicator.size = 1
 
 -- Display: Luld Price Band Indicator
@@ -2090,7 +2072,7 @@ end
 -- Reg Sho Action
 nasdaq_uqdf_output_utp_v1_5.reg_sho_action = {}
 
--- Size: Reg Sho Action
+-- Size Of: Reg Sho Action
 nasdaq_uqdf_output_utp_v1_5.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
@@ -2174,7 +2156,7 @@ end
 -- Financial Status Indicator
 nasdaq_uqdf_output_utp_v1_5.financial_status_indicator = {}
 
--- Size: Financial Status Indicator
+-- Size Of: Financial Status Indicator
 nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
@@ -2225,7 +2207,7 @@ end
 -- Round Lot Size
 nasdaq_uqdf_output_utp_v1_5.round_lot_size = {}
 
--- Size: Round Lot Size
+-- Size Of: Round Lot Size
 nasdaq_uqdf_output_utp_v1_5.round_lot_size.size = 2
 
 -- Display: Round Lot Size
@@ -2248,7 +2230,7 @@ end
 -- Short Sale Threshold Indicator
 nasdaq_uqdf_output_utp_v1_5.short_sale_threshold_indicator = {}
 
--- Size: Short Sale Threshold Indicator
+-- Size Of: Short Sale Threshold Indicator
 nasdaq_uqdf_output_utp_v1_5.short_sale_threshold_indicator.size = 1
 
 -- Display: Short Sale Threshold Indicator
@@ -2281,7 +2263,7 @@ end
 -- Authenticity
 nasdaq_uqdf_output_utp_v1_5.authenticity = {}
 
--- Size: Authenticity
+-- Size Of: Authenticity
 nasdaq_uqdf_output_utp_v1_5.authenticity.size = 1
 
 -- Display: Authenticity
@@ -2317,7 +2299,7 @@ end
 -- Market Tier
 nasdaq_uqdf_output_utp_v1_5.market_tier = {}
 
--- Size: Market Tier
+-- Size Of: Market Tier
 nasdaq_uqdf_output_utp_v1_5.market_tier.size = 1
 
 -- Display: Market Tier
@@ -2350,7 +2332,7 @@ end
 -- Issue Subtype
 nasdaq_uqdf_output_utp_v1_5.issue_subtype = {}
 
--- Size: Issue Subtype
+-- Size Of: Issue Subtype
 nasdaq_uqdf_output_utp_v1_5.issue_subtype.size = 2
 
 -- Display: Issue Subtype
@@ -2373,7 +2355,7 @@ end
 -- Issue Type
 nasdaq_uqdf_output_utp_v1_5.issue_type = {}
 
--- Size: Issue Type
+-- Size Of: Issue Type
 nasdaq_uqdf_output_utp_v1_5.issue_type.size = 1
 
 -- Display: Issue Type
@@ -2445,7 +2427,7 @@ end
 -- Issue Name
 nasdaq_uqdf_output_utp_v1_5.issue_name = {}
 
--- Size: Issue Name
+-- Size Of: Issue Name
 nasdaq_uqdf_output_utp_v1_5.issue_name.size = 30
 
 -- Display: Issue Name
@@ -2468,7 +2450,7 @@ end
 -- Old Symbol
 nasdaq_uqdf_output_utp_v1_5.old_symbol = {}
 
--- Size: Old Symbol
+-- Size Of: Old Symbol
 nasdaq_uqdf_output_utp_v1_5.old_symbol.size = 11
 
 -- Display: Old Symbol
@@ -2566,7 +2548,7 @@ end
 -- Action Timestamp
 nasdaq_uqdf_output_utp_v1_5.action_timestamp = {}
 
--- Size: Action Timestamp
+-- Size Of: Action Timestamp
 nasdaq_uqdf_output_utp_v1_5.action_timestamp.size = 8
 
 -- Display: Action Timestamp
@@ -2589,7 +2571,7 @@ end
 -- Trading Action Code
 nasdaq_uqdf_output_utp_v1_5.trading_action_code = {}
 
--- Size: Trading Action Code
+-- Size Of: Trading Action Code
 nasdaq_uqdf_output_utp_v1_5.trading_action_code.size = 1
 
 -- Display: Trading Action Code
@@ -2682,7 +2664,7 @@ end
 -- Trading Action Reason
 nasdaq_uqdf_output_utp_v1_5.trading_action_reason = {}
 
--- Size: Trading Action Reason
+-- Size Of: Trading Action Reason
 nasdaq_uqdf_output_utp_v1_5.trading_action_reason.size = 6
 
 -- Display: Trading Action Reason
@@ -2784,7 +2766,7 @@ end
 -- Text Length
 nasdaq_uqdf_output_utp_v1_5.text_length = {}
 
--- Size: Text Length
+-- Size Of: Text Length
 nasdaq_uqdf_output_utp_v1_5.text_length.size = 2
 
 -- Display: Text Length
@@ -2978,7 +2960,7 @@ end
 -- Administrative Message Type
 nasdaq_uqdf_output_utp_v1_5.administrative_message_type = {}
 
--- Size: Administrative Message Type
+-- Size Of: Administrative Message Type
 nasdaq_uqdf_output_utp_v1_5.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
@@ -3080,7 +3062,7 @@ end
 -- Finra Market Participant
 nasdaq_uqdf_output_utp_v1_5.finra_market_participant = {}
 
--- Size: Finra Market Participant
+-- Size Of: Finra Market Participant
 nasdaq_uqdf_output_utp_v1_5.finra_market_participant.size = 4
 
 -- Display: Finra Market Participant
@@ -3103,7 +3085,7 @@ end
 -- Quote Condition
 nasdaq_uqdf_output_utp_v1_5.quote_condition = {}
 
--- Size: Quote Condition
+-- Size Of: Quote Condition
 nasdaq_uqdf_output_utp_v1_5.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -3169,7 +3151,7 @@ end
 -- Ask Size
 nasdaq_uqdf_output_utp_v1_5.ask_size = {}
 
--- Size: Ask Size
+-- Size Of: Ask Size
 nasdaq_uqdf_output_utp_v1_5.ask_size.size = 4
 
 -- Display: Ask Size
@@ -3192,7 +3174,7 @@ end
 -- Ask Price
 nasdaq_uqdf_output_utp_v1_5.ask_price = {}
 
--- Size: Ask Price
+-- Size Of: Ask Price
 nasdaq_uqdf_output_utp_v1_5.ask_price.size = 8
 
 -- Display: Ask Price
@@ -3221,7 +3203,7 @@ end
 -- Bid Size
 nasdaq_uqdf_output_utp_v1_5.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 nasdaq_uqdf_output_utp_v1_5.bid_size.size = 4
 
 -- Display: Bid Size
@@ -3244,7 +3226,7 @@ end
 -- Bid Price
 nasdaq_uqdf_output_utp_v1_5.bid_price = {}
 
--- Size: Bid Price
+-- Size Of: Bid Price
 nasdaq_uqdf_output_utp_v1_5.bid_price.size = 8
 
 -- Display: Bid Price
@@ -3273,7 +3255,7 @@ end
 -- Finra Timestamp
 nasdaq_uqdf_output_utp_v1_5.finra_timestamp = {}
 
--- Size: Finra Timestamp
+-- Size Of: Finra Timestamp
 nasdaq_uqdf_output_utp_v1_5.finra_timestamp.size = 8
 
 -- Display: Finra Timestamp
@@ -3365,7 +3347,7 @@ end
 -- Ask Adf Mpid
 nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid = {}
 
--- Size: Ask Adf Mpid
+-- Size Of: Ask Adf Mpid
 nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.size = 4
 
 -- Display: Ask Adf Mpid
@@ -3388,7 +3370,7 @@ end
 -- Bid Adf Mpid
 nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid = {}
 
--- Size: Bid Adf Mpid
+-- Size Of: Bid Adf Mpid
 nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.size = 4
 
 -- Display: Bid Adf Mpid
@@ -3411,16 +3393,10 @@ end
 -- Finra Adf Mpid Appendage
 nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage = {}
 
--- Calculate size of: Finra Adf Mpid Appendage
-nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.size
-
-  return index
-end
+-- Size Of: Finra Adf Mpid Appendage
+nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.size =
+  nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.size + 
+  nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.size;
 
 -- Display: Finra Adf Mpid Appendage
 nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.display = function(packet, parent, length)
@@ -3461,7 +3437,7 @@ end
 -- Best Ask Size
 nasdaq_uqdf_output_utp_v1_5.best_ask_size = {}
 
--- Size: Best Ask Size
+-- Size Of: Best Ask Size
 nasdaq_uqdf_output_utp_v1_5.best_ask_size.size = 4
 
 -- Display: Best Ask Size
@@ -3484,7 +3460,7 @@ end
 -- Best Ask Price
 nasdaq_uqdf_output_utp_v1_5.best_ask_price = {}
 
--- Size: Best Ask Price
+-- Size Of: Best Ask Price
 nasdaq_uqdf_output_utp_v1_5.best_ask_price.size = 8
 
 -- Display: Best Ask Price
@@ -3513,7 +3489,7 @@ end
 -- Best Ask Market Center
 nasdaq_uqdf_output_utp_v1_5.best_ask_market_center = {}
 
--- Size: Best Ask Market Center
+-- Size Of: Best Ask Market Center
 nasdaq_uqdf_output_utp_v1_5.best_ask_market_center.size = 1
 
 -- Display: Best Ask Market Center
@@ -3536,7 +3512,7 @@ end
 -- Best Bid Size
 nasdaq_uqdf_output_utp_v1_5.best_bid_size = {}
 
--- Size: Best Bid Size
+-- Size Of: Best Bid Size
 nasdaq_uqdf_output_utp_v1_5.best_bid_size.size = 4
 
 -- Display: Best Bid Size
@@ -3559,7 +3535,7 @@ end
 -- Best Bid Price
 nasdaq_uqdf_output_utp_v1_5.best_bid_price = {}
 
--- Size: Best Bid Price
+-- Size Of: Best Bid Price
 nasdaq_uqdf_output_utp_v1_5.best_bid_price.size = 8
 
 -- Display: Best Bid Price
@@ -3588,7 +3564,7 @@ end
 -- Best Bid Market Center
 nasdaq_uqdf_output_utp_v1_5.best_bid_market_center = {}
 
--- Size: Best Bid Market Center
+-- Size Of: Best Bid Market Center
 nasdaq_uqdf_output_utp_v1_5.best_bid_market_center.size = 1
 
 -- Display: Best Bid Market Center
@@ -3611,7 +3587,7 @@ end
 -- Nbbo Quote Condition
 nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition = {}
 
--- Size: Nbbo Quote Condition
+-- Size Of: Nbbo Quote Condition
 nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size = 1
 
 -- Display: Nbbo Quote Condition
@@ -3677,26 +3653,15 @@ end
 -- Long Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage = {}
 
--- Calculate size of: Long Form National Bbo Appendage
-nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.best_bid_market_center.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.best_bid_price.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.best_bid_size.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.best_ask_market_center.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.best_ask_price.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.best_ask_size.size
-
-  return index
-end
+-- Size Of: Long Form National Bbo Appendage
+nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.size =
+  nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size + 
+  nasdaq_uqdf_output_utp_v1_5.best_bid_market_center.size + 
+  nasdaq_uqdf_output_utp_v1_5.best_bid_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.best_bid_size.size + 
+  nasdaq_uqdf_output_utp_v1_5.best_ask_market_center.size + 
+  nasdaq_uqdf_output_utp_v1_5.best_ask_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.best_ask_size.size;
 
 -- Display: Long Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.display = function(packet, parent, length)
@@ -3752,7 +3717,7 @@ end
 -- National Best Ask Size Short
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_size_short = {}
 
--- Size: National Best Ask Size Short
+-- Size Of: National Best Ask Size Short
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_size_short.size = 2
 
 -- Display: National Best Ask Size Short
@@ -3775,7 +3740,7 @@ end
 -- National Best Ask Price Short
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short = {}
 
--- Size: National Best Ask Price Short
+-- Size Of: National Best Ask Price Short
 nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.size = 2
 
 -- Display: National Best Ask Price Short
@@ -3804,7 +3769,7 @@ end
 -- National Best Bid Size Short
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_size_short = {}
 
--- Size: National Best Bid Size Short
+-- Size Of: National Best Bid Size Short
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_size_short.size = 2
 
 -- Display: National Best Bid Size Short
@@ -3827,7 +3792,7 @@ end
 -- National Best Bid Price Short
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short = {}
 
--- Size: National Best Bid Price Short
+-- Size Of: National Best Bid Price Short
 nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.size = 2
 
 -- Display: National Best Bid Price Short
@@ -3856,26 +3821,15 @@ end
 -- Short Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage = {}
 
--- Calculate size of: Short Form National Bbo Appendage
-nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_size_short.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_size_short.size
-
-  return index
-end
+-- Size Of: Short Form National Bbo Appendage
+nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.size =
+  nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size + 
+  nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.size + 
+  nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.size + 
+  nasdaq_uqdf_output_utp_v1_5.national_best_bid_size_short.size + 
+  nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.size + 
+  nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.size + 
+  nasdaq_uqdf_output_utp_v1_5.national_best_ask_size_short.size;
 
 -- Display: Short Form National Bbo Appendage
 nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.display = function(packet, parent, length)
@@ -3931,7 +3885,7 @@ end
 -- Finra Adf Mpid Appendage Indicator
 nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage_indicator = {}
 
--- Size: Finra Adf Mpid Appendage Indicator
+-- Size Of: Finra Adf Mpid Appendage Indicator
 nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage_indicator.size = 1
 
 -- Display: Finra Adf Mpid Appendage Indicator
@@ -3967,7 +3921,7 @@ end
 -- Luld National Bbo Indicator
 nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator = {}
 
--- Size: Luld National Bbo Indicator
+-- Size Of: Luld National Bbo Indicator
 nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator.size = 1
 
 -- Display: Luld National Bbo Indicator
@@ -4021,7 +3975,7 @@ end
 -- Nbbo Appendage Indicator
 nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator = {}
 
--- Size: Nbbo Appendage Indicator
+-- Size Of: Nbbo Appendage Indicator
 nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.size = 1
 
 -- Display: Nbbo Appendage Indicator
@@ -4060,7 +4014,7 @@ end
 -- Retail Interest Indicator
 nasdaq_uqdf_output_utp_v1_5.retail_interest_indicator = {}
 
--- Size: Retail Interest Indicator
+-- Size Of: Retail Interest Indicator
 nasdaq_uqdf_output_utp_v1_5.retail_interest_indicator.size = 1
 
 -- Display: Retail Interest Indicator
@@ -4096,7 +4050,7 @@ end
 -- Luld Bbo Indicator
 nasdaq_uqdf_output_utp_v1_5.luld_bbo_indicator = {}
 
--- Size: Luld Bbo Indicator
+-- Size Of: Luld Bbo Indicator
 nasdaq_uqdf_output_utp_v1_5.luld_bbo_indicator.size = 1
 
 -- Display: Luld Bbo Indicator
@@ -4132,7 +4086,7 @@ end
 -- Sip Generated Update
 nasdaq_uqdf_output_utp_v1_5.sip_generated_update = {}
 
--- Size: Sip Generated Update
+-- Size Of: Sip Generated Update
 nasdaq_uqdf_output_utp_v1_5.sip_generated_update.size = 1
 
 -- Display: Sip Generated Update
@@ -4273,7 +4227,7 @@ end
 -- Ask Size Short
 nasdaq_uqdf_output_utp_v1_5.ask_size_short = {}
 
--- Size: Ask Size Short
+-- Size Of: Ask Size Short
 nasdaq_uqdf_output_utp_v1_5.ask_size_short.size = 2
 
 -- Display: Ask Size Short
@@ -4296,7 +4250,7 @@ end
 -- Ask Price Short
 nasdaq_uqdf_output_utp_v1_5.ask_price_short = {}
 
--- Size: Ask Price Short
+-- Size Of: Ask Price Short
 nasdaq_uqdf_output_utp_v1_5.ask_price_short.size = 2
 
 -- Display: Ask Price Short
@@ -4325,7 +4279,7 @@ end
 -- Bid Size Short
 nasdaq_uqdf_output_utp_v1_5.bid_size_short = {}
 
--- Size: Bid Size Short
+-- Size Of: Bid Size Short
 nasdaq_uqdf_output_utp_v1_5.bid_size_short.size = 2
 
 -- Display: Bid Size Short
@@ -4348,7 +4302,7 @@ end
 -- Bid Price Short
 nasdaq_uqdf_output_utp_v1_5.bid_price_short = {}
 
--- Size: Bid Price Short
+-- Size Of: Bid Price Short
 nasdaq_uqdf_output_utp_v1_5.bid_price_short.size = 2
 
 -- Display: Bid Price Short
@@ -4377,7 +4331,7 @@ end
 -- Symbol Short
 nasdaq_uqdf_output_utp_v1_5.symbol_short = {}
 
--- Size: Symbol Short
+-- Size Of: Symbol Short
 nasdaq_uqdf_output_utp_v1_5.symbol_short.size = 5
 
 -- Display: Symbol Short
@@ -4560,7 +4514,7 @@ end
 -- Quote Message Type
 nasdaq_uqdf_output_utp_v1_5.quote_message_type = {}
 
--- Size: Quote Message Type
+-- Size Of: Quote Message Type
 nasdaq_uqdf_output_utp_v1_5.quote_message_type.size = 1
 
 -- Display: Quote Message Type
@@ -4705,7 +4659,7 @@ end
 -- Message Category
 nasdaq_uqdf_output_utp_v1_5.message_category = {}
 
--- Size: Message Category
+-- Size Of: Message Category
 nasdaq_uqdf_output_utp_v1_5.message_category.size = 1
 
 -- Display: Message Category
@@ -4728,7 +4682,7 @@ end
 -- Version
 nasdaq_uqdf_output_utp_v1_5.version = {}
 
--- Size: Version
+-- Size Of: Version
 nasdaq_uqdf_output_utp_v1_5.version.size = 1
 
 -- Display: Version
@@ -4751,7 +4705,7 @@ end
 -- Message Length
 nasdaq_uqdf_output_utp_v1_5.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 nasdaq_uqdf_output_utp_v1_5.message_length.size = 2
 
 -- Display: Message Length
@@ -4774,18 +4728,11 @@ end
 -- Message Header
 nasdaq_uqdf_output_utp_v1_5.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_uqdf_output_utp_v1_5.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.message_length.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.version.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.message_category.size
-
-  return index
-end
+-- Size Of: Message Header
+nasdaq_uqdf_output_utp_v1_5.message_header.size =
+  nasdaq_uqdf_output_utp_v1_5.message_length.size + 
+  nasdaq_uqdf_output_utp_v1_5.version.size + 
+  nasdaq_uqdf_output_utp_v1_5.message_category.size;
 
 -- Display: Message Header
 nasdaq_uqdf_output_utp_v1_5.message_header.display = function(packet, parent, length)
@@ -4880,7 +4827,7 @@ end
 -- Count
 nasdaq_uqdf_output_utp_v1_5.count = {}
 
--- Size: Count
+-- Size Of: Count
 nasdaq_uqdf_output_utp_v1_5.count.size = 2
 
 -- Display: Count
@@ -4903,7 +4850,7 @@ end
 -- Sequence
 nasdaq_uqdf_output_utp_v1_5.sequence = {}
 
--- Size: Sequence
+-- Size Of: Sequence
 nasdaq_uqdf_output_utp_v1_5.sequence.size = 8
 
 -- Display: Sequence
@@ -4926,7 +4873,7 @@ end
 -- Session
 nasdaq_uqdf_output_utp_v1_5.session = {}
 
--- Size: Session
+-- Size Of: Session
 nasdaq_uqdf_output_utp_v1_5.session.size = 10
 
 -- Display: Session
@@ -4949,18 +4896,11 @@ end
 -- Packet Header
 nasdaq_uqdf_output_utp_v1_5.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_uqdf_output_utp_v1_5.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.session.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.sequence.size
-
-  index = index + nasdaq_uqdf_output_utp_v1_5.count.size
-
-  return index
-end
+-- Size Of: Packet Header
+nasdaq_uqdf_output_utp_v1_5.packet_header.size =
+  nasdaq_uqdf_output_utp_v1_5.session.size + 
+  nasdaq_uqdf_output_utp_v1_5.sequence.size + 
+  nasdaq_uqdf_output_utp_v1_5.count.size;
 
 -- Display: Packet Header
 nasdaq_uqdf_output_utp_v1_5.packet_header.display = function(packet, parent, length)

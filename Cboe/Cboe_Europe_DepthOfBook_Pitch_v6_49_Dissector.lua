@@ -320,7 +320,7 @@ end
 -- Index Price
 cboe_europe_depthofbook_pitch_v6_49.index_price = {}
 
--- Size: Index Price
+-- Size Of: Index Price
 cboe_europe_depthofbook_pitch_v6_49.index_price.size = 8
 
 -- Display: Index Price
@@ -349,7 +349,7 @@ end
 -- Index Ticker
 cboe_europe_depthofbook_pitch_v6_49.index_ticker = {}
 
--- Size: Index Ticker
+-- Size Of: Index Ticker
 cboe_europe_depthofbook_pitch_v6_49.index_ticker.size = 10
 
 -- Display: Index Ticker
@@ -372,7 +372,7 @@ end
 -- Time Offset
 cboe_europe_depthofbook_pitch_v6_49.time_offset = {}
 
--- Size: Time Offset
+-- Size Of: Time Offset
 cboe_europe_depthofbook_pitch_v6_49.time_offset.size = 4
 
 -- Display: Time Offset
@@ -395,18 +395,11 @@ end
 -- Index Quote Edsp Message
 cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message = {}
 
--- Calculate size of: Index Quote Edsp Message
-cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.index_ticker.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.index_price.size
-
-  return index
-end
+-- Size Of: Index Quote Edsp Message
+cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.index_ticker.size + 
+  cboe_europe_depthofbook_pitch_v6_49.index_price.size;
 
 -- Display: Index Quote Edsp Message
 cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.display = function(packet, parent, length)
@@ -450,7 +443,7 @@ end
 -- Index Status
 cboe_europe_depthofbook_pitch_v6_49.index_status = {}
 
--- Size: Index Status
+-- Size Of: Index Status
 cboe_europe_depthofbook_pitch_v6_49.index_status.size = 1
 
 -- Display: Index Status
@@ -483,20 +476,12 @@ end
 -- Index Quote Message
 cboe_europe_depthofbook_pitch_v6_49.index_quote_message = {}
 
--- Calculate size of: Index Quote Message
-cboe_europe_depthofbook_pitch_v6_49.index_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.index_ticker.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.index_price.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.index_status.size
-
-  return index
-end
+-- Size Of: Index Quote Message
+cboe_europe_depthofbook_pitch_v6_49.index_quote_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.index_ticker.size + 
+  cboe_europe_depthofbook_pitch_v6_49.index_price.size + 
+  cboe_europe_depthofbook_pitch_v6_49.index_status.size;
 
 -- Display: Index Quote Message
 cboe_europe_depthofbook_pitch_v6_49.index_quote_message.display = function(packet, parent, length)
@@ -543,7 +528,7 @@ end
 -- Shares Binary 4
 cboe_europe_depthofbook_pitch_v6_49.shares_binary_4 = {}
 
--- Size: Shares Binary 4
+-- Size Of: Shares Binary 4
 cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size = 4
 
 -- Display: Shares Binary 4
@@ -566,7 +551,7 @@ end
 -- Price Binary Long Price 8
 cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8 = {}
 
--- Size: Price Binary Long Price 8
+-- Size Of: Price Binary Long Price 8
 cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size = 8
 
 -- Display: Price Binary Long Price 8
@@ -595,7 +580,7 @@ end
 -- Auction Type
 cboe_europe_depthofbook_pitch_v6_49.auction_type = {}
 
--- Size: Auction Type
+-- Size Of: Auction Type
 cboe_europe_depthofbook_pitch_v6_49.auction_type.size = 1
 
 -- Display: Auction Type
@@ -637,7 +622,7 @@ end
 -- Symbol Alphanumeric 8
 cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8 = {}
 
--- Size: Symbol Alphanumeric 8
+-- Size Of: Symbol Alphanumeric 8
 cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size = 8
 
 -- Display: Symbol Alphanumeric 8
@@ -660,22 +645,13 @@ end
 -- Auction Summary Message
 cboe_europe_depthofbook_pitch_v6_49.auction_summary_message = {}
 
--- Calculate size of: Auction Summary Message
-cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.auction_type.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size
-
-  return index
-end
+-- Size Of: Auction Summary Message
+cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.auction_type.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size;
 
 -- Display: Auction Summary Message
 cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.display = function(packet, parent, length)
@@ -725,7 +701,7 @@ end
 -- Includes Primary
 cboe_europe_depthofbook_pitch_v6_49.includes_primary = {}
 
--- Size: Includes Primary
+-- Size Of: Includes Primary
 cboe_europe_depthofbook_pitch_v6_49.includes_primary.size = 1
 
 -- Display: Includes Primary
@@ -758,7 +734,7 @@ end
 -- Outside Tolerance
 cboe_europe_depthofbook_pitch_v6_49.outside_tolerance = {}
 
--- Size: Outside Tolerance
+-- Size Of: Outside Tolerance
 cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.size = 1
 
 -- Display: Outside Tolerance
@@ -791,7 +767,7 @@ end
 -- Indicative Shares
 cboe_europe_depthofbook_pitch_v6_49.indicative_shares = {}
 
--- Size: Indicative Shares
+-- Size Of: Indicative Shares
 cboe_europe_depthofbook_pitch_v6_49.indicative_shares.size = 4
 
 -- Display: Indicative Shares
@@ -814,7 +790,7 @@ end
 -- Indicative Price
 cboe_europe_depthofbook_pitch_v6_49.indicative_price = {}
 
--- Size: Indicative Price
+-- Size Of: Indicative Price
 cboe_europe_depthofbook_pitch_v6_49.indicative_price.size = 4
 
 -- Display: Indicative Price
@@ -843,7 +819,7 @@ end
 -- Reference Price
 cboe_europe_depthofbook_pitch_v6_49.reference_price = {}
 
--- Size: Reference Price
+-- Size Of: Reference Price
 cboe_europe_depthofbook_pitch_v6_49.reference_price.size = 8
 
 -- Display: Reference Price
@@ -872,28 +848,16 @@ end
 -- Auction Update Message
 cboe_europe_depthofbook_pitch_v6_49.auction_update_message = {}
 
--- Calculate size of: Auction Update Message
-cboe_europe_depthofbook_pitch_v6_49.auction_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.auction_type.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.reference_price.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.indicative_price.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.indicative_shares.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.includes_primary.size
-
-  return index
-end
+-- Size Of: Auction Update Message
+cboe_europe_depthofbook_pitch_v6_49.auction_update_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.auction_type.size + 
+  cboe_europe_depthofbook_pitch_v6_49.reference_price.size + 
+  cboe_europe_depthofbook_pitch_v6_49.indicative_price.size + 
+  cboe_europe_depthofbook_pitch_v6_49.indicative_shares.size + 
+  cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.size + 
+  cboe_europe_depthofbook_pitch_v6_49.includes_primary.size;
 
 -- Display: Auction Update Message
 cboe_europe_depthofbook_pitch_v6_49.auction_update_message.display = function(packet, parent, length)
@@ -952,7 +916,7 @@ end
 -- Price Determination
 cboe_europe_depthofbook_pitch_v6_49.price_determination = {}
 
--- Size: Price Determination
+-- Size Of: Price Determination
 cboe_europe_depthofbook_pitch_v6_49.price_determination.size = 1
 
 -- Display: Price Determination
@@ -982,7 +946,7 @@ end
 -- Statistic Type
 cboe_europe_depthofbook_pitch_v6_49.statistic_type = {}
 
--- Size: Statistic Type
+-- Size Of: Statistic Type
 cboe_europe_depthofbook_pitch_v6_49.statistic_type.size = 1
 
 -- Display: Statistic Type
@@ -1021,22 +985,13 @@ end
 -- Statistics Message
 cboe_europe_depthofbook_pitch_v6_49.statistics_message = {}
 
--- Calculate size of: Statistics Message
-cboe_europe_depthofbook_pitch_v6_49.statistics_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.statistic_type.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_determination.size
-
-  return index
-end
+-- Size Of: Statistics Message
+cboe_europe_depthofbook_pitch_v6_49.statistics_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.statistic_type.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_determination.size;
 
 -- Display: Statistics Message
 cboe_europe_depthofbook_pitch_v6_49.statistics_message.display = function(packet, parent, length)
@@ -1086,7 +1041,7 @@ end
 -- Reserved
 cboe_europe_depthofbook_pitch_v6_49.reserved = {}
 
--- Size: Reserved
+-- Size Of: Reserved
 cboe_europe_depthofbook_pitch_v6_49.reserved.size = 3
 
 -- Display: Reserved
@@ -1109,7 +1064,7 @@ end
 -- Trading Status
 cboe_europe_depthofbook_pitch_v6_49.trading_status = {}
 
--- Size: Trading Status
+-- Size Of: Trading Status
 cboe_europe_depthofbook_pitch_v6_49.trading_status.size = 1
 
 -- Display: Trading Status
@@ -1169,20 +1124,12 @@ end
 -- Trading Status Message
 cboe_europe_depthofbook_pitch_v6_49.trading_status_message = {}
 
--- Calculate size of: Trading Status Message
-cboe_europe_depthofbook_pitch_v6_49.trading_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trading_status.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.reserved.size
-
-  return index
-end
+-- Size Of: Trading Status Message
+cboe_europe_depthofbook_pitch_v6_49.trading_status_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trading_status.size + 
+  cboe_europe_depthofbook_pitch_v6_49.reserved.size;
 
 -- Display: Trading Status Message
 cboe_europe_depthofbook_pitch_v6_49.trading_status_message.display = function(packet, parent, length)
@@ -1229,14 +1176,9 @@ end
 -- Transaction Begin Message
 cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message = {}
 
--- Calculate size of: Transaction Begin Message
-cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  return index
-end
+-- Size Of: Transaction Begin Message
+cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size;
 
 -- Display: Transaction Begin Message
 cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.display = function(packet, parent, length)
@@ -1274,14 +1216,9 @@ end
 -- End Of Session
 cboe_europe_depthofbook_pitch_v6_49.end_of_session = {}
 
--- Calculate size of: End Of Session
-cboe_europe_depthofbook_pitch_v6_49.end_of_session.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  return index
-end
+-- Size Of: End Of Session
+cboe_europe_depthofbook_pitch_v6_49.end_of_session.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size;
 
 -- Display: End Of Session
 cboe_europe_depthofbook_pitch_v6_49.end_of_session.display = function(packet, parent, length)
@@ -1319,7 +1256,7 @@ end
 -- Cboe Trade Flags
 cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags = {}
 
--- Size: Cboe Trade Flags
+-- Size Of: Cboe Trade Flags
 cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size = 1
 
 -- Display: Cboe Trade Flags
@@ -1367,7 +1304,7 @@ end
 -- Currency
 cboe_europe_depthofbook_pitch_v6_49.currency = {}
 
--- Size: Currency
+-- Size Of: Currency
 cboe_europe_depthofbook_pitch_v6_49.currency.size = 3
 
 -- Display: Currency
@@ -1390,7 +1327,7 @@ end
 -- Execution Venue
 cboe_europe_depthofbook_pitch_v6_49.execution_venue = {}
 
--- Size: Execution Venue
+-- Size Of: Execution Venue
 cboe_europe_depthofbook_pitch_v6_49.execution_venue.size = 4
 
 -- Display: Execution Venue
@@ -1413,7 +1350,7 @@ end
 -- Trade Timestamp
 cboe_europe_depthofbook_pitch_v6_49.trade_timestamp = {}
 
--- Size: Trade Timestamp
+-- Size Of: Trade Timestamp
 cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size = 8
 
 -- Display: Trade Timestamp
@@ -1436,7 +1373,7 @@ end
 -- Trade Id
 cboe_europe_depthofbook_pitch_v6_49.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 cboe_europe_depthofbook_pitch_v6_49.trade_id.size = 8
 
 -- Display: Trade Id
@@ -1459,7 +1396,7 @@ end
 -- Symbol Alphanumeric 12
 cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12 = {}
 
--- Size: Symbol Alphanumeric 12
+-- Size Of: Symbol Alphanumeric 12
 cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.size = 12
 
 -- Display: Symbol Alphanumeric 12
@@ -1482,7 +1419,7 @@ end
 -- Shares Binary 8
 cboe_europe_depthofbook_pitch_v6_49.shares_binary_8 = {}
 
--- Size: Shares Binary 8
+-- Size Of: Shares Binary 8
 cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size = 8
 
 -- Display: Shares Binary 8
@@ -1505,32 +1442,18 @@ end
 -- Trade Unknown Symbol Message
 cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message = {}
 
--- Calculate size of: Trade Unknown Symbol Message
-cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_venue.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.currency.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.size
-
-  return index
-end
+-- Size Of: Trade Unknown Symbol Message
+cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trade_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_venue.size + 
+  cboe_europe_depthofbook_pitch_v6_49.currency.size + 
+  cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size + 
+  cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.size;
 
 -- Display: Trade Unknown Symbol Message
 cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.display = function(packet, parent, length)
@@ -1595,32 +1518,18 @@ end
 -- Trade Extended Message
 cboe_europe_depthofbook_pitch_v6_49.trade_extended_message = {}
 
--- Calculate size of: Trade Extended Message
-cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_venue.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.currency.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.size
-
-  return index
-end
+-- Size Of: Trade Extended Message
+cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trade_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_venue.size + 
+  cboe_europe_depthofbook_pitch_v6_49.currency.size + 
+  cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size + 
+  cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.size;
 
 -- Display: Trade Extended Message
 cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.display = function(packet, parent, length)
@@ -1685,7 +1594,7 @@ end
 -- Algorithmic Trade
 cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade = {}
 
--- Size: Algorithmic Trade
+-- Size Of: Algorithmic Trade
 cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size = 1
 
 -- Display: Algorithmic Trade
@@ -1715,7 +1624,7 @@ end
 -- Trade Types
 cboe_europe_depthofbook_pitch_v6_49.trade_types = {}
 
--- Size: Trade Types
+-- Size Of: Trade Types
 cboe_europe_depthofbook_pitch_v6_49.trade_types.size = 1
 
 -- Display: Trade Types
@@ -1738,7 +1647,7 @@ end
 -- Transaction Category
 cboe_europe_depthofbook_pitch_v6_49.transaction_category = {}
 
--- Size: Transaction Category
+-- Size Of: Transaction Category
 cboe_europe_depthofbook_pitch_v6_49.transaction_category.size = 1
 
 -- Display: Transaction Category
@@ -1801,7 +1710,7 @@ end
 -- Trading Mode
 cboe_europe_depthofbook_pitch_v6_49.trading_mode = {}
 
--- Size: Trading Mode
+-- Size Of: Trading Mode
 cboe_europe_depthofbook_pitch_v6_49.trading_mode.size = 1
 
 -- Display: Trading Mode
@@ -1858,7 +1767,7 @@ end
 -- Market Mechanism
 cboe_europe_depthofbook_pitch_v6_49.market_mechanism = {}
 
--- Size: Market Mechanism
+-- Size Of: Market Mechanism
 cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size = 1
 
 -- Display: Market Mechanism
@@ -1903,22 +1812,13 @@ end
 -- Trade Flags
 cboe_europe_depthofbook_pitch_v6_49.trade_flags = {}
 
--- Calculate size of: Trade Flags
-cboe_europe_depthofbook_pitch_v6_49.trade_flags.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trading_mode.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.transaction_category.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_types.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size
-
-  return index
-end
+-- Size Of: Trade Flags
+cboe_europe_depthofbook_pitch_v6_49.trade_flags.size =
+  cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trading_mode.size + 
+  cboe_europe_depthofbook_pitch_v6_49.transaction_category.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trade_types.size + 
+  cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size;
 
 -- Display: Trade Flags
 cboe_europe_depthofbook_pitch_v6_49.trade_flags.display = function(packet, parent, length)
@@ -1968,7 +1868,7 @@ end
 -- Execution Id
 cboe_europe_depthofbook_pitch_v6_49.execution_id = {}
 
--- Size: Execution Id
+-- Size Of: Execution Id
 cboe_europe_depthofbook_pitch_v6_49.execution_id.size = 8
 
 -- Display: Execution Id
@@ -1991,7 +1891,7 @@ end
 -- Price Short
 cboe_europe_depthofbook_pitch_v6_49.price_short = {}
 
--- Size: Price Short
+-- Size Of: Price Short
 cboe_europe_depthofbook_pitch_v6_49.price_short.size = 2
 
 -- Display: Price Short
@@ -2020,7 +1920,7 @@ end
 -- Contracts Short
 cboe_europe_depthofbook_pitch_v6_49.contracts_short = {}
 
--- Size: Contracts Short
+-- Size Of: Contracts Short
 cboe_europe_depthofbook_pitch_v6_49.contracts_short.size = 2
 
 -- Display: Contracts Short
@@ -2043,7 +1943,7 @@ end
 -- Side Indicator
 cboe_europe_depthofbook_pitch_v6_49.side_indicator = {}
 
--- Size: Side Indicator
+-- Size Of: Side Indicator
 cboe_europe_depthofbook_pitch_v6_49.side_indicator.size = 1
 
 -- Display: Side Indicator
@@ -2073,7 +1973,7 @@ end
 -- Order Id
 cboe_europe_depthofbook_pitch_v6_49.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 cboe_europe_depthofbook_pitch_v6_49.order_id.size = 8
 
 -- Display: Order Id
@@ -2096,28 +1996,16 @@ end
 -- Trade Short Message
 cboe_europe_depthofbook_pitch_v6_49.trade_short_message = {}
 
--- Calculate size of: Trade Short Message
-cboe_europe_depthofbook_pitch_v6_49.trade_short_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.contracts_short.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_short.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_flags.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Trade Short Message
+cboe_europe_depthofbook_pitch_v6_49.trade_short_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.side_indicator.size + 
+  cboe_europe_depthofbook_pitch_v6_49.contracts_short.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_short.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trade_flags.size;
 
 -- Display: Trade Short Message
 cboe_europe_depthofbook_pitch_v6_49.trade_short_message.display = function(packet, parent, length)
@@ -2176,28 +2064,16 @@ end
 -- Trade Long Message
 cboe_europe_depthofbook_pitch_v6_49.trade_long_message = {}
 
--- Calculate size of: Trade Long Message
-cboe_europe_depthofbook_pitch_v6_49.trade_long_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_flags.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Trade Long Message
+cboe_europe_depthofbook_pitch_v6_49.trade_long_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.side_indicator.size + 
+  cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trade_flags.size;
 
 -- Display: Trade Long Message
 cboe_europe_depthofbook_pitch_v6_49.trade_long_message.display = function(packet, parent, length)
@@ -2256,16 +2132,10 @@ end
 -- Delete Order Message
 cboe_europe_depthofbook_pitch_v6_49.delete_order_message = {}
 
--- Calculate size of: Delete Order Message
-cboe_europe_depthofbook_pitch_v6_49.delete_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  return index
-end
+-- Size Of: Delete Order Message
+cboe_europe_depthofbook_pitch_v6_49.delete_order_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size;
 
 -- Display: Delete Order Message
 cboe_europe_depthofbook_pitch_v6_49.delete_order_message.display = function(packet, parent, length)
@@ -2306,7 +2176,7 @@ end
 -- Price Binary Short Price 2
 cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2 = {}
 
--- Size: Price Binary Short Price 2
+-- Size Of: Price Binary Short Price 2
 cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.size = 2
 
 -- Display: Price Binary Short Price 2
@@ -2335,7 +2205,7 @@ end
 -- Shares Binary 2
 cboe_europe_depthofbook_pitch_v6_49.shares_binary_2 = {}
 
--- Size: Shares Binary 2
+-- Size Of: Shares Binary 2
 cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.size = 2
 
 -- Display: Shares Binary 2
@@ -2358,20 +2228,12 @@ end
 -- Modify Order Short Message
 cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message = {}
 
--- Calculate size of: Modify Order Short Message
-cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.size
-
-  return index
-end
+-- Size Of: Modify Order Short Message
+cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.size;
 
 -- Display: Modify Order Short Message
 cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.display = function(packet, parent, length)
@@ -2418,20 +2280,12 @@ end
 -- Modify Order Long Message
 cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message = {}
 
--- Calculate size of: Modify Order Long Message
-cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  return index
-end
+-- Size Of: Modify Order Long Message
+cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size;
 
 -- Display: Modify Order Long Message
 cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.display = function(packet, parent, length)
@@ -2478,7 +2332,7 @@ end
 -- Canceled Shares Binary 2
 cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2 = {}
 
--- Size: Canceled Shares Binary 2
+-- Size Of: Canceled Shares Binary 2
 cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.size = 2
 
 -- Display: Canceled Shares Binary 2
@@ -2501,18 +2355,11 @@ end
 -- Reduce Size Short Message
 cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message = {}
 
--- Calculate size of: Reduce Size Short Message
-cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.size
-
-  return index
-end
+-- Size Of: Reduce Size Short Message
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.size;
 
 -- Display: Reduce Size Short Message
 cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.display = function(packet, parent, length)
@@ -2556,7 +2403,7 @@ end
 -- Canceled Shares Binary 4
 cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4 = {}
 
--- Size: Canceled Shares Binary 4
+-- Size Of: Canceled Shares Binary 4
 cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.size = 4
 
 -- Display: Canceled Shares Binary 4
@@ -2579,18 +2426,11 @@ end
 -- Reduce Size Long Message
 cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message = {}
 
--- Calculate size of: Reduce Size Long Message
-cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.size
-
-  return index
-end
+-- Size Of: Reduce Size Long Message
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.size;
 
 -- Display: Reduce Size Long Message
 cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.display = function(packet, parent, length)
@@ -2634,7 +2474,7 @@ end
 -- Ex Cum Dividend
 cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend = {}
 
--- Size: Ex Cum Dividend
+-- Size Of: Ex Cum Dividend
 cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.size = 1
 
 -- Display: Ex Cum Dividend
@@ -2664,20 +2504,12 @@ end
 -- Execution Flags
 cboe_europe_depthofbook_pitch_v6_49.execution_flags = {}
 
--- Calculate size of: Execution Flags
-cboe_europe_depthofbook_pitch_v6_49.execution_flags.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.trading_mode.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size
-
-  return index
-end
+-- Size Of: Execution Flags
+cboe_europe_depthofbook_pitch_v6_49.execution_flags.size =
+  cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size + 
+  cboe_europe_depthofbook_pitch_v6_49.trading_mode.size + 
+  cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.size + 
+  cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size;
 
 -- Display: Execution Flags
 cboe_europe_depthofbook_pitch_v6_49.execution_flags.display = function(packet, parent, length)
@@ -2724,7 +2556,7 @@ end
 -- Remaining Shares
 cboe_europe_depthofbook_pitch_v6_49.remaining_shares = {}
 
--- Size: Remaining Shares
+-- Size Of: Remaining Shares
 cboe_europe_depthofbook_pitch_v6_49.remaining_shares.size = 4
 
 -- Display: Remaining Shares
@@ -2747,7 +2579,7 @@ end
 -- Executed Shares
 cboe_europe_depthofbook_pitch_v6_49.executed_shares = {}
 
--- Size: Executed Shares
+-- Size Of: Executed Shares
 cboe_europe_depthofbook_pitch_v6_49.executed_shares.size = 4
 
 -- Display: Executed Shares
@@ -2770,26 +2602,15 @@ end
 -- Order Executed At Price Size Message
 cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message = {}
 
--- Calculate size of: Order Executed At Price Size Message
-cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.executed_shares.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.remaining_shares.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_flags.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Order Executed At Price Size Message
+cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.executed_shares.size + 
+  cboe_europe_depthofbook_pitch_v6_49.remaining_shares.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_flags.size;
 
 -- Display: Order Executed At Price Size Message
 cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.display = function(packet, parent, length)
@@ -2845,22 +2666,13 @@ end
 -- Order Executed Message
 cboe_europe_depthofbook_pitch_v6_49.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-cboe_europe_depthofbook_pitch_v6_49.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.executed_shares.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_flags.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Order Executed Message
+cboe_europe_depthofbook_pitch_v6_49.order_executed_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.executed_shares.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.execution_flags.size;
 
 -- Display: Order Executed Message
 cboe_europe_depthofbook_pitch_v6_49.order_executed_message.display = function(packet, parent, length)
@@ -2910,7 +2722,7 @@ end
 -- Participant Id
 cboe_europe_depthofbook_pitch_v6_49.participant_id = {}
 
--- Size: Participant Id
+-- Size Of: Participant Id
 cboe_europe_depthofbook_pitch_v6_49.participant_id.size = 4
 
 -- Display: Participant Id
@@ -2933,7 +2745,7 @@ end
 -- Quantity
 cboe_europe_depthofbook_pitch_v6_49.quantity = {}
 
--- Size: Quantity
+-- Size Of: Quantity
 cboe_europe_depthofbook_pitch_v6_49.quantity.size = 4
 
 -- Display: Quantity
@@ -2956,28 +2768,16 @@ end
 -- Add Order Expanded Message
 cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message = {}
 
--- Calculate size of: Add Order Expanded Message
-cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.quantity.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.add_order_flags.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.participant_id.size
-
-  return index
-end
+-- Size Of: Add Order Expanded Message
+cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.side_indicator.size + 
+  cboe_europe_depthofbook_pitch_v6_49.quantity.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.add_order_flags.size + 
+  cboe_europe_depthofbook_pitch_v6_49.participant_id.size;
 
 -- Display: Add Order Expanded Message
 cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.display = function(packet, parent, length)
@@ -3036,7 +2836,7 @@ end
 -- Symbol Short
 cboe_europe_depthofbook_pitch_v6_49.symbol_short = {}
 
--- Size: Symbol Short
+-- Size Of: Symbol Short
 cboe_europe_depthofbook_pitch_v6_49.symbol_short.size = 6
 
 -- Display: Symbol Short
@@ -3059,7 +2859,7 @@ end
 -- Quantity Short
 cboe_europe_depthofbook_pitch_v6_49.quantity_short = {}
 
--- Size: Quantity Short
+-- Size Of: Quantity Short
 cboe_europe_depthofbook_pitch_v6_49.quantity_short.size = 2
 
 -- Display: Quantity Short
@@ -3082,24 +2882,14 @@ end
 -- Add Order Short Message
 cboe_europe_depthofbook_pitch_v6_49.add_order_short_message = {}
 
--- Calculate size of: Add Order Short Message
-cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.quantity_short.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_short.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_short.size
-
-  return index
-end
+-- Size Of: Add Order Short Message
+cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.side_indicator.size + 
+  cboe_europe_depthofbook_pitch_v6_49.quantity_short.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_short.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_short.size;
 
 -- Display: Add Order Short Message
 cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.display = function(packet, parent, length)
@@ -3152,24 +2942,14 @@ end
 -- Add Order Long Message
 cboe_europe_depthofbook_pitch_v6_49.add_order_long_message = {}
 
--- Calculate size of: Add Order Long Message
-cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.quantity.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
-
-  return index
-end
+-- Size Of: Add Order Long Message
+cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size + 
+  cboe_europe_depthofbook_pitch_v6_49.order_id.size + 
+  cboe_europe_depthofbook_pitch_v6_49.side_indicator.size + 
+  cboe_europe_depthofbook_pitch_v6_49.quantity.size + 
+  cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size + 
+  cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size;
 
 -- Display: Add Order Long Message
 cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.display = function(packet, parent, length)
@@ -3222,14 +3002,9 @@ end
 -- Unit Clear Message
 cboe_europe_depthofbook_pitch_v6_49.unit_clear_message = {}
 
--- Calculate size of: Unit Clear Message
-cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
-
-  return index
-end
+-- Size Of: Unit Clear Message
+cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time_offset.size;
 
 -- Display: Unit Clear Message
 cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.display = function(packet, parent, length)
@@ -3267,7 +3042,7 @@ end
 -- Time
 cboe_europe_depthofbook_pitch_v6_49.time = {}
 
--- Size: Time
+-- Size Of: Time
 cboe_europe_depthofbook_pitch_v6_49.time.size = 4
 
 -- Display: Time
@@ -3290,14 +3065,9 @@ end
 -- Time Message
 cboe_europe_depthofbook_pitch_v6_49.time_message = {}
 
--- Calculate size of: Time Message
-cboe_europe_depthofbook_pitch_v6_49.time_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.time.size
-
-  return index
-end
+-- Size Of: Time Message
+cboe_europe_depthofbook_pitch_v6_49.time_message.size =
+  cboe_europe_depthofbook_pitch_v6_49.time.size;
 
 -- Display: Time Message
 cboe_europe_depthofbook_pitch_v6_49.time_message.display = function(packet, parent, length)
@@ -3575,7 +3345,7 @@ end
 -- Message Type
 cboe_europe_depthofbook_pitch_v6_49.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 cboe_europe_depthofbook_pitch_v6_49.message_type.size = 1
 
 -- Display: Message Type
@@ -3674,7 +3444,7 @@ end
 -- Message Length
 cboe_europe_depthofbook_pitch_v6_49.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 cboe_europe_depthofbook_pitch_v6_49.message_length.size = 1
 
 -- Display: Message Length
@@ -3697,16 +3467,10 @@ end
 -- Message Header
 cboe_europe_depthofbook_pitch_v6_49.message_header = {}
 
--- Calculate size of: Message Header
-cboe_europe_depthofbook_pitch_v6_49.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.message_length.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+cboe_europe_depthofbook_pitch_v6_49.message_header.size =
+  cboe_europe_depthofbook_pitch_v6_49.message_length.size + 
+  cboe_europe_depthofbook_pitch_v6_49.message_type.size;
 
 -- Display: Message Header
 cboe_europe_depthofbook_pitch_v6_49.message_header.display = function(packet, parent, length)
@@ -3798,7 +3562,7 @@ end
 -- Sequence
 cboe_europe_depthofbook_pitch_v6_49.sequence = {}
 
--- Size: Sequence
+-- Size Of: Sequence
 cboe_europe_depthofbook_pitch_v6_49.sequence.size = 4
 
 -- Display: Sequence
@@ -3821,7 +3585,7 @@ end
 -- Unit
 cboe_europe_depthofbook_pitch_v6_49.unit = {}
 
--- Size: Unit
+-- Size Of: Unit
 cboe_europe_depthofbook_pitch_v6_49.unit.size = 1
 
 -- Display: Unit
@@ -3844,7 +3608,7 @@ end
 -- Count
 cboe_europe_depthofbook_pitch_v6_49.count = {}
 
--- Size: Count
+-- Size Of: Count
 cboe_europe_depthofbook_pitch_v6_49.count.size = 1
 
 -- Display: Count
@@ -3867,7 +3631,7 @@ end
 -- Length
 cboe_europe_depthofbook_pitch_v6_49.length = {}
 
--- Size: Length
+-- Size Of: Length
 cboe_europe_depthofbook_pitch_v6_49.length.size = 2
 
 -- Display: Length
@@ -3890,20 +3654,12 @@ end
 -- Packet Header
 cboe_europe_depthofbook_pitch_v6_49.packet_header = {}
 
--- Calculate size of: Packet Header
-cboe_europe_depthofbook_pitch_v6_49.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.length.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.count.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.unit.size
-
-  index = index + cboe_europe_depthofbook_pitch_v6_49.sequence.size
-
-  return index
-end
+-- Size Of: Packet Header
+cboe_europe_depthofbook_pitch_v6_49.packet_header.size =
+  cboe_europe_depthofbook_pitch_v6_49.length.size + 
+  cboe_europe_depthofbook_pitch_v6_49.count.size + 
+  cboe_europe_depthofbook_pitch_v6_49.unit.size + 
+  cboe_europe_depthofbook_pitch_v6_49.sequence.size;
 
 -- Display: Packet Header
 cboe_europe_depthofbook_pitch_v6_49.packet_header.display = function(packet, parent, length)

@@ -2195,7 +2195,7 @@ end
 -- Mass Cancel Id
 cboe_edgx_equities_orderentry_boe_v2_3.mass_cancel_id = {}
 
--- Size: Mass Cancel Id
+-- Size Of: Mass Cancel Id
 cboe_edgx_equities_orderentry_boe_v2_3.mass_cancel_id.size = 20
 
 -- Display: Mass Cancel Id
@@ -2218,7 +2218,7 @@ end
 -- Sub Liquidity Indicator
 cboe_edgx_equities_orderentry_boe_v2_3.sub_liquidity_indicator = {}
 
--- Size: Sub Liquidity Indicator
+-- Size Of: Sub Liquidity Indicator
 cboe_edgx_equities_orderentry_boe_v2_3.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
@@ -2260,7 +2260,7 @@ end
 -- Purge Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_17 = {}
 
--- Size: Purge Rejected Byte 17
+-- Size Of: Purge Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_17.size = 1
 
 -- Display: Purge Rejected Byte 17
@@ -2348,7 +2348,7 @@ end
 -- Purge Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_16 = {}
 
--- Size: Purge Rejected Byte 16
+-- Size Of: Purge Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_16.size = 1
 
 -- Display: Purge Rejected Byte 16
@@ -2436,7 +2436,7 @@ end
 -- Purge Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_15 = {}
 
--- Size: Purge Rejected Byte 15
+-- Size Of: Purge Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_15.size = 1
 
 -- Display: Purge Rejected Byte 15
@@ -2524,7 +2524,7 @@ end
 -- Purge Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_14 = {}
 
--- Size: Purge Rejected Byte 14
+-- Size Of: Purge Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_14.size = 1
 
 -- Display: Purge Rejected Byte 14
@@ -2612,7 +2612,7 @@ end
 -- Purge Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_13 = {}
 
--- Size: Purge Rejected Byte 13
+-- Size Of: Purge Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_13.size = 1
 
 -- Display: Purge Rejected Byte 13
@@ -2700,7 +2700,7 @@ end
 -- Purge Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_12 = {}
 
--- Size: Purge Rejected Byte 12
+-- Size Of: Purge Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_12.size = 1
 
 -- Display: Purge Rejected Byte 12
@@ -2788,7 +2788,7 @@ end
 -- Purge Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_11 = {}
 
--- Size: Purge Rejected Byte 11
+-- Size Of: Purge Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_11.size = 1
 
 -- Display: Purge Rejected Byte 11
@@ -2876,7 +2876,7 @@ end
 -- Purge Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_10 = {}
 
--- Size: Purge Rejected Byte 10
+-- Size Of: Purge Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_10.size = 1
 
 -- Display: Purge Rejected Byte 10
@@ -2964,7 +2964,7 @@ end
 -- Purge Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_9 = {}
 
--- Size: Purge Rejected Byte 9
+-- Size Of: Purge Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_9.size = 1
 
 -- Display: Purge Rejected Byte 9
@@ -3052,7 +3052,7 @@ end
 -- Purge Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_8 = {}
 
--- Size: Purge Rejected Byte 8
+-- Size Of: Purge Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_8.size = 1
 
 -- Display: Purge Rejected Byte 8
@@ -3140,7 +3140,7 @@ end
 -- Purge Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_7 = {}
 
--- Size: Purge Rejected Byte 7
+-- Size Of: Purge Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_7.size = 1
 
 -- Display: Purge Rejected Byte 7
@@ -3228,7 +3228,7 @@ end
 -- Purge Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_6 = {}
 
--- Size: Purge Rejected Byte 6
+-- Size Of: Purge Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_6.size = 1
 
 -- Display: Purge Rejected Byte 6
@@ -3316,7 +3316,7 @@ end
 -- Purge Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_5 = {}
 
--- Size: Purge Rejected Byte 5
+-- Size Of: Purge Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_5.size = 1
 
 -- Display: Purge Rejected Byte 5
@@ -3404,7 +3404,7 @@ end
 -- Purge Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_4 = {}
 
--- Size: Purge Rejected Byte 4
+-- Size Of: Purge Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_4.size = 1
 
 -- Display: Purge Rejected Byte 4
@@ -3492,7 +3492,7 @@ end
 -- Purge Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_3 = {}
 
--- Size: Purge Rejected Byte 3
+-- Size Of: Purge Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_3.size = 1
 
 -- Display: Purge Rejected Byte 3
@@ -3580,7 +3580,7 @@ end
 -- Purge Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_2 = {}
 
--- Size: Purge Rejected Byte 2
+-- Size Of: Purge Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_2.size = 1
 
 -- Display: Purge Rejected Byte 2
@@ -3668,7 +3668,7 @@ end
 -- Purge Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_1 = {}
 
--- Size: Purge Rejected Byte 1
+-- Size Of: Purge Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_byte_1.size = 1
 
 -- Display: Purge Rejected Byte 1
@@ -3756,7 +3756,7 @@ end
 -- Purge Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_bitfield_count = {}
 
--- Size: Purge Rejected Bitfield Count
+-- Size Of: Purge Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.purge_rejected_bitfield_count.size = 1
 
 -- Display: Purge Rejected Bitfield Count
@@ -4023,7 +4023,7 @@ end
 -- Reserved Internal
 cboe_edgx_equities_orderentry_boe_v2_3.reserved_internal = {}
 
--- Size: Reserved Internal
+-- Size Of: Reserved Internal
 cboe_edgx_equities_orderentry_boe_v2_3.reserved_internal.size = 1
 
 -- Display: Reserved Internal
@@ -4046,7 +4046,7 @@ end
 -- Text
 cboe_edgx_equities_orderentry_boe_v2_3.text = {}
 
--- Size: Text
+-- Size Of: Text
 cboe_edgx_equities_orderentry_boe_v2_3.text.size = 60
 
 -- Display: Text
@@ -4069,7 +4069,7 @@ end
 -- Purge Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.purge_reject_reason = {}
 
--- Size: Purge Reject Reason
+-- Size Of: Purge Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
@@ -4189,7 +4189,7 @@ end
 -- Transaction Time
 cboe_edgx_equities_orderentry_boe_v2_3.transaction_time = {}
 
--- Size: Transaction Time
+-- Size Of: Transaction Time
 cboe_edgx_equities_orderentry_boe_v2_3.transaction_time.size = 8
 
 -- Display: Transaction Time
@@ -4275,7 +4275,7 @@ end
 -- Cancelled Order Count
 cboe_edgx_equities_orderentry_boe_v2_3.cancelled_order_count = {}
 
--- Size: Cancelled Order Count
+-- Size Of: Cancelled Order Count
 cboe_edgx_equities_orderentry_boe_v2_3.cancelled_order_count.size = 4
 
 -- Display: Cancelled Order Count
@@ -4352,7 +4352,7 @@ end
 -- Capacity
 cboe_edgx_equities_orderentry_boe_v2_3.capacity = {}
 
--- Size: Capacity
+-- Size Of: Capacity
 cboe_edgx_equities_orderentry_boe_v2_3.capacity.size = 1
 
 -- Display: Capacity
@@ -4385,7 +4385,7 @@ end
 -- Symbol Sfx
 cboe_edgx_equities_orderentry_boe_v2_3.symbol_sfx = {}
 
--- Size: Symbol Sfx
+-- Size Of: Symbol Sfx
 cboe_edgx_equities_orderentry_boe_v2_3.symbol_sfx.size = 8
 
 -- Display: Symbol Sfx
@@ -4408,7 +4408,7 @@ end
 -- Symbol
 cboe_edgx_equities_orderentry_boe_v2_3.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 cboe_edgx_equities_orderentry_boe_v2_3.symbol.size = 8
 
 -- Display: Symbol
@@ -4431,7 +4431,7 @@ end
 -- Trade Cancel Or Correct Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_17 = {}
 
--- Size: Trade Cancel Or Correct Byte 17
+-- Size Of: Trade Cancel Or Correct Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_17.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 17
@@ -4519,7 +4519,7 @@ end
 -- Trade Cancel Or Correct Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_16 = {}
 
--- Size: Trade Cancel Or Correct Byte 16
+-- Size Of: Trade Cancel Or Correct Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_16.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 16
@@ -4607,7 +4607,7 @@ end
 -- Trade Cancel Or Correct Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_15 = {}
 
--- Size: Trade Cancel Or Correct Byte 15
+-- Size Of: Trade Cancel Or Correct Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_15.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 15
@@ -4695,7 +4695,7 @@ end
 -- Trade Cancel Or Correct Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_14 = {}
 
--- Size: Trade Cancel Or Correct Byte 14
+-- Size Of: Trade Cancel Or Correct Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_14.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 14
@@ -4783,7 +4783,7 @@ end
 -- Trade Cancel Or Correct Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_13 = {}
 
--- Size: Trade Cancel Or Correct Byte 13
+-- Size Of: Trade Cancel Or Correct Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_13.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 13
@@ -4871,7 +4871,7 @@ end
 -- Trade Cancel Or Correct Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_12 = {}
 
--- Size: Trade Cancel Or Correct Byte 12
+-- Size Of: Trade Cancel Or Correct Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_12.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 12
@@ -4959,7 +4959,7 @@ end
 -- Trade Cancel Or Correct Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_11 = {}
 
--- Size: Trade Cancel Or Correct Byte 11
+-- Size Of: Trade Cancel Or Correct Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_11.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 11
@@ -5047,7 +5047,7 @@ end
 -- Trade Cancel Or Correct Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_10 = {}
 
--- Size: Trade Cancel Or Correct Byte 10
+-- Size Of: Trade Cancel Or Correct Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_10.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 10
@@ -5135,7 +5135,7 @@ end
 -- Trade Cancel Or Correct Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_9 = {}
 
--- Size: Trade Cancel Or Correct Byte 9
+-- Size Of: Trade Cancel Or Correct Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_9.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 9
@@ -5223,7 +5223,7 @@ end
 -- Trade Cancel Or Correct Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_8 = {}
 
--- Size: Trade Cancel Or Correct Byte 8
+-- Size Of: Trade Cancel Or Correct Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_8.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 8
@@ -5311,7 +5311,7 @@ end
 -- Trade Cancel Or Correct Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_7 = {}
 
--- Size: Trade Cancel Or Correct Byte 7
+-- Size Of: Trade Cancel Or Correct Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_7.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 7
@@ -5399,7 +5399,7 @@ end
 -- Trade Cancel Or Correct Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_6 = {}
 
--- Size: Trade Cancel Or Correct Byte 6
+-- Size Of: Trade Cancel Or Correct Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_6.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 6
@@ -5487,7 +5487,7 @@ end
 -- Trade Cancel Or Correct Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_5 = {}
 
--- Size: Trade Cancel Or Correct Byte 5
+-- Size Of: Trade Cancel Or Correct Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_5.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 5
@@ -5575,7 +5575,7 @@ end
 -- Trade Cancel Or Correct Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_4 = {}
 
--- Size: Trade Cancel Or Correct Byte 4
+-- Size Of: Trade Cancel Or Correct Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_4.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 4
@@ -5663,7 +5663,7 @@ end
 -- Trade Cancel Or Correct Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_3 = {}
 
--- Size: Trade Cancel Or Correct Byte 3
+-- Size Of: Trade Cancel Or Correct Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_3.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 3
@@ -5751,7 +5751,7 @@ end
 -- Trade Cancel Or Correct Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_2 = {}
 
--- Size: Trade Cancel Or Correct Byte 2
+-- Size Of: Trade Cancel Or Correct Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_2.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 2
@@ -5839,7 +5839,7 @@ end
 -- Trade Cancel Or Correct Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_1 = {}
 
--- Size: Trade Cancel Or Correct Byte 1
+-- Size Of: Trade Cancel Or Correct Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_byte_1.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 1
@@ -5927,7 +5927,7 @@ end
 -- Trade Cancel Or Correct Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_bitfield_count = {}
 
--- Size: Trade Cancel Or Correct Bitfield Count
+-- Size Of: Trade Cancel Or Correct Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.trade_cancel_or_correct_bitfield_count.size = 1
 
 -- Display: Trade Cancel Or Correct Bitfield Count
@@ -6212,7 +6212,7 @@ end
 -- Orig Time
 cboe_edgx_equities_orderentry_boe_v2_3.orig_time = {}
 
--- Size: Orig Time
+-- Size Of: Orig Time
 cboe_edgx_equities_orderentry_boe_v2_3.orig_time.size = 8
 
 -- Display: Orig Time
@@ -6235,7 +6235,7 @@ end
 -- Corrected Price
 cboe_edgx_equities_orderentry_boe_v2_3.corrected_price = {}
 
--- Size: Corrected Price
+-- Size Of: Corrected Price
 cboe_edgx_equities_orderentry_boe_v2_3.corrected_price.size = 8
 
 -- Display: Corrected Price
@@ -6258,7 +6258,7 @@ end
 -- Last Px
 cboe_edgx_equities_orderentry_boe_v2_3.last_px = {}
 
--- Size: Last Px
+-- Size Of: Last Px
 cboe_edgx_equities_orderentry_boe_v2_3.last_px.size = 8
 
 -- Display: Last Px
@@ -6281,7 +6281,7 @@ end
 -- Last Shares
 cboe_edgx_equities_orderentry_boe_v2_3.last_shares = {}
 
--- Size: Last Shares
+-- Size Of: Last Shares
 cboe_edgx_equities_orderentry_boe_v2_3.last_shares.size = 4
 
 -- Display: Last Shares
@@ -6304,7 +6304,7 @@ end
 -- Clearing Account
 cboe_edgx_equities_orderentry_boe_v2_3.clearing_account = {}
 
--- Size: Clearing Account
+-- Size Of: Clearing Account
 cboe_edgx_equities_orderentry_boe_v2_3.clearing_account.size = 4
 
 -- Display: Clearing Account
@@ -6327,7 +6327,7 @@ end
 -- Clearing Firm
 cboe_edgx_equities_orderentry_boe_v2_3.clearing_firm = {}
 
--- Size: Clearing Firm
+-- Size Of: Clearing Firm
 cboe_edgx_equities_orderentry_boe_v2_3.clearing_firm.size = 4
 
 -- Display: Clearing Firm
@@ -6350,7 +6350,7 @@ end
 -- Base Liquidity Indicator
 cboe_edgx_equities_orderentry_boe_v2_3.base_liquidity_indicator = {}
 
--- Size: Base Liquidity Indicator
+-- Size Of: Base Liquidity Indicator
 cboe_edgx_equities_orderentry_boe_v2_3.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
@@ -6386,7 +6386,7 @@ end
 -- Side
 cboe_edgx_equities_orderentry_boe_v2_3.side = {}
 
--- Size: Side
+-- Size Of: Side
 cboe_edgx_equities_orderentry_boe_v2_3.side.size = 1
 
 -- Display: Side
@@ -6422,7 +6422,7 @@ end
 -- Exec Ref Id
 cboe_edgx_equities_orderentry_boe_v2_3.exec_ref_id = {}
 
--- Size: Exec Ref Id
+-- Size Of: Exec Ref Id
 cboe_edgx_equities_orderentry_boe_v2_3.exec_ref_id.size = 8
 
 -- Display: Exec Ref Id
@@ -6445,7 +6445,7 @@ end
 -- Order Id
 cboe_edgx_equities_orderentry_boe_v2_3.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 cboe_edgx_equities_orderentry_boe_v2_3.order_id.size = 8
 
 -- Display: Order Id
@@ -6468,7 +6468,7 @@ end
 -- Cl Ord Id
 cboe_edgx_equities_orderentry_boe_v2_3.cl_ord_id = {}
 
--- Size: Cl Ord Id
+-- Size Of: Cl Ord Id
 cboe_edgx_equities_orderentry_boe_v2_3.cl_ord_id.size = 20
 
 -- Display: Cl Ord Id
@@ -6581,7 +6581,7 @@ end
 -- Ex Destination
 cboe_edgx_equities_orderentry_boe_v2_3.ex_destination = {}
 
--- Size: Ex Destination
+-- Size Of: Ex Destination
 cboe_edgx_equities_orderentry_boe_v2_3.ex_destination.size = 1
 
 -- Display: Ex Destination
@@ -6650,7 +6650,7 @@ end
 -- Route Delivery Method
 cboe_edgx_equities_orderentry_boe_v2_3.route_delivery_method = {}
 
--- Size: Route Delivery Method
+-- Size Of: Route Delivery Method
 cboe_edgx_equities_orderentry_boe_v2_3.route_delivery_method.size = 3
 
 -- Display: Route Delivery Method
@@ -6673,7 +6673,7 @@ end
 -- Rout Strategy
 cboe_edgx_equities_orderentry_boe_v2_3.rout_strategy = {}
 
--- Size: Rout Strategy
+-- Size Of: Rout Strategy
 cboe_edgx_equities_orderentry_boe_v2_3.rout_strategy.size = 6
 
 -- Display: Rout Strategy
@@ -6696,7 +6696,7 @@ end
 -- Routing Inst
 cboe_edgx_equities_orderentry_boe_v2_3.routing_inst = {}
 
--- Size: Routing Inst
+-- Size Of: Routing Inst
 cboe_edgx_equities_orderentry_boe_v2_3.routing_inst.size = 4
 
 -- Display: Routing Inst
@@ -6719,7 +6719,7 @@ end
 -- Stop Px
 cboe_edgx_equities_orderentry_boe_v2_3.stop_px = {}
 
--- Size: Stop Px
+-- Size Of: Stop Px
 cboe_edgx_equities_orderentry_boe_v2_3.stop_px.size = 8
 
 -- Display: Stop Px
@@ -6742,7 +6742,7 @@ end
 -- Echo Text
 cboe_edgx_equities_orderentry_boe_v2_3.echo_text = {}
 
--- Size: Echo Text
+-- Size Of: Echo Text
 cboe_edgx_equities_orderentry_boe_v2_3.echo_text.size = 64
 
 -- Display: Echo Text
@@ -6765,7 +6765,7 @@ end
 -- Fee Code
 cboe_edgx_equities_orderentry_boe_v2_3.fee_code = {}
 
--- Size: Fee Code
+-- Size Of: Fee Code
 cboe_edgx_equities_orderentry_boe_v2_3.fee_code.size = 2
 
 -- Display: Fee Code
@@ -6788,7 +6788,7 @@ end
 -- Ext Exec Inst
 cboe_edgx_equities_orderentry_boe_v2_3.ext_exec_inst = {}
 
--- Size: Ext Exec Inst
+-- Size Of: Ext Exec Inst
 cboe_edgx_equities_orderentry_boe_v2_3.ext_exec_inst.size = 1
 
 -- Display: Ext Exec Inst
@@ -6821,7 +6821,7 @@ end
 -- Attributed Quote
 cboe_edgx_equities_orderentry_boe_v2_3.attributed_quote = {}
 
--- Size: Attributed Quote
+-- Size Of: Attributed Quote
 cboe_edgx_equities_orderentry_boe_v2_3.attributed_quote.size = 1
 
 -- Display: Attributed Quote
@@ -6854,7 +6854,7 @@ end
 -- Prevent Match
 cboe_edgx_equities_orderentry_boe_v2_3.prevent_match = {}
 
--- Size: Prevent Match
+-- Size Of: Prevent Match
 cboe_edgx_equities_orderentry_boe_v2_3.prevent_match.size = 3
 
 -- Display: Prevent Match
@@ -6877,7 +6877,7 @@ end
 -- Order Qty
 cboe_edgx_equities_orderentry_boe_v2_3.order_qty = {}
 
--- Size: Order Qty
+-- Size Of: Order Qty
 cboe_edgx_equities_orderentry_boe_v2_3.order_qty.size = 4
 
 -- Display: Order Qty
@@ -6900,7 +6900,7 @@ end
 -- Discretion Amount
 cboe_edgx_equities_orderentry_boe_v2_3.discretion_amount = {}
 
--- Size: Discretion Amount
+-- Size Of: Discretion Amount
 cboe_edgx_equities_orderentry_boe_v2_3.discretion_amount.size = 2
 
 -- Display: Discretion Amount
@@ -6923,7 +6923,7 @@ end
 -- Max Floor
 cboe_edgx_equities_orderentry_boe_v2_3.max_floor = {}
 
--- Size: Max Floor
+-- Size Of: Max Floor
 cboe_edgx_equities_orderentry_boe_v2_3.max_floor.size = 4
 
 -- Display: Max Floor
@@ -6946,7 +6946,7 @@ end
 -- Display Indicator
 cboe_edgx_equities_orderentry_boe_v2_3.display_indicator = {}
 
--- Size: Display Indicator
+-- Size Of: Display Indicator
 cboe_edgx_equities_orderentry_boe_v2_3.display_indicator.size = 1
 
 -- Display: Display Indicator
@@ -7006,7 +7006,7 @@ end
 -- Account
 cboe_edgx_equities_orderentry_boe_v2_3.account = {}
 
--- Size: Account
+-- Size Of: Account
 cboe_edgx_equities_orderentry_boe_v2_3.account.size = 16
 
 -- Display: Account
@@ -7029,7 +7029,7 @@ end
 -- Min Qty
 cboe_edgx_equities_orderentry_boe_v2_3.min_qty = {}
 
--- Size: Min Qty
+-- Size Of: Min Qty
 cboe_edgx_equities_orderentry_boe_v2_3.min_qty.size = 4
 
 -- Display: Min Qty
@@ -7052,7 +7052,7 @@ end
 -- Time In Force
 cboe_edgx_equities_orderentry_boe_v2_3.time_in_force = {}
 
--- Size: Time In Force
+-- Size Of: Time In Force
 cboe_edgx_equities_orderentry_boe_v2_3.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -7106,7 +7106,7 @@ end
 -- Ord Type
 cboe_edgx_equities_orderentry_boe_v2_3.ord_type = {}
 
--- Size: Ord Type
+-- Size Of: Ord Type
 cboe_edgx_equities_orderentry_boe_v2_3.ord_type.size = 1
 
 -- Display: Ord Type
@@ -7145,7 +7145,7 @@ end
 -- Exec Inst
 cboe_edgx_equities_orderentry_boe_v2_3.exec_inst = {}
 
--- Size: Exec Inst
+-- Size Of: Exec Inst
 cboe_edgx_equities_orderentry_boe_v2_3.exec_inst.size = 1
 
 -- Display: Exec Inst
@@ -7205,7 +7205,7 @@ end
 -- Price
 cboe_edgx_equities_orderentry_boe_v2_3.price = {}
 
--- Size: Price
+-- Size Of: Price
 cboe_edgx_equities_orderentry_boe_v2_3.price.size = 8
 
 -- Display: Price
@@ -7228,7 +7228,7 @@ end
 -- Peg Difference
 cboe_edgx_equities_orderentry_boe_v2_3.peg_difference = {}
 
--- Size: Peg Difference
+-- Size Of: Peg Difference
 cboe_edgx_equities_orderentry_boe_v2_3.peg_difference.size = 8
 
 -- Display: Peg Difference
@@ -7251,7 +7251,7 @@ end
 -- Order Execution Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_17 = {}
 
--- Size: Order Execution Byte 17
+-- Size Of: Order Execution Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_17.size = 1
 
 -- Display: Order Execution Byte 17
@@ -7339,7 +7339,7 @@ end
 -- Order Execution Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_16 = {}
 
--- Size: Order Execution Byte 16
+-- Size Of: Order Execution Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_16.size = 1
 
 -- Display: Order Execution Byte 16
@@ -7427,7 +7427,7 @@ end
 -- Order Execution Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_15 = {}
 
--- Size: Order Execution Byte 15
+-- Size Of: Order Execution Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_15.size = 1
 
 -- Display: Order Execution Byte 15
@@ -7515,7 +7515,7 @@ end
 -- Order Execution Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_14 = {}
 
--- Size: Order Execution Byte 14
+-- Size Of: Order Execution Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_14.size = 1
 
 -- Display: Order Execution Byte 14
@@ -7603,7 +7603,7 @@ end
 -- Order Execution Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_13 = {}
 
--- Size: Order Execution Byte 13
+-- Size Of: Order Execution Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_13.size = 1
 
 -- Display: Order Execution Byte 13
@@ -7691,7 +7691,7 @@ end
 -- Order Execution Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_12 = {}
 
--- Size: Order Execution Byte 12
+-- Size Of: Order Execution Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_12.size = 1
 
 -- Display: Order Execution Byte 12
@@ -7779,7 +7779,7 @@ end
 -- Order Execution Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_11 = {}
 
--- Size: Order Execution Byte 11
+-- Size Of: Order Execution Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_11.size = 1
 
 -- Display: Order Execution Byte 11
@@ -7867,7 +7867,7 @@ end
 -- Order Execution Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_10 = {}
 
--- Size: Order Execution Byte 10
+-- Size Of: Order Execution Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_10.size = 1
 
 -- Display: Order Execution Byte 10
@@ -7955,7 +7955,7 @@ end
 -- Order Execution Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_9 = {}
 
--- Size: Order Execution Byte 9
+-- Size Of: Order Execution Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_9.size = 1
 
 -- Display: Order Execution Byte 9
@@ -8043,7 +8043,7 @@ end
 -- Order Execution Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_8 = {}
 
--- Size: Order Execution Byte 8
+-- Size Of: Order Execution Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_8.size = 1
 
 -- Display: Order Execution Byte 8
@@ -8131,7 +8131,7 @@ end
 -- Order Execution Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_7 = {}
 
--- Size: Order Execution Byte 7
+-- Size Of: Order Execution Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_7.size = 1
 
 -- Display: Order Execution Byte 7
@@ -8219,7 +8219,7 @@ end
 -- Order Execution Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_6 = {}
 
--- Size: Order Execution Byte 6
+-- Size Of: Order Execution Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_6.size = 1
 
 -- Display: Order Execution Byte 6
@@ -8307,7 +8307,7 @@ end
 -- Order Execution Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_5 = {}
 
--- Size: Order Execution Byte 5
+-- Size Of: Order Execution Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_5.size = 1
 
 -- Display: Order Execution Byte 5
@@ -8395,7 +8395,7 @@ end
 -- Order Execution Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_4 = {}
 
--- Size: Order Execution Byte 4
+-- Size Of: Order Execution Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_4.size = 1
 
 -- Display: Order Execution Byte 4
@@ -8483,7 +8483,7 @@ end
 -- Order Execution Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_3 = {}
 
--- Size: Order Execution Byte 3
+-- Size Of: Order Execution Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_3.size = 1
 
 -- Display: Order Execution Byte 3
@@ -8571,7 +8571,7 @@ end
 -- Order Execution Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_2 = {}
 
--- Size: Order Execution Byte 2
+-- Size Of: Order Execution Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_2.size = 1
 
 -- Display: Order Execution Byte 2
@@ -8659,7 +8659,7 @@ end
 -- Order Execution Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_1 = {}
 
--- Size: Order Execution Byte 1
+-- Size Of: Order Execution Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_byte_1.size = 1
 
 -- Display: Order Execution Byte 1
@@ -8747,7 +8747,7 @@ end
 -- Order Execution Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_bitfield_count = {}
 
--- Size: Order Execution Bitfield Count
+-- Size Of: Order Execution Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_execution_bitfield_count.size = 1
 
 -- Display: Order Execution Bitfield Count
@@ -9239,7 +9239,7 @@ end
 -- Contra Broker
 cboe_edgx_equities_orderentry_boe_v2_3.contra_broker = {}
 
--- Size: Contra Broker
+-- Size Of: Contra Broker
 cboe_edgx_equities_orderentry_boe_v2_3.contra_broker.size = 4
 
 -- Display: Contra Broker
@@ -9262,7 +9262,7 @@ end
 -- Leaves Qty
 cboe_edgx_equities_orderentry_boe_v2_3.leaves_qty = {}
 
--- Size: Leaves Qty
+-- Size Of: Leaves Qty
 cboe_edgx_equities_orderentry_boe_v2_3.leaves_qty.size = 4
 
 -- Display: Leaves Qty
@@ -9285,7 +9285,7 @@ end
 -- Exec Id
 cboe_edgx_equities_orderentry_boe_v2_3.exec_id = {}
 
--- Size: Exec Id
+-- Size Of: Exec Id
 cboe_edgx_equities_orderentry_boe_v2_3.exec_id.size = 8
 
 -- Display: Exec Id
@@ -9389,7 +9389,7 @@ end
 -- Cancel Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_17 = {}
 
--- Size: Cancel Rejected Byte 17
+-- Size Of: Cancel Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_17.size = 1
 
 -- Display: Cancel Rejected Byte 17
@@ -9477,7 +9477,7 @@ end
 -- Cancel Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_16 = {}
 
--- Size: Cancel Rejected Byte 16
+-- Size Of: Cancel Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_16.size = 1
 
 -- Display: Cancel Rejected Byte 16
@@ -9565,7 +9565,7 @@ end
 -- Cancel Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_15 = {}
 
--- Size: Cancel Rejected Byte 15
+-- Size Of: Cancel Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_15.size = 1
 
 -- Display: Cancel Rejected Byte 15
@@ -9653,7 +9653,7 @@ end
 -- Cancel Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_14 = {}
 
--- Size: Cancel Rejected Byte 14
+-- Size Of: Cancel Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_14.size = 1
 
 -- Display: Cancel Rejected Byte 14
@@ -9741,7 +9741,7 @@ end
 -- Cancel Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_13 = {}
 
--- Size: Cancel Rejected Byte 13
+-- Size Of: Cancel Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_13.size = 1
 
 -- Display: Cancel Rejected Byte 13
@@ -9829,7 +9829,7 @@ end
 -- Cancel Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_12 = {}
 
--- Size: Cancel Rejected Byte 12
+-- Size Of: Cancel Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_12.size = 1
 
 -- Display: Cancel Rejected Byte 12
@@ -9917,7 +9917,7 @@ end
 -- Cancel Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_11 = {}
 
--- Size: Cancel Rejected Byte 11
+-- Size Of: Cancel Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_11.size = 1
 
 -- Display: Cancel Rejected Byte 11
@@ -10005,7 +10005,7 @@ end
 -- Cancel Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_10 = {}
 
--- Size: Cancel Rejected Byte 10
+-- Size Of: Cancel Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_10.size = 1
 
 -- Display: Cancel Rejected Byte 10
@@ -10093,7 +10093,7 @@ end
 -- Cancel Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_9 = {}
 
--- Size: Cancel Rejected Byte 9
+-- Size Of: Cancel Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_9.size = 1
 
 -- Display: Cancel Rejected Byte 9
@@ -10181,7 +10181,7 @@ end
 -- Cancel Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_8 = {}
 
--- Size: Cancel Rejected Byte 8
+-- Size Of: Cancel Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_8.size = 1
 
 -- Display: Cancel Rejected Byte 8
@@ -10269,7 +10269,7 @@ end
 -- Cancel Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_7 = {}
 
--- Size: Cancel Rejected Byte 7
+-- Size Of: Cancel Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_7.size = 1
 
 -- Display: Cancel Rejected Byte 7
@@ -10357,7 +10357,7 @@ end
 -- Cancel Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_6 = {}
 
--- Size: Cancel Rejected Byte 6
+-- Size Of: Cancel Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_6.size = 1
 
 -- Display: Cancel Rejected Byte 6
@@ -10445,7 +10445,7 @@ end
 -- Cancel Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_5 = {}
 
--- Size: Cancel Rejected Byte 5
+-- Size Of: Cancel Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_5.size = 1
 
 -- Display: Cancel Rejected Byte 5
@@ -10533,7 +10533,7 @@ end
 -- Cancel Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_4 = {}
 
--- Size: Cancel Rejected Byte 4
+-- Size Of: Cancel Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_4.size = 1
 
 -- Display: Cancel Rejected Byte 4
@@ -10621,7 +10621,7 @@ end
 -- Cancel Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_3 = {}
 
--- Size: Cancel Rejected Byte 3
+-- Size Of: Cancel Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_3.size = 1
 
 -- Display: Cancel Rejected Byte 3
@@ -10709,7 +10709,7 @@ end
 -- Cancel Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_2 = {}
 
--- Size: Cancel Rejected Byte 2
+-- Size Of: Cancel Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_2.size = 1
 
 -- Display: Cancel Rejected Byte 2
@@ -10797,7 +10797,7 @@ end
 -- Cancel Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_1 = {}
 
--- Size: Cancel Rejected Byte 1
+-- Size Of: Cancel Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_byte_1.size = 1
 
 -- Display: Cancel Rejected Byte 1
@@ -10885,7 +10885,7 @@ end
 -- Cancel Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_bitfield_count = {}
 
--- Size: Cancel Rejected Bitfield Count
+-- Size Of: Cancel Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_rejected_bitfield_count.size = 1
 
 -- Display: Cancel Rejected Bitfield Count
@@ -11251,7 +11251,7 @@ end
 -- Cancel Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_reject_reason = {}
 
--- Size: Cancel Reject Reason
+-- Size Of: Cancel Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
@@ -11437,7 +11437,7 @@ end
 -- Secondary Order Id
 cboe_edgx_equities_orderentry_boe_v2_3.secondary_order_id = {}
 
--- Size: Secondary Order Id
+-- Size Of: Secondary Order Id
 cboe_edgx_equities_orderentry_boe_v2_3.secondary_order_id.size = 8
 
 -- Display: Secondary Order Id
@@ -11460,7 +11460,7 @@ end
 -- Expire Time
 cboe_edgx_equities_orderentry_boe_v2_3.expire_time = {}
 
--- Size: Expire Time
+-- Size Of: Expire Time
 cboe_edgx_equities_orderentry_boe_v2_3.expire_time.size = 8
 
 -- Display: Expire Time
@@ -11483,7 +11483,7 @@ end
 -- Working Price
 cboe_edgx_equities_orderentry_boe_v2_3.working_price = {}
 
--- Size: Working Price
+-- Size Of: Working Price
 cboe_edgx_equities_orderentry_boe_v2_3.working_price.size = 8
 
 -- Display: Working Price
@@ -11506,7 +11506,7 @@ end
 -- Display Price
 cboe_edgx_equities_orderentry_boe_v2_3.display_price = {}
 
--- Size: Display Price
+-- Size Of: Display Price
 cboe_edgx_equities_orderentry_boe_v2_3.display_price.size = 8
 
 -- Display: Display Price
@@ -11529,7 +11529,7 @@ end
 -- Orig Cl Ord Id
 cboe_edgx_equities_orderentry_boe_v2_3.orig_cl_ord_id = {}
 
--- Size: Orig Cl Ord Id
+-- Size Of: Orig Cl Ord Id
 cboe_edgx_equities_orderentry_boe_v2_3.orig_cl_ord_id.size = 20
 
 -- Display: Orig Cl Ord Id
@@ -11552,7 +11552,7 @@ end
 -- Order Cancelled Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_17 = {}
 
--- Size: Order Cancelled Byte 17
+-- Size Of: Order Cancelled Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_17.size = 1
 
 -- Display: Order Cancelled Byte 17
@@ -11640,7 +11640,7 @@ end
 -- Order Cancelled Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_16 = {}
 
--- Size: Order Cancelled Byte 16
+-- Size Of: Order Cancelled Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_16.size = 1
 
 -- Display: Order Cancelled Byte 16
@@ -11728,7 +11728,7 @@ end
 -- Order Cancelled Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_15 = {}
 
--- Size: Order Cancelled Byte 15
+-- Size Of: Order Cancelled Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_15.size = 1
 
 -- Display: Order Cancelled Byte 15
@@ -11816,7 +11816,7 @@ end
 -- Order Cancelled Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_14 = {}
 
--- Size: Order Cancelled Byte 14
+-- Size Of: Order Cancelled Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_14.size = 1
 
 -- Display: Order Cancelled Byte 14
@@ -11904,7 +11904,7 @@ end
 -- Order Cancelled Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_13 = {}
 
--- Size: Order Cancelled Byte 13
+-- Size Of: Order Cancelled Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_13.size = 1
 
 -- Display: Order Cancelled Byte 13
@@ -11992,7 +11992,7 @@ end
 -- Order Cancelled Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_12 = {}
 
--- Size: Order Cancelled Byte 12
+-- Size Of: Order Cancelled Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_12.size = 1
 
 -- Display: Order Cancelled Byte 12
@@ -12080,7 +12080,7 @@ end
 -- Order Cancelled Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_11 = {}
 
--- Size: Order Cancelled Byte 11
+-- Size Of: Order Cancelled Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_11.size = 1
 
 -- Display: Order Cancelled Byte 11
@@ -12168,7 +12168,7 @@ end
 -- Order Cancelled Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_10 = {}
 
--- Size: Order Cancelled Byte 10
+-- Size Of: Order Cancelled Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_10.size = 1
 
 -- Display: Order Cancelled Byte 10
@@ -12256,7 +12256,7 @@ end
 -- Order Cancelled Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_9 = {}
 
--- Size: Order Cancelled Byte 9
+-- Size Of: Order Cancelled Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_9.size = 1
 
 -- Display: Order Cancelled Byte 9
@@ -12344,7 +12344,7 @@ end
 -- Order Cancelled Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_8 = {}
 
--- Size: Order Cancelled Byte 8
+-- Size Of: Order Cancelled Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_8.size = 1
 
 -- Display: Order Cancelled Byte 8
@@ -12432,7 +12432,7 @@ end
 -- Order Cancelled Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_7 = {}
 
--- Size: Order Cancelled Byte 7
+-- Size Of: Order Cancelled Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_7.size = 1
 
 -- Display: Order Cancelled Byte 7
@@ -12520,7 +12520,7 @@ end
 -- Order Cancelled Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_6 = {}
 
--- Size: Order Cancelled Byte 6
+-- Size Of: Order Cancelled Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_6.size = 1
 
 -- Display: Order Cancelled Byte 6
@@ -12608,7 +12608,7 @@ end
 -- Order Cancelled Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_5 = {}
 
--- Size: Order Cancelled Byte 5
+-- Size Of: Order Cancelled Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_5.size = 1
 
 -- Display: Order Cancelled Byte 5
@@ -12696,7 +12696,7 @@ end
 -- Order Cancelled Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_4 = {}
 
--- Size: Order Cancelled Byte 4
+-- Size Of: Order Cancelled Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_4.size = 1
 
 -- Display: Order Cancelled Byte 4
@@ -12784,7 +12784,7 @@ end
 -- Order Cancelled Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_3 = {}
 
--- Size: Order Cancelled Byte 3
+-- Size Of: Order Cancelled Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_3.size = 1
 
 -- Display: Order Cancelled Byte 3
@@ -12872,7 +12872,7 @@ end
 -- Order Cancelled Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_2 = {}
 
--- Size: Order Cancelled Byte 2
+-- Size Of: Order Cancelled Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_2.size = 1
 
 -- Display: Order Cancelled Byte 2
@@ -12960,7 +12960,7 @@ end
 -- Order Cancelled Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_1 = {}
 
--- Size: Order Cancelled Byte 1
+-- Size Of: Order Cancelled Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_byte_1.size = 1
 
 -- Display: Order Cancelled Byte 1
@@ -13048,7 +13048,7 @@ end
 -- Order Cancelled Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_bitfield_count = {}
 
--- Size: Order Cancelled Bitfield Count
+-- Size Of: Order Cancelled Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_cancelled_bitfield_count.size = 1
 
 -- Display: Order Cancelled Bitfield Count
@@ -13612,7 +13612,7 @@ end
 -- Cancel Reason
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_reason = {}
 
--- Size: Cancel Reason
+-- Size Of: Cancel Reason
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_reason.size = 1
 
 -- Display: Cancel Reason
@@ -13732,7 +13732,7 @@ end
 -- Transact Time
 cboe_edgx_equities_orderentry_boe_v2_3.transact_time = {}
 
--- Size: Transact Time
+-- Size Of: Transact Time
 cboe_edgx_equities_orderentry_boe_v2_3.transact_time.size = 8
 
 -- Display: Transact Time
@@ -13818,7 +13818,7 @@ end
 -- User Modify Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_17 = {}
 
--- Size: User Modify Rejected Byte 17
+-- Size Of: User Modify Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_17.size = 1
 
 -- Display: User Modify Rejected Byte 17
@@ -13906,7 +13906,7 @@ end
 -- User Modify Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_16 = {}
 
--- Size: User Modify Rejected Byte 16
+-- Size Of: User Modify Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_16.size = 1
 
 -- Display: User Modify Rejected Byte 16
@@ -13994,7 +13994,7 @@ end
 -- User Modify Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_15 = {}
 
--- Size: User Modify Rejected Byte 15
+-- Size Of: User Modify Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_15.size = 1
 
 -- Display: User Modify Rejected Byte 15
@@ -14082,7 +14082,7 @@ end
 -- User Modify Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_14 = {}
 
--- Size: User Modify Rejected Byte 14
+-- Size Of: User Modify Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_14.size = 1
 
 -- Display: User Modify Rejected Byte 14
@@ -14170,7 +14170,7 @@ end
 -- User Modify Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_13 = {}
 
--- Size: User Modify Rejected Byte 13
+-- Size Of: User Modify Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_13.size = 1
 
 -- Display: User Modify Rejected Byte 13
@@ -14258,7 +14258,7 @@ end
 -- User Modify Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_12 = {}
 
--- Size: User Modify Rejected Byte 12
+-- Size Of: User Modify Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_12.size = 1
 
 -- Display: User Modify Rejected Byte 12
@@ -14346,7 +14346,7 @@ end
 -- User Modify Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_11 = {}
 
--- Size: User Modify Rejected Byte 11
+-- Size Of: User Modify Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_11.size = 1
 
 -- Display: User Modify Rejected Byte 11
@@ -14434,7 +14434,7 @@ end
 -- User Modify Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_10 = {}
 
--- Size: User Modify Rejected Byte 10
+-- Size Of: User Modify Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_10.size = 1
 
 -- Display: User Modify Rejected Byte 10
@@ -14522,7 +14522,7 @@ end
 -- User Modify Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_9 = {}
 
--- Size: User Modify Rejected Byte 9
+-- Size Of: User Modify Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_9.size = 1
 
 -- Display: User Modify Rejected Byte 9
@@ -14610,7 +14610,7 @@ end
 -- User Modify Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_8 = {}
 
--- Size: User Modify Rejected Byte 8
+-- Size Of: User Modify Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_8.size = 1
 
 -- Display: User Modify Rejected Byte 8
@@ -14698,7 +14698,7 @@ end
 -- User Modify Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_7 = {}
 
--- Size: User Modify Rejected Byte 7
+-- Size Of: User Modify Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_7.size = 1
 
 -- Display: User Modify Rejected Byte 7
@@ -14786,7 +14786,7 @@ end
 -- User Modify Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_6 = {}
 
--- Size: User Modify Rejected Byte 6
+-- Size Of: User Modify Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_6.size = 1
 
 -- Display: User Modify Rejected Byte 6
@@ -14874,7 +14874,7 @@ end
 -- User Modify Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_5 = {}
 
--- Size: User Modify Rejected Byte 5
+-- Size Of: User Modify Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_5.size = 1
 
 -- Display: User Modify Rejected Byte 5
@@ -14962,7 +14962,7 @@ end
 -- User Modify Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_4 = {}
 
--- Size: User Modify Rejected Byte 4
+-- Size Of: User Modify Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_4.size = 1
 
 -- Display: User Modify Rejected Byte 4
@@ -15050,7 +15050,7 @@ end
 -- User Modify Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_3 = {}
 
--- Size: User Modify Rejected Byte 3
+-- Size Of: User Modify Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_3.size = 1
 
 -- Display: User Modify Rejected Byte 3
@@ -15138,7 +15138,7 @@ end
 -- User Modify Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_2 = {}
 
--- Size: User Modify Rejected Byte 2
+-- Size Of: User Modify Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_2.size = 1
 
 -- Display: User Modify Rejected Byte 2
@@ -15226,7 +15226,7 @@ end
 -- User Modify Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_1 = {}
 
--- Size: User Modify Rejected Byte 1
+-- Size Of: User Modify Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_byte_1.size = 1
 
 -- Display: User Modify Rejected Byte 1
@@ -15314,7 +15314,7 @@ end
 -- User Modify Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_bitfield_count = {}
 
--- Size: User Modify Rejected Bitfield Count
+-- Size Of: User Modify Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.user_modify_rejected_bitfield_count.size = 1
 
 -- Display: User Modify Rejected Bitfield Count
@@ -15572,7 +15572,7 @@ end
 -- Modify Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.modify_reject_reason = {}
 
--- Size: Modify Reject Reason
+-- Size Of: Modify Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
@@ -15758,7 +15758,7 @@ end
 -- Order Restated Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_17 = {}
 
--- Size: Order Restated Byte 17
+-- Size Of: Order Restated Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_17.size = 1
 
 -- Display: Order Restated Byte 17
@@ -15846,7 +15846,7 @@ end
 -- Order Restated Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_16 = {}
 
--- Size: Order Restated Byte 16
+-- Size Of: Order Restated Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_16.size = 1
 
 -- Display: Order Restated Byte 16
@@ -15934,7 +15934,7 @@ end
 -- Order Restated Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_15 = {}
 
--- Size: Order Restated Byte 15
+-- Size Of: Order Restated Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_15.size = 1
 
 -- Display: Order Restated Byte 15
@@ -16022,7 +16022,7 @@ end
 -- Order Restated Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_14 = {}
 
--- Size: Order Restated Byte 14
+-- Size Of: Order Restated Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_14.size = 1
 
 -- Display: Order Restated Byte 14
@@ -16110,7 +16110,7 @@ end
 -- Order Restated Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_13 = {}
 
--- Size: Order Restated Byte 13
+-- Size Of: Order Restated Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_13.size = 1
 
 -- Display: Order Restated Byte 13
@@ -16198,7 +16198,7 @@ end
 -- Order Restated Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_12 = {}
 
--- Size: Order Restated Byte 12
+-- Size Of: Order Restated Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_12.size = 1
 
 -- Display: Order Restated Byte 12
@@ -16286,7 +16286,7 @@ end
 -- Order Restated Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_11 = {}
 
--- Size: Order Restated Byte 11
+-- Size Of: Order Restated Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_11.size = 1
 
 -- Display: Order Restated Byte 11
@@ -16374,7 +16374,7 @@ end
 -- Order Restated Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_10 = {}
 
--- Size: Order Restated Byte 10
+-- Size Of: Order Restated Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_10.size = 1
 
 -- Display: Order Restated Byte 10
@@ -16462,7 +16462,7 @@ end
 -- Order Restated Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_9 = {}
 
--- Size: Order Restated Byte 9
+-- Size Of: Order Restated Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_9.size = 1
 
 -- Display: Order Restated Byte 9
@@ -16550,7 +16550,7 @@ end
 -- Order Restated Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_8 = {}
 
--- Size: Order Restated Byte 8
+-- Size Of: Order Restated Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_8.size = 1
 
 -- Display: Order Restated Byte 8
@@ -16638,7 +16638,7 @@ end
 -- Order Restated Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_7 = {}
 
--- Size: Order Restated Byte 7
+-- Size Of: Order Restated Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_7.size = 1
 
 -- Display: Order Restated Byte 7
@@ -16726,7 +16726,7 @@ end
 -- Order Restated Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_6 = {}
 
--- Size: Order Restated Byte 6
+-- Size Of: Order Restated Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_6.size = 1
 
 -- Display: Order Restated Byte 6
@@ -16814,7 +16814,7 @@ end
 -- Order Restated Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_5 = {}
 
--- Size: Order Restated Byte 5
+-- Size Of: Order Restated Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_5.size = 1
 
 -- Display: Order Restated Byte 5
@@ -16902,7 +16902,7 @@ end
 -- Order Restated Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_4 = {}
 
--- Size: Order Restated Byte 4
+-- Size Of: Order Restated Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_4.size = 1
 
 -- Display: Order Restated Byte 4
@@ -16990,7 +16990,7 @@ end
 -- Order Restated Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_3 = {}
 
--- Size: Order Restated Byte 3
+-- Size Of: Order Restated Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_3.size = 1
 
 -- Display: Order Restated Byte 3
@@ -17078,7 +17078,7 @@ end
 -- Order Restated Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_2 = {}
 
--- Size: Order Restated Byte 2
+-- Size Of: Order Restated Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_2.size = 1
 
 -- Display: Order Restated Byte 2
@@ -17166,7 +17166,7 @@ end
 -- Order Restated Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_1 = {}
 
--- Size: Order Restated Byte 1
+-- Size Of: Order Restated Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_byte_1.size = 1
 
 -- Display: Order Restated Byte 1
@@ -17254,7 +17254,7 @@ end
 -- Order Restated Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_bitfield_count = {}
 
--- Size: Order Restated Bitfield Count
+-- Size Of: Order Restated Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_restated_bitfield_count.size = 1
 
 -- Display: Order Restated Bitfield Count
@@ -17818,7 +17818,7 @@ end
 -- Restatement Reason
 cboe_edgx_equities_orderentry_boe_v2_3.restatement_reason = {}
 
--- Size: Restatement Reason
+-- Size Of: Restatement Reason
 cboe_edgx_equities_orderentry_boe_v2_3.restatement_reason.size = 1
 
 -- Display: Restatement Reason
@@ -17929,7 +17929,7 @@ end
 -- Order Modified Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_17 = {}
 
--- Size: Order Modified Byte 17
+-- Size Of: Order Modified Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_17.size = 1
 
 -- Display: Order Modified Byte 17
@@ -18017,7 +18017,7 @@ end
 -- Order Modified Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_16 = {}
 
--- Size: Order Modified Byte 16
+-- Size Of: Order Modified Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_16.size = 1
 
 -- Display: Order Modified Byte 16
@@ -18105,7 +18105,7 @@ end
 -- Order Modified Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_15 = {}
 
--- Size: Order Modified Byte 15
+-- Size Of: Order Modified Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_15.size = 1
 
 -- Display: Order Modified Byte 15
@@ -18193,7 +18193,7 @@ end
 -- Order Modified Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_14 = {}
 
--- Size: Order Modified Byte 14
+-- Size Of: Order Modified Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_14.size = 1
 
 -- Display: Order Modified Byte 14
@@ -18281,7 +18281,7 @@ end
 -- Order Modified Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_13 = {}
 
--- Size: Order Modified Byte 13
+-- Size Of: Order Modified Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_13.size = 1
 
 -- Display: Order Modified Byte 13
@@ -18369,7 +18369,7 @@ end
 -- Order Modified Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_12 = {}
 
--- Size: Order Modified Byte 12
+-- Size Of: Order Modified Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_12.size = 1
 
 -- Display: Order Modified Byte 12
@@ -18457,7 +18457,7 @@ end
 -- Order Modified Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_11 = {}
 
--- Size: Order Modified Byte 11
+-- Size Of: Order Modified Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_11.size = 1
 
 -- Display: Order Modified Byte 11
@@ -18545,7 +18545,7 @@ end
 -- Order Modified Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_10 = {}
 
--- Size: Order Modified Byte 10
+-- Size Of: Order Modified Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_10.size = 1
 
 -- Display: Order Modified Byte 10
@@ -18633,7 +18633,7 @@ end
 -- Order Modified Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_9 = {}
 
--- Size: Order Modified Byte 9
+-- Size Of: Order Modified Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_9.size = 1
 
 -- Display: Order Modified Byte 9
@@ -18721,7 +18721,7 @@ end
 -- Order Modified Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_8 = {}
 
--- Size: Order Modified Byte 8
+-- Size Of: Order Modified Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_8.size = 1
 
 -- Display: Order Modified Byte 8
@@ -18809,7 +18809,7 @@ end
 -- Order Modified Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_7 = {}
 
--- Size: Order Modified Byte 7
+-- Size Of: Order Modified Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_7.size = 1
 
 -- Display: Order Modified Byte 7
@@ -18897,7 +18897,7 @@ end
 -- Order Modified Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_6 = {}
 
--- Size: Order Modified Byte 6
+-- Size Of: Order Modified Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_6.size = 1
 
 -- Display: Order Modified Byte 6
@@ -18985,7 +18985,7 @@ end
 -- Order Modified Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_5 = {}
 
--- Size: Order Modified Byte 5
+-- Size Of: Order Modified Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_5.size = 1
 
 -- Display: Order Modified Byte 5
@@ -19073,7 +19073,7 @@ end
 -- Order Modified Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_4 = {}
 
--- Size: Order Modified Byte 4
+-- Size Of: Order Modified Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_4.size = 1
 
 -- Display: Order Modified Byte 4
@@ -19161,7 +19161,7 @@ end
 -- Order Modified Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_3 = {}
 
--- Size: Order Modified Byte 3
+-- Size Of: Order Modified Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_3.size = 1
 
 -- Display: Order Modified Byte 3
@@ -19249,7 +19249,7 @@ end
 -- Order Modified Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_2 = {}
 
--- Size: Order Modified Byte 2
+-- Size Of: Order Modified Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_2.size = 1
 
 -- Display: Order Modified Byte 2
@@ -19337,7 +19337,7 @@ end
 -- Order Modified Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_1 = {}
 
--- Size: Order Modified Byte 1
+-- Size Of: Order Modified Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_byte_1.size = 1
 
 -- Display: Order Modified Byte 1
@@ -19425,7 +19425,7 @@ end
 -- Order Modified Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_bitfield_count = {}
 
--- Size: Order Modified Bitfield Count
+-- Size Of: Order Modified Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_modified_bitfield_count.size = 1
 
 -- Display: Order Modified Bitfield Count
@@ -20043,7 +20043,7 @@ end
 -- Order Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_17 = {}
 
--- Size: Order Rejected Byte 17
+-- Size Of: Order Rejected Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_17.size = 1
 
 -- Display: Order Rejected Byte 17
@@ -20131,7 +20131,7 @@ end
 -- Order Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_16 = {}
 
--- Size: Order Rejected Byte 16
+-- Size Of: Order Rejected Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_16.size = 1
 
 -- Display: Order Rejected Byte 16
@@ -20219,7 +20219,7 @@ end
 -- Order Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_15 = {}
 
--- Size: Order Rejected Byte 15
+-- Size Of: Order Rejected Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_15.size = 1
 
 -- Display: Order Rejected Byte 15
@@ -20307,7 +20307,7 @@ end
 -- Order Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_14 = {}
 
--- Size: Order Rejected Byte 14
+-- Size Of: Order Rejected Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_14.size = 1
 
 -- Display: Order Rejected Byte 14
@@ -20395,7 +20395,7 @@ end
 -- Order Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_13 = {}
 
--- Size: Order Rejected Byte 13
+-- Size Of: Order Rejected Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_13.size = 1
 
 -- Display: Order Rejected Byte 13
@@ -20483,7 +20483,7 @@ end
 -- Order Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_12 = {}
 
--- Size: Order Rejected Byte 12
+-- Size Of: Order Rejected Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_12.size = 1
 
 -- Display: Order Rejected Byte 12
@@ -20571,7 +20571,7 @@ end
 -- Order Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_11 = {}
 
--- Size: Order Rejected Byte 11
+-- Size Of: Order Rejected Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_11.size = 1
 
 -- Display: Order Rejected Byte 11
@@ -20659,7 +20659,7 @@ end
 -- Order Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_10 = {}
 
--- Size: Order Rejected Byte 10
+-- Size Of: Order Rejected Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_10.size = 1
 
 -- Display: Order Rejected Byte 10
@@ -20747,7 +20747,7 @@ end
 -- Order Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_9 = {}
 
--- Size: Order Rejected Byte 9
+-- Size Of: Order Rejected Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_9.size = 1
 
 -- Display: Order Rejected Byte 9
@@ -20835,7 +20835,7 @@ end
 -- Order Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_8 = {}
 
--- Size: Order Rejected Byte 8
+-- Size Of: Order Rejected Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_8.size = 1
 
 -- Display: Order Rejected Byte 8
@@ -20923,7 +20923,7 @@ end
 -- Order Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_7 = {}
 
--- Size: Order Rejected Byte 7
+-- Size Of: Order Rejected Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_7.size = 1
 
 -- Display: Order Rejected Byte 7
@@ -21011,7 +21011,7 @@ end
 -- Order Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_6 = {}
 
--- Size: Order Rejected Byte 6
+-- Size Of: Order Rejected Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_6.size = 1
 
 -- Display: Order Rejected Byte 6
@@ -21099,7 +21099,7 @@ end
 -- Order Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_5 = {}
 
--- Size: Order Rejected Byte 5
+-- Size Of: Order Rejected Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_5.size = 1
 
 -- Display: Order Rejected Byte 5
@@ -21187,7 +21187,7 @@ end
 -- Order Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_4 = {}
 
--- Size: Order Rejected Byte 4
+-- Size Of: Order Rejected Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_4.size = 1
 
 -- Display: Order Rejected Byte 4
@@ -21275,7 +21275,7 @@ end
 -- Order Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_3 = {}
 
--- Size: Order Rejected Byte 3
+-- Size Of: Order Rejected Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_3.size = 1
 
 -- Display: Order Rejected Byte 3
@@ -21363,7 +21363,7 @@ end
 -- Order Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_2 = {}
 
--- Size: Order Rejected Byte 2
+-- Size Of: Order Rejected Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_2.size = 1
 
 -- Display: Order Rejected Byte 2
@@ -21451,7 +21451,7 @@ end
 -- Order Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_1 = {}
 
--- Size: Order Rejected Byte 1
+-- Size Of: Order Rejected Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_byte_1.size = 1
 
 -- Display: Order Rejected Byte 1
@@ -21539,7 +21539,7 @@ end
 -- Order Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_bitfield_count = {}
 
--- Size: Order Rejected Bitfield Count
+-- Size Of: Order Rejected Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_rejected_bitfield_count.size = 1
 
 -- Display: Order Rejected Bitfield Count
@@ -22031,7 +22031,7 @@ end
 -- Order Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.order_reject_reason = {}
 
--- Size: Order Reject Reason
+-- Size Of: Order Reject Reason
 cboe_edgx_equities_orderentry_boe_v2_3.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
@@ -22217,7 +22217,7 @@ end
 -- Order Acknowledgment Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_17 = {}
 
--- Size: Order Acknowledgment Byte 17
+-- Size Of: Order Acknowledgment Byte 17
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_17.size = 1
 
 -- Display: Order Acknowledgment Byte 17
@@ -22305,7 +22305,7 @@ end
 -- Order Acknowledgment Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_16 = {}
 
--- Size: Order Acknowledgment Byte 16
+-- Size Of: Order Acknowledgment Byte 16
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_16.size = 1
 
 -- Display: Order Acknowledgment Byte 16
@@ -22393,7 +22393,7 @@ end
 -- Order Acknowledgment Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_15 = {}
 
--- Size: Order Acknowledgment Byte 15
+-- Size Of: Order Acknowledgment Byte 15
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_15.size = 1
 
 -- Display: Order Acknowledgment Byte 15
@@ -22481,7 +22481,7 @@ end
 -- Order Acknowledgment Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_14 = {}
 
--- Size: Order Acknowledgment Byte 14
+-- Size Of: Order Acknowledgment Byte 14
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_14.size = 1
 
 -- Display: Order Acknowledgment Byte 14
@@ -22569,7 +22569,7 @@ end
 -- Order Acknowledgment Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_13 = {}
 
--- Size: Order Acknowledgment Byte 13
+-- Size Of: Order Acknowledgment Byte 13
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_13.size = 1
 
 -- Display: Order Acknowledgment Byte 13
@@ -22657,7 +22657,7 @@ end
 -- Order Acknowledgment Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_12 = {}
 
--- Size: Order Acknowledgment Byte 12
+-- Size Of: Order Acknowledgment Byte 12
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_12.size = 1
 
 -- Display: Order Acknowledgment Byte 12
@@ -22745,7 +22745,7 @@ end
 -- Order Acknowledgment Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_11 = {}
 
--- Size: Order Acknowledgment Byte 11
+-- Size Of: Order Acknowledgment Byte 11
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_11.size = 1
 
 -- Display: Order Acknowledgment Byte 11
@@ -22833,7 +22833,7 @@ end
 -- Order Acknowledgment Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_10 = {}
 
--- Size: Order Acknowledgment Byte 10
+-- Size Of: Order Acknowledgment Byte 10
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_10.size = 1
 
 -- Display: Order Acknowledgment Byte 10
@@ -22921,7 +22921,7 @@ end
 -- Order Acknowledgment Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_9 = {}
 
--- Size: Order Acknowledgment Byte 9
+-- Size Of: Order Acknowledgment Byte 9
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_9.size = 1
 
 -- Display: Order Acknowledgment Byte 9
@@ -23009,7 +23009,7 @@ end
 -- Order Acknowledgment Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_8 = {}
 
--- Size: Order Acknowledgment Byte 8
+-- Size Of: Order Acknowledgment Byte 8
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_8.size = 1
 
 -- Display: Order Acknowledgment Byte 8
@@ -23097,7 +23097,7 @@ end
 -- Order Acknowledgment Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_7 = {}
 
--- Size: Order Acknowledgment Byte 7
+-- Size Of: Order Acknowledgment Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_7.size = 1
 
 -- Display: Order Acknowledgment Byte 7
@@ -23185,7 +23185,7 @@ end
 -- Order Acknowledgment Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_6 = {}
 
--- Size: Order Acknowledgment Byte 6
+-- Size Of: Order Acknowledgment Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_6.size = 1
 
 -- Display: Order Acknowledgment Byte 6
@@ -23273,7 +23273,7 @@ end
 -- Order Acknowledgment Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_5 = {}
 
--- Size: Order Acknowledgment Byte 5
+-- Size Of: Order Acknowledgment Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_5.size = 1
 
 -- Display: Order Acknowledgment Byte 5
@@ -23361,7 +23361,7 @@ end
 -- Order Acknowledgment Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_4 = {}
 
--- Size: Order Acknowledgment Byte 4
+-- Size Of: Order Acknowledgment Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_4.size = 1
 
 -- Display: Order Acknowledgment Byte 4
@@ -23449,7 +23449,7 @@ end
 -- Order Acknowledgment Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_3 = {}
 
--- Size: Order Acknowledgment Byte 3
+-- Size Of: Order Acknowledgment Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_3.size = 1
 
 -- Display: Order Acknowledgment Byte 3
@@ -23537,7 +23537,7 @@ end
 -- Order Acknowledgment Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_2 = {}
 
--- Size: Order Acknowledgment Byte 2
+-- Size Of: Order Acknowledgment Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_2.size = 1
 
 -- Display: Order Acknowledgment Byte 2
@@ -23625,7 +23625,7 @@ end
 -- Order Acknowledgment Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_1 = {}
 
--- Size: Order Acknowledgment Byte 1
+-- Size Of: Order Acknowledgment Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_byte_1.size = 1
 
 -- Display: Order Acknowledgment Byte 1
@@ -23713,7 +23713,7 @@ end
 -- Order Acknowledgment Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_bitfield_count = {}
 
--- Size: Order Acknowledgment Bitfield Count
+-- Size Of: Order Acknowledgment Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.order_acknowledgment_bitfield_count.size = 1
 
 -- Display: Order Acknowledgment Bitfield Count
@@ -24349,7 +24349,7 @@ end
 -- Mass Cancel Inst
 cboe_edgx_equities_orderentry_boe_v2_3.mass_cancel_inst = {}
 
--- Size: Mass Cancel Inst
+-- Size Of: Mass Cancel Inst
 cboe_edgx_equities_orderentry_boe_v2_3.mass_cancel_inst.size = 16
 
 -- Display: Mass Cancel Inst
@@ -24372,7 +24372,7 @@ end
 -- Purge Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.purge_order_byte_2 = {}
 
--- Size: Purge Order Byte 2
+-- Size Of: Purge Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.purge_order_byte_2.size = 1
 
 -- Display: Purge Order Byte 2
@@ -24460,7 +24460,7 @@ end
 -- Purge Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.purge_order_byte_1 = {}
 
--- Size: Purge Order Byte 1
+-- Size Of: Purge Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.purge_order_byte_1.size = 1
 
 -- Display: Purge Order Byte 1
@@ -24548,7 +24548,7 @@ end
 -- Purge Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.purge_order_bitfield_count = {}
 
--- Size: Purge Order Bitfield Count
+-- Size Of: Purge Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.purge_order_bitfield_count.size = 1
 
 -- Display: Purge Order Bitfield Count
@@ -24731,7 +24731,7 @@ end
 -- Cancel Orig On Reject
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_orig_on_reject = {}
 
--- Size: Cancel Orig On Reject
+-- Size Of: Cancel Orig On Reject
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
@@ -24754,7 +24754,7 @@ end
 -- Modify Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.modify_order_byte_2 = {}
 
--- Size: Modify Order Byte 2
+-- Size Of: Modify Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.modify_order_byte_2.size = 1
 
 -- Display: Modify Order Byte 2
@@ -24842,7 +24842,7 @@ end
 -- Modify Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.modify_order_byte_1 = {}
 
--- Size: Modify Order Byte 1
+-- Size Of: Modify Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.modify_order_byte_1.size = 1
 
 -- Display: Modify Order Byte 1
@@ -24930,7 +24930,7 @@ end
 -- Modify Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.modify_order_bitfield_count = {}
 
--- Size: Modify Order Bitfield Count
+-- Size Of: Modify Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.modify_order_bitfield_count.size = 1
 
 -- Display: Modify Order Bitfield Count
@@ -25143,7 +25143,7 @@ end
 -- Cancel Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_order_byte_2 = {}
 
--- Size: Cancel Order Byte 2
+-- Size Of: Cancel Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_order_byte_2.size = 1
 
 -- Display: Cancel Order Byte 2
@@ -25231,7 +25231,7 @@ end
 -- Cancel Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_order_byte_1 = {}
 
--- Size: Cancel Order Byte 1
+-- Size Of: Cancel Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_order_byte_1.size = 1
 
 -- Display: Cancel Order Byte 1
@@ -25319,7 +25319,7 @@ end
 -- Cancel Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_order_bitfield_count = {}
 
--- Size: Cancel Order Bitfield Count
+-- Size Of: Cancel Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.cancel_order_bitfield_count.size = 1
 
 -- Display: Cancel Order Bitfield Count
@@ -25466,7 +25466,7 @@ end
 -- Custom Group Id
 cboe_edgx_equities_orderentry_boe_v2_3.custom_group_id = {}
 
--- Size: Custom Group Id
+-- Size Of: Custom Group Id
 cboe_edgx_equities_orderentry_boe_v2_3.custom_group_id.size = 2
 
 -- Display: Custom Group Id
@@ -25489,7 +25489,7 @@ end
 -- Display Range
 cboe_edgx_equities_orderentry_boe_v2_3.display_range = {}
 
--- Size: Display Range
+-- Size Of: Display Range
 cboe_edgx_equities_orderentry_boe_v2_3.display_range.size = 4
 
 -- Display: Display Range
@@ -25512,7 +25512,7 @@ end
 -- Risk Reset
 cboe_edgx_equities_orderentry_boe_v2_3.risk_reset = {}
 
--- Size: Risk Reset
+-- Size Of: Risk Reset
 cboe_edgx_equities_orderentry_boe_v2_3.risk_reset.size = 8
 
 -- Display: Risk Reset
@@ -25535,7 +25535,7 @@ end
 -- Locate Reqd
 cboe_edgx_equities_orderentry_boe_v2_3.locate_reqd = {}
 
--- Size: Locate Reqd
+-- Size Of: Locate Reqd
 cboe_edgx_equities_orderentry_boe_v2_3.locate_reqd.size = 1
 
 -- Display: Locate Reqd
@@ -25558,7 +25558,7 @@ end
 -- New Order Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_7 = {}
 
--- Size: New Order Byte 7
+-- Size Of: New Order Byte 7
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_7.size = 1
 
 -- Display: New Order Byte 7
@@ -25646,7 +25646,7 @@ end
 -- New Order Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_6 = {}
 
--- Size: New Order Byte 6
+-- Size Of: New Order Byte 6
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_6.size = 1
 
 -- Display: New Order Byte 6
@@ -25734,7 +25734,7 @@ end
 -- New Order Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_5 = {}
 
--- Size: New Order Byte 5
+-- Size Of: New Order Byte 5
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_5.size = 1
 
 -- Display: New Order Byte 5
@@ -25822,7 +25822,7 @@ end
 -- New Order Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_4 = {}
 
--- Size: New Order Byte 4
+-- Size Of: New Order Byte 4
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_4.size = 1
 
 -- Display: New Order Byte 4
@@ -25910,7 +25910,7 @@ end
 -- New Order Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_3 = {}
 
--- Size: New Order Byte 3
+-- Size Of: New Order Byte 3
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_3.size = 1
 
 -- Display: New Order Byte 3
@@ -25998,7 +25998,7 @@ end
 -- New Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_2 = {}
 
--- Size: New Order Byte 2
+-- Size Of: New Order Byte 2
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_2.size = 1
 
 -- Display: New Order Byte 2
@@ -26086,7 +26086,7 @@ end
 -- New Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_1 = {}
 
--- Size: New Order Byte 1
+-- Size Of: New Order Byte 1
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_byte_1.size = 1
 
 -- Display: New Order Byte 1
@@ -26174,7 +26174,7 @@ end
 -- New Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_bitfield_count = {}
 
--- Size: New Order Bitfield Count
+-- Size Of: New Order Bitfield Count
 cboe_edgx_equities_orderentry_boe_v2_3.new_order_bitfield_count.size = 1
 
 -- Display: New Order Bitfield Count
@@ -26634,7 +26634,7 @@ end
 -- Sequence Number
 cboe_edgx_equities_orderentry_boe_v2_3.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -26657,7 +26657,7 @@ end
 -- Unit Number
 cboe_edgx_equities_orderentry_boe_v2_3.unit_number = {}
 
--- Size: Unit Number
+-- Size Of: Unit Number
 cboe_edgx_equities_orderentry_boe_v2_3.unit_number.size = 1
 
 -- Display: Unit Number
@@ -26680,16 +26680,10 @@ end
 -- Unit Sequence
 cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence = {}
 
--- Calculate size of: Unit Sequence
-cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.unit_number.size
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size
-
-  return index
-end
+-- Size Of: Unit Sequence
+cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence.size =
+  cboe_edgx_equities_orderentry_boe_v2_3.unit_number.size + 
+  cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size;
 
 -- Display: Unit Sequence
 cboe_edgx_equities_orderentry_boe_v2_3.unit_sequence.display = function(packet, parent, length)
@@ -26736,7 +26730,7 @@ end
 -- Number Of Units
 cboe_edgx_equities_orderentry_boe_v2_3.number_of_units = {}
 
--- Size: Number Of Units
+-- Size Of: Number Of Units
 cboe_edgx_equities_orderentry_boe_v2_3.number_of_units.size = 1
 
 -- Display: Number Of Units
@@ -26759,7 +26753,7 @@ end
 -- Last Received Sequence Number
 cboe_edgx_equities_orderentry_boe_v2_3.last_received_sequence_number = {}
 
--- Size: Last Received Sequence Number
+-- Size Of: Last Received Sequence Number
 cboe_edgx_equities_orderentry_boe_v2_3.last_received_sequence_number.size = 4
 
 -- Display: Last Received Sequence Number
@@ -26782,7 +26776,7 @@ end
 -- Logout Reason Text
 cboe_edgx_equities_orderentry_boe_v2_3.logout_reason_text = {}
 
--- Size: Logout Reason Text
+-- Size Of: Logout Reason Text
 cboe_edgx_equities_orderentry_boe_v2_3.logout_reason_text.size = 60
 
 -- Display: Logout Reason Text
@@ -26805,7 +26799,7 @@ end
 -- Logout Reason
 cboe_edgx_equities_orderentry_boe_v2_3.logout_reason = {}
 
--- Size: Logout Reason
+-- Size Of: Logout Reason
 cboe_edgx_equities_orderentry_boe_v2_3.logout_reason.size = 1
 
 -- Display: Logout Reason
@@ -29695,7 +29689,7 @@ end
 -- Application Message Type
 cboe_edgx_equities_orderentry_boe_v2_3.application_message_type = {}
 
--- Size: Application Message Type
+-- Size Of: Application Message Type
 cboe_edgx_equities_orderentry_boe_v2_3.application_message_type.size = 1
 
 -- Display: Application Message Type
@@ -29809,7 +29803,7 @@ end
 -- No Unspecified Unit Replay
 cboe_edgx_equities_orderentry_boe_v2_3.no_unspecified_unit_replay = {}
 
--- Size: No Unspecified Unit Replay
+-- Size Of: No Unspecified Unit Replay
 cboe_edgx_equities_orderentry_boe_v2_3.no_unspecified_unit_replay.size = 1
 
 -- Display: No Unspecified Unit Replay
@@ -29952,7 +29946,7 @@ end
 -- Param Group Type
 cboe_edgx_equities_orderentry_boe_v2_3.param_group_type = {}
 
--- Size: Param Group Type
+-- Size Of: Param Group Type
 cboe_edgx_equities_orderentry_boe_v2_3.param_group_type.size = 1
 
 -- Display: Param Group Type
@@ -29982,7 +29976,7 @@ end
 -- Param Group Length
 cboe_edgx_equities_orderentry_boe_v2_3.param_group_length = {}
 
--- Size: Param Group Length
+-- Size Of: Param Group Length
 cboe_edgx_equities_orderentry_boe_v2_3.param_group_length.size = 2
 
 -- Display: Param Group Length
@@ -30005,16 +29999,10 @@ end
 -- Param Header
 cboe_edgx_equities_orderentry_boe_v2_3.param_header = {}
 
--- Calculate size of: Param Header
-cboe_edgx_equities_orderentry_boe_v2_3.param_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.param_group_length.size
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.param_group_type.size
-
-  return index
-end
+-- Size Of: Param Header
+cboe_edgx_equities_orderentry_boe_v2_3.param_header.size =
+  cboe_edgx_equities_orderentry_boe_v2_3.param_group_length.size + 
+  cboe_edgx_equities_orderentry_boe_v2_3.param_group_type.size;
 
 -- Display: Param Header
 cboe_edgx_equities_orderentry_boe_v2_3.param_header.display = function(packet, parent, length)
@@ -30106,7 +30094,7 @@ end
 -- Number Of Param Groups
 cboe_edgx_equities_orderentry_boe_v2_3.number_of_param_groups = {}
 
--- Size: Number Of Param Groups
+-- Size Of: Number Of Param Groups
 cboe_edgx_equities_orderentry_boe_v2_3.number_of_param_groups.size = 1
 
 -- Display: Number Of Param Groups
@@ -30129,7 +30117,7 @@ end
 -- Login Response Text
 cboe_edgx_equities_orderentry_boe_v2_3.login_response_text = {}
 
--- Size: Login Response Text
+-- Size Of: Login Response Text
 cboe_edgx_equities_orderentry_boe_v2_3.login_response_text.size = 60
 
 -- Display: Login Response Text
@@ -30152,7 +30140,7 @@ end
 -- Login Response Status
 cboe_edgx_equities_orderentry_boe_v2_3.login_response_status = {}
 
--- Size: Login Response Status
+-- Size Of: Login Response Status
 cboe_edgx_equities_orderentry_boe_v2_3.login_response_status.size = 1
 
 -- Display: Login Response Status
@@ -30278,7 +30266,7 @@ end
 -- Password
 cboe_edgx_equities_orderentry_boe_v2_3.password = {}
 
--- Size: Password
+-- Size Of: Password
 cboe_edgx_equities_orderentry_boe_v2_3.password.size = 10
 
 -- Display: Password
@@ -30301,7 +30289,7 @@ end
 -- Username
 cboe_edgx_equities_orderentry_boe_v2_3.username = {}
 
--- Size: Username
+-- Size Of: Username
 cboe_edgx_equities_orderentry_boe_v2_3.username.size = 4
 
 -- Display: Username
@@ -30324,7 +30312,7 @@ end
 -- Session Sub Id
 cboe_edgx_equities_orderentry_boe_v2_3.session_sub_id = {}
 
--- Size: Session Sub Id
+-- Size Of: Session Sub Id
 cboe_edgx_equities_orderentry_boe_v2_3.session_sub_id.size = 4
 
 -- Display: Session Sub Id
@@ -30623,7 +30611,7 @@ end
 -- Matching Unit
 cboe_edgx_equities_orderentry_boe_v2_3.matching_unit = {}
 
--- Size: Matching Unit
+-- Size Of: Matching Unit
 cboe_edgx_equities_orderentry_boe_v2_3.matching_unit.size = 1
 
 -- Display: Matching Unit
@@ -30646,7 +30634,7 @@ end
 -- Message Type
 cboe_edgx_equities_orderentry_boe_v2_3.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 cboe_edgx_equities_orderentry_boe_v2_3.message_type.size = 1
 
 -- Display: Message Type
@@ -30736,7 +30724,7 @@ end
 -- Message Length
 cboe_edgx_equities_orderentry_boe_v2_3.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 cboe_edgx_equities_orderentry_boe_v2_3.message_length.size = 2
 
 -- Display: Message Length
@@ -30759,7 +30747,7 @@ end
 -- Start Of Message
 cboe_edgx_equities_orderentry_boe_v2_3.start_of_message = {}
 
--- Size: Start Of Message
+-- Size Of: Start Of Message
 cboe_edgx_equities_orderentry_boe_v2_3.start_of_message.size = 2
 
 -- Display: Start Of Message
@@ -30782,22 +30770,13 @@ end
 -- Message Header
 cboe_edgx_equities_orderentry_boe_v2_3.message_header = {}
 
--- Calculate size of: Message Header
-cboe_edgx_equities_orderentry_boe_v2_3.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.start_of_message.size
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.message_length.size
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.message_type.size
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.matching_unit.size
-
-  index = index + cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size
-
-  return index
-end
+-- Size Of: Message Header
+cboe_edgx_equities_orderentry_boe_v2_3.message_header.size =
+  cboe_edgx_equities_orderentry_boe_v2_3.start_of_message.size + 
+  cboe_edgx_equities_orderentry_boe_v2_3.message_length.size + 
+  cboe_edgx_equities_orderentry_boe_v2_3.message_type.size + 
+  cboe_edgx_equities_orderentry_boe_v2_3.matching_unit.size + 
+  cboe_edgx_equities_orderentry_boe_v2_3.sequence_number.size;
 
 -- Display: Message Header
 cboe_edgx_equities_orderentry_boe_v2_3.message_header.display = function(packet, parent, length)

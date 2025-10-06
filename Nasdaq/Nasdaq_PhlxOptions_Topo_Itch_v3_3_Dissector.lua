@@ -238,7 +238,7 @@ end
 -- Original Volume
 nasdaq_phlxoptions_topo_itch_v3_3.original_volume = {}
 
--- Size: Original Volume
+-- Size Of: Original Volume
 nasdaq_phlxoptions_topo_itch_v3_3.original_volume.size = 4
 
 -- Display: Original Volume
@@ -261,7 +261,7 @@ end
 -- Original Price
 nasdaq_phlxoptions_topo_itch_v3_3.original_price = {}
 
--- Size: Original Price
+-- Size Of: Original Price
 nasdaq_phlxoptions_topo_itch_v3_3.original_price.size = 4
 
 -- Display: Original Price
@@ -290,7 +290,7 @@ end
 -- Original Cross Id
 nasdaq_phlxoptions_topo_itch_v3_3.original_cross_id = {}
 
--- Size: Original Cross Id
+-- Size Of: Original Cross Id
 nasdaq_phlxoptions_topo_itch_v3_3.original_cross_id.size = 4
 
 -- Display: Original Cross Id
@@ -313,7 +313,7 @@ end
 -- Option Id
 nasdaq_phlxoptions_topo_itch_v3_3.option_id = {}
 
--- Size: Option Id
+-- Size Of: Option Id
 nasdaq_phlxoptions_topo_itch_v3_3.option_id.size = 4
 
 -- Display: Option Id
@@ -336,7 +336,7 @@ end
 -- Nanoseconds
 nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds = {}
 
--- Size: Nanoseconds
+-- Size Of: Nanoseconds
 nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -359,22 +359,13 @@ end
 -- Broken Trade Report Message
 nasdaq_phlxoptions_topo_itch_v3_3.broken_trade_report_message = {}
 
--- Calculate size of: Broken Trade Report Message
-nasdaq_phlxoptions_topo_itch_v3_3.broken_trade_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.original_cross_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.original_price.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.original_volume.size
-
-  return index
-end
+-- Size Of: Broken Trade Report Message
+nasdaq_phlxoptions_topo_itch_v3_3.broken_trade_report_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.original_cross_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.original_price.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.original_volume.size;
 
 -- Display: Broken Trade Report Message
 nasdaq_phlxoptions_topo_itch_v3_3.broken_trade_report_message.display = function(packet, parent, length)
@@ -424,7 +415,7 @@ end
 -- Volume
 nasdaq_phlxoptions_topo_itch_v3_3.volume = {}
 
--- Size: Volume
+-- Size Of: Volume
 nasdaq_phlxoptions_topo_itch_v3_3.volume.size = 4
 
 -- Display: Volume
@@ -447,7 +438,7 @@ end
 -- Price 4
 nasdaq_phlxoptions_topo_itch_v3_3.price_4 = {}
 
--- Size: Price 4
+-- Size Of: Price 4
 nasdaq_phlxoptions_topo_itch_v3_3.price_4.size = 4
 
 -- Display: Price 4
@@ -476,7 +467,7 @@ end
 -- Trade Condition
 nasdaq_phlxoptions_topo_itch_v3_3.trade_condition = {}
 
--- Size: Trade Condition
+-- Size Of: Trade Condition
 nasdaq_phlxoptions_topo_itch_v3_3.trade_condition.size = 1
 
 -- Display: Trade Condition
@@ -499,7 +490,7 @@ end
 -- Cross Id
 nasdaq_phlxoptions_topo_itch_v3_3.cross_id = {}
 
--- Size: Cross Id
+-- Size Of: Cross Id
 nasdaq_phlxoptions_topo_itch_v3_3.cross_id.size = 4
 
 -- Display: Cross Id
@@ -522,24 +513,14 @@ end
 -- Trade Report Message
 nasdaq_phlxoptions_topo_itch_v3_3.trade_report_message = {}
 
--- Calculate size of: Trade Report Message
-nasdaq_phlxoptions_topo_itch_v3_3.trade_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.cross_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.trade_condition.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.price_4.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.volume.size
-
-  return index
-end
+-- Size Of: Trade Report Message
+nasdaq_phlxoptions_topo_itch_v3_3.trade_report_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.cross_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.trade_condition.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.price_4.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.volume.size;
 
 -- Display: Trade Report Message
 nasdaq_phlxoptions_topo_itch_v3_3.trade_report_message.display = function(packet, parent, length)
@@ -592,7 +573,7 @@ end
 -- Size 4
 nasdaq_phlxoptions_topo_itch_v3_3.size_4 = {}
 
--- Size: Size 4
+-- Size Of: Size 4
 nasdaq_phlxoptions_topo_itch_v3_3.size_4.size = 4
 
 -- Display: Size 4
@@ -615,7 +596,7 @@ end
 -- Quote Condition
 nasdaq_phlxoptions_topo_itch_v3_3.quote_condition = {}
 
--- Size: Quote Condition
+-- Size Of: Quote Condition
 nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -654,22 +635,13 @@ end
 -- Long Best Bid Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_update_message = {}
 
--- Calculate size of: Long Best Bid Update Message
-nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.price_4.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.size_4.size
-
-  return index
-end
+-- Size Of: Long Best Bid Update Message
+nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_update_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.price_4.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.size_4.size;
 
 -- Display: Long Best Bid Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_update_message.display = function(packet, parent, length)
@@ -719,22 +691,13 @@ end
 -- Long Best Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_ask_update_message = {}
 
--- Calculate size of: Long Best Ask Update Message
-nasdaq_phlxoptions_topo_itch_v3_3.long_best_ask_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.price_4.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.size_4.size
-
-  return index
-end
+-- Size Of: Long Best Ask Update Message
+nasdaq_phlxoptions_topo_itch_v3_3.long_best_ask_update_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.price_4.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.size_4.size;
 
 -- Display: Long Best Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_ask_update_message.display = function(packet, parent, length)
@@ -784,7 +747,7 @@ end
 -- Size 2
 nasdaq_phlxoptions_topo_itch_v3_3.size_2 = {}
 
--- Size: Size 2
+-- Size Of: Size 2
 nasdaq_phlxoptions_topo_itch_v3_3.size_2.size = 2
 
 -- Display: Size 2
@@ -807,7 +770,7 @@ end
 -- Price 2
 nasdaq_phlxoptions_topo_itch_v3_3.price_2 = {}
 
--- Size: Price 2
+-- Size Of: Price 2
 nasdaq_phlxoptions_topo_itch_v3_3.price_2.size = 2
 
 -- Display: Price 2
@@ -836,22 +799,13 @@ end
 -- Short Best Bid Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_update_message = {}
 
--- Calculate size of: Short Best Bid Update Message
-nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.price_2.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.size_2.size
-
-  return index
-end
+-- Size Of: Short Best Bid Update Message
+nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_update_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.price_2.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.size_2.size;
 
 -- Display: Short Best Bid Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_update_message.display = function(packet, parent, length)
@@ -901,22 +855,13 @@ end
 -- Short Best Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_ask_update_message = {}
 
--- Calculate size of: Short Best Ask Update Message
-nasdaq_phlxoptions_topo_itch_v3_3.short_best_ask_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.price_2.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.size_2.size
-
-  return index
-end
+-- Size Of: Short Best Ask Update Message
+nasdaq_phlxoptions_topo_itch_v3_3.short_best_ask_update_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.price_2.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.size_2.size;
 
 -- Display: Short Best Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_ask_update_message.display = function(packet, parent, length)
@@ -966,7 +911,7 @@ end
 -- Ask Size 4
 nasdaq_phlxoptions_topo_itch_v3_3.ask_size_4 = {}
 
--- Size: Ask Size 4
+-- Size Of: Ask Size 4
 nasdaq_phlxoptions_topo_itch_v3_3.ask_size_4.size = 4
 
 -- Display: Ask Size 4
@@ -989,7 +934,7 @@ end
 -- Ask Price 4
 nasdaq_phlxoptions_topo_itch_v3_3.ask_price_4 = {}
 
--- Size: Ask Price 4
+-- Size Of: Ask Price 4
 nasdaq_phlxoptions_topo_itch_v3_3.ask_price_4.size = 4
 
 -- Display: Ask Price 4
@@ -1018,7 +963,7 @@ end
 -- Bid Size 4
 nasdaq_phlxoptions_topo_itch_v3_3.bid_size_4 = {}
 
--- Size: Bid Size 4
+-- Size Of: Bid Size 4
 nasdaq_phlxoptions_topo_itch_v3_3.bid_size_4.size = 4
 
 -- Display: Bid Size 4
@@ -1041,7 +986,7 @@ end
 -- Bid Price 4
 nasdaq_phlxoptions_topo_itch_v3_3.bid_price_4 = {}
 
--- Size: Bid Price 4
+-- Size Of: Bid Price 4
 nasdaq_phlxoptions_topo_itch_v3_3.bid_price_4.size = 4
 
 -- Display: Bid Price 4
@@ -1070,26 +1015,15 @@ end
 -- Long Best Bid And Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_and_ask_update_message = {}
 
--- Calculate size of: Long Best Bid And Ask Update Message
-nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_and_ask_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.bid_price_4.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.bid_size_4.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.ask_price_4.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.ask_size_4.size
-
-  return index
-end
+-- Size Of: Long Best Bid And Ask Update Message
+nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_and_ask_update_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.bid_price_4.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.bid_size_4.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.ask_price_4.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.ask_size_4.size;
 
 -- Display: Long Best Bid And Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_and_ask_update_message.display = function(packet, parent, length)
@@ -1145,7 +1079,7 @@ end
 -- Ask Size 2
 nasdaq_phlxoptions_topo_itch_v3_3.ask_size_2 = {}
 
--- Size: Ask Size 2
+-- Size Of: Ask Size 2
 nasdaq_phlxoptions_topo_itch_v3_3.ask_size_2.size = 2
 
 -- Display: Ask Size 2
@@ -1168,7 +1102,7 @@ end
 -- Ask Price 2
 nasdaq_phlxoptions_topo_itch_v3_3.ask_price_2 = {}
 
--- Size: Ask Price 2
+-- Size Of: Ask Price 2
 nasdaq_phlxoptions_topo_itch_v3_3.ask_price_2.size = 2
 
 -- Display: Ask Price 2
@@ -1197,7 +1131,7 @@ end
 -- Bid Size 2
 nasdaq_phlxoptions_topo_itch_v3_3.bid_size_2 = {}
 
--- Size: Bid Size 2
+-- Size Of: Bid Size 2
 nasdaq_phlxoptions_topo_itch_v3_3.bid_size_2.size = 2
 
 -- Display: Bid Size 2
@@ -1220,7 +1154,7 @@ end
 -- Bid Price 2
 nasdaq_phlxoptions_topo_itch_v3_3.bid_price_2 = {}
 
--- Size: Bid Price 2
+-- Size Of: Bid Price 2
 nasdaq_phlxoptions_topo_itch_v3_3.bid_price_2.size = 2
 
 -- Display: Bid Price 2
@@ -1249,26 +1183,15 @@ end
 -- Short Best Bid And Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_and_ask_update_message = {}
 
--- Calculate size of: Short Best Bid And Ask Update Message
-nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_and_ask_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.bid_price_2.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.bid_size_2.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.ask_price_2.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.ask_size_2.size
-
-  return index
-end
+-- Size Of: Short Best Bid And Ask Update Message
+nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_and_ask_update_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.quote_condition.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.bid_price_2.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.bid_size_2.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.ask_price_2.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.ask_size_2.size;
 
 -- Display: Short Best Bid And Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_and_ask_update_message.display = function(packet, parent, length)
@@ -1324,7 +1247,7 @@ end
 -- Open State
 nasdaq_phlxoptions_topo_itch_v3_3.open_state = {}
 
--- Size: Open State
+-- Size Of: Open State
 nasdaq_phlxoptions_topo_itch_v3_3.open_state.size = 1
 
 -- Display: Open State
@@ -1354,18 +1277,11 @@ end
 -- Security Open Closed Message
 nasdaq_phlxoptions_topo_itch_v3_3.security_open_closed_message = {}
 
--- Calculate size of: Security Open Closed Message
-nasdaq_phlxoptions_topo_itch_v3_3.security_open_closed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.open_state.size
-
-  return index
-end
+-- Size Of: Security Open Closed Message
+nasdaq_phlxoptions_topo_itch_v3_3.security_open_closed_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.open_state.size;
 
 -- Display: Security Open Closed Message
 nasdaq_phlxoptions_topo_itch_v3_3.security_open_closed_message.display = function(packet, parent, length)
@@ -1409,7 +1325,7 @@ end
 -- Current Trading State
 nasdaq_phlxoptions_topo_itch_v3_3.current_trading_state = {}
 
--- Size: Current Trading State
+-- Size Of: Current Trading State
 nasdaq_phlxoptions_topo_itch_v3_3.current_trading_state.size = 1
 
 -- Display: Current Trading State
@@ -1439,18 +1355,11 @@ end
 -- Trading Action Message
 nasdaq_phlxoptions_topo_itch_v3_3.trading_action_message = {}
 
--- Calculate size of: Trading Action Message
-nasdaq_phlxoptions_topo_itch_v3_3.trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.current_trading_state.size
-
-  return index
-end
+-- Size Of: Trading Action Message
+nasdaq_phlxoptions_topo_itch_v3_3.trading_action_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.current_trading_state.size;
 
 -- Display: Trading Action Message
 nasdaq_phlxoptions_topo_itch_v3_3.trading_action_message.display = function(packet, parent, length)
@@ -1494,7 +1403,7 @@ end
 -- Mpv
 nasdaq_phlxoptions_topo_itch_v3_3.mpv = {}
 
--- Size: Mpv
+-- Size Of: Mpv
 nasdaq_phlxoptions_topo_itch_v3_3.mpv.size = 1
 
 -- Display: Mpv
@@ -1527,7 +1436,7 @@ end
 -- Tradable
 nasdaq_phlxoptions_topo_itch_v3_3.tradable = {}
 
--- Size: Tradable
+-- Size Of: Tradable
 nasdaq_phlxoptions_topo_itch_v3_3.tradable.size = 1
 
 -- Display: Tradable
@@ -1557,7 +1466,7 @@ end
 -- Option Closing Type
 nasdaq_phlxoptions_topo_itch_v3_3.option_closing_type = {}
 
--- Size: Option Closing Type
+-- Size Of: Option Closing Type
 nasdaq_phlxoptions_topo_itch_v3_3.option_closing_type.size = 1
 
 -- Display: Option Closing Type
@@ -1590,7 +1499,7 @@ end
 -- Underlying Symbol
 nasdaq_phlxoptions_topo_itch_v3_3.underlying_symbol = {}
 
--- Size: Underlying Symbol
+-- Size Of: Underlying Symbol
 nasdaq_phlxoptions_topo_itch_v3_3.underlying_symbol.size = 13
 
 -- Display: Underlying Symbol
@@ -1613,7 +1522,7 @@ end
 -- Source
 nasdaq_phlxoptions_topo_itch_v3_3.source = {}
 
--- Size: Source
+-- Size Of: Source
 nasdaq_phlxoptions_topo_itch_v3_3.source.size = 1
 
 -- Display: Source
@@ -1636,7 +1545,7 @@ end
 -- Option Type
 nasdaq_phlxoptions_topo_itch_v3_3.option_type = {}
 
--- Size: Option Type
+-- Size Of: Option Type
 nasdaq_phlxoptions_topo_itch_v3_3.option_type.size = 1
 
 -- Display: Option Type
@@ -1666,7 +1575,7 @@ end
 -- Strike Price
 nasdaq_phlxoptions_topo_itch_v3_3.strike_price = {}
 
--- Size: Strike Price
+-- Size Of: Strike Price
 nasdaq_phlxoptions_topo_itch_v3_3.strike_price.size = 4
 
 -- Display: Strike Price
@@ -1695,7 +1604,7 @@ end
 -- Expiration Day
 nasdaq_phlxoptions_topo_itch_v3_3.expiration_day = {}
 
--- Size: Expiration Day
+-- Size Of: Expiration Day
 nasdaq_phlxoptions_topo_itch_v3_3.expiration_day.size = 1
 
 -- Display: Expiration Day
@@ -1718,7 +1627,7 @@ end
 -- Expiration Month
 nasdaq_phlxoptions_topo_itch_v3_3.expiration_month = {}
 
--- Size: Expiration Month
+-- Size Of: Expiration Month
 nasdaq_phlxoptions_topo_itch_v3_3.expiration_month.size = 1
 
 -- Display: Expiration Month
@@ -1741,7 +1650,7 @@ end
 -- Expiration Year
 nasdaq_phlxoptions_topo_itch_v3_3.expiration_year = {}
 
--- Size: Expiration Year
+-- Size Of: Expiration Year
 nasdaq_phlxoptions_topo_itch_v3_3.expiration_year.size = 1
 
 -- Display: Expiration Year
@@ -1764,7 +1673,7 @@ end
 -- Security Symbol
 nasdaq_phlxoptions_topo_itch_v3_3.security_symbol = {}
 
--- Size: Security Symbol
+-- Size Of: Security Symbol
 nasdaq_phlxoptions_topo_itch_v3_3.security_symbol.size = 6
 
 -- Display: Security Symbol
@@ -1787,38 +1696,21 @@ end
 -- Options Directory Message
 nasdaq_phlxoptions_topo_itch_v3_3.options_directory_message = {}
 
--- Calculate size of: Options Directory Message
-nasdaq_phlxoptions_topo_itch_v3_3.options_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_id.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.expiration_year.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.expiration_month.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.expiration_day.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.strike_price.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_type.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.source.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.underlying_symbol.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.option_closing_type.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.tradable.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.mpv.size
-
-  return index
-end
+-- Size Of: Options Directory Message
+nasdaq_phlxoptions_topo_itch_v3_3.options_directory_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_id.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.security_symbol.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.expiration_year.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.expiration_month.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.expiration_day.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.strike_price.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_type.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.source.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.underlying_symbol.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.option_closing_type.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.tradable.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.mpv.size;
 
 -- Display: Options Directory Message
 nasdaq_phlxoptions_topo_itch_v3_3.options_directory_message.display = function(packet, parent, length)
@@ -1892,7 +1784,7 @@ end
 -- Subversion
 nasdaq_phlxoptions_topo_itch_v3_3.subversion = {}
 
--- Size: Subversion
+-- Size Of: Subversion
 nasdaq_phlxoptions_topo_itch_v3_3.subversion.size = 1
 
 -- Display: Subversion
@@ -1915,7 +1807,7 @@ end
 -- Version
 nasdaq_phlxoptions_topo_itch_v3_3.version = {}
 
--- Size: Version
+-- Size Of: Version
 nasdaq_phlxoptions_topo_itch_v3_3.version.size = 1
 
 -- Display: Version
@@ -1938,7 +1830,7 @@ end
 -- Event Code
 nasdaq_phlxoptions_topo_itch_v3_3.event_code = {}
 
--- Size: Event Code
+-- Size Of: Event Code
 nasdaq_phlxoptions_topo_itch_v3_3.event_code.size = 1
 
 -- Display: Event Code
@@ -1986,20 +1878,12 @@ end
 -- System Event Message
 nasdaq_phlxoptions_topo_itch_v3_3.system_event_message = {}
 
--- Calculate size of: System Event Message
-nasdaq_phlxoptions_topo_itch_v3_3.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.event_code.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.version.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.subversion.size
-
-  return index
-end
+-- Size Of: System Event Message
+nasdaq_phlxoptions_topo_itch_v3_3.system_event_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.event_code.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.version.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.subversion.size;
 
 -- Display: System Event Message
 nasdaq_phlxoptions_topo_itch_v3_3.system_event_message.display = function(packet, parent, length)
@@ -2046,7 +1930,7 @@ end
 -- Second
 nasdaq_phlxoptions_topo_itch_v3_3.second = {}
 
--- Size: Second
+-- Size Of: Second
 nasdaq_phlxoptions_topo_itch_v3_3.second.size = 4
 
 -- Display: Second
@@ -2069,14 +1953,9 @@ end
 -- Timestamp Message
 nasdaq_phlxoptions_topo_itch_v3_3.timestamp_message = {}
 
--- Calculate size of: Timestamp Message
-nasdaq_phlxoptions_topo_itch_v3_3.timestamp_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.second.size
-
-  return index
-end
+-- Size Of: Timestamp Message
+nasdaq_phlxoptions_topo_itch_v3_3.timestamp_message.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.second.size;
 
 -- Display: Timestamp Message
 nasdaq_phlxoptions_topo_itch_v3_3.timestamp_message.display = function(packet, parent, length)
@@ -2258,7 +2137,7 @@ end
 -- Message Type
 nasdaq_phlxoptions_topo_itch_v3_3.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 nasdaq_phlxoptions_topo_itch_v3_3.message_type.size = 1
 
 -- Display: Message Type
@@ -2321,7 +2200,7 @@ end
 -- Message Length
 nasdaq_phlxoptions_topo_itch_v3_3.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 nasdaq_phlxoptions_topo_itch_v3_3.message_length.size = 2
 
 -- Display: Message Length
@@ -2344,16 +2223,10 @@ end
 -- Message Header
 nasdaq_phlxoptions_topo_itch_v3_3.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_phlxoptions_topo_itch_v3_3.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.message_length.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+nasdaq_phlxoptions_topo_itch_v3_3.message_header.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.message_length.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.message_type.size;
 
 -- Display: Message Header
 nasdaq_phlxoptions_topo_itch_v3_3.message_header.display = function(packet, parent, length)
@@ -2445,7 +2318,7 @@ end
 -- Message Count
 nasdaq_phlxoptions_topo_itch_v3_3.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 nasdaq_phlxoptions_topo_itch_v3_3.message_count.size = 2
 
 -- Display: Message Count
@@ -2468,7 +2341,7 @@ end
 -- Sequence Number
 nasdaq_phlxoptions_topo_itch_v3_3.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 nasdaq_phlxoptions_topo_itch_v3_3.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -2491,7 +2364,7 @@ end
 -- Session
 nasdaq_phlxoptions_topo_itch_v3_3.session = {}
 
--- Size: Session
+-- Size Of: Session
 nasdaq_phlxoptions_topo_itch_v3_3.session.size = 10
 
 -- Display: Session
@@ -2530,18 +2403,11 @@ end
 -- Packet Header
 nasdaq_phlxoptions_topo_itch_v3_3.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_phlxoptions_topo_itch_v3_3.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.session.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.sequence_number.size
-
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3.message_count.size
-
-  return index
-end
+-- Size Of: Packet Header
+nasdaq_phlxoptions_topo_itch_v3_3.packet_header.size =
+  nasdaq_phlxoptions_topo_itch_v3_3.session.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.sequence_number.size + 
+  nasdaq_phlxoptions_topo_itch_v3_3.message_count.size;
 
 -- Display: Packet Header
 nasdaq_phlxoptions_topo_itch_v3_3.packet_header.display = function(packet, parent, length)

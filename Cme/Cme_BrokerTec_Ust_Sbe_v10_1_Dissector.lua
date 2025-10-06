@@ -152,7 +152,7 @@ end
 -- Price Type
 cme_brokertec_ust_sbe_v10_1.price_type = {}
 
--- Size: Price Type
+-- Size Of: Price Type
 cme_brokertec_ust_sbe_v10_1.price_type.size = 1
 
 -- Display: Price Type
@@ -180,7 +180,7 @@ end
 -- Trade Condition
 cme_brokertec_ust_sbe_v10_1.trade_condition = {}
 
--- Size: Trade Condition
+-- Size Of: Trade Condition
 cme_brokertec_ust_sbe_v10_1.trade_condition.size = 1
 
 -- Display: Trade Condition
@@ -216,7 +216,7 @@ end
 -- Exponent
 cme_brokertec_ust_sbe_v10_1.exponent = {}
 
--- Size: Exponent
+-- Size Of: Exponent
 cme_brokertec_ust_sbe_v10_1.exponent.size = 1
 
 -- Display: Exponent
@@ -244,7 +244,7 @@ end
 -- Mantissa int 32
 cme_brokertec_ust_sbe_v10_1.mantissa_int_32 = {}
 
--- Size: Mantissa int 32
+-- Size Of: Mantissa int 32
 cme_brokertec_ust_sbe_v10_1.mantissa_int_32.size = 4
 
 -- Display: Mantissa int 32
@@ -318,7 +318,7 @@ end
 -- Security Alt Id Source
 cme_brokertec_ust_sbe_v10_1.security_alt_id_source = {}
 
--- Size: Security Alt Id Source
+-- Size Of: Security Alt Id Source
 cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size = 1
 
 -- Display: Security Alt Id Source
@@ -354,7 +354,7 @@ end
 -- Security Alt Id
 cme_brokertec_ust_sbe_v10_1.security_alt_id = {}
 
--- Size: Security Alt Id
+-- Size Of: Security Alt Id
 cme_brokertec_ust_sbe_v10_1.security_alt_id.size = 12
 
 -- Display: Security Alt Id
@@ -393,7 +393,7 @@ end
 -- Maturity Date
 cme_brokertec_ust_sbe_v10_1.maturity_date = {}
 
--- Size: Maturity Date
+-- Size Of: Maturity Date
 cme_brokertec_ust_sbe_v10_1.maturity_date.size = 2
 
 -- Display: Maturity Date
@@ -421,7 +421,7 @@ end
 -- Symbol
 cme_brokertec_ust_sbe_v10_1.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 cme_brokertec_ust_sbe_v10_1.symbol.size = 20
 
 -- Display: Symbol
@@ -460,7 +460,7 @@ end
 -- Trade Volume
 cme_brokertec_ust_sbe_v10_1.trade_volume = {}
 
--- Size: Trade Volume
+-- Size Of: Trade Volume
 cme_brokertec_ust_sbe_v10_1.trade_volume.size = 4
 
 -- Display: Trade Volume
@@ -488,7 +488,7 @@ end
 -- Md Price Level
 cme_brokertec_ust_sbe_v10_1.md_price_level = {}
 
--- Size: Md Price Level
+-- Size Of: Md Price Level
 cme_brokertec_ust_sbe_v10_1.md_price_level.size = 1
 
 -- Display: Md Price Level
@@ -516,7 +516,7 @@ end
 -- Md Entry Size
 cme_brokertec_ust_sbe_v10_1.md_entry_size = {}
 
--- Size: Md Entry Size
+-- Size Of: Md Entry Size
 cme_brokertec_ust_sbe_v10_1.md_entry_size.size = 4
 
 -- Display: Md Entry Size
@@ -544,7 +544,7 @@ end
 -- Mantissa int 64
 cme_brokertec_ust_sbe_v10_1.mantissa_int_64 = {}
 
--- Size: Mantissa int 64
+-- Size Of: Mantissa int 64
 cme_brokertec_ust_sbe_v10_1.mantissa_int_64.size = 8
 
 -- Display: Mantissa int 64
@@ -618,7 +618,7 @@ end
 -- Md Entry Type
 cme_brokertec_ust_sbe_v10_1.md_entry_type = {}
 
--- Size: Md Entry Type
+-- Size Of: Md Entry Type
 cme_brokertec_ust_sbe_v10_1.md_entry_type.size = 1
 
 -- Display: Md Entry Type
@@ -688,7 +688,7 @@ end
 -- Md Update Action
 cme_brokertec_ust_sbe_v10_1.md_update_action = {}
 
--- Size: Md Update Action
+-- Size Of: Md Update Action
 cme_brokertec_ust_sbe_v10_1.md_update_action.size = 1
 
 -- Display: Md Update Action
@@ -721,38 +721,21 @@ end
 -- M D Incremental Refresh Btec Group
 cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group = {}
 
--- Calculate size of: M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_update_action.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_entry_type.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_entry_px.size(buffer, offset + index)
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_entry_size.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.md_price_level.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.trade_volume.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.symbol.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.maturity_date.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.security_alt_id.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.coupon_rate.size(buffer, offset + index)
-
-  index = index + cme_brokertec_ust_sbe_v10_1.trade_condition.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.price_type.size
-
-  return index
-end
+-- Size Of: M D Incremental Refresh Btec Group
+cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.size =
+  cme_brokertec_ust_sbe_v10_1.md_update_action.size + 
+  cme_brokertec_ust_sbe_v10_1.md_entry_type.size + 
+  cme_brokertec_ust_sbe_v10_1.md_entry_px.size + 
+  cme_brokertec_ust_sbe_v10_1.md_entry_size.size + 
+  cme_brokertec_ust_sbe_v10_1.md_price_level.size + 
+  cme_brokertec_ust_sbe_v10_1.trade_volume.size + 
+  cme_brokertec_ust_sbe_v10_1.symbol.size + 
+  cme_brokertec_ust_sbe_v10_1.maturity_date.size + 
+  cme_brokertec_ust_sbe_v10_1.security_alt_id.size + 
+  cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size + 
+  cme_brokertec_ust_sbe_v10_1.coupon_rate.size + 
+  cme_brokertec_ust_sbe_v10_1.trade_condition.size + 
+  cme_brokertec_ust_sbe_v10_1.price_type.size;
 
 -- Display: M D Incremental Refresh Btec Group
 cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_group.display = function(packet, parent, length)
@@ -832,7 +815,7 @@ end
 -- Num In Group uint 8
 cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8 = {}
 
--- Size: Num In Group uint 8
+-- Size Of: Num In Group uint 8
 cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size = 1
 
 -- Display: Num In Group uint 8
@@ -855,7 +838,7 @@ end
 -- Block Length
 cme_brokertec_ust_sbe_v10_1.block_length = {}
 
--- Size: Block Length
+-- Size Of: Block Length
 cme_brokertec_ust_sbe_v10_1.block_length.size = 2
 
 -- Display: Block Length
@@ -878,16 +861,10 @@ end
 -- Group Size
 cme_brokertec_ust_sbe_v10_1.group_size = {}
 
--- Calculate size of: Group Size
-cme_brokertec_ust_sbe_v10_1.group_size.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.block_length.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size
-
-  return index
-end
+-- Size Of: Group Size
+cme_brokertec_ust_sbe_v10_1.group_size.size =
+  cme_brokertec_ust_sbe_v10_1.block_length.size + 
+  cme_brokertec_ust_sbe_v10_1.num_in_group_uint_8.size;
 
 -- Display: Group Size
 cme_brokertec_ust_sbe_v10_1.group_size.display = function(packet, parent, length)
@@ -932,7 +909,7 @@ cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups = {}
 cme_brokertec_ust_sbe_v10_1.m_d_incremental_refresh_btec_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_brokertec_ust_sbe_v10_1.group_size.size(buffer, offset + index)
+  index = index + cme_brokertec_ust_sbe_v10_1.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_btec_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -980,7 +957,7 @@ end
 -- Transact Time
 cme_brokertec_ust_sbe_v10_1.transact_time = {}
 
--- Size: Transact Time
+-- Size Of: Transact Time
 cme_brokertec_ust_sbe_v10_1.transact_time.size = 8
 
 -- Display: Transact Time
@@ -1007,7 +984,7 @@ end
 -- Trade Date
 cme_brokertec_ust_sbe_v10_1.trade_date = {}
 
--- Size: Trade Date
+-- Size Of: Trade Date
 cme_brokertec_ust_sbe_v10_1.trade_date.size = 2
 
 -- Display: Trade Date
@@ -1140,7 +1117,7 @@ end
 -- Version
 cme_brokertec_ust_sbe_v10_1.version = {}
 
--- Size: Version
+-- Size Of: Version
 cme_brokertec_ust_sbe_v10_1.version.size = 2
 
 -- Display: Version
@@ -1163,7 +1140,7 @@ end
 -- Schema Id
 cme_brokertec_ust_sbe_v10_1.schema_id = {}
 
--- Size: Schema Id
+-- Size Of: Schema Id
 cme_brokertec_ust_sbe_v10_1.schema_id.size = 2
 
 -- Display: Schema Id
@@ -1186,7 +1163,7 @@ end
 -- Template Id
 cme_brokertec_ust_sbe_v10_1.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 cme_brokertec_ust_sbe_v10_1.template_id.size = 2
 
 -- Display: Template Id
@@ -1216,20 +1193,12 @@ end
 -- Message Header
 cme_brokertec_ust_sbe_v10_1.message_header = {}
 
--- Calculate size of: Message Header
-cme_brokertec_ust_sbe_v10_1.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.block_length.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.template_id.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.schema_id.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.version.size
-
-  return index
-end
+-- Size Of: Message Header
+cme_brokertec_ust_sbe_v10_1.message_header.size =
+  cme_brokertec_ust_sbe_v10_1.block_length.size + 
+  cme_brokertec_ust_sbe_v10_1.template_id.size + 
+  cme_brokertec_ust_sbe_v10_1.schema_id.size + 
+  cme_brokertec_ust_sbe_v10_1.version.size;
 
 -- Display: Message Header
 cme_brokertec_ust_sbe_v10_1.message_header.display = function(packet, parent, length)
@@ -1276,7 +1245,7 @@ end
 -- Message Size
 cme_brokertec_ust_sbe_v10_1.message_size = {}
 
--- Size: Message Size
+-- Size Of: Message Size
 cme_brokertec_ust_sbe_v10_1.message_size.size = 2
 
 -- Display: Message Size
@@ -1305,7 +1274,7 @@ cme_brokertec_ust_sbe_v10_1.message.size = function(buffer, offset)
 
   index = index + cme_brokertec_ust_sbe_v10_1.message_size.size
 
-  index = index + cme_brokertec_ust_sbe_v10_1.message_header.size(buffer, offset + index)
+  index = index + cme_brokertec_ust_sbe_v10_1.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1355,7 +1324,7 @@ end
 -- Sending Time
 cme_brokertec_ust_sbe_v10_1.sending_time = {}
 
--- Size: Sending Time
+-- Size Of: Sending Time
 cme_brokertec_ust_sbe_v10_1.sending_time.size = 8
 
 -- Display: Sending Time
@@ -1382,7 +1351,7 @@ end
 -- Message Sequence Number
 cme_brokertec_ust_sbe_v10_1.message_sequence_number = {}
 
--- Size: Message Sequence Number
+-- Size Of: Message Sequence Number
 cme_brokertec_ust_sbe_v10_1.message_sequence_number.size = 4
 
 -- Display: Message Sequence Number
@@ -1405,16 +1374,10 @@ end
 -- Binary Packet Header
 cme_brokertec_ust_sbe_v10_1.binary_packet_header = {}
 
--- Calculate size of: Binary Packet Header
-cme_brokertec_ust_sbe_v10_1.binary_packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_brokertec_ust_sbe_v10_1.message_sequence_number.size
-
-  index = index + cme_brokertec_ust_sbe_v10_1.sending_time.size
-
-  return index
-end
+-- Size Of: Binary Packet Header
+cme_brokertec_ust_sbe_v10_1.binary_packet_header.size =
+  cme_brokertec_ust_sbe_v10_1.message_sequence_number.size + 
+  cme_brokertec_ust_sbe_v10_1.sending_time.size;
 
 -- Display: Binary Packet Header
 cme_brokertec_ust_sbe_v10_1.binary_packet_header.display = function(packet, parent, length)

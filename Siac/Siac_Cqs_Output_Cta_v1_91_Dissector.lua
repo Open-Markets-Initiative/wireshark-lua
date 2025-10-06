@@ -386,7 +386,7 @@ end
 -- Block Pad Byte
 siac_cqs_output_cta_v1_91.block_pad_byte = {}
 
--- Size: Block Pad Byte
+-- Size Of: Block Pad Byte
 siac_cqs_output_cta_v1_91.block_pad_byte.size = 1
 
 -- Display: Block Pad Byte
@@ -409,7 +409,7 @@ end
 -- Best Offer Size Short
 siac_cqs_output_cta_v1_91.best_offer_size_short = {}
 
--- Size: Best Offer Size Short
+-- Size Of: Best Offer Size Short
 siac_cqs_output_cta_v1_91.best_offer_size_short.size = 2
 
 -- Display: Best Offer Size Short
@@ -432,7 +432,7 @@ end
 -- Best Offer Price Short
 siac_cqs_output_cta_v1_91.best_offer_price_short = {}
 
--- Size: Best Offer Price Short
+-- Size Of: Best Offer Price Short
 siac_cqs_output_cta_v1_91.best_offer_price_short.size = 2
 
 -- Display: Best Offer Price Short
@@ -461,7 +461,7 @@ end
 -- Best Offer Participant Id
 siac_cqs_output_cta_v1_91.best_offer_participant_id = {}
 
--- Size: Best Offer Participant Id
+-- Size Of: Best Offer Participant Id
 siac_cqs_output_cta_v1_91.best_offer_participant_id.size = 1
 
 -- Display: Best Offer Participant Id
@@ -539,18 +539,11 @@ end
 -- National Best Offer Short Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_short_appendage = {}
 
--- Calculate size of: National Best Offer Short Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_price_short.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_size_short.size
-
-  return index
-end
+-- Size Of: National Best Offer Short Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size =
+  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_offer_price_short.size + 
+  siac_cqs_output_cta_v1_91.best_offer_size_short.size;
 
 -- Display: National Best Offer Short Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.display = function(packet, parent, length)
@@ -594,7 +587,7 @@ end
 -- Best Bid Size Short
 siac_cqs_output_cta_v1_91.best_bid_size_short = {}
 
--- Size: Best Bid Size Short
+-- Size Of: Best Bid Size Short
 siac_cqs_output_cta_v1_91.best_bid_size_short.size = 2
 
 -- Display: Best Bid Size Short
@@ -617,7 +610,7 @@ end
 -- Best Bid Price Short
 siac_cqs_output_cta_v1_91.best_bid_price_short = {}
 
--- Size: Best Bid Price Short
+-- Size Of: Best Bid Price Short
 siac_cqs_output_cta_v1_91.best_bid_price_short.size = 2
 
 -- Display: Best Bid Price Short
@@ -646,7 +639,7 @@ end
 -- Best Bid Participant Id
 siac_cqs_output_cta_v1_91.best_bid_participant_id = {}
 
--- Size: Best Bid Participant Id
+-- Size Of: Best Bid Participant Id
 siac_cqs_output_cta_v1_91.best_bid_participant_id.size = 1
 
 -- Display: Best Bid Participant Id
@@ -724,18 +717,11 @@ end
 -- National Best Bid Short Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_short_appendage = {}
 
--- Calculate size of: National Best Bid Short Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_price_short.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_size_short.size
-
-  return index
-end
+-- Size Of: National Best Bid Short Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size =
+  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_bid_price_short.size + 
+  siac_cqs_output_cta_v1_91.best_bid_size_short.size;
 
 -- Display: National Best Bid Short Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.display = function(packet, parent, length)
@@ -779,7 +765,7 @@ end
 -- Finra Best Offer Market Maker Id
 siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id = {}
 
--- Size: Finra Best Offer Market Maker Id
+-- Size Of: Finra Best Offer Market Maker Id
 siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size = 4
 
 -- Display: Finra Best Offer Market Maker Id
@@ -802,7 +788,7 @@ end
 -- Best Offer Size Long
 siac_cqs_output_cta_v1_91.best_offer_size_long = {}
 
--- Size: Best Offer Size Long
+-- Size Of: Best Offer Size Long
 siac_cqs_output_cta_v1_91.best_offer_size_long.size = 4
 
 -- Display: Best Offer Size Long
@@ -825,7 +811,7 @@ end
 -- Best Offer Price Long
 siac_cqs_output_cta_v1_91.best_offer_price_long = {}
 
--- Size: Best Offer Price Long
+-- Size Of: Best Offer Price Long
 siac_cqs_output_cta_v1_91.best_offer_price_long.size = 8
 
 -- Display: Best Offer Price Long
@@ -854,7 +840,7 @@ end
 -- Best Offer Quote Condition
 siac_cqs_output_cta_v1_91.best_offer_quote_condition = {}
 
--- Size: Best Offer Quote Condition
+-- Size Of: Best Offer Quote Condition
 siac_cqs_output_cta_v1_91.best_offer_quote_condition.size = 1
 
 -- Display: Best Offer Quote Condition
@@ -877,22 +863,13 @@ end
 -- National Best Offer Long Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_long_appendage = {}
 
--- Calculate size of: National Best Offer Long Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_quote_condition.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_price_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_offer_size_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
-
-  return index
-end
+-- Size Of: National Best Offer Long Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size =
+  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_offer_quote_condition.size + 
+  siac_cqs_output_cta_v1_91.best_offer_price_long.size + 
+  siac_cqs_output_cta_v1_91.best_offer_size_long.size + 
+  siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size;
 
 -- Display: National Best Offer Long Appendage
 siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.display = function(packet, parent, length)
@@ -942,7 +919,7 @@ end
 -- Finra Best Bid Market Maker Id
 siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id = {}
 
--- Size: Finra Best Bid Market Maker Id
+-- Size Of: Finra Best Bid Market Maker Id
 siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size = 4
 
 -- Display: Finra Best Bid Market Maker Id
@@ -965,7 +942,7 @@ end
 -- Best Bid Size Long
 siac_cqs_output_cta_v1_91.best_bid_size_long = {}
 
--- Size: Best Bid Size Long
+-- Size Of: Best Bid Size Long
 siac_cqs_output_cta_v1_91.best_bid_size_long.size = 4
 
 -- Display: Best Bid Size Long
@@ -988,7 +965,7 @@ end
 -- Best Bid Price Long
 siac_cqs_output_cta_v1_91.best_bid_price_long = {}
 
--- Size: Best Bid Price Long
+-- Size Of: Best Bid Price Long
 siac_cqs_output_cta_v1_91.best_bid_price_long.size = 8
 
 -- Display: Best Bid Price Long
@@ -1017,7 +994,7 @@ end
 -- Best Bid Quote Condition
 siac_cqs_output_cta_v1_91.best_bid_quote_condition = {}
 
--- Size: Best Bid Quote Condition
+-- Size Of: Best Bid Quote Condition
 siac_cqs_output_cta_v1_91.best_bid_quote_condition.size = 1
 
 -- Display: Best Bid Quote Condition
@@ -1040,22 +1017,13 @@ end
 -- National Best Bid Long Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_long_appendage = {}
 
--- Calculate size of: National Best Bid Long Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_participant_id.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_quote_condition.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_price_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.best_bid_size_long.size
-
-  index = index + siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size
-
-  return index
-end
+-- Size Of: National Best Bid Long Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size =
+  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_bid_quote_condition.size + 
+  siac_cqs_output_cta_v1_91.best_bid_price_long.size + 
+  siac_cqs_output_cta_v1_91.best_bid_size_long.size + 
+  siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size;
 
 -- Display: National Best Bid Long Appendage
 siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.display = function(packet, parent, length)
@@ -1105,7 +1073,7 @@ end
 -- National Bbo Indicator
 siac_cqs_output_cta_v1_91.national_bbo_indicator = {}
 
--- Size: National Bbo Indicator
+-- Size Of: National Bbo Indicator
 siac_cqs_output_cta_v1_91.national_bbo_indicator.size = 1
 
 -- Display: National Bbo Indicator
@@ -1201,7 +1169,7 @@ end
 -- National Bbo Luld Indicator
 siac_cqs_output_cta_v1_91.national_bbo_luld_indicator = {}
 
--- Size: National Bbo Luld Indicator
+-- Size Of: National Bbo Luld Indicator
 siac_cqs_output_cta_v1_91.national_bbo_luld_indicator.size = 1
 
 -- Display: National Bbo Luld Indicator
@@ -1255,7 +1223,7 @@ end
 -- Finra Bbo Luld Indicator
 siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator = {}
 
--- Size: Finra Bbo Luld Indicator
+-- Size Of: Finra Bbo Luld Indicator
 siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.size = 1
 
 -- Display: Finra Bbo Luld Indicator
@@ -1294,7 +1262,7 @@ end
 -- Sip Generated Message Identifier
 siac_cqs_output_cta_v1_91.sip_generated_message_identifier = {}
 
--- Size: Sip Generated Message Identifier
+-- Size Of: Sip Generated Message Identifier
 siac_cqs_output_cta_v1_91.sip_generated_message_identifier.size = 1
 
 -- Display: Sip Generated Message Identifier
@@ -1324,7 +1292,7 @@ end
 -- Financial Status Indicator
 siac_cqs_output_cta_v1_91.financial_status_indicator = {}
 
--- Size: Financial Status Indicator
+-- Size Of: Financial Status Indicator
 siac_cqs_output_cta_v1_91.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
@@ -1381,7 +1349,7 @@ end
 -- Primary Listing Market Participant Id
 siac_cqs_output_cta_v1_91.primary_listing_market_participant_id = {}
 
--- Size: Primary Listing Market Participant Id
+-- Size Of: Primary Listing Market Participant Id
 siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.size = 1
 
 -- Display: Primary Listing Market Participant Id
@@ -1456,7 +1424,7 @@ end
 -- Short Sale Restriction Indicator
 siac_cqs_output_cta_v1_91.short_sale_restriction_indicator = {}
 
--- Size: Short Sale Restriction Indicator
+-- Size Of: Short Sale Restriction Indicator
 siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size = 1
 
 -- Display: Short Sale Restriction Indicator
@@ -1495,7 +1463,7 @@ end
 -- Nanoseconds
 siac_cqs_output_cta_v1_91.nanoseconds = {}
 
--- Size: Nanoseconds
+-- Size Of: Nanoseconds
 siac_cqs_output_cta_v1_91.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -1518,7 +1486,7 @@ end
 -- Seconds
 siac_cqs_output_cta_v1_91.seconds = {}
 
--- Size: Seconds
+-- Size Of: Seconds
 siac_cqs_output_cta_v1_91.seconds.size = 4
 
 -- Display: Seconds
@@ -1541,16 +1509,10 @@ end
 -- Adf Timestamp
 siac_cqs_output_cta_v1_91.adf_timestamp = {}
 
--- Calculate size of: Adf Timestamp
-siac_cqs_output_cta_v1_91.adf_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.seconds.size
-
-  index = index + siac_cqs_output_cta_v1_91.nanoseconds.size
-
-  return index
-end
+-- Size Of: Adf Timestamp
+siac_cqs_output_cta_v1_91.adf_timestamp.size =
+  siac_cqs_output_cta_v1_91.seconds.size + 
+  siac_cqs_output_cta_v1_91.nanoseconds.size;
 
 -- Display: Adf Timestamp
 siac_cqs_output_cta_v1_91.adf_timestamp.display = function(packet, parent, length)
@@ -1591,7 +1553,7 @@ end
 -- Finra Best Offer Size
 siac_cqs_output_cta_v1_91.finra_best_offer_size = {}
 
--- Size: Finra Best Offer Size
+-- Size Of: Finra Best Offer Size
 siac_cqs_output_cta_v1_91.finra_best_offer_size.size = 4
 
 -- Display: Finra Best Offer Size
@@ -1614,7 +1576,7 @@ end
 -- Finra Best Offer Price
 siac_cqs_output_cta_v1_91.finra_best_offer_price = {}
 
--- Size: Finra Best Offer Price
+-- Size Of: Finra Best Offer Price
 siac_cqs_output_cta_v1_91.finra_best_offer_price.size = 8
 
 -- Display: Finra Best Offer Price
@@ -1643,7 +1605,7 @@ end
 -- Finra Best Offer Quote Condition
 siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition = {}
 
--- Size: Finra Best Offer Quote Condition
+-- Size Of: Finra Best Offer Quote Condition
 siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.size = 1
 
 -- Display: Finra Best Offer Quote Condition
@@ -1666,7 +1628,7 @@ end
 -- Finra Best Bid Size
 siac_cqs_output_cta_v1_91.finra_best_bid_size = {}
 
--- Size: Finra Best Bid Size
+-- Size Of: Finra Best Bid Size
 siac_cqs_output_cta_v1_91.finra_best_bid_size.size = 4
 
 -- Display: Finra Best Bid Size
@@ -1689,7 +1651,7 @@ end
 -- Finra Best Bid Price
 siac_cqs_output_cta_v1_91.finra_best_bid_price = {}
 
--- Size: Finra Best Bid Price
+-- Size Of: Finra Best Bid Price
 siac_cqs_output_cta_v1_91.finra_best_bid_price.size = 8
 
 -- Display: Finra Best Bid Price
@@ -1718,7 +1680,7 @@ end
 -- Finra Best Bid Quote Condition
 siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition = {}
 
--- Size: Finra Best Bid Quote Condition
+-- Size Of: Finra Best Bid Quote Condition
 siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.size = 1
 
 -- Display: Finra Best Bid Quote Condition
@@ -1741,7 +1703,7 @@ end
 -- Finra Market Maker Id
 siac_cqs_output_cta_v1_91.finra_market_maker_id = {}
 
--- Size: Finra Market Maker Id
+-- Size Of: Finra Market Maker Id
 siac_cqs_output_cta_v1_91.finra_market_maker_id.size = 4
 
 -- Display: Finra Market Maker Id
@@ -1764,7 +1726,7 @@ end
 -- Market Condition
 siac_cqs_output_cta_v1_91.market_condition = {}
 
--- Size: Market Condition
+-- Size Of: Market Condition
 siac_cqs_output_cta_v1_91.market_condition.size = 1
 
 -- Display: Market Condition
@@ -1797,7 +1759,7 @@ end
 -- Settlement Condition
 siac_cqs_output_cta_v1_91.settlement_condition = {}
 
--- Size: Settlement Condition
+-- Size Of: Settlement Condition
 siac_cqs_output_cta_v1_91.settlement_condition.size = 1
 
 -- Display: Settlement Condition
@@ -1830,7 +1792,7 @@ end
 -- Retail Interest Indicator
 siac_cqs_output_cta_v1_91.retail_interest_indicator = {}
 
--- Size: Retail Interest Indicator
+-- Size Of: Retail Interest Indicator
 siac_cqs_output_cta_v1_91.retail_interest_indicator.size = 1
 
 -- Display: Retail Interest Indicator
@@ -1866,7 +1828,7 @@ end
 -- Offer Size Long
 siac_cqs_output_cta_v1_91.offer_size_long = {}
 
--- Size: Offer Size Long
+-- Size Of: Offer Size Long
 siac_cqs_output_cta_v1_91.offer_size_long.size = 4
 
 -- Display: Offer Size Long
@@ -1889,7 +1851,7 @@ end
 -- Offer Price Long
 siac_cqs_output_cta_v1_91.offer_price_long = {}
 
--- Size: Offer Price Long
+-- Size Of: Offer Price Long
 siac_cqs_output_cta_v1_91.offer_price_long.size = 8
 
 -- Display: Offer Price Long
@@ -1918,7 +1880,7 @@ end
 -- Bid Size Long
 siac_cqs_output_cta_v1_91.bid_size_long = {}
 
--- Size: Bid Size Long
+-- Size Of: Bid Size Long
 siac_cqs_output_cta_v1_91.bid_size_long.size = 4
 
 -- Display: Bid Size Long
@@ -1941,7 +1903,7 @@ end
 -- Bid Price Long
 siac_cqs_output_cta_v1_91.bid_price_long = {}
 
--- Size: Bid Price Long
+-- Size Of: Bid Price Long
 siac_cqs_output_cta_v1_91.bid_price_long.size = 8
 
 -- Display: Bid Price Long
@@ -1970,7 +1932,7 @@ end
 -- Security Status Indicator
 siac_cqs_output_cta_v1_91.security_status_indicator = {}
 
--- Size: Security Status Indicator
+-- Size Of: Security Status Indicator
 siac_cqs_output_cta_v1_91.security_status_indicator.size = 1
 
 -- Display: Security Status Indicator
@@ -2039,7 +2001,7 @@ end
 -- Quote Condition
 siac_cqs_output_cta_v1_91.quote_condition = {}
 
--- Size: Quote Condition
+-- Size Of: Quote Condition
 siac_cqs_output_cta_v1_91.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -2105,7 +2067,7 @@ end
 -- Instrument Type
 siac_cqs_output_cta_v1_91.instrument_type = {}
 
--- Size: Instrument Type
+-- Size Of: Instrument Type
 siac_cqs_output_cta_v1_91.instrument_type.size = 1
 
 -- Display: Instrument Type
@@ -2141,7 +2103,7 @@ end
 -- Security Symbol Long
 siac_cqs_output_cta_v1_91.security_symbol_long = {}
 
--- Size: Security Symbol Long
+-- Size Of: Security Symbol Long
 siac_cqs_output_cta_v1_91.security_symbol_long.size = 11
 
 -- Display: Security Symbol Long
@@ -2164,7 +2126,7 @@ end
 -- Participant Reference Number
 siac_cqs_output_cta_v1_91.participant_reference_number = {}
 
--- Size: Participant Reference Number
+-- Size Of: Participant Reference Number
 siac_cqs_output_cta_v1_91.participant_reference_number.size = 8
 
 -- Display: Participant Reference Number
@@ -2187,7 +2149,7 @@ end
 -- Transaction Id
 siac_cqs_output_cta_v1_91.transaction_id = {}
 
--- Size: Transaction Id
+-- Size Of: Transaction Id
 siac_cqs_output_cta_v1_91.transaction_id.size = 4
 
 -- Display: Transaction Id
@@ -2210,7 +2172,7 @@ end
 -- Message Id
 siac_cqs_output_cta_v1_91.message_id = {}
 
--- Size: Message Id
+-- Size Of: Message Id
 siac_cqs_output_cta_v1_91.message_id.size = 1
 
 -- Display: Message Id
@@ -2233,16 +2195,10 @@ end
 -- Participant Timestamp
 siac_cqs_output_cta_v1_91.participant_timestamp = {}
 
--- Calculate size of: Participant Timestamp
-siac_cqs_output_cta_v1_91.participant_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.seconds.size
-
-  index = index + siac_cqs_output_cta_v1_91.nanoseconds.size
-
-  return index
-end
+-- Size Of: Participant Timestamp
+siac_cqs_output_cta_v1_91.participant_timestamp.size =
+  siac_cqs_output_cta_v1_91.seconds.size + 
+  siac_cqs_output_cta_v1_91.nanoseconds.size;
 
 -- Display: Participant Timestamp
 siac_cqs_output_cta_v1_91.participant_timestamp.display = function(packet, parent, length)
@@ -2283,7 +2239,7 @@ end
 -- Participant Id
 siac_cqs_output_cta_v1_91.participant_id = {}
 
--- Size: Participant Id
+-- Size Of: Participant Id
 siac_cqs_output_cta_v1_91.participant_id.size = 1
 
 -- Display: Participant Id
@@ -2538,7 +2494,7 @@ end
 -- Offer Size Short
 siac_cqs_output_cta_v1_91.offer_size_short = {}
 
--- Size: Offer Size Short
+-- Size Of: Offer Size Short
 siac_cqs_output_cta_v1_91.offer_size_short.size = 2
 
 -- Display: Offer Size Short
@@ -2561,7 +2517,7 @@ end
 -- Offer Price Short
 siac_cqs_output_cta_v1_91.offer_price_short = {}
 
--- Size: Offer Price Short
+-- Size Of: Offer Price Short
 siac_cqs_output_cta_v1_91.offer_price_short.size = 2
 
 -- Display: Offer Price Short
@@ -2590,7 +2546,7 @@ end
 -- Bid Size Short
 siac_cqs_output_cta_v1_91.bid_size_short = {}
 
--- Size: Bid Size Short
+-- Size Of: Bid Size Short
 siac_cqs_output_cta_v1_91.bid_size_short.size = 2
 
 -- Display: Bid Size Short
@@ -2613,7 +2569,7 @@ end
 -- Bid Price Short
 siac_cqs_output_cta_v1_91.bid_price_short = {}
 
--- Size: Bid Price Short
+-- Size Of: Bid Price Short
 siac_cqs_output_cta_v1_91.bid_price_short.size = 2
 
 -- Display: Bid Price Short
@@ -2642,7 +2598,7 @@ end
 -- Security Symbol Short
 siac_cqs_output_cta_v1_91.security_symbol_short = {}
 
--- Size: Security Symbol Short
+-- Size Of: Security Symbol Short
 siac_cqs_output_cta_v1_91.security_symbol_short.size = 5
 
 -- Display: Security Symbol Short
@@ -2779,7 +2735,7 @@ end
 -- Luld Indicator
 siac_cqs_output_cta_v1_91.luld_indicator = {}
 
--- Size: Luld Indicator
+-- Size Of: Luld Indicator
 siac_cqs_output_cta_v1_91.luld_indicator.size = 1
 
 -- Display: Luld Indicator
@@ -2802,7 +2758,7 @@ end
 -- Finra Bbo Indicator
 siac_cqs_output_cta_v1_91.finra_bbo_indicator = {}
 
--- Size: Finra Bbo Indicator
+-- Size Of: Finra Bbo Indicator
 siac_cqs_output_cta_v1_91.finra_bbo_indicator.size = 1
 
 -- Display: Finra Bbo Indicator
@@ -2835,7 +2791,7 @@ end
 -- Offer Price Upper Limit Price Band
 siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band = {}
 
--- Size: Offer Price Upper Limit Price Band
+-- Size Of: Offer Price Upper Limit Price Band
 siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.size = 8
 
 -- Display: Offer Price Upper Limit Price Band
@@ -2864,7 +2820,7 @@ end
 -- Bid Price Lower Limit Price Band
 siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band = {}
 
--- Size: Bid Price Lower Limit Price Band
+-- Size Of: Bid Price Lower Limit Price Band
 siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.size = 8
 
 -- Display: Bid Price Lower Limit Price Band
@@ -3049,7 +3005,7 @@ end
 -- Future
 siac_cqs_output_cta_v1_91.future = {}
 
--- Size: Future
+-- Size Of: Future
 siac_cqs_output_cta_v1_91.future.size = 1
 
 -- Display: Future
@@ -3072,7 +3028,7 @@ end
 -- Number Of Extensions
 siac_cqs_output_cta_v1_91.number_of_extensions = {}
 
--- Size: Number Of Extensions
+-- Size Of: Number Of Extensions
 siac_cqs_output_cta_v1_91.number_of_extensions.size = 1
 
 -- Display: Number Of Extensions
@@ -3254,7 +3210,7 @@ end
 -- Quote Message Type
 siac_cqs_output_cta_v1_91.quote_message_type = {}
 
--- Size: Quote Message Type
+-- Size Of: Quote Message Type
 siac_cqs_output_cta_v1_91.quote_message_type.size = 1
 
 -- Display: Quote Message Type
@@ -3338,7 +3294,7 @@ end
 -- Reserved
 siac_cqs_output_cta_v1_91.reserved = {}
 
--- Size: Reserved
+-- Size Of: Reserved
 siac_cqs_output_cta_v1_91.reserved.size = 1
 
 -- Display: Reserved
@@ -3424,7 +3380,7 @@ end
 -- Mwcb Level 3
 siac_cqs_output_cta_v1_91.mwcb_level_3 = {}
 
--- Size: Mwcb Level 3
+-- Size Of: Mwcb Level 3
 siac_cqs_output_cta_v1_91.mwcb_level_3.size = 8
 
 -- Display: Mwcb Level 3
@@ -3447,7 +3403,7 @@ end
 -- Mwcb Level 2
 siac_cqs_output_cta_v1_91.mwcb_level_2 = {}
 
--- Size: Mwcb Level 2
+-- Size Of: Mwcb Level 2
 siac_cqs_output_cta_v1_91.mwcb_level_2.size = 8
 
 -- Display: Mwcb Level 2
@@ -3595,7 +3551,7 @@ end
 -- Market Status Message Type
 siac_cqs_output_cta_v1_91.market_status_message_type = {}
 
--- Size: Market Status Message Type
+-- Size Of: Market Status Message Type
 siac_cqs_output_cta_v1_91.market_status_message_type.size = 1
 
 -- Display: Market Status Message Type
@@ -4298,7 +4254,7 @@ end
 -- Control Message Type
 siac_cqs_output_cta_v1_91.control_message_type = {}
 
--- Size: Control Message Type
+-- Size Of: Control Message Type
 siac_cqs_output_cta_v1_91.control_message_type.size = 1
 
 -- Display: Control Message Type
@@ -4505,7 +4461,7 @@ end
 -- Administrative Message Type
 siac_cqs_output_cta_v1_91.administrative_message_type = {}
 
--- Size: Administrative Message Type
+-- Size Of: Administrative Message Type
 siac_cqs_output_cta_v1_91.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
@@ -4652,7 +4608,7 @@ end
 -- Message Category
 siac_cqs_output_cta_v1_91.message_category = {}
 
--- Size: Message Category
+-- Size Of: Message Category
 siac_cqs_output_cta_v1_91.message_category.size = 1
 
 -- Display: Message Category
@@ -4688,7 +4644,7 @@ end
 -- Message Length
 siac_cqs_output_cta_v1_91.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 siac_cqs_output_cta_v1_91.message_length.size = 2
 
 -- Display: Message Length
@@ -4711,16 +4667,10 @@ end
 -- Message Header
 siac_cqs_output_cta_v1_91.message_header = {}
 
--- Calculate size of: Message Header
-siac_cqs_output_cta_v1_91.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.message_length.size
-
-  index = index + siac_cqs_output_cta_v1_91.message_category.size
-
-  return index
-end
+-- Size Of: Message Header
+siac_cqs_output_cta_v1_91.message_header.size =
+  siac_cqs_output_cta_v1_91.message_length.size + 
+  siac_cqs_output_cta_v1_91.message_category.size;
 
 -- Display: Message Header
 siac_cqs_output_cta_v1_91.message_header.display = function(packet, parent, length)
@@ -4812,7 +4762,7 @@ end
 -- Block Checksum
 siac_cqs_output_cta_v1_91.block_checksum = {}
 
--- Size: Block Checksum
+-- Size Of: Block Checksum
 siac_cqs_output_cta_v1_91.block_checksum.size = 2
 
 -- Display: Block Checksum
@@ -4835,16 +4785,10 @@ end
 -- Sip Block Timestamp
 siac_cqs_output_cta_v1_91.sip_block_timestamp = {}
 
--- Calculate size of: Sip Block Timestamp
-siac_cqs_output_cta_v1_91.sip_block_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.seconds.size
-
-  index = index + siac_cqs_output_cta_v1_91.nanoseconds.size
-
-  return index
-end
+-- Size Of: Sip Block Timestamp
+siac_cqs_output_cta_v1_91.sip_block_timestamp.size =
+  siac_cqs_output_cta_v1_91.seconds.size + 
+  siac_cqs_output_cta_v1_91.nanoseconds.size;
 
 -- Display: Sip Block Timestamp
 siac_cqs_output_cta_v1_91.sip_block_timestamp.display = function(packet, parent, length)
@@ -4885,7 +4829,7 @@ end
 -- Messages In Block
 siac_cqs_output_cta_v1_91.messages_in_block = {}
 
--- Size: Messages In Block
+-- Size Of: Messages In Block
 siac_cqs_output_cta_v1_91.messages_in_block.size = 1
 
 -- Display: Messages In Block
@@ -4908,7 +4852,7 @@ end
 -- Block Sequence Number
 siac_cqs_output_cta_v1_91.block_sequence_number = {}
 
--- Size: Block Sequence Number
+-- Size Of: Block Sequence Number
 siac_cqs_output_cta_v1_91.block_sequence_number.size = 4
 
 -- Display: Block Sequence Number
@@ -4931,7 +4875,7 @@ end
 -- Retransmission Indicator
 siac_cqs_output_cta_v1_91.retransmission_indicator = {}
 
--- Size: Retransmission Indicator
+-- Size Of: Retransmission Indicator
 siac_cqs_output_cta_v1_91.retransmission_indicator.size = 1
 
 -- Display: Retransmission Indicator
@@ -4961,7 +4905,7 @@ end
 -- Data Feed Indicator
 siac_cqs_output_cta_v1_91.data_feed_indicator = {}
 
--- Size: Data Feed Indicator
+-- Size Of: Data Feed Indicator
 siac_cqs_output_cta_v1_91.data_feed_indicator.size = 1
 
 -- Display: Data Feed Indicator
@@ -4984,7 +4928,7 @@ end
 -- Block Size
 siac_cqs_output_cta_v1_91.block_size = {}
 
--- Size: Block Size
+-- Size Of: Block Size
 siac_cqs_output_cta_v1_91.block_size.size = 2
 
 -- Display: Block Size
@@ -5007,7 +4951,7 @@ end
 -- Version
 siac_cqs_output_cta_v1_91.version = {}
 
--- Size: Version
+-- Size Of: Version
 siac_cqs_output_cta_v1_91.version.size = 1
 
 -- Display: Version
@@ -5030,28 +4974,16 @@ end
 -- Block Header
 siac_cqs_output_cta_v1_91.block_header = {}
 
--- Calculate size of: Block Header
-siac_cqs_output_cta_v1_91.block_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_output_cta_v1_91.version.size
-
-  index = index + siac_cqs_output_cta_v1_91.block_size.size
-
-  index = index + siac_cqs_output_cta_v1_91.data_feed_indicator.size
-
-  index = index + siac_cqs_output_cta_v1_91.retransmission_indicator.size
-
-  index = index + siac_cqs_output_cta_v1_91.block_sequence_number.size
-
-  index = index + siac_cqs_output_cta_v1_91.messages_in_block.size
-
-  index = index + siac_cqs_output_cta_v1_91.sip_block_timestamp.size(buffer, offset + index)
-
-  index = index + siac_cqs_output_cta_v1_91.block_checksum.size
-
-  return index
-end
+-- Size Of: Block Header
+siac_cqs_output_cta_v1_91.block_header.size =
+  siac_cqs_output_cta_v1_91.version.size + 
+  siac_cqs_output_cta_v1_91.block_size.size + 
+  siac_cqs_output_cta_v1_91.data_feed_indicator.size + 
+  siac_cqs_output_cta_v1_91.retransmission_indicator.size + 
+  siac_cqs_output_cta_v1_91.block_sequence_number.size + 
+  siac_cqs_output_cta_v1_91.messages_in_block.size + 
+  siac_cqs_output_cta_v1_91.sip_block_timestamp.size + 
+  siac_cqs_output_cta_v1_91.block_checksum.size;
 
 -- Display: Block Header
 siac_cqs_output_cta_v1_91.block_header.display = function(packet, parent, length)

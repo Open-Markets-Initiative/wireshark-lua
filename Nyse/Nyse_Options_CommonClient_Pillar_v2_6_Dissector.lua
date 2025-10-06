@@ -105,7 +105,7 @@ end
 -- Message Type
 nyse_options_commonclient_pillar_v2_6.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 nyse_options_commonclient_pillar_v2_6.message_type.size = 2
 
 -- Display: Message Type
@@ -128,7 +128,7 @@ end
 -- Message Size
 nyse_options_commonclient_pillar_v2_6.message_size = {}
 
--- Size: Message Size
+-- Size Of: Message Size
 nyse_options_commonclient_pillar_v2_6.message_size.size = 2
 
 -- Display: Message Size
@@ -151,16 +151,10 @@ end
 -- Message Header
 nyse_options_commonclient_pillar_v2_6.message_header = {}
 
--- Calculate size of: Message Header
-nyse_options_commonclient_pillar_v2_6.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_commonclient_pillar_v2_6.message_size.size
-
-  index = index + nyse_options_commonclient_pillar_v2_6.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+nyse_options_commonclient_pillar_v2_6.message_header.size =
+  nyse_options_commonclient_pillar_v2_6.message_size.size + 
+  nyse_options_commonclient_pillar_v2_6.message_type.size;
 
 -- Display: Message Header
 nyse_options_commonclient_pillar_v2_6.message_header.display = function(packet, parent, length)
@@ -255,7 +249,7 @@ end
 -- Nanoseconds
 nyse_options_commonclient_pillar_v2_6.nanoseconds = {}
 
--- Size: Nanoseconds
+-- Size Of: Nanoseconds
 nyse_options_commonclient_pillar_v2_6.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -278,7 +272,7 @@ end
 -- Timestamp
 nyse_options_commonclient_pillar_v2_6.timestamp = {}
 
--- Size: Timestamp
+-- Size Of: Timestamp
 nyse_options_commonclient_pillar_v2_6.timestamp.size = 4
 
 -- Display: Timestamp
@@ -301,7 +295,7 @@ end
 -- Sequence Number
 nyse_options_commonclient_pillar_v2_6.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 nyse_options_commonclient_pillar_v2_6.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -324,7 +318,7 @@ end
 -- Message Count
 nyse_options_commonclient_pillar_v2_6.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 nyse_options_commonclient_pillar_v2_6.message_count.size = 1
 
 -- Display: Message Count
@@ -347,7 +341,7 @@ end
 -- Delivery Flag
 nyse_options_commonclient_pillar_v2_6.delivery_flag = {}
 
--- Size: Delivery Flag
+-- Size Of: Delivery Flag
 nyse_options_commonclient_pillar_v2_6.delivery_flag.size = 1
 
 -- Display: Delivery Flag
@@ -404,7 +398,7 @@ end
 -- Packet Size
 nyse_options_commonclient_pillar_v2_6.packet_size = {}
 
--- Size: Packet Size
+-- Size Of: Packet Size
 nyse_options_commonclient_pillar_v2_6.packet_size.size = 2
 
 -- Display: Packet Size
@@ -427,24 +421,14 @@ end
 -- Packet Header
 nyse_options_commonclient_pillar_v2_6.packet_header = {}
 
--- Calculate size of: Packet Header
-nyse_options_commonclient_pillar_v2_6.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_options_commonclient_pillar_v2_6.packet_size.size
-
-  index = index + nyse_options_commonclient_pillar_v2_6.delivery_flag.size
-
-  index = index + nyse_options_commonclient_pillar_v2_6.message_count.size
-
-  index = index + nyse_options_commonclient_pillar_v2_6.sequence_number.size
-
-  index = index + nyse_options_commonclient_pillar_v2_6.timestamp.size
-
-  index = index + nyse_options_commonclient_pillar_v2_6.nanoseconds.size
-
-  return index
-end
+-- Size Of: Packet Header
+nyse_options_commonclient_pillar_v2_6.packet_header.size =
+  nyse_options_commonclient_pillar_v2_6.packet_size.size + 
+  nyse_options_commonclient_pillar_v2_6.delivery_flag.size + 
+  nyse_options_commonclient_pillar_v2_6.message_count.size + 
+  nyse_options_commonclient_pillar_v2_6.sequence_number.size + 
+  nyse_options_commonclient_pillar_v2_6.timestamp.size + 
+  nyse_options_commonclient_pillar_v2_6.nanoseconds.size;
 
 -- Display: Packet Header
 nyse_options_commonclient_pillar_v2_6.packet_header.display = function(packet, parent, length)

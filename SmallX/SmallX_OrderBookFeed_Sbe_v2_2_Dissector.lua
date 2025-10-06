@@ -375,7 +375,7 @@ end
 -- Leg Side
 smallx_orderbookfeed_sbe_v2_2.leg_side = {}
 
--- Size: Leg Side
+-- Size Of: Leg Side
 smallx_orderbookfeed_sbe_v2_2.leg_side.size = 1
 
 -- Display: Leg Side
@@ -418,7 +418,7 @@ end
 -- Leg Ratio Quantity
 smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity = {}
 
--- Size: Leg Ratio Quantity
+-- Size Of: Leg Ratio Quantity
 smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size = 8
 
 -- Display: Leg Ratio Quantity
@@ -447,7 +447,7 @@ end
 -- Leg Product
 smallx_orderbookfeed_sbe_v2_2.leg_product = {}
 
--- Size: Leg Product
+-- Size Of: Leg Product
 smallx_orderbookfeed_sbe_v2_2.leg_product.size = 8
 
 -- Display: Leg Product
@@ -486,7 +486,7 @@ end
 -- Leg Symbol
 smallx_orderbookfeed_sbe_v2_2.leg_symbol = {}
 
--- Size: Leg Symbol
+-- Size Of: Leg Symbol
 smallx_orderbookfeed_sbe_v2_2.leg_symbol.size = 25
 
 -- Display: Leg Symbol
@@ -525,7 +525,7 @@ end
 -- Leg Instrument Id
 smallx_orderbookfeed_sbe_v2_2.leg_instrument_id = {}
 
--- Size: Leg Instrument Id
+-- Size Of: Leg Instrument Id
 smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size = 4
 
 -- Display: Leg Instrument Id
@@ -548,22 +548,13 @@ end
 -- Multileg Definition Snapshot V 2 Message Leg Group
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message_leg_group = {}
 
--- Calculate size of: Multileg Definition Snapshot V 2 Message Leg Group
-smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message_leg_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_symbol.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_product.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_side.size
-
-  return index
-end
+-- Size Of: Multileg Definition Snapshot V 2 Message Leg Group
+smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message_leg_group.size =
+  smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_symbol.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_product.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_side.size;
 
 -- Display: Multileg Definition Snapshot V 2 Message Leg Group
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message_leg_group.display = function(packet, parent, length)
@@ -619,7 +610,7 @@ end
 -- Num In Group
 smallx_orderbookfeed_sbe_v2_2.num_in_group = {}
 
--- Size: Num In Group
+-- Size Of: Num In Group
 smallx_orderbookfeed_sbe_v2_2.num_in_group.size = 1
 
 -- Display: Num In Group
@@ -642,7 +633,7 @@ end
 -- Block Length
 smallx_orderbookfeed_sbe_v2_2.block_length = {}
 
--- Size: Block Length
+-- Size Of: Block Length
 smallx_orderbookfeed_sbe_v2_2.block_length.size = 2
 
 -- Display: Block Length
@@ -665,16 +656,10 @@ end
 -- Group Dimension
 smallx_orderbookfeed_sbe_v2_2.group_dimension = {}
 
--- Calculate size of: Group Dimension
-smallx_orderbookfeed_sbe_v2_2.group_dimension.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.block_length.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.num_in_group.size
-
-  return index
-end
+-- Size Of: Group Dimension
+smallx_orderbookfeed_sbe_v2_2.group_dimension.size =
+  smallx_orderbookfeed_sbe_v2_2.block_length.size + 
+  smallx_orderbookfeed_sbe_v2_2.num_in_group.size;
 
 -- Display: Group Dimension
 smallx_orderbookfeed_sbe_v2_2.group_dimension.display = function(packet, parent, length)
@@ -719,7 +704,7 @@ smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message_leg_group
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message_leg_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size(buffer, offset + index)
+  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
   local multileg_definition_snapshot_v_2_message_leg_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -767,7 +752,7 @@ end
 -- Strategy Type
 smallx_orderbookfeed_sbe_v2_2.strategy_type = {}
 
--- Size: Strategy Type
+-- Size Of: Strategy Type
 smallx_orderbookfeed_sbe_v2_2.strategy_type.size = 1
 
 -- Display: Strategy Type
@@ -827,7 +812,7 @@ end
 -- Price Multiplier
 smallx_orderbookfeed_sbe_v2_2.price_multiplier = {}
 
--- Size: Price Multiplier
+-- Size Of: Price Multiplier
 smallx_orderbookfeed_sbe_v2_2.price_multiplier.size = 8
 
 -- Display: Price Multiplier
@@ -856,7 +841,7 @@ end
 -- Price Increment
 smallx_orderbookfeed_sbe_v2_2.price_increment = {}
 
--- Size: Price Increment
+-- Size Of: Price Increment
 smallx_orderbookfeed_sbe_v2_2.price_increment.size = 8
 
 -- Display: Price Increment
@@ -885,7 +870,7 @@ end
 -- Currency
 smallx_orderbookfeed_sbe_v2_2.currency = {}
 
--- Size: Currency
+-- Size Of: Currency
 smallx_orderbookfeed_sbe_v2_2.currency.size = 3
 
 -- Display: Currency
@@ -924,7 +909,7 @@ end
 -- Cfi Code
 smallx_orderbookfeed_sbe_v2_2.cfi_code = {}
 
--- Size: Cfi Code
+-- Size Of: Cfi Code
 smallx_orderbookfeed_sbe_v2_2.cfi_code.size = 6
 
 -- Display: Cfi Code
@@ -963,7 +948,7 @@ end
 -- Expiration Date
 smallx_orderbookfeed_sbe_v2_2.expiration_date = {}
 
--- Size: Expiration Date
+-- Size Of: Expiration Date
 smallx_orderbookfeed_sbe_v2_2.expiration_date.size = 2
 
 -- Display: Expiration Date
@@ -986,7 +971,7 @@ end
 -- Last Trading Session Date
 smallx_orderbookfeed_sbe_v2_2.last_trading_session_date = {}
 
--- Size: Last Trading Session Date
+-- Size Of: Last Trading Session Date
 smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size = 2
 
 -- Display: Last Trading Session Date
@@ -1009,7 +994,7 @@ end
 -- First Trading Session Date
 smallx_orderbookfeed_sbe_v2_2.first_trading_session_date = {}
 
--- Size: First Trading Session Date
+-- Size Of: First Trading Session Date
 smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size = 2
 
 -- Display: First Trading Session Date
@@ -1032,7 +1017,7 @@ end
 -- Maturity Date
 smallx_orderbookfeed_sbe_v2_2.maturity_date = {}
 
--- Size: Maturity Date
+-- Size Of: Maturity Date
 smallx_orderbookfeed_sbe_v2_2.maturity_date.size = 2
 
 -- Display: Maturity Date
@@ -1055,7 +1040,7 @@ end
 -- Instrument Type
 smallx_orderbookfeed_sbe_v2_2.instrument_type = {}
 
--- Size: Instrument Type
+-- Size Of: Instrument Type
 smallx_orderbookfeed_sbe_v2_2.instrument_type.size = 1
 
 -- Display: Instrument Type
@@ -1101,7 +1086,7 @@ end
 -- Description
 smallx_orderbookfeed_sbe_v2_2.description = {}
 
--- Size: Description
+-- Size Of: Description
 smallx_orderbookfeed_sbe_v2_2.description.size = 120
 
 -- Display: Description
@@ -1140,7 +1125,7 @@ end
 -- Spread Symbol
 smallx_orderbookfeed_sbe_v2_2.spread_symbol = {}
 
--- Size: Spread Symbol
+-- Size Of: Spread Symbol
 smallx_orderbookfeed_sbe_v2_2.spread_symbol.size = 120
 
 -- Display: Spread Symbol
@@ -1179,7 +1164,7 @@ end
 -- Last Incremental Message Seq
 smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq = {}
 
--- Size: Last Incremental Message Seq
+-- Size Of: Last Incremental Message Seq
 smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size = 8
 
 -- Display: Last Incremental Message Seq
@@ -1202,7 +1187,7 @@ end
 -- Snapshot Instruments Count
 smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count = {}
 
--- Size: Snapshot Instruments Count
+-- Size Of: Snapshot Instruments Count
 smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size = 4
 
 -- Display: Snapshot Instruments Count
@@ -1225,7 +1210,7 @@ end
 -- Snapshot Message Instructions
 smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions = {}
 
--- Size: Snapshot Message Instructions
+-- Size Of: Snapshot Message Instructions
 smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size = 1
 
 -- Display: Snapshot Message Instructions
@@ -1305,7 +1290,7 @@ end
 -- Instrument Trading Status
 smallx_orderbookfeed_sbe_v2_2.instrument_trading_status = {}
 
--- Size: Instrument Trading Status
+-- Size Of: Instrument Trading Status
 smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size = 1
 
 -- Display: Instrument Trading Status
@@ -1360,7 +1345,7 @@ end
 -- Trading Session Date
 smallx_orderbookfeed_sbe_v2_2.trading_session_date = {}
 
--- Size: Trading Session Date
+-- Size Of: Trading Session Date
 smallx_orderbookfeed_sbe_v2_2.trading_session_date.size = 2
 
 -- Display: Trading Session Date
@@ -1383,7 +1368,7 @@ end
 -- Transact Time
 smallx_orderbookfeed_sbe_v2_2.transact_time = {}
 
--- Size: Transact Time
+-- Size Of: Transact Time
 smallx_orderbookfeed_sbe_v2_2.transact_time.size = 8
 
 -- Display: Transact Time
@@ -1406,7 +1391,7 @@ end
 -- Instrument Message No
 smallx_orderbookfeed_sbe_v2_2.instrument_message_no = {}
 
--- Size: Instrument Message No
+-- Size Of: Instrument Message No
 smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size = 8
 
 -- Display: Instrument Message No
@@ -1429,7 +1414,7 @@ end
 -- Instrument Id
 smallx_orderbookfeed_sbe_v2_2.instrument_id = {}
 
--- Size: Instrument Id
+-- Size Of: Instrument Id
 smallx_orderbookfeed_sbe_v2_2.instrument_id.size = 4
 
 -- Display: Instrument Id
@@ -1592,7 +1577,7 @@ end
 -- Delivery
 smallx_orderbookfeed_sbe_v2_2.delivery = {}
 
--- Size: Delivery
+-- Size Of: Delivery
 smallx_orderbookfeed_sbe_v2_2.delivery.size = 1
 
 -- Display: Delivery
@@ -1635,7 +1620,7 @@ end
 -- Exercise Style
 smallx_orderbookfeed_sbe_v2_2.exercise_style = {}
 
--- Size: Exercise Style
+-- Size Of: Exercise Style
 smallx_orderbookfeed_sbe_v2_2.exercise_style.size = 1
 
 -- Display: Exercise Style
@@ -1681,7 +1666,7 @@ end
 -- Expiration Style
 smallx_orderbookfeed_sbe_v2_2.expiration_style = {}
 
--- Size: Expiration Style
+-- Size Of: Expiration Style
 smallx_orderbookfeed_sbe_v2_2.expiration_style.size = 1
 
 -- Display: Expiration Style
@@ -1730,7 +1715,7 @@ end
 -- Shares Per Contract
 smallx_orderbookfeed_sbe_v2_2.shares_per_contract = {}
 
--- Size: Shares Per Contract
+-- Size Of: Shares Per Contract
 smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size = 8
 
 -- Display: Shares Per Contract
@@ -1759,7 +1744,7 @@ end
 -- Strike Price
 smallx_orderbookfeed_sbe_v2_2.strike_price = {}
 
--- Size: Strike Price
+-- Size Of: Strike Price
 smallx_orderbookfeed_sbe_v2_2.strike_price.size = 8
 
 -- Display: Strike Price
@@ -1788,7 +1773,7 @@ end
 -- Put Or Call
 smallx_orderbookfeed_sbe_v2_2.put_or_call = {}
 
--- Size: Put Or Call
+-- Size Of: Put Or Call
 smallx_orderbookfeed_sbe_v2_2.put_or_call.size = 1
 
 -- Display: Put Or Call
@@ -1834,7 +1819,7 @@ end
 -- Underlying Instrument Id
 smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id = {}
 
--- Size: Underlying Instrument Id
+-- Size Of: Underlying Instrument Id
 smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size = 4
 
 -- Display: Underlying Instrument Id
@@ -1857,7 +1842,7 @@ end
 -- Underlying Symbol
 smallx_orderbookfeed_sbe_v2_2.underlying_symbol = {}
 
--- Size: Underlying Symbol
+-- Size Of: Underlying Symbol
 smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size = 25
 
 -- Display: Underlying Symbol
@@ -1896,7 +1881,7 @@ end
 -- Product
 smallx_orderbookfeed_sbe_v2_2.product = {}
 
--- Size: Product
+-- Size Of: Product
 smallx_orderbookfeed_sbe_v2_2.product.size = 8
 
 -- Display: Product
@@ -1935,7 +1920,7 @@ end
 -- Symbol
 smallx_orderbookfeed_sbe_v2_2.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 smallx_orderbookfeed_sbe_v2_2.symbol.size = 25
 
 -- Display: Symbol
@@ -1974,68 +1959,36 @@ end
 -- Single Instrument Definition Snapshot V 2 Message
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message = {}
 
--- Calculate size of: Single Instrument Definition Snapshot V 2 Message
-smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.transact_time.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.symbol.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.product.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.description.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_type.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.maturity_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.expiration_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.cfi_code.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.currency.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.price_increment.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.price_multiplier.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.put_or_call.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.strike_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.expiration_style.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.exercise_style.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.delivery.size
-
-  return index
-end
+-- Size Of: Single Instrument Definition Snapshot V 2 Message
+smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.size =
+  smallx_orderbookfeed_sbe_v2_2.instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size + 
+  smallx_orderbookfeed_sbe_v2_2.transact_time.size + 
+  smallx_orderbookfeed_sbe_v2_2.trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size + 
+  smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size + 
+  smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size + 
+  smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size + 
+  smallx_orderbookfeed_sbe_v2_2.symbol.size + 
+  smallx_orderbookfeed_sbe_v2_2.product.size + 
+  smallx_orderbookfeed_sbe_v2_2.description.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_type.size + 
+  smallx_orderbookfeed_sbe_v2_2.maturity_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.expiration_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.cfi_code.size + 
+  smallx_orderbookfeed_sbe_v2_2.currency.size + 
+  smallx_orderbookfeed_sbe_v2_2.price_increment.size + 
+  smallx_orderbookfeed_sbe_v2_2.price_multiplier.size + 
+  smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size + 
+  smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.put_or_call.size + 
+  smallx_orderbookfeed_sbe_v2_2.strike_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size + 
+  smallx_orderbookfeed_sbe_v2_2.expiration_style.size + 
+  smallx_orderbookfeed_sbe_v2_2.exercise_style.size + 
+  smallx_orderbookfeed_sbe_v2_2.delivery.size;
 
 -- Display: Single Instrument Definition Snapshot V 2 Message
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.display = function(packet, parent, length)
@@ -2154,22 +2107,13 @@ end
 -- Multileg Definition Incremental V 2 Message Leg Group
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message_leg_group = {}
 
--- Calculate size of: Multileg Definition Incremental V 2 Message Leg Group
-smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message_leg_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_symbol.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_product.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.leg_side.size
-
-  return index
-end
+-- Size Of: Multileg Definition Incremental V 2 Message Leg Group
+smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message_leg_group.size =
+  smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_symbol.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_product.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size + 
+  smallx_orderbookfeed_sbe_v2_2.leg_side.size;
 
 -- Display: Multileg Definition Incremental V 2 Message Leg Group
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message_leg_group.display = function(packet, parent, length)
@@ -2229,7 +2173,7 @@ smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message_leg_gr
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message_leg_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size(buffer, offset + index)
+  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
   local multileg_definition_incremental_v_2_message_leg_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2277,7 +2221,7 @@ end
 -- Instrument Update Action
 smallx_orderbookfeed_sbe_v2_2.instrument_update_action = {}
 
--- Size: Instrument Update Action
+-- Size Of: Instrument Update Action
 smallx_orderbookfeed_sbe_v2_2.instrument_update_action.size = 1
 
 -- Display: Instrument Update Action
@@ -2323,7 +2267,7 @@ end
 -- Incremental Message Instructions
 smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions = {}
 
--- Size: Incremental Message Instructions
+-- Size Of: Incremental Message Instructions
 smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size = 2
 
 -- Display: Incremental Message Instructions
@@ -2542,66 +2486,35 @@ end
 -- Single Instrument Definition Incremental V 2 Message
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message = {}
 
--- Calculate size of: Single Instrument Definition Incremental V 2 Message
-smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.transact_time.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_update_action.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.symbol.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.product.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.description.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_type.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.maturity_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.expiration_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.cfi_code.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.currency.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.price_increment.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.price_multiplier.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.put_or_call.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.strike_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.expiration_style.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.exercise_style.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.delivery.size
-
-  return index
-end
+-- Size Of: Single Instrument Definition Incremental V 2 Message
+smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.size =
+  smallx_orderbookfeed_sbe_v2_2.instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size + 
+  smallx_orderbookfeed_sbe_v2_2.transact_time.size + 
+  smallx_orderbookfeed_sbe_v2_2.trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size + 
+  smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_update_action.size + 
+  smallx_orderbookfeed_sbe_v2_2.symbol.size + 
+  smallx_orderbookfeed_sbe_v2_2.product.size + 
+  smallx_orderbookfeed_sbe_v2_2.description.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_type.size + 
+  smallx_orderbookfeed_sbe_v2_2.maturity_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.expiration_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.cfi_code.size + 
+  smallx_orderbookfeed_sbe_v2_2.currency.size + 
+  smallx_orderbookfeed_sbe_v2_2.price_increment.size + 
+  smallx_orderbookfeed_sbe_v2_2.price_multiplier.size + 
+  smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size + 
+  smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.put_or_call.size + 
+  smallx_orderbookfeed_sbe_v2_2.strike_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size + 
+  smallx_orderbookfeed_sbe_v2_2.expiration_style.size + 
+  smallx_orderbookfeed_sbe_v2_2.exercise_style.size + 
+  smallx_orderbookfeed_sbe_v2_2.delivery.size;
 
 -- Display: Single Instrument Definition Incremental V 2 Message
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.display = function(packet, parent, length)
@@ -2717,7 +2630,7 @@ end
 -- Close Price
 smallx_orderbookfeed_sbe_v2_2.close_price = {}
 
--- Size: Close Price
+-- Size Of: Close Price
 smallx_orderbookfeed_sbe_v2_2.close_price.size = 8
 
 -- Display: Close Price
@@ -2746,7 +2659,7 @@ end
 -- Low Price
 smallx_orderbookfeed_sbe_v2_2.low_price = {}
 
--- Size: Low Price
+-- Size Of: Low Price
 smallx_orderbookfeed_sbe_v2_2.low_price.size = 8
 
 -- Display: Low Price
@@ -2775,7 +2688,7 @@ end
 -- High Price
 smallx_orderbookfeed_sbe_v2_2.high_price = {}
 
--- Size: High Price
+-- Size Of: High Price
 smallx_orderbookfeed_sbe_v2_2.high_price.size = 8
 
 -- Display: High Price
@@ -2804,7 +2717,7 @@ end
 -- Open Price
 smallx_orderbookfeed_sbe_v2_2.open_price = {}
 
--- Size: Open Price
+-- Size Of: Open Price
 smallx_orderbookfeed_sbe_v2_2.open_price.size = 8
 
 -- Display: Open Price
@@ -2833,7 +2746,7 @@ end
 -- Session Date
 smallx_orderbookfeed_sbe_v2_2.session_date = {}
 
--- Size: Session Date
+-- Size Of: Session Date
 smallx_orderbookfeed_sbe_v2_2.session_date.size = 2
 
 -- Display: Session Date
@@ -2856,7 +2769,7 @@ end
 -- Value
 smallx_orderbookfeed_sbe_v2_2.value = {}
 
--- Size: Value
+-- Size Of: Value
 smallx_orderbookfeed_sbe_v2_2.value.size = 8
 
 -- Display: Value
@@ -2885,7 +2798,7 @@ end
 -- Index Symbol
 smallx_orderbookfeed_sbe_v2_2.index_symbol = {}
 
--- Size: Index Symbol
+-- Size Of: Index Symbol
 smallx_orderbookfeed_sbe_v2_2.index_symbol.size = 20
 
 -- Display: Index Symbol
@@ -2924,7 +2837,7 @@ end
 -- Index Count
 smallx_orderbookfeed_sbe_v2_2.index_count = {}
 
--- Size: Index Count
+-- Size Of: Index Count
 smallx_orderbookfeed_sbe_v2_2.index_count.size = 4
 
 -- Display: Index Count
@@ -2947,34 +2860,19 @@ end
 -- Index Value Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message = {}
 
--- Calculate size of: Index Value Snapshot Message
-smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.transact_time.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.index_count.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.index_symbol.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.value.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.open_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.high_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.low_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.close_price.size
-
-  return index
-end
+-- Size Of: Index Value Snapshot Message
+smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.size =
+  smallx_orderbookfeed_sbe_v2_2.instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.transact_time.size + 
+  smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size + 
+  smallx_orderbookfeed_sbe_v2_2.index_count.size + 
+  smallx_orderbookfeed_sbe_v2_2.index_symbol.size + 
+  smallx_orderbookfeed_sbe_v2_2.value.size + 
+  smallx_orderbookfeed_sbe_v2_2.session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.open_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.high_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.low_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.close_price.size;
 
 -- Display: Index Value Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.display = function(packet, parent, length)
@@ -3042,7 +2940,7 @@ end
 -- Settlement Price Type
 smallx_orderbookfeed_sbe_v2_2.settlement_price_type = {}
 
--- Size: Settlement Price Type
+-- Size Of: Settlement Price Type
 smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size = 1
 
 -- Display: Settlement Price Type
@@ -3088,7 +2986,7 @@ end
 -- Settlement Price
 smallx_orderbookfeed_sbe_v2_2.settlement_price = {}
 
--- Size: Settlement Price
+-- Size Of: Settlement Price
 smallx_orderbookfeed_sbe_v2_2.settlement_price.size = 8
 
 -- Display: Settlement Price
@@ -3117,7 +3015,7 @@ end
 -- Open Interest
 smallx_orderbookfeed_sbe_v2_2.open_interest = {}
 
--- Size: Open Interest
+-- Size Of: Open Interest
 smallx_orderbookfeed_sbe_v2_2.open_interest.size = 8
 
 -- Display: Open Interest
@@ -3146,7 +3044,7 @@ end
 -- Open Price Type
 smallx_orderbookfeed_sbe_v2_2.open_price_type = {}
 
--- Size: Open Price Type
+-- Size Of: Open Price Type
 smallx_orderbookfeed_sbe_v2_2.open_price_type.size = 1
 
 -- Display: Open Price Type
@@ -3192,7 +3090,7 @@ end
 -- Total Volume Quantity Optional
 smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional = {}
 
--- Size: Total Volume Quantity Optional
+-- Size Of: Total Volume Quantity Optional
 smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size = 8
 
 -- Display: Total Volume Quantity Optional
@@ -3221,7 +3119,7 @@ end
 -- Last Trade Time Timestamp
 smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp = {}
 
--- Size: Last Trade Time Timestamp
+-- Size Of: Last Trade Time Timestamp
 smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size = 8
 
 -- Display: Last Trade Time Timestamp
@@ -3244,7 +3142,7 @@ end
 -- Last Trade Size
 smallx_orderbookfeed_sbe_v2_2.last_trade_size = {}
 
--- Size: Last Trade Size
+-- Size Of: Last Trade Size
 smallx_orderbookfeed_sbe_v2_2.last_trade_size.size = 8
 
 -- Display: Last Trade Size
@@ -3273,7 +3171,7 @@ end
 -- Last Trade Price
 smallx_orderbookfeed_sbe_v2_2.last_trade_price = {}
 
--- Size: Last Trade Price
+-- Size Of: Last Trade Price
 smallx_orderbookfeed_sbe_v2_2.last_trade_price.size = 8
 
 -- Display: Last Trade Price
@@ -3302,52 +3200,28 @@ end
 -- Market Summary Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message = {}
 
--- Calculate size of: Market Summary Snapshot Message
-smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.transact_time.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.last_trade_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.last_trade_size.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.open_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.open_price_type.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.high_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.low_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.close_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.open_interest.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.settlement_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size
-
-  return index
-end
+-- Size Of: Market Summary Snapshot Message
+smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.size =
+  smallx_orderbookfeed_sbe_v2_2.instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size + 
+  smallx_orderbookfeed_sbe_v2_2.transact_time.size + 
+  smallx_orderbookfeed_sbe_v2_2.trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size + 
+  smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size + 
+  smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size + 
+  smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size + 
+  smallx_orderbookfeed_sbe_v2_2.last_trade_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.last_trade_size.size + 
+  smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size + 
+  smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size + 
+  smallx_orderbookfeed_sbe_v2_2.open_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.open_price_type.size + 
+  smallx_orderbookfeed_sbe_v2_2.high_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.low_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.close_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.open_interest.size + 
+  smallx_orderbookfeed_sbe_v2_2.settlement_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size;
 
 -- Display: Market Summary Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.display = function(packet, parent, length)
@@ -3442,7 +3316,7 @@ end
 -- Order Attributes
 smallx_orderbookfeed_sbe_v2_2.order_attributes = {}
 
--- Size: Order Attributes
+-- Size Of: Order Attributes
 smallx_orderbookfeed_sbe_v2_2.order_attributes.size = 2
 
 -- Display: Order Attributes
@@ -3484,7 +3358,7 @@ end
 -- Order Priority Order Priority optional
 smallx_orderbookfeed_sbe_v2_2.order_priority_order_priority_optional = {}
 
--- Size: Order Priority Order Priority optional
+-- Size Of: Order Priority Order Priority optional
 smallx_orderbookfeed_sbe_v2_2.order_priority_order_priority_optional.size = 8
 
 -- Display: Order Priority Order Priority optional
@@ -3512,7 +3386,7 @@ end
 -- Size
 smallx_orderbookfeed_sbe_v2_2.size = {}
 
--- Size: Size
+-- Size Of: Size
 smallx_orderbookfeed_sbe_v2_2.size.size = 8
 
 -- Display: Size
@@ -3541,7 +3415,7 @@ end
 -- Price Price Optional
 smallx_orderbookfeed_sbe_v2_2.price_price_optional = {}
 
--- Size: Price Price Optional
+-- Size Of: Price Price Optional
 smallx_orderbookfeed_sbe_v2_2.price_price_optional.size = 8
 
 -- Display: Price Price Optional
@@ -3570,7 +3444,7 @@ end
 -- Side
 smallx_orderbookfeed_sbe_v2_2.side = {}
 
--- Size: Side
+-- Size Of: Side
 smallx_orderbookfeed_sbe_v2_2.side.size = 1
 
 -- Display: Side
@@ -3613,7 +3487,7 @@ end
 -- Trade Id Trade Id optional
 smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id_optional = {}
 
--- Size: Trade Id Trade Id optional
+-- Size Of: Trade Id Trade Id optional
 smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id_optional.size = 8
 
 -- Display: Trade Id Trade Id optional
@@ -3641,7 +3515,7 @@ end
 -- Order Id
 smallx_orderbookfeed_sbe_v2_2.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 smallx_orderbookfeed_sbe_v2_2.order_id.size = 8
 
 -- Display: Order Id
@@ -3664,7 +3538,7 @@ end
 -- Order Update Action
 smallx_orderbookfeed_sbe_v2_2.order_update_action = {}
 
--- Size: Order Update Action
+-- Size Of: Order Update Action
 smallx_orderbookfeed_sbe_v2_2.order_update_action.size = 1
 
 -- Display: Order Update Action
@@ -3710,28 +3584,16 @@ end
 -- Orders Group
 smallx_orderbookfeed_sbe_v2_2.orders_group = {}
 
--- Calculate size of: Orders Group
-smallx_orderbookfeed_sbe_v2_2.orders_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.order_update_action.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.order_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id_optional.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.side.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.price_price_optional.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.size.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.order_priority_order_priority_optional.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.order_attributes.size
-
-  return index
-end
+-- Size Of: Orders Group
+smallx_orderbookfeed_sbe_v2_2.orders_group.size =
+  smallx_orderbookfeed_sbe_v2_2.order_update_action.size + 
+  smallx_orderbookfeed_sbe_v2_2.order_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id_optional.size + 
+  smallx_orderbookfeed_sbe_v2_2.side.size + 
+  smallx_orderbookfeed_sbe_v2_2.price_price_optional.size + 
+  smallx_orderbookfeed_sbe_v2_2.size.size + 
+  smallx_orderbookfeed_sbe_v2_2.order_priority_order_priority_optional.size + 
+  smallx_orderbookfeed_sbe_v2_2.order_attributes.size;
 
 -- Display: Orders Group
 smallx_orderbookfeed_sbe_v2_2.orders_group.display = function(packet, parent, length)
@@ -3800,7 +3662,7 @@ smallx_orderbookfeed_sbe_v2_2.orders_groups = {}
 smallx_orderbookfeed_sbe_v2_2.orders_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size(buffer, offset + index)
+  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
   local orders_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3928,40 +3790,22 @@ end
 -- Market Summary Incremental Message
 smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message = {}
 
--- Calculate size of: Market Summary Incremental Message
-smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.transact_time.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.open_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.open_price_type.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.high_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.low_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.close_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.open_interest.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.settlement_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size
-
-  return index
-end
+-- Size Of: Market Summary Incremental Message
+smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.size =
+  smallx_orderbookfeed_sbe_v2_2.instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size + 
+  smallx_orderbookfeed_sbe_v2_2.transact_time.size + 
+  smallx_orderbookfeed_sbe_v2_2.trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size + 
+  smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size + 
+  smallx_orderbookfeed_sbe_v2_2.open_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.open_price_type.size + 
+  smallx_orderbookfeed_sbe_v2_2.high_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.low_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.close_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.open_interest.size + 
+  smallx_orderbookfeed_sbe_v2_2.settlement_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size;
 
 -- Display: Market Summary Incremental Message
 smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.display = function(packet, parent, length)
@@ -4108,7 +3952,7 @@ end
 -- Trade Conditions
 smallx_orderbookfeed_sbe_v2_2.trade_conditions = {}
 
--- Size: Trade Conditions
+-- Size Of: Trade Conditions
 smallx_orderbookfeed_sbe_v2_2.trade_conditions.size = 2
 
 -- Display: Trade Conditions
@@ -4157,7 +4001,7 @@ end
 -- Sell Order Id
 smallx_orderbookfeed_sbe_v2_2.sell_order_id = {}
 
--- Size: Sell Order Id
+-- Size Of: Sell Order Id
 smallx_orderbookfeed_sbe_v2_2.sell_order_id.size = 8
 
 -- Display: Sell Order Id
@@ -4180,7 +4024,7 @@ end
 -- Buy Order Id
 smallx_orderbookfeed_sbe_v2_2.buy_order_id = {}
 
--- Size: Buy Order Id
+-- Size Of: Buy Order Id
 smallx_orderbookfeed_sbe_v2_2.buy_order_id.size = 8
 
 -- Display: Buy Order Id
@@ -4203,7 +4047,7 @@ end
 -- Aggressor Side
 smallx_orderbookfeed_sbe_v2_2.aggressor_side = {}
 
--- Size: Aggressor Side
+-- Size Of: Aggressor Side
 smallx_orderbookfeed_sbe_v2_2.aggressor_side.size = 1
 
 -- Display: Aggressor Side
@@ -4249,7 +4093,7 @@ end
 -- Price Price
 smallx_orderbookfeed_sbe_v2_2.price_price = {}
 
--- Size: Price Price
+-- Size Of: Price Price
 smallx_orderbookfeed_sbe_v2_2.price_price.size = 8
 
 -- Display: Price Price
@@ -4278,7 +4122,7 @@ end
 -- Trade Id Trade Id
 smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id = {}
 
--- Size: Trade Id Trade Id
+-- Size Of: Trade Id Trade Id
 smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id.size = 8
 
 -- Display: Trade Id Trade Id
@@ -4301,26 +4145,15 @@ end
 -- Trades Group
 smallx_orderbookfeed_sbe_v2_2.trades_group = {}
 
--- Calculate size of: Trades Group
-smallx_orderbookfeed_sbe_v2_2.trades_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.price_price.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.size.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.aggressor_side.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.buy_order_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.sell_order_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trade_conditions.size
-
-  return index
-end
+-- Size Of: Trades Group
+smallx_orderbookfeed_sbe_v2_2.trades_group.size =
+  smallx_orderbookfeed_sbe_v2_2.trade_id_trade_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.price_price.size + 
+  smallx_orderbookfeed_sbe_v2_2.size.size + 
+  smallx_orderbookfeed_sbe_v2_2.aggressor_side.size + 
+  smallx_orderbookfeed_sbe_v2_2.buy_order_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.sell_order_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.trade_conditions.size;
 
 -- Display: Trades Group
 smallx_orderbookfeed_sbe_v2_2.trades_group.display = function(packet, parent, length)
@@ -4386,7 +4219,7 @@ smallx_orderbookfeed_sbe_v2_2.trades_groups = {}
 smallx_orderbookfeed_sbe_v2_2.trades_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size(buffer, offset + index)
+  index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
   local trades_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4434,7 +4267,7 @@ end
 -- Total Volume Quantity
 smallx_orderbookfeed_sbe_v2_2.total_volume_quantity = {}
 
--- Size: Total Volume Quantity
+-- Size Of: Total Volume Quantity
 smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.size = 8
 
 -- Display: Total Volume Quantity
@@ -4463,7 +4296,7 @@ end
 -- Last Trade Time Timestamp Optional
 smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional = {}
 
--- Size: Last Trade Time Timestamp Optional
+-- Size Of: Last Trade Time Timestamp Optional
 smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size = 8
 
 -- Display: Last Trade Time Timestamp Optional
@@ -4756,24 +4589,14 @@ end
 -- Instrument Trading Status Incremental Message
 smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message = {}
 
--- Calculate size of: Instrument Trading Status Incremental Message
-smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.transact_time.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.trading_session_date.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size
-
-  return index
-end
+-- Size Of: Instrument Trading Status Incremental Message
+smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.size =
+  smallx_orderbookfeed_sbe_v2_2.instrument_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size + 
+  smallx_orderbookfeed_sbe_v2_2.transact_time.size + 
+  smallx_orderbookfeed_sbe_v2_2.trading_session_date.size + 
+  smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size + 
+  smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.size;
 
 -- Display: Instrument Trading Status Incremental Message
 smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.display = function(packet, parent, length)
@@ -4970,7 +4793,7 @@ end
 -- Version
 smallx_orderbookfeed_sbe_v2_2.version = {}
 
--- Size: Version
+-- Size Of: Version
 smallx_orderbookfeed_sbe_v2_2.version.size = 2
 
 -- Display: Version
@@ -4993,7 +4816,7 @@ end
 -- Schema Id
 smallx_orderbookfeed_sbe_v2_2.schema_id = {}
 
--- Size: Schema Id
+-- Size Of: Schema Id
 smallx_orderbookfeed_sbe_v2_2.schema_id.size = 2
 
 -- Display: Schema Id
@@ -5016,7 +4839,7 @@ end
 -- Template Id
 smallx_orderbookfeed_sbe_v2_2.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 smallx_orderbookfeed_sbe_v2_2.template_id.size = 2
 
 -- Display: Template Id
@@ -5079,20 +4902,12 @@ end
 -- Message Header
 smallx_orderbookfeed_sbe_v2_2.message_header = {}
 
--- Calculate size of: Message Header
-smallx_orderbookfeed_sbe_v2_2.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.block_length.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.template_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.schema_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.version.size
-
-  return index
-end
+-- Size Of: Message Header
+smallx_orderbookfeed_sbe_v2_2.message_header.size =
+  smallx_orderbookfeed_sbe_v2_2.block_length.size + 
+  smallx_orderbookfeed_sbe_v2_2.template_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.schema_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.version.size;
 
 -- Display: Message Header
 smallx_orderbookfeed_sbe_v2_2.message_header.display = function(packet, parent, length)
@@ -5139,7 +4954,7 @@ end
 -- Frame Length
 smallx_orderbookfeed_sbe_v2_2.frame_length = {}
 
--- Size: Frame Length
+-- Size Of: Frame Length
 smallx_orderbookfeed_sbe_v2_2.frame_length.size = 1
 
 -- Display: Frame Length
@@ -5210,7 +5025,7 @@ end
 -- Message Count
 smallx_orderbookfeed_sbe_v2_2.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 smallx_orderbookfeed_sbe_v2_2.message_count.size = 1
 
 -- Display: Message Count
@@ -5233,7 +5048,7 @@ end
 -- Message Sequence
 smallx_orderbookfeed_sbe_v2_2.message_sequence = {}
 
--- Size: Message Sequence
+-- Size Of: Message Sequence
 smallx_orderbookfeed_sbe_v2_2.message_sequence.size = 4
 
 -- Display: Message Sequence
@@ -5256,7 +5071,7 @@ end
 -- Packet Flags
 smallx_orderbookfeed_sbe_v2_2.packet_flags = {}
 
--- Size: Packet Flags
+-- Size Of: Packet Flags
 smallx_orderbookfeed_sbe_v2_2.packet_flags.size = 1
 
 -- Display: Packet Flags
@@ -5312,7 +5127,7 @@ end
 -- Source
 smallx_orderbookfeed_sbe_v2_2.source = {}
 
--- Size: Source
+-- Size Of: Source
 smallx_orderbookfeed_sbe_v2_2.source.size = 1
 
 -- Display: Source
@@ -5335,7 +5150,7 @@ end
 -- Incarnation
 smallx_orderbookfeed_sbe_v2_2.incarnation = {}
 
--- Size: Incarnation
+-- Size Of: Incarnation
 smallx_orderbookfeed_sbe_v2_2.incarnation.size = 2
 
 -- Display: Incarnation
@@ -5358,7 +5173,7 @@ end
 -- Channel Id
 smallx_orderbookfeed_sbe_v2_2.channel_id = {}
 
--- Size: Channel Id
+-- Size Of: Channel Id
 smallx_orderbookfeed_sbe_v2_2.channel_id.size = 1
 
 -- Display: Channel Id
@@ -5381,24 +5196,14 @@ end
 -- Packet Header
 smallx_orderbookfeed_sbe_v2_2.packet_header = {}
 
--- Calculate size of: Packet Header
-smallx_orderbookfeed_sbe_v2_2.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.channel_id.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.incarnation.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.source.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.packet_flags.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.message_sequence.size
-
-  index = index + smallx_orderbookfeed_sbe_v2_2.message_count.size
-
-  return index
-end
+-- Size Of: Packet Header
+smallx_orderbookfeed_sbe_v2_2.packet_header.size =
+  smallx_orderbookfeed_sbe_v2_2.channel_id.size + 
+  smallx_orderbookfeed_sbe_v2_2.incarnation.size + 
+  smallx_orderbookfeed_sbe_v2_2.source.size + 
+  smallx_orderbookfeed_sbe_v2_2.packet_flags.size + 
+  smallx_orderbookfeed_sbe_v2_2.message_sequence.size + 
+  smallx_orderbookfeed_sbe_v2_2.message_count.size;
 
 -- Display: Packet Header
 smallx_orderbookfeed_sbe_v2_2.packet_header.display = function(packet, parent, length)

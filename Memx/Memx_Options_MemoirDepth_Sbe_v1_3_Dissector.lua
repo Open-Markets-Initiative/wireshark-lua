@@ -242,7 +242,7 @@ end
 -- Symbol
 memx_options_memoirdepth_sbe_v1_3.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 memx_options_memoirdepth_sbe_v1_3.symbol.size = 8
 
 -- Display: Symbol
@@ -281,7 +281,7 @@ end
 -- Timestamp
 memx_options_memoirdepth_sbe_v1_3.timestamp = {}
 
--- Size: Timestamp
+-- Size Of: Timestamp
 memx_options_memoirdepth_sbe_v1_3.timestamp.size = 8
 
 -- Display: Timestamp
@@ -308,16 +308,10 @@ end
 -- Clear Book Message
 memx_options_memoirdepth_sbe_v1_3.clear_book_message = {}
 
--- Calculate size of: Clear Book Message
-memx_options_memoirdepth_sbe_v1_3.clear_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  return index
-end
+-- Size Of: Clear Book Message
+memx_options_memoirdepth_sbe_v1_3.clear_book_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size;
 
 -- Display: Clear Book Message
 memx_options_memoirdepth_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
@@ -358,7 +352,7 @@ end
 -- Price
 memx_options_memoirdepth_sbe_v1_3.price = {}
 
--- Size: Price
+-- Size Of: Price
 memx_options_memoirdepth_sbe_v1_3.price.size = 8
 
 -- Display: Price
@@ -387,7 +381,7 @@ end
 -- Quantity
 memx_options_memoirdepth_sbe_v1_3.quantity = {}
 
--- Size: Quantity
+-- Size Of: Quantity
 memx_options_memoirdepth_sbe_v1_3.quantity.size = 4
 
 -- Display: Quantity
@@ -410,7 +404,7 @@ end
 -- Trade Id
 memx_options_memoirdepth_sbe_v1_3.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 memx_options_memoirdepth_sbe_v1_3.trade_id.size = 8
 
 -- Display: Trade Id
@@ -433,7 +427,7 @@ end
 -- Order Id
 memx_options_memoirdepth_sbe_v1_3.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 memx_options_memoirdepth_sbe_v1_3.order_id.size = 8
 
 -- Display: Order Id
@@ -456,7 +450,7 @@ end
 -- Trade Conditions
 memx_options_memoirdepth_sbe_v1_3.trade_conditions = {}
 
--- Size: Trade Conditions
+-- Size Of: Trade Conditions
 memx_options_memoirdepth_sbe_v1_3.trade_conditions.size = 1
 
 -- Display: Trade Conditions
@@ -498,7 +492,7 @@ end
 -- Order Capacity
 memx_options_memoirdepth_sbe_v1_3.order_capacity = {}
 
--- Size: Order Capacity
+-- Size Of: Order Capacity
 memx_options_memoirdepth_sbe_v1_3.order_capacity.size = 1
 
 -- Display: Order Capacity
@@ -541,28 +535,16 @@ end
 -- Order Executed Message
 memx_options_memoirdepth_sbe_v1_3.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-memx_options_memoirdepth_sbe_v1_3.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_capacity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.trade_conditions.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.trade_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.quantity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.price.size
-
-  return index
-end
+-- Size Of: Order Executed Message
+memx_options_memoirdepth_sbe_v1_3.order_executed_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_capacity.size + 
+  memx_options_memoirdepth_sbe_v1_3.trade_conditions.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.trade_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.quantity.size + 
+  memx_options_memoirdepth_sbe_v1_3.price.size;
 
 -- Display: Order Executed Message
 memx_options_memoirdepth_sbe_v1_3.order_executed_message.display = function(packet, parent, length)
@@ -621,7 +603,7 @@ end
 -- Quantity Reduced
 memx_options_memoirdepth_sbe_v1_3.quantity_reduced = {}
 
--- Size: Quantity Reduced
+-- Size Of: Quantity Reduced
 memx_options_memoirdepth_sbe_v1_3.quantity_reduced.size = 4
 
 -- Display: Quantity Reduced
@@ -644,7 +626,7 @@ end
 -- Side
 memx_options_memoirdepth_sbe_v1_3.side = {}
 
--- Size: Side
+-- Size Of: Side
 memx_options_memoirdepth_sbe_v1_3.side.size = 1
 
 -- Display: Side
@@ -687,28 +669,16 @@ end
 -- Order Reduced Message
 memx_options_memoirdepth_sbe_v1_3.order_reduced_message = {}
 
--- Calculate size of: Order Reduced Message
-memx_options_memoirdepth_sbe_v1_3.order_reduced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_capacity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.side.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.quantity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.price.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.quantity_reduced.size
-
-  return index
-end
+-- Size Of: Order Reduced Message
+memx_options_memoirdepth_sbe_v1_3.order_reduced_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_capacity.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.side.size + 
+  memx_options_memoirdepth_sbe_v1_3.quantity.size + 
+  memx_options_memoirdepth_sbe_v1_3.price.size + 
+  memx_options_memoirdepth_sbe_v1_3.quantity_reduced.size;
 
 -- Display: Order Reduced Message
 memx_options_memoirdepth_sbe_v1_3.order_reduced_message.display = function(packet, parent, length)
@@ -767,20 +737,12 @@ end
 -- Order Deleted Message
 memx_options_memoirdepth_sbe_v1_3.order_deleted_message = {}
 
--- Calculate size of: Order Deleted Message
-memx_options_memoirdepth_sbe_v1_3.order_deleted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_capacity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_id.size
-
-  return index
-end
+-- Size Of: Order Deleted Message
+memx_options_memoirdepth_sbe_v1_3.order_deleted_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_capacity.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_id.size;
 
 -- Display: Order Deleted Message
 memx_options_memoirdepth_sbe_v1_3.order_deleted_message.display = function(packet, parent, length)
@@ -827,26 +789,15 @@ end
 -- Order Added Extended Message
 memx_options_memoirdepth_sbe_v1_3.order_added_extended_message = {}
 
--- Calculate size of: Order Added Extended Message
-memx_options_memoirdepth_sbe_v1_3.order_added_extended_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_capacity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.side.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.quantity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.price.size
-
-  return index
-end
+-- Size Of: Order Added Extended Message
+memx_options_memoirdepth_sbe_v1_3.order_added_extended_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_capacity.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.side.size + 
+  memx_options_memoirdepth_sbe_v1_3.quantity.size + 
+  memx_options_memoirdepth_sbe_v1_3.price.size;
 
 -- Display: Order Added Extended Message
 memx_options_memoirdepth_sbe_v1_3.order_added_extended_message.display = function(packet, parent, length)
@@ -902,24 +853,14 @@ end
 -- Order Added Long Message
 memx_options_memoirdepth_sbe_v1_3.order_added_long_message = {}
 
--- Calculate size of: Order Added Long Message
-memx_options_memoirdepth_sbe_v1_3.order_added_long_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.side.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.quantity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.price.size
-
-  return index
-end
+-- Size Of: Order Added Long Message
+memx_options_memoirdepth_sbe_v1_3.order_added_long_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.side.size + 
+  memx_options_memoirdepth_sbe_v1_3.quantity.size + 
+  memx_options_memoirdepth_sbe_v1_3.price.size;
 
 -- Display: Order Added Long Message
 memx_options_memoirdepth_sbe_v1_3.order_added_long_message.display = function(packet, parent, length)
@@ -972,7 +913,7 @@ end
 -- Price Short
 memx_options_memoirdepth_sbe_v1_3.price_short = {}
 
--- Size: Price Short
+-- Size Of: Price Short
 memx_options_memoirdepth_sbe_v1_3.price_short.size = 2
 
 -- Display: Price Short
@@ -1001,7 +942,7 @@ end
 -- Quantity Short
 memx_options_memoirdepth_sbe_v1_3.quantity_short = {}
 
--- Size: Quantity Short
+-- Size Of: Quantity Short
 memx_options_memoirdepth_sbe_v1_3.quantity_short.size = 2
 
 -- Display: Quantity Short
@@ -1024,24 +965,14 @@ end
 -- Order Added Short Message
 memx_options_memoirdepth_sbe_v1_3.order_added_short_message = {}
 
--- Calculate size of: Order Added Short Message
-memx_options_memoirdepth_sbe_v1_3.order_added_short_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.order_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.side.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.quantity_short.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.price_short.size
-
-  return index
-end
+-- Size Of: Order Added Short Message
+memx_options_memoirdepth_sbe_v1_3.order_added_short_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.order_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.side.size + 
+  memx_options_memoirdepth_sbe_v1_3.quantity_short.size + 
+  memx_options_memoirdepth_sbe_v1_3.price_short.size;
 
 -- Display: Order Added Short Message
 memx_options_memoirdepth_sbe_v1_3.order_added_short_message.display = function(packet, parent, length)
@@ -1094,7 +1025,7 @@ end
 -- As Of Sequence Number
 memx_options_memoirdepth_sbe_v1_3.as_of_sequence_number = {}
 
--- Size: As Of Sequence Number
+-- Size Of: As Of Sequence Number
 memx_options_memoirdepth_sbe_v1_3.as_of_sequence_number.size = 8
 
 -- Display: As Of Sequence Number
@@ -1117,16 +1048,10 @@ end
 -- Snapshot Complete Message
 memx_options_memoirdepth_sbe_v1_3.snapshot_complete_message = {}
 
--- Calculate size of: Snapshot Complete Message
-memx_options_memoirdepth_sbe_v1_3.snapshot_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.as_of_sequence_number.size
-
-  return index
-end
+-- Size Of: Snapshot Complete Message
+memx_options_memoirdepth_sbe_v1_3.snapshot_complete_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.as_of_sequence_number.size;
 
 -- Display: Snapshot Complete Message
 memx_options_memoirdepth_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
@@ -1167,7 +1092,7 @@ end
 -- Corrected Price
 memx_options_memoirdepth_sbe_v1_3.corrected_price = {}
 
--- Size: Corrected Price
+-- Size Of: Corrected Price
 memx_options_memoirdepth_sbe_v1_3.corrected_price.size = 8
 
 -- Display: Corrected Price
@@ -1196,7 +1121,7 @@ end
 -- Corrected Quantity
 memx_options_memoirdepth_sbe_v1_3.corrected_quantity = {}
 
--- Size: Corrected Quantity
+-- Size Of: Corrected Quantity
 memx_options_memoirdepth_sbe_v1_3.corrected_quantity.size = 4
 
 -- Display: Corrected Quantity
@@ -1219,7 +1144,7 @@ end
 -- Original Price
 memx_options_memoirdepth_sbe_v1_3.original_price = {}
 
--- Size: Original Price
+-- Size Of: Original Price
 memx_options_memoirdepth_sbe_v1_3.original_price.size = 8
 
 -- Display: Original Price
@@ -1248,7 +1173,7 @@ end
 -- Original Quantity
 memx_options_memoirdepth_sbe_v1_3.original_quantity = {}
 
--- Size: Original Quantity
+-- Size Of: Original Quantity
 memx_options_memoirdepth_sbe_v1_3.original_quantity.size = 4
 
 -- Display: Original Quantity
@@ -1271,26 +1196,15 @@ end
 -- Corrected Trade Message
 memx_options_memoirdepth_sbe_v1_3.corrected_trade_message = {}
 
--- Calculate size of: Corrected Trade Message
-memx_options_memoirdepth_sbe_v1_3.corrected_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.trade_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.original_quantity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.original_price.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.corrected_quantity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.corrected_price.size
-
-  return index
-end
+-- Size Of: Corrected Trade Message
+memx_options_memoirdepth_sbe_v1_3.corrected_trade_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.trade_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.original_quantity.size + 
+  memx_options_memoirdepth_sbe_v1_3.original_price.size + 
+  memx_options_memoirdepth_sbe_v1_3.corrected_quantity.size + 
+  memx_options_memoirdepth_sbe_v1_3.corrected_price.size;
 
 -- Display: Corrected Trade Message
 memx_options_memoirdepth_sbe_v1_3.corrected_trade_message.display = function(packet, parent, length)
@@ -1346,22 +1260,13 @@ end
 -- Broken Trade Message
 memx_options_memoirdepth_sbe_v1_3.broken_trade_message = {}
 
--- Calculate size of: Broken Trade Message
-memx_options_memoirdepth_sbe_v1_3.broken_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.trade_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.original_quantity.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.original_price.size
-
-  return index
-end
+-- Size Of: Broken Trade Message
+memx_options_memoirdepth_sbe_v1_3.broken_trade_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.trade_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.original_quantity.size + 
+  memx_options_memoirdepth_sbe_v1_3.original_price.size;
 
 -- Display: Broken Trade Message
 memx_options_memoirdepth_sbe_v1_3.broken_trade_message.display = function(packet, parent, length)
@@ -1411,7 +1316,7 @@ end
 -- Trading Session
 memx_options_memoirdepth_sbe_v1_3.trading_session = {}
 
--- Size: Trading Session
+-- Size Of: Trading Session
 memx_options_memoirdepth_sbe_v1_3.trading_session.size = 1
 
 -- Display: Trading Session
@@ -1454,16 +1359,10 @@ end
 -- Trading Session Status Message
 memx_options_memoirdepth_sbe_v1_3.trading_session_status_message = {}
 
--- Calculate size of: Trading Session Status Message
-memx_options_memoirdepth_sbe_v1_3.trading_session_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.trading_session.size
-
-  return index
-end
+-- Size Of: Trading Session Status Message
+memx_options_memoirdepth_sbe_v1_3.trading_session_status_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.trading_session.size;
 
 -- Display: Trading Session Status Message
 memx_options_memoirdepth_sbe_v1_3.trading_session_status_message.display = function(packet, parent, length)
@@ -1504,7 +1403,7 @@ end
 -- Instrument Trading Status Reason
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_reason = {}
 
--- Size: Instrument Trading Status Reason
+-- Size Of: Instrument Trading Status Reason
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_reason.size = 1
 
 -- Display: Instrument Trading Status Reason
@@ -1547,7 +1446,7 @@ end
 -- Instrument Trading Status
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status = {}
 
--- Size: Instrument Trading Status
+-- Size Of: Instrument Trading Status
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status.size = 1
 
 -- Display: Instrument Trading Status
@@ -1590,20 +1489,12 @@ end
 -- Instrument Trading Status Message
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_message = {}
 
--- Calculate size of: Instrument Trading Status Message
-memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.instrument_trading_status.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_reason.size
-
-  return index
-end
+-- Size Of: Instrument Trading Status Message
+memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.instrument_trading_status.size + 
+  memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_reason.size;
 
 -- Display: Instrument Trading Status Message
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_message.display = function(packet, parent, length)
@@ -1650,7 +1541,7 @@ end
 -- Is Test Symbol
 memx_options_memoirdepth_sbe_v1_3.is_test_symbol = {}
 
--- Size: Is Test Symbol
+-- Size Of: Is Test Symbol
 memx_options_memoirdepth_sbe_v1_3.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
@@ -1680,7 +1571,7 @@ end
 -- Closing Time
 memx_options_memoirdepth_sbe_v1_3.closing_time = {}
 
--- Size: Closing Time
+-- Size Of: Closing Time
 memx_options_memoirdepth_sbe_v1_3.closing_time.size = 8
 
 -- Display: Closing Time
@@ -1703,7 +1594,7 @@ end
 -- Closing Only
 memx_options_memoirdepth_sbe_v1_3.closing_only = {}
 
--- Size: Closing Only
+-- Size Of: Closing Only
 memx_options_memoirdepth_sbe_v1_3.closing_only.size = 1
 
 -- Display: Closing Only
@@ -1733,7 +1624,7 @@ end
 -- Strike Price
 memx_options_memoirdepth_sbe_v1_3.strike_price = {}
 
--- Size: Strike Price
+-- Size Of: Strike Price
 memx_options_memoirdepth_sbe_v1_3.strike_price.size = 8
 
 -- Display: Strike Price
@@ -1762,7 +1653,7 @@ end
 -- Strike Put Or Call
 memx_options_memoirdepth_sbe_v1_3.strike_put_or_call = {}
 
--- Size: Strike Put Or Call
+-- Size Of: Strike Put Or Call
 memx_options_memoirdepth_sbe_v1_3.strike_put_or_call.size = 1
 
 -- Display: Strike Put Or Call
@@ -1792,7 +1683,7 @@ end
 -- Maturity Date
 memx_options_memoirdepth_sbe_v1_3.maturity_date = {}
 
--- Size: Maturity Date
+-- Size Of: Maturity Date
 memx_options_memoirdepth_sbe_v1_3.maturity_date.size = 8
 
 -- Display: Maturity Date
@@ -1831,7 +1722,7 @@ end
 -- Osi Root
 memx_options_memoirdepth_sbe_v1_3.osi_root = {}
 
--- Size: Osi Root
+-- Size Of: Osi Root
 memx_options_memoirdepth_sbe_v1_3.osi_root.size = 6
 
 -- Display: Osi Root
@@ -1870,7 +1761,7 @@ end
 -- Underlier
 memx_options_memoirdepth_sbe_v1_3.underlier = {}
 
--- Size: Underlier
+-- Size Of: Underlier
 memx_options_memoirdepth_sbe_v1_3.underlier.size = 6
 
 -- Display: Underlier
@@ -1909,7 +1800,7 @@ end
 -- Options Product Type
 memx_options_memoirdepth_sbe_v1_3.options_product_type = {}
 
--- Size: Options Product Type
+-- Size Of: Options Product Type
 memx_options_memoirdepth_sbe_v1_3.options_product_type.size = 1
 
 -- Display: Options Product Type
@@ -1939,34 +1830,19 @@ end
 -- Instrument Directory Message
 memx_options_memoirdepth_sbe_v1_3.instrument_directory_message = {}
 
--- Calculate size of: Instrument Directory Message
-memx_options_memoirdepth_sbe_v1_3.instrument_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.timestamp.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.symbol.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.options_product_type.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.underlier.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.osi_root.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.maturity_date.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.strike_put_or_call.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.strike_price.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.closing_only.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.closing_time.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.is_test_symbol.size
-
-  return index
-end
+-- Size Of: Instrument Directory Message
+memx_options_memoirdepth_sbe_v1_3.instrument_directory_message.size =
+  memx_options_memoirdepth_sbe_v1_3.timestamp.size + 
+  memx_options_memoirdepth_sbe_v1_3.symbol.size + 
+  memx_options_memoirdepth_sbe_v1_3.options_product_type.size + 
+  memx_options_memoirdepth_sbe_v1_3.underlier.size + 
+  memx_options_memoirdepth_sbe_v1_3.osi_root.size + 
+  memx_options_memoirdepth_sbe_v1_3.maturity_date.size + 
+  memx_options_memoirdepth_sbe_v1_3.strike_put_or_call.size + 
+  memx_options_memoirdepth_sbe_v1_3.strike_price.size + 
+  memx_options_memoirdepth_sbe_v1_3.closing_only.size + 
+  memx_options_memoirdepth_sbe_v1_3.closing_time.size + 
+  memx_options_memoirdepth_sbe_v1_3.is_test_symbol.size;
 
 -- Display: Instrument Directory Message
 memx_options_memoirdepth_sbe_v1_3.instrument_directory_message.display = function(packet, parent, length)
@@ -2178,7 +2054,7 @@ end
 -- Version
 memx_options_memoirdepth_sbe_v1_3.version = {}
 
--- Size: Version
+-- Size Of: Version
 memx_options_memoirdepth_sbe_v1_3.version.size = 2
 
 -- Display: Version
@@ -2201,7 +2077,7 @@ end
 -- Schema Id
 memx_options_memoirdepth_sbe_v1_3.schema_id = {}
 
--- Size: Schema Id
+-- Size Of: Schema Id
 memx_options_memoirdepth_sbe_v1_3.schema_id.size = 1
 
 -- Display: Schema Id
@@ -2224,7 +2100,7 @@ end
 -- Template Id
 memx_options_memoirdepth_sbe_v1_3.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 memx_options_memoirdepth_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
@@ -2287,7 +2163,7 @@ end
 -- Block Length
 memx_options_memoirdepth_sbe_v1_3.block_length = {}
 
--- Size: Block Length
+-- Size Of: Block Length
 memx_options_memoirdepth_sbe_v1_3.block_length.size = 2
 
 -- Display: Block Length
@@ -2310,20 +2186,12 @@ end
 -- Sbe Header
 memx_options_memoirdepth_sbe_v1_3.sbe_header = {}
 
--- Calculate size of: Sbe Header
-memx_options_memoirdepth_sbe_v1_3.sbe_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.block_length.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.template_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.schema_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.version.size
-
-  return index
-end
+-- Size Of: Sbe Header
+memx_options_memoirdepth_sbe_v1_3.sbe_header.size =
+  memx_options_memoirdepth_sbe_v1_3.block_length.size + 
+  memx_options_memoirdepth_sbe_v1_3.template_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.schema_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.version.size;
 
 -- Display: Sbe Header
 memx_options_memoirdepth_sbe_v1_3.sbe_header.display = function(packet, parent, length)
@@ -2374,7 +2242,7 @@ memx_options_memoirdepth_sbe_v1_3.sbe_message = {}
 memx_options_memoirdepth_sbe_v1_3.sbe_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memoirdepth_sbe_v1_3.sbe_header.size(buffer, offset + index)
+  index = index + memx_options_memoirdepth_sbe_v1_3.sbe_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2421,7 +2289,7 @@ end
 -- Message Length
 memx_options_memoirdepth_sbe_v1_3.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 memx_options_memoirdepth_sbe_v1_3.message_length.size = 2
 
 -- Display: Message Length
@@ -2489,7 +2357,7 @@ end
 -- Message Count
 memx_options_memoirdepth_sbe_v1_3.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 memx_options_memoirdepth_sbe_v1_3.message_count.size = 2
 
 -- Display: Message Count
@@ -2606,7 +2474,7 @@ end
 -- Sequence Number
 memx_options_memoirdepth_sbe_v1_3.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 memx_options_memoirdepth_sbe_v1_3.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -2629,7 +2497,7 @@ end
 -- Session Id
 memx_options_memoirdepth_sbe_v1_3.session_id = {}
 
--- Size: Session Id
+-- Size Of: Session Id
 memx_options_memoirdepth_sbe_v1_3.session_id.size = 8
 
 -- Display: Session Id
@@ -2652,7 +2520,7 @@ end
 -- Header Length
 memx_options_memoirdepth_sbe_v1_3.header_length = {}
 
--- Size: Header Length
+-- Size Of: Header Length
 memx_options_memoirdepth_sbe_v1_3.header_length.size = 1
 
 -- Display: Header Length
@@ -2675,7 +2543,7 @@ end
 -- Message Type
 memx_options_memoirdepth_sbe_v1_3.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 memx_options_memoirdepth_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
@@ -2708,20 +2576,12 @@ end
 -- Common Header
 memx_options_memoirdepth_sbe_v1_3.common_header = {}
 
--- Calculate size of: Common Header
-memx_options_memoirdepth_sbe_v1_3.common_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.message_type.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.header_length.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.session_id.size
-
-  index = index + memx_options_memoirdepth_sbe_v1_3.sequence_number.size
-
-  return index
-end
+-- Size Of: Common Header
+memx_options_memoirdepth_sbe_v1_3.common_header.size =
+  memx_options_memoirdepth_sbe_v1_3.message_type.size + 
+  memx_options_memoirdepth_sbe_v1_3.header_length.size + 
+  memx_options_memoirdepth_sbe_v1_3.session_id.size + 
+  memx_options_memoirdepth_sbe_v1_3.sequence_number.size;
 
 -- Display: Common Header
 memx_options_memoirdepth_sbe_v1_3.common_header.display = function(packet, parent, length)

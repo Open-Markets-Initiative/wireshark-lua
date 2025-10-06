@@ -350,7 +350,7 @@ end
 -- Total Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.total_volume = {}
 
--- Size: Total Volume
+-- Size Of: Total Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.size = 4
 
 -- Display: Total Volume
@@ -373,7 +373,7 @@ end
 -- Close
 nyse_arca_options_topfeed_pillar_v1_2_c.close = {}
 
--- Size: Close
+-- Size Of: Close
 nyse_arca_options_topfeed_pillar_v1_2_c.close.size = 4
 
 -- Display: Close
@@ -396,7 +396,7 @@ end
 -- Open
 nyse_arca_options_topfeed_pillar_v1_2_c.open = {}
 
--- Size: Open
+-- Size Of: Open
 nyse_arca_options_topfeed_pillar_v1_2_c.open.size = 4
 
 -- Display: Open
@@ -419,7 +419,7 @@ end
 -- Low Price
 nyse_arca_options_topfeed_pillar_v1_2_c.low_price = {}
 
--- Size: Low Price
+-- Size Of: Low Price
 nyse_arca_options_topfeed_pillar_v1_2_c.low_price.size = 4
 
 -- Display: Low Price
@@ -442,7 +442,7 @@ end
 -- High Price
 nyse_arca_options_topfeed_pillar_v1_2_c.high_price = {}
 
--- Size: High Price
+-- Size Of: High Price
 nyse_arca_options_topfeed_pillar_v1_2_c.high_price.size = 4
 
 -- Display: High Price
@@ -465,7 +465,7 @@ end
 -- Series Index
 nyse_arca_options_topfeed_pillar_v1_2_c.series_index = {}
 
--- Size: Series Index
+-- Size Of: Series Index
 nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size = 4
 
 -- Display: Series Index
@@ -488,7 +488,7 @@ end
 -- Source Time Ns
 nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns = {}
 
--- Size: Source Time Ns
+-- Size Of: Source Time Ns
 nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size = 4
 
 -- Display: Source Time Ns
@@ -511,7 +511,7 @@ end
 -- Source Time
 nyse_arca_options_topfeed_pillar_v1_2_c.source_time = {}
 
--- Size: Source Time
+-- Size Of: Source Time
 nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size = 4
 
 -- Display: Source Time
@@ -534,28 +534,16 @@ end
 -- Outright Series Summary Message
 nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message = {}
 
--- Calculate size of: Outright Series Summary Message
-nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.high_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.low_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.open.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.close.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.size
-
-  return index
-end
+-- Size Of: Outright Series Summary Message
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.high_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.low_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.open.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.close.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.size;
 
 -- Display: Outright Series Summary Message
 nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.display = function(packet, parent, length)
@@ -614,7 +602,7 @@ end
 -- Rfq Status
 nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status = {}
 
--- Size: Rfq Status
+-- Size Of: Rfq Status
 nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.size = 1
 
 -- Display: Rfq Status
@@ -644,7 +632,7 @@ end
 -- Auction Id
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_id = {}
 
--- Size: Auction Id
+-- Size Of: Auction Id
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.size = 8
 
 -- Display: Auction Id
@@ -667,7 +655,7 @@ end
 -- Participant
 nyse_arca_options_topfeed_pillar_v1_2_c.participant = {}
 
--- Size: Participant
+-- Size Of: Participant
 nyse_arca_options_topfeed_pillar_v1_2_c.participant.size = 4
 
 -- Display: Participant
@@ -690,7 +678,7 @@ end
 -- Working Price
 nyse_arca_options_topfeed_pillar_v1_2_c.working_price = {}
 
--- Size: Working Price
+-- Size Of: Working Price
 nyse_arca_options_topfeed_pillar_v1_2_c.working_price.size = 4
 
 -- Display: Working Price
@@ -713,7 +701,7 @@ end
 -- Total Quantity
 nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity = {}
 
--- Size: Total Quantity
+-- Size Of: Total Quantity
 nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.size = 4
 
 -- Display: Total Quantity
@@ -736,7 +724,7 @@ end
 -- Capacity
 nyse_arca_options_topfeed_pillar_v1_2_c.capacity = {}
 
--- Size: Capacity
+-- Size Of: Capacity
 nyse_arca_options_topfeed_pillar_v1_2_c.capacity.size = 1
 
 -- Display: Capacity
@@ -778,7 +766,7 @@ end
 -- Type
 nyse_arca_options_topfeed_pillar_v1_2_c.type = {}
 
--- Size: Type
+-- Size Of: Type
 nyse_arca_options_topfeed_pillar_v1_2_c.type.size = 1
 
 -- Display: Type
@@ -817,7 +805,7 @@ end
 -- Side
 nyse_arca_options_topfeed_pillar_v1_2_c.side = {}
 
--- Size: Side
+-- Size Of: Side
 nyse_arca_options_topfeed_pillar_v1_2_c.side.size = 1
 
 -- Display: Side
@@ -847,7 +835,7 @@ end
 -- Series Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num = {}
 
--- Size: Series Seq Num
+-- Size Of: Series Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size = 4
 
 -- Display: Series Seq Num
@@ -870,36 +858,20 @@ end
 -- Series Rfq Message
 nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message = {}
 
--- Calculate size of: Series Rfq Message
-nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.side.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.type.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.capacity.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.working_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.participant.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.size
-
-  return index
-end
+-- Size Of: Series Rfq Message
+nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.side.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.type.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.capacity.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.working_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.participant.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.size;
 
 -- Display: Series Rfq Message
 nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.display = function(packet, parent, length)
@@ -970,7 +942,7 @@ end
 -- Auction Status
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_status = {}
 
--- Size: Auction Status
+-- Size Of: Auction Status
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.size = 1
 
 -- Display: Auction Status
@@ -1003,7 +975,7 @@ end
 -- Lower Collar
 nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar = {}
 
--- Size: Lower Collar
+-- Size Of: Lower Collar
 nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.size = 4
 
 -- Display: Lower Collar
@@ -1026,7 +998,7 @@ end
 -- Upper Collar
 nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar = {}
 
--- Size: Upper Collar
+-- Size Of: Upper Collar
 nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.size = 4
 
 -- Display: Upper Collar
@@ -1049,7 +1021,7 @@ end
 -- Indicative Match Price
 nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price = {}
 
--- Size: Indicative Match Price
+-- Size Of: Indicative Match Price
 nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.size = 4
 
 -- Display: Indicative Match Price
@@ -1072,7 +1044,7 @@ end
 -- Reserved 4
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4 = {}
 
--- Size: Reserved 4
+-- Size Of: Reserved 4
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size = 4
 
 -- Display: Reserved 4
@@ -1095,7 +1067,7 @@ end
 -- Auction Interest Clearing Price
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price = {}
 
--- Size: Auction Interest Clearing Price
+-- Size Of: Auction Interest Clearing Price
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.size = 4
 
 -- Display: Auction Interest Clearing Price
@@ -1118,7 +1090,7 @@ end
 -- Continuous Book Clearing Price
 nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price = {}
 
--- Size: Continuous Book Clearing Price
+-- Size Of: Continuous Book Clearing Price
 nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.size = 4
 
 -- Display: Continuous Book Clearing Price
@@ -1141,7 +1113,7 @@ end
 -- Imbalance Side
 nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side = {}
 
--- Size: Imbalance Side
+-- Size Of: Imbalance Side
 nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.size = 1
 
 -- Display: Imbalance Side
@@ -1174,7 +1146,7 @@ end
 -- Auction Type
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_type = {}
 
--- Size: Auction Type
+-- Size Of: Auction Type
 nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.size = 1
 
 -- Display: Auction Type
@@ -1204,7 +1176,7 @@ end
 -- Reserved 2
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2 = {}
 
--- Size: Reserved 2
+-- Size Of: Reserved 2
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.size = 2
 
 -- Display: Reserved 2
@@ -1227,7 +1199,7 @@ end
 -- Market Imbalance Qty
 nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty = {}
 
--- Size: Market Imbalance Qty
+-- Size Of: Market Imbalance Qty
 nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.size = 4
 
 -- Display: Market Imbalance Qty
@@ -1250,7 +1222,7 @@ end
 -- Total Imbalance Qty
 nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty = {}
 
--- Size: Total Imbalance Qty
+-- Size Of: Total Imbalance Qty
 nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.size = 4
 
 -- Display: Total Imbalance Qty
@@ -1273,7 +1245,7 @@ end
 -- Paired Qty
 nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty = {}
 
--- Size: Paired Qty
+-- Size Of: Paired Qty
 nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.size = 4
 
 -- Display: Paired Qty
@@ -1296,48 +1268,26 @@ end
 -- Options Imbalance Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message = {}
 
--- Calculate size of: Options Imbalance Message
-nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.size
-
-  return index
-end
+-- Size Of: Options Imbalance Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.size;
 
 -- Display: Options Imbalance Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.display = function(packet, parent, length)
@@ -1426,7 +1376,7 @@ end
 -- Reserved 3
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3 = {}
 
--- Size: Reserved 3
+-- Size Of: Reserved 3
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.size = 3
 
 -- Display: Reserved 3
@@ -1449,7 +1399,7 @@ end
 -- Transaction
 nyse_arca_options_topfeed_pillar_v1_2_c.transaction = {}
 
--- Size: Transaction
+-- Size Of: Transaction
 nyse_arca_options_topfeed_pillar_v1_2_c.transaction.size = 1
 
 -- Display: Transaction
@@ -1485,16 +1435,10 @@ end
 -- Correction Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition = {}
 
--- Calculate size of: Correction Condition
-nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.transaction.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.size
-
-  return index
-end
+-- Size Of: Correction Condition
+nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.transaction.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.size;
 
 -- Display: Correction Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.display = function(packet, parent, length)
@@ -1535,7 +1479,7 @@ end
 -- Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.volume = {}
 
--- Size: Volume
+-- Size Of: Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.volume.size = 4
 
 -- Display: Volume
@@ -1558,7 +1502,7 @@ end
 -- Price
 nyse_arca_options_topfeed_pillar_v1_2_c.price = {}
 
--- Size: Price
+-- Size Of: Price
 nyse_arca_options_topfeed_pillar_v1_2_c.price.size = 4
 
 -- Display: Price
@@ -1581,7 +1525,7 @@ end
 -- Trade Id
 nyse_arca_options_topfeed_pillar_v1_2_c.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size = 4
 
 -- Display: Trade Id
@@ -1604,7 +1548,7 @@ end
 -- Original Trade Id
 nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id = {}
 
--- Size: Original Trade Id
+-- Size Of: Original Trade Id
 nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size = 4
 
 -- Display: Original Trade Id
@@ -1627,30 +1571,17 @@ end
 -- Options Trade Correction Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message = {}
 
--- Calculate size of: Options Trade Correction Message
-nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.volume.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Options Trade Correction Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.volume.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.size;
 
 -- Display: Options Trade Correction Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.display = function(packet, parent, length)
@@ -1712,22 +1643,13 @@ end
 -- Options Trade Cancel Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message = {}
 
--- Calculate size of: Options Trade Cancel Message
-nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size
-
-  return index
-end
+-- Size Of: Options Trade Cancel Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size;
 
 -- Display: Options Trade Cancel Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.display = function(packet, parent, length)
@@ -1777,7 +1699,7 @@ end
 -- Offical
 nyse_arca_options_topfeed_pillar_v1_2_c.offical = {}
 
--- Size: Offical
+-- Size Of: Offical
 nyse_arca_options_topfeed_pillar_v1_2_c.offical.size = 1
 
 -- Display: Offical
@@ -1800,7 +1722,7 @@ end
 -- Reserved 1
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1 = {}
 
--- Size: Reserved 1
+-- Size Of: Reserved 1
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size = 1
 
 -- Display: Reserved 1
@@ -1823,7 +1745,7 @@ end
 -- Opening
 nyse_arca_options_topfeed_pillar_v1_2_c.opening = {}
 
--- Size: Opening
+-- Size Of: Opening
 nyse_arca_options_topfeed_pillar_v1_2_c.opening.size = 1
 
 -- Display: Opening
@@ -1856,7 +1778,7 @@ end
 -- Series
 nyse_arca_options_topfeed_pillar_v1_2_c.series = {}
 
--- Size: Series
+-- Size Of: Series
 nyse_arca_options_topfeed_pillar_v1_2_c.series.size = 1
 
 -- Display: Series
@@ -1925,20 +1847,12 @@ end
 -- Trade Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition = {}
 
--- Calculate size of: Trade Condition
-nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.opening.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.offical.size
-
-  return index
-end
+-- Size Of: Trade Condition
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.series.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.opening.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.offical.size;
 
 -- Display: Trade Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.display = function(packet, parent, length)
@@ -1985,28 +1899,16 @@ end
 -- Options Trade Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message = {}
 
--- Calculate size of: Options Trade Message
-nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.volume.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Options Trade Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.volume.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.size;
 
 -- Display: Options Trade Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.display = function(packet, parent, length)
@@ -2065,7 +1967,7 @@ end
 -- Bid Customer Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume = {}
 
--- Size: Bid Customer Volume
+-- Size Of: Bid Customer Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.size = 4
 
 -- Display: Bid Customer Volume
@@ -2088,7 +1990,7 @@ end
 -- Ask Customer Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume = {}
 
--- Size: Ask Customer Volume
+-- Size Of: Ask Customer Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.size = 4
 
 -- Display: Ask Customer Volume
@@ -2111,7 +2013,7 @@ end
 -- Quote Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition = {}
 
--- Size: Quote Condition
+-- Size Of: Quote Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -2165,7 +2067,7 @@ end
 -- Bid Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume = {}
 
--- Size: Bid Volume
+-- Size Of: Bid Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.size = 4
 
 -- Display: Bid Volume
@@ -2188,7 +2090,7 @@ end
 -- Bid Price
 nyse_arca_options_topfeed_pillar_v1_2_c.bid_price = {}
 
--- Size: Bid Price
+-- Size Of: Bid Price
 nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.size = 4
 
 -- Display: Bid Price
@@ -2211,7 +2113,7 @@ end
 -- Ask Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume = {}
 
--- Size: Ask Volume
+-- Size Of: Ask Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.size = 4
 
 -- Display: Ask Volume
@@ -2234,7 +2136,7 @@ end
 -- Ask Price
 nyse_arca_options_topfeed_pillar_v1_2_c.ask_price = {}
 
--- Size: Ask Price
+-- Size Of: Ask Price
 nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.size = 4
 
 -- Display: Ask Price
@@ -2257,34 +2159,19 @@ end
 -- Options Quote Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message = {}
 
--- Calculate size of: Options Quote Message
-nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.size
-
-  return index
-end
+-- Size Of: Options Quote Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.size;
 
 -- Display: Options Quote Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.display = function(packet, parent, length)
@@ -2352,7 +2239,7 @@ end
 -- Halt Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition = {}
 
--- Size: Halt Condition
+-- Size Of: Halt Condition
 nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size = 1
 
 -- Display: Halt Condition
@@ -2424,7 +2311,7 @@ end
 -- Market State
 nyse_arca_options_topfeed_pillar_v1_2_c.market_state = {}
 
--- Size: Market State
+-- Size Of: Market State
 nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size = 1
 
 -- Display: Market State
@@ -2463,7 +2350,7 @@ end
 -- Series Status
 nyse_arca_options_topfeed_pillar_v1_2_c.series_status = {}
 
--- Size: Series Status
+-- Size Of: Series Status
 nyse_arca_options_topfeed_pillar_v1_2_c.series_status.size = 1
 
 -- Display: Series Status
@@ -2508,26 +2395,15 @@ end
 -- Options Status Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message = {}
 
--- Calculate size of: Options Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_status.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size
-
-  return index
-end
+-- Size Of: Options Status Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_status.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size;
 
 -- Display: Options Status Message
 nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.display = function(packet, parent, length)
@@ -2583,7 +2459,7 @@ end
 -- Closing Only Indicator
 nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator = {}
 
--- Size: Closing Only Indicator
+-- Size Of: Closing Only Indicator
 nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.size = 1
 
 -- Display: Closing Only Indicator
@@ -2613,7 +2489,7 @@ end
 -- Strike Price
 nyse_arca_options_topfeed_pillar_v1_2_c.strike_price = {}
 
--- Size: Strike Price
+-- Size Of: Strike Price
 nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.size = 10
 
 -- Display: Strike Price
@@ -2636,7 +2512,7 @@ end
 -- Put Or Call
 nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call = {}
 
--- Size: Put Or Call
+-- Size Of: Put Or Call
 nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.size = 1
 
 -- Display: Put Or Call
@@ -2666,7 +2542,7 @@ end
 -- Maturity Date
 nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date = {}
 
--- Size: Maturity Date
+-- Size Of: Maturity Date
 nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.size = 6
 
 -- Display: Maturity Date
@@ -2689,7 +2565,7 @@ end
 -- Contract Multiplier
 nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier = {}
 
--- Size: Contract Multiplier
+-- Size Of: Contract Multiplier
 nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.size = 2
 
 -- Display: Contract Multiplier
@@ -2712,7 +2588,7 @@ end
 -- Price Scale Code
 nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code = {}
 
--- Size: Price Scale Code
+-- Size Of: Price Scale Code
 nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size = 1
 
 -- Display: Price Scale Code
@@ -2745,7 +2621,7 @@ end
 -- Underlying Index
 nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index = {}
 
--- Size: Underlying Index
+-- Size Of: Underlying Index
 nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.size = 4
 
 -- Display: Underlying Index
@@ -2768,7 +2644,7 @@ end
 -- Underlying Symbol
 nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol = {}
 
--- Size: Underlying Symbol
+-- Size Of: Underlying Symbol
 nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.size = 11
 
 -- Display: Underlying Symbol
@@ -2791,7 +2667,7 @@ end
 -- Option Symbol Root
 nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root = {}
 
--- Size: Option Symbol Root
+-- Size Of: Option Symbol Root
 nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.size = 6
 
 -- Display: Option Symbol Root
@@ -2814,7 +2690,7 @@ end
 -- System Id
 nyse_arca_options_topfeed_pillar_v1_2_c.system_id = {}
 
--- Size: System Id
+-- Size Of: System Id
 nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size = 1
 
 -- Display: System Id
@@ -2837,7 +2713,7 @@ end
 -- Market Id
 nyse_arca_options_topfeed_pillar_v1_2_c.market_id = {}
 
--- Size: Market Id
+-- Size Of: Market Id
 nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size = 2
 
 -- Display: Market Id
@@ -2860,7 +2736,7 @@ end
 -- Series Type
 nyse_arca_options_topfeed_pillar_v1_2_c.series_type = {}
 
--- Size: Series Type
+-- Size Of: Series Type
 nyse_arca_options_topfeed_pillar_v1_2_c.series_type.size = 1
 
 -- Display: Series Type
@@ -2893,40 +2769,22 @@ end
 -- Outright Series Index Mapping Message
 nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message = {}
 
--- Calculate size of: Outright Series Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_type.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
-
-  return index
-end
+-- Size Of: Outright Series Index Mapping Message
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.series_type.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size;
 
 -- Display: Outright Series Index Mapping Message
 nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.display = function(packet, parent, length)
@@ -3003,7 +2861,7 @@ end
 -- Last Symbol Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num = {}
 
--- Size: Last Symbol Seq Num
+-- Size Of: Last Symbol Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.size = 4
 
 -- Display: Last Symbol Seq Num
@@ -3026,7 +2884,7 @@ end
 -- Last Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num = {}
 
--- Size: Last Seq Num
+-- Size Of: Last Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.size = 4
 
 -- Display: Last Seq Num
@@ -3049,7 +2907,7 @@ end
 -- Total Refresh Pkts
 nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts = {}
 
--- Size: Total Refresh Pkts
+-- Size Of: Total Refresh Pkts
 nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.size = 2
 
 -- Display: Total Refresh Pkts
@@ -3072,7 +2930,7 @@ end
 -- Current Refresh Pkt
 nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt = {}
 
--- Size: Current Refresh Pkt
+-- Size Of: Current Refresh Pkt
 nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.size = 2
 
 -- Display: Current Refresh Pkt
@@ -3095,20 +2953,12 @@ end
 -- Refresh Header Message
 nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message = {}
 
--- Calculate size of: Refresh Header Message
-nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.size
-
-  return index
-end
+-- Size Of: Refresh Header Message
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.size;
 
 -- Display: Refresh Header Message
 nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.display = function(packet, parent, length)
@@ -3155,7 +3005,7 @@ end
 -- Session State
 nyse_arca_options_topfeed_pillar_v1_2_c.session_state = {}
 
--- Size: Session State
+-- Size Of: Session State
 nyse_arca_options_topfeed_pillar_v1_2_c.session_state.size = 1
 
 -- Display: Session State
@@ -3178,7 +3028,7 @@ end
 -- Ssr State
 nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state = {}
 
--- Size: Ssr State
+-- Size Of: Ssr State
 nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.size = 1
 
 -- Display: Ssr State
@@ -3208,7 +3058,7 @@ end
 -- Time
 nyse_arca_options_topfeed_pillar_v1_2_c.time = {}
 
--- Size: Time
+-- Size Of: Time
 nyse_arca_options_topfeed_pillar_v1_2_c.time.size = 4
 
 -- Display: Time
@@ -3231,7 +3081,7 @@ end
 -- Ssr Triggering Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume = {}
 
--- Size: Ssr Triggering Volume
+-- Size Of: Ssr Triggering Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.size = 4
 
 -- Display: Ssr Triggering Volume
@@ -3254,7 +3104,7 @@ end
 -- Ssr Triggering Exchange Id
 nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id = {}
 
--- Size: Ssr Triggering Exchange Id
+-- Size Of: Ssr Triggering Exchange Id
 nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
@@ -3341,7 +3191,7 @@ end
 -- Price 2
 nyse_arca_options_topfeed_pillar_v1_2_c.price_2 = {}
 
--- Size: Price 2
+-- Size Of: Price 2
 nyse_arca_options_topfeed_pillar_v1_2_c.price_2.size = 4
 
 -- Display: Price 2
@@ -3364,7 +3214,7 @@ end
 -- Price 1
 nyse_arca_options_topfeed_pillar_v1_2_c.price_1 = {}
 
--- Size: Price 1
+-- Size Of: Price 1
 nyse_arca_options_topfeed_pillar_v1_2_c.price_1.size = 4
 
 -- Display: Price 1
@@ -3387,7 +3237,7 @@ end
 -- Security Status
 nyse_arca_options_topfeed_pillar_v1_2_c.security_status = {}
 
--- Size: Security Status
+-- Size Of: Security Status
 nyse_arca_options_topfeed_pillar_v1_2_c.security_status.size = 1
 
 -- Display: Security Status
@@ -3453,7 +3303,7 @@ end
 -- Symbol Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num = {}
 
--- Size: Symbol Seq Num
+-- Size Of: Symbol Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
@@ -3476,7 +3326,7 @@ end
 -- Symbol Index
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index = {}
 
--- Size: Symbol Index
+-- Size Of: Symbol Index
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size = 4
 
 -- Display: Symbol Index
@@ -3499,42 +3349,23 @@ end
 -- Security Status Message
 nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message = {}
 
--- Calculate size of: Security Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.security_status.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_1.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_2.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.session_state.size
-
-  return index
-end
+-- Size Of: Security Status Message
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.security_status.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.price_1.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.price_2.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.session_state.size;
 
 -- Display: Security Status Message
 nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.display = function(packet, parent, length)
@@ -3614,7 +3445,7 @@ end
 -- Next Source Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num = {}
 
--- Size: Next Source Seq Num
+-- Size Of: Next Source Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.size = 4
 
 -- Display: Next Source Seq Num
@@ -3637,20 +3468,12 @@ end
 -- Symbol Clear Message
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message = {}
 
--- Calculate size of: Symbol Clear Message
-nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.size
-
-  return index
-end
+-- Size Of: Symbol Clear Message
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.size;
 
 -- Display: Symbol Clear Message
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.display = function(packet, parent, length)
@@ -3697,7 +3520,7 @@ end
 -- Channel Id
 nyse_arca_options_topfeed_pillar_v1_2_c.channel_id = {}
 
--- Size: Channel Id
+-- Size Of: Channel Id
 nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size = 1
 
 -- Display: Channel Id
@@ -3720,7 +3543,7 @@ end
 -- Product Id
 nyse_arca_options_topfeed_pillar_v1_2_c.product_id = {}
 
--- Size: Product Id
+-- Size Of: Product Id
 nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size = 1
 
 -- Display: Product Id
@@ -3743,7 +3566,7 @@ end
 -- End Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num = {}
 
--- Size: End Seq Num
+-- Size Of: End Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size = 4
 
 -- Display: End Seq Num
@@ -3766,7 +3589,7 @@ end
 -- Begin Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num = {}
 
--- Size: Begin Seq Num
+-- Size Of: Begin Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size = 4
 
 -- Display: Begin Seq Num
@@ -3789,20 +3612,12 @@ end
 -- Message Unavailable Message
 nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message = {}
 
--- Calculate size of: Message Unavailable Message
-nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
-
-  return index
-end
+-- Size Of: Message Unavailable Message
+nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size;
 
 -- Display: Message Unavailable Message
 nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.display = function(packet, parent, length)
@@ -3849,7 +3664,7 @@ end
 -- Source Id
 nyse_arca_options_topfeed_pillar_v1_2_c.source_id = {}
 
--- Size: Source Id
+-- Size Of: Source Id
 nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size = 10
 
 -- Display: Source Id
@@ -3872,20 +3687,12 @@ end
 -- Refresh Request Message
 nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message = {}
 
--- Calculate size of: Refresh Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
-
-  return index
-end
+-- Size Of: Refresh Request Message
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size;
 
 -- Display: Refresh Request Message
 nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.display = function(packet, parent, length)
@@ -3932,7 +3739,7 @@ end
 -- Retransmit Method
 nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method = {}
 
--- Size: Retransmit Method
+-- Size Of: Retransmit Method
 nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.size = 1
 
 -- Display: Retransmit Method
@@ -3955,22 +3762,13 @@ end
 -- Symbol Index Mapping Request Message
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message = {}
 
--- Calculate size of: Symbol Index Mapping Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.size
-
-  return index
-end
+-- Size Of: Symbol Index Mapping Request Message
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.size;
 
 -- Display: Symbol Index Mapping Request Message
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.display = function(packet, parent, length)
@@ -4020,14 +3818,9 @@ end
 -- Heartbeat Response Message
 nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message = {}
 
--- Calculate size of: Heartbeat Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
-
-  return index
-end
+-- Size Of: Heartbeat Response Message
+nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size;
 
 -- Display: Heartbeat Response Message
 nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.display = function(packet, parent, length)
@@ -4065,7 +3858,7 @@ end
 -- Status
 nyse_arca_options_topfeed_pillar_v1_2_c.status = {}
 
--- Size: Status
+-- Size Of: Status
 nyse_arca_options_topfeed_pillar_v1_2_c.status.size = 1
 
 -- Display: Status
@@ -4119,7 +3912,7 @@ end
 -- Request Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num = {}
 
--- Size: Request Seq Num
+-- Size Of: Request Seq Num
 nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.size = 4
 
 -- Display: Request Seq Num
@@ -4142,26 +3935,15 @@ end
 -- Request Response Message
 nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message = {}
 
--- Calculate size of: Request Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.status.size
-
-  return index
-end
+-- Size Of: Request Response Message
+nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.status.size;
 
 -- Display: Request Response Message
 nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.display = function(packet, parent, length)
@@ -4217,22 +3999,13 @@ end
 -- Retransmission Request Message
 nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message = {}
 
--- Calculate size of: Retransmission Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
-
-  return index
-end
+-- Size Of: Retransmission Request Message
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size;
 
 -- Display: Retransmission Request Message
 nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.display = function(packet, parent, length)
@@ -4282,7 +4055,7 @@ end
 -- Reserved 6
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6 = {}
 
--- Size: Reserved 6
+-- Size Of: Reserved 6
 nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.size = 6
 
 -- Display: Reserved 6
@@ -4305,7 +4078,7 @@ end
 -- Round Lot
 nyse_arca_options_topfeed_pillar_v1_2_c.round_lot = {}
 
--- Size: Round Lot
+-- Size Of: Round Lot
 nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.size = 1
 
 -- Display: Round Lot
@@ -4335,7 +4108,7 @@ end
 -- Price Resolution
 nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution = {}
 
--- Size: Price Resolution
+-- Size Of: Price Resolution
 nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.size = 1
 
 -- Display: Price Resolution
@@ -4368,7 +4141,7 @@ end
 -- Prev Close Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume = {}
 
--- Size: Prev Close Volume
+-- Size Of: Prev Close Volume
 nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.size = 4
 
 -- Display: Prev Close Volume
@@ -4391,7 +4164,7 @@ end
 -- Prev Close Price
 nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price = {}
 
--- Size: Prev Close Price
+-- Size Of: Prev Close Price
 nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.size = 4
 
 -- Display: Prev Close Price
@@ -4414,7 +4187,7 @@ end
 -- Lot Size
 nyse_arca_options_topfeed_pillar_v1_2_c.lot_size = {}
 
--- Size: Lot Size
+-- Size Of: Lot Size
 nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.size = 2
 
 -- Display: Lot Size
@@ -4437,7 +4210,7 @@ end
 -- Security Type
 nyse_arca_options_topfeed_pillar_v1_2_c.security_type = {}
 
--- Size: Security Type
+-- Size Of: Security Type
 nyse_arca_options_topfeed_pillar_v1_2_c.security_type.size = 1
 
 -- Display: Security Type
@@ -4509,7 +4282,7 @@ end
 -- Exchange Code
 nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code = {}
 
--- Size: Exchange Code
+-- Size Of: Exchange Code
 nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.size = 1
 
 -- Display: Exchange Code
@@ -4557,7 +4330,7 @@ end
 -- Symbol
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol.size = 11
 
 -- Display: Symbol
@@ -4580,40 +4353,22 @@ end
 -- Symbol Index Mapping Message
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message = {}
 
--- Calculate size of: Symbol Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.security_type.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.size
-
-  return index
-end
+-- Size Of: Symbol Index Mapping Message
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.symbol.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.security_type.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.size;
 
 -- Display: Symbol Index Mapping Message
 nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -4690,7 +4445,7 @@ end
 -- Id
 nyse_arca_options_topfeed_pillar_v1_2_c.id = {}
 
--- Size: Id
+-- Size Of: Id
 nyse_arca_options_topfeed_pillar_v1_2_c.id.size = 4
 
 -- Display: Id
@@ -4713,18 +4468,11 @@ end
 -- Time Reference Message
 nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message = {}
 
--- Calculate size of: Time Reference Message
-nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  return index
-end
+-- Size Of: Time Reference Message
+nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size;
 
 -- Display: Time Reference Message
 nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.display = function(packet, parent, length)
@@ -4768,20 +4516,12 @@ end
 -- Sequence Number Reset Message
 nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message = {}
 
--- Calculate size of: Sequence Number Reset Message
-nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
-
-  return index
-end
+-- Size Of: Sequence Number Reset Message
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size;
 
 -- Display: Sequence Number Reset Message
 nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.display = function(packet, parent, length)
@@ -5036,7 +4776,7 @@ end
 -- Message Type
 nyse_arca_options_topfeed_pillar_v1_2_c.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 nyse_arca_options_topfeed_pillar_v1_2_c.message_type.size = 2
 
 -- Display: Message Type
@@ -5123,7 +4863,7 @@ end
 -- Message Size
 nyse_arca_options_topfeed_pillar_v1_2_c.message_size = {}
 
--- Size: Message Size
+-- Size Of: Message Size
 nyse_arca_options_topfeed_pillar_v1_2_c.message_size.size = 2
 
 -- Display: Message Size
@@ -5146,16 +4886,10 @@ end
 -- Message Header
 nyse_arca_options_topfeed_pillar_v1_2_c.message_header = {}
 
--- Calculate size of: Message Header
-nyse_arca_options_topfeed_pillar_v1_2_c.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.message_size.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+nyse_arca_options_topfeed_pillar_v1_2_c.message_header.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.message_size.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.message_type.size;
 
 -- Display: Message Header
 nyse_arca_options_topfeed_pillar_v1_2_c.message_header.display = function(packet, parent, length)
@@ -5247,7 +4981,7 @@ end
 -- Nanoseconds
 nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds = {}
 
--- Size: Nanoseconds
+-- Size Of: Nanoseconds
 nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -5270,7 +5004,7 @@ end
 -- Timestamp
 nyse_arca_options_topfeed_pillar_v1_2_c.timestamp = {}
 
--- Size: Timestamp
+-- Size Of: Timestamp
 nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.size = 4
 
 -- Display: Timestamp
@@ -5293,7 +5027,7 @@ end
 -- Sequence Number
 nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -5316,7 +5050,7 @@ end
 -- Message Count
 nyse_arca_options_topfeed_pillar_v1_2_c.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 nyse_arca_options_topfeed_pillar_v1_2_c.message_count.size = 1
 
 -- Display: Message Count
@@ -5339,7 +5073,7 @@ end
 -- Delivery Flag
 nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag = {}
 
--- Size: Delivery Flag
+-- Size Of: Delivery Flag
 nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.size = 1
 
 -- Display: Delivery Flag
@@ -5396,7 +5130,7 @@ end
 -- Packet Size
 nyse_arca_options_topfeed_pillar_v1_2_c.packet_size = {}
 
--- Size: Packet Size
+-- Size Of: Packet Size
 nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.size = 2
 
 -- Display: Packet Size
@@ -5419,24 +5153,14 @@ end
 -- Packet Header
 nyse_arca_options_topfeed_pillar_v1_2_c.packet_header = {}
 
--- Calculate size of: Packet Header
-nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.message_count.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.size
-
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.size
-
-  return index
-end
+-- Size Of: Packet Header
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.size =
+  nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.message_count.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.size + 
+  nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.size;
 
 -- Display: Packet Header
 nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.display = function(packet, parent, length)

@@ -614,7 +614,7 @@ end
 -- Sending Time
 memx_options_memo_sbe_v1_5_b.sending_time = {}
 
--- Size: Sending Time
+-- Size Of: Sending Time
 memx_options_memo_sbe_v1_5_b.sending_time.size = 8
 
 -- Display: Sending Time
@@ -641,7 +641,7 @@ end
 -- Lockout Id
 memx_options_memo_sbe_v1_5_b.lockout_id = {}
 
--- Size: Lockout Id
+-- Size Of: Lockout Id
 memx_options_memo_sbe_v1_5_b.lockout_id.size = 8
 
 -- Display: Lockout Id
@@ -664,7 +664,7 @@ end
 -- ClOrdId
 memx_options_memo_sbe_v1_5_b.clordid = {}
 
--- Size: ClOrdId
+-- Size Of: ClOrdId
 memx_options_memo_sbe_v1_5_b.clordid.size = 20
 
 -- Display: ClOrdId
@@ -703,18 +703,11 @@ end
 -- Mass Cancel Clear Lockout Done Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_done_message = {}
 
--- Calculate size of: Mass Cancel Clear Lockout Done Message
-memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_done_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.lockout_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Mass Cancel Clear Lockout Done Message
+memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_done_message.size =
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.lockout_id.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Mass Cancel Clear Lockout Done Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_done_message.display = function(packet, parent, length)
@@ -758,7 +751,7 @@ end
 -- Rej Reason
 memx_options_memo_sbe_v1_5_b.rej_reason = {}
 
--- Size: Rej Reason
+-- Size Of: Rej Reason
 memx_options_memo_sbe_v1_5_b.rej_reason.size = 2
 
 -- Display: Rej Reason
@@ -803,20 +796,12 @@ end
 -- Mass Cancel Clear Lockout Reject Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_reject_message = {}
 
--- Calculate size of: Mass Cancel Clear Lockout Reject Message
-memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.lockout_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.rej_reason.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Mass Cancel Clear Lockout Reject Message
+memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_reject_message.size =
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.lockout_id.size + 
+  memx_options_memo_sbe_v1_5_b.rej_reason.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Mass Cancel Clear Lockout Reject Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_reject_message.display = function(packet, parent, length)
@@ -863,7 +848,7 @@ end
 -- User Status
 memx_options_memo_sbe_v1_5_b.user_status = {}
 
--- Size: User Status
+-- Size Of: User Status
 memx_options_memo_sbe_v1_5_b.user_status.size = 1
 
 -- Display: User Status
@@ -896,16 +881,10 @@ end
 -- User Notification Message
 memx_options_memo_sbe_v1_5_b.user_notification_message = {}
 
--- Calculate size of: User Notification Message
-memx_options_memo_sbe_v1_5_b.user_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.user_status.size
-
-  return index
-end
+-- Size Of: User Notification Message
+memx_options_memo_sbe_v1_5_b.user_notification_message.size =
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.user_status.size;
 
 -- Display: User Notification Message
 memx_options_memo_sbe_v1_5_b.user_notification_message.display = function(packet, parent, length)
@@ -946,7 +925,7 @@ end
 -- Alloc Id
 memx_options_memo_sbe_v1_5_b.alloc_id = {}
 
--- Size: Alloc Id
+-- Size Of: Alloc Id
 memx_options_memo_sbe_v1_5_b.alloc_id.size = 20
 
 -- Display: Alloc Id
@@ -985,7 +964,7 @@ end
 -- Alloc Position Effect
 memx_options_memo_sbe_v1_5_b.alloc_position_effect = {}
 
--- Size: Alloc Position Effect
+-- Size Of: Alloc Position Effect
 memx_options_memo_sbe_v1_5_b.alloc_position_effect.size = 1
 
 -- Display: Alloc Position Effect
@@ -1028,7 +1007,7 @@ end
 -- Alloc Qty
 memx_options_memo_sbe_v1_5_b.alloc_qty = {}
 
--- Size: Alloc Qty
+-- Size Of: Alloc Qty
 memx_options_memo_sbe_v1_5_b.alloc_qty.size = 4
 
 -- Display: Alloc Qty
@@ -1051,18 +1030,11 @@ end
 -- Reported Allocations Group
 memx_options_memo_sbe_v1_5_b.reported_allocations_group = {}
 
--- Calculate size of: Reported Allocations Group
-memx_options_memo_sbe_v1_5_b.reported_allocations_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.alloc_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.alloc_position_effect.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.alloc_id.size
-
-  return index
-end
+-- Size Of: Reported Allocations Group
+memx_options_memo_sbe_v1_5_b.reported_allocations_group.size =
+  memx_options_memo_sbe_v1_5_b.alloc_qty.size + 
+  memx_options_memo_sbe_v1_5_b.alloc_position_effect.size + 
+  memx_options_memo_sbe_v1_5_b.alloc_id.size;
 
 -- Display: Reported Allocations Group
 memx_options_memo_sbe_v1_5_b.reported_allocations_group.display = function(packet, parent, length)
@@ -1112,7 +1084,7 @@ end
 -- Num In Group
 memx_options_memo_sbe_v1_5_b.num_in_group = {}
 
--- Size: Num In Group
+-- Size Of: Num In Group
 memx_options_memo_sbe_v1_5_b.num_in_group.size = 1
 
 -- Display: Num In Group
@@ -1135,7 +1107,7 @@ end
 -- Block Length Short
 memx_options_memo_sbe_v1_5_b.block_length_short = {}
 
--- Size: Block Length Short
+-- Size Of: Block Length Short
 memx_options_memo_sbe_v1_5_b.block_length_short.size = 1
 
 -- Display: Block Length Short
@@ -1158,16 +1130,10 @@ end
 -- Repeating Group Dimensions
 memx_options_memo_sbe_v1_5_b.repeating_group_dimensions = {}
 
--- Calculate size of: Repeating Group Dimensions
-memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.block_length_short.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.num_in_group.size
-
-  return index
-end
+-- Size Of: Repeating Group Dimensions
+memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size =
+  memx_options_memo_sbe_v1_5_b.block_length_short.size + 
+  memx_options_memo_sbe_v1_5_b.num_in_group.size;
 
 -- Display: Repeating Group Dimensions
 memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.display = function(packet, parent, length)
@@ -1212,7 +1178,7 @@ memx_options_memo_sbe_v1_5_b.reported_allocations_groups = {}
 memx_options_memo_sbe_v1_5_b.reported_allocations_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size
 
   -- Calculate field size from count
   local reported_allocations_group_count = buffer(offset + index - 1, 1):uint()
@@ -1260,7 +1226,7 @@ end
 -- Last Px
 memx_options_memo_sbe_v1_5_b.last_px = {}
 
--- Size: Last Px
+-- Size Of: Last Px
 memx_options_memo_sbe_v1_5_b.last_px.size = 8
 
 -- Display: Last Px
@@ -1289,7 +1255,7 @@ end
 -- Last Qty
 memx_options_memo_sbe_v1_5_b.last_qty = {}
 
--- Size: Last Qty
+-- Size Of: Last Qty
 memx_options_memo_sbe_v1_5_b.last_qty.size = 4
 
 -- Display: Last Qty
@@ -1312,7 +1278,7 @@ end
 -- Trade Id
 memx_options_memo_sbe_v1_5_b.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 memx_options_memo_sbe_v1_5_b.trade_id.size = 8
 
 -- Display: Trade Id
@@ -1335,18 +1301,11 @@ end
 -- Execution Allocations Group
 memx_options_memo_sbe_v1_5_b.execution_allocations_group = {}
 
--- Calculate size of: Execution Allocations Group
-memx_options_memo_sbe_v1_5_b.execution_allocations_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.trade_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.last_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.last_px.size
-
-  return index
-end
+-- Size Of: Execution Allocations Group
+memx_options_memo_sbe_v1_5_b.execution_allocations_group.size =
+  memx_options_memo_sbe_v1_5_b.trade_id.size + 
+  memx_options_memo_sbe_v1_5_b.last_qty.size + 
+  memx_options_memo_sbe_v1_5_b.last_px.size;
 
 -- Display: Execution Allocations Group
 memx_options_memo_sbe_v1_5_b.execution_allocations_group.display = function(packet, parent, length)
@@ -1400,7 +1359,7 @@ memx_options_memo_sbe_v1_5_b.execution_allocations_groups = {}
 memx_options_memo_sbe_v1_5_b.execution_allocations_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size
 
   -- Calculate field size from count
   local execution_allocations_group_count = buffer(offset + index - 1, 1):uint()
@@ -1448,7 +1407,7 @@ end
 -- Trade Date
 memx_options_memo_sbe_v1_5_b.trade_date = {}
 
--- Size: Trade Date
+-- Size Of: Trade Date
 memx_options_memo_sbe_v1_5_b.trade_date.size = 8
 
 -- Display: Trade Date
@@ -1487,7 +1446,7 @@ end
 -- Security Id
 memx_options_memo_sbe_v1_5_b.security_id = {}
 
--- Size: Security Id
+-- Size Of: Security Id
 memx_options_memo_sbe_v1_5_b.security_id.size = 8
 
 -- Display: Security Id
@@ -1526,7 +1485,7 @@ end
 -- Side
 memx_options_memo_sbe_v1_5_b.side = {}
 
--- Size: Side
+-- Size Of: Side
 memx_options_memo_sbe_v1_5_b.side.size = 1
 
 -- Display: Side
@@ -1572,7 +1531,7 @@ end
 -- Alloc Canc Replace Reason
 memx_options_memo_sbe_v1_5_b.alloc_canc_replace_reason = {}
 
--- Size: Alloc Canc Replace Reason
+-- Size Of: Alloc Canc Replace Reason
 memx_options_memo_sbe_v1_5_b.alloc_canc_replace_reason.size = 2
 
 -- Display: Alloc Canc Replace Reason
@@ -1605,7 +1564,7 @@ end
 -- Ref Alloc Id Optional
 memx_options_memo_sbe_v1_5_b.ref_alloc_id_optional = {}
 
--- Size: Ref Alloc Id Optional
+-- Size Of: Ref Alloc Id Optional
 memx_options_memo_sbe_v1_5_b.ref_alloc_id_optional.size = 20
 
 -- Display: Ref Alloc Id Optional
@@ -1644,7 +1603,7 @@ end
 -- Alloc Trans Type
 memx_options_memo_sbe_v1_5_b.alloc_trans_type = {}
 
--- Size: Alloc Trans Type
+-- Size Of: Alloc Trans Type
 memx_options_memo_sbe_v1_5_b.alloc_trans_type.size = 1
 
 -- Display: Alloc Trans Type
@@ -1680,7 +1639,7 @@ end
 -- Alloc Type
 memx_options_memo_sbe_v1_5_b.alloc_type = {}
 
--- Size: Alloc Type
+-- Size Of: Alloc Type
 memx_options_memo_sbe_v1_5_b.alloc_type.size = 1
 
 -- Display: Alloc Type
@@ -1800,7 +1759,7 @@ end
 -- Alloc Rej Code
 memx_options_memo_sbe_v1_5_b.alloc_rej_code = {}
 
--- Size: Alloc Rej Code
+-- Size Of: Alloc Rej Code
 memx_options_memo_sbe_v1_5_b.alloc_rej_code.size = 2
 
 -- Display: Alloc Rej Code
@@ -1875,7 +1834,7 @@ end
 -- Alloc Status
 memx_options_memo_sbe_v1_5_b.alloc_status = {}
 
--- Size: Alloc Status
+-- Size Of: Alloc Status
 memx_options_memo_sbe_v1_5_b.alloc_status.size = 1
 
 -- Display: Alloc Status
@@ -1911,7 +1870,7 @@ end
 -- Secondary Alloc Id
 memx_options_memo_sbe_v1_5_b.secondary_alloc_id = {}
 
--- Size: Secondary Alloc Id
+-- Size Of: Secondary Alloc Id
 memx_options_memo_sbe_v1_5_b.secondary_alloc_id.size = 20
 
 -- Display: Secondary Alloc Id
@@ -2030,7 +1989,7 @@ end
 -- Side Optional
 memx_options_memo_sbe_v1_5_b.side_optional = {}
 
--- Size: Side Optional
+-- Size Of: Side Optional
 memx_options_memo_sbe_v1_5_b.side_optional.size = 1
 
 -- Display: Side Optional
@@ -2079,7 +2038,7 @@ end
 -- Options Security Id Optional
 memx_options_memo_sbe_v1_5_b.options_security_id_optional = {}
 
--- Size: Options Security Id Optional
+-- Size Of: Options Security Id Optional
 memx_options_memo_sbe_v1_5_b.options_security_id_optional.size = 8
 
 -- Display: Options Security Id Optional
@@ -2118,7 +2077,7 @@ end
 -- Cxl Rej Reason
 memx_options_memo_sbe_v1_5_b.cxl_rej_reason = {}
 
--- Size: Cxl Rej Reason
+-- Size Of: Cxl Rej Reason
 memx_options_memo_sbe_v1_5_b.cxl_rej_reason.size = 2
 
 -- Display: Cxl Rej Reason
@@ -2337,7 +2296,7 @@ end
 -- Cxl Rej Response To
 memx_options_memo_sbe_v1_5_b.cxl_rej_response_to = {}
 
--- Size: Cxl Rej Response To
+-- Size Of: Cxl Rej Response To
 memx_options_memo_sbe_v1_5_b.cxl_rej_response_to.size = 1
 
 -- Display: Cxl Rej Response To
@@ -2380,7 +2339,7 @@ end
 -- List Seq No
 memx_options_memo_sbe_v1_5_b.list_seq_no = {}
 
--- Size: List Seq No
+-- Size Of: List Seq No
 memx_options_memo_sbe_v1_5_b.list_seq_no.size = 1
 
 -- Display: List Seq No
@@ -2403,26 +2362,15 @@ end
 -- Order Cancel Reject Message
 memx_options_memo_sbe_v1_5_b.order_cancel_reject_message = {}
 
--- Calculate size of: Order Cancel Reject Message
-memx_options_memo_sbe_v1_5_b.order_cancel_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cxl_rej_response_to.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cxl_rej_reason.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.options_security_id_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Order Cancel Reject Message
+memx_options_memo_sbe_v1_5_b.order_cancel_reject_message.size =
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.cxl_rej_response_to.size + 
+  memx_options_memo_sbe_v1_5_b.cxl_rej_reason.size + 
+  memx_options_memo_sbe_v1_5_b.options_security_id_optional.size + 
+  memx_options_memo_sbe_v1_5_b.side_optional.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Order Cancel Reject Message
 memx_options_memo_sbe_v1_5_b.order_cancel_reject_message.display = function(packet, parent, length)
@@ -2478,7 +2426,7 @@ end
 -- Total Affected Orders
 memx_options_memo_sbe_v1_5_b.total_affected_orders = {}
 
--- Size: Total Affected Orders
+-- Size Of: Total Affected Orders
 memx_options_memo_sbe_v1_5_b.total_affected_orders.size = 4
 
 -- Display: Total Affected Orders
@@ -2501,18 +2449,11 @@ end
 -- Mass Cancel Done Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_done_message = {}
 
--- Calculate size of: Mass Cancel Done Message
-memx_options_memo_sbe_v1_5_b.mass_cancel_done_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.total_affected_orders.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Mass Cancel Done Message
+memx_options_memo_sbe_v1_5_b.mass_cancel_done_message.size =
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.total_affected_orders.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Mass Cancel Done Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_done_message.display = function(packet, parent, length)
@@ -2556,7 +2497,7 @@ end
 -- Mass Cancel Inst
 memx_options_memo_sbe_v1_5_b.mass_cancel_inst = {}
 
--- Size: Mass Cancel Inst
+-- Size Of: Mass Cancel Inst
 memx_options_memo_sbe_v1_5_b.mass_cancel_inst.size = 1
 
 -- Display: Mass Cancel Inst
@@ -2612,7 +2553,7 @@ end
 -- Cancel Group Id
 memx_options_memo_sbe_v1_5_b.cancel_group_id = {}
 
--- Size: Cancel Group Id
+-- Size Of: Cancel Group Id
 memx_options_memo_sbe_v1_5_b.cancel_group_id.size = 2
 
 -- Display: Cancel Group Id
@@ -2640,7 +2581,7 @@ end
 -- Underlier Optional
 memx_options_memo_sbe_v1_5_b.underlier_optional = {}
 
--- Size: Underlier Optional
+-- Size Of: Underlier Optional
 memx_options_memo_sbe_v1_5_b.underlier_optional.size = 6
 
 -- Display: Underlier Optional
@@ -2679,7 +2620,7 @@ end
 -- Underlying Or Series Optional
 memx_options_memo_sbe_v1_5_b.underlying_or_series_optional = {}
 
--- Size: Underlying Or Series Optional
+-- Size Of: Underlying Or Series Optional
 memx_options_memo_sbe_v1_5_b.underlying_or_series_optional.size = 1
 
 -- Display: Underlying Or Series Optional
@@ -2715,7 +2656,7 @@ end
 -- Efid Optional
 memx_options_memo_sbe_v1_5_b.efid_optional = {}
 
--- Size: Efid Optional
+-- Size Of: Efid Optional
 memx_options_memo_sbe_v1_5_b.efid_optional.size = 4
 
 -- Display: Efid Optional
@@ -2754,7 +2695,7 @@ end
 -- Mass Cancel Reject Reason
 memx_options_memo_sbe_v1_5_b.mass_cancel_reject_reason = {}
 
--- Size: Mass Cancel Reject Reason
+-- Size Of: Mass Cancel Reject Reason
 memx_options_memo_sbe_v1_5_b.mass_cancel_reject_reason.size = 2
 
 -- Display: Mass Cancel Reject Reason
@@ -2838,30 +2779,17 @@ end
 -- Mass Cancel Reject Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_reject_message = {}
 
--- Calculate size of: Mass Cancel Reject Message
-memx_options_memo_sbe_v1_5_b.mass_cancel_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.mass_cancel_reject_reason.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.efid_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.underlying_or_series_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.underlier_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.options_security_id_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cancel_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.mass_cancel_inst.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Mass Cancel Reject Message
+memx_options_memo_sbe_v1_5_b.mass_cancel_reject_message.size =
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.mass_cancel_reject_reason.size + 
+  memx_options_memo_sbe_v1_5_b.efid_optional.size + 
+  memx_options_memo_sbe_v1_5_b.underlying_or_series_optional.size + 
+  memx_options_memo_sbe_v1_5_b.underlier_optional.size + 
+  memx_options_memo_sbe_v1_5_b.options_security_id_optional.size + 
+  memx_options_memo_sbe_v1_5_b.cancel_group_id.size + 
+  memx_options_memo_sbe_v1_5_b.mass_cancel_inst.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Mass Cancel Reject Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_reject_message.display = function(packet, parent, length)
@@ -2923,7 +2851,7 @@ end
 -- Underlier
 memx_options_memo_sbe_v1_5_b.underlier = {}
 
--- Size: Underlier
+-- Size Of: Underlier
 memx_options_memo_sbe_v1_5_b.underlier.size = 6
 
 -- Display: Underlier
@@ -2962,7 +2890,7 @@ end
 -- Underlying Or Series
 memx_options_memo_sbe_v1_5_b.underlying_or_series = {}
 
--- Size: Underlying Or Series
+-- Size Of: Underlying Or Series
 memx_options_memo_sbe_v1_5_b.underlying_or_series.size = 1
 
 -- Display: Underlying Or Series
@@ -2995,7 +2923,7 @@ end
 -- Lockout Id Optional
 memx_options_memo_sbe_v1_5_b.lockout_id_optional = {}
 
--- Size: Lockout Id Optional
+-- Size Of: Lockout Id Optional
 memx_options_memo_sbe_v1_5_b.lockout_id_optional.size = 8
 
 -- Display: Lockout Id Optional
@@ -3023,30 +2951,17 @@ end
 -- Pending Mass Cancel Message
 memx_options_memo_sbe_v1_5_b.pending_mass_cancel_message = {}
 
--- Calculate size of: Pending Mass Cancel Message
-memx_options_memo_sbe_v1_5_b.pending_mass_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.mass_cancel_inst.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.lockout_id_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.efid_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.underlying_or_series.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.underlier.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.options_security_id_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cancel_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Pending Mass Cancel Message
+memx_options_memo_sbe_v1_5_b.pending_mass_cancel_message.size =
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.mass_cancel_inst.size + 
+  memx_options_memo_sbe_v1_5_b.lockout_id_optional.size + 
+  memx_options_memo_sbe_v1_5_b.efid_optional.size + 
+  memx_options_memo_sbe_v1_5_b.underlying_or_series.size + 
+  memx_options_memo_sbe_v1_5_b.underlier.size + 
+  memx_options_memo_sbe_v1_5_b.options_security_id_optional.size + 
+  memx_options_memo_sbe_v1_5_b.cancel_group_id.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Pending Mass Cancel Message
 memx_options_memo_sbe_v1_5_b.pending_mass_cancel_message.display = function(packet, parent, length)
@@ -3108,7 +3023,7 @@ end
 -- Transact Time
 memx_options_memo_sbe_v1_5_b.transact_time = {}
 
--- Size: Transact Time
+-- Size Of: Transact Time
 memx_options_memo_sbe_v1_5_b.transact_time.size = 8
 
 -- Display: Transact Time
@@ -3131,7 +3046,7 @@ end
 -- Cum Qty
 memx_options_memo_sbe_v1_5_b.cum_qty = {}
 
--- Size: Cum Qty
+-- Size Of: Cum Qty
 memx_options_memo_sbe_v1_5_b.cum_qty.size = 4
 
 -- Display: Cum Qty
@@ -3154,7 +3069,7 @@ end
 -- Leaves Qty
 memx_options_memo_sbe_v1_5_b.leaves_qty = {}
 
--- Size: Leaves Qty
+-- Size Of: Leaves Qty
 memx_options_memo_sbe_v1_5_b.leaves_qty.size = 4
 
 -- Display: Leaves Qty
@@ -3177,7 +3092,7 @@ end
 -- Last Qty Optional
 memx_options_memo_sbe_v1_5_b.last_qty_optional = {}
 
--- Size: Last Qty Optional
+-- Size Of: Last Qty Optional
 memx_options_memo_sbe_v1_5_b.last_qty_optional.size = 4
 
 -- Display: Last Qty Optional
@@ -3205,7 +3120,7 @@ end
 -- Extended Restatement Reason
 memx_options_memo_sbe_v1_5_b.extended_restatement_reason = {}
 
--- Size: Extended Restatement Reason
+-- Size Of: Extended Restatement Reason
 memx_options_memo_sbe_v1_5_b.extended_restatement_reason.size = 1
 
 -- Display: Extended Restatement Reason
@@ -3247,7 +3162,7 @@ end
 -- Exec Restatement Reason
 memx_options_memo_sbe_v1_5_b.exec_restatement_reason = {}
 
--- Size: Exec Restatement Reason
+-- Size Of: Exec Restatement Reason
 memx_options_memo_sbe_v1_5_b.exec_restatement_reason.size = 1
 
 -- Display: Exec Restatement Reason
@@ -3283,7 +3198,7 @@ end
 -- Ord Status
 memx_options_memo_sbe_v1_5_b.ord_status = {}
 
--- Size: Ord Status
+-- Size Of: Ord Status
 memx_options_memo_sbe_v1_5_b.ord_status.size = 1
 
 -- Display: Ord Status
@@ -3344,7 +3259,7 @@ end
 -- Exec Id
 memx_options_memo_sbe_v1_5_b.exec_id = {}
 
--- Size: Exec Id
+-- Size Of: Exec Id
 memx_options_memo_sbe_v1_5_b.exec_id.size = 8
 
 -- Display: Exec Id
@@ -3367,7 +3282,7 @@ end
 -- Order Id
 memx_options_memo_sbe_v1_5_b.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 memx_options_memo_sbe_v1_5_b.order_id.size = 8
 
 -- Display: Order Id
@@ -3390,42 +3305,23 @@ end
 -- Execution Report Restatement Message
 memx_options_memo_sbe_v1_5_b.execution_report_restatement_message = {}
 
--- Calculate size of: Execution Report Restatement Message
-memx_options_memo_sbe_v1_5_b.execution_report_restatement_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_restatement_reason.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.extended_restatement_reason.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.last_px.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.last_qty_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.transact_time.size
-
-  return index
-end
+-- Size Of: Execution Report Restatement Message
+memx_options_memo_sbe_v1_5_b.execution_report_restatement_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.exec_restatement_reason.size + 
+  memx_options_memo_sbe_v1_5_b.extended_restatement_reason.size + 
+  memx_options_memo_sbe_v1_5_b.side.size + 
+  memx_options_memo_sbe_v1_5_b.last_px.size + 
+  memx_options_memo_sbe_v1_5_b.last_qty_optional.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.transact_time.size;
 
 -- Display: Execution Report Restatement Message
 memx_options_memo_sbe_v1_5_b.execution_report_restatement_message.display = function(packet, parent, length)
@@ -3505,7 +3401,7 @@ end
 -- Exec Ref Id
 memx_options_memo_sbe_v1_5_b.exec_ref_id = {}
 
--- Size: Exec Ref Id
+-- Size Of: Exec Ref Id
 memx_options_memo_sbe_v1_5_b.exec_ref_id.size = 8
 
 -- Display: Exec Ref Id
@@ -3528,7 +3424,7 @@ end
 -- Trd Match Id
 memx_options_memo_sbe_v1_5_b.trd_match_id = {}
 
--- Size: Trd Match Id
+-- Size Of: Trd Match Id
 memx_options_memo_sbe_v1_5_b.trd_match_id.size = 8
 
 -- Display: Trd Match Id
@@ -3551,32 +3447,18 @@ end
 -- Execution Report Trade Break Message
 memx_options_memo_sbe_v1_5_b.execution_report_trade_break_message = {}
 
--- Calculate size of: Execution Report Trade Break Message
-memx_options_memo_sbe_v1_5_b.execution_report_trade_break_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.trd_match_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_ref_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Execution Report Trade Break Message
+memx_options_memo_sbe_v1_5_b.execution_report_trade_break_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.trd_match_id.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.exec_ref_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Execution Report Trade Break Message
 memx_options_memo_sbe_v1_5_b.execution_report_trade_break_message.display = function(packet, parent, length)
@@ -3641,36 +3523,20 @@ end
 -- Execution Report Trade Correction Message
 memx_options_memo_sbe_v1_5_b.execution_report_trade_correction_message = {}
 
--- Calculate size of: Execution Report Trade Correction Message
-memx_options_memo_sbe_v1_5_b.execution_report_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.trd_match_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_ref_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.last_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.last_px.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Execution Report Trade Correction Message
+memx_options_memo_sbe_v1_5_b.execution_report_trade_correction_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.trd_match_id.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.exec_ref_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.last_qty.size + 
+  memx_options_memo_sbe_v1_5_b.last_px.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Execution Report Trade Correction Message
 memx_options_memo_sbe_v1_5_b.execution_report_trade_correction_message.display = function(packet, parent, length)
@@ -3741,7 +3607,7 @@ end
 -- Price Optional
 memx_options_memo_sbe_v1_5_b.price_optional = {}
 
--- Size: Price Optional
+-- Size Of: Price Optional
 memx_options_memo_sbe_v1_5_b.price_optional.size = 8
 
 -- Display: Price Optional
@@ -3780,7 +3646,7 @@ end
 -- Ord Type
 memx_options_memo_sbe_v1_5_b.ord_type = {}
 
--- Size: Ord Type
+-- Size Of: Ord Type
 memx_options_memo_sbe_v1_5_b.ord_type.size = 1
 
 -- Display: Ord Type
@@ -3823,7 +3689,7 @@ end
 -- Order Qty
 memx_options_memo_sbe_v1_5_b.order_qty = {}
 
--- Size: Order Qty
+-- Size Of: Order Qty
 memx_options_memo_sbe_v1_5_b.order_qty.size = 4
 
 -- Display: Order Qty
@@ -3846,7 +3712,7 @@ end
 -- OrigClOrdId
 memx_options_memo_sbe_v1_5_b.origclordid = {}
 
--- Size: OrigClOrdId
+-- Size Of: OrigClOrdId
 memx_options_memo_sbe_v1_5_b.origclordid.size = 20
 
 -- Display: OrigClOrdId
@@ -3885,42 +3751,23 @@ end
 -- Execution Report Replaced Message
 memx_options_memo_sbe_v1_5_b.execution_report_replaced_message = {}
 
--- Calculate size of: Execution Report Replaced Message
-memx_options_memo_sbe_v1_5_b.execution_report_replaced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.origclordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_type.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.price_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.transact_time.size
-
-  return index
-end
+-- Size Of: Execution Report Replaced Message
+memx_options_memo_sbe_v1_5_b.execution_report_replaced_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.origclordid.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side.size + 
+  memx_options_memo_sbe_v1_5_b.order_qty.size + 
+  memx_options_memo_sbe_v1_5_b.ord_type.size + 
+  memx_options_memo_sbe_v1_5_b.price_optional.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.transact_time.size;
 
 -- Display: Execution Report Replaced Message
 memx_options_memo_sbe_v1_5_b.execution_report_replaced_message.display = function(packet, parent, length)
@@ -4000,40 +3847,22 @@ end
 -- Execution Report Pending Replace Message
 memx_options_memo_sbe_v1_5_b.execution_report_pending_replace_message = {}
 
--- Calculate size of: Execution Report Pending Replace Message
-memx_options_memo_sbe_v1_5_b.execution_report_pending_replace_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.origclordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_type.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.price_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Execution Report Pending Replace Message
+memx_options_memo_sbe_v1_5_b.execution_report_pending_replace_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.origclordid.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side.size + 
+  memx_options_memo_sbe_v1_5_b.order_qty.size + 
+  memx_options_memo_sbe_v1_5_b.ord_type.size + 
+  memx_options_memo_sbe_v1_5_b.price_optional.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Execution Report Pending Replace Message
 memx_options_memo_sbe_v1_5_b.execution_report_pending_replace_message.display = function(packet, parent, length)
@@ -4110,7 +3939,7 @@ end
 -- Cancel Reason
 memx_options_memo_sbe_v1_5_b.cancel_reason = {}
 
--- Size: Cancel Reason
+-- Size Of: Cancel Reason
 memx_options_memo_sbe_v1_5_b.cancel_reason.size = 1
 
 -- Display: Cancel Reason
@@ -4236,7 +4065,7 @@ end
 -- OrigClOrdId Optional
 memx_options_memo_sbe_v1_5_b.origclordid_optional = {}
 
--- Size: OrigClOrdId Optional
+-- Size Of: OrigClOrdId Optional
 memx_options_memo_sbe_v1_5_b.origclordid_optional.size = 20
 
 -- Display: OrigClOrdId Optional
@@ -4275,38 +4104,21 @@ end
 -- Execution Report Canceled Message
 memx_options_memo_sbe_v1_5_b.execution_report_canceled_message = {}
 
--- Calculate size of: Execution Report Canceled Message
-memx_options_memo_sbe_v1_5_b.execution_report_canceled_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.origclordid_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cancel_reason.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.transact_time.size
-
-  return index
-end
+-- Size Of: Execution Report Canceled Message
+memx_options_memo_sbe_v1_5_b.execution_report_canceled_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.origclordid_optional.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.cancel_reason.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side_optional.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.transact_time.size;
 
 -- Display: Execution Report Canceled Message
 memx_options_memo_sbe_v1_5_b.execution_report_canceled_message.display = function(packet, parent, length)
@@ -4380,32 +4192,18 @@ end
 -- Execution Report Pending Cancel Message
 memx_options_memo_sbe_v1_5_b.execution_report_pending_cancel_message = {}
 
--- Calculate size of: Execution Report Pending Cancel Message
-memx_options_memo_sbe_v1_5_b.execution_report_pending_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.origclordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Execution Report Pending Cancel Message
+memx_options_memo_sbe_v1_5_b.execution_report_pending_cancel_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.origclordid.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side_optional.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Execution Report Pending Cancel Message
 memx_options_memo_sbe_v1_5_b.execution_report_pending_cancel_message.display = function(packet, parent, length)
@@ -4470,7 +4268,7 @@ end
 -- Party Role
 memx_options_memo_sbe_v1_5_b.party_role = {}
 
--- Size: Party Role
+-- Size Of: Party Role
 memx_options_memo_sbe_v1_5_b.party_role.size = 1
 
 -- Display: Party Role
@@ -4524,7 +4322,7 @@ end
 -- Party Id Source
 memx_options_memo_sbe_v1_5_b.party_id_source = {}
 
--- Size: Party Id Source
+-- Size Of: Party Id Source
 memx_options_memo_sbe_v1_5_b.party_id_source.size = 1
 
 -- Display: Party Id Source
@@ -4560,7 +4358,7 @@ end
 -- Party Id
 memx_options_memo_sbe_v1_5_b.party_id = {}
 
--- Size: Party Id
+-- Size Of: Party Id
 memx_options_memo_sbe_v1_5_b.party_id.size = 16
 
 -- Display: Party Id
@@ -4599,18 +4397,11 @@ end
 -- Parties Group
 memx_options_memo_sbe_v1_5_b.parties_group = {}
 
--- Calculate size of: Parties Group
-memx_options_memo_sbe_v1_5_b.parties_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.party_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.party_id_source.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.party_role.size
-
-  return index
-end
+-- Size Of: Parties Group
+memx_options_memo_sbe_v1_5_b.parties_group.size =
+  memx_options_memo_sbe_v1_5_b.party_id.size + 
+  memx_options_memo_sbe_v1_5_b.party_id_source.size + 
+  memx_options_memo_sbe_v1_5_b.party_role.size;
 
 -- Display: Parties Group
 memx_options_memo_sbe_v1_5_b.parties_group.display = function(packet, parent, length)
@@ -4664,7 +4455,7 @@ memx_options_memo_sbe_v1_5_b.parties_groups = {}
 memx_options_memo_sbe_v1_5_b.parties_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size
 
   -- Calculate field size from count
   local parties_group_count = buffer(offset + index - 1, 1):uint()
@@ -4712,7 +4503,7 @@ end
 -- Contra Trading Capacity
 memx_options_memo_sbe_v1_5_b.contra_trading_capacity = {}
 
--- Size: Contra Trading Capacity
+-- Size Of: Contra Trading Capacity
 memx_options_memo_sbe_v1_5_b.contra_trading_capacity.size = 1
 
 -- Display: Contra Trading Capacity
@@ -4760,7 +4551,7 @@ end
 -- Trading Capacity
 memx_options_memo_sbe_v1_5_b.trading_capacity = {}
 
--- Size: Trading Capacity
+-- Size Of: Trading Capacity
 memx_options_memo_sbe_v1_5_b.trading_capacity.size = 1
 
 -- Display: Trading Capacity
@@ -4808,7 +4599,7 @@ end
 -- Position Effect
 memx_options_memo_sbe_v1_5_b.position_effect = {}
 
--- Size: Position Effect
+-- Size Of: Position Effect
 memx_options_memo_sbe_v1_5_b.position_effect.size = 1
 
 -- Display: Position Effect
@@ -4851,7 +4642,7 @@ end
 -- Last Mkt
 memx_options_memo_sbe_v1_5_b.last_mkt = {}
 
--- Size: Last Mkt
+-- Size Of: Last Mkt
 memx_options_memo_sbe_v1_5_b.last_mkt.size = 4
 
 -- Display: Last Mkt
@@ -4890,7 +4681,7 @@ end
 -- Last Liquidity Ind
 memx_options_memo_sbe_v1_5_b.last_liquidity_ind = {}
 
--- Size: Last Liquidity Ind
+-- Size Of: Last Liquidity Ind
 memx_options_memo_sbe_v1_5_b.last_liquidity_ind.size = 1
 
 -- Display: Last Liquidity Ind
@@ -5058,7 +4849,7 @@ end
 -- Order Reject Reason
 memx_options_memo_sbe_v1_5_b.order_reject_reason = {}
 
--- Size: Order Reject Reason
+-- Size Of: Order Reject Reason
 memx_options_memo_sbe_v1_5_b.order_reject_reason.size = 2
 
 -- Display: Order Reject Reason
@@ -5394,32 +5185,18 @@ end
 -- Execution Report Rejected Message
 memx_options_memo_sbe_v1_5_b.execution_report_rejected_message = {}
 
--- Calculate size of: Execution Report Rejected Message
-memx_options_memo_sbe_v1_5_b.execution_report_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_reject_reason.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  return index
-end
+-- Size Of: Execution Report Rejected Message
+memx_options_memo_sbe_v1_5_b.execution_report_rejected_message.size =
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.order_reject_reason.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size;
 
 -- Display: Execution Report Rejected Message
 memx_options_memo_sbe_v1_5_b.execution_report_rejected_message.display = function(packet, parent, length)
@@ -5484,38 +5261,21 @@ end
 -- Execution Report Bulk Quote Component New Message
 memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_component_new_message = {}
 
--- Calculate size of: Execution Report Bulk Quote Component New Message
-memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_component_new_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.price_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.transact_time.size
-
-  return index
-end
+-- Size Of: Execution Report Bulk Quote Component New Message
+memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_component_new_message.size =
+  memx_options_memo_sbe_v1_5_b.order_id.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.exec_id.size + 
+  memx_options_memo_sbe_v1_5_b.ord_status.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side.size + 
+  memx_options_memo_sbe_v1_5_b.order_qty.size + 
+  memx_options_memo_sbe_v1_5_b.price_optional.size + 
+  memx_options_memo_sbe_v1_5_b.leaves_qty.size + 
+  memx_options_memo_sbe_v1_5_b.cum_qty.size + 
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.transact_time.size;
 
 -- Display: Execution Report Bulk Quote Component New Message
 memx_options_memo_sbe_v1_5_b.execution_report_bulk_quote_component_new_message.display = function(packet, parent, length)
@@ -5589,7 +5349,7 @@ end
 -- Number Of Orders
 memx_options_memo_sbe_v1_5_b.number_of_orders = {}
 
--- Size: Number Of Orders
+-- Size Of: Number Of Orders
 memx_options_memo_sbe_v1_5_b.number_of_orders.size = 1
 
 -- Display: Number Of Orders
@@ -5612,7 +5372,7 @@ end
 -- Risk Group Id
 memx_options_memo_sbe_v1_5_b.risk_group_id = {}
 
--- Size: Risk Group Id
+-- Size Of: Risk Group Id
 memx_options_memo_sbe_v1_5_b.risk_group_id.size = 2
 
 -- Display: Risk Group Id
@@ -5640,7 +5400,7 @@ end
 -- Match Trade Prevention
 memx_options_memo_sbe_v1_5_b.match_trade_prevention = {}
 
--- Size: Match Trade Prevention
+-- Size Of: Match Trade Prevention
 memx_options_memo_sbe_v1_5_b.match_trade_prevention.size = 1
 
 -- Display: Match Trade Prevention
@@ -5679,7 +5439,7 @@ end
 -- Mtp Group Id
 memx_options_memo_sbe_v1_5_b.mtp_group_id = {}
 
--- Size: Mtp Group Id
+-- Size Of: Mtp Group Id
 memx_options_memo_sbe_v1_5_b.mtp_group_id.size = 2
 
 -- Display: Mtp Group Id
@@ -5707,7 +5467,7 @@ end
 -- Exec Inst
 memx_options_memo_sbe_v1_5_b.exec_inst = {}
 
--- Size: Exec Inst
+-- Size Of: Exec Inst
 memx_options_memo_sbe_v1_5_b.exec_inst.size = 2
 
 -- Display: Exec Inst
@@ -5763,7 +5523,7 @@ end
 -- Time In Force
 memx_options_memo_sbe_v1_5_b.time_in_force = {}
 
--- Size: Time In Force
+-- Size Of: Time In Force
 memx_options_memo_sbe_v1_5_b.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -5806,7 +5566,7 @@ end
 -- Symbol
 memx_options_memo_sbe_v1_5_b.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 memx_options_memo_sbe_v1_5_b.symbol.size = 6
 
 -- Display: Symbol
@@ -5945,7 +5705,7 @@ end
 -- Reprice Behavior
 memx_options_memo_sbe_v1_5_b.reprice_behavior = {}
 
--- Size: Reprice Behavior
+-- Size Of: Reprice Behavior
 memx_options_memo_sbe_v1_5_b.reprice_behavior.size = 1
 
 -- Display: Reprice Behavior
@@ -5981,7 +5741,7 @@ end
 -- Reprice Frequency
 memx_options_memo_sbe_v1_5_b.reprice_frequency = {}
 
--- Size: Reprice Frequency
+-- Size Of: Reprice Frequency
 memx_options_memo_sbe_v1_5_b.reprice_frequency.size = 1
 
 -- Display: Reprice Frequency
@@ -6020,7 +5780,7 @@ end
 -- Position Effect Optional
 memx_options_memo_sbe_v1_5_b.position_effect_optional = {}
 
--- Size: Position Effect Optional
+-- Size Of: Position Effect Optional
 memx_options_memo_sbe_v1_5_b.position_effect_optional.size = 1
 
 -- Display: Position Effect Optional
@@ -6226,16 +5986,10 @@ end
 -- Requested Allocations Group
 memx_options_memo_sbe_v1_5_b.requested_allocations_group = {}
 
--- Calculate size of: Requested Allocations Group
-memx_options_memo_sbe_v1_5_b.requested_allocations_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.alloc_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.alloc_position_effect.size
-
-  return index
-end
+-- Size Of: Requested Allocations Group
+memx_options_memo_sbe_v1_5_b.requested_allocations_group.size =
+  memx_options_memo_sbe_v1_5_b.alloc_qty.size + 
+  memx_options_memo_sbe_v1_5_b.alloc_position_effect.size;
 
 -- Display: Requested Allocations Group
 memx_options_memo_sbe_v1_5_b.requested_allocations_group.display = function(packet, parent, length)
@@ -6286,7 +6040,7 @@ memx_options_memo_sbe_v1_5_b.requested_allocations_groups = {}
 memx_options_memo_sbe_v1_5_b.requested_allocations_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size
 
   -- Calculate field size from count
   local requested_allocations_group_count = buffer(offset + index - 1, 1):uint()
@@ -6414,18 +6168,11 @@ end
 -- Mass Cancel Clear Lockout Request Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_request_message = {}
 
--- Calculate size of: Mass Cancel Clear Lockout Request Message
-memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.lockout_id.size
-
-  return index
-end
+-- Size Of: Mass Cancel Clear Lockout Request Message
+memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_request_message.size =
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.lockout_id.size;
 
 -- Display: Mass Cancel Clear Lockout Request Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_clear_lockout_request_message.display = function(packet, parent, length)
@@ -6469,28 +6216,16 @@ end
 -- Mass Cancel Request Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_request_message = {}
 
--- Calculate size of: Mass Cancel Request Message
-memx_options_memo_sbe_v1_5_b.mass_cancel_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.efid_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.underlying_or_series.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.underlier.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.options_security_id_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.cancel_group_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.mass_cancel_inst.size
-
-  return index
-end
+-- Size Of: Mass Cancel Request Message
+memx_options_memo_sbe_v1_5_b.mass_cancel_request_message.size =
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.efid_optional.size + 
+  memx_options_memo_sbe_v1_5_b.underlying_or_series.size + 
+  memx_options_memo_sbe_v1_5_b.underlier.size + 
+  memx_options_memo_sbe_v1_5_b.options_security_id_optional.size + 
+  memx_options_memo_sbe_v1_5_b.cancel_group_id.size + 
+  memx_options_memo_sbe_v1_5_b.mass_cancel_inst.size;
 
 -- Display: Mass Cancel Request Message
 memx_options_memo_sbe_v1_5_b.mass_cancel_request_message.display = function(packet, parent, length)
@@ -6549,7 +6284,7 @@ end
 -- Order Id Optional
 memx_options_memo_sbe_v1_5_b.order_id_optional = {}
 
--- Size: Order Id Optional
+-- Size Of: Order Id Optional
 memx_options_memo_sbe_v1_5_b.order_id_optional.size = 8
 
 -- Display: Order Id Optional
@@ -6577,26 +6312,15 @@ end
 -- Order Cancel Request Message
 memx_options_memo_sbe_v1_5_b.order_cancel_request_message = {}
 
--- Calculate size of: Order Cancel Request Message
-memx_options_memo_sbe_v1_5_b.order_cancel_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.origclordid_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side_optional.size
-
-  return index
-end
+-- Size Of: Order Cancel Request Message
+memx_options_memo_sbe_v1_5_b.order_cancel_request_message.size =
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.order_id_optional.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.origclordid_optional.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side_optional.size;
 
 -- Display: Order Cancel Request Message
 memx_options_memo_sbe_v1_5_b.order_cancel_request_message.display = function(packet, parent, length)
@@ -6652,32 +6376,18 @@ end
 -- Order Cancel Replace Request Message
 memx_options_memo_sbe_v1_5_b.order_cancel_replace_request_message = {}
 
--- Calculate size of: Order Cancel Replace Request Message
-memx_options_memo_sbe_v1_5_b.order_cancel_replace_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_id_optional.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.origclordid.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.side.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.order_qty.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.ord_type.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.price_optional.size
-
-  return index
-end
+-- Size Of: Order Cancel Replace Request Message
+memx_options_memo_sbe_v1_5_b.order_cancel_replace_request_message.size =
+  memx_options_memo_sbe_v1_5_b.sending_time.size + 
+  memx_options_memo_sbe_v1_5_b.order_id_optional.size + 
+  memx_options_memo_sbe_v1_5_b.clordid.size + 
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.origclordid.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.side.size + 
+  memx_options_memo_sbe_v1_5_b.order_qty.size + 
+  memx_options_memo_sbe_v1_5_b.ord_type.size + 
+  memx_options_memo_sbe_v1_5_b.price_optional.size;
 
 -- Display: Order Cancel Replace Request Message
 memx_options_memo_sbe_v1_5_b.order_cancel_replace_request_message.display = function(packet, parent, length)
@@ -6742,7 +6452,7 @@ end
 -- Offer Px
 memx_options_memo_sbe_v1_5_b.offer_px = {}
 
--- Size: Offer Px
+-- Size Of: Offer Px
 memx_options_memo_sbe_v1_5_b.offer_px.size = 2
 
 -- Display: Offer Px
@@ -6771,7 +6481,7 @@ end
 -- Offer Size
 memx_options_memo_sbe_v1_5_b.offer_size = {}
 
--- Size: Offer Size
+-- Size Of: Offer Size
 memx_options_memo_sbe_v1_5_b.offer_size.size = 2
 
 -- Display: Offer Size
@@ -6794,7 +6504,7 @@ end
 -- Bid Px
 memx_options_memo_sbe_v1_5_b.bid_px = {}
 
--- Size: Bid Px
+-- Size Of: Bid Px
 memx_options_memo_sbe_v1_5_b.bid_px.size = 2
 
 -- Display: Bid Px
@@ -6823,7 +6533,7 @@ end
 -- Bid Size
 memx_options_memo_sbe_v1_5_b.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 memx_options_memo_sbe_v1_5_b.bid_size.size = 2
 
 -- Display: Bid Size
@@ -6846,24 +6556,14 @@ end
 -- Quotes Group
 memx_options_memo_sbe_v1_5_b.quotes_group = {}
 
--- Calculate size of: Quotes Group
-memx_options_memo_sbe_v1_5_b.quotes_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.bid_size.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.bid_px.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.offer_size.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.offer_px.size
-
-  return index
-end
+-- Size Of: Quotes Group
+memx_options_memo_sbe_v1_5_b.quotes_group.size =
+  memx_options_memo_sbe_v1_5_b.list_seq_no.size + 
+  memx_options_memo_sbe_v1_5_b.security_id.size + 
+  memx_options_memo_sbe_v1_5_b.bid_size.size + 
+  memx_options_memo_sbe_v1_5_b.bid_px.size + 
+  memx_options_memo_sbe_v1_5_b.offer_size.size + 
+  memx_options_memo_sbe_v1_5_b.offer_px.size;
 
 -- Display: Quotes Group
 memx_options_memo_sbe_v1_5_b.quotes_group.display = function(packet, parent, length)
@@ -6926,7 +6626,7 @@ memx_options_memo_sbe_v1_5_b.quotes_groups = {}
 memx_options_memo_sbe_v1_5_b.quotes_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_5_b.repeating_group_dimensions.size
 
   -- Calculate field size from count
   local quotes_group_count = buffer(offset + index - 1, 1):uint()
@@ -7747,7 +7447,7 @@ end
 -- Version
 memx_options_memo_sbe_v1_5_b.version = {}
 
--- Size: Version
+-- Size Of: Version
 memx_options_memo_sbe_v1_5_b.version.size = 2
 
 -- Display: Version
@@ -7770,7 +7470,7 @@ end
 -- Schema Id
 memx_options_memo_sbe_v1_5_b.schema_id = {}
 
--- Size: Schema Id
+-- Size Of: Schema Id
 memx_options_memo_sbe_v1_5_b.schema_id.size = 1
 
 -- Display: Schema Id
@@ -7793,7 +7493,7 @@ end
 -- Template Id
 memx_options_memo_sbe_v1_5_b.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 memx_options_memo_sbe_v1_5_b.template_id.size = 1
 
 -- Display: Template Id
@@ -7910,7 +7610,7 @@ end
 -- Block Length
 memx_options_memo_sbe_v1_5_b.block_length = {}
 
--- Size: Block Length
+-- Size Of: Block Length
 memx_options_memo_sbe_v1_5_b.block_length.size = 2
 
 -- Display: Block Length
@@ -7933,20 +7633,12 @@ end
 -- Sbe Header
 memx_options_memo_sbe_v1_5_b.sbe_header = {}
 
--- Calculate size of: Sbe Header
-memx_options_memo_sbe_v1_5_b.sbe_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.block_length.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.template_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.schema_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.version.size
-
-  return index
-end
+-- Size Of: Sbe Header
+memx_options_memo_sbe_v1_5_b.sbe_header.size =
+  memx_options_memo_sbe_v1_5_b.block_length.size + 
+  memx_options_memo_sbe_v1_5_b.template_id.size + 
+  memx_options_memo_sbe_v1_5_b.schema_id.size + 
+  memx_options_memo_sbe_v1_5_b.version.size;
 
 -- Display: Sbe Header
 memx_options_memo_sbe_v1_5_b.sbe_header.display = function(packet, parent, length)
@@ -7997,7 +7689,7 @@ memx_options_memo_sbe_v1_5_b.sbe_message = {}
 memx_options_memo_sbe_v1_5_b.sbe_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_5_b.sbe_header.size(buffer, offset + index)
+  index = index + memx_options_memo_sbe_v1_5_b.sbe_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -8084,7 +7776,7 @@ end
 -- Total Sequence Count
 memx_options_memo_sbe_v1_5_b.total_sequence_count = {}
 
--- Size: Total Sequence Count
+-- Size Of: Total Sequence Count
 memx_options_memo_sbe_v1_5_b.total_sequence_count.size = 8
 
 -- Display: Total Sequence Count
@@ -8107,14 +7799,9 @@ end
 -- Stream Complete Message
 memx_options_memo_sbe_v1_5_b.stream_complete_message = {}
 
--- Calculate size of: Stream Complete Message
-memx_options_memo_sbe_v1_5_b.stream_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.total_sequence_count.size
-
-  return index
-end
+-- Size Of: Stream Complete Message
+memx_options_memo_sbe_v1_5_b.stream_complete_message.size =
+  memx_options_memo_sbe_v1_5_b.total_sequence_count.size;
 
 -- Display: Stream Complete Message
 memx_options_memo_sbe_v1_5_b.stream_complete_message.display = function(packet, parent, length)
@@ -8152,7 +7839,7 @@ end
 -- Stream Reject Code
 memx_options_memo_sbe_v1_5_b.stream_reject_code = {}
 
--- Size: Stream Reject Code
+-- Size Of: Stream Reject Code
 memx_options_memo_sbe_v1_5_b.stream_reject_code.size = 1
 
 -- Display: Stream Reject Code
@@ -8185,14 +7872,9 @@ end
 -- Stream Rejected Message
 memx_options_memo_sbe_v1_5_b.stream_rejected_message = {}
 
--- Calculate size of: Stream Rejected Message
-memx_options_memo_sbe_v1_5_b.stream_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.stream_reject_code.size
-
-  return index
-end
+-- Size Of: Stream Rejected Message
+memx_options_memo_sbe_v1_5_b.stream_rejected_message.size =
+  memx_options_memo_sbe_v1_5_b.stream_reject_code.size;
 
 -- Display: Stream Rejected Message
 memx_options_memo_sbe_v1_5_b.stream_rejected_message.display = function(packet, parent, length)
@@ -8230,7 +7912,7 @@ end
 -- Max Sequence Number
 memx_options_memo_sbe_v1_5_b.max_sequence_number = {}
 
--- Size: Max Sequence Number
+-- Size Of: Max Sequence Number
 memx_options_memo_sbe_v1_5_b.max_sequence_number.size = 8
 
 -- Display: Max Sequence Number
@@ -8253,7 +7935,7 @@ end
 -- Next Sequence Number
 memx_options_memo_sbe_v1_5_b.next_sequence_number = {}
 
--- Size: Next Sequence Number
+-- Size Of: Next Sequence Number
 memx_options_memo_sbe_v1_5_b.next_sequence_number.size = 8
 
 -- Display: Next Sequence Number
@@ -8276,16 +7958,10 @@ end
 -- Stream Begin Message
 memx_options_memo_sbe_v1_5_b.stream_begin_message = {}
 
--- Calculate size of: Stream Begin Message
-memx_options_memo_sbe_v1_5_b.stream_begin_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.next_sequence_number.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.max_sequence_number.size
-
-  return index
-end
+-- Size Of: Stream Begin Message
+memx_options_memo_sbe_v1_5_b.stream_begin_message.size =
+  memx_options_memo_sbe_v1_5_b.next_sequence_number.size + 
+  memx_options_memo_sbe_v1_5_b.max_sequence_number.size;
 
 -- Display: Stream Begin Message
 memx_options_memo_sbe_v1_5_b.stream_begin_message.display = function(packet, parent, length)
@@ -8326,7 +8002,7 @@ end
 -- Message Count
 memx_options_memo_sbe_v1_5_b.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 memx_options_memo_sbe_v1_5_b.message_count.size = 8
 
 -- Display: Message Count
@@ -8349,14 +8025,9 @@ end
 -- Replay Complete Message
 memx_options_memo_sbe_v1_5_b.replay_complete_message = {}
 
--- Calculate size of: Replay Complete Message
-memx_options_memo_sbe_v1_5_b.replay_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.message_count.size
-
-  return index
-end
+-- Size Of: Replay Complete Message
+memx_options_memo_sbe_v1_5_b.replay_complete_message.size =
+  memx_options_memo_sbe_v1_5_b.message_count.size;
 
 -- Display: Replay Complete Message
 memx_options_memo_sbe_v1_5_b.replay_complete_message.display = function(packet, parent, length)
@@ -8394,7 +8065,7 @@ end
 -- Replay Reject Code
 memx_options_memo_sbe_v1_5_b.replay_reject_code = {}
 
--- Size: Replay Reject Code
+-- Size Of: Replay Reject Code
 memx_options_memo_sbe_v1_5_b.replay_reject_code.size = 1
 
 -- Display: Replay Reject Code
@@ -8430,14 +8101,9 @@ end
 -- Replay Rejected Message
 memx_options_memo_sbe_v1_5_b.replay_rejected_message = {}
 
--- Calculate size of: Replay Rejected Message
-memx_options_memo_sbe_v1_5_b.replay_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.replay_reject_code.size
-
-  return index
-end
+-- Size Of: Replay Rejected Message
+memx_options_memo_sbe_v1_5_b.replay_rejected_message.size =
+  memx_options_memo_sbe_v1_5_b.replay_reject_code.size;
 
 -- Display: Replay Rejected Message
 memx_options_memo_sbe_v1_5_b.replay_rejected_message.display = function(packet, parent, length)
@@ -8475,7 +8141,7 @@ end
 -- Pending Message Count
 memx_options_memo_sbe_v1_5_b.pending_message_count = {}
 
--- Size: Pending Message Count
+-- Size Of: Pending Message Count
 memx_options_memo_sbe_v1_5_b.pending_message_count.size = 4
 
 -- Display: Pending Message Count
@@ -8498,16 +8164,10 @@ end
 -- Replay Begin Message
 memx_options_memo_sbe_v1_5_b.replay_begin_message = {}
 
--- Calculate size of: Replay Begin Message
-memx_options_memo_sbe_v1_5_b.replay_begin_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.next_sequence_number.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.pending_message_count.size
-
-  return index
-end
+-- Size Of: Replay Begin Message
+memx_options_memo_sbe_v1_5_b.replay_begin_message.size =
+  memx_options_memo_sbe_v1_5_b.next_sequence_number.size + 
+  memx_options_memo_sbe_v1_5_b.pending_message_count.size;
 
 -- Display: Replay Begin Message
 memx_options_memo_sbe_v1_5_b.replay_begin_message.display = function(packet, parent, length)
@@ -8548,7 +8208,7 @@ end
 -- Session Id
 memx_options_memo_sbe_v1_5_b.session_id = {}
 
--- Size: Session Id
+-- Size Of: Session Id
 memx_options_memo_sbe_v1_5_b.session_id.size = 8
 
 -- Display: Session Id
@@ -8571,14 +8231,9 @@ end
 -- Start Of Session Message
 memx_options_memo_sbe_v1_5_b.start_of_session_message = {}
 
--- Calculate size of: Start Of Session Message
-memx_options_memo_sbe_v1_5_b.start_of_session_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.session_id.size
-
-  return index
-end
+-- Size Of: Start Of Session Message
+memx_options_memo_sbe_v1_5_b.start_of_session_message.size =
+  memx_options_memo_sbe_v1_5_b.session_id.size;
 
 -- Display: Start Of Session Message
 memx_options_memo_sbe_v1_5_b.start_of_session_message.display = function(packet, parent, length)
@@ -8616,7 +8271,7 @@ end
 -- Login Reject Code
 memx_options_memo_sbe_v1_5_b.login_reject_code = {}
 
--- Size: Login Reject Code
+-- Size Of: Login Reject Code
 memx_options_memo_sbe_v1_5_b.login_reject_code.size = 1
 
 -- Display: Login Reject Code
@@ -8652,14 +8307,9 @@ end
 -- Login Rejected Message
 memx_options_memo_sbe_v1_5_b.login_rejected_message = {}
 
--- Calculate size of: Login Rejected Message
-memx_options_memo_sbe_v1_5_b.login_rejected_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.login_reject_code.size
-
-  return index
-end
+-- Size Of: Login Rejected Message
+memx_options_memo_sbe_v1_5_b.login_rejected_message.size =
+  memx_options_memo_sbe_v1_5_b.login_reject_code.size;
 
 -- Display: Login Rejected Message
 memx_options_memo_sbe_v1_5_b.login_rejected_message.display = function(packet, parent, length)
@@ -8697,7 +8347,7 @@ end
 -- Supported Request Mode
 memx_options_memo_sbe_v1_5_b.supported_request_mode = {}
 
--- Size: Supported Request Mode
+-- Size Of: Supported Request Mode
 memx_options_memo_sbe_v1_5_b.supported_request_mode.size = 1
 
 -- Display: Supported Request Mode
@@ -8730,14 +8380,9 @@ end
 -- Login Accepted Message
 memx_options_memo_sbe_v1_5_b.login_accepted_message = {}
 
--- Calculate size of: Login Accepted Message
-memx_options_memo_sbe_v1_5_b.login_accepted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.supported_request_mode.size
-
-  return index
-end
+-- Size Of: Login Accepted Message
+memx_options_memo_sbe_v1_5_b.login_accepted_message.size =
+  memx_options_memo_sbe_v1_5_b.supported_request_mode.size;
 
 -- Display: Login Accepted Message
 memx_options_memo_sbe_v1_5_b.login_accepted_message.display = function(packet, parent, length)
@@ -8815,16 +8460,10 @@ end
 -- Stream Request Message
 memx_options_memo_sbe_v1_5_b.stream_request_message = {}
 
--- Calculate size of: Stream Request Message
-memx_options_memo_sbe_v1_5_b.stream_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.session_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.next_sequence_number.size
-
-  return index
-end
+-- Size Of: Stream Request Message
+memx_options_memo_sbe_v1_5_b.stream_request_message.size =
+  memx_options_memo_sbe_v1_5_b.session_id.size + 
+  memx_options_memo_sbe_v1_5_b.next_sequence_number.size;
 
 -- Display: Stream Request Message
 memx_options_memo_sbe_v1_5_b.stream_request_message.display = function(packet, parent, length)
@@ -8865,14 +8504,9 @@ end
 -- Replay All Request Message
 memx_options_memo_sbe_v1_5_b.replay_all_request_message = {}
 
--- Calculate size of: Replay All Request Message
-memx_options_memo_sbe_v1_5_b.replay_all_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.session_id.size
-
-  return index
-end
+-- Size Of: Replay All Request Message
+memx_options_memo_sbe_v1_5_b.replay_all_request_message.size =
+  memx_options_memo_sbe_v1_5_b.session_id.size;
 
 -- Display: Replay All Request Message
 memx_options_memo_sbe_v1_5_b.replay_all_request_message.display = function(packet, parent, length)
@@ -8910,7 +8544,7 @@ end
 -- Count
 memx_options_memo_sbe_v1_5_b.count = {}
 
--- Size: Count
+-- Size Of: Count
 memx_options_memo_sbe_v1_5_b.count.size = 4
 
 -- Display: Count
@@ -8933,18 +8567,11 @@ end
 -- Replay Request Message
 memx_options_memo_sbe_v1_5_b.replay_request_message = {}
 
--- Calculate size of: Replay Request Message
-memx_options_memo_sbe_v1_5_b.replay_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.session_id.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.next_sequence_number.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.count.size
-
-  return index
-end
+-- Size Of: Replay Request Message
+memx_options_memo_sbe_v1_5_b.replay_request_message.size =
+  memx_options_memo_sbe_v1_5_b.session_id.size + 
+  memx_options_memo_sbe_v1_5_b.next_sequence_number.size + 
+  memx_options_memo_sbe_v1_5_b.count.size;
 
 -- Display: Replay Request Message
 memx_options_memo_sbe_v1_5_b.replay_request_message.display = function(packet, parent, length)
@@ -8988,7 +8615,7 @@ end
 -- Token
 memx_options_memo_sbe_v1_5_b.token = {}
 
--- Size: Token
+-- Size Of: Token
 memx_options_memo_sbe_v1_5_b.token.size = 1
 
 -- Display: Token
@@ -9011,7 +8638,7 @@ end
 -- Token Type
 memx_options_memo_sbe_v1_5_b.token_type = {}
 
--- Size: Token Type
+-- Size Of: Token Type
 memx_options_memo_sbe_v1_5_b.token_type.size = 1
 
 -- Display: Token Type
@@ -9034,16 +8661,10 @@ end
 -- Login Request Message
 memx_options_memo_sbe_v1_5_b.login_request_message = {}
 
--- Calculate size of: Login Request Message
-memx_options_memo_sbe_v1_5_b.login_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.token_type.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.token.size
-
-  return index
-end
+-- Size Of: Login Request Message
+memx_options_memo_sbe_v1_5_b.login_request_message.size =
+  memx_options_memo_sbe_v1_5_b.token_type.size + 
+  memx_options_memo_sbe_v1_5_b.token.size;
 
 -- Display: Login Request Message
 memx_options_memo_sbe_v1_5_b.login_request_message.display = function(packet, parent, length)
@@ -9244,7 +8865,7 @@ end
 -- Message Length
 memx_options_memo_sbe_v1_5_b.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 memx_options_memo_sbe_v1_5_b.message_length.size = 2
 
 -- Display: Message Length
@@ -9267,7 +8888,7 @@ end
 -- Message Type
 memx_options_memo_sbe_v1_5_b.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 memx_options_memo_sbe_v1_5_b.message_type.size = 1
 
 -- Display: Message Type
@@ -9339,16 +8960,10 @@ end
 -- Common Header
 memx_options_memo_sbe_v1_5_b.common_header = {}
 
--- Calculate size of: Common Header
-memx_options_memo_sbe_v1_5_b.common_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_5_b.message_type.size
-
-  index = index + memx_options_memo_sbe_v1_5_b.message_length.size
-
-  return index
-end
+-- Size Of: Common Header
+memx_options_memo_sbe_v1_5_b.common_header.size =
+  memx_options_memo_sbe_v1_5_b.message_type.size + 
+  memx_options_memo_sbe_v1_5_b.message_length.size;
 
 -- Display: Common Header
 memx_options_memo_sbe_v1_5_b.common_header.display = function(packet, parent, length)

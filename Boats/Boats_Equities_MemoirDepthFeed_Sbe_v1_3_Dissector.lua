@@ -238,7 +238,7 @@ end
 -- As Of Sequence Number
 boats_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number = {}
 
--- Size: As Of Sequence Number
+-- Size Of: As Of Sequence Number
 boats_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.size = 8
 
 -- Display: As Of Sequence Number
@@ -261,7 +261,7 @@ end
 -- Unit
 boats_equities_memoirdepthfeed_sbe_v1_3.unit = {}
 
--- Size: Unit
+-- Size Of: Unit
 boats_equities_memoirdepthfeed_sbe_v1_3.unit.size = 1
 
 -- Display: Unit
@@ -284,7 +284,7 @@ end
 -- Time
 boats_equities_memoirdepthfeed_sbe_v1_3.time = {}
 
--- Size: Time
+-- Size Of: Time
 boats_equities_memoirdepthfeed_sbe_v1_3.time.size = 8
 
 -- Display: Time
@@ -307,16 +307,10 @@ end
 -- Timestamp
 boats_equities_memoirdepthfeed_sbe_v1_3.timestamp = {}
 
--- Calculate size of: Timestamp
-boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.time.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.unit.size
-
-  return index
-end
+-- Size Of: Timestamp
+boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.time.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.unit.size;
 
 -- Display: Timestamp
 boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.display = function(packet, parent, length)
@@ -357,16 +351,10 @@ end
 -- Snapshot Complete Message
 boats_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message = {}
 
--- Calculate size of: Snapshot Complete Message
-boats_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.size
-
-  return index
-end
+-- Size Of: Snapshot Complete Message
+boats_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.size;
 
 -- Display: Snapshot Complete Message
 boats_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
@@ -407,7 +395,7 @@ end
 -- Security Id
 boats_equities_memoirdepthfeed_sbe_v1_3.security_id = {}
 
--- Size: Security Id
+-- Size Of: Security Id
 boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size = 2
 
 -- Display: Security Id
@@ -430,16 +418,10 @@ end
 -- Clear Book Message
 boats_equities_memoirdepthfeed_sbe_v1_3.clear_book_message = {}
 
--- Calculate size of: Clear Book Message
-boats_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  return index
-end
+-- Size Of: Clear Book Message
+boats_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size;
 
 -- Display: Clear Book Message
 boats_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
@@ -480,7 +462,7 @@ end
 -- Corrected Price
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price = {}
 
--- Size: Corrected Price
+-- Size Of: Corrected Price
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.size = 8
 
 -- Display: Corrected Price
@@ -509,7 +491,7 @@ end
 -- Corrected Quantity
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_quantity = {}
 
--- Size: Corrected Quantity
+-- Size Of: Corrected Quantity
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_quantity.size = 4
 
 -- Display: Corrected Quantity
@@ -532,7 +514,7 @@ end
 -- Original Price
 boats_equities_memoirdepthfeed_sbe_v1_3.original_price = {}
 
--- Size: Original Price
+-- Size Of: Original Price
 boats_equities_memoirdepthfeed_sbe_v1_3.original_price.size = 8
 
 -- Display: Original Price
@@ -561,7 +543,7 @@ end
 -- Original Quantity
 boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity = {}
 
--- Size: Original Quantity
+-- Size Of: Original Quantity
 boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity.size = 4
 
 -- Display: Original Quantity
@@ -584,7 +566,7 @@ end
 -- Trade Id
 boats_equities_memoirdepthfeed_sbe_v1_3.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size = 8
 
 -- Display: Trade Id
@@ -607,26 +589,15 @@ end
 -- Corrected Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_trade_message = {}
 
--- Calculate size of: Corrected Trade Message
-boats_equities_memoirdepthfeed_sbe_v1_3.corrected_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.original_price.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.corrected_quantity.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.size
-
-  return index
-end
+-- Size Of: Corrected Trade Message
+boats_equities_memoirdepthfeed_sbe_v1_3.corrected_trade_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.original_price.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.corrected_quantity.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.corrected_price.size;
 
 -- Display: Corrected Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3.corrected_trade_message.display = function(packet, parent, length)
@@ -682,22 +653,13 @@ end
 -- Broken Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3.broken_trade_message = {}
 
--- Calculate size of: Broken Trade Message
-boats_equities_memoirdepthfeed_sbe_v1_3.broken_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.original_price.size
-
-  return index
-end
+-- Size Of: Broken Trade Message
+boats_equities_memoirdepthfeed_sbe_v1_3.broken_trade_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.original_quantity.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.original_price.size;
 
 -- Display: Broken Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3.broken_trade_message.display = function(packet, parent, length)
@@ -747,7 +709,7 @@ end
 -- Price
 boats_equities_memoirdepthfeed_sbe_v1_3.price = {}
 
--- Size: Price
+-- Size Of: Price
 boats_equities_memoirdepthfeed_sbe_v1_3.price.size = 8
 
 -- Display: Price
@@ -776,7 +738,7 @@ end
 -- Quantity
 boats_equities_memoirdepthfeed_sbe_v1_3.quantity = {}
 
--- Size: Quantity
+-- Size Of: Quantity
 boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size = 4
 
 -- Display: Quantity
@@ -799,22 +761,13 @@ end
 -- Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3.trade_message = {}
 
--- Calculate size of: Trade Message
-boats_equities_memoirdepthfeed_sbe_v1_3.trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.price.size
-
-  return index
-end
+-- Size Of: Trade Message
+boats_equities_memoirdepthfeed_sbe_v1_3.trade_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.price.size;
 
 -- Display: Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3.trade_message.display = function(packet, parent, length)
@@ -864,7 +817,7 @@ end
 -- Order Id
 boats_equities_memoirdepthfeed_sbe_v1_3.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size = 8
 
 -- Display: Order Id
@@ -887,24 +840,14 @@ end
 -- Order Executed Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_executed_message = {}
 
--- Calculate size of: Order Executed Message
-boats_equities_memoirdepthfeed_sbe_v1_3.order_executed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.price.size
-
-  return index
-end
+-- Size Of: Order Executed Message
+boats_equities_memoirdepthfeed_sbe_v1_3.order_executed_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.trade_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.price.size;
 
 -- Display: Order Executed Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_executed_message.display = function(packet, parent, length)
@@ -957,20 +900,12 @@ end
 -- Order Reduced Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_reduced_message = {}
 
--- Calculate size of: Order Reduced Message
-boats_equities_memoirdepthfeed_sbe_v1_3.order_reduced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size
-
-  return index
-end
+-- Size Of: Order Reduced Message
+boats_equities_memoirdepthfeed_sbe_v1_3.order_reduced_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size;
 
 -- Display: Order Reduced Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_reduced_message.display = function(packet, parent, length)
@@ -1017,18 +952,11 @@ end
 -- Order Deleted Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_deleted_message = {}
 
--- Calculate size of: Order Deleted Message
-boats_equities_memoirdepthfeed_sbe_v1_3.order_deleted_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size
-
-  return index
-end
+-- Size Of: Order Deleted Message
+boats_equities_memoirdepthfeed_sbe_v1_3.order_deleted_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size;
 
 -- Display: Order Deleted Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_deleted_message.display = function(packet, parent, length)
@@ -1072,7 +1000,7 @@ end
 -- Side
 boats_equities_memoirdepthfeed_sbe_v1_3.side = {}
 
--- Size: Side
+-- Size Of: Side
 boats_equities_memoirdepthfeed_sbe_v1_3.side.size = 1
 
 -- Display: Side
@@ -1115,24 +1043,14 @@ end
 -- Order Added Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_added_message = {}
 
--- Calculate size of: Order Added Message
-boats_equities_memoirdepthfeed_sbe_v1_3.order_added_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.side.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.price.size
-
-  return index
-end
+-- Size Of: Order Added Message
+boats_equities_memoirdepthfeed_sbe_v1_3.order_added_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.order_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.side.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.quantity.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.price.size;
 
 -- Display: Order Added Message
 boats_equities_memoirdepthfeed_sbe_v1_3.order_added_message.display = function(packet, parent, length)
@@ -1185,7 +1103,7 @@ end
 -- Trading Session
 boats_equities_memoirdepthfeed_sbe_v1_3.trading_session = {}
 
--- Size: Trading Session
+-- Size Of: Trading Session
 boats_equities_memoirdepthfeed_sbe_v1_3.trading_session.size = 1
 
 -- Display: Trading Session
@@ -1234,16 +1152,10 @@ end
 -- Trading Session Status Message
 boats_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message = {}
 
--- Calculate size of: Trading Session Status Message
-boats_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.trading_session.size
-
-  return index
-end
+-- Size Of: Trading Session Status Message
+boats_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.trading_session.size;
 
 -- Display: Trading Session Status Message
 boats_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.display = function(packet, parent, length)
@@ -1284,7 +1196,7 @@ end
 -- Security Trading Status Reason
 boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason = {}
 
--- Size: Security Trading Status Reason
+-- Size Of: Security Trading Status Reason
 boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.size = 1
 
 -- Display: Security Trading Status Reason
@@ -1330,7 +1242,7 @@ end
 -- Security Trading Status
 boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status = {}
 
--- Size: Security Trading Status
+-- Size Of: Security Trading Status
 boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.size = 1
 
 -- Display: Security Trading Status
@@ -1379,20 +1291,12 @@ end
 -- Security Trading Status Message
 boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_message = {}
 
--- Calculate size of: Security Trading Status Message
-boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.size
-
-  return index
-end
+-- Size Of: Security Trading Status Message
+boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.size;
 
 -- Display: Security Trading Status Message
 boats_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_message.display = function(packet, parent, length)
@@ -1439,7 +1343,7 @@ end
 -- Short Sale Restriction
 boats_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction = {}
 
--- Size: Short Sale Restriction
+-- Size Of: Short Sale Restriction
 boats_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
@@ -1469,18 +1373,11 @@ end
 -- Reg Sho Restriction Message
 boats_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message = {}
 
--- Calculate size of: Reg Sho Restriction Message
-boats_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size
-
-  return index
-end
+-- Size Of: Reg Sho Restriction Message
+boats_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size;
 
 -- Display: Reg Sho Restriction Message
 boats_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.display = function(packet, parent, length)
@@ -1524,7 +1421,7 @@ end
 -- Mpv
 boats_equities_memoirdepthfeed_sbe_v1_3.mpv = {}
 
--- Size: Mpv
+-- Size Of: Mpv
 boats_equities_memoirdepthfeed_sbe_v1_3.mpv.size = 8
 
 -- Display: Mpv
@@ -1553,7 +1450,7 @@ end
 -- Is Test Symbol
 boats_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol = {}
 
--- Size: Is Test Symbol
+-- Size Of: Is Test Symbol
 boats_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
@@ -1583,7 +1480,7 @@ end
 -- Reserved
 boats_equities_memoirdepthfeed_sbe_v1_3.reserved = {}
 
--- Size: Reserved
+-- Size Of: Reserved
 boats_equities_memoirdepthfeed_sbe_v1_3.reserved.size = 1
 
 -- Display: Reserved
@@ -1606,7 +1503,7 @@ end
 -- Round Lot
 boats_equities_memoirdepthfeed_sbe_v1_3.round_lot = {}
 
--- Size: Round Lot
+-- Size Of: Round Lot
 boats_equities_memoirdepthfeed_sbe_v1_3.round_lot.size = 4
 
 -- Display: Round Lot
@@ -1629,7 +1526,7 @@ end
 -- Symbol Sfx
 boats_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx = {}
 
--- Size: Symbol Sfx
+-- Size Of: Symbol Sfx
 boats_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.size = 6
 
 -- Display: Symbol Sfx
@@ -1668,7 +1565,7 @@ end
 -- Symbol
 boats_equities_memoirdepthfeed_sbe_v1_3.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 boats_equities_memoirdepthfeed_sbe_v1_3.symbol.size = 6
 
 -- Display: Symbol
@@ -1707,28 +1604,16 @@ end
 -- Instrument Directory Message
 boats_equities_memoirdepthfeed_sbe_v1_3.instrument_directory_message = {}
 
--- Calculate size of: Instrument Directory Message
-boats_equities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size(buffer, offset + index)
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.symbol.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.round_lot.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.reserved.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.mpv.size
-
-  return index
-end
+-- Size Of: Instrument Directory Message
+boats_equities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.security_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.symbol.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.round_lot.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.reserved.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.mpv.size;
 
 -- Display: Instrument Directory Message
 boats_equities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.display = function(packet, parent, length)
@@ -1931,7 +1816,7 @@ end
 -- Version
 boats_equities_memoirdepthfeed_sbe_v1_3.version = {}
 
--- Size: Version
+-- Size Of: Version
 boats_equities_memoirdepthfeed_sbe_v1_3.version.size = 2
 
 -- Display: Version
@@ -1954,7 +1839,7 @@ end
 -- Schema Id
 boats_equities_memoirdepthfeed_sbe_v1_3.schema_id = {}
 
--- Size: Schema Id
+-- Size Of: Schema Id
 boats_equities_memoirdepthfeed_sbe_v1_3.schema_id.size = 1
 
 -- Display: Schema Id
@@ -1977,7 +1862,7 @@ end
 -- Template Id
 boats_equities_memoirdepthfeed_sbe_v1_3.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 boats_equities_memoirdepthfeed_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
@@ -2040,7 +1925,7 @@ end
 -- Block Length
 boats_equities_memoirdepthfeed_sbe_v1_3.block_length = {}
 
--- Size: Block Length
+-- Size Of: Block Length
 boats_equities_memoirdepthfeed_sbe_v1_3.block_length.size = 2
 
 -- Display: Block Length
@@ -2063,20 +1948,12 @@ end
 -- Sbe Header
 boats_equities_memoirdepthfeed_sbe_v1_3.sbe_header = {}
 
--- Calculate size of: Sbe Header
-boats_equities_memoirdepthfeed_sbe_v1_3.sbe_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.block_length.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.template_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.schema_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.version.size
-
-  return index
-end
+-- Size Of: Sbe Header
+boats_equities_memoirdepthfeed_sbe_v1_3.sbe_header.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.block_length.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.template_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.schema_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.version.size;
 
 -- Display: Sbe Header
 boats_equities_memoirdepthfeed_sbe_v1_3.sbe_header.display = function(packet, parent, length)
@@ -2168,7 +2045,7 @@ end
 -- Message Length
 boats_equities_memoirdepthfeed_sbe_v1_3.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 boats_equities_memoirdepthfeed_sbe_v1_3.message_length.size = 2
 
 -- Display: Message Length
@@ -2245,7 +2122,7 @@ end
 -- Message Count
 boats_equities_memoirdepthfeed_sbe_v1_3.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 boats_equities_memoirdepthfeed_sbe_v1_3.message_count.size = 2
 
 -- Display: Message Count
@@ -2372,7 +2249,7 @@ end
 -- Sequence Number
 boats_equities_memoirdepthfeed_sbe_v1_3.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 boats_equities_memoirdepthfeed_sbe_v1_3.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -2395,7 +2272,7 @@ end
 -- Session Id
 boats_equities_memoirdepthfeed_sbe_v1_3.session_id = {}
 
--- Size: Session Id
+-- Size Of: Session Id
 boats_equities_memoirdepthfeed_sbe_v1_3.session_id.size = 8
 
 -- Display: Session Id
@@ -2418,7 +2295,7 @@ end
 -- Header Length
 boats_equities_memoirdepthfeed_sbe_v1_3.header_length = {}
 
--- Size: Header Length
+-- Size Of: Header Length
 boats_equities_memoirdepthfeed_sbe_v1_3.header_length.size = 1
 
 -- Display: Header Length
@@ -2441,7 +2318,7 @@ end
 -- Message Type
 boats_equities_memoirdepthfeed_sbe_v1_3.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 boats_equities_memoirdepthfeed_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
@@ -2474,20 +2351,12 @@ end
 -- Common Header
 boats_equities_memoirdepthfeed_sbe_v1_3.common_header = {}
 
--- Calculate size of: Common Header
-boats_equities_memoirdepthfeed_sbe_v1_3.common_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.message_type.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.header_length.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.session_id.size
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3.sequence_number.size
-
-  return index
-end
+-- Size Of: Common Header
+boats_equities_memoirdepthfeed_sbe_v1_3.common_header.size =
+  boats_equities_memoirdepthfeed_sbe_v1_3.message_type.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.header_length.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.session_id.size + 
+  boats_equities_memoirdepthfeed_sbe_v1_3.sequence_number.size;
 
 -- Display: Common Header
 boats_equities_memoirdepthfeed_sbe_v1_3.common_header.display = function(packet, parent, length)

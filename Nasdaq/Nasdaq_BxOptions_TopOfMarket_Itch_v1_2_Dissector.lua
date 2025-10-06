@@ -238,7 +238,7 @@ end
 -- Original Volume
 nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume = {}
 
--- Size: Original Volume
+-- Size Of: Original Volume
 nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.size = 4
 
 -- Display: Original Volume
@@ -261,7 +261,7 @@ end
 -- Original Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.original_price = {}
 
--- Size: Original Price
+-- Size Of: Original Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.original_price.size = 4
 
 -- Display: Original Price
@@ -290,7 +290,7 @@ end
 -- Original Cross Id
 nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id = {}
 
--- Size: Original Cross Id
+-- Size Of: Original Cross Id
 nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.size = 4
 
 -- Display: Original Cross Id
@@ -313,7 +313,7 @@ end
 -- Option Id
 nasdaq_bxoptions_topofmarket_itch_v1_2.option_id = {}
 
--- Size: Option Id
+-- Size Of: Option Id
 nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size = 4
 
 -- Display: Option Id
@@ -336,7 +336,7 @@ end
 -- Nanoseconds
 nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds = {}
 
--- Size: Nanoseconds
+-- Size Of: Nanoseconds
 nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -359,22 +359,13 @@ end
 -- Broken Trade Report Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message = {}
 
--- Calculate size of: Broken Trade Report Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.original_price.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.size
-
-  return index
-end
+-- Size Of: Broken Trade Report Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.original_price.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.size;
 
 -- Display: Broken Trade Report Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message.display = function(packet, parent, length)
@@ -424,7 +415,7 @@ end
 -- Volume
 nasdaq_bxoptions_topofmarket_itch_v1_2.volume = {}
 
--- Size: Volume
+-- Size Of: Volume
 nasdaq_bxoptions_topofmarket_itch_v1_2.volume.size = 4
 
 -- Display: Volume
@@ -447,7 +438,7 @@ end
 -- Price Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.price_long = {}
 
--- Size: Price Long
+-- Size Of: Price Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size = 4
 
 -- Display: Price Long
@@ -476,7 +467,7 @@ end
 -- Trade Condition
 nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition = {}
 
--- Size: Trade Condition
+-- Size Of: Trade Condition
 nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.size = 1
 
 -- Display: Trade Condition
@@ -499,7 +490,7 @@ end
 -- Cross Id
 nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id = {}
 
--- Size: Cross Id
+-- Size Of: Cross Id
 nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.size = 4
 
 -- Display: Cross Id
@@ -522,24 +513,14 @@ end
 -- Trade Report Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.trade_report_message = {}
 
--- Calculate size of: Trade Report Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.trade_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.volume.size
-
-  return index
-end
+-- Size Of: Trade Report Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.trade_report_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.volume.size;
 
 -- Display: Trade Report Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.trade_report_message.display = function(packet, parent, length)
@@ -592,7 +573,7 @@ end
 -- Size Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.size_long = {}
 
--- Size: Size Long
+-- Size Of: Size Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size = 4
 
 -- Display: Size Long
@@ -615,7 +596,7 @@ end
 -- Quote Condition
 nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition = {}
 
--- Size: Quote Condition
+-- Size Of: Quote Condition
 nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -654,22 +635,13 @@ end
 -- Best Ask Update Long Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_long_form_message = {}
 
--- Calculate size of: Best Ask Update Long Form Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_long_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size
-
-  return index
-end
+-- Size Of: Best Ask Update Long Form Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_long_form_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size;
 
 -- Display: Best Ask Update Long Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_long_form_message.display = function(packet, parent, length)
@@ -719,22 +691,13 @@ end
 -- Best Bid Update Long Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_long_form_message = {}
 
--- Calculate size of: Best Bid Update Long Form Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_long_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size
-
-  return index
-end
+-- Size Of: Best Bid Update Long Form Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_long_form_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size;
 
 -- Display: Best Bid Update Long Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_long_form_message.display = function(packet, parent, length)
@@ -784,7 +747,7 @@ end
 -- Size
 nasdaq_bxoptions_topofmarket_itch_v1_2.size = {}
 
--- Size: Size
+-- Size Of: Size
 nasdaq_bxoptions_topofmarket_itch_v1_2.size.size = 2
 
 -- Display: Size
@@ -807,7 +770,7 @@ end
 -- Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.price = {}
 
--- Size: Price
+-- Size Of: Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.price.size = 2
 
 -- Display: Price
@@ -836,22 +799,13 @@ end
 -- Best Ask Update Short Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_short_form_message = {}
 
--- Calculate size of: Best Ask Update Short Form Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_short_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.price.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.size.size
-
-  return index
-end
+-- Size Of: Best Ask Update Short Form Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_short_form_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.price.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.size.size;
 
 -- Display: Best Ask Update Short Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_short_form_message.display = function(packet, parent, length)
@@ -901,22 +855,13 @@ end
 -- Best Bid Update Short Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_short_form_message = {}
 
--- Calculate size of: Best Bid Update Short Form Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_short_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.price.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.size.size
-
-  return index
-end
+-- Size Of: Best Bid Update Short Form Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_short_form_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.price.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.size.size;
 
 -- Display: Best Bid Update Short Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_short_form_message.display = function(packet, parent, length)
@@ -966,7 +911,7 @@ end
 -- Ask Size Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long = {}
 
--- Size: Ask Size Long
+-- Size Of: Ask Size Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.size = 4
 
 -- Display: Ask Size Long
@@ -989,7 +934,7 @@ end
 -- Ask Price Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long = {}
 
--- Size: Ask Price Long
+-- Size Of: Ask Price Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.size = 4
 
 -- Display: Ask Price Long
@@ -1018,7 +963,7 @@ end
 -- Bid Size Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long = {}
 
--- Size: Bid Size Long
+-- Size Of: Bid Size Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.size = 4
 
 -- Display: Bid Size Long
@@ -1041,7 +986,7 @@ end
 -- Bid Price Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long = {}
 
--- Size: Bid Price Long
+-- Size Of: Bid Price Long
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.size = 4
 
 -- Display: Bid Price Long
@@ -1070,26 +1015,15 @@ end
 -- Best Bid And Ask Update Long Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message = {}
 
--- Calculate size of: Best Bid And Ask Update Long Form Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.size
-
-  return index
-end
+-- Size Of: Best Bid And Ask Update Long Form Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.size;
 
 -- Display: Best Bid And Ask Update Long Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message.display = function(packet, parent, length)
@@ -1145,7 +1079,7 @@ end
 -- Ask Size
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size = {}
 
--- Size: Ask Size
+-- Size Of: Ask Size
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.size = 2
 
 -- Display: Ask Size
@@ -1168,7 +1102,7 @@ end
 -- Ask Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price = {}
 
--- Size: Ask Price
+-- Size Of: Ask Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.size = 2
 
 -- Display: Ask Price
@@ -1197,7 +1131,7 @@ end
 -- Bid Size
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.size = 2
 
 -- Display: Bid Size
@@ -1220,7 +1154,7 @@ end
 -- Bid Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price = {}
 
--- Size: Bid Price
+-- Size Of: Bid Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.size = 2
 
 -- Display: Bid Price
@@ -1249,26 +1183,15 @@ end
 -- Best Bid And Ask Update Short Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_short_form_message = {}
 
--- Calculate size of: Best Bid And Ask Update Short Form Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_short_form_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.size
-
-  return index
-end
+-- Size Of: Best Bid And Ask Update Short Form Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_short_form_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.size;
 
 -- Display: Best Bid And Ask Update Short Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_short_form_message.display = function(packet, parent, length)
@@ -1324,7 +1247,7 @@ end
 -- Open State
 nasdaq_bxoptions_topofmarket_itch_v1_2.open_state = {}
 
--- Size: Open State
+-- Size Of: Open State
 nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.size = 1
 
 -- Display: Open State
@@ -1354,18 +1277,11 @@ end
 -- Security Open Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.security_open_message = {}
 
--- Calculate size of: Security Open Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.security_open_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.size
-
-  return index
-end
+-- Size Of: Security Open Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.security_open_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.size;
 
 -- Display: Security Open Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.security_open_message.display = function(packet, parent, length)
@@ -1409,7 +1325,7 @@ end
 -- Current Trading State
 nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state = {}
 
--- Size: Current Trading State
+-- Size Of: Current Trading State
 nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.size = 1
 
 -- Display: Current Trading State
@@ -1439,18 +1355,11 @@ end
 -- Trading Action Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message = {}
 
--- Calculate size of: Trading Action Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.size
-
-  return index
-end
+-- Size Of: Trading Action Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.size;
 
 -- Display: Trading Action Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message.display = function(packet, parent, length)
@@ -1494,7 +1403,7 @@ end
 -- Minimum Price Variation
 nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation = {}
 
--- Size: Minimum Price Variation
+-- Size Of: Minimum Price Variation
 nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.size = 1
 
 -- Display: Minimum Price Variation
@@ -1527,7 +1436,7 @@ end
 -- Tradable
 nasdaq_bxoptions_topofmarket_itch_v1_2.tradable = {}
 
--- Size: Tradable
+-- Size Of: Tradable
 nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.size = 1
 
 -- Display: Tradable
@@ -1557,7 +1466,7 @@ end
 -- Option Closing Type
 nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type = {}
 
--- Size: Option Closing Type
+-- Size Of: Option Closing Type
 nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.size = 1
 
 -- Display: Option Closing Type
@@ -1580,7 +1489,7 @@ end
 -- Underlying Symbol
 nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol = {}
 
--- Size: Underlying Symbol
+-- Size Of: Underlying Symbol
 nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.size = 13
 
 -- Display: Underlying Symbol
@@ -1603,7 +1512,7 @@ end
 -- Source
 nasdaq_bxoptions_topofmarket_itch_v1_2.source = {}
 
--- Size: Source
+-- Size Of: Source
 nasdaq_bxoptions_topofmarket_itch_v1_2.source.size = 1
 
 -- Display: Source
@@ -1626,7 +1535,7 @@ end
 -- Option Type
 nasdaq_bxoptions_topofmarket_itch_v1_2.option_type = {}
 
--- Size: Option Type
+-- Size Of: Option Type
 nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.size = 1
 
 -- Display: Option Type
@@ -1656,7 +1565,7 @@ end
 -- Strike Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price = {}
 
--- Size: Strike Price
+-- Size Of: Strike Price
 nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.size = 4
 
 -- Display: Strike Price
@@ -1685,7 +1594,7 @@ end
 -- Expiration Day
 nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day = {}
 
--- Size: Expiration Day
+-- Size Of: Expiration Day
 nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.size = 1
 
 -- Display: Expiration Day
@@ -1708,7 +1617,7 @@ end
 -- Expiration Month
 nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month = {}
 
--- Size: Expiration Month
+-- Size Of: Expiration Month
 nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.size = 1
 
 -- Display: Expiration Month
@@ -1731,7 +1640,7 @@ end
 -- Expiration Year
 nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year = {}
 
--- Size: Expiration Year
+-- Size Of: Expiration Year
 nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.size = 1
 
 -- Display: Expiration Year
@@ -1754,7 +1663,7 @@ end
 -- Security Symbol
 nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol = {}
 
--- Size: Security Symbol
+-- Size Of: Security Symbol
 nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.size = 6
 
 -- Display: Security Symbol
@@ -1777,38 +1686,21 @@ end
 -- Options Directory Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.options_directory_message = {}
 
--- Calculate size of: Options Directory Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.options_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.source.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.size
-
-  return index
-end
+-- Size Of: Options Directory Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.options_directory_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.source.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.size;
 
 -- Display: Options Directory Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.options_directory_message.display = function(packet, parent, length)
@@ -1882,7 +1774,7 @@ end
 -- Subversion
 nasdaq_bxoptions_topofmarket_itch_v1_2.subversion = {}
 
--- Size: Subversion
+-- Size Of: Subversion
 nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.size = 1
 
 -- Display: Subversion
@@ -1905,7 +1797,7 @@ end
 -- Version
 nasdaq_bxoptions_topofmarket_itch_v1_2.version = {}
 
--- Size: Version
+-- Size Of: Version
 nasdaq_bxoptions_topofmarket_itch_v1_2.version.size = 1
 
 -- Display: Version
@@ -1928,7 +1820,7 @@ end
 -- Event Code
 nasdaq_bxoptions_topofmarket_itch_v1_2.event_code = {}
 
--- Size: Event Code
+-- Size Of: Event Code
 nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.size = 1
 
 -- Display: Event Code
@@ -1970,20 +1862,12 @@ end
 -- System Event Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message = {}
 
--- Calculate size of: System Event Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.version.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.size
-
-  return index
-end
+-- Size Of: System Event Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.version.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.size;
 
 -- Display: System Event Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message.display = function(packet, parent, length)
@@ -2030,7 +1914,7 @@ end
 -- Seconds
 nasdaq_bxoptions_topofmarket_itch_v1_2.seconds = {}
 
--- Size: Seconds
+-- Size Of: Seconds
 nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.size = 4
 
 -- Display: Seconds
@@ -2053,14 +1937,9 @@ end
 -- Timestamp Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp_message = {}
 
--- Calculate size of: Timestamp Message
-nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.size
-
-  return index
-end
+-- Size Of: Timestamp Message
+nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp_message.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.size;
 
 -- Display: Timestamp Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp_message.display = function(packet, parent, length)
@@ -2242,7 +2121,7 @@ end
 -- Message Type
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.size = 1
 
 -- Display: Message Type
@@ -2305,7 +2184,7 @@ end
 -- Message Length
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.size = 2
 
 -- Display: Message Length
@@ -2328,16 +2207,10 @@ end
 -- Message Header
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_header.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.size;
 
 -- Display: Message Header
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_header.display = function(packet, parent, length)
@@ -2429,7 +2302,7 @@ end
 -- Message Count
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.size = 2
 
 -- Display: Message Count
@@ -2452,7 +2325,7 @@ end
 -- Sequence Number
 nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -2475,7 +2348,7 @@ end
 -- Session
 nasdaq_bxoptions_topofmarket_itch_v1_2.session = {}
 
--- Size: Session
+-- Size Of: Session
 nasdaq_bxoptions_topofmarket_itch_v1_2.session.size = 10
 
 -- Display: Session
@@ -2514,18 +2387,11 @@ end
 -- Packet Header
 nasdaq_bxoptions_topofmarket_itch_v1_2.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_bxoptions_topofmarket_itch_v1_2.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.session.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.size
-
-  index = index + nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.size
-
-  return index
-end
+-- Size Of: Packet Header
+nasdaq_bxoptions_topofmarket_itch_v1_2.packet_header.size =
+  nasdaq_bxoptions_topofmarket_itch_v1_2.session.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.size + 
+  nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.size;
 
 -- Display: Packet Header
 nasdaq_bxoptions_topofmarket_itch_v1_2.packet_header.display = function(packet, parent, length)

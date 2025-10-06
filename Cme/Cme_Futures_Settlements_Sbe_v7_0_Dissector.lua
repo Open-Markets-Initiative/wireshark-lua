@@ -251,7 +251,7 @@ end
 -- Trading Reference Date
 cme_futures_settlements_sbe_v7_0.trading_reference_date = {}
 
--- Size: Trading Reference Date
+-- Size Of: Trading Reference Date
 cme_futures_settlements_sbe_v7_0.trading_reference_date.size = 2
 
 -- Display: Trading Reference Date
@@ -279,7 +279,7 @@ end
 -- High Px Ind
 cme_futures_settlements_sbe_v7_0.high_px_ind = {}
 
--- Size: High Px Ind
+-- Size Of: High Px Ind
 cme_futures_settlements_sbe_v7_0.high_px_ind.size = 1
 
 -- Display: High Px Ind
@@ -325,7 +325,7 @@ end
 -- Exponent
 cme_futures_settlements_sbe_v7_0.exponent = {}
 
--- Size: Exponent
+-- Size Of: Exponent
 cme_futures_settlements_sbe_v7_0.exponent.size = 1
 
 -- Display: Exponent
@@ -353,7 +353,7 @@ end
 -- Mantissa
 cme_futures_settlements_sbe_v7_0.mantissa = {}
 
--- Size: Mantissa
+-- Size Of: Mantissa
 cme_futures_settlements_sbe_v7_0.mantissa.size = 8
 
 -- Display: Mantissa
@@ -427,7 +427,7 @@ end
 -- Low Px Ind
 cme_futures_settlements_sbe_v7_0.low_px_ind = {}
 
--- Size: Low Px Ind
+-- Size Of: Low Px Ind
 cme_futures_settlements_sbe_v7_0.low_px_ind.size = 1
 
 -- Display: Low Px Ind
@@ -519,7 +519,7 @@ end
 -- Security Id
 cme_futures_settlements_sbe_v7_0.security_id = {}
 
--- Size: Security Id
+-- Size Of: Security Id
 cme_futures_settlements_sbe_v7_0.security_id.size = 4
 
 -- Display: Security Id
@@ -547,7 +547,7 @@ end
 -- Instrument Guid
 cme_futures_settlements_sbe_v7_0.instrument_guid = {}
 
--- Size: Instrument Guid
+-- Size Of: Instrument Guid
 cme_futures_settlements_sbe_v7_0.instrument_guid.size = 8
 
 -- Display: Instrument Guid
@@ -575,7 +575,7 @@ end
 -- Symbol
 cme_futures_settlements_sbe_v7_0.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 cme_futures_settlements_sbe_v7_0.symbol.size = 20
 
 -- Display: Symbol
@@ -614,7 +614,7 @@ end
 -- Week
 cme_futures_settlements_sbe_v7_0.week = {}
 
--- Size: Week
+-- Size Of: Week
 cme_futures_settlements_sbe_v7_0.week.size = 1
 
 -- Display: Week
@@ -642,7 +642,7 @@ end
 -- Day
 cme_futures_settlements_sbe_v7_0.day = {}
 
--- Size: Day
+-- Size Of: Day
 cme_futures_settlements_sbe_v7_0.day.size = 1
 
 -- Display: Day
@@ -670,7 +670,7 @@ end
 -- Month
 cme_futures_settlements_sbe_v7_0.month = {}
 
--- Size: Month
+-- Size Of: Month
 cme_futures_settlements_sbe_v7_0.month.size = 1
 
 -- Display: Month
@@ -698,7 +698,7 @@ end
 -- Year
 cme_futures_settlements_sbe_v7_0.year = {}
 
--- Size: Year
+-- Size Of: Year
 cme_futures_settlements_sbe_v7_0.year.size = 2
 
 -- Display: Year
@@ -726,20 +726,12 @@ end
 -- Underlying Maturity Month Year
 cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year = {}
 
--- Calculate size of: Underlying Maturity Month Year
-cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.year.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.month.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.day.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.week.size
-
-  return index
-end
+-- Size Of: Underlying Maturity Month Year
+cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size =
+  cme_futures_settlements_sbe_v7_0.year.size + 
+  cme_futures_settlements_sbe_v7_0.month.size + 
+  cme_futures_settlements_sbe_v7_0.day.size + 
+  cme_futures_settlements_sbe_v7_0.week.size;
 
 -- Display: Underlying Maturity Month Year
 cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.display = function(packet, parent, length)
@@ -786,7 +778,7 @@ end
 -- Underlying Security Exchange
 cme_futures_settlements_sbe_v7_0.underlying_security_exchange = {}
 
--- Size: Underlying Security Exchange
+-- Size Of: Underlying Security Exchange
 cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size = 8
 
 -- Display: Underlying Security Exchange
@@ -825,7 +817,7 @@ end
 -- Underlying Security Type
 cme_futures_settlements_sbe_v7_0.underlying_security_type = {}
 
--- Size: Underlying Security Type
+-- Size Of: Underlying Security Type
 cme_futures_settlements_sbe_v7_0.underlying_security_type.size = 6
 
 -- Display: Underlying Security Type
@@ -864,7 +856,7 @@ end
 -- Underlying Clearing Product Code
 cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code = {}
 
--- Size: Underlying Clearing Product Code
+-- Size Of: Underlying Clearing Product Code
 cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size = 12
 
 -- Display: Underlying Clearing Product Code
@@ -903,7 +895,7 @@ end
 -- Underlying Product Guid
 cme_futures_settlements_sbe_v7_0.underlying_product_guid = {}
 
--- Size: Underlying Product Guid
+-- Size Of: Underlying Product Guid
 cme_futures_settlements_sbe_v7_0.underlying_product_guid.size = 8
 
 -- Display: Underlying Product Guid
@@ -977,7 +969,7 @@ end
 -- Put Or Call
 cme_futures_settlements_sbe_v7_0.put_or_call = {}
 
--- Size: Put Or Call
+-- Size Of: Put Or Call
 cme_futures_settlements_sbe_v7_0.put_or_call.size = 1
 
 -- Display: Put Or Call
@@ -1010,20 +1002,12 @@ end
 -- Maturity Month Year
 cme_futures_settlements_sbe_v7_0.maturity_month_year = {}
 
--- Calculate size of: Maturity Month Year
-cme_futures_settlements_sbe_v7_0.maturity_month_year.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.year.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.month.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.day.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.week.size
-
-  return index
-end
+-- Size Of: Maturity Month Year
+cme_futures_settlements_sbe_v7_0.maturity_month_year.size =
+  cme_futures_settlements_sbe_v7_0.year.size + 
+  cme_futures_settlements_sbe_v7_0.month.size + 
+  cme_futures_settlements_sbe_v7_0.day.size + 
+  cme_futures_settlements_sbe_v7_0.week.size;
 
 -- Display: Maturity Month Year
 cme_futures_settlements_sbe_v7_0.maturity_month_year.display = function(packet, parent, length)
@@ -1070,7 +1054,7 @@ end
 -- Security Exchange
 cme_futures_settlements_sbe_v7_0.security_exchange = {}
 
--- Size: Security Exchange
+-- Size Of: Security Exchange
 cme_futures_settlements_sbe_v7_0.security_exchange.size = 8
 
 -- Display: Security Exchange
@@ -1109,7 +1093,7 @@ end
 -- Security Type
 cme_futures_settlements_sbe_v7_0.security_type = {}
 
--- Size: Security Type
+-- Size Of: Security Type
 cme_futures_settlements_sbe_v7_0.security_type.size = 6
 
 -- Display: Security Type
@@ -1148,7 +1132,7 @@ end
 -- Clearing Product Code
 cme_futures_settlements_sbe_v7_0.clearing_product_code = {}
 
--- Size: Clearing Product Code
+-- Size Of: Clearing Product Code
 cme_futures_settlements_sbe_v7_0.clearing_product_code.size = 12
 
 -- Display: Clearing Product Code
@@ -1187,7 +1171,7 @@ end
 -- Product Guid
 cme_futures_settlements_sbe_v7_0.product_guid = {}
 
--- Size: Product Guid
+-- Size Of: Product Guid
 cme_futures_settlements_sbe_v7_0.product_guid.size = 8
 
 -- Display: Product Guid
@@ -1215,52 +1199,28 @@ end
 -- M D Incremental Refresh High Low Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group = {}
 
--- Calculate size of: M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.product_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.clearing_product_code.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_exchange.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.maturity_month_year.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.put_or_call.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_product_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.symbol.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.instrument_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_id.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.low_px.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.low_px_ind.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.high_px.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.high_px_ind.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.trading_reference_date.size
-
-  return index
-end
+-- Size Of: M D Incremental Refresh High Low Group
+cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.size =
+  cme_futures_settlements_sbe_v7_0.product_guid.size + 
+  cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
+  cme_futures_settlements_sbe_v7_0.security_type.size + 
+  cme_futures_settlements_sbe_v7_0.security_exchange.size + 
+  cme_futures_settlements_sbe_v7_0.maturity_month_year.size + 
+  cme_futures_settlements_sbe_v7_0.put_or_call.size + 
+  cme_futures_settlements_sbe_v7_0.strike_price.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_product_guid.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_security_type.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size + 
+  cme_futures_settlements_sbe_v7_0.symbol.size + 
+  cme_futures_settlements_sbe_v7_0.instrument_guid.size + 
+  cme_futures_settlements_sbe_v7_0.security_id.size + 
+  cme_futures_settlements_sbe_v7_0.low_px.size + 
+  cme_futures_settlements_sbe_v7_0.low_px_ind.size + 
+  cme_futures_settlements_sbe_v7_0.high_px.size + 
+  cme_futures_settlements_sbe_v7_0.high_px_ind.size + 
+  cme_futures_settlements_sbe_v7_0.trading_reference_date.size;
 
 -- Display: M D Incremental Refresh High Low Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_group.display = function(packet, parent, length)
@@ -1361,7 +1321,7 @@ end
 -- Num In Group uint 8
 cme_futures_settlements_sbe_v7_0.num_in_group_uint_8 = {}
 
--- Size: Num In Group uint 8
+-- Size Of: Num In Group uint 8
 cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size = 1
 
 -- Display: Num In Group uint 8
@@ -1384,7 +1344,7 @@ end
 -- Block Length
 cme_futures_settlements_sbe_v7_0.block_length = {}
 
--- Size: Block Length
+-- Size Of: Block Length
 cme_futures_settlements_sbe_v7_0.block_length.size = 2
 
 -- Display: Block Length
@@ -1407,16 +1367,10 @@ end
 -- Group Size
 cme_futures_settlements_sbe_v7_0.group_size = {}
 
--- Calculate size of: Group Size
-cme_futures_settlements_sbe_v7_0.group_size.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.block_length.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size
-
-  return index
-end
+-- Size Of: Group Size
+cme_futures_settlements_sbe_v7_0.group_size.size =
+  cme_futures_settlements_sbe_v7_0.block_length.size + 
+  cme_futures_settlements_sbe_v7_0.num_in_group_uint_8.size;
 
 -- Display: Group Size
 cme_futures_settlements_sbe_v7_0.group_size.display = function(packet, parent, length)
@@ -1461,7 +1415,7 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups = {}
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_high_low_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_settlements_sbe_v7_0.group_size.size(buffer, offset + index)
+  index = index + cme_futures_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_high_low_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1509,7 +1463,7 @@ end
 -- Transact Time
 cme_futures_settlements_sbe_v7_0.transact_time = {}
 
--- Size: Transact Time
+-- Size Of: Transact Time
 cme_futures_settlements_sbe_v7_0.transact_time.size = 8
 
 -- Display: Transact Time
@@ -1581,7 +1535,7 @@ end
 -- Open Close Settl Flag
 cme_futures_settlements_sbe_v7_0.open_close_settl_flag = {}
 
--- Size: Open Close Settl Flag
+-- Size Of: Open Close Settl Flag
 cme_futures_settlements_sbe_v7_0.open_close_settl_flag.size = 1
 
 -- Display: Open Close Settl Flag
@@ -1611,7 +1565,7 @@ end
 -- Open Interest Qty
 cme_futures_settlements_sbe_v7_0.open_interest_qty = {}
 
--- Size: Open Interest Qty
+-- Size Of: Open Interest Qty
 cme_futures_settlements_sbe_v7_0.open_interest_qty.size = 4
 
 -- Display: Open Interest Qty
@@ -1639,7 +1593,7 @@ end
 -- Cleared Volume
 cme_futures_settlements_sbe_v7_0.cleared_volume = {}
 
--- Size: Cleared Volume
+-- Size Of: Cleared Volume
 cme_futures_settlements_sbe_v7_0.cleared_volume.size = 4
 
 -- Display: Cleared Volume
@@ -1667,50 +1621,27 @@ end
 -- M D Incremental Refresh Voi Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group = {}
 
--- Calculate size of: M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.product_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.clearing_product_code.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_exchange.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.maturity_month_year.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.put_or_call.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_product_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.symbol.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.instrument_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_id.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.cleared_volume.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.open_interest_qty.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.open_close_settl_flag.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.trading_reference_date.size
-
-  return index
-end
+-- Size Of: M D Incremental Refresh Voi Group
+cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.size =
+  cme_futures_settlements_sbe_v7_0.product_guid.size + 
+  cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
+  cme_futures_settlements_sbe_v7_0.security_type.size + 
+  cme_futures_settlements_sbe_v7_0.security_exchange.size + 
+  cme_futures_settlements_sbe_v7_0.maturity_month_year.size + 
+  cme_futures_settlements_sbe_v7_0.put_or_call.size + 
+  cme_futures_settlements_sbe_v7_0.strike_price.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_product_guid.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_security_type.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size + 
+  cme_futures_settlements_sbe_v7_0.symbol.size + 
+  cme_futures_settlements_sbe_v7_0.instrument_guid.size + 
+  cme_futures_settlements_sbe_v7_0.security_id.size + 
+  cme_futures_settlements_sbe_v7_0.cleared_volume.size + 
+  cme_futures_settlements_sbe_v7_0.open_interest_qty.size + 
+  cme_futures_settlements_sbe_v7_0.open_close_settl_flag.size + 
+  cme_futures_settlements_sbe_v7_0.trading_reference_date.size;
 
 -- Display: M D Incremental Refresh Voi Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_group.display = function(packet, parent, length)
@@ -1812,7 +1743,7 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups = {}
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_voi_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_settlements_sbe_v7_0.group_size.size(buffer, offset + index)
+  index = index + cme_futures_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_voi_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1905,7 +1836,7 @@ end
 -- Md Statistic Desc
 cme_futures_settlements_sbe_v7_0.md_statistic_desc = {}
 
--- Size: Md Statistic Desc
+-- Size Of: Md Statistic Desc
 cme_futures_settlements_sbe_v7_0.md_statistic_desc.size = 40
 
 -- Display: Md Statistic Desc
@@ -1944,7 +1875,7 @@ end
 -- Settl Price Type
 cme_futures_settlements_sbe_v7_0.settl_price_type = {}
 
--- Size: Settl Price Type
+-- Size Of: Settl Price Type
 cme_futures_settlements_sbe_v7_0.settl_price_type.size = 1
 
 -- Display: Settl Price Type
@@ -2021,7 +1952,7 @@ end
 -- Md Entry Px
 cme_futures_settlements_sbe_v7_0.md_entry_px = {}
 
--- Size: Md Entry Px
+-- Size Of: Md Entry Px
 cme_futures_settlements_sbe_v7_0.md_entry_px.size = 8
 
 -- Display: Md Entry Px
@@ -2106,7 +2037,7 @@ end
 -- Md Entry Type
 cme_futures_settlements_sbe_v7_0.md_entry_type = {}
 
--- Size: Md Entry Type
+-- Size Of: Md Entry Type
 cme_futures_settlements_sbe_v7_0.md_entry_type.size = 1
 
 -- Display: Md Entry Type
@@ -2142,7 +2073,7 @@ end
 -- Md Update Action
 cme_futures_settlements_sbe_v7_0.md_update_action = {}
 
--- Size: Md Update Action
+-- Size Of: Md Update Action
 cme_futures_settlements_sbe_v7_0.md_update_action.size = 1
 
 -- Display: Md Update Action
@@ -2175,56 +2106,30 @@ end
 -- M D Incremental Refresh Settle Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group = {}
 
--- Calculate size of: M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.md_update_action.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.md_entry_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.product_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.clearing_product_code.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_exchange.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.maturity_month_year.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.put_or_call.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.strike_price.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_product_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.symbol.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.instrument_guid.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.security_id.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.formatted_last_px.size(buffer, offset + index)
-
-  index = index + cme_futures_settlements_sbe_v7_0.md_entry_px.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.settl_price_type.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.trading_reference_date.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.md_statistic_desc.size
-
-  return index
-end
+-- Size Of: M D Incremental Refresh Settle Group
+cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.size =
+  cme_futures_settlements_sbe_v7_0.md_update_action.size + 
+  cme_futures_settlements_sbe_v7_0.md_entry_type.size + 
+  cme_futures_settlements_sbe_v7_0.product_guid.size + 
+  cme_futures_settlements_sbe_v7_0.clearing_product_code.size + 
+  cme_futures_settlements_sbe_v7_0.security_type.size + 
+  cme_futures_settlements_sbe_v7_0.security_exchange.size + 
+  cme_futures_settlements_sbe_v7_0.maturity_month_year.size + 
+  cme_futures_settlements_sbe_v7_0.put_or_call.size + 
+  cme_futures_settlements_sbe_v7_0.strike_price.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_product_guid.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_clearing_product_code.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_security_type.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_security_exchange.size + 
+  cme_futures_settlements_sbe_v7_0.underlying_maturity_month_year.size + 
+  cme_futures_settlements_sbe_v7_0.symbol.size + 
+  cme_futures_settlements_sbe_v7_0.instrument_guid.size + 
+  cme_futures_settlements_sbe_v7_0.security_id.size + 
+  cme_futures_settlements_sbe_v7_0.formatted_last_px.size + 
+  cme_futures_settlements_sbe_v7_0.md_entry_px.size + 
+  cme_futures_settlements_sbe_v7_0.settl_price_type.size + 
+  cme_futures_settlements_sbe_v7_0.trading_reference_date.size + 
+  cme_futures_settlements_sbe_v7_0.md_statistic_desc.size;
 
 -- Display: M D Incremental Refresh Settle Group
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_group.display = function(packet, parent, length)
@@ -2335,7 +2240,7 @@ cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups = {}
 cme_futures_settlements_sbe_v7_0.m_d_incremental_refresh_settle_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_settlements_sbe_v7_0.group_size.size(buffer, offset + index)
+  index = index + cme_futures_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
   local m_d_incremental_refresh_settle_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2499,7 +2404,7 @@ end
 -- Version
 cme_futures_settlements_sbe_v7_0.version = {}
 
--- Size: Version
+-- Size Of: Version
 cme_futures_settlements_sbe_v7_0.version.size = 2
 
 -- Display: Version
@@ -2522,7 +2427,7 @@ end
 -- Schema Id
 cme_futures_settlements_sbe_v7_0.schema_id = {}
 
--- Size: Schema Id
+-- Size Of: Schema Id
 cme_futures_settlements_sbe_v7_0.schema_id.size = 2
 
 -- Display: Schema Id
@@ -2545,7 +2450,7 @@ end
 -- Template Id
 cme_futures_settlements_sbe_v7_0.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 cme_futures_settlements_sbe_v7_0.template_id.size = 2
 
 -- Display: Template Id
@@ -2581,20 +2486,12 @@ end
 -- Message Header
 cme_futures_settlements_sbe_v7_0.message_header = {}
 
--- Calculate size of: Message Header
-cme_futures_settlements_sbe_v7_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.block_length.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.template_id.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.schema_id.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.version.size
-
-  return index
-end
+-- Size Of: Message Header
+cme_futures_settlements_sbe_v7_0.message_header.size =
+  cme_futures_settlements_sbe_v7_0.block_length.size + 
+  cme_futures_settlements_sbe_v7_0.template_id.size + 
+  cme_futures_settlements_sbe_v7_0.schema_id.size + 
+  cme_futures_settlements_sbe_v7_0.version.size;
 
 -- Display: Message Header
 cme_futures_settlements_sbe_v7_0.message_header.display = function(packet, parent, length)
@@ -2641,7 +2538,7 @@ end
 -- Message Size
 cme_futures_settlements_sbe_v7_0.message_size = {}
 
--- Size: Message Size
+-- Size Of: Message Size
 cme_futures_settlements_sbe_v7_0.message_size.size = 2
 
 -- Display: Message Size
@@ -2670,7 +2567,7 @@ cme_futures_settlements_sbe_v7_0.message.size = function(buffer, offset)
 
   index = index + cme_futures_settlements_sbe_v7_0.message_size.size
 
-  index = index + cme_futures_settlements_sbe_v7_0.message_header.size(buffer, offset + index)
+  index = index + cme_futures_settlements_sbe_v7_0.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2720,7 +2617,7 @@ end
 -- Sending Time
 cme_futures_settlements_sbe_v7_0.sending_time = {}
 
--- Size: Sending Time
+-- Size Of: Sending Time
 cme_futures_settlements_sbe_v7_0.sending_time.size = 8
 
 -- Display: Sending Time
@@ -2747,7 +2644,7 @@ end
 -- Message Sequence Number
 cme_futures_settlements_sbe_v7_0.message_sequence_number = {}
 
--- Size: Message Sequence Number
+-- Size Of: Message Sequence Number
 cme_futures_settlements_sbe_v7_0.message_sequence_number.size = 4
 
 -- Display: Message Sequence Number
@@ -2770,16 +2667,10 @@ end
 -- Binary Packet Header
 cme_futures_settlements_sbe_v7_0.binary_packet_header = {}
 
--- Calculate size of: Binary Packet Header
-cme_futures_settlements_sbe_v7_0.binary_packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_settlements_sbe_v7_0.message_sequence_number.size
-
-  index = index + cme_futures_settlements_sbe_v7_0.sending_time.size
-
-  return index
-end
+-- Size Of: Binary Packet Header
+cme_futures_settlements_sbe_v7_0.binary_packet_header.size =
+  cme_futures_settlements_sbe_v7_0.message_sequence_number.size + 
+  cme_futures_settlements_sbe_v7_0.sending_time.size;
 
 -- Display: Binary Packet Header
 cme_futures_settlements_sbe_v7_0.binary_packet_header.display = function(packet, parent, length)

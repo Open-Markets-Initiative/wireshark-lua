@@ -484,7 +484,7 @@ end
 -- Hsvf Etx
 box_options_sola_unicast_hsvf_v4_5_1.hsvf_etx = {}
 
--- Size: Hsvf Etx
+-- Size Of: Hsvf Etx
 box_options_sola_unicast_hsvf_v4_5_1.hsvf_etx.size = 1
 
 -- Display: Hsvf Etx
@@ -507,7 +507,7 @@ end
 -- Auction Type
 box_options_sola_unicast_hsvf_v4_5_1.auction_type = {}
 
--- Size: Auction Type
+-- Size Of: Auction Type
 box_options_sola_unicast_hsvf_v4_5_1.auction_type.size = 1
 
 -- Display: Auction Type
@@ -543,7 +543,7 @@ end
 -- Improvement Phase Sequential Number
 box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number = {}
 
--- Size: Improvement Phase Sequential Number
+-- Size Of: Improvement Phase Sequential Number
 box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size = 6
 
 -- Display: Improvement Phase Sequential Number
@@ -571,7 +571,7 @@ end
 -- Order Side
 box_options_sola_unicast_hsvf_v4_5_1.order_side = {}
 
--- Size: Order Side
+-- Size Of: Order Side
 box_options_sola_unicast_hsvf_v4_5_1.order_side.size = 1
 
 -- Display: Order Side
@@ -601,7 +601,7 @@ end
 -- Order Sequence Number
 box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number = {}
 
--- Size: Order Sequence Number
+-- Size Of: Order Sequence Number
 box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size = 6
 
 -- Display: Order Sequence Number
@@ -629,7 +629,7 @@ end
 -- Deletion Type
 box_options_sola_unicast_hsvf_v4_5_1.deletion_type = {}
 
--- Size: Deletion Type
+-- Size Of: Deletion Type
 box_options_sola_unicast_hsvf_v4_5_1.deletion_type.size = 1
 
 -- Display: Deletion Type
@@ -667,7 +667,7 @@ end
 -- Complex Order Instrument Symbol
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol = {}
 
--- Size: Complex Order Instrument Symbol
+-- Size Of: Complex Order Instrument Symbol
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size = 30
 
 -- Display: Complex Order Instrument Symbol
@@ -690,7 +690,7 @@ end
 -- Exchange Id
 box_options_sola_unicast_hsvf_v4_5_1.exchange_id = {}
 
--- Size: Exchange Id
+-- Size Of: Exchange Id
 box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size = 1
 
 -- Display: Exchange Id
@@ -713,26 +713,15 @@ end
 -- Complex Order Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_initial_and_improvement_order_message = {}
 
--- Calculate size of: Complex Order Initial And Improvement Order Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_initial_and_improvement_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.deletion_type.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_side.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.auction_type.size
-
-  return index
-end
+-- Size Of: Complex Order Initial And Improvement Order Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_initial_and_improvement_order_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.deletion_type.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_side.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.auction_type.size;
 
 -- Display: Complex Order Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_initial_and_improvement_order_message.display = function(packet, parent, length)
@@ -788,7 +777,7 @@ end
 -- Improvement Order Side
 box_options_sola_unicast_hsvf_v4_5_1.improvement_order_side = {}
 
--- Size: Improvement Order Side
+-- Size Of: Improvement Order Side
 box_options_sola_unicast_hsvf_v4_5_1.improvement_order_side.size = 1
 
 -- Display: Improvement Order Side
@@ -821,7 +810,7 @@ end
 -- Expiry Day
 box_options_sola_unicast_hsvf_v4_5_1.expiry_day = {}
 
--- Size: Expiry Day
+-- Size Of: Expiry Day
 box_options_sola_unicast_hsvf_v4_5_1.expiry_day.size = 2
 
 -- Display: Expiry Day
@@ -849,7 +838,7 @@ end
 -- Expiry Year
 box_options_sola_unicast_hsvf_v4_5_1.expiry_year = {}
 
--- Size: Expiry Year
+-- Size Of: Expiry Year
 box_options_sola_unicast_hsvf_v4_5_1.expiry_year.size = 2
 
 -- Display: Expiry Year
@@ -877,7 +866,7 @@ end
 -- Strike Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.strike_price_fraction_indicator = {}
 
--- Size: Strike Price Fraction Indicator
+-- Size Of: Strike Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.strike_price_fraction_indicator.size = 1
 
 -- Display: Strike Price Fraction Indicator
@@ -900,7 +889,7 @@ end
 -- Strike Price
 box_options_sola_unicast_hsvf_v4_5_1.strike_price = {}
 
--- Size: Strike Price
+-- Size Of: Strike Price
 box_options_sola_unicast_hsvf_v4_5_1.strike_price.size = 7
 
 -- Display: Strike Price
@@ -928,7 +917,7 @@ end
 -- Filler 1
 box_options_sola_unicast_hsvf_v4_5_1.filler_1 = {}
 
--- Size: Filler 1
+-- Size Of: Filler 1
 box_options_sola_unicast_hsvf_v4_5_1.filler_1.size = 1
 
 -- Display: Filler 1
@@ -951,7 +940,7 @@ end
 -- Expiry Month Code
 box_options_sola_unicast_hsvf_v4_5_1.expiry_month_code = {}
 
--- Size: Expiry Month Code
+-- Size Of: Expiry Month Code
 box_options_sola_unicast_hsvf_v4_5_1.expiry_month_code.size = 1
 
 -- Display: Expiry Month Code
@@ -1008,7 +997,7 @@ end
 -- Root Symbol
 box_options_sola_unicast_hsvf_v4_5_1.root_symbol = {}
 
--- Size: Root Symbol
+-- Size Of: Root Symbol
 box_options_sola_unicast_hsvf_v4_5_1.root_symbol.size = 6
 
 -- Display: Root Symbol
@@ -1031,26 +1020,15 @@ end
 -- Instrument Description
 box_options_sola_unicast_hsvf_v4_5_1.instrument_description = {}
 
--- Calculate size of: Instrument Description
-box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.root_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.expiry_month_code.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.strike_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.strike_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.expiry_year.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.expiry_day.size
-
-  return index
-end
+-- Size Of: Instrument Description
+box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size =
+  box_options_sola_unicast_hsvf_v4_5_1.root_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.expiry_month_code.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.strike_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.strike_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.expiry_year.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.expiry_day.size;
 
 -- Display: Instrument Description
 box_options_sola_unicast_hsvf_v4_5_1.instrument_description.display = function(packet, parent, length)
@@ -1106,26 +1084,15 @@ end
 -- Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.initial_and_improvement_order_message = {}
 
--- Calculate size of: Initial And Improvement Order Message
-box_options_sola_unicast_hsvf_v4_5_1.initial_and_improvement_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.deletion_type.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_order_side.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.auction_type.size
-
-  return index
-end
+-- Size Of: Initial And Improvement Order Message
+box_options_sola_unicast_hsvf_v4_5_1.initial_and_improvement_order_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.deletion_type.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_order_side.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.auction_type.size;
 
 -- Display: Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.initial_and_improvement_order_message.display = function(packet, parent, length)
@@ -1181,7 +1148,7 @@ end
 -- Cmta
 box_options_sola_unicast_hsvf_v4_5_1.cmta = {}
 
--- Size: Cmta
+-- Size Of: Cmta
 box_options_sola_unicast_hsvf_v4_5_1.cmta.size = 4
 
 -- Display: Cmta
@@ -1204,7 +1171,7 @@ end
 -- Firm Id
 box_options_sola_unicast_hsvf_v4_5_1.firm_id = {}
 
--- Size: Firm Id
+-- Size Of: Firm Id
 box_options_sola_unicast_hsvf_v4_5_1.firm_id.size = 4
 
 -- Display: Firm Id
@@ -1227,7 +1194,7 @@ end
 -- End Of The Exposition
 box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition = {}
 
--- Size: End Of The Exposition
+-- Size Of: End Of The Exposition
 box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.size = 8
 
 -- Display: End Of The Exposition
@@ -1255,7 +1222,7 @@ end
 -- Type Of Clearing Account
 box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account = {}
 
--- Size: Type Of Clearing Account
+-- Size Of: Type Of Clearing Account
 box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.size = 1
 
 -- Display: Type Of Clearing Account
@@ -1297,7 +1264,7 @@ end
 -- Order Quantity
 box_options_sola_unicast_hsvf_v4_5_1.order_quantity = {}
 
--- Size: Order Quantity
+-- Size Of: Order Quantity
 box_options_sola_unicast_hsvf_v4_5_1.order_quantity.size = 8
 
 -- Display: Order Quantity
@@ -1325,7 +1292,7 @@ end
 -- Limit Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.limit_fraction_indicator = {}
 
--- Size: Limit Fraction Indicator
+-- Size Of: Limit Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.limit_fraction_indicator.size = 1
 
 -- Display: Limit Fraction Indicator
@@ -1348,7 +1315,7 @@ end
 -- Limit Entered For An Order Sign
 box_options_sola_unicast_hsvf_v4_5_1.limit_entered_for_an_order_sign = {}
 
--- Size: Limit Entered For An Order Sign
+-- Size Of: Limit Entered For An Order Sign
 box_options_sola_unicast_hsvf_v4_5_1.limit_entered_for_an_order_sign.size = 1
 
 -- Display: Limit Entered For An Order Sign
@@ -1378,7 +1345,7 @@ end
 -- Type Of Order
 box_options_sola_unicast_hsvf_v4_5_1.type_of_order = {}
 
--- Size: Type Of Order
+-- Size Of: Type Of Order
 box_options_sola_unicast_hsvf_v4_5_1.type_of_order.size = 1
 
 -- Display: Type Of Order
@@ -1408,44 +1375,24 @@ end
 -- Complex Order Market Sheet Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_improvement_order_message = {}
 
--- Calculate size of: Complex Order Market Sheet Initial And Improvement Order Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_improvement_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_side.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.limit_entered_for_an_order_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.limit_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_quantity.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.auction_type.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.firm_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.cmta.size
-
-  return index
-end
+-- Size Of: Complex Order Market Sheet Initial And Improvement Order Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_improvement_order_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_side.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.limit_entered_for_an_order_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.limit_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_quantity.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.auction_type.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.firm_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.cmta.size;
 
 -- Display: Complex Order Market Sheet Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_improvement_order_message.display = function(packet, parent, length)
@@ -1528,42 +1475,23 @@ end
 -- Market Sheet Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_message = {}
 
--- Calculate size of: Market Sheet Initial And Improvement Order Message
-box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_side.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.limit_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_quantity.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.auction_type.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.firm_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.cmta.size
-
-  return index
-end
+-- Size Of: Market Sheet Initial And Improvement Order Message
+box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_side.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.limit_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_quantity.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.auction_type.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.firm_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.cmta.size;
 
 -- Display: Market Sheet Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_message.display = function(packet, parent, length)
@@ -1643,7 +1571,7 @@ end
 -- Percentage Assured To Initial Order
 box_options_sola_unicast_hsvf_v4_5_1.percentage_assured_to_initial_order = {}
 
--- Size: Percentage Assured To Initial Order
+-- Size Of: Percentage Assured To Initial Order
 box_options_sola_unicast_hsvf_v4_5_1.percentage_assured_to_initial_order.size = 8
 
 -- Display: Percentage Assured To Initial Order
@@ -1666,7 +1594,7 @@ end
 -- Minimum Quantity For Improvement Order
 box_options_sola_unicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order = {}
 
--- Size: Minimum Quantity For Improvement Order
+-- Size Of: Minimum Quantity For Improvement Order
 box_options_sola_unicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order.size = 8
 
 -- Display: Minimum Quantity For Improvement Order
@@ -1694,7 +1622,7 @@ end
 -- Improvement Process Expiry Duration
 box_options_sola_unicast_hsvf_v4_5_1.improvement_process_expiry_duration = {}
 
--- Size: Improvement Process Expiry Duration
+-- Size Of: Improvement Process Expiry Duration
 box_options_sola_unicast_hsvf_v4_5_1.improvement_process_expiry_duration.size = 4
 
 -- Display: Improvement Process Expiry Duration
@@ -1722,7 +1650,7 @@ end
 -- Improvement Phase Expiry Time
 box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_expiry_time = {}
 
--- Size: Improvement Phase Expiry Time
+-- Size Of: Improvement Phase Expiry Time
 box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_expiry_time.size = 8
 
 -- Display: Improvement Phase Expiry Time
@@ -1745,7 +1673,7 @@ end
 -- Initial Order Side
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_side = {}
 
--- Size: Initial Order Side
+-- Size Of: Initial Order Side
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_side.size = 1
 
 -- Display: Initial Order Side
@@ -1775,7 +1703,7 @@ end
 -- Initial Order Quantity
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_quantity = {}
 
--- Size: Initial Order Quantity
+-- Size Of: Initial Order Quantity
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_quantity.size = 8
 
 -- Display: Initial Order Quantity
@@ -1798,7 +1726,7 @@ end
 -- Initial Order Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_fraction_indicator = {}
 
--- Size: Initial Order Price Fraction Indicator
+-- Size Of: Initial Order Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.size = 1
 
 -- Display: Initial Order Price Fraction Indicator
@@ -1821,7 +1749,7 @@ end
 -- Initial Order Price
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_price = {}
 
--- Size: Initial Order Price
+-- Size Of: Initial Order Price
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_price.size = 6
 
 -- Display: Initial Order Price
@@ -1849,7 +1777,7 @@ end
 -- Initial Order Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_sign = {}
 
--- Size: Initial Order Price Sign
+-- Size Of: Initial Order Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_sign.size = 1
 
 -- Display: Initial Order Price Sign
@@ -1879,38 +1807,21 @@ end
 -- Complex Order Improvement Process Beginning Message Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_improvement_process_beginning_message_message = {}
 
--- Calculate size of: Complex Order Improvement Process Beginning Message Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_improvement_process_beginning_message_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_quantity.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_side.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_expiry_time.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_process_expiry_duration.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.percentage_assured_to_initial_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.auction_type.size
-
-  return index
-end
+-- Size Of: Complex Order Improvement Process Beginning Message Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_improvement_process_beginning_message_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_quantity.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_side.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_expiry_time.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_process_expiry_duration.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.percentage_assured_to_initial_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.auction_type.size;
 
 -- Display: Complex Order Improvement Process Beginning Message Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_improvement_process_beginning_message_message.display = function(packet, parent, length)
@@ -1984,38 +1895,21 @@ end
 -- Option Improvement Process Beginning Message
 box_options_sola_unicast_hsvf_v4_5_1.option_improvement_process_beginning_message = {}
 
--- Calculate size of: Option Improvement Process Beginning Message
-box_options_sola_unicast_hsvf_v4_5_1.option_improvement_process_beginning_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_quantity.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.initial_order_side.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_expiry_time.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.improvement_process_expiry_duration.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.percentage_assured_to_initial_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.auction_type.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  return index
-end
+-- Size Of: Option Improvement Process Beginning Message
+box_options_sola_unicast_hsvf_v4_5_1.option_improvement_process_beginning_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_quantity.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.initial_order_side.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_expiry_time.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.improvement_process_expiry_duration.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.percentage_assured_to_initial_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.auction_type.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size;
 
 -- Display: Option Improvement Process Beginning Message
 box_options_sola_unicast_hsvf_v4_5_1.option_improvement_process_beginning_message.display = function(packet, parent, length)
@@ -2089,7 +1983,7 @@ end
 -- Time
 box_options_sola_unicast_hsvf_v4_5_1.time = {}
 
--- Size: Time
+-- Size Of: Time
 box_options_sola_unicast_hsvf_v4_5_1.time.size = 6
 
 -- Display: Time
@@ -2117,7 +2011,7 @@ end
 -- Reserved
 box_options_sola_unicast_hsvf_v4_5_1.reserved = {}
 
--- Size: Reserved
+-- Size Of: Reserved
 box_options_sola_unicast_hsvf_v4_5_1.reserved.size = 1
 
 -- Display: Reserved
@@ -2140,16 +2034,10 @@ end
 -- End Of Sales Message
 box_options_sola_unicast_hsvf_v4_5_1.end_of_sales_message = {}
 
--- Calculate size of: End Of Sales Message
-box_options_sola_unicast_hsvf_v4_5_1.end_of_sales_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.reserved.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.time.size
-
-  return index
-end
+-- Size Of: End Of Sales Message
+box_options_sola_unicast_hsvf_v4_5_1.end_of_sales_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.reserved.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.time.size;
 
 -- Display: End Of Sales Message
 box_options_sola_unicast_hsvf_v4_5_1.end_of_sales_message.display = function(packet, parent, length)
@@ -2190,7 +2078,7 @@ end
 -- Continue Marker
 box_options_sola_unicast_hsvf_v4_5_1.continue_marker = {}
 
--- Size: Continue Marker
+-- Size Of: Continue Marker
 box_options_sola_unicast_hsvf_v4_5_1.continue_marker.size = 1
 
 -- Display: Continue Marker
@@ -2225,7 +2113,7 @@ end
 -- Bulletin Contents
 box_options_sola_unicast_hsvf_v4_5_1.bulletin_contents = {}
 
--- Size: Bulletin Contents
+-- Size Of: Bulletin Contents
 box_options_sola_unicast_hsvf_v4_5_1.bulletin_contents.size = 79
 
 -- Display: Bulletin Contents
@@ -2248,7 +2136,7 @@ end
 -- Bulletin Type
 box_options_sola_unicast_hsvf_v4_5_1.bulletin_type = {}
 
--- Size: Bulletin Type
+-- Size Of: Bulletin Type
 box_options_sola_unicast_hsvf_v4_5_1.bulletin_type.size = 1
 
 -- Display: Bulletin Type
@@ -2278,20 +2166,12 @@ end
 -- Bulletins Message
 box_options_sola_unicast_hsvf_v4_5_1.bulletins_message = {}
 
--- Calculate size of: Bulletins Message
-box_options_sola_unicast_hsvf_v4_5_1.bulletins_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bulletin_type.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bulletin_contents.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.continue_marker.size
-
-  return index
-end
+-- Size Of: Bulletins Message
+box_options_sola_unicast_hsvf_v4_5_1.bulletins_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bulletin_type.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bulletin_contents.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.continue_marker.size;
 
 -- Display: Bulletins Message
 box_options_sola_unicast_hsvf_v4_5_1.bulletins_message.display = function(packet, parent, length)
@@ -2338,7 +2218,7 @@ end
 -- Group Status
 box_options_sola_unicast_hsvf_v4_5_1.group_status = {}
 
--- Size: Group Status
+-- Size Of: Group Status
 box_options_sola_unicast_hsvf_v4_5_1.group_status.size = 1
 
 -- Display: Group Status
@@ -2386,7 +2266,7 @@ end
 -- Group Of The Complex Order Instrument
 box_options_sola_unicast_hsvf_v4_5_1.group_of_the_complex_order_instrument = {}
 
--- Size: Group Of The Complex Order Instrument
+-- Size Of: Group Of The Complex Order Instrument
 box_options_sola_unicast_hsvf_v4_5_1.group_of_the_complex_order_instrument.size = 2
 
 -- Display: Group Of The Complex Order Instrument
@@ -2409,18 +2289,11 @@ end
 -- Complex Order Group Status Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_group_status_message = {}
 
--- Calculate size of: Complex Order Group Status Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_group_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.group_of_the_complex_order_instrument.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.group_status.size
-
-  return index
-end
+-- Size Of: Complex Order Group Status Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_group_status_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.group_of_the_complex_order_instrument.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.group_status.size;
 
 -- Display: Complex Order Group Status Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_group_status_message.display = function(packet, parent, length)
@@ -2464,18 +2337,11 @@ end
 -- Group Status Message
 box_options_sola_unicast_hsvf_v4_5_1.group_status_message = {}
 
--- Calculate size of: Group Status Message
-box_options_sola_unicast_hsvf_v4_5_1.group_status_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.root_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.group_status.size
-
-  return index
-end
+-- Size Of: Group Status Message
+box_options_sola_unicast_hsvf_v4_5_1.group_status_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.root_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.group_status.size;
 
 -- Display: Group Status Message
 box_options_sola_unicast_hsvf_v4_5_1.group_status_message.display = function(packet, parent, length)
@@ -2519,7 +2385,7 @@ end
 -- Scheduled Time
 box_options_sola_unicast_hsvf_v4_5_1.scheduled_time = {}
 
--- Size: Scheduled Time
+-- Size Of: Scheduled Time
 box_options_sola_unicast_hsvf_v4_5_1.scheduled_time.size = 6
 
 -- Display: Scheduled Time
@@ -2547,20 +2413,12 @@ end
 -- Group Opening Time Message
 box_options_sola_unicast_hsvf_v4_5_1.group_opening_time_message = {}
 
--- Calculate size of: Group Opening Time Message
-box_options_sola_unicast_hsvf_v4_5_1.group_opening_time_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.root_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.group_status.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.scheduled_time.size
-
-  return index
-end
+-- Size Of: Group Opening Time Message
+box_options_sola_unicast_hsvf_v4_5_1.group_opening_time_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.root_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.group_status.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.scheduled_time.size;
 
 -- Display: Group Opening Time Message
 box_options_sola_unicast_hsvf_v4_5_1.group_opening_time_message.display = function(packet, parent, length)
@@ -2607,14 +2465,9 @@ end
 -- Beginning Of Complex Order Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.beginning_of_complex_order_summary_message = {}
 
--- Calculate size of: Beginning Of Complex Order Summary Message
-box_options_sola_unicast_hsvf_v4_5_1.beginning_of_complex_order_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  return index
-end
+-- Size Of: Beginning Of Complex Order Summary Message
+box_options_sola_unicast_hsvf_v4_5_1.beginning_of_complex_order_summary_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size;
 
 -- Display: Beginning Of Complex Order Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.beginning_of_complex_order_summary_message.display = function(packet, parent, length)
@@ -2652,14 +2505,9 @@ end
 -- Beginning Of Options Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.beginning_of_options_summary_message = {}
 
--- Calculate size of: Beginning Of Options Summary Message
-box_options_sola_unicast_hsvf_v4_5_1.beginning_of_options_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  return index
-end
+-- Size Of: Beginning Of Options Summary Message
+box_options_sola_unicast_hsvf_v4_5_1.beginning_of_options_summary_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size;
 
 -- Display: Beginning Of Options Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.beginning_of_options_summary_message.display = function(packet, parent, length)
@@ -2697,7 +2545,7 @@ end
 -- Volume
 box_options_sola_unicast_hsvf_v4_5_1.volume = {}
 
--- Size: Volume
+-- Size Of: Volume
 box_options_sola_unicast_hsvf_v4_5_1.volume.size = 8
 
 -- Display: Volume
@@ -2725,7 +2573,7 @@ end
 -- Net Change Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator = {}
 
--- Size: Net Change Fraction Indicator
+-- Size Of: Net Change Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size = 1
 
 -- Display: Net Change Fraction Indicator
@@ -2748,7 +2596,7 @@ end
 -- Net Change
 box_options_sola_unicast_hsvf_v4_5_1.net_change = {}
 
--- Size: Net Change
+-- Size Of: Net Change
 box_options_sola_unicast_hsvf_v4_5_1.net_change.size = 6
 
 -- Display: Net Change
@@ -2776,7 +2624,7 @@ end
 -- Net Change Sign
 box_options_sola_unicast_hsvf_v4_5_1.net_change_sign = {}
 
--- Size: Net Change Sign
+-- Size Of: Net Change Sign
 box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size = 1
 
 -- Display: Net Change Sign
@@ -2806,7 +2654,7 @@ end
 -- Low Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.low_price_fraction_indicator = {}
 
--- Size: Low Price Fraction Indicator
+-- Size Of: Low Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.low_price_fraction_indicator.size = 1
 
 -- Display: Low Price Fraction Indicator
@@ -2829,7 +2677,7 @@ end
 -- Low Price
 box_options_sola_unicast_hsvf_v4_5_1.low_price = {}
 
--- Size: Low Price
+-- Size Of: Low Price
 box_options_sola_unicast_hsvf_v4_5_1.low_price.size = 6
 
 -- Display: Low Price
@@ -2857,7 +2705,7 @@ end
 -- Low Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.low_price_sign = {}
 
--- Size: Low Price Sign
+-- Size Of: Low Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.low_price_sign.size = 1
 
 -- Display: Low Price Sign
@@ -2887,7 +2735,7 @@ end
 -- High Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.high_price_fraction_indicator = {}
 
--- Size: High Price Fraction Indicator
+-- Size Of: High Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.high_price_fraction_indicator.size = 1
 
 -- Display: High Price Fraction Indicator
@@ -2910,7 +2758,7 @@ end
 -- High Price
 box_options_sola_unicast_hsvf_v4_5_1.high_price = {}
 
--- Size: High Price
+-- Size Of: High Price
 box_options_sola_unicast_hsvf_v4_5_1.high_price.size = 6
 
 -- Display: High Price
@@ -2938,7 +2786,7 @@ end
 -- High Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.high_price_sign = {}
 
--- Size: High Price Sign
+-- Size Of: High Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.high_price_sign.size = 1
 
 -- Display: High Price Sign
@@ -2968,7 +2816,7 @@ end
 -- Open Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.open_price_fraction_indicator = {}
 
--- Size: Open Price Fraction Indicator
+-- Size Of: Open Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.open_price_fraction_indicator.size = 1
 
 -- Display: Open Price Fraction Indicator
@@ -2991,7 +2839,7 @@ end
 -- Open Price
 box_options_sola_unicast_hsvf_v4_5_1.open_price = {}
 
--- Size: Open Price
+-- Size Of: Open Price
 box_options_sola_unicast_hsvf_v4_5_1.open_price.size = 6
 
 -- Display: Open Price
@@ -3019,7 +2867,7 @@ end
 -- Open Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.open_price_sign = {}
 
--- Size: Open Price Sign
+-- Size Of: Open Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.open_price_sign.size = 1
 
 -- Display: Open Price Sign
@@ -3049,7 +2897,7 @@ end
 -- Last Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.last_price_fraction_indicator = {}
 
--- Size: Last Price Fraction Indicator
+-- Size Of: Last Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.last_price_fraction_indicator.size = 1
 
 -- Display: Last Price Fraction Indicator
@@ -3072,7 +2920,7 @@ end
 -- Last Price
 box_options_sola_unicast_hsvf_v4_5_1.last_price = {}
 
--- Size: Last Price
+-- Size Of: Last Price
 box_options_sola_unicast_hsvf_v4_5_1.last_price.size = 6
 
 -- Display: Last Price
@@ -3100,7 +2948,7 @@ end
 -- Last Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.last_price_sign = {}
 
--- Size: Last Price Sign
+-- Size Of: Last Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.last_price_sign.size = 1
 
 -- Display: Last Price Sign
@@ -3123,7 +2971,7 @@ end
 -- Ask Size
 box_options_sola_unicast_hsvf_v4_5_1.ask_size = {}
 
--- Size: Ask Size
+-- Size Of: Ask Size
 box_options_sola_unicast_hsvf_v4_5_1.ask_size.size = 5
 
 -- Display: Ask Size
@@ -3151,7 +2999,7 @@ end
 -- Ask Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator = {}
 
--- Size: Ask Price Fraction Indicator
+-- Size Of: Ask Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size = 1
 
 -- Display: Ask Price Fraction Indicator
@@ -3179,7 +3027,7 @@ end
 -- Ask Price
 box_options_sola_unicast_hsvf_v4_5_1.ask_price = {}
 
--- Size: Ask Price
+-- Size Of: Ask Price
 box_options_sola_unicast_hsvf_v4_5_1.ask_price.size = 6
 
 -- Display: Ask Price
@@ -3207,7 +3055,7 @@ end
 -- Ask Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign = {}
 
--- Size: Ask Price Sign
+-- Size Of: Ask Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign.size = 1
 
 -- Display: Ask Price Sign
@@ -3237,7 +3085,7 @@ end
 -- Bid Size
 box_options_sola_unicast_hsvf_v4_5_1.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 box_options_sola_unicast_hsvf_v4_5_1.bid_size.size = 5
 
 -- Display: Bid Size
@@ -3265,7 +3113,7 @@ end
 -- Bid Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator = {}
 
--- Size: Bid Price Fraction Indicator
+-- Size Of: Bid Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size = 1
 
 -- Display: Bid Price Fraction Indicator
@@ -3288,7 +3136,7 @@ end
 -- Bid Price
 box_options_sola_unicast_hsvf_v4_5_1.bid_price = {}
 
--- Size: Bid Price
+-- Size Of: Bid Price
 box_options_sola_unicast_hsvf_v4_5_1.bid_price.size = 6
 
 -- Display: Bid Price
@@ -3316,7 +3164,7 @@ end
 -- Bid Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign = {}
 
--- Size: Bid Price Sign
+-- Size Of: Bid Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign.size = 1
 
 -- Display: Bid Price Sign
@@ -3339,64 +3187,34 @@ end
 -- Complex Order Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_summary_message = {}
 
--- Calculate size of: Complex Order Summary Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.last_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.last_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.last_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.high_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.high_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.high_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.low_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.low_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.low_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.volume.size
-
-  return index
-end
+-- Size Of: Complex Order Summary Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_summary_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.last_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.last_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.last_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.high_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.high_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.high_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.low_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.low_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.low_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.volume.size;
 
 -- Display: Complex Order Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_summary_message.display = function(packet, parent, length)
@@ -3509,7 +3327,7 @@ end
 -- Reference Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.reference_price_fraction_indicator = {}
 
--- Size: Reference Price Fraction Indicator
+-- Size Of: Reference Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.reference_price_fraction_indicator.size = 1
 
 -- Display: Reference Price Fraction Indicator
@@ -3532,7 +3350,7 @@ end
 -- Reference Price
 box_options_sola_unicast_hsvf_v4_5_1.reference_price = {}
 
--- Size: Reference Price
+-- Size Of: Reference Price
 box_options_sola_unicast_hsvf_v4_5_1.reference_price.size = 6
 
 -- Display: Reference Price
@@ -3560,7 +3378,7 @@ end
 -- Underlying Symbol
 box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol = {}
 
--- Size: Underlying Symbol
+-- Size Of: Underlying Symbol
 box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol.size = 10
 
 -- Display: Underlying Symbol
@@ -3583,7 +3401,7 @@ end
 -- Type Of Options
 box_options_sola_unicast_hsvf_v4_5_1.type_of_options = {}
 
--- Size: Type Of Options
+-- Size Of: Type Of Options
 box_options_sola_unicast_hsvf_v4_5_1.type_of_options.size = 1
 
 -- Display: Type Of Options
@@ -3610,7 +3428,7 @@ end
 -- Type Of Market
 box_options_sola_unicast_hsvf_v4_5_1.type_of_market = {}
 
--- Size: Type Of Market
+-- Size Of: Type Of Market
 box_options_sola_unicast_hsvf_v4_5_1.type_of_market.size = 1
 
 -- Display: Type Of Market
@@ -3633,16 +3451,10 @@ end
 -- Option Marker
 box_options_sola_unicast_hsvf_v4_5_1.option_marker = {}
 
--- Calculate size of: Option Marker
-box_options_sola_unicast_hsvf_v4_5_1.option_marker.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_market.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_options.size
-
-  return index
-end
+-- Size Of: Option Marker
+box_options_sola_unicast_hsvf_v4_5_1.option_marker.size =
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_market.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_options.size;
 
 -- Display: Option Marker
 box_options_sola_unicast_hsvf_v4_5_1.option_marker.display = function(packet, parent, length)
@@ -3683,7 +3495,7 @@ end
 -- Tick
 box_options_sola_unicast_hsvf_v4_5_1.tick = {}
 
--- Size: Tick
+-- Size Of: Tick
 box_options_sola_unicast_hsvf_v4_5_1.tick.size = 1
 
 -- Display: Tick
@@ -3713,7 +3525,7 @@ end
 -- Open Interest
 box_options_sola_unicast_hsvf_v4_5_1.open_interest = {}
 
--- Size: Open Interest
+-- Size Of: Open Interest
 box_options_sola_unicast_hsvf_v4_5_1.open_interest.size = 7
 
 -- Display: Open Interest
@@ -3741,64 +3553,34 @@ end
 -- Option Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.option_summary_message = {}
 
--- Calculate size of: Option Summary Message
-box_options_sola_unicast_hsvf_v4_5_1.option_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.last_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.last_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_interest.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.tick.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.volume.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.high_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.high_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.low_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.low_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.option_marker.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.reference_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.reference_price_fraction_indicator.size
-
-  return index
-end
+-- Size Of: Option Summary Message
+box_options_sola_unicast_hsvf_v4_5_1.option_summary_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.last_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.last_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_interest.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.tick.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.volume.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.high_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.high_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.low_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.low_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.option_marker.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.reference_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.reference_price_fraction_indicator.size;
 
 -- Display: Option Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.option_summary_message.display = function(packet, parent, length)
@@ -3911,7 +3693,7 @@ end
 -- Leg Symbol
 box_options_sola_unicast_hsvf_v4_5_1.leg_symbol = {}
 
--- Size: Leg Symbol
+-- Size Of: Leg Symbol
 box_options_sola_unicast_hsvf_v4_5_1.leg_symbol.size = 30
 
 -- Display: Leg Symbol
@@ -3934,7 +3716,7 @@ end
 -- Leg Ratio
 box_options_sola_unicast_hsvf_v4_5_1.leg_ratio = {}
 
--- Size: Leg Ratio
+-- Size Of: Leg Ratio
 box_options_sola_unicast_hsvf_v4_5_1.leg_ratio.size = 8
 
 -- Display: Leg Ratio
@@ -3962,7 +3744,7 @@ end
 -- Leg Ratio Sign
 box_options_sola_unicast_hsvf_v4_5_1.leg_ratio_sign = {}
 
--- Size: Leg Ratio Sign
+-- Size Of: Leg Ratio Sign
 box_options_sola_unicast_hsvf_v4_5_1.leg_ratio_sign.size = 1
 
 -- Display: Leg Ratio Sign
@@ -3992,18 +3774,11 @@ end
 -- Instrument Leg
 box_options_sola_unicast_hsvf_v4_5_1.instrument_leg = {}
 
--- Calculate size of: Instrument Leg
-box_options_sola_unicast_hsvf_v4_5_1.instrument_leg.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.leg_ratio_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.leg_ratio.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.leg_symbol.size
-
-  return index
-end
+-- Size Of: Instrument Leg
+box_options_sola_unicast_hsvf_v4_5_1.instrument_leg.size =
+  box_options_sola_unicast_hsvf_v4_5_1.leg_ratio_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.leg_ratio.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.leg_symbol.size;
 
 -- Display: Instrument Leg
 box_options_sola_unicast_hsvf_v4_5_1.instrument_leg.display = function(packet, parent, length)
@@ -4053,7 +3828,7 @@ end
 -- Number Of Legs
 box_options_sola_unicast_hsvf_v4_5_1.number_of_legs = {}
 
--- Size: Number Of Legs
+-- Size Of: Number Of Legs
 box_options_sola_unicast_hsvf_v4_5_1.number_of_legs.size = 2
 
 -- Display: Number Of Legs
@@ -4081,7 +3856,7 @@ end
 -- Complex Order Instrument Allow Implied
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_allow_implied = {}
 
--- Size: Complex Order Instrument Allow Implied
+-- Size Of: Complex Order Instrument Allow Implied
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_allow_implied.size = 1
 
 -- Display: Complex Order Instrument Allow Implied
@@ -4114,7 +3889,7 @@ end
 -- Instrument External Code
 box_options_sola_unicast_hsvf_v4_5_1.instrument_external_code = {}
 
--- Size: Instrument External Code
+-- Size Of: Instrument External Code
 box_options_sola_unicast_hsvf_v4_5_1.instrument_external_code.size = 30
 
 -- Display: Instrument External Code
@@ -4137,7 +3912,7 @@ end
 -- Instrument
 box_options_sola_unicast_hsvf_v4_5_1.instrument = {}
 
--- Size: Instrument
+-- Size Of: Instrument
 box_options_sola_unicast_hsvf_v4_5_1.instrument.size = 4
 
 -- Display: Instrument
@@ -4160,7 +3935,7 @@ end
 -- Group
 box_options_sola_unicast_hsvf_v4_5_1.group = {}
 
--- Size: Group
+-- Size Of: Group
 box_options_sola_unicast_hsvf_v4_5_1.group.size = 2
 
 -- Display: Group
@@ -4183,7 +3958,7 @@ end
 -- Filler 2
 box_options_sola_unicast_hsvf_v4_5_1.filler_2 = {}
 
--- Size: Filler 2
+-- Size Of: Filler 2
 box_options_sola_unicast_hsvf_v4_5_1.filler_2.size = 2
 
 -- Display: Filler 2
@@ -4206,7 +3981,7 @@ end
 -- Tick Increment Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.tick_increment_fraction_indicator = {}
 
--- Size: Tick Increment Fraction Indicator
+-- Size Of: Tick Increment Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.tick_increment_fraction_indicator.size = 1
 
 -- Display: Tick Increment Fraction Indicator
@@ -4234,7 +4009,7 @@ end
 -- Tick Increment
 box_options_sola_unicast_hsvf_v4_5_1.tick_increment = {}
 
--- Size: Tick Increment
+-- Size Of: Tick Increment
 box_options_sola_unicast_hsvf_v4_5_1.tick_increment.size = 6
 
 -- Display: Tick Increment
@@ -4257,7 +4032,7 @@ end
 -- Min Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.min_threshold_price_fraction_indicator = {}
 
--- Size: Min Threshold Price Fraction Indicator
+-- Size Of: Min Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.min_threshold_price_fraction_indicator.size = 1
 
 -- Display: Min Threshold Price Fraction Indicator
@@ -4280,7 +4055,7 @@ end
 -- Min Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.min_threshold_price = {}
 
--- Size: Min Threshold Price
+-- Size Of: Min Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.min_threshold_price.size = 6
 
 -- Display: Min Threshold Price
@@ -4308,7 +4083,7 @@ end
 -- Min Threshold Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.min_threshold_price_sign = {}
 
--- Size: Min Threshold Price Sign
+-- Size Of: Min Threshold Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.min_threshold_price_sign.size = 1
 
 -- Display: Min Threshold Price Sign
@@ -4338,7 +4113,7 @@ end
 -- Max Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.max_threshold_price_fraction_indicator = {}
 
--- Size: Max Threshold Price Fraction Indicator
+-- Size Of: Max Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.max_threshold_price_fraction_indicator.size = 1
 
 -- Display: Max Threshold Price Fraction Indicator
@@ -4361,7 +4136,7 @@ end
 -- Max Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.max_threshold_price = {}
 
--- Size: Max Threshold Price
+-- Size Of: Max Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.max_threshold_price.size = 6
 
 -- Display: Max Threshold Price
@@ -4389,7 +4164,7 @@ end
 -- Max Threshold Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.max_threshold_price_sign = {}
 
--- Size: Max Threshold Price Sign
+-- Size Of: Max Threshold Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.max_threshold_price_sign.size = 1
 
 -- Display: Max Threshold Price Sign
@@ -4419,7 +4194,7 @@ end
 -- Min Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.min_number_of_contracts_per_order = {}
 
--- Size: Min Number Of Contracts Per Order
+-- Size Of: Min Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.min_number_of_contracts_per_order.size = 6
 
 -- Display: Min Number Of Contracts Per Order
@@ -4447,7 +4222,7 @@ end
 -- Max Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.max_number_of_contracts_per_order = {}
 
--- Size: Max Number Of Contracts Per Order
+-- Size Of: Max Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.max_number_of_contracts_per_order.size = 6
 
 -- Display: Max Number Of Contracts Per Order
@@ -4475,7 +4250,7 @@ end
 -- Delivery Month
 box_options_sola_unicast_hsvf_v4_5_1.delivery_month = {}
 
--- Size: Delivery Month
+-- Size Of: Delivery Month
 box_options_sola_unicast_hsvf_v4_5_1.delivery_month.size = 1
 
 -- Display: Delivery Month
@@ -4681,7 +4456,7 @@ end
 -- Underlying Symbol Root
 box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol_root = {}
 
--- Size: Underlying Symbol Root
+-- Size Of: Underlying Symbol Root
 box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol_root.size = 10
 
 -- Display: Underlying Symbol Root
@@ -4704,7 +4479,7 @@ end
 -- Group Instrument
 box_options_sola_unicast_hsvf_v4_5_1.group_instrument = {}
 
--- Size: Group Instrument
+-- Size Of: Group Instrument
 box_options_sola_unicast_hsvf_v4_5_1.group_instrument.size = 2
 
 -- Display: Group Instrument
@@ -4727,7 +4502,7 @@ end
 -- Type Of Underlying
 box_options_sola_unicast_hsvf_v4_5_1.type_of_underlying = {}
 
--- Size: Type Of Underlying
+-- Size Of: Type Of Underlying
 box_options_sola_unicast_hsvf_v4_5_1.type_of_underlying.size = 1
 
 -- Display: Type Of Underlying
@@ -4757,7 +4532,7 @@ end
 -- Type Of Instrument
 box_options_sola_unicast_hsvf_v4_5_1.type_of_instrument = {}
 
--- Size: Type Of Instrument
+-- Size Of: Type Of Instrument
 box_options_sola_unicast_hsvf_v4_5_1.type_of_instrument.size = 1
 
 -- Display: Type Of Instrument
@@ -4787,16 +4562,10 @@ end
 -- Market Flow Indicator
 box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator = {}
 
--- Calculate size of: Market Flow Indicator
-box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_instrument.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_underlying.size
-
-  return index
-end
+-- Size Of: Market Flow Indicator
+box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator.size =
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_instrument.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_underlying.size;
 
 -- Display: Market Flow Indicator
 box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator.display = function(packet, parent, length)
@@ -4837,7 +4606,7 @@ end
 -- Option Type
 box_options_sola_unicast_hsvf_v4_5_1.option_type = {}
 
--- Size: Option Type
+-- Size Of: Option Type
 box_options_sola_unicast_hsvf_v4_5_1.option_type.size = 1
 
 -- Display: Option Type
@@ -4867,7 +4636,7 @@ end
 -- Minimum Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicator = {}
 
--- Size: Minimum Threshold Price Fraction Indicator
+-- Size Of: Minimum Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicator.size = 1
 
 -- Display: Minimum Threshold Price Fraction Indicator
@@ -4890,7 +4659,7 @@ end
 -- Minimum Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price = {}
 
--- Size: Minimum Threshold Price
+-- Size Of: Minimum Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price.size = 6
 
 -- Display: Minimum Threshold Price
@@ -4918,7 +4687,7 @@ end
 -- Maximum Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicator = {}
 
--- Size: Maximum Threshold Price Fraction Indicator
+-- Size Of: Maximum Threshold Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicator.size = 1
 
 -- Display: Maximum Threshold Price Fraction Indicator
@@ -4941,7 +4710,7 @@ end
 -- Maximum Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price = {}
 
--- Size: Maximum Threshold Price
+-- Size Of: Maximum Threshold Price
 box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price.size = 6
 
 -- Display: Maximum Threshold Price
@@ -4969,7 +4738,7 @@ end
 -- Minimum Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.minimum_number_of_contracts_per_order = {}
 
--- Size: Minimum Number Of Contracts Per Order
+-- Size Of: Minimum Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.minimum_number_of_contracts_per_order.size = 6
 
 -- Display: Minimum Number Of Contracts Per Order
@@ -4997,7 +4766,7 @@ end
 -- Maximum Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.maximum_number_of_contracts_per_order = {}
 
--- Size: Maximum Number Of Contracts Per Order
+-- Size Of: Maximum Number Of Contracts Per Order
 box_options_sola_unicast_hsvf_v4_5_1.maximum_number_of_contracts_per_order.size = 6
 
 -- Display: Maximum Number Of Contracts Per Order
@@ -5025,7 +4794,7 @@ end
 -- Strike Price Currency
 box_options_sola_unicast_hsvf_v4_5_1.strike_price_currency = {}
 
--- Size: Strike Price Currency
+-- Size Of: Strike Price Currency
 box_options_sola_unicast_hsvf_v4_5_1.strike_price_currency.size = 3
 
 -- Display: Strike Price Currency
@@ -5055,48 +4824,26 @@ end
 -- Option Instrument Keys Message
 box_options_sola_unicast_hsvf_v4_5_1.option_instrument_keys_message = {}
 
--- Calculate size of: Option Instrument Keys Message
-box_options_sola_unicast_hsvf_v4_5_1.option_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.strike_price_currency.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.maximum_number_of_contracts_per_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.minimum_number_of_contracts_per_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.tick_increment.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.tick_increment_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.option_type.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.group_instrument.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_external_code.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.option_marker.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol_root.size
-
-  return index
-end
+-- Size Of: Option Instrument Keys Message
+box_options_sola_unicast_hsvf_v4_5_1.option_instrument_keys_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.strike_price_currency.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.maximum_number_of_contracts_per_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.minimum_number_of_contracts_per_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.tick_increment.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.tick_increment_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.option_type.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.group_instrument.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_external_code.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.option_marker.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.underlying_symbol_root.size;
 
 -- Display: Option Instrument Keys Message
 box_options_sola_unicast_hsvf_v4_5_1.option_instrument_keys_message.display = function(packet, parent, length)
@@ -5185,7 +4932,7 @@ end
 -- Price Indicator Marker
 box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker = {}
 
--- Size: Price Indicator Marker
+-- Size Of: Price Indicator Marker
 box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size = 1
 
 -- Display: Price Indicator Marker
@@ -5242,7 +4989,7 @@ end
 -- Timestamp
 box_options_sola_unicast_hsvf_v4_5_1.timestamp = {}
 
--- Size: Timestamp
+-- Size Of: Timestamp
 box_options_sola_unicast_hsvf_v4_5_1.timestamp.size = 6
 
 -- Display: Timestamp
@@ -5270,7 +5017,7 @@ end
 -- Filler 6
 box_options_sola_unicast_hsvf_v4_5_1.filler_6 = {}
 
--- Size: Filler 6
+-- Size Of: Filler 6
 box_options_sola_unicast_hsvf_v4_5_1.filler_6.size = 6
 
 -- Display: Filler 6
@@ -5293,7 +5040,7 @@ end
 -- Trade Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator = {}
 
--- Size: Trade Price Fraction Indicator
+-- Size Of: Trade Price Fraction Indicator
 box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size = 1
 
 -- Display: Trade Price Fraction Indicator
@@ -5316,7 +5063,7 @@ end
 -- Trade Price
 box_options_sola_unicast_hsvf_v4_5_1.trade_price = {}
 
--- Size: Trade Price
+-- Size Of: Trade Price
 box_options_sola_unicast_hsvf_v4_5_1.trade_price.size = 6
 
 -- Display: Trade Price
@@ -5344,7 +5091,7 @@ end
 -- Trade Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.trade_price_sign = {}
 
--- Size: Trade Price Sign
+-- Size Of: Trade Price Sign
 box_options_sola_unicast_hsvf_v4_5_1.trade_price_sign.size = 1
 
 -- Display: Trade Price Sign
@@ -5367,30 +5114,17 @@ end
 -- Complex Order Trade Cancellation Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_trade_cancellation_message = {}
 
--- Calculate size of: Complex Order Trade Cancellation Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.volume.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_6.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.timestamp.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size
-
-  return index
-end
+-- Size Of: Complex Order Trade Cancellation Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_trade_cancellation_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.volume.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_6.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.timestamp.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size;
 
 -- Display: Complex Order Trade Cancellation Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_trade_cancellation_message.display = function(packet, parent, length)
@@ -5452,32 +5186,18 @@ end
 -- Option Trade Cancellation Message
 box_options_sola_unicast_hsvf_v4_5_1.option_trade_cancellation_message = {}
 
--- Calculate size of: Option Trade Cancellation Message
-box_options_sola_unicast_hsvf_v4_5_1.option_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.volume.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_6.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.timestamp.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_interest.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size
-
-  return index
-end
+-- Size Of: Option Trade Cancellation Message
+box_options_sola_unicast_hsvf_v4_5_1.option_trade_cancellation_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.volume.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_6.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.timestamp.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_interest.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size;
 
 -- Display: Option Trade Cancellation Message
 box_options_sola_unicast_hsvf_v4_5_1.option_trade_cancellation_message.display = function(packet, parent, length)
@@ -5542,7 +5262,7 @@ end
 -- Number Of Ask Orders
 box_options_sola_unicast_hsvf_v4_5_1.number_of_ask_orders = {}
 
--- Size: Number Of Ask Orders
+-- Size Of: Number Of Ask Orders
 box_options_sola_unicast_hsvf_v4_5_1.number_of_ask_orders.size = 2
 
 -- Display: Number Of Ask Orders
@@ -5565,7 +5285,7 @@ end
 -- Number Of Bid Orders
 box_options_sola_unicast_hsvf_v4_5_1.number_of_bid_orders = {}
 
--- Size: Number Of Bid Orders
+-- Size Of: Number Of Bid Orders
 box_options_sola_unicast_hsvf_v4_5_1.number_of_bid_orders.size = 2
 
 -- Display: Number Of Bid Orders
@@ -5588,7 +5308,7 @@ end
 -- Level Of Market Depth
 box_options_sola_unicast_hsvf_v4_5_1.level_of_market_depth = {}
 
--- Size: Level Of Market Depth
+-- Size Of: Level Of Market Depth
 box_options_sola_unicast_hsvf_v4_5_1.level_of_market_depth.size = 1
 
 -- Display: Level Of Market Depth
@@ -5636,34 +5356,19 @@ end
 -- Complex Market Depth Level
 box_options_sola_unicast_hsvf_v4_5_1.complex_market_depth_level = {}
 
--- Calculate size of: Complex Market Depth Level
-box_options_sola_unicast_hsvf_v4_5_1.complex_market_depth_level.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.level_of_market_depth.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.number_of_bid_orders.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.number_of_ask_orders.size
-
-  return index
-end
+-- Size Of: Complex Market Depth Level
+box_options_sola_unicast_hsvf_v4_5_1.complex_market_depth_level.size =
+  box_options_sola_unicast_hsvf_v4_5_1.level_of_market_depth.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.number_of_bid_orders.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.number_of_ask_orders.size;
 
 -- Display: Complex Market Depth Level
 box_options_sola_unicast_hsvf_v4_5_1.complex_market_depth_level.display = function(packet, parent, length)
@@ -5737,7 +5442,7 @@ end
 -- Number Of Levels
 box_options_sola_unicast_hsvf_v4_5_1.number_of_levels = {}
 
--- Size: Number Of Levels
+-- Size Of: Number Of Levels
 box_options_sola_unicast_hsvf_v4_5_1.number_of_levels.size = 1
 
 -- Display: Number Of Levels
@@ -5765,7 +5470,7 @@ end
 -- Instrument Status Marker
 box_options_sola_unicast_hsvf_v4_5_1.instrument_status_marker = {}
 
--- Size: Instrument Status Marker
+-- Size Of: Instrument Status Marker
 box_options_sola_unicast_hsvf_v4_5_1.instrument_status_marker.size = 1
 
 -- Display: Instrument Status Marker
@@ -5886,30 +5591,17 @@ end
 -- Market Depth Level
 box_options_sola_unicast_hsvf_v4_5_1.market_depth_level = {}
 
--- Calculate size of: Market Depth Level
-box_options_sola_unicast_hsvf_v4_5_1.market_depth_level.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.level_of_market_depth.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.number_of_bid_orders.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.number_of_ask_orders.size
-
-  return index
-end
+-- Size Of: Market Depth Level
+box_options_sola_unicast_hsvf_v4_5_1.market_depth_level.size =
+  box_options_sola_unicast_hsvf_v4_5_1.level_of_market_depth.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.number_of_bid_orders.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.number_of_ask_orders.size;
 
 -- Display: Market Depth Level
 box_options_sola_unicast_hsvf_v4_5_1.market_depth_level.display = function(packet, parent, length)
@@ -5983,7 +5675,7 @@ box_options_sola_unicast_hsvf_v4_5_1.option_market_depth_message.size = function
 
   index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
 
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
+  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size
 
   index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_status_marker.size
 
@@ -6041,7 +5733,7 @@ end
 -- Public Customer Ask Size
 box_options_sola_unicast_hsvf_v4_5_1.public_customer_ask_size = {}
 
--- Size: Public Customer Ask Size
+-- Size Of: Public Customer Ask Size
 box_options_sola_unicast_hsvf_v4_5_1.public_customer_ask_size.size = 5
 
 -- Display: Public Customer Ask Size
@@ -6069,7 +5761,7 @@ end
 -- Public Customer Bid Size
 box_options_sola_unicast_hsvf_v4_5_1.public_customer_bid_size = {}
 
--- Size: Public Customer Bid Size
+-- Size Of: Public Customer Bid Size
 box_options_sola_unicast_hsvf_v4_5_1.public_customer_bid_size.size = 5
 
 -- Display: Public Customer Bid Size
@@ -6097,38 +5789,21 @@ end
 -- Complex Order Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_quote_message = {}
 
--- Calculate size of: Complex Order Quote Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_status_marker.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.public_customer_bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.public_customer_ask_size.size
-
-  return index
-end
+-- Size Of: Complex Order Quote Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_quote_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_status_marker.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.public_customer_bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.public_customer_ask_size.size;
 
 -- Display: Complex Order Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_quote_message.display = function(packet, parent, length)
@@ -6202,36 +5877,20 @@ end
 -- Option Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.option_quote_message = {}
 
--- Calculate size of: Option Quote Message
-box_options_sola_unicast_hsvf_v4_5_1.option_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.ask_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_status_marker.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.public_customer_bid_size.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.public_customer_ask_size.size
-
-  return index
-end
+-- Size Of: Option Quote Message
+box_options_sola_unicast_hsvf_v4_5_1.option_quote_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.ask_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_status_marker.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.public_customer_bid_size.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.public_customer_ask_size.size;
 
 -- Display: Option Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.option_quote_message.display = function(packet, parent, length)
@@ -6302,7 +5961,7 @@ end
 -- Requested Size
 box_options_sola_unicast_hsvf_v4_5_1.requested_size = {}
 
--- Size: Requested Size
+-- Size Of: Requested Size
 box_options_sola_unicast_hsvf_v4_5_1.requested_size.size = 8
 
 -- Display: Requested Size
@@ -6330,18 +5989,11 @@ end
 -- Option Request For Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.option_request_for_quote_message = {}
 
--- Calculate size of: Option Request For Quote Message
-box_options_sola_unicast_hsvf_v4_5_1.option_request_for_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.requested_size.size
-
-  return index
-end
+-- Size Of: Option Request For Quote Message
+box_options_sola_unicast_hsvf_v4_5_1.option_request_for_quote_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.requested_size.size;
 
 -- Display: Option Request For Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.option_request_for_quote_message.display = function(packet, parent, length)
@@ -6385,36 +6037,20 @@ end
 -- Complex Order Instrument Trade Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_trade_message = {}
 
--- Calculate size of: Complex Order Instrument Trade Message
-box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.volume.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_6.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.timestamp.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size
-
-  return index
-end
+-- Size Of: Complex Order Instrument Trade Message
+box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_trade_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_symbol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.volume.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_6.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.timestamp.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size;
 
 -- Display: Complex Order Instrument Trade Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_trade_message.display = function(packet, parent, length)
@@ -6485,38 +6121,21 @@ end
 -- Option Trade Message
 box_options_sola_unicast_hsvf_v4_5_1.option_trade_message = {}
 
--- Calculate size of: Option Trade Message
-box_options_sola_unicast_hsvf_v4_5_1.option_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size(buffer, offset + index)
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.volume.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_6.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.timestamp.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.open_interest.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.filler_1.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size
-
-  return index
-end
+-- Size Of: Option Trade Message
+box_options_sola_unicast_hsvf_v4_5_1.option_trade_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.instrument_description.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.volume.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.trade_price_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_sign.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.net_change_fraction_indicator.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_6.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.timestamp.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.open_interest.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.price_indicator_marker.size;
 
 -- Display: Option Trade Message
 box_options_sola_unicast_hsvf_v4_5_1.option_trade_message.display = function(packet, parent, length)
@@ -6590,7 +6209,7 @@ end
 -- Trading Engine Timestamp
 box_options_sola_unicast_hsvf_v4_5_1.trading_engine_timestamp = {}
 
--- Size: Trading Engine Timestamp
+-- Size Of: Trading Engine Timestamp
 box_options_sola_unicast_hsvf_v4_5_1.trading_engine_timestamp.size = 9
 
 -- Display: Trading Engine Timestamp
@@ -6618,14 +6237,9 @@ end
 -- System Timestamp Message
 box_options_sola_unicast_hsvf_v4_5_1.system_timestamp_message = {}
 
--- Calculate size of: System Timestamp Message
-box_options_sola_unicast_hsvf_v4_5_1.system_timestamp_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.trading_engine_timestamp.size
-
-  return index
-end
+-- Size Of: System Timestamp Message
+box_options_sola_unicast_hsvf_v4_5_1.system_timestamp_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.trading_engine_timestamp.size;
 
 -- Display: System Timestamp Message
 box_options_sola_unicast_hsvf_v4_5_1.system_timestamp_message.display = function(packet, parent, length)
@@ -6663,7 +6277,7 @@ end
 -- Sequence Numbers Skipped
 box_options_sola_unicast_hsvf_v4_5_1.sequence_numbers_skipped = {}
 
--- Size: Sequence Numbers Skipped
+-- Size Of: Sequence Numbers Skipped
 box_options_sola_unicast_hsvf_v4_5_1.sequence_numbers_skipped.size = 9
 
 -- Display: Sequence Numbers Skipped
@@ -6686,14 +6300,9 @@ end
 -- Gap Sequence Message
 box_options_sola_unicast_hsvf_v4_5_1.gap_sequence_message = {}
 
--- Calculate size of: Gap Sequence Message
-box_options_sola_unicast_hsvf_v4_5_1.gap_sequence_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.sequence_numbers_skipped.size
-
-  return index
-end
+-- Size Of: Gap Sequence Message
+box_options_sola_unicast_hsvf_v4_5_1.gap_sequence_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.sequence_numbers_skipped.size;
 
 -- Display: Gap Sequence Message
 box_options_sola_unicast_hsvf_v4_5_1.gap_sequence_message.display = function(packet, parent, length)
@@ -6731,14 +6340,9 @@ end
 -- Circuit Assurance Message
 box_options_sola_unicast_hsvf_v4_5_1.circuit_assurance_message = {}
 
--- Calculate size of: Circuit Assurance Message
-box_options_sola_unicast_hsvf_v4_5_1.circuit_assurance_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.time.size
-
-  return index
-end
+-- Size Of: Circuit Assurance Message
+box_options_sola_unicast_hsvf_v4_5_1.circuit_assurance_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.time.size;
 
 -- Display: Circuit Assurance Message
 box_options_sola_unicast_hsvf_v4_5_1.circuit_assurance_message.display = function(packet, parent, length)
@@ -6776,16 +6380,10 @@ end
 -- End Of Transmission Message
 box_options_sola_unicast_hsvf_v4_5_1.end_of_transmission_message = {}
 
--- Calculate size of: End Of Transmission Message
-box_options_sola_unicast_hsvf_v4_5_1.end_of_transmission_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.time.size
-
-  return index
-end
+-- Size Of: End Of Transmission Message
+box_options_sola_unicast_hsvf_v4_5_1.end_of_transmission_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.exchange_id.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.time.size;
 
 -- Display: End Of Transmission Message
 box_options_sola_unicast_hsvf_v4_5_1.end_of_transmission_message.display = function(packet, parent, length)
@@ -6826,7 +6424,7 @@ end
 -- Option Classes Requested
 box_options_sola_unicast_hsvf_v4_5_1.option_classes_requested = {}
 
--- Size: Option Classes Requested
+-- Size Of: Option Classes Requested
 box_options_sola_unicast_hsvf_v4_5_1.option_classes_requested.size = 0
 
 -- Display: Option Classes Requested
@@ -6849,7 +6447,7 @@ end
 -- Number Of Option Classes Requested
 box_options_sola_unicast_hsvf_v4_5_1.number_of_option_classes_requested = {}
 
--- Size: Number Of Option Classes Requested
+-- Size Of: Number Of Option Classes Requested
 box_options_sola_unicast_hsvf_v4_5_1.number_of_option_classes_requested.size = 3
 
 -- Display: Number Of Option Classes Requested
@@ -6877,7 +6475,7 @@ end
 -- Hsvf Protocol
 box_options_sola_unicast_hsvf_v4_5_1.hsvf_protocol = {}
 
--- Size: Hsvf Protocol
+-- Size Of: Hsvf Protocol
 box_options_sola_unicast_hsvf_v4_5_1.hsvf_protocol.size = 2
 
 -- Display: Hsvf Protocol
@@ -6900,7 +6498,7 @@ end
 -- Gap Control
 box_options_sola_unicast_hsvf_v4_5_1.gap_control = {}
 
--- Size: Gap Control
+-- Size Of: Gap Control
 box_options_sola_unicast_hsvf_v4_5_1.gap_control.size = 1
 
 -- Display: Gap Control
@@ -6935,7 +6533,7 @@ end
 -- Market Summaries
 box_options_sola_unicast_hsvf_v4_5_1.market_summaries = {}
 
--- Size: Market Summaries
+-- Size Of: Market Summaries
 box_options_sola_unicast_hsvf_v4_5_1.market_summaries.size = 1
 
 -- Display: Market Summaries
@@ -6965,7 +6563,7 @@ end
 -- Complex Order
 box_options_sola_unicast_hsvf_v4_5_1.complex_order = {}
 
--- Size: Complex Order
+-- Size Of: Complex Order
 box_options_sola_unicast_hsvf_v4_5_1.complex_order.size = 1
 
 -- Display: Complex Order
@@ -6988,7 +6586,7 @@ end
 -- Type Of Market Data
 box_options_sola_unicast_hsvf_v4_5_1.type_of_market_data = {}
 
--- Size: Type Of Market Data
+-- Size Of: Type Of Market Data
 box_options_sola_unicast_hsvf_v4_5_1.type_of_market_data.size = 1
 
 -- Display: Type Of Market Data
@@ -7030,7 +6628,7 @@ end
 -- System Value
 box_options_sola_unicast_hsvf_v4_5_1.system_value = {}
 
--- Size: System Value
+-- Size Of: System Value
 box_options_sola_unicast_hsvf_v4_5_1.system_value.size = 1
 
 -- Display: System Value
@@ -7053,7 +6651,7 @@ end
 -- System Default
 box_options_sola_unicast_hsvf_v4_5_1.system_default = {}
 
--- Size: System Default
+-- Size Of: System Default
 box_options_sola_unicast_hsvf_v4_5_1.system_default.size = 1
 
 -- Display: System Default
@@ -7076,7 +6674,7 @@ end
 -- Reset Sequence
 box_options_sola_unicast_hsvf_v4_5_1.reset_sequence = {}
 
--- Size: Reset Sequence
+-- Size Of: Reset Sequence
 box_options_sola_unicast_hsvf_v4_5_1.reset_sequence.size = 10
 
 -- Display: Reset Sequence
@@ -7104,32 +6702,18 @@ end
 -- Connection Message
 box_options_sola_unicast_hsvf_v4_5_1.connection_message = {}
 
--- Calculate size of: Connection Message
-box_options_sola_unicast_hsvf_v4_5_1.connection_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.reset_sequence.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.system_default.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.system_value.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.type_of_market_data.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.complex_order.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.market_summaries.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.gap_control.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.hsvf_protocol.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.number_of_option_classes_requested.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.option_classes_requested.size
-
-  return index
-end
+-- Size Of: Connection Message
+box_options_sola_unicast_hsvf_v4_5_1.connection_message.size =
+  box_options_sola_unicast_hsvf_v4_5_1.reset_sequence.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.system_default.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.system_value.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.type_of_market_data.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.complex_order.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.market_summaries.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.gap_control.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.hsvf_protocol.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.number_of_option_classes_requested.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.option_classes_requested.size;
 
 -- Display: Connection Message
 box_options_sola_unicast_hsvf_v4_5_1.connection_message.display = function(packet, parent, length)
@@ -7482,7 +7066,7 @@ end
 -- Message Type
 box_options_sola_unicast_hsvf_v4_5_1.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 box_options_sola_unicast_hsvf_v4_5_1.message_type.size = 2
 
 -- Display: Message Type
@@ -7599,7 +7183,7 @@ end
 -- Sequence Number
 box_options_sola_unicast_hsvf_v4_5_1.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 box_options_sola_unicast_hsvf_v4_5_1.sequence_number.size = 9
 
 -- Display: Sequence Number
@@ -7627,16 +7211,10 @@ end
 -- Message Header
 box_options_sola_unicast_hsvf_v4_5_1.message_header = {}
 
--- Calculate size of: Message Header
-box_options_sola_unicast_hsvf_v4_5_1.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.sequence_number.size
-
-  index = index + box_options_sola_unicast_hsvf_v4_5_1.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+box_options_sola_unicast_hsvf_v4_5_1.message_header.size =
+  box_options_sola_unicast_hsvf_v4_5_1.sequence_number.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.message_type.size;
 
 -- Display: Message Header
 box_options_sola_unicast_hsvf_v4_5_1.message_header.display = function(packet, parent, length)
@@ -7677,7 +7255,7 @@ end
 -- Hsvf Stx
 box_options_sola_unicast_hsvf_v4_5_1.hsvf_stx = {}
 
--- Size: Hsvf Stx
+-- Size Of: Hsvf Stx
 box_options_sola_unicast_hsvf_v4_5_1.hsvf_stx.size = 1
 
 -- Display: Hsvf Stx

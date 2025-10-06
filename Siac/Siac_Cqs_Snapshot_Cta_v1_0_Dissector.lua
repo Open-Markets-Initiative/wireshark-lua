@@ -213,7 +213,7 @@ end
 -- Block Pad Byte
 siac_cqs_snapshot_cta_v1_0.block_pad_byte = {}
 
--- Size: Block Pad Byte
+-- Size Of: Block Pad Byte
 siac_cqs_snapshot_cta_v1_0.block_pad_byte.size = 1
 
 -- Display: Block Pad Byte
@@ -236,7 +236,7 @@ end
 -- Halt Reason
 siac_cqs_snapshot_cta_v1_0.halt_reason = {}
 
--- Size: Halt Reason
+-- Size Of: Halt Reason
 siac_cqs_snapshot_cta_v1_0.halt_reason.size = 1
 
 -- Display: Halt Reason
@@ -311,7 +311,7 @@ end
 -- Low Indication Price
 siac_cqs_snapshot_cta_v1_0.low_indication_price = {}
 
--- Size: Low Indication Price
+-- Size Of: Low Indication Price
 siac_cqs_snapshot_cta_v1_0.low_indication_price.size = 8
 
 -- Display: Low Indication Price
@@ -340,7 +340,7 @@ end
 -- High Indication Price
 siac_cqs_snapshot_cta_v1_0.high_indication_price = {}
 
--- Size: High Indication Price
+-- Size Of: High Indication Price
 siac_cqs_snapshot_cta_v1_0.high_indication_price.size = 8
 
 -- Display: High Indication Price
@@ -369,7 +369,7 @@ end
 -- Finra Bbo Luld Indicator
 siac_cqs_snapshot_cta_v1_0.finra_bbo_luld_indicator = {}
 
--- Size: Finra Bbo Luld Indicator
+-- Size Of: Finra Bbo Luld Indicator
 siac_cqs_snapshot_cta_v1_0.finra_bbo_luld_indicator.size = 1
 
 -- Display: Finra Bbo Luld Indicator
@@ -408,7 +408,7 @@ end
 -- Finra Best Offer Market Maker Id
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id = {}
 
--- Size: Finra Best Offer Market Maker Id
+-- Size Of: Finra Best Offer Market Maker Id
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.size = 4
 
 -- Display: Finra Best Offer Market Maker Id
@@ -431,7 +431,7 @@ end
 -- Finra Best Offer Size
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_size = {}
 
--- Size: Finra Best Offer Size
+-- Size Of: Finra Best Offer Size
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.size = 4
 
 -- Display: Finra Best Offer Size
@@ -454,7 +454,7 @@ end
 -- Finra Best Offer Price
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_price = {}
 
--- Size: Finra Best Offer Price
+-- Size Of: Finra Best Offer Price
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.size = 8
 
 -- Display: Finra Best Offer Price
@@ -483,7 +483,7 @@ end
 -- Finra Best Offer Quote Condition
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition = {}
 
--- Size: Finra Best Offer Quote Condition
+-- Size Of: Finra Best Offer Quote Condition
 siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.size = 1
 
 -- Display: Finra Best Offer Quote Condition
@@ -549,7 +549,7 @@ end
 -- Finra Best Bid Market Maker Id
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_market_maker_id = {}
 
--- Size: Finra Best Bid Market Maker Id
+-- Size Of: Finra Best Bid Market Maker Id
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_market_maker_id.size = 4
 
 -- Display: Finra Best Bid Market Maker Id
@@ -572,7 +572,7 @@ end
 -- Finra Best Bid Size
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_size = {}
 
--- Size: Finra Best Bid Size
+-- Size Of: Finra Best Bid Size
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.size = 4
 
 -- Display: Finra Best Bid Size
@@ -595,7 +595,7 @@ end
 -- Finra Best Bid Price
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_price = {}
 
--- Size: Finra Best Bid Price
+-- Size Of: Finra Best Bid Price
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.size = 8
 
 -- Display: Finra Best Bid Price
@@ -624,7 +624,7 @@ end
 -- Finra Best Bid Quote Condition
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_quote_condition = {}
 
--- Size: Finra Best Bid Quote Condition
+-- Size Of: Finra Best Bid Quote Condition
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_quote_condition.size = 1
 
 -- Display: Finra Best Bid Quote Condition
@@ -690,7 +690,7 @@ end
 -- Security Symbol
 siac_cqs_snapshot_cta_v1_0.security_symbol = {}
 
--- Size: Security Symbol
+-- Size Of: Security Symbol
 siac_cqs_snapshot_cta_v1_0.security_symbol.size = 11
 
 -- Display: Security Symbol
@@ -713,7 +713,7 @@ end
 -- Participant Id
 siac_cqs_snapshot_cta_v1_0.participant_id = {}
 
--- Size: Participant Id
+-- Size Of: Participant Id
 siac_cqs_snapshot_cta_v1_0.participant_id.size = 1
 
 -- Display: Participant Id
@@ -881,7 +881,7 @@ end
 -- Luld Indicator
 siac_cqs_snapshot_cta_v1_0.luld_indicator = {}
 
--- Size: Luld Indicator
+-- Size Of: Luld Indicator
 siac_cqs_snapshot_cta_v1_0.luld_indicator.size = 1
 
 -- Display: Luld Indicator
@@ -914,7 +914,7 @@ end
 -- Market Condition
 siac_cqs_snapshot_cta_v1_0.market_condition = {}
 
--- Size: Market Condition
+-- Size Of: Market Condition
 siac_cqs_snapshot_cta_v1_0.market_condition.size = 1
 
 -- Display: Market Condition
@@ -947,7 +947,7 @@ end
 -- Settlement Condition
 siac_cqs_snapshot_cta_v1_0.settlement_condition = {}
 
--- Size: Settlement Condition
+-- Size Of: Settlement Condition
 siac_cqs_snapshot_cta_v1_0.settlement_condition.size = 1
 
 -- Display: Settlement Condition
@@ -980,7 +980,7 @@ end
 -- Retail Interest Indicator
 siac_cqs_snapshot_cta_v1_0.retail_interest_indicator = {}
 
--- Size: Retail Interest Indicator
+-- Size Of: Retail Interest Indicator
 siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.size = 1
 
 -- Display: Retail Interest Indicator
@@ -1016,7 +1016,7 @@ end
 -- Offer Size
 siac_cqs_snapshot_cta_v1_0.offer_size = {}
 
--- Size: Offer Size
+-- Size Of: Offer Size
 siac_cqs_snapshot_cta_v1_0.offer_size.size = 4
 
 -- Display: Offer Size
@@ -1039,7 +1039,7 @@ end
 -- Offer Price
 siac_cqs_snapshot_cta_v1_0.offer_price = {}
 
--- Size: Offer Price
+-- Size Of: Offer Price
 siac_cqs_snapshot_cta_v1_0.offer_price.size = 8
 
 -- Display: Offer Price
@@ -1068,7 +1068,7 @@ end
 -- Bid Size
 siac_cqs_snapshot_cta_v1_0.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 siac_cqs_snapshot_cta_v1_0.bid_size.size = 4
 
 -- Display: Bid Size
@@ -1091,7 +1091,7 @@ end
 -- Bid Price
 siac_cqs_snapshot_cta_v1_0.bid_price = {}
 
--- Size: Bid Price
+-- Size Of: Bid Price
 siac_cqs_snapshot_cta_v1_0.bid_price.size = 8
 
 -- Display: Bid Price
@@ -1120,7 +1120,7 @@ end
 -- Quote Condition
 siac_cqs_snapshot_cta_v1_0.quote_condition = {}
 
--- Size: Quote Condition
+-- Size Of: Quote Condition
 siac_cqs_snapshot_cta_v1_0.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -1270,7 +1270,7 @@ end
 -- Future
 siac_cqs_snapshot_cta_v1_0.future = {}
 
--- Size: Future
+-- Size Of: Future
 siac_cqs_snapshot_cta_v1_0.future.size = 1
 
 -- Display: Future
@@ -1293,7 +1293,7 @@ end
 -- Short Sale Restriction Indicator
 siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator = {}
 
--- Size: Short Sale Restriction Indicator
+-- Size Of: Short Sale Restriction Indicator
 siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.size = 1
 
 -- Display: Short Sale Restriction Indicator
@@ -1332,7 +1332,7 @@ end
 -- Financial Status Indicator
 siac_cqs_snapshot_cta_v1_0.financial_status_indicator = {}
 
--- Size: Financial Status Indicator
+-- Size Of: Financial Status Indicator
 siac_cqs_snapshot_cta_v1_0.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
@@ -1389,7 +1389,7 @@ end
 -- Primary Listing Market Participant Id
 siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id = {}
 
--- Size: Primary Listing Market Participant Id
+-- Size Of: Primary Listing Market Participant Id
 siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.size = 1
 
 -- Display: Primary Listing Market Participant Id
@@ -1473,7 +1473,7 @@ end
 -- National Bbo Luld Indicator
 siac_cqs_snapshot_cta_v1_0.national_bbo_luld_indicator = {}
 
--- Size: National Bbo Luld Indicator
+-- Size Of: National Bbo Luld Indicator
 siac_cqs_snapshot_cta_v1_0.national_bbo_luld_indicator.size = 1
 
 -- Display: National Bbo Luld Indicator
@@ -1527,7 +1527,7 @@ end
 -- National Best Offer Size
 siac_cqs_snapshot_cta_v1_0.national_best_offer_size = {}
 
--- Size: National Best Offer Size
+-- Size Of: National Best Offer Size
 siac_cqs_snapshot_cta_v1_0.national_best_offer_size.size = 4
 
 -- Display: National Best Offer Size
@@ -1550,7 +1550,7 @@ end
 -- National Best Offer Price
 siac_cqs_snapshot_cta_v1_0.national_best_offer_price = {}
 
--- Size: National Best Offer Price
+-- Size Of: National Best Offer Price
 siac_cqs_snapshot_cta_v1_0.national_best_offer_price.size = 8
 
 -- Display: National Best Offer Price
@@ -1579,7 +1579,7 @@ end
 -- National Best Offer Quote Condition
 siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition = {}
 
--- Size: National Best Offer Quote Condition
+-- Size Of: National Best Offer Quote Condition
 siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.size = 1
 
 -- Display: National Best Offer Quote Condition
@@ -1645,7 +1645,7 @@ end
 -- National Best Offer Participant Id
 siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id = {}
 
--- Size: National Best Offer Participant Id
+-- Size Of: National Best Offer Participant Id
 siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.size = 1
 
 -- Display: National Best Offer Participant Id
@@ -1729,7 +1729,7 @@ end
 -- National Best Bid Size
 siac_cqs_snapshot_cta_v1_0.national_best_bid_size = {}
 
--- Size: National Best Bid Size
+-- Size Of: National Best Bid Size
 siac_cqs_snapshot_cta_v1_0.national_best_bid_size.size = 4
 
 -- Display: National Best Bid Size
@@ -1752,7 +1752,7 @@ end
 -- National Best Bid Price
 siac_cqs_snapshot_cta_v1_0.national_best_bid_price = {}
 
--- Size: National Best Bid Price
+-- Size Of: National Best Bid Price
 siac_cqs_snapshot_cta_v1_0.national_best_bid_price.size = 8
 
 -- Display: National Best Bid Price
@@ -1781,7 +1781,7 @@ end
 -- National Best Bid Quote Condition
 siac_cqs_snapshot_cta_v1_0.national_best_bid_quote_condition = {}
 
--- Size: National Best Bid Quote Condition
+-- Size Of: National Best Bid Quote Condition
 siac_cqs_snapshot_cta_v1_0.national_best_bid_quote_condition.size = 1
 
 -- Display: National Best Bid Quote Condition
@@ -1847,7 +1847,7 @@ end
 -- National Best Bid Participant Id
 siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id = {}
 
--- Size: National Best Bid Participant Id
+-- Size Of: National Best Bid Participant Id
 siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.size = 1
 
 -- Display: National Best Bid Participant Id
@@ -1931,7 +1931,7 @@ end
 -- Number Of Extensions
 siac_cqs_snapshot_cta_v1_0.number_of_extensions = {}
 
--- Size: Number Of Extensions
+-- Size Of: Number Of Extensions
 siac_cqs_snapshot_cta_v1_0.number_of_extensions.size = 1
 
 -- Display: Number Of Extensions
@@ -1954,7 +1954,7 @@ end
 -- Auction Collar Lower Threshold Price
 siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price = {}
 
--- Size: Auction Collar Lower Threshold Price
+-- Size Of: Auction Collar Lower Threshold Price
 siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.size = 8
 
 -- Display: Auction Collar Lower Threshold Price
@@ -1983,7 +1983,7 @@ end
 -- Auction Collar Upper Threshold Price
 siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price = {}
 
--- Size: Auction Collar Upper Threshold Price
+-- Size Of: Auction Collar Upper Threshold Price
 siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.size = 8
 
 -- Display: Auction Collar Upper Threshold Price
@@ -2012,7 +2012,7 @@ end
 -- Auction Collar Reference Price
 siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price = {}
 
--- Size: Auction Collar Reference Price
+-- Size Of: Auction Collar Reference Price
 siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.size = 8
 
 -- Display: Auction Collar Reference Price
@@ -2041,7 +2041,7 @@ end
 -- Upper Limit Price Band
 siac_cqs_snapshot_cta_v1_0.upper_limit_price_band = {}
 
--- Size: Upper Limit Price Band
+-- Size Of: Upper Limit Price Band
 siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.size = 8
 
 -- Display: Upper Limit Price Band
@@ -2070,7 +2070,7 @@ end
 -- Lower Limit Price Band
 siac_cqs_snapshot_cta_v1_0.lower_limit_price_band = {}
 
--- Size: Lower Limit Price Band
+-- Size Of: Lower Limit Price Band
 siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.size = 8
 
 -- Display: Lower Limit Price Band
@@ -2099,7 +2099,7 @@ end
 -- Instrument Type
 siac_cqs_snapshot_cta_v1_0.instrument_type = {}
 
--- Size: Instrument Type
+-- Size Of: Instrument Type
 siac_cqs_snapshot_cta_v1_0.instrument_type.size = 1
 
 -- Display: Instrument Type
@@ -2252,7 +2252,7 @@ end
 -- Reserved
 siac_cqs_snapshot_cta_v1_0.reserved = {}
 
--- Size: Reserved
+-- Size Of: Reserved
 siac_cqs_snapshot_cta_v1_0.reserved.size = 1
 
 -- Display: Reserved
@@ -2275,7 +2275,7 @@ end
 -- Mwcb Level 3
 siac_cqs_snapshot_cta_v1_0.mwcb_level_3 = {}
 
--- Size: Mwcb Level 3
+-- Size Of: Mwcb Level 3
 siac_cqs_snapshot_cta_v1_0.mwcb_level_3.size = 8
 
 -- Display: Mwcb Level 3
@@ -2298,7 +2298,7 @@ end
 -- Mwcb Level 2
 siac_cqs_snapshot_cta_v1_0.mwcb_level_2 = {}
 
--- Size: Mwcb Level 2
+-- Size Of: Mwcb Level 2
 siac_cqs_snapshot_cta_v1_0.mwcb_level_2.size = 8
 
 -- Display: Mwcb Level 2
@@ -2321,7 +2321,7 @@ end
 -- Mwcb Level 1
 siac_cqs_snapshot_cta_v1_0.mwcb_level_1 = {}
 
--- Size: Mwcb Level 1
+-- Size Of: Mwcb Level 1
 siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size = 8
 
 -- Display: Mwcb Level 1
@@ -2526,7 +2526,7 @@ end
 -- Snapshot Message Type
 siac_cqs_snapshot_cta_v1_0.snapshot_message_type = {}
 
--- Size: Snapshot Message Type
+-- Size Of: Snapshot Message Type
 siac_cqs_snapshot_cta_v1_0.snapshot_message_type.size = 1
 
 -- Display: Snapshot Message Type
@@ -2661,7 +2661,7 @@ end
 -- Message Category
 siac_cqs_snapshot_cta_v1_0.message_category = {}
 
--- Size: Message Category
+-- Size Of: Message Category
 siac_cqs_snapshot_cta_v1_0.message_category.size = 1
 
 -- Display: Message Category
@@ -2688,7 +2688,7 @@ end
 -- Message Length
 siac_cqs_snapshot_cta_v1_0.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 siac_cqs_snapshot_cta_v1_0.message_length.size = 2
 
 -- Display: Message Length
@@ -2711,16 +2711,10 @@ end
 -- Message Header
 siac_cqs_snapshot_cta_v1_0.message_header = {}
 
--- Calculate size of: Message Header
-siac_cqs_snapshot_cta_v1_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_snapshot_cta_v1_0.message_length.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.message_category.size
-
-  return index
-end
+-- Size Of: Message Header
+siac_cqs_snapshot_cta_v1_0.message_header.size =
+  siac_cqs_snapshot_cta_v1_0.message_length.size + 
+  siac_cqs_snapshot_cta_v1_0.message_category.size;
 
 -- Display: Message Header
 siac_cqs_snapshot_cta_v1_0.message_header.display = function(packet, parent, length)
@@ -2812,7 +2806,7 @@ end
 -- Block Checksum
 siac_cqs_snapshot_cta_v1_0.block_checksum = {}
 
--- Size: Block Checksum
+-- Size Of: Block Checksum
 siac_cqs_snapshot_cta_v1_0.block_checksum.size = 2
 
 -- Display: Block Checksum
@@ -2835,7 +2829,7 @@ end
 -- Nanoseconds
 siac_cqs_snapshot_cta_v1_0.nanoseconds = {}
 
--- Size: Nanoseconds
+-- Size Of: Nanoseconds
 siac_cqs_snapshot_cta_v1_0.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -2858,7 +2852,7 @@ end
 -- Seconds
 siac_cqs_snapshot_cta_v1_0.seconds = {}
 
--- Size: Seconds
+-- Size Of: Seconds
 siac_cqs_snapshot_cta_v1_0.seconds.size = 4
 
 -- Display: Seconds
@@ -2881,16 +2875,10 @@ end
 -- Sip Block Timestamp
 siac_cqs_snapshot_cta_v1_0.sip_block_timestamp = {}
 
--- Calculate size of: Sip Block Timestamp
-siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_snapshot_cta_v1_0.seconds.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.nanoseconds.size
-
-  return index
-end
+-- Size Of: Sip Block Timestamp
+siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size =
+  siac_cqs_snapshot_cta_v1_0.seconds.size + 
+  siac_cqs_snapshot_cta_v1_0.nanoseconds.size;
 
 -- Display: Sip Block Timestamp
 siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.display = function(packet, parent, length)
@@ -2931,7 +2919,7 @@ end
 -- Tot Pub Seq Rollover
 siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover = {}
 
--- Size: Tot Pub Seq Rollover
+-- Size Of: Tot Pub Seq Rollover
 siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size = 1
 
 -- Display: Tot Pub Seq Rollover
@@ -2954,7 +2942,7 @@ end
 -- Last Seq Num
 siac_cqs_snapshot_cta_v1_0.last_seq_num = {}
 
--- Size: Last Seq Num
+-- Size Of: Last Seq Num
 siac_cqs_snapshot_cta_v1_0.last_seq_num.size = 1
 
 -- Display: Last Seq Num
@@ -2977,7 +2965,7 @@ end
 -- Delivery Flag
 siac_cqs_snapshot_cta_v1_0.delivery_flag = {}
 
--- Size: Delivery Flag
+-- Size Of: Delivery Flag
 siac_cqs_snapshot_cta_v1_0.delivery_flag.size = 1
 
 -- Display: Delivery Flag
@@ -3013,7 +3001,7 @@ end
 -- Messages In Block
 siac_cqs_snapshot_cta_v1_0.messages_in_block = {}
 
--- Size: Messages In Block
+-- Size Of: Messages In Block
 siac_cqs_snapshot_cta_v1_0.messages_in_block.size = 1
 
 -- Display: Messages In Block
@@ -3036,7 +3024,7 @@ end
 -- Block Sequence Number
 siac_cqs_snapshot_cta_v1_0.block_sequence_number = {}
 
--- Size: Block Sequence Number
+-- Size Of: Block Sequence Number
 siac_cqs_snapshot_cta_v1_0.block_sequence_number.size = 4
 
 -- Display: Block Sequence Number
@@ -3059,7 +3047,7 @@ end
 -- Block Size
 siac_cqs_snapshot_cta_v1_0.block_size = {}
 
--- Size: Block Size
+-- Size Of: Block Size
 siac_cqs_snapshot_cta_v1_0.block_size.size = 2
 
 -- Display: Block Size
@@ -3082,7 +3070,7 @@ end
 -- Version
 siac_cqs_snapshot_cta_v1_0.version = {}
 
--- Size: Version
+-- Size Of: Version
 siac_cqs_snapshot_cta_v1_0.version.size = 1
 
 -- Display: Version
@@ -3105,30 +3093,17 @@ end
 -- Block Header
 siac_cqs_snapshot_cta_v1_0.block_header = {}
 
--- Calculate size of: Block Header
-siac_cqs_snapshot_cta_v1_0.block_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_snapshot_cta_v1_0.version.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.block_size.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.block_sequence_number.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.messages_in_block.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.delivery_flag.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.last_seq_num.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size
-
-  index = index + siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size(buffer, offset + index)
-
-  index = index + siac_cqs_snapshot_cta_v1_0.block_checksum.size
-
-  return index
-end
+-- Size Of: Block Header
+siac_cqs_snapshot_cta_v1_0.block_header.size =
+  siac_cqs_snapshot_cta_v1_0.version.size + 
+  siac_cqs_snapshot_cta_v1_0.block_size.size + 
+  siac_cqs_snapshot_cta_v1_0.block_sequence_number.size + 
+  siac_cqs_snapshot_cta_v1_0.messages_in_block.size + 
+  siac_cqs_snapshot_cta_v1_0.delivery_flag.size + 
+  siac_cqs_snapshot_cta_v1_0.last_seq_num.size + 
+  siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size + 
+  siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size + 
+  siac_cqs_snapshot_cta_v1_0.block_checksum.size;
 
 -- Display: Block Header
 siac_cqs_snapshot_cta_v1_0.block_header.display = function(packet, parent, length)

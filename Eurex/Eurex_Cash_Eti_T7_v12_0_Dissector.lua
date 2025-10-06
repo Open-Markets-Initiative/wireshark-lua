@@ -1602,7 +1602,7 @@ end
 -- Pad 1
 eurex_cash_eti_t7_v12_0.pad_1 = {}
 
--- Size: Pad 1
+-- Size Of: Pad 1
 eurex_cash_eti_t7_v12_0.pad_1.size = 1
 
 -- Display: Pad 1
@@ -1625,7 +1625,7 @@ end
 -- Target Party Executing Trader
 eurex_cash_eti_t7_v12_0.target_party_executing_trader = {}
 
--- Size: Target Party Executing Trader
+-- Size Of: Target Party Executing Trader
 eurex_cash_eti_t7_v12_0.target_party_executing_trader.size = 6
 
 -- Display: Target Party Executing Trader
@@ -1653,7 +1653,7 @@ end
 -- Target Party Executing Firm
 eurex_cash_eti_t7_v12_0.target_party_executing_firm = {}
 
--- Size: Target Party Executing Firm
+-- Size Of: Target Party Executing Firm
 eurex_cash_eti_t7_v12_0.target_party_executing_firm.size = 5
 
 -- Display: Target Party Executing Firm
@@ -1681,7 +1681,7 @@ end
 -- Target Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.target_party_id_executing_trader = {}
 
--- Size: Target Party Id Executing Trader
+-- Size Of: Target Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size = 4
 
 -- Display: Target Party Id Executing Trader
@@ -1709,20 +1709,12 @@ end
 -- Xetra En Light Target Parties Comp
 eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp = {}
 
--- Calculate size of: Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.target_party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.target_party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_1.size
-
-  return index
-end
+-- Size Of: Xetra En Light Target Parties Comp
+eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.size =
+  eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.target_party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.target_party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.pad_1.size;
 
 -- Display: Xetra En Light Target Parties Comp
 eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.display = function(packet, parent, length)
@@ -1775,7 +1767,7 @@ end
 -- Pad 3
 eurex_cash_eti_t7_v12_0.pad_3 = {}
 
--- Size: Pad 3
+-- Size Of: Pad 3
 eurex_cash_eti_t7_v12_0.pad_3.size = 3
 
 -- Display: Pad 3
@@ -1798,7 +1790,7 @@ end
 -- Free Text 5
 eurex_cash_eti_t7_v12_0.free_text_5 = {}
 
--- Size: Free Text 5
+-- Size Of: Free Text 5
 eurex_cash_eti_t7_v12_0.free_text_5.size = 132
 
 -- Display: Free Text 5
@@ -1826,7 +1818,7 @@ end
 -- Free Text 4
 eurex_cash_eti_t7_v12_0.free_text_4 = {}
 
--- Size: Free Text 4
+-- Size Of: Free Text 4
 eurex_cash_eti_t7_v12_0.free_text_4.size = 16
 
 -- Display: Free Text 4
@@ -1854,7 +1846,7 @@ end
 -- Free Text 2
 eurex_cash_eti_t7_v12_0.free_text_2 = {}
 
--- Size: Free Text 2
+-- Size Of: Free Text 2
 eurex_cash_eti_t7_v12_0.free_text_2.size = 12
 
 -- Display: Free Text 2
@@ -1882,7 +1874,7 @@ end
 -- Free Text 1
 eurex_cash_eti_t7_v12_0.free_text_1 = {}
 
--- Size: Free Text 1
+-- Size Of: Free Text 1
 eurex_cash_eti_t7_v12_0.free_text_1.size = 12
 
 -- Display: Free Text 1
@@ -1910,7 +1902,7 @@ end
 -- Party Executing Trader
 eurex_cash_eti_t7_v12_0.party_executing_trader = {}
 
--- Size: Party Executing Trader
+-- Size Of: Party Executing Trader
 eurex_cash_eti_t7_v12_0.party_executing_trader.size = 6
 
 -- Display: Party Executing Trader
@@ -1938,7 +1930,7 @@ end
 -- Party Executing Firm
 eurex_cash_eti_t7_v12_0.party_executing_firm = {}
 
--- Size: Party Executing Firm
+-- Size Of: Party Executing Firm
 eurex_cash_eti_t7_v12_0.party_executing_firm.size = 5
 
 -- Display: Party Executing Firm
@@ -1966,7 +1958,7 @@ end
 -- Quote Condition
 eurex_cash_eti_t7_v12_0.quote_condition = {}
 
--- Size: Quote Condition
+-- Size Of: Quote Condition
 eurex_cash_eti_t7_v12_0.quote_condition.size = 1
 
 -- Display: Quote Condition
@@ -2018,7 +2010,7 @@ end
 -- Order Origination
 eurex_cash_eti_t7_v12_0.order_origination = {}
 
--- Size: Order Origination
+-- Size Of: Order Origination
 eurex_cash_eti_t7_v12_0.order_origination.size = 1
 
 -- Display: Order Origination
@@ -2048,7 +2040,7 @@ end
 -- Party Id Investment Decision Maker Qualifier
 eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier = {}
 
--- Size: Party Id Investment Decision Maker Qualifier
+-- Size Of: Party Id Investment Decision Maker Qualifier
 eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.size = 1
 
 -- Display: Party Id Investment Decision Maker Qualifier
@@ -2081,7 +2073,7 @@ end
 -- Executing Trader Qualifier
 eurex_cash_eti_t7_v12_0.executing_trader_qualifier = {}
 
--- Size: Executing Trader Qualifier
+-- Size Of: Executing Trader Qualifier
 eurex_cash_eti_t7_v12_0.executing_trader_qualifier.size = 1
 
 -- Display: Executing Trader Qualifier
@@ -2114,7 +2106,7 @@ end
 -- Order Attribute Liquidity Provision
 eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision = {}
 
--- Size: Order Attribute Liquidity Provision
+-- Size Of: Order Attribute Liquidity Provision
 eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.size = 1
 
 -- Display: Order Attribute Liquidity Provision
@@ -2147,7 +2139,7 @@ end
 -- Side Disclosure Instruction
 eurex_cash_eti_t7_v12_0.side_disclosure_instruction = {}
 
--- Size: Side Disclosure Instruction
+-- Size Of: Side Disclosure Instruction
 eurex_cash_eti_t7_v12_0.side_disclosure_instruction.size = 1
 
 -- Display: Side Disclosure Instruction
@@ -2180,7 +2172,7 @@ end
 -- Auto Exec Type
 eurex_cash_eti_t7_v12_0.auto_exec_type = {}
 
--- Size: Auto Exec Type
+-- Size Of: Auto Exec Type
 eurex_cash_eti_t7_v12_0.auto_exec_type.size = 1
 
 -- Display: Auto Exec Type
@@ -2219,7 +2211,7 @@ end
 -- Trading Capacity
 eurex_cash_eti_t7_v12_0.trading_capacity = {}
 
--- Size: Trading Capacity
+-- Size Of: Trading Capacity
 eurex_cash_eti_t7_v12_0.trading_capacity.size = 1
 
 -- Display: Trading Capacity
@@ -2267,7 +2259,7 @@ end
 -- Respondent Type
 eurex_cash_eti_t7_v12_0.respondent_type = {}
 
--- Size: Respondent Type
+-- Size Of: Respondent Type
 eurex_cash_eti_t7_v12_0.respondent_type.size = 1
 
 -- Display: Respondent Type
@@ -2303,7 +2295,7 @@ end
 -- Value Check Type Quantity
 eurex_cash_eti_t7_v12_0.value_check_type_quantity = {}
 
--- Size: Value Check Type Quantity
+-- Size Of: Value Check Type Quantity
 eurex_cash_eti_t7_v12_0.value_check_type_quantity.size = 1
 
 -- Display: Value Check Type Quantity
@@ -2336,7 +2328,7 @@ end
 -- Value Check Type Value
 eurex_cash_eti_t7_v12_0.value_check_type_value = {}
 
--- Size: Value Check Type Value
+-- Size Of: Value Check Type Value
 eurex_cash_eti_t7_v12_0.value_check_type_value.size = 1
 
 -- Display: Value Check Type Value
@@ -2369,7 +2361,7 @@ end
 -- Side
 eurex_cash_eti_t7_v12_0.side = {}
 
--- Size: Side
+-- Size Of: Side
 eurex_cash_eti_t7_v12_0.side.size = 1
 
 -- Display: Side
@@ -2402,7 +2394,7 @@ end
 -- Number Of Resp Disclosure Instruction
 eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction = {}
 
--- Size: Number Of Resp Disclosure Instruction
+-- Size Of: Number Of Resp Disclosure Instruction
 eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.size = 1
 
 -- Display: Number Of Resp Disclosure Instruction
@@ -2435,7 +2427,7 @@ end
 -- No Target Party I Ds
 eurex_cash_eti_t7_v12_0.no_target_party_i_ds = {}
 
--- Size: No Target Party I Ds
+-- Size Of: No Target Party I Ds
 eurex_cash_eti_t7_v12_0.no_target_party_i_ds.size = 1
 
 -- Display: No Target Party I Ds
@@ -2463,7 +2455,7 @@ end
 -- Auto Exec Min No Of Quotes
 eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes = {}
 
--- Size: Auto Exec Min No Of Quotes
+-- Size Of: Auto Exec Min No Of Quotes
 eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.size = 4
 
 -- Display: Auto Exec Min No Of Quotes
@@ -2491,7 +2483,7 @@ end
 -- Auto Exec Exposure Duration
 eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration = {}
 
--- Size: Auto Exec Exposure Duration
+-- Size Of: Auto Exec Exposure Duration
 eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.size = 4
 
 -- Display: Auto Exec Exposure Duration
@@ -2519,7 +2511,7 @@ end
 -- Settl Date
 eurex_cash_eti_t7_v12_0.settl_date = {}
 
--- Size: Settl Date
+-- Size Of: Settl Date
 eurex_cash_eti_t7_v12_0.settl_date.size = 4
 
 -- Display: Settl Date
@@ -2547,7 +2539,7 @@ end
 -- Negotiation Id
 eurex_cash_eti_t7_v12_0.negotiation_id = {}
 
--- Size: Negotiation Id
+-- Size Of: Negotiation Id
 eurex_cash_eti_t7_v12_0.negotiation_id.size = 4
 
 -- Display: Negotiation Id
@@ -2575,7 +2567,7 @@ end
 -- Market Segment Id
 eurex_cash_eti_t7_v12_0.market_segment_id = {}
 
--- Size: Market Segment Id
+-- Size Of: Market Segment Id
 eurex_cash_eti_t7_v12_0.market_segment_id.size = 4
 
 -- Display: Market Segment Id
@@ -2603,7 +2595,7 @@ end
 -- Auto Exec Reference Price Offset
 eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset = {}
 
--- Size: Auto Exec Reference Price Offset
+-- Size Of: Auto Exec Reference Price Offset
 eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.size = 4
 
 -- Display: Auto Exec Reference Price Offset
@@ -2631,7 +2623,7 @@ end
 -- Auto Exec Limit Price
 eurex_cash_eti_t7_v12_0.auto_exec_limit_price = {}
 
--- Size: Auto Exec Limit Price
+-- Size Of: Auto Exec Limit Price
 eurex_cash_eti_t7_v12_0.auto_exec_limit_price.size = 8
 
 -- Display: Auto Exec Limit Price
@@ -2670,7 +2662,7 @@ end
 -- Executing Trader
 eurex_cash_eti_t7_v12_0.executing_trader = {}
 
--- Size: Executing Trader
+-- Size Of: Executing Trader
 eurex_cash_eti_t7_v12_0.executing_trader.size = 8
 
 -- Display: Executing Trader
@@ -2698,7 +2690,7 @@ end
 -- Party Id Investment Decision Maker
 eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker = {}
 
--- Size: Party Id Investment Decision Maker
+-- Size Of: Party Id Investment Decision Maker
 eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.size = 8
 
 -- Display: Party Id Investment Decision Maker
@@ -2726,7 +2718,7 @@ end
 -- Party Id Client Id
 eurex_cash_eti_t7_v12_0.party_id_client_id = {}
 
--- Size: Party Id Client Id
+-- Size Of: Party Id Client Id
 eurex_cash_eti_t7_v12_0.party_id_client_id.size = 8
 
 -- Display: Party Id Client Id
@@ -2754,7 +2746,7 @@ end
 -- Order Qty
 eurex_cash_eti_t7_v12_0.order_qty = {}
 
--- Size: Order Qty
+-- Size Of: Order Qty
 eurex_cash_eti_t7_v12_0.order_qty.size = 8
 
 -- Display: Order Qty
@@ -2793,7 +2785,7 @@ end
 -- Offer Px
 eurex_cash_eti_t7_v12_0.offer_px = {}
 
--- Size: Offer Px
+-- Size Of: Offer Px
 eurex_cash_eti_t7_v12_0.offer_px.size = 8
 
 -- Display: Offer Px
@@ -2832,7 +2824,7 @@ end
 -- Bid Px
 eurex_cash_eti_t7_v12_0.bid_px = {}
 
--- Size: Bid Px
+-- Size Of: Bid Px
 eurex_cash_eti_t7_v12_0.bid_px.size = 8
 
 -- Display: Bid Px
@@ -2871,7 +2863,7 @@ end
 -- Sender Sub Id
 eurex_cash_eti_t7_v12_0.sender_sub_id = {}
 
--- Size: Sender Sub Id
+-- Size Of: Sender Sub Id
 eurex_cash_eti_t7_v12_0.sender_sub_id.size = 4
 
 -- Display: Sender Sub Id
@@ -2899,7 +2891,7 @@ end
 -- Msg Seq Num
 eurex_cash_eti_t7_v12_0.msg_seq_num = {}
 
--- Size: Msg Seq Num
+-- Size Of: Msg Seq Num
 eurex_cash_eti_t7_v12_0.msg_seq_num.size = 4
 
 -- Display: Msg Seq Num
@@ -2927,16 +2919,10 @@ end
 -- Request Header Comp
 eurex_cash_eti_t7_v12_0.request_header_comp = {}
 
--- Calculate size of: Request Header Comp
-eurex_cash_eti_t7_v12_0.request_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sender_sub_id.size
-
-  return index
-end
+-- Size Of: Request Header Comp
+eurex_cash_eti_t7_v12_0.request_header_comp.size =
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.sender_sub_id.size;
 
 -- Display: Request Header Comp
 eurex_cash_eti_t7_v12_0.request_header_comp.display = function(packet, parent, length)
@@ -2977,7 +2963,7 @@ end
 -- Pad 2
 eurex_cash_eti_t7_v12_0.pad_2 = {}
 
--- Size: Pad 2
+-- Size Of: Pad 2
 eurex_cash_eti_t7_v12_0.pad_2.size = 2
 
 -- Display: Pad 2
@@ -3000,7 +2986,7 @@ end
 -- Network Msg Id
 eurex_cash_eti_t7_v12_0.network_msg_id = {}
 
--- Size: Network Msg Id
+-- Size Of: Network Msg Id
 eurex_cash_eti_t7_v12_0.network_msg_id.size = 8
 
 -- Display: Network Msg Id
@@ -3186,7 +3172,7 @@ end
 -- Trad Ses Event
 eurex_cash_eti_t7_v12_0.trad_ses_event = {}
 
--- Size: Trad Ses Event
+-- Size Of: Trad Ses Event
 eurex_cash_eti_t7_v12_0.trad_ses_event.size = 1
 
 -- Display: Trad Ses Event
@@ -3228,7 +3214,7 @@ end
 -- Trade Date
 eurex_cash_eti_t7_v12_0.trade_date = {}
 
--- Size: Trade Date
+-- Size Of: Trade Date
 eurex_cash_eti_t7_v12_0.trade_date.size = 4
 
 -- Display: Trade Date
@@ -3256,7 +3242,7 @@ end
 -- Pad 7
 eurex_cash_eti_t7_v12_0.pad_7 = {}
 
--- Size: Pad 7
+-- Size Of: Pad 7
 eurex_cash_eti_t7_v12_0.pad_7.size = 7
 
 -- Display: Pad 7
@@ -3279,7 +3265,7 @@ end
 -- Last Fragment
 eurex_cash_eti_t7_v12_0.last_fragment = {}
 
--- Size: Last Fragment
+-- Size Of: Last Fragment
 eurex_cash_eti_t7_v12_0.last_fragment.size = 1
 
 -- Display: Last Fragment
@@ -3312,7 +3298,7 @@ end
 -- Appl Id
 eurex_cash_eti_t7_v12_0.appl_id = {}
 
--- Size: Appl Id
+-- Size Of: Appl Id
 eurex_cash_eti_t7_v12_0.appl_id.size = 1
 
 -- Display: Appl Id
@@ -3372,7 +3358,7 @@ end
 -- Appl Resend Flag
 eurex_cash_eti_t7_v12_0.appl_resend_flag = {}
 
--- Size: Appl Resend Flag
+-- Size Of: Appl Resend Flag
 eurex_cash_eti_t7_v12_0.appl_resend_flag.size = 1
 
 -- Display: Appl Resend Flag
@@ -3405,7 +3391,7 @@ end
 -- Partition Id
 eurex_cash_eti_t7_v12_0.partition_id = {}
 
--- Size: Partition Id
+-- Size Of: Partition Id
 eurex_cash_eti_t7_v12_0.partition_id.size = 2
 
 -- Display: Partition Id
@@ -3433,7 +3419,7 @@ end
 -- Appl Sub Id
 eurex_cash_eti_t7_v12_0.appl_sub_id = {}
 
--- Size: Appl Sub Id
+-- Size Of: Appl Sub Id
 eurex_cash_eti_t7_v12_0.appl_sub_id.size = 4
 
 -- Display: Appl Sub Id
@@ -3461,7 +3447,7 @@ end
 -- Appl Seq Num
 eurex_cash_eti_t7_v12_0.appl_seq_num = {}
 
--- Size: Appl Seq Num
+-- Size Of: Appl Seq Num
 eurex_cash_eti_t7_v12_0.appl_seq_num.size = 8
 
 -- Display: Appl Seq Num
@@ -3489,7 +3475,7 @@ end
 -- Sending Time
 eurex_cash_eti_t7_v12_0.sending_time = {}
 
--- Size: Sending Time
+-- Size Of: Sending Time
 eurex_cash_eti_t7_v12_0.sending_time.size = 8
 
 -- Display: Sending Time
@@ -3520,28 +3506,16 @@ end
 -- Rbc Header Comp
 eurex_cash_eti_t7_v12_0.rbc_header_comp = {}
 
--- Calculate size of: Rbc Header Comp
-eurex_cash_eti_t7_v12_0.rbc_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_sub_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.partition_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_resend_flag.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size Of: Rbc Header Comp
+eurex_cash_eti_t7_v12_0.rbc_header_comp.size =
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.appl_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.appl_sub_id.size + 
+  eurex_cash_eti_t7_v12_0.partition_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_resend_flag.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size;
 
 -- Display: Rbc Header Comp
 eurex_cash_eti_t7_v12_0.rbc_header_comp.display = function(packet, parent, length)
@@ -3657,7 +3631,7 @@ end
 -- Pad 4
 eurex_cash_eti_t7_v12_0.pad_4 = {}
 
--- Size: Pad 4
+-- Size Of: Pad 4
 eurex_cash_eti_t7_v12_0.pad_4.size = 4
 
 -- Display: Pad 4
@@ -3680,7 +3654,7 @@ end
 -- Request Time
 eurex_cash_eti_t7_v12_0.request_time = {}
 
--- Size: Request Time
+-- Size Of: Request Time
 eurex_cash_eti_t7_v12_0.request_time.size = 8
 
 -- Display: Request Time
@@ -3711,20 +3685,12 @@ end
 -- Response Header Comp
 eurex_cash_eti_t7_v12_0.response_header_comp = {}
 
--- Calculate size of: Response Header Comp
-eurex_cash_eti_t7_v12_0.response_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.request_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_4.size
-
-  return index
-end
+-- Size Of: Response Header Comp
+eurex_cash_eti_t7_v12_0.response_header_comp.size =
+  eurex_cash_eti_t7_v12_0.request_time.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.pad_4.size;
 
 -- Display: Response Header Comp
 eurex_cash_eti_t7_v12_0.response_header_comp.display = function(packet, parent, length)
@@ -3819,7 +3785,7 @@ end
 -- Quoting Status
 eurex_cash_eti_t7_v12_0.quoting_status = {}
 
--- Size: Quoting Status
+-- Size Of: Quoting Status
 eurex_cash_eti_t7_v12_0.quoting_status.size = 1
 
 -- Display: Quoting Status
@@ -3981,7 +3947,7 @@ end
 -- Party Entering Trader
 eurex_cash_eti_t7_v12_0.party_entering_trader = {}
 
--- Size: Party Entering Trader
+-- Size Of: Party Entering Trader
 eurex_cash_eti_t7_v12_0.party_entering_trader.size = 6
 
 -- Display: Party Entering Trader
@@ -4009,7 +3975,7 @@ end
 -- Firm Negotiation Id
 eurex_cash_eti_t7_v12_0.firm_negotiation_id = {}
 
--- Size: Firm Negotiation Id
+-- Size Of: Firm Negotiation Id
 eurex_cash_eti_t7_v12_0.firm_negotiation_id.size = 20
 
 -- Display: Firm Negotiation Id
@@ -4037,7 +4003,7 @@ end
 -- Quoting Frequency
 eurex_cash_eti_t7_v12_0.quoting_frequency = {}
 
--- Size: Quoting Frequency
+-- Size Of: Quoting Frequency
 eurex_cash_eti_t7_v12_0.quoting_frequency.size = 1
 
 -- Display: Quoting Frequency
@@ -4070,7 +4036,7 @@ end
 -- Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.party_id_executing_trader = {}
 
--- Size: Party Id Executing Trader
+-- Size Of: Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.party_id_executing_trader.size = 4
 
 -- Display: Party Id Executing Trader
@@ -4098,7 +4064,7 @@ end
 -- Offer Size
 eurex_cash_eti_t7_v12_0.offer_size = {}
 
--- Size: Offer Size
+-- Size Of: Offer Size
 eurex_cash_eti_t7_v12_0.offer_size.size = 8
 
 -- Display: Offer Size
@@ -4137,7 +4103,7 @@ end
 -- Bid Size
 eurex_cash_eti_t7_v12_0.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 eurex_cash_eti_t7_v12_0.bid_size.size = 8
 
 -- Display: Bid Size
@@ -4176,7 +4142,7 @@ end
 -- Secondary Quote Id
 eurex_cash_eti_t7_v12_0.secondary_quote_id = {}
 
--- Size: Secondary Quote Id
+-- Size Of: Secondary Quote Id
 eurex_cash_eti_t7_v12_0.secondary_quote_id.size = 8
 
 -- Display: Secondary Quote Id
@@ -4204,7 +4170,7 @@ end
 -- Quote Id
 eurex_cash_eti_t7_v12_0.quote_id = {}
 
--- Size: Quote Id
+-- Size Of: Quote Id
 eurex_cash_eti_t7_v12_0.quote_id.size = 8
 
 -- Display: Quote Id
@@ -4232,7 +4198,7 @@ end
 -- Expire Time
 eurex_cash_eti_t7_v12_0.expire_time = {}
 
--- Size: Expire Time
+-- Size Of: Expire Time
 eurex_cash_eti_t7_v12_0.expire_time.size = 8
 
 -- Display: Expire Time
@@ -4263,7 +4229,7 @@ end
 -- Transact Time
 eurex_cash_eti_t7_v12_0.transact_time = {}
 
--- Size: Transact Time
+-- Size Of: Transact Time
 eurex_cash_eti_t7_v12_0.transact_time.size = 8
 
 -- Display: Transact Time
@@ -4294,46 +4260,25 @@ end
 -- Srqs Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp = {}
 
--- Calculate size of: Srqs Quote Entry Grp Comp
-eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.transact_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.expire_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.secondary_quote_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_id_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.negotiation_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quoting_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quoting_frequency.size
-
-  index = index + eurex_cash_eti_t7_v12_0.firm_negotiation_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_entering_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_1.size
-
-  return index
-end
+-- Size Of: Srqs Quote Entry Grp Comp
+eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.transact_time.size + 
+  eurex_cash_eti_t7_v12_0.expire_time.size + 
+  eurex_cash_eti_t7_v12_0.quote_id.size + 
+  eurex_cash_eti_t7_v12_0.secondary_quote_id.size + 
+  eurex_cash_eti_t7_v12_0.bid_px.size + 
+  eurex_cash_eti_t7_v12_0.bid_size.size + 
+  eurex_cash_eti_t7_v12_0.offer_px.size + 
+  eurex_cash_eti_t7_v12_0.offer_size.size + 
+  eurex_cash_eti_t7_v12_0.party_id_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.negotiation_id.size + 
+  eurex_cash_eti_t7_v12_0.quoting_status.size + 
+  eurex_cash_eti_t7_v12_0.quoting_frequency.size + 
+  eurex_cash_eti_t7_v12_0.firm_negotiation_id.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.party_entering_trader.size + 
+  eurex_cash_eti_t7_v12_0.pad_1.size;
 
 -- Display: Srqs Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp.display = function(packet, parent, length)
@@ -4425,7 +4370,7 @@ end
 -- Pad 6
 eurex_cash_eti_t7_v12_0.pad_6 = {}
 
--- Size: Pad 6
+-- Size Of: Pad 6
 eurex_cash_eti_t7_v12_0.pad_6.size = 6
 
 -- Display: Pad 6
@@ -4448,7 +4393,7 @@ end
 -- Message Event Source
 eurex_cash_eti_t7_v12_0.message_event_source = {}
 
--- Size: Message Event Source
+-- Size Of: Message Event Source
 eurex_cash_eti_t7_v12_0.message_event_source.size = 1
 
 -- Display: Message Event Source
@@ -4497,7 +4442,7 @@ end
 -- No Quote Entries
 eurex_cash_eti_t7_v12_0.no_quote_entries = {}
 
--- Size: No Quote Entries
+-- Size Of: No Quote Entries
 eurex_cash_eti_t7_v12_0.no_quote_entries.size = 1
 
 -- Display: No Quote Entries
@@ -4587,7 +4532,7 @@ end
 -- Quote Req Id
 eurex_cash_eti_t7_v12_0.quote_req_id = {}
 
--- Size: Quote Req Id
+-- Size Of: Quote Req Id
 eurex_cash_eti_t7_v12_0.quote_req_id.size = 20
 
 -- Display: Quote Req Id
@@ -4672,7 +4617,7 @@ end
 -- Trade Id
 eurex_cash_eti_t7_v12_0.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 eurex_cash_eti_t7_v12_0.trade_id.size = 4
 
 -- Display: Trade Id
@@ -4771,7 +4716,7 @@ end
 -- Quote Cancel Reason
 eurex_cash_eti_t7_v12_0.quote_cancel_reason = {}
 
--- Size: Quote Cancel Reason
+-- Size Of: Quote Cancel Reason
 eurex_cash_eti_t7_v12_0.quote_cancel_reason.size = 1
 
 -- Display: Quote Cancel Reason
@@ -4801,7 +4746,7 @@ end
 -- Quote Event Reason
 eurex_cash_eti_t7_v12_0.quote_event_reason = {}
 
--- Size: Quote Event Reason
+-- Size Of: Quote Event Reason
 eurex_cash_eti_t7_v12_0.quote_event_reason.size = 1
 
 -- Display: Quote Event Reason
@@ -4963,7 +4908,7 @@ end
 -- Pad 5
 eurex_cash_eti_t7_v12_0.pad_5 = {}
 
--- Size: Pad 5
+-- Size Of: Pad 5
 eurex_cash_eti_t7_v12_0.pad_5.size = 5
 
 -- Display: Pad 5
@@ -4986,7 +4931,7 @@ end
 -- Side Is Locked
 eurex_cash_eti_t7_v12_0.side_is_locked = {}
 
--- Size: Side Is Locked
+-- Size Of: Side Is Locked
 eurex_cash_eti_t7_v12_0.side_is_locked.size = 1
 
 -- Display: Side Is Locked
@@ -5019,7 +4964,7 @@ end
 -- Offer Px Is Locked
 eurex_cash_eti_t7_v12_0.offer_px_is_locked = {}
 
--- Size: Offer Px Is Locked
+-- Size Of: Offer Px Is Locked
 eurex_cash_eti_t7_v12_0.offer_px_is_locked.size = 1
 
 -- Display: Offer Px Is Locked
@@ -5052,7 +4997,7 @@ end
 -- Bid Px Is Locked
 eurex_cash_eti_t7_v12_0.bid_px_is_locked = {}
 
--- Size: Bid Px Is Locked
+-- Size Of: Bid Px Is Locked
 eurex_cash_eti_t7_v12_0.bid_px_is_locked.size = 1
 
 -- Display: Bid Px Is Locked
@@ -5085,7 +5030,7 @@ end
 -- Quote Type
 eurex_cash_eti_t7_v12_0.quote_type = {}
 
--- Size: Quote Type
+-- Size Of: Quote Type
 eurex_cash_eti_t7_v12_0.quote_type.size = 1
 
 -- Display: Quote Type
@@ -5130,7 +5075,7 @@ end
 -- Number Of Respondents
 eurex_cash_eti_t7_v12_0.number_of_respondents = {}
 
--- Size: Number Of Respondents
+-- Size Of: Number Of Respondents
 eurex_cash_eti_t7_v12_0.number_of_respondents.size = 4
 
 -- Display: Number Of Respondents
@@ -5158,7 +5103,7 @@ end
 -- Auto Exec Expiry Time
 eurex_cash_eti_t7_v12_0.auto_exec_expiry_time = {}
 
--- Size: Auto Exec Expiry Time
+-- Size Of: Auto Exec Expiry Time
 eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.size = 8
 
 -- Display: Auto Exec Expiry Time
@@ -5189,7 +5134,7 @@ end
 -- Last Qty
 eurex_cash_eti_t7_v12_0.last_qty = {}
 
--- Size: Last Qty
+-- Size Of: Last Qty
 eurex_cash_eti_t7_v12_0.last_qty.size = 8
 
 -- Display: Last Qty
@@ -5228,7 +5173,7 @@ end
 -- Last Px
 eurex_cash_eti_t7_v12_0.last_px = {}
 
--- Size: Last Px
+-- Size Of: Last Px
 eurex_cash_eti_t7_v12_0.last_px.size = 8
 
 -- Display: Last Px
@@ -5267,7 +5212,7 @@ end
 -- Security Id
 eurex_cash_eti_t7_v12_0.security_id = {}
 
--- Size: Security Id
+-- Size Of: Security Id
 eurex_cash_eti_t7_v12_0.security_id.size = 8
 
 -- Display: Security Id
@@ -5486,7 +5431,7 @@ end
 -- Valid Until Time
 eurex_cash_eti_t7_v12_0.valid_until_time = {}
 
--- Size: Valid Until Time
+-- Size Of: Valid Until Time
 eurex_cash_eti_t7_v12_0.valid_until_time.size = 8
 
 -- Display: Valid Until Time
@@ -5687,7 +5632,7 @@ end
 -- Leaves Qty
 eurex_cash_eti_t7_v12_0.leaves_qty = {}
 
--- Size: Leaves Qty
+-- Size Of: Leaves Qty
 eurex_cash_eti_t7_v12_0.leaves_qty.size = 8
 
 -- Display: Leaves Qty
@@ -5726,7 +5671,7 @@ end
 -- Negotiation Start Time
 eurex_cash_eti_t7_v12_0.negotiation_start_time = {}
 
--- Size: Negotiation Start Time
+-- Size Of: Negotiation Start Time
 eurex_cash_eti_t7_v12_0.negotiation_start_time.size = 8
 
 -- Display: Negotiation Start Time
@@ -5934,7 +5879,7 @@ end
 -- Closure Reason
 eurex_cash_eti_t7_v12_0.closure_reason = {}
 
--- Size: Closure Reason
+-- Size Of: Closure Reason
 eurex_cash_eti_t7_v12_0.closure_reason.size = 132
 
 -- Display: Closure Reason
@@ -5962,7 +5907,7 @@ end
 -- Trd Reg Ts Execution Time
 eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time = {}
 
--- Size: Trd Reg Ts Execution Time
+-- Size Of: Trd Reg Ts Execution Time
 eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.size = 8
 
 -- Display: Trd Reg Ts Execution Time
@@ -6277,7 +6222,7 @@ end
 -- Firm Trade Id
 eurex_cash_eti_t7_v12_0.firm_trade_id = {}
 
--- Size: Firm Trade Id
+-- Size Of: Firm Trade Id
 eurex_cash_eti_t7_v12_0.firm_trade_id.size = 20
 
 -- Display: Firm Trade Id
@@ -6305,7 +6250,7 @@ end
 -- Alloc Method
 eurex_cash_eti_t7_v12_0.alloc_method = {}
 
--- Size: Alloc Method
+-- Size Of: Alloc Method
 eurex_cash_eti_t7_v12_0.alloc_method.size = 1
 
 -- Display: Alloc Method
@@ -6338,7 +6283,7 @@ end
 -- Price
 eurex_cash_eti_t7_v12_0.price = {}
 
--- Size: Price
+-- Size Of: Price
 eurex_cash_eti_t7_v12_0.price.size = 8
 
 -- Display: Price
@@ -6617,7 +6562,7 @@ end
 -- Target Party Id Session Id
 eurex_cash_eti_t7_v12_0.target_party_id_session_id = {}
 
--- Size: Target Party Id Session Id
+-- Size Of: Target Party Id Session Id
 eurex_cash_eti_t7_v12_0.target_party_id_session_id.size = 4
 
 -- Display: Target Party Id Session Id
@@ -6756,7 +6701,7 @@ end
 -- Trd Rpt Status
 eurex_cash_eti_t7_v12_0.trd_rpt_status = {}
 
--- Size: Trd Rpt Status
+-- Size Of: Trd Rpt Status
 eurex_cash_eti_t7_v12_0.trd_rpt_status.size = 1
 
 -- Display: Trd Rpt Status
@@ -6870,7 +6815,7 @@ end
 -- Secondary Trade Id
 eurex_cash_eti_t7_v12_0.secondary_trade_id = {}
 
--- Size: Secondary Trade Id
+-- Size Of: Secondary Trade Id
 eurex_cash_eti_t7_v12_0.secondary_trade_id.size = 4
 
 -- Display: Secondary Trade Id
@@ -6970,7 +6915,7 @@ end
 -- Md Sub Book Type
 eurex_cash_eti_t7_v12_0.md_sub_book_type = {}
 
--- Size: Md Sub Book Type
+-- Size Of: Md Sub Book Type
 eurex_cash_eti_t7_v12_0.md_sub_book_type.size = 1
 
 -- Display: Md Sub Book Type
@@ -7000,7 +6945,7 @@ end
 -- Md Book Type
 eurex_cash_eti_t7_v12_0.md_book_type = {}
 
--- Size: Md Book Type
+-- Size Of: Md Book Type
 eurex_cash_eti_t7_v12_0.md_book_type.size = 1
 
 -- Display: Md Book Type
@@ -7033,7 +6978,7 @@ end
 -- Best Offer Size
 eurex_cash_eti_t7_v12_0.best_offer_size = {}
 
--- Size: Best Offer Size
+-- Size Of: Best Offer Size
 eurex_cash_eti_t7_v12_0.best_offer_size.size = 8
 
 -- Display: Best Offer Size
@@ -7072,7 +7017,7 @@ end
 -- Best Offer Px
 eurex_cash_eti_t7_v12_0.best_offer_px = {}
 
--- Size: Best Offer Px
+-- Size Of: Best Offer Px
 eurex_cash_eti_t7_v12_0.best_offer_px.size = 8
 
 -- Display: Best Offer Px
@@ -7111,7 +7056,7 @@ end
 -- Best Bid Size
 eurex_cash_eti_t7_v12_0.best_bid_size = {}
 
--- Size: Best Bid Size
+-- Size Of: Best Bid Size
 eurex_cash_eti_t7_v12_0.best_bid_size.size = 8
 
 -- Display: Best Bid Size
@@ -7150,7 +7095,7 @@ end
 -- Best Bid Px
 eurex_cash_eti_t7_v12_0.best_bid_px = {}
 
--- Size: Best Bid Px
+-- Size Of: Best Bid Px
 eurex_cash_eti_t7_v12_0.best_bid_px.size = 8
 
 -- Display: Best Bid Px
@@ -7189,26 +7134,15 @@ end
 -- Order Book Item Grp Comp
 eurex_cash_eti_t7_v12_0.order_book_item_grp_comp = {}
 
--- Calculate size of: Order Book Item Grp Comp
-eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.best_bid_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.best_bid_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.best_offer_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.best_offer_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.md_book_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.md_sub_book_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_6.size
-
-  return index
-end
+-- Size Of: Order Book Item Grp Comp
+eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.best_bid_px.size + 
+  eurex_cash_eti_t7_v12_0.best_bid_size.size + 
+  eurex_cash_eti_t7_v12_0.best_offer_px.size + 
+  eurex_cash_eti_t7_v12_0.best_offer_size.size + 
+  eurex_cash_eti_t7_v12_0.md_book_type.size + 
+  eurex_cash_eti_t7_v12_0.md_sub_book_type.size + 
+  eurex_cash_eti_t7_v12_0.pad_6.size;
 
 -- Display: Order Book Item Grp Comp
 eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.display = function(packet, parent, length)
@@ -7270,7 +7204,7 @@ end
 -- Target Party Entering Trader
 eurex_cash_eti_t7_v12_0.target_party_entering_trader = {}
 
--- Size: Target Party Entering Trader
+-- Size Of: Target Party Entering Trader
 eurex_cash_eti_t7_v12_0.target_party_entering_trader.size = 6
 
 -- Display: Target Party Entering Trader
@@ -7298,7 +7232,7 @@ end
 -- Root Party Entering Trader
 eurex_cash_eti_t7_v12_0.root_party_entering_trader = {}
 
--- Size: Root Party Entering Trader
+-- Size Of: Root Party Entering Trader
 eurex_cash_eti_t7_v12_0.root_party_entering_trader.size = 6
 
 -- Display: Root Party Entering Trader
@@ -7326,7 +7260,7 @@ end
 -- Root Party Executing Trader
 eurex_cash_eti_t7_v12_0.root_party_executing_trader = {}
 
--- Size: Root Party Executing Trader
+-- Size Of: Root Party Executing Trader
 eurex_cash_eti_t7_v12_0.root_party_executing_trader.size = 6
 
 -- Display: Root Party Executing Trader
@@ -7354,7 +7288,7 @@ end
 -- Root Party Executing Firm
 eurex_cash_eti_t7_v12_0.root_party_executing_firm = {}
 
--- Size: Root Party Executing Firm
+-- Size Of: Root Party Executing Firm
 eurex_cash_eti_t7_v12_0.root_party_executing_firm.size = 5
 
 -- Display: Root Party Executing Firm
@@ -7382,7 +7316,7 @@ end
 -- No Order Book Items
 eurex_cash_eti_t7_v12_0.no_order_book_items = {}
 
--- Size: No Order Book Items
+-- Size Of: No Order Book Items
 eurex_cash_eti_t7_v12_0.no_order_book_items.size = 1
 
 -- Display: No Order Book Items
@@ -7559,7 +7493,7 @@ end
 -- Trade Report Type
 eurex_cash_eti_t7_v12_0.trade_report_type = {}
 
--- Size: Trade Report Type
+-- Size Of: Trade Report Type
 eurex_cash_eti_t7_v12_0.trade_report_type.size = 1
 
 -- Display: Trade Report Type
@@ -7679,7 +7613,7 @@ end
 -- Requesting Party Executing Trader
 eurex_cash_eti_t7_v12_0.requesting_party_executing_trader = {}
 
--- Size: Requesting Party Executing Trader
+-- Size Of: Requesting Party Executing Trader
 eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.size = 6
 
 -- Display: Requesting Party Executing Trader
@@ -7707,7 +7641,7 @@ end
 -- Requesting Party Executing Firm
 eurex_cash_eti_t7_v12_0.requesting_party_executing_firm = {}
 
--- Size: Requesting Party Executing Firm
+-- Size Of: Requesting Party Executing Firm
 eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.size = 5
 
 -- Display: Requesting Party Executing Firm
@@ -7735,7 +7669,7 @@ end
 -- Target Side
 eurex_cash_eti_t7_v12_0.target_side = {}
 
--- Size: Target Side
+-- Size Of: Target Side
 eurex_cash_eti_t7_v12_0.target_side.size = 1
 
 -- Display: Target Side
@@ -7768,7 +7702,7 @@ end
 -- Requesting Side
 eurex_cash_eti_t7_v12_0.requesting_side = {}
 
--- Size: Requesting Side
+-- Size Of: Requesting Side
 eurex_cash_eti_t7_v12_0.requesting_side.size = 1
 
 -- Display: Requesting Side
@@ -7951,7 +7885,7 @@ end
 -- Username
 eurex_cash_eti_t7_v12_0.username = {}
 
--- Size: Username
+-- Size Of: Username
 eurex_cash_eti_t7_v12_0.username.size = 4
 
 -- Display: Username
@@ -8084,7 +8018,7 @@ end
 -- Encrypted Password
 eurex_cash_eti_t7_v12_0.encrypted_password = {}
 
--- Size: Encrypted Password
+-- Size Of: Encrypted Password
 eurex_cash_eti_t7_v12_0.encrypted_password.size = 684
 
 -- Display: Encrypted Password
@@ -8169,7 +8103,7 @@ end
 -- Password
 eurex_cash_eti_t7_v12_0.password = {}
 
--- Size: Password
+-- Size Of: Password
 eurex_cash_eti_t7_v12_0.password.size = 32
 
 -- Display: Password
@@ -8316,7 +8250,7 @@ end
 -- Ref Appl Sub Id
 eurex_cash_eti_t7_v12_0.ref_appl_sub_id = {}
 
--- Size: Ref Appl Sub Id
+-- Size Of: Ref Appl Sub Id
 eurex_cash_eti_t7_v12_0.ref_appl_sub_id.size = 4
 
 -- Display: Ref Appl Sub Id
@@ -8401,7 +8335,7 @@ end
 -- Fix Cl Ord Id
 eurex_cash_eti_t7_v12_0.fix_cl_ord_id = {}
 
--- Size: Fix Cl Ord Id
+-- Size Of: Fix Cl Ord Id
 eurex_cash_eti_t7_v12_0.fix_cl_ord_id.size = 20
 
 -- Display: Fix Cl Ord Id
@@ -8429,7 +8363,7 @@ end
 -- Exec Type
 eurex_cash_eti_t7_v12_0.exec_type = {}
 
--- Size: Exec Type
+-- Size Of: Exec Type
 eurex_cash_eti_t7_v12_0.exec_type.size = 1
 
 -- Display: Exec Type
@@ -8496,7 +8430,7 @@ end
 -- Ord Status
 eurex_cash_eti_t7_v12_0.ord_status = {}
 
--- Size: Ord Status
+-- Size Of: Ord Status
 eurex_cash_eti_t7_v12_0.ord_status.size = 1
 
 -- Display: Ord Status
@@ -8557,7 +8491,7 @@ end
 -- Exec Restatement Reason
 eurex_cash_eti_t7_v12_0.exec_restatement_reason = {}
 
--- Size: Exec Restatement Reason
+-- Size Of: Exec Restatement Reason
 eurex_cash_eti_t7_v12_0.exec_restatement_reason.size = 2
 
 -- Display: Exec Restatement Reason
@@ -8737,7 +8671,7 @@ end
 -- Order Id Sfx
 eurex_cash_eti_t7_v12_0.order_id_sfx = {}
 
--- Size: Order Id Sfx
+-- Size Of: Order Id Sfx
 eurex_cash_eti_t7_v12_0.order_id_sfx.size = 4
 
 -- Display: Order Id Sfx
@@ -8765,7 +8699,7 @@ end
 -- Stop Px
 eurex_cash_eti_t7_v12_0.stop_px = {}
 
--- Size: Stop Px
+-- Size Of: Stop Px
 eurex_cash_eti_t7_v12_0.stop_px.size = 8
 
 -- Display: Stop Px
@@ -8804,7 +8738,7 @@ end
 -- Exec Id
 eurex_cash_eti_t7_v12_0.exec_id = {}
 
--- Size: Exec Id
+-- Size Of: Exec Id
 eurex_cash_eti_t7_v12_0.exec_id.size = 8
 
 -- Display: Exec Id
@@ -8835,7 +8769,7 @@ end
 -- Orig Cl Ord Id
 eurex_cash_eti_t7_v12_0.orig_cl_ord_id = {}
 
--- Size: Orig Cl Ord Id
+-- Size Of: Orig Cl Ord Id
 eurex_cash_eti_t7_v12_0.orig_cl_ord_id.size = 8
 
 -- Display: Orig Cl Ord Id
@@ -8863,7 +8797,7 @@ end
 -- Cl Ord Id
 eurex_cash_eti_t7_v12_0.cl_ord_id = {}
 
--- Size: Cl Ord Id
+-- Size Of: Cl Ord Id
 eurex_cash_eti_t7_v12_0.cl_ord_id.size = 8
 
 -- Display: Cl Ord Id
@@ -8891,7 +8825,7 @@ end
 -- Order Id
 eurex_cash_eti_t7_v12_0.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 eurex_cash_eti_t7_v12_0.order_id.size = 8
 
 -- Display: Order Id
@@ -8919,7 +8853,7 @@ end
 -- Appl Msg Id
 eurex_cash_eti_t7_v12_0.appl_msg_id = {}
 
--- Size: Appl Msg Id
+-- Size Of: Appl Msg Id
 eurex_cash_eti_t7_v12_0.appl_msg_id.size = 16
 
 -- Display: Appl Msg Id
@@ -8942,7 +8876,7 @@ end
 -- Notification In
 eurex_cash_eti_t7_v12_0.notification_in = {}
 
--- Size: Notification In
+-- Size Of: Notification In
 eurex_cash_eti_t7_v12_0.notification_in.size = 8
 
 -- Display: Notification In
@@ -8973,7 +8907,7 @@ end
 -- Trd Reg Ts Time Out
 eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out = {}
 
--- Size: Trd Reg Ts Time Out
+-- Size Of: Trd Reg Ts Time Out
 eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size = 8
 
 -- Display: Trd Reg Ts Time Out
@@ -9004,32 +8938,18 @@ end
 -- Rbc Header Me Comp
 eurex_cash_eti_t7_v12_0.rbc_header_me_comp = {}
 
--- Calculate size of: Rbc Header Me Comp
-eurex_cash_eti_t7_v12_0.rbc_header_me_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
-
-  index = index + eurex_cash_eti_t7_v12_0.notification_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_sub_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.partition_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_msg_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_resend_flag.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size Of: Rbc Header Me Comp
+eurex_cash_eti_t7_v12_0.rbc_header_me_comp.size =
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size + 
+  eurex_cash_eti_t7_v12_0.notification_in.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.appl_sub_id.size + 
+  eurex_cash_eti_t7_v12_0.partition_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_msg_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_resend_flag.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size;
 
 -- Display: Rbc Header Me Comp
 eurex_cash_eti_t7_v12_0.rbc_header_me_comp.display = function(packet, parent, length)
@@ -9187,7 +9107,7 @@ end
 -- Ref Appl Last Msg Id
 eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id = {}
 
--- Size: Ref Appl Last Msg Id
+-- Size Of: Ref Appl Last Msg Id
 eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.size = 16
 
 -- Display: Ref Appl Last Msg Id
@@ -9273,7 +9193,7 @@ end
 -- Root Party Id Execution Venue
 eurex_cash_eti_t7_v12_0.root_party_id_execution_venue = {}
 
--- Size: Root Party Id Execution Venue
+-- Size Of: Root Party Id Execution Venue
 eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.size = 4
 
 -- Display: Root Party Id Execution Venue
@@ -9301,7 +9221,7 @@ end
 -- Regulatory Trade Id
 eurex_cash_eti_t7_v12_0.regulatory_trade_id = {}
 
--- Size: Regulatory Trade Id
+-- Size Of: Regulatory Trade Id
 eurex_cash_eti_t7_v12_0.regulatory_trade_id.size = 52
 
 -- Display: Regulatory Trade Id
@@ -9329,7 +9249,7 @@ end
 -- Party Specialist Trader
 eurex_cash_eti_t7_v12_0.party_specialist_trader = {}
 
--- Size: Party Specialist Trader
+-- Size Of: Party Specialist Trader
 eurex_cash_eti_t7_v12_0.party_specialist_trader.size = 6
 
 -- Display: Party Specialist Trader
@@ -9357,7 +9277,7 @@ end
 -- Party Specialist Firm
 eurex_cash_eti_t7_v12_0.party_specialist_firm = {}
 
--- Size: Party Specialist Firm
+-- Size Of: Party Specialist Firm
 eurex_cash_eti_t7_v12_0.party_specialist_firm.size = 5
 
 -- Display: Party Specialist Firm
@@ -9385,7 +9305,7 @@ end
 -- Root Party Contra Settlement Location
 eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location = {}
 
--- Size: Root Party Contra Settlement Location
+-- Size Of: Root Party Contra Settlement Location
 eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.size = 3
 
 -- Display: Root Party Contra Settlement Location
@@ -9466,7 +9386,7 @@ end
 -- Root Party Contra Settlement Account
 eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account = {}
 
--- Size: Root Party Contra Settlement Account
+-- Size Of: Root Party Contra Settlement Account
 eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.size = 35
 
 -- Display: Root Party Contra Settlement Account
@@ -9494,7 +9414,7 @@ end
 -- Root Party Contra Firm Kv Number
 eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number = {}
 
--- Size: Root Party Contra Firm Kv Number
+-- Size Of: Root Party Contra Firm Kv Number
 eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.size = 4
 
 -- Display: Root Party Contra Firm Kv Number
@@ -9522,7 +9442,7 @@ end
 -- Root Party Contra Settlement Firm
 eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm = {}
 
--- Size: Root Party Contra Settlement Firm
+-- Size Of: Root Party Contra Settlement Firm
 eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.size = 5
 
 -- Display: Root Party Contra Settlement Firm
@@ -9550,7 +9470,7 @@ end
 -- Root Party Contra Firm
 eurex_cash_eti_t7_v12_0.root_party_contra_firm = {}
 
--- Size: Root Party Contra Firm
+-- Size Of: Root Party Contra Firm
 eurex_cash_eti_t7_v12_0.root_party_contra_firm.size = 5
 
 -- Display: Root Party Contra Firm
@@ -9578,7 +9498,7 @@ end
 -- Root Party Settlement Firm
 eurex_cash_eti_t7_v12_0.root_party_settlement_firm = {}
 
--- Size: Root Party Settlement Firm
+-- Size Of: Root Party Settlement Firm
 eurex_cash_eti_t7_v12_0.root_party_settlement_firm.size = 5
 
 -- Display: Root Party Settlement Firm
@@ -9606,7 +9526,7 @@ end
 -- Root Party Settlement Location
 eurex_cash_eti_t7_v12_0.root_party_settlement_location = {}
 
--- Size: Root Party Settlement Location
+-- Size Of: Root Party Settlement Location
 eurex_cash_eti_t7_v12_0.root_party_settlement_location.size = 3
 
 -- Display: Root Party Settlement Location
@@ -9687,7 +9607,7 @@ end
 -- Root Party Settlement Account
 eurex_cash_eti_t7_v12_0.root_party_settlement_account = {}
 
--- Size: Root Party Settlement Account
+-- Size Of: Root Party Settlement Account
 eurex_cash_eti_t7_v12_0.root_party_settlement_account.size = 35
 
 -- Display: Root Party Settlement Account
@@ -9715,7 +9635,7 @@ end
 -- Root Party Executing Firm Kv Number
 eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number = {}
 
--- Size: Root Party Executing Firm Kv Number
+-- Size Of: Root Party Executing Firm Kv Number
 eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.size = 4
 
 -- Display: Root Party Executing Firm Kv Number
@@ -9743,7 +9663,7 @@ end
 -- Root Party Clearing Firm
 eurex_cash_eti_t7_v12_0.root_party_clearing_firm = {}
 
--- Size: Root Party Clearing Firm
+-- Size Of: Root Party Clearing Firm
 eurex_cash_eti_t7_v12_0.root_party_clearing_firm.size = 5
 
 -- Display: Root Party Clearing Firm
@@ -9771,7 +9691,7 @@ end
 -- Ord Type
 eurex_cash_eti_t7_v12_0.ord_type = {}
 
--- Size: Ord Type
+-- Size Of: Ord Type
 eurex_cash_eti_t7_v12_0.ord_type.size = 1
 
 -- Display: Ord Type
@@ -9810,7 +9730,7 @@ end
 -- Order Category
 eurex_cash_eti_t7_v12_0.order_category = {}
 
--- Size: Order Category
+-- Size Of: Order Category
 eurex_cash_eti_t7_v12_0.order_category.size = 1
 
 -- Display: Order Category
@@ -9853,7 +9773,7 @@ end
 -- Currency
 eurex_cash_eti_t7_v12_0.currency = {}
 
--- Size: Currency
+-- Size Of: Currency
 eurex_cash_eti_t7_v12_0.currency.size = 3
 
 -- Display: Currency
@@ -9881,7 +9801,7 @@ end
 -- Settl Currency
 eurex_cash_eti_t7_v12_0.settl_currency = {}
 
--- Size: Settl Currency
+-- Size Of: Settl Currency
 eurex_cash_eti_t7_v12_0.settl_currency.size = 3
 
 -- Display: Settl Currency
@@ -9909,7 +9829,7 @@ end
 -- Account
 eurex_cash_eti_t7_v12_0.account = {}
 
--- Size: Account
+-- Size Of: Account
 eurex_cash_eti_t7_v12_0.account.size = 2
 
 -- Display: Account
@@ -9937,7 +9857,7 @@ end
 -- Root Party Id Investment Decision Maker Qualifier
 eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier = {}
 
--- Size: Root Party Id Investment Decision Maker Qualifier
+-- Size Of: Root Party Id Investment Decision Maker Qualifier
 eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.size = 1
 
 -- Display: Root Party Id Investment Decision Maker Qualifier
@@ -9970,7 +9890,7 @@ end
 -- Clearing Instruction
 eurex_cash_eti_t7_v12_0.clearing_instruction = {}
 
--- Size: Clearing Instruction
+-- Size Of: Clearing Instruction
 eurex_cash_eti_t7_v12_0.clearing_instruction.size = 1
 
 -- Display: Clearing Instruction
@@ -10003,7 +9923,7 @@ end
 -- Refinancing Eligibility Indicator
 eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator = {}
 
--- Size: Refinancing Eligibility Indicator
+-- Size Of: Refinancing Eligibility Indicator
 eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.size = 1
 
 -- Display: Refinancing Eligibility Indicator
@@ -10036,7 +9956,7 @@ end
 -- Last Coupon Deviation Indicator
 eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator = {}
 
--- Size: Last Coupon Deviation Indicator
+-- Size Of: Last Coupon Deviation Indicator
 eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.size = 1
 
 -- Display: Last Coupon Deviation Indicator
@@ -10084,7 +10004,7 @@ end
 -- Delivery Type
 eurex_cash_eti_t7_v12_0.delivery_type = {}
 
--- Size: Delivery Type
+-- Size Of: Delivery Type
 eurex_cash_eti_t7_v12_0.delivery_type.size = 1
 
 -- Display: Delivery Type
@@ -10126,7 +10046,7 @@ end
 -- Side Liquidity Ind
 eurex_cash_eti_t7_v12_0.side_liquidity_ind = {}
 
--- Size: Side Liquidity Ind
+-- Size Of: Side Liquidity Ind
 eurex_cash_eti_t7_v12_0.side_liquidity_ind.size = 1
 
 -- Display: Side Liquidity Ind
@@ -10162,7 +10082,7 @@ end
 -- Match Sub Type
 eurex_cash_eti_t7_v12_0.match_sub_type = {}
 
--- Size: Match Sub Type
+-- Size Of: Match Sub Type
 eurex_cash_eti_t7_v12_0.match_sub_type.size = 1
 
 -- Display: Match Sub Type
@@ -10204,7 +10124,7 @@ end
 -- Match Type
 eurex_cash_eti_t7_v12_0.match_type = {}
 
--- Size: Match Type
+-- Size Of: Match Type
 eurex_cash_eti_t7_v12_0.match_type.size = 1
 
 -- Display: Match Type
@@ -10252,7 +10172,7 @@ end
 -- Transfer Reason
 eurex_cash_eti_t7_v12_0.transfer_reason = {}
 
--- Size: Transfer Reason
+-- Size Of: Transfer Reason
 eurex_cash_eti_t7_v12_0.transfer_reason.size = 1
 
 -- Display: Transfer Reason
@@ -10285,7 +10205,7 @@ end
 -- Last Mkt
 eurex_cash_eti_t7_v12_0.last_mkt = {}
 
--- Size: Last Mkt
+-- Size Of: Last Mkt
 eurex_cash_eti_t7_v12_0.last_mkt.size = 2
 
 -- Display: Last Mkt
@@ -10339,7 +10259,7 @@ end
 -- Num Days Interest
 eurex_cash_eti_t7_v12_0.num_days_interest = {}
 
--- Size: Num Days Interest
+-- Size Of: Num Days Interest
 eurex_cash_eti_t7_v12_0.num_days_interest.size = 4
 
 -- Display: Num Days Interest
@@ -10367,7 +10287,7 @@ end
 -- Trd Match Id
 eurex_cash_eti_t7_v12_0.trd_match_id = {}
 
--- Size: Trd Match Id
+-- Size Of: Trd Match Id
 eurex_cash_eti_t7_v12_0.trd_match_id.size = 4
 
 -- Display: Trd Match Id
@@ -10395,7 +10315,7 @@ end
 -- Match Date
 eurex_cash_eti_t7_v12_0.match_date = {}
 
--- Size: Match Date
+-- Size Of: Match Date
 eurex_cash_eti_t7_v12_0.match_date.size = 4
 
 -- Display: Match Date
@@ -10423,7 +10343,7 @@ end
 -- Trade Number
 eurex_cash_eti_t7_v12_0.trade_number = {}
 
--- Size: Trade Number
+-- Size Of: Trade Number
 eurex_cash_eti_t7_v12_0.trade_number.size = 4
 
 -- Display: Trade Number
@@ -10451,7 +10371,7 @@ end
 -- Side Trade Report Id
 eurex_cash_eti_t7_v12_0.side_trade_report_id = {}
 
--- Size: Side Trade Report Id
+-- Size Of: Side Trade Report Id
 eurex_cash_eti_t7_v12_0.side_trade_report_id.size = 4
 
 -- Display: Side Trade Report Id
@@ -10479,7 +10399,7 @@ end
 -- Side Trade Id
 eurex_cash_eti_t7_v12_0.side_trade_id = {}
 
--- Size: Side Trade Id
+-- Size Of: Side Trade Id
 eurex_cash_eti_t7_v12_0.side_trade_id.size = 4
 
 -- Display: Side Trade Id
@@ -10507,7 +10427,7 @@ end
 -- Party Id Specialist Trader
 eurex_cash_eti_t7_v12_0.party_id_specialist_trader = {}
 
--- Size: Party Id Specialist Trader
+-- Size Of: Party Id Specialist Trader
 eurex_cash_eti_t7_v12_0.party_id_specialist_trader.size = 4
 
 -- Display: Party Id Specialist Trader
@@ -10535,7 +10455,7 @@ end
 -- Root Party Id Contra Settlement Unit
 eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit = {}
 
--- Size: Root Party Id Contra Settlement Unit
+-- Size Of: Root Party Id Contra Settlement Unit
 eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.size = 4
 
 -- Display: Root Party Id Contra Settlement Unit
@@ -10563,7 +10483,7 @@ end
 -- Root Party Id Contra Unit
 eurex_cash_eti_t7_v12_0.root_party_id_contra_unit = {}
 
--- Size: Root Party Id Contra Unit
+-- Size Of: Root Party Id Contra Unit
 eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.size = 4
 
 -- Display: Root Party Id Contra Unit
@@ -10591,7 +10511,7 @@ end
 -- Root Party Id Clearing Unit
 eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit = {}
 
--- Size: Root Party Id Clearing Unit
+-- Size Of: Root Party Id Clearing Unit
 eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.size = 4
 
 -- Display: Root Party Id Clearing Unit
@@ -10619,7 +10539,7 @@ end
 -- Root Party Id Settlement Unit
 eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit = {}
 
--- Size: Root Party Id Settlement Unit
+-- Size Of: Root Party Id Settlement Unit
 eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.size = 4
 
 -- Display: Root Party Id Settlement Unit
@@ -10647,7 +10567,7 @@ end
 -- Root Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.root_party_id_executing_trader = {}
 
--- Size: Root Party Id Executing Trader
+-- Size Of: Root Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.size = 4
 
 -- Display: Root Party Id Executing Trader
@@ -10675,7 +10595,7 @@ end
 -- Root Party Id Session Id
 eurex_cash_eti_t7_v12_0.root_party_id_session_id = {}
 
--- Size: Root Party Id Session Id
+-- Size Of: Root Party Id Session Id
 eurex_cash_eti_t7_v12_0.root_party_id_session_id.size = 4
 
 -- Display: Root Party Id Session Id
@@ -10703,7 +10623,7 @@ end
 -- Root Party Id Executing Unit
 eurex_cash_eti_t7_v12_0.root_party_id_executing_unit = {}
 
--- Size: Root Party Id Executing Unit
+-- Size Of: Root Party Id Executing Unit
 eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.size = 4
 
 -- Display: Root Party Id Executing Unit
@@ -10731,7 +10651,7 @@ end
 -- Orig Trade Id
 eurex_cash_eti_t7_v12_0.orig_trade_id = {}
 
--- Size: Orig Trade Id
+-- Size Of: Orig Trade Id
 eurex_cash_eti_t7_v12_0.orig_trade_id.size = 4
 
 -- Display: Orig Trade Id
@@ -10759,7 +10679,7 @@ end
 -- Root Party Id Investment Decision Maker
 eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker = {}
 
--- Size: Root Party Id Investment Decision Maker
+-- Size Of: Root Party Id Investment Decision Maker
 eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.size = 8
 
 -- Display: Root Party Id Investment Decision Maker
@@ -10787,7 +10707,7 @@ end
 -- Root Party Id Client Id
 eurex_cash_eti_t7_v12_0.root_party_id_client_id = {}
 
--- Size: Root Party Id Client Id
+-- Size Of: Root Party Id Client Id
 eurex_cash_eti_t7_v12_0.root_party_id_client_id.size = 8
 
 -- Display: Root Party Id Client Id
@@ -10815,7 +10735,7 @@ end
 -- Coupon Rate
 eurex_cash_eti_t7_v12_0.coupon_rate = {}
 
--- Size: Coupon Rate
+-- Size Of: Coupon Rate
 eurex_cash_eti_t7_v12_0.coupon_rate.size = 8
 
 -- Display: Coupon Rate
@@ -10854,7 +10774,7 @@ end
 -- Accrued Interes Amt
 eurex_cash_eti_t7_v12_0.accrued_interes_amt = {}
 
--- Size: Accrued Interes Amt
+-- Size Of: Accrued Interes Amt
 eurex_cash_eti_t7_v12_0.accrued_interes_amt.size = 8
 
 -- Display: Accrued Interes Amt
@@ -10893,7 +10813,7 @@ end
 -- Side Gross Trade Amt
 eurex_cash_eti_t7_v12_0.side_gross_trade_amt = {}
 
--- Size: Side Gross Trade Amt
+-- Size Of: Side Gross Trade Amt
 eurex_cash_eti_t7_v12_0.side_gross_trade_amt.size = 8
 
 -- Display: Side Gross Trade Amt
@@ -10932,7 +10852,7 @@ end
 -- Cum Qty
 eurex_cash_eti_t7_v12_0.cum_qty = {}
 
--- Size: Cum Qty
+-- Size Of: Cum Qty
 eurex_cash_eti_t7_v12_0.cum_qty.size = 8
 
 -- Display: Cum Qty
@@ -10971,7 +10891,7 @@ end
 -- Settl Curr Fx Rate
 eurex_cash_eti_t7_v12_0.settl_curr_fx_rate = {}
 
--- Size: Settl Curr Fx Rate
+-- Size Of: Settl Curr Fx Rate
 eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.size = 8
 
 -- Display: Settl Curr Fx Rate
@@ -11010,7 +10930,7 @@ end
 -- Settl Curr Amt
 eurex_cash_eti_t7_v12_0.settl_curr_amt = {}
 
--- Size: Settl Curr Amt
+-- Size Of: Settl Curr Amt
 eurex_cash_eti_t7_v12_0.settl_curr_amt.size = 8
 
 -- Display: Settl Curr Amt
@@ -11328,7 +11248,7 @@ end
 -- Throttle Disconnect Limit
 eurex_cash_eti_t7_v12_0.throttle_disconnect_limit = {}
 
--- Size: Throttle Disconnect Limit
+-- Size Of: Throttle Disconnect Limit
 eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.size = 4
 
 -- Display: Throttle Disconnect Limit
@@ -11356,7 +11276,7 @@ end
 -- Throttle No Msgs
 eurex_cash_eti_t7_v12_0.throttle_no_msgs = {}
 
--- Size: Throttle No Msgs
+-- Size Of: Throttle No Msgs
 eurex_cash_eti_t7_v12_0.throttle_no_msgs.size = 4
 
 -- Display: Throttle No Msgs
@@ -11384,7 +11304,7 @@ end
 -- Throttle Time Interval
 eurex_cash_eti_t7_v12_0.throttle_time_interval = {}
 
--- Size: Throttle Time Interval
+-- Size Of: Throttle Time Interval
 eurex_cash_eti_t7_v12_0.throttle_time_interval.size = 8
 
 -- Display: Throttle Time Interval
@@ -11412,14 +11332,9 @@ end
 -- Notif Header Comp
 eurex_cash_eti_t7_v12_0.notif_header_comp = {}
 
--- Calculate size of: Notif Header Comp
-eurex_cash_eti_t7_v12_0.notif_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  return index
-end
+-- Size Of: Notif Header Comp
+eurex_cash_eti_t7_v12_0.notif_header_comp.size =
+  eurex_cash_eti_t7_v12_0.sending_time.size;
 
 -- Display: Notif Header Comp
 eurex_cash_eti_t7_v12_0.notif_header_comp.display = function(packet, parent, length)
@@ -11625,7 +11540,7 @@ end
 -- Trade Publish Indicator
 eurex_cash_eti_t7_v12_0.trade_publish_indicator = {}
 
--- Size: Trade Publish Indicator
+-- Size Of: Trade Publish Indicator
 eurex_cash_eti_t7_v12_0.trade_publish_indicator.size = 1
 
 -- Display: Trade Publish Indicator
@@ -11664,7 +11579,7 @@ end
 -- Trd Type
 eurex_cash_eti_t7_v12_0.trd_type = {}
 
--- Size: Trd Type
+-- Size Of: Trd Type
 eurex_cash_eti_t7_v12_0.trd_type.size = 2
 
 -- Display: Trd Type
@@ -11700,7 +11615,7 @@ end
 -- Srqs Related Trade Id
 eurex_cash_eti_t7_v12_0.srqs_related_trade_id = {}
 
--- Size: Srqs Related Trade Id
+-- Size Of: Srqs Related Trade Id
 eurex_cash_eti_t7_v12_0.srqs_related_trade_id.size = 4
 
 -- Display: Srqs Related Trade Id
@@ -11728,7 +11643,7 @@ end
 -- Package Id
 eurex_cash_eti_t7_v12_0.package_id = {}
 
--- Size: Package Id
+-- Size Of: Package Id
 eurex_cash_eti_t7_v12_0.package_id.size = 4
 
 -- Display: Package Id
@@ -11996,7 +11911,7 @@ end
 -- Trade Report Id
 eurex_cash_eti_t7_v12_0.trade_report_id = {}
 
--- Size: Trade Report Id
+-- Size Of: Trade Report Id
 eurex_cash_eti_t7_v12_0.trade_report_id.size = 20
 
 -- Display: Trade Report Id
@@ -12024,7 +11939,7 @@ end
 -- Tes Exec Id
 eurex_cash_eti_t7_v12_0.tes_exec_id = {}
 
--- Size: Tes Exec Id
+-- Size Of: Tes Exec Id
 eurex_cash_eti_t7_v12_0.tes_exec_id.size = 4
 
 -- Display: Tes Exec Id
@@ -12106,7 +12021,7 @@ end
 -- Alloc Id
 eurex_cash_eti_t7_v12_0.alloc_id = {}
 
--- Size: Alloc Id
+-- Size Of: Alloc Id
 eurex_cash_eti_t7_v12_0.alloc_id.size = 4
 
 -- Display: Alloc Id
@@ -12215,7 +12130,7 @@ end
 -- Delete Reason
 eurex_cash_eti_t7_v12_0.delete_reason = {}
 
--- Size: Delete Reason
+-- Size Of: Delete Reason
 eurex_cash_eti_t7_v12_0.delete_reason.size = 1
 
 -- Display: Delete Reason
@@ -12376,7 +12291,7 @@ end
 -- Trade Alloc Status
 eurex_cash_eti_t7_v12_0.trade_alloc_status = {}
 
--- Size: Trade Alloc Status
+-- Size Of: Trade Alloc Status
 eurex_cash_eti_t7_v12_0.trade_alloc_status.size = 1
 
 -- Display: Trade Alloc Status
@@ -12418,7 +12333,7 @@ end
 -- Tes Enrichment Rule Id
 eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id = {}
 
--- Size: Tes Enrichment Rule Id
+-- Size Of: Tes Enrichment Rule Id
 eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size = 4
 
 -- Display: Tes Enrichment Rule Id
@@ -12446,7 +12361,7 @@ end
 -- Individual Alloc Id
 eurex_cash_eti_t7_v12_0.individual_alloc_id = {}
 
--- Size: Individual Alloc Id
+-- Size Of: Individual Alloc Id
 eurex_cash_eti_t7_v12_0.individual_alloc_id.size = 4
 
 -- Display: Individual Alloc Id
@@ -12474,7 +12389,7 @@ end
 -- Alloc Qty
 eurex_cash_eti_t7_v12_0.alloc_qty = {}
 
--- Size: Alloc Qty
+-- Size Of: Alloc Qty
 eurex_cash_eti_t7_v12_0.alloc_qty.size = 8
 
 -- Display: Alloc Qty
@@ -12513,28 +12428,16 @@ end
 -- Side Alloc Grp Bc Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp = {}
 
--- Calculate size of: Side Alloc Grp Bc Comp
-eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.alloc_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.individual_alloc_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trade_alloc_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size Of: Side Alloc Grp Bc Comp
+eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.size =
+  eurex_cash_eti_t7_v12_0.alloc_qty.size + 
+  eurex_cash_eti_t7_v12_0.individual_alloc_id.size + 
+  eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.side.size + 
+  eurex_cash_eti_t7_v12_0.trade_alloc_status.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size;
 
 -- Display: Side Alloc Grp Bc Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.display = function(packet, parent, length)
@@ -12599,7 +12502,7 @@ end
 -- Trade Report Text
 eurex_cash_eti_t7_v12_0.trade_report_text = {}
 
--- Size: Trade Report Text
+-- Size Of: Trade Report Text
 eurex_cash_eti_t7_v12_0.trade_report_text.size = 20
 
 -- Display: Trade Report Text
@@ -12627,7 +12530,7 @@ end
 -- No Side Allocs
 eurex_cash_eti_t7_v12_0.no_side_allocs = {}
 
--- Size: No Side Allocs
+-- Size Of: No Side Allocs
 eurex_cash_eti_t7_v12_0.no_side_allocs.size = 1
 
 -- Display: No Side Allocs
@@ -12655,7 +12558,7 @@ end
 -- Var Text Len
 eurex_cash_eti_t7_v12_0.var_text_len = {}
 
--- Size: Var Text Len
+-- Size Of: Var Text Len
 eurex_cash_eti_t7_v12_0.var_text_len.size = 2
 
 -- Display: Var Text Len
@@ -12683,7 +12586,7 @@ end
 -- Auto Approval Rule Id
 eurex_cash_eti_t7_v12_0.auto_approval_rule_id = {}
 
--- Size: Auto Approval Rule Id
+-- Size Of: Auto Approval Rule Id
 eurex_cash_eti_t7_v12_0.auto_approval_rule_id.size = 4
 
 -- Display: Auto Approval Rule Id
@@ -12711,7 +12614,7 @@ end
 -- Trans Bkd Time
 eurex_cash_eti_t7_v12_0.trans_bkd_time = {}
 
--- Size: Trans Bkd Time
+-- Size Of: Trans Bkd Time
 eurex_cash_eti_t7_v12_0.trans_bkd_time.size = 8
 
 -- Display: Trans Bkd Time
@@ -12878,7 +12781,7 @@ end
 -- Party Id Entering Firm
 eurex_cash_eti_t7_v12_0.party_id_entering_firm = {}
 
--- Size: Party Id Entering Firm
+-- Size Of: Party Id Entering Firm
 eurex_cash_eti_t7_v12_0.party_id_entering_firm.size = 1
 
 -- Display: Party Id Entering Firm
@@ -13135,7 +13038,7 @@ end
 -- Ref Appl Id
 eurex_cash_eti_t7_v12_0.ref_appl_id = {}
 
--- Size: Ref Appl Id
+-- Size Of: Ref Appl Id
 eurex_cash_eti_t7_v12_0.ref_appl_id.size = 1
 
 -- Display: Ref Appl Id
@@ -13195,7 +13098,7 @@ end
 -- Subscription Scope
 eurex_cash_eti_t7_v12_0.subscription_scope = {}
 
--- Size: Subscription Scope
+-- Size Of: Subscription Scope
 eurex_cash_eti_t7_v12_0.subscription_scope.size = 4
 
 -- Display: Subscription Scope
@@ -13340,7 +13243,7 @@ end
 -- Security Status Report Id
 eurex_cash_eti_t7_v12_0.security_status_report_id = {}
 
--- Size: Security Status Report Id
+-- Size Of: Security Status Report Id
 eurex_cash_eti_t7_v12_0.security_status_report_id.size = 8
 
 -- Display: Security Status Report Id
@@ -13371,7 +13274,7 @@ end
 -- Response In
 eurex_cash_eti_t7_v12_0.response_in = {}
 
--- Size: Response In
+-- Size Of: Response In
 eurex_cash_eti_t7_v12_0.response_in.size = 8
 
 -- Display: Response In
@@ -13402,7 +13305,7 @@ end
 -- Trd Reg Ts Time In
 eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in = {}
 
--- Size: Trd Reg Ts Time In
+-- Size Of: Trd Reg Ts Time In
 eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size = 8
 
 -- Display: Trd Reg Ts Time In
@@ -13433,28 +13336,16 @@ end
 -- Nr Response Header Me Comp
 eurex_cash_eti_t7_v12_0.nr_response_header_me_comp = {}
 
--- Calculate size of: Nr Response Header Me Comp
-eurex_cash_eti_t7_v12_0.nr_response_header_me_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.request_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
-
-  index = index + eurex_cash_eti_t7_v12_0.response_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size Of: Nr Response Header Me Comp
+eurex_cash_eti_t7_v12_0.nr_response_header_me_comp.size =
+  eurex_cash_eti_t7_v12_0.request_time.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size + 
+  eurex_cash_eti_t7_v12_0.response_in.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size;
 
 -- Display: Nr Response Header Me Comp
 eurex_cash_eti_t7_v12_0.nr_response_header_me_comp.display = function(packet, parent, length)
@@ -13564,7 +13455,7 @@ end
 -- Event Type
 eurex_cash_eti_t7_v12_0.event_type = {}
 
--- Size: Event Type
+-- Size Of: Event Type
 eurex_cash_eti_t7_v12_0.event_type.size = 1
 
 -- Display: Event Type
@@ -13900,7 +13791,7 @@ end
 -- Quote Request Reject Reason
 eurex_cash_eti_t7_v12_0.quote_request_reject_reason = {}
 
--- Size: Quote Request Reject Reason
+-- Size Of: Quote Request Reject Reason
 eurex_cash_eti_t7_v12_0.quote_request_reject_reason.size = 1
 
 -- Display: Quote Request Reject Reason
@@ -14020,7 +13911,7 @@ end
 -- Fill Liquidity Ind
 eurex_cash_eti_t7_v12_0.fill_liquidity_ind = {}
 
--- Size: Fill Liquidity Ind
+-- Size Of: Fill Liquidity Ind
 eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size = 1
 
 -- Display: Fill Liquidity Ind
@@ -14065,7 +13956,7 @@ end
 -- Fill Exec Id
 eurex_cash_eti_t7_v12_0.fill_exec_id = {}
 
--- Size: Fill Exec Id
+-- Size Of: Fill Exec Id
 eurex_cash_eti_t7_v12_0.fill_exec_id.size = 4
 
 -- Display: Fill Exec Id
@@ -14093,7 +13984,7 @@ end
 -- Fill Match Id
 eurex_cash_eti_t7_v12_0.fill_match_id = {}
 
--- Size: Fill Match Id
+-- Size Of: Fill Match Id
 eurex_cash_eti_t7_v12_0.fill_match_id.size = 4
 
 -- Display: Fill Match Id
@@ -14121,7 +14012,7 @@ end
 -- Fill Qty
 eurex_cash_eti_t7_v12_0.fill_qty = {}
 
--- Size: Fill Qty
+-- Size Of: Fill Qty
 eurex_cash_eti_t7_v12_0.fill_qty.size = 8
 
 -- Display: Fill Qty
@@ -14160,7 +14051,7 @@ end
 -- Fill Px
 eurex_cash_eti_t7_v12_0.fill_px = {}
 
--- Size: Fill Px
+-- Size Of: Fill Px
 eurex_cash_eti_t7_v12_0.fill_px.size = 8
 
 -- Display: Fill Px
@@ -14199,24 +14090,14 @@ end
 -- Fills Grp Comp
 eurex_cash_eti_t7_v12_0.fills_grp_comp = {}
 
--- Calculate size of: Fills Grp Comp
-eurex_cash_eti_t7_v12_0.fills_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_match_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_exec_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size Of: Fills Grp Comp
+eurex_cash_eti_t7_v12_0.fills_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.fill_px.size + 
+  eurex_cash_eti_t7_v12_0.fill_qty.size + 
+  eurex_cash_eti_t7_v12_0.fill_match_id.size + 
+  eurex_cash_eti_t7_v12_0.fill_exec_id.size + 
+  eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size;
 
 -- Display: Fills Grp Comp
 eurex_cash_eti_t7_v12_0.fills_grp_comp.display = function(packet, parent, length)
@@ -14275,7 +14156,7 @@ end
 -- Party Entering Firm
 eurex_cash_eti_t7_v12_0.party_entering_firm = {}
 
--- Size: Party Entering Firm
+-- Size Of: Party Entering Firm
 eurex_cash_eti_t7_v12_0.party_entering_firm.size = 5
 
 -- Display: Party Entering Firm
@@ -14303,7 +14184,7 @@ end
 -- Triggered
 eurex_cash_eti_t7_v12_0.triggered = {}
 
--- Size: Triggered
+-- Size Of: Triggered
 eurex_cash_eti_t7_v12_0.triggered.size = 1
 
 -- Display: Triggered
@@ -14339,7 +14220,7 @@ end
 -- Appl Seq Indicator
 eurex_cash_eti_t7_v12_0.appl_seq_indicator = {}
 
--- Size: Appl Seq Indicator
+-- Size Of: Appl Seq Indicator
 eurex_cash_eti_t7_v12_0.appl_seq_indicator.size = 1
 
 -- Display: Appl Seq Indicator
@@ -14372,7 +14253,7 @@ end
 -- Trading Session Sub Id
 eurex_cash_eti_t7_v12_0.trading_session_sub_id = {}
 
--- Size: Trading Session Sub Id
+-- Size Of: Trading Session Sub Id
 eurex_cash_eti_t7_v12_0.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
@@ -14414,7 +14295,7 @@ end
 -- Exec Inst
 eurex_cash_eti_t7_v12_0.exec_inst = {}
 
--- Size: Exec Inst
+-- Size Of: Exec Inst
 eurex_cash_eti_t7_v12_0.exec_inst.size = 1
 
 -- Display: Exec Inst
@@ -14456,7 +14337,7 @@ end
 -- Time In Force
 eurex_cash_eti_t7_v12_0.time_in_force = {}
 
--- Size: Time In Force
+-- Size Of: Time In Force
 eurex_cash_eti_t7_v12_0.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -14498,7 +14379,7 @@ end
 -- Order Event Type
 eurex_cash_eti_t7_v12_0.order_event_type = {}
 
--- Size: Order Event Type
+-- Size Of: Order Event Type
 eurex_cash_eti_t7_v12_0.order_event_type.size = 1
 
 -- Display: Order Event Type
@@ -14528,7 +14409,7 @@ end
 -- No Fills
 eurex_cash_eti_t7_v12_0.no_fills = {}
 
--- Size: No Fills
+-- Size Of: No Fills
 eurex_cash_eti_t7_v12_0.no_fills.size = 1
 
 -- Display: No Fills
@@ -14556,7 +14437,7 @@ end
 -- Party Id Entering Trader
 eurex_cash_eti_t7_v12_0.party_id_entering_trader = {}
 
--- Size: Party Id Entering Trader
+-- Size Of: Party Id Entering Trader
 eurex_cash_eti_t7_v12_0.party_id_entering_trader.size = 4
 
 -- Display: Party Id Entering Trader
@@ -14584,7 +14465,7 @@ end
 -- Party Id Session Id
 eurex_cash_eti_t7_v12_0.party_id_session_id = {}
 
--- Size: Party Id Session Id
+-- Size Of: Party Id Session Id
 eurex_cash_eti_t7_v12_0.party_id_session_id.size = 4
 
 -- Display: Party Id Session Id
@@ -14612,7 +14493,7 @@ end
 -- Party Id Executing Unit
 eurex_cash_eti_t7_v12_0.party_id_executing_unit = {}
 
--- Size: Party Id Executing Unit
+-- Size Of: Party Id Executing Unit
 eurex_cash_eti_t7_v12_0.party_id_executing_unit.size = 4
 
 -- Display: Party Id Executing Unit
@@ -14640,7 +14521,7 @@ end
 -- Expire Date
 eurex_cash_eti_t7_v12_0.expire_date = {}
 
--- Size: Expire Date
+-- Size Of: Expire Date
 eurex_cash_eti_t7_v12_0.expire_date.size = 4
 
 -- Display: Expire Date
@@ -14668,7 +14549,7 @@ end
 -- Cxl Qty
 eurex_cash_eti_t7_v12_0.cxl_qty = {}
 
--- Size: Cxl Qty
+-- Size Of: Cxl Qty
 eurex_cash_eti_t7_v12_0.cxl_qty.size = 8
 
 -- Display: Cxl Qty
@@ -14707,7 +14588,7 @@ end
 -- Trd Reg Ts Time Priority
 eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority = {}
 
--- Size: Trd Reg Ts Time Priority
+-- Size Of: Trd Reg Ts Time Priority
 eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.size = 8
 
 -- Display: Trd Reg Ts Time Priority
@@ -14738,7 +14619,7 @@ end
 -- Trd Reg Ts Entry Time
 eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time = {}
 
--- Size: Trd Reg Ts Entry Time
+-- Size Of: Trd Reg Ts Entry Time
 eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.size = 8
 
 -- Display: Trd Reg Ts Entry Time
@@ -15014,7 +14895,7 @@ end
 -- Not Aff Orig Cl Ord Id
 eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id = {}
 
--- Size: Not Aff Orig Cl Ord Id
+-- Size Of: Not Aff Orig Cl Ord Id
 eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size = 8
 
 -- Display: Not Aff Orig Cl Ord Id
@@ -15042,7 +14923,7 @@ end
 -- Not Affected Order Id
 eurex_cash_eti_t7_v12_0.not_affected_order_id = {}
 
--- Size: Not Affected Order Id
+-- Size Of: Not Affected Order Id
 eurex_cash_eti_t7_v12_0.not_affected_order_id.size = 8
 
 -- Display: Not Affected Order Id
@@ -15070,16 +14951,10 @@ end
 -- Not Affected Orders Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp = {}
 
--- Calculate size of: Not Affected Orders Grp Comp
-eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.not_affected_order_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size
-
-  return index
-end
+-- Size Of: Not Affected Orders Grp Comp
+eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.not_affected_order_id.size + 
+  eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size;
 
 -- Display: Not Affected Orders Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp.display = function(packet, parent, length)
@@ -15126,7 +15001,7 @@ end
 -- Affected Orig Cl Ord Id
 eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id = {}
 
--- Size: Affected Orig Cl Ord Id
+-- Size Of: Affected Orig Cl Ord Id
 eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size = 8
 
 -- Display: Affected Orig Cl Ord Id
@@ -15154,7 +15029,7 @@ end
 -- Affected Order Id
 eurex_cash_eti_t7_v12_0.affected_order_id = {}
 
--- Size: Affected Order Id
+-- Size Of: Affected Order Id
 eurex_cash_eti_t7_v12_0.affected_order_id.size = 8
 
 -- Display: Affected Order Id
@@ -15182,16 +15057,10 @@ end
 -- Affected Ord Grp Comp
 eurex_cash_eti_t7_v12_0.affected_ord_grp_comp = {}
 
--- Calculate size of: Affected Ord Grp Comp
-eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.affected_order_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size
-
-  return index
-end
+-- Size Of: Affected Ord Grp Comp
+eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.affected_order_id.size + 
+  eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size;
 
 -- Display: Affected Ord Grp Comp
 eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.display = function(packet, parent, length)
@@ -15238,7 +15107,7 @@ end
 -- Mass Action Reason
 eurex_cash_eti_t7_v12_0.mass_action_reason = {}
 
--- Size: Mass Action Reason
+-- Size Of: Mass Action Reason
 eurex_cash_eti_t7_v12_0.mass_action_reason.size = 1
 
 -- Display: Mass Action Reason
@@ -15322,7 +15191,7 @@ end
 -- No Not Affected Orders
 eurex_cash_eti_t7_v12_0.no_not_affected_orders = {}
 
--- Size: No Not Affected Orders
+-- Size Of: No Not Affected Orders
 eurex_cash_eti_t7_v12_0.no_not_affected_orders.size = 2
 
 -- Display: No Not Affected Orders
@@ -15350,7 +15219,7 @@ end
 -- No Affected Orders
 eurex_cash_eti_t7_v12_0.no_affected_orders = {}
 
--- Size: No Affected Orders
+-- Size Of: No Affected Orders
 eurex_cash_eti_t7_v12_0.no_affected_orders.size = 2
 
 -- Display: No Affected Orders
@@ -15378,7 +15247,7 @@ end
 -- Mass Action Report Id
 eurex_cash_eti_t7_v12_0.mass_action_report_id = {}
 
--- Size: Mass Action Report Id
+-- Size Of: Mass Action Report Id
 eurex_cash_eti_t7_v12_0.mass_action_report_id.size = 8
 
 -- Display: Mass Action Report Id
@@ -15491,7 +15360,7 @@ end
 -- Quote Size Type
 eurex_cash_eti_t7_v12_0.quote_size_type = {}
 
--- Size: Quote Size Type
+-- Size Of: Quote Size Type
 eurex_cash_eti_t7_v12_0.quote_size_type.size = 1
 
 -- Display: Quote Size Type
@@ -15524,7 +15393,7 @@ end
 -- Price Validity Check Type
 eurex_cash_eti_t7_v12_0.price_validity_check_type = {}
 
--- Size: Price Validity Check Type
+-- Size Of: Price Validity Check Type
 eurex_cash_eti_t7_v12_0.price_validity_check_type.size = 1
 
 -- Display: Price Validity Check Type
@@ -15557,7 +15426,7 @@ end
 -- Match Inst Cross Id
 eurex_cash_eti_t7_v12_0.match_inst_cross_id = {}
 
--- Size: Match Inst Cross Id
+-- Size Of: Match Inst Cross Id
 eurex_cash_eti_t7_v12_0.match_inst_cross_id.size = 4
 
 -- Display: Match Inst Cross Id
@@ -15708,7 +15577,7 @@ end
 -- Risk Control Rtm Service Status
 eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status = {}
 
--- Size: Risk Control Rtm Service Status
+-- Size Of: Risk Control Rtm Service Status
 eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.size = 1
 
 -- Display: Risk Control Rtm Service Status
@@ -15741,7 +15610,7 @@ end
 -- News Rtm Service Status
 eurex_cash_eti_t7_v12_0.news_rtm_service_status = {}
 
--- Size: News Rtm Service Status
+-- Size Of: News Rtm Service Status
 eurex_cash_eti_t7_v12_0.news_rtm_service_status.size = 1
 
 -- Display: News Rtm Service Status
@@ -15774,7 +15643,7 @@ end
 -- Selective Request For Quote Rtm Service Status
 eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status = {}
 
--- Size: Selective Request For Quote Rtm Service Status
+-- Size Of: Selective Request For Quote Rtm Service Status
 eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.size = 1
 
 -- Display: Selective Request For Quote Rtm Service Status
@@ -15807,7 +15676,7 @@ end
 -- Selective Request For Quote Service Status
 eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status = {}
 
--- Size: Selective Request For Quote Service Status
+-- Size Of: Selective Request For Quote Service Status
 eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.size = 1
 
 -- Display: Selective Request For Quote Service Status
@@ -15840,7 +15709,7 @@ end
 -- Selective Request For Quote Service Trade Date
 eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date = {}
 
--- Size: Selective Request For Quote Service Trade Date
+-- Size Of: Selective Request For Quote Service Trade Date
 eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.size = 4
 
 -- Display: Selective Request For Quote Service Trade Date
@@ -15868,22 +15737,13 @@ end
 -- Nrbc Header Comp
 eurex_cash_eti_t7_v12_0.nrbc_header_comp = {}
 
--- Calculate size of: Nrbc Header Comp
-eurex_cash_eti_t7_v12_0.nrbc_header_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_sub_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_2.size
-
-  return index
-end
+-- Size Of: Nrbc Header Comp
+eurex_cash_eti_t7_v12_0.nrbc_header_comp.size =
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.appl_sub_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size + 
+  eurex_cash_eti_t7_v12_0.pad_2.size;
 
 -- Display: Nrbc Header Comp
 eurex_cash_eti_t7_v12_0.nrbc_header_comp.display = function(packet, parent, length)
@@ -15996,7 +15856,7 @@ end
 -- T 7 Entry Service Rtm Status
 eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status = {}
 
--- Size: T 7 Entry Service Rtm Status
+-- Size Of: T 7 Entry Service Rtm Status
 eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.size = 1
 
 -- Display: T 7 Entry Service Rtm Status
@@ -16029,7 +15889,7 @@ end
 -- T 7 Entry Service Status
 eurex_cash_eti_t7_v12_0.t_7_entry_service_status = {}
 
--- Size: T 7 Entry Service Status
+-- Size Of: T 7 Entry Service Status
 eurex_cash_eti_t7_v12_0.t_7_entry_service_status.size = 1
 
 -- Display: T 7 Entry Service Status
@@ -16062,7 +15922,7 @@ end
 -- Appl Seq Status
 eurex_cash_eti_t7_v12_0.appl_seq_status = {}
 
--- Size: Appl Seq Status
+-- Size Of: Appl Seq Status
 eurex_cash_eti_t7_v12_0.appl_seq_status.size = 1
 
 -- Display: Appl Seq Status
@@ -16095,7 +15955,7 @@ end
 -- Trade Manager Status
 eurex_cash_eti_t7_v12_0.trade_manager_status = {}
 
--- Size: Trade Manager Status
+-- Size Of: Trade Manager Status
 eurex_cash_eti_t7_v12_0.trade_manager_status.size = 1
 
 -- Display: Trade Manager Status
@@ -16128,7 +15988,7 @@ end
 -- Matching Engine Status
 eurex_cash_eti_t7_v12_0.matching_engine_status = {}
 
--- Size: Matching Engine Status
+-- Size Of: Matching Engine Status
 eurex_cash_eti_t7_v12_0.matching_engine_status.size = 1
 
 -- Display: Matching Engine Status
@@ -16161,7 +16021,7 @@ end
 -- T 7 Entry Service Rtm Trade Date
 eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date = {}
 
--- Size: T 7 Entry Service Rtm Trade Date
+-- Size Of: T 7 Entry Service Rtm Trade Date
 eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.size = 4
 
 -- Display: T 7 Entry Service Rtm Trade Date
@@ -16189,7 +16049,7 @@ end
 -- T 7 Entry Service Trade Date
 eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date = {}
 
--- Size: T 7 Entry Service Trade Date
+-- Size Of: T 7 Entry Service Trade Date
 eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.size = 4
 
 -- Display: T 7 Entry Service Trade Date
@@ -16217,7 +16077,7 @@ end
 -- Appl Seq Trade Date
 eurex_cash_eti_t7_v12_0.appl_seq_trade_date = {}
 
--- Size: Appl Seq Trade Date
+-- Size Of: Appl Seq Trade Date
 eurex_cash_eti_t7_v12_0.appl_seq_trade_date.size = 4
 
 -- Display: Appl Seq Trade Date
@@ -16245,7 +16105,7 @@ end
 -- Trade Manager Trade Date
 eurex_cash_eti_t7_v12_0.trade_manager_trade_date = {}
 
--- Size: Trade Manager Trade Date
+-- Size Of: Trade Manager Trade Date
 eurex_cash_eti_t7_v12_0.trade_manager_trade_date.size = 4
 
 -- Display: Trade Manager Trade Date
@@ -16273,7 +16133,7 @@ end
 -- Matching Engine Trade Date
 eurex_cash_eti_t7_v12_0.matching_engine_trade_date = {}
 
--- Size: Matching Engine Trade Date
+-- Size Of: Matching Engine Trade Date
 eurex_cash_eti_t7_v12_0.matching_engine_trade_date.size = 4
 
 -- Display: Matching Engine Trade Date
@@ -16385,7 +16245,7 @@ end
 -- Appl Total Message Count
 eurex_cash_eti_t7_v12_0.appl_total_message_count = {}
 
--- Size: Appl Total Message Count
+-- Size Of: Appl Total Message Count
 eurex_cash_eti_t7_v12_0.appl_total_message_count.size = 2
 
 -- Display: Appl Total Message Count
@@ -16413,7 +16273,7 @@ end
 -- Ref Appl Last Seq Num
 eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num = {}
 
--- Size: Ref Appl Last Seq Num
+-- Size Of: Ref Appl Last Seq Num
 eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.size = 8
 
 -- Display: Ref Appl Last Seq Num
@@ -16441,7 +16301,7 @@ end
 -- Appl End Seq Num
 eurex_cash_eti_t7_v12_0.appl_end_seq_num = {}
 
--- Size: Appl End Seq Num
+-- Size Of: Appl End Seq Num
 eurex_cash_eti_t7_v12_0.appl_end_seq_num.size = 8
 
 -- Display: Appl End Seq Num
@@ -16529,7 +16389,7 @@ end
 -- Appl Beg Seq Num
 eurex_cash_eti_t7_v12_0.appl_beg_seq_num = {}
 
--- Size: Appl Beg Seq Num
+-- Size Of: Appl Beg Seq Num
 eurex_cash_eti_t7_v12_0.appl_beg_seq_num.size = 8
 
 -- Display: Appl Beg Seq Num
@@ -16623,7 +16483,7 @@ end
 -- Appl End Msg Id
 eurex_cash_eti_t7_v12_0.appl_end_msg_id = {}
 
--- Size: Appl End Msg Id
+-- Size Of: Appl End Msg Id
 eurex_cash_eti_t7_v12_0.appl_end_msg_id.size = 16
 
 -- Display: Appl End Msg Id
@@ -16706,7 +16566,7 @@ end
 -- Appl Beg Msg Id
 eurex_cash_eti_t7_v12_0.appl_beg_msg_id = {}
 
--- Size: Appl Beg Msg Id
+-- Size Of: Appl Beg Msg Id
 eurex_cash_eti_t7_v12_0.appl_beg_msg_id.size = 16
 
 -- Display: Appl Beg Msg Id
@@ -16798,7 +16658,7 @@ end
 -- Session Status
 eurex_cash_eti_t7_v12_0.session_status = {}
 
--- Size: Session Status
+-- Size Of: Session Status
 eurex_cash_eti_t7_v12_0.session_status.size = 1
 
 -- Display: Session Status
@@ -16831,7 +16691,7 @@ end
 -- Session Reject Reason
 eurex_cash_eti_t7_v12_0.session_reject_reason = {}
 
--- Size: Session Reject Reason
+-- Size Of: Session Reject Reason
 eurex_cash_eti_t7_v12_0.session_reject_reason.size = 4
 
 -- Display: Session Reject Reason
@@ -17160,7 +17020,7 @@ end
 -- Rfq Requester Disclosure Instruction
 eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction = {}
 
--- Size: Rfq Requester Disclosure Instruction
+-- Size Of: Rfq Requester Disclosure Instruction
 eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.size = 1
 
 -- Display: Rfq Requester Disclosure Instruction
@@ -17193,7 +17053,7 @@ end
 -- Rfq Publish Indicator
 eurex_cash_eti_t7_v12_0.rfq_publish_indicator = {}
 
--- Size: Rfq Publish Indicator
+-- Size Of: Rfq Publish Indicator
 eurex_cash_eti_t7_v12_0.rfq_publish_indicator.size = 1
 
 -- Display: Rfq Publish Indicator
@@ -17451,7 +17311,7 @@ end
 -- Bbo Setting
 eurex_cash_eti_t7_v12_0.bbo_setting = {}
 
--- Size: Bbo Setting
+-- Size Of: Bbo Setting
 eurex_cash_eti_t7_v12_0.bbo_setting.size = 1
 
 -- Display: Bbo Setting
@@ -17481,7 +17341,7 @@ end
 -- Quote Event Liquidity Ind
 eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind = {}
 
--- Size: Quote Event Liquidity Ind
+-- Size Of: Quote Event Liquidity Ind
 eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size = 1
 
 -- Display: Quote Event Liquidity Ind
@@ -17517,7 +17377,7 @@ end
 -- Quote Event Side
 eurex_cash_eti_t7_v12_0.quote_event_side = {}
 
--- Size: Quote Event Side
+-- Size Of: Quote Event Side
 eurex_cash_eti_t7_v12_0.quote_event_side.size = 1
 
 -- Display: Quote Event Side
@@ -17550,7 +17410,7 @@ end
 -- Quote Event Type
 eurex_cash_eti_t7_v12_0.quote_event_type = {}
 
--- Size: Quote Event Type
+-- Size Of: Quote Event Type
 eurex_cash_eti_t7_v12_0.quote_event_type.size = 1
 
 -- Display: Quote Event Type
@@ -17592,7 +17452,7 @@ end
 -- Quote Event Exec Id
 eurex_cash_eti_t7_v12_0.quote_event_exec_id = {}
 
--- Size: Quote Event Exec Id
+-- Size Of: Quote Event Exec Id
 eurex_cash_eti_t7_v12_0.quote_event_exec_id.size = 4
 
 -- Display: Quote Event Exec Id
@@ -17620,7 +17480,7 @@ end
 -- Quote Event Match Id
 eurex_cash_eti_t7_v12_0.quote_event_match_id = {}
 
--- Size: Quote Event Match Id
+-- Size Of: Quote Event Match Id
 eurex_cash_eti_t7_v12_0.quote_event_match_id.size = 4
 
 -- Display: Quote Event Match Id
@@ -17648,7 +17508,7 @@ end
 -- Quote Msg Id
 eurex_cash_eti_t7_v12_0.quote_msg_id = {}
 
--- Size: Quote Msg Id
+-- Size Of: Quote Msg Id
 eurex_cash_eti_t7_v12_0.quote_msg_id.size = 8
 
 -- Display: Quote Msg Id
@@ -17676,7 +17536,7 @@ end
 -- Quote Event Qty
 eurex_cash_eti_t7_v12_0.quote_event_qty = {}
 
--- Size: Quote Event Qty
+-- Size Of: Quote Event Qty
 eurex_cash_eti_t7_v12_0.quote_event_qty.size = 8
 
 -- Display: Quote Event Qty
@@ -17715,7 +17575,7 @@ end
 -- Quote Event Px
 eurex_cash_eti_t7_v12_0.quote_event_px = {}
 
--- Size: Quote Event Px
+-- Size Of: Quote Event Px
 eurex_cash_eti_t7_v12_0.quote_event_px.size = 8
 
 -- Display: Quote Event Px
@@ -17754,36 +17614,20 @@ end
 -- Quote Event Grp Comp
 eurex_cash_eti_t7_v12_0.quote_event_grp_comp = {}
 
--- Calculate size of: Quote Event Grp Comp
-eurex_cash_eti_t7_v12_0.quote_event_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.security_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_msg_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_match_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_exec_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bbo_setting.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_event_reason.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size Of: Quote Event Grp Comp
+eurex_cash_eti_t7_v12_0.quote_event_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.security_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_px.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_qty.size + 
+  eurex_cash_eti_t7_v12_0.quote_msg_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_match_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_exec_id.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_type.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_side.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size + 
+  eurex_cash_eti_t7_v12_0.bbo_setting.size + 
+  eurex_cash_eti_t7_v12_0.quote_event_reason.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size;
 
 -- Display: Quote Event Grp Comp
 eurex_cash_eti_t7_v12_0.quote_event_grp_comp.display = function(packet, parent, length)
@@ -17860,7 +17704,7 @@ end
 -- No Quote Events
 eurex_cash_eti_t7_v12_0.no_quote_events = {}
 
--- Size: No Quote Events
+-- Size Of: No Quote Events
 eurex_cash_eti_t7_v12_0.no_quote_events.size = 1
 
 -- Display: No Quote Events
@@ -17953,7 +17797,7 @@ end
 -- Not Affected Security Id
 eurex_cash_eti_t7_v12_0.not_affected_security_id = {}
 
--- Size: Not Affected Security Id
+-- Size Of: Not Affected Security Id
 eurex_cash_eti_t7_v12_0.not_affected_security_id.size = 8
 
 -- Display: Not Affected Security Id
@@ -17981,14 +17825,9 @@ end
 -- Not Affected Securities Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp = {}
 
--- Calculate size of: Not Affected Securities Grp Comp
-eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.not_affected_security_id.size
-
-  return index
-end
+-- Size Of: Not Affected Securities Grp Comp
+eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.not_affected_security_id.size;
 
 -- Display: Not Affected Securities Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.display = function(packet, parent, length)
@@ -18032,7 +17871,7 @@ end
 -- No Not Affected Securities
 eurex_cash_eti_t7_v12_0.no_not_affected_securities = {}
 
--- Size: No Not Affected Securities
+-- Size Of: No Not Affected Securities
 eurex_cash_eti_t7_v12_0.no_not_affected_securities.size = 2
 
 -- Display: No Not Affected Securities
@@ -18122,7 +17961,7 @@ end
 -- Mass Action Type
 eurex_cash_eti_t7_v12_0.mass_action_type = {}
 
--- Size: Mass Action Type
+-- Size Of: Mass Action Type
 eurex_cash_eti_t7_v12_0.mass_action_type.size = 1
 
 -- Display: Mass Action Type
@@ -18310,7 +18149,7 @@ end
 -- Risk Limit Type
 eurex_cash_eti_t7_v12_0.risk_limit_type = {}
 
--- Size: Risk Limit Type
+-- Size Of: Risk Limit Type
 eurex_cash_eti_t7_v12_0.risk_limit_type.size = 1
 
 -- Display: Risk Limit Type
@@ -18343,7 +18182,7 @@ end
 -- Risk Limit Amount
 eurex_cash_eti_t7_v12_0.risk_limit_amount = {}
 
--- Size: Risk Limit Amount
+-- Size Of: Risk Limit Amount
 eurex_cash_eti_t7_v12_0.risk_limit_amount.size = 8
 
 -- Display: Risk Limit Amount
@@ -18382,18 +18221,11 @@ end
 -- Risk Limit Amount Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp = {}
 
--- Calculate size of: Risk Limit Amount Grp Comp
-eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_7.size
-
-  return index
-end
+-- Size Of: Risk Limit Amount Grp Comp
+eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.risk_limit_amount.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_type.size + 
+  eurex_cash_eti_t7_v12_0.pad_7.size;
 
 -- Display: Risk Limit Amount Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.display = function(packet, parent, length)
@@ -18443,7 +18275,7 @@ end
 -- Party Detail Executing Unit
 eurex_cash_eti_t7_v12_0.party_detail_executing_unit = {}
 
--- Size: Party Detail Executing Unit
+-- Size Of: Party Detail Executing Unit
 eurex_cash_eti_t7_v12_0.party_detail_executing_unit.size = 5
 
 -- Display: Party Detail Executing Unit
@@ -18471,7 +18303,7 @@ end
 -- Risk Limit Group
 eurex_cash_eti_t7_v12_0.risk_limit_group = {}
 
--- Size: Risk Limit Group
+-- Size Of: Risk Limit Group
 eurex_cash_eti_t7_v12_0.risk_limit_group.size = 3
 
 -- Display: Risk Limit Group
@@ -18499,7 +18331,7 @@ end
 -- Party Detail Status
 eurex_cash_eti_t7_v12_0.party_detail_status = {}
 
--- Size: Party Detail Status
+-- Size Of: Party Detail Status
 eurex_cash_eti_t7_v12_0.party_detail_status.size = 1
 
 -- Display: Party Detail Status
@@ -18532,7 +18364,7 @@ end
 -- No Risk Limit Amount
 eurex_cash_eti_t7_v12_0.no_risk_limit_amount = {}
 
--- Size: No Risk Limit Amount
+-- Size Of: No Risk Limit Amount
 eurex_cash_eti_t7_v12_0.no_risk_limit_amount.size = 1
 
 -- Display: No Risk Limit Amount
@@ -18634,7 +18466,7 @@ end
 -- Risk Limit Violation Indicator
 eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator = {}
 
--- Size: Risk Limit Violation Indicator
+-- Size Of: Risk Limit Violation Indicator
 eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size = 1
 
 -- Display: Risk Limit Violation Indicator
@@ -18667,7 +18499,7 @@ end
 -- Risk Limit Requesting Party Role
 eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role = {}
 
--- Size: Risk Limit Requesting Party Role
+-- Size Of: Risk Limit Requesting Party Role
 eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size = 1
 
 -- Display: Risk Limit Requesting Party Role
@@ -18703,7 +18535,7 @@ end
 -- Activation Date
 eurex_cash_eti_t7_v12_0.activation_date = {}
 
--- Size: Activation Date
+-- Size Of: Activation Date
 eurex_cash_eti_t7_v12_0.activation_date.size = 4
 
 -- Display: Activation Date
@@ -18731,7 +18563,7 @@ end
 -- Risk Limit Net Position Amount
 eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount = {}
 
--- Size: Risk Limit Net Position Amount
+-- Size Of: Risk Limit Net Position Amount
 eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size = 8
 
 -- Display: Risk Limit Net Position Amount
@@ -18770,7 +18602,7 @@ end
 -- Risk Limit Open Amount
 eurex_cash_eti_t7_v12_0.risk_limit_open_amount = {}
 
--- Size: Risk Limit Open Amount
+-- Size Of: Risk Limit Open Amount
 eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size = 8
 
 -- Display: Risk Limit Open Amount
@@ -18809,30 +18641,17 @@ end
 -- Risk Limits Rpt Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp = {}
 
--- Calculate size of: Risk Limits Rpt Grp Comp
-eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size
-
-  index = index + eurex_cash_eti_t7_v12_0.activation_date.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size
-
-  index = index + eurex_cash_eti_t7_v12_0.risk_limit_group.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_6.size
-
-  return index
-end
+-- Size Of: Risk Limits Rpt Grp Comp
+eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.risk_limit_amount.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size + 
+  eurex_cash_eti_t7_v12_0.activation_date.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_type.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size + 
+  eurex_cash_eti_t7_v12_0.risk_limit_group.size + 
+  eurex_cash_eti_t7_v12_0.pad_6.size;
 
 -- Display: Risk Limits Rpt Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.display = function(packet, parent, length)
@@ -18900,7 +18719,7 @@ end
 -- No Risk Limits
 eurex_cash_eti_t7_v12_0.no_risk_limits = {}
 
--- Size: No Risk Limits
+-- Size Of: No Risk Limits
 eurex_cash_eti_t7_v12_0.no_risk_limits.size = 1
 
 -- Display: No Risk Limits
@@ -18928,7 +18747,7 @@ end
 -- Risk Limit Report Id
 eurex_cash_eti_t7_v12_0.risk_limit_report_id = {}
 
--- Size: Risk Limit Report Id
+-- Size Of: Risk Limit Report Id
 eurex_cash_eti_t7_v12_0.risk_limit_report_id.size = 8
 
 -- Display: Risk Limit Report Id
@@ -19135,7 +18954,7 @@ end
 -- Requesting Party Clearing Firm
 eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm = {}
 
--- Size: Requesting Party Clearing Firm
+-- Size Of: Requesting Party Clearing Firm
 eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.size = 9
 
 -- Display: Requesting Party Clearing Firm
@@ -19163,7 +18982,7 @@ end
 -- Requesting Party Entering Firm
 eurex_cash_eti_t7_v12_0.requesting_party_entering_firm = {}
 
--- Size: Requesting Party Entering Firm
+-- Size Of: Requesting Party Entering Firm
 eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.size = 9
 
 -- Display: Requesting Party Entering Firm
@@ -19191,7 +19010,7 @@ end
 -- List Update Action
 eurex_cash_eti_t7_v12_0.list_update_action = {}
 
--- Size: List Update Action
+-- Size Of: List Update Action
 eurex_cash_eti_t7_v12_0.list_update_action.size = 1
 
 -- Display: List Update Action
@@ -19234,7 +19053,7 @@ end
 -- Market Id
 eurex_cash_eti_t7_v12_0.market_id = {}
 
--- Size: Market Id
+-- Size Of: Market Id
 eurex_cash_eti_t7_v12_0.market_id.size = 2
 
 -- Display: Market Id
@@ -19288,7 +19107,7 @@ end
 -- Requesting Party Id Executing System
 eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system = {}
 
--- Size: Requesting Party Id Executing System
+-- Size Of: Requesting Party Id Executing System
 eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.size = 4
 
 -- Display: Requesting Party Id Executing System
@@ -19318,7 +19137,7 @@ end
 -- Party Detail Id Executing Unit
 eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit = {}
 
--- Size: Party Detail Id Executing Unit
+-- Size Of: Party Detail Id Executing Unit
 eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.size = 4
 
 -- Display: Party Detail Id Executing Unit
@@ -19424,7 +19243,7 @@ end
 -- Requesting Party Id Entering Firm
 eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm = {}
 
--- Size: Requesting Party Id Entering Firm
+-- Size Of: Requesting Party Id Entering Firm
 eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.size = 1
 
 -- Display: Requesting Party Id Entering Firm
@@ -19457,7 +19276,7 @@ end
 -- Party Action Type
 eurex_cash_eti_t7_v12_0.party_action_type = {}
 
--- Size: Party Action Type
+-- Size Of: Party Action Type
 eurex_cash_eti_t7_v12_0.party_action_type.size = 1
 
 -- Display: Party Action Type
@@ -19490,7 +19309,7 @@ end
 -- Requesting Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader = {}
 
--- Size: Requesting Party Id Executing Trader
+-- Size Of: Requesting Party Id Executing Trader
 eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.size = 4
 
 -- Display: Requesting Party Id Executing Trader
@@ -19593,7 +19412,7 @@ end
 -- Order Event Reason
 eurex_cash_eti_t7_v12_0.order_event_reason = {}
 
--- Size: Order Event Reason
+-- Size Of: Order Event Reason
 eurex_cash_eti_t7_v12_0.order_event_reason.size = 1
 
 -- Display: Order Event Reason
@@ -19623,7 +19442,7 @@ end
 -- Order Event Match Id
 eurex_cash_eti_t7_v12_0.order_event_match_id = {}
 
--- Size: Order Event Match Id
+-- Size Of: Order Event Match Id
 eurex_cash_eti_t7_v12_0.order_event_match_id.size = 4
 
 -- Display: Order Event Match Id
@@ -19651,7 +19470,7 @@ end
 -- Order Event Qty
 eurex_cash_eti_t7_v12_0.order_event_qty = {}
 
--- Size: Order Event Qty
+-- Size Of: Order Event Qty
 eurex_cash_eti_t7_v12_0.order_event_qty.size = 8
 
 -- Display: Order Event Qty
@@ -19690,7 +19509,7 @@ end
 -- Order Event Px
 eurex_cash_eti_t7_v12_0.order_event_px = {}
 
--- Size: Order Event Px
+-- Size Of: Order Event Px
 eurex_cash_eti_t7_v12_0.order_event_px.size = 8
 
 -- Display: Order Event Px
@@ -19729,22 +19548,13 @@ end
 -- Order Event Grp Comp
 eurex_cash_eti_t7_v12_0.order_event_grp_comp = {}
 
--- Calculate size of: Order Event Grp Comp
-eurex_cash_eti_t7_v12_0.order_event_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_match_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.order_event_reason.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size Of: Order Event Grp Comp
+eurex_cash_eti_t7_v12_0.order_event_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.order_event_px.size + 
+  eurex_cash_eti_t7_v12_0.order_event_qty.size + 
+  eurex_cash_eti_t7_v12_0.order_event_match_id.size + 
+  eurex_cash_eti_t7_v12_0.order_event_reason.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size;
 
 -- Display: Order Event Grp Comp
 eurex_cash_eti_t7_v12_0.order_event_grp_comp.display = function(packet, parent, length)
@@ -19800,7 +19610,7 @@ end
 -- No Order Events
 eurex_cash_eti_t7_v12_0.no_order_events = {}
 
--- Size: No Order Events
+-- Size Of: No Order Events
 eurex_cash_eti_t7_v12_0.no_order_events.size = 1
 
 -- Display: No Order Events
@@ -19828,7 +19638,7 @@ end
 -- Transaction Delay Indicator
 eurex_cash_eti_t7_v12_0.transaction_delay_indicator = {}
 
--- Size: Transaction Delay Indicator
+-- Size Of: Transaction Delay Indicator
 eurex_cash_eti_t7_v12_0.transaction_delay_indicator.size = 1
 
 -- Display: Transaction Delay Indicator
@@ -19861,7 +19671,7 @@ end
 -- Crossed Indicator
 eurex_cash_eti_t7_v12_0.crossed_indicator = {}
 
--- Size: Crossed Indicator
+-- Size Of: Crossed Indicator
 eurex_cash_eti_t7_v12_0.crossed_indicator.size = 1
 
 -- Display: Crossed Indicator
@@ -19894,7 +19704,7 @@ end
 -- Display Qty
 eurex_cash_eti_t7_v12_0.display_qty = {}
 
--- Size: Display Qty
+-- Size Of: Display Qty
 eurex_cash_eti_t7_v12_0.display_qty.size = 8
 
 -- Display: Display Qty
@@ -19933,32 +19743,18 @@ end
 -- Response Header Me Comp
 eurex_cash_eti_t7_v12_0.response_header_me_comp = {}
 
--- Calculate size of: Response Header Me Comp
-eurex_cash_eti_t7_v12_0.response_header_me_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.request_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
-
-  index = index + eurex_cash_eti_t7_v12_0.response_in.size
-
-  index = index + eurex_cash_eti_t7_v12_0.sending_time.size
-
-  index = index + eurex_cash_eti_t7_v12_0.msg_seq_num.size
-
-  index = index + eurex_cash_eti_t7_v12_0.partition_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.appl_msg_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.last_fragment.size
-
-  return index
-end
+-- Size Of: Response Header Me Comp
+eurex_cash_eti_t7_v12_0.response_header_me_comp.size =
+  eurex_cash_eti_t7_v12_0.request_time.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size + 
+  eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size + 
+  eurex_cash_eti_t7_v12_0.response_in.size + 
+  eurex_cash_eti_t7_v12_0.sending_time.size + 
+  eurex_cash_eti_t7_v12_0.msg_seq_num.size + 
+  eurex_cash_eti_t7_v12_0.partition_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_id.size + 
+  eurex_cash_eti_t7_v12_0.appl_msg_id.size + 
+  eurex_cash_eti_t7_v12_0.last_fragment.size;
 
 -- Display: Response Header Me Comp
 eurex_cash_eti_t7_v12_0.response_header_me_comp.display = function(packet, parent, length)
@@ -20156,7 +19952,7 @@ end
 -- Trade At Close Opt In
 eurex_cash_eti_t7_v12_0.trade_at_close_opt_in = {}
 
--- Size: Trade At Close Opt In
+-- Size Of: Trade At Close Opt In
 eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.size = 1
 
 -- Display: Trade At Close Opt In
@@ -20189,7 +19985,7 @@ end
 -- Peg Offset Value Pct
 eurex_cash_eti_t7_v12_0.peg_offset_value_pct = {}
 
--- Size: Peg Offset Value Pct
+-- Size Of: Peg Offset Value Pct
 eurex_cash_eti_t7_v12_0.peg_offset_value_pct.size = 8
 
 -- Display: Peg Offset Value Pct
@@ -20228,7 +20024,7 @@ end
 -- Peg Offset Value Abs
 eurex_cash_eti_t7_v12_0.peg_offset_value_abs = {}
 
--- Size: Peg Offset Value Abs
+-- Size Of: Peg Offset Value Abs
 eurex_cash_eti_t7_v12_0.peg_offset_value_abs.size = 8
 
 -- Display: Peg Offset Value Abs
@@ -20267,7 +20063,7 @@ end
 -- Display High Qty
 eurex_cash_eti_t7_v12_0.display_high_qty = {}
 
--- Size: Display High Qty
+-- Size Of: Display High Qty
 eurex_cash_eti_t7_v12_0.display_high_qty.size = 8
 
 -- Display: Display High Qty
@@ -20306,7 +20102,7 @@ end
 -- Display Low Qty
 eurex_cash_eti_t7_v12_0.display_low_qty = {}
 
--- Size: Display Low Qty
+-- Size Of: Display Low Qty
 eurex_cash_eti_t7_v12_0.display_low_qty.size = 8
 
 -- Display: Display Low Qty
@@ -20695,7 +20491,7 @@ end
 -- Headline
 eurex_cash_eti_t7_v12_0.headline = {}
 
--- Size: Headline
+-- Size Of: Headline
 eurex_cash_eti_t7_v12_0.headline.size = 256
 
 -- Display: Headline
@@ -20723,7 +20519,7 @@ end
 -- Orig Time
 eurex_cash_eti_t7_v12_0.orig_time = {}
 
--- Size: Orig Time
+-- Size Of: Orig Time
 eurex_cash_eti_t7_v12_0.orig_time.size = 8
 
 -- Display: Orig Time
@@ -20831,7 +20627,7 @@ end
 -- Enrichment Rule Id
 eurex_cash_eti_t7_v12_0.enrichment_rule_id = {}
 
--- Size: Enrichment Rule Id
+-- Size Of: Enrichment Rule Id
 eurex_cash_eti_t7_v12_0.enrichment_rule_id.size = 2
 
 -- Display: Enrichment Rule Id
@@ -21355,26 +21151,15 @@ end
 -- Side Alloc Grp Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_comp = {}
 
--- Calculate size of: Side Alloc Grp Comp
-eurex_cash_eti_t7_v12_0.side_alloc_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.alloc_qty.size
-
-  index = index + eurex_cash_eti_t7_v12_0.individual_alloc_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_firm.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_4.size
-
-  return index
-end
+-- Size Of: Side Alloc Grp Comp
+eurex_cash_eti_t7_v12_0.side_alloc_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.alloc_qty.size + 
+  eurex_cash_eti_t7_v12_0.individual_alloc_id.size + 
+  eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size + 
+  eurex_cash_eti_t7_v12_0.side.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.pad_4.size;
 
 -- Display: Side Alloc Grp Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_comp.display = function(packet, parent, length)
@@ -21651,7 +21436,7 @@ end
 -- Ownership Indicator
 eurex_cash_eti_t7_v12_0.ownership_indicator = {}
 
--- Size: Ownership Indicator
+-- Size Of: Ownership Indicator
 eurex_cash_eti_t7_v12_0.ownership_indicator.size = 1
 
 -- Display: Ownership Indicator
@@ -21684,7 +21469,7 @@ end
 -- Stop Px Indicator
 eurex_cash_eti_t7_v12_0.stop_px_indicator = {}
 
--- Size: Stop Px Indicator
+-- Size Of: Stop Px Indicator
 eurex_cash_eti_t7_v12_0.stop_px_indicator.size = 1
 
 -- Display: Stop Px Indicator
@@ -22123,7 +21908,7 @@ end
 -- Quote Entry Status
 eurex_cash_eti_t7_v12_0.quote_entry_status = {}
 
--- Size: Quote Entry Status
+-- Size Of: Quote Entry Status
 eurex_cash_eti_t7_v12_0.quote_entry_status.size = 1
 
 -- Display: Quote Entry Status
@@ -22162,7 +21947,7 @@ end
 -- Quote Entry Reject Reason
 eurex_cash_eti_t7_v12_0.quote_entry_reject_reason = {}
 
--- Size: Quote Entry Reject Reason
+-- Size Of: Quote Entry Reject Reason
 eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size = 4
 
 -- Display: Quote Entry Reject Reason
@@ -22321,7 +22106,7 @@ end
 -- Cxl Size
 eurex_cash_eti_t7_v12_0.cxl_size = {}
 
--- Size: Cxl Size
+-- Size Of: Cxl Size
 eurex_cash_eti_t7_v12_0.cxl_size.size = 8
 
 -- Display: Cxl Size
@@ -22360,24 +22145,14 @@ end
 -- Quote Entry Ack Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp = {}
 
--- Calculate size of: Quote Entry Ack Grp Comp
-eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.security_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.cxl_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size
-
-  index = index + eurex_cash_eti_t7_v12_0.quote_entry_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.side.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_2.size
-
-  return index
-end
+-- Size Of: Quote Entry Ack Grp Comp
+eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.security_id.size + 
+  eurex_cash_eti_t7_v12_0.cxl_size.size + 
+  eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size + 
+  eurex_cash_eti_t7_v12_0.quote_entry_status.size + 
+  eurex_cash_eti_t7_v12_0.side.size + 
+  eurex_cash_eti_t7_v12_0.pad_2.size;
 
 -- Display: Quote Entry Ack Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.display = function(packet, parent, length)
@@ -22436,7 +22211,7 @@ end
 -- No Quote Side Entries
 eurex_cash_eti_t7_v12_0.no_quote_side_entries = {}
 
--- Size: No Quote Side Entries
+-- Size Of: No Quote Side Entries
 eurex_cash_eti_t7_v12_0.no_quote_side_entries.size = 1
 
 -- Display: No Quote Side Entries
@@ -22464,7 +22239,7 @@ end
 -- Quote Response Id
 eurex_cash_eti_t7_v12_0.quote_response_id = {}
 
--- Size: Quote Response Id
+-- Size Of: Quote Response Id
 eurex_cash_eti_t7_v12_0.quote_response_id.size = 8
 
 -- Display: Quote Response Id
@@ -22563,22 +22338,13 @@ end
 -- Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_grp_comp = {}
 
--- Calculate size of: Quote Entry Grp Comp
-eurex_cash_eti_t7_v12_0.quote_entry_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.security_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.bid_size.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.offer_size.size
-
-  return index
-end
+-- Size Of: Quote Entry Grp Comp
+eurex_cash_eti_t7_v12_0.quote_entry_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.security_id.size + 
+  eurex_cash_eti_t7_v12_0.bid_px.size + 
+  eurex_cash_eti_t7_v12_0.bid_size.size + 
+  eurex_cash_eti_t7_v12_0.offer_px.size + 
+  eurex_cash_eti_t7_v12_0.offer_size.size;
 
 -- Display: Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_grp_comp.display = function(packet, parent, length)
@@ -22859,7 +22625,7 @@ end
 -- Default Cstm Appl Ver Sub Id
 eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id = {}
 
--- Size: Default Cstm Appl Ver Sub Id
+-- Size Of: Default Cstm Appl Ver Sub Id
 eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.size = 5
 
 -- Display: Default Cstm Appl Ver Sub Id
@@ -22886,7 +22652,7 @@ end
 -- Default Cstm Appl Ver Id
 eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id = {}
 
--- Size: Default Cstm Appl Ver Id
+-- Size Of: Default Cstm Appl Ver Id
 eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.size = 30
 
 -- Display: Default Cstm Appl Ver Id
@@ -22925,7 +22691,7 @@ end
 -- Trad Ses Mode
 eurex_cash_eti_t7_v12_0.trad_ses_mode = {}
 
--- Size: Trad Ses Mode
+-- Size Of: Trad Ses Mode
 eurex_cash_eti_t7_v12_0.trad_ses_mode.size = 1
 
 -- Display: Trad Ses Mode
@@ -22967,7 +22733,7 @@ end
 -- Public Key Len
 eurex_cash_eti_t7_v12_0.public_key_len = {}
 
--- Size: Public Key Len
+-- Size Of: Public Key Len
 eurex_cash_eti_t7_v12_0.public_key_len.size = 2
 
 -- Display: Public Key Len
@@ -22995,7 +22761,7 @@ end
 -- Latest Public Key Seq No
 eurex_cash_eti_t7_v12_0.latest_public_key_seq_no = {}
 
--- Size: Latest Public Key Seq No
+-- Size Of: Latest Public Key Seq No
 eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.size = 4
 
 -- Display: Latest Public Key Seq No
@@ -23023,7 +22789,7 @@ end
 -- Session Instance Id
 eurex_cash_eti_t7_v12_0.session_instance_id = {}
 
--- Size: Session Instance Id
+-- Size Of: Session Instance Id
 eurex_cash_eti_t7_v12_0.session_instance_id.size = 4
 
 -- Display: Session Instance Id
@@ -23051,7 +22817,7 @@ end
 -- Heart Bt Int
 eurex_cash_eti_t7_v12_0.heart_bt_int = {}
 
--- Size: Heart Bt Int
+-- Size Of: Heart Bt Int
 eurex_cash_eti_t7_v12_0.heart_bt_int.size = 4
 
 -- Display: Heart Bt Int
@@ -23180,7 +22946,7 @@ end
 -- Application System Vendor
 eurex_cash_eti_t7_v12_0.application_system_vendor = {}
 
--- Size: Application System Vendor
+-- Size Of: Application System Vendor
 eurex_cash_eti_t7_v12_0.application_system_vendor.size = 30
 
 -- Display: Application System Vendor
@@ -23219,7 +22985,7 @@ end
 -- Application System Version
 eurex_cash_eti_t7_v12_0.application_system_version = {}
 
--- Size: Application System Version
+-- Size Of: Application System Version
 eurex_cash_eti_t7_v12_0.application_system_version.size = 30
 
 -- Display: Application System Version
@@ -23258,7 +23024,7 @@ end
 -- Application System Name
 eurex_cash_eti_t7_v12_0.application_system_name = {}
 
--- Size: Application System Name
+-- Size Of: Application System Name
 eurex_cash_eti_t7_v12_0.application_system_name.size = 30
 
 -- Display: Application System Name
@@ -23297,7 +23063,7 @@ end
 -- Fix Engine Vendor
 eurex_cash_eti_t7_v12_0.fix_engine_vendor = {}
 
--- Size: Fix Engine Vendor
+-- Size Of: Fix Engine Vendor
 eurex_cash_eti_t7_v12_0.fix_engine_vendor.size = 30
 
 -- Display: Fix Engine Vendor
@@ -23336,7 +23102,7 @@ end
 -- Fix Engine Version
 eurex_cash_eti_t7_v12_0.fix_engine_version = {}
 
--- Size: Fix Engine Version
+-- Size Of: Fix Engine Version
 eurex_cash_eti_t7_v12_0.fix_engine_version.size = 30
 
 -- Display: Fix Engine Version
@@ -23375,7 +23141,7 @@ end
 -- Fix Engine Name
 eurex_cash_eti_t7_v12_0.fix_engine_name = {}
 
--- Size: Fix Engine Name
+-- Size Of: Fix Engine Name
 eurex_cash_eti_t7_v12_0.fix_engine_name.size = 30
 
 -- Display: Fix Engine Name
@@ -23414,7 +23180,7 @@ end
 -- Order Routing Indicator
 eurex_cash_eti_t7_v12_0.order_routing_indicator = {}
 
--- Size: Order Routing Indicator
+-- Size Of: Order Routing Indicator
 eurex_cash_eti_t7_v12_0.order_routing_indicator.size = 1
 
 -- Display: Order Routing Indicator
@@ -23457,7 +23223,7 @@ end
 -- Appl Usage Quotes
 eurex_cash_eti_t7_v12_0.appl_usage_quotes = {}
 
--- Size: Appl Usage Quotes
+-- Size Of: Appl Usage Quotes
 eurex_cash_eti_t7_v12_0.appl_usage_quotes.size = 1
 
 -- Display: Appl Usage Quotes
@@ -23506,7 +23272,7 @@ end
 -- Appl Usage Orders
 eurex_cash_eti_t7_v12_0.appl_usage_orders = {}
 
--- Size: Appl Usage Orders
+-- Size Of: Appl Usage Orders
 eurex_cash_eti_t7_v12_0.appl_usage_orders.size = 1
 
 -- Display: Appl Usage Orders
@@ -23741,7 +23507,7 @@ end
 -- User Status
 eurex_cash_eti_t7_v12_0.user_status = {}
 
--- Size: User Status
+-- Size Of: User Status
 eurex_cash_eti_t7_v12_0.user_status.size = 1
 
 -- Display: User Status
@@ -23905,7 +23671,7 @@ end
 -- Event Date
 eurex_cash_eti_t7_v12_0.event_date = {}
 
--- Size: Event Date
+-- Size Of: Event Date
 eurex_cash_eti_t7_v12_0.event_date.size = 4
 
 -- Display: Event Date
@@ -23933,7 +23699,7 @@ end
 -- Event Px
 eurex_cash_eti_t7_v12_0.event_px = {}
 
--- Size: Event Px
+-- Size Of: Event Px
 eurex_cash_eti_t7_v12_0.event_px.size = 8
 
 -- Display: Event Px
@@ -23972,20 +23738,12 @@ end
 -- Security Status Event Grp Comp
 eurex_cash_eti_t7_v12_0.security_status_event_grp_comp = {}
 
--- Calculate size of: Security Status Event Grp Comp
-eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.event_px.size
-
-  index = index + eurex_cash_eti_t7_v12_0.event_date.size
-
-  index = index + eurex_cash_eti_t7_v12_0.event_type.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_3.size
-
-  return index
-end
+-- Size Of: Security Status Event Grp Comp
+eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.event_px.size + 
+  eurex_cash_eti_t7_v12_0.event_date.size + 
+  eurex_cash_eti_t7_v12_0.event_type.size + 
+  eurex_cash_eti_t7_v12_0.pad_3.size;
 
 -- Display: Security Status Event Grp Comp
 eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.display = function(packet, parent, length)
@@ -24038,7 +23796,7 @@ end
 -- Sold Out Indicator
 eurex_cash_eti_t7_v12_0.sold_out_indicator = {}
 
--- Size: Sold Out Indicator
+-- Size Of: Sold Out Indicator
 eurex_cash_eti_t7_v12_0.sold_out_indicator.size = 1
 
 -- Display: Sold Out Indicator
@@ -24071,7 +23829,7 @@ end
 -- Security Status
 eurex_cash_eti_t7_v12_0.security_status = {}
 
--- Size: Security Status
+-- Size Of: Security Status
 eurex_cash_eti_t7_v12_0.security_status.size = 1
 
 -- Display: Security Status
@@ -24107,7 +23865,7 @@ end
 -- No Events
 eurex_cash_eti_t7_v12_0.no_events = {}
 
--- Size: No Events
+-- Size Of: No Events
 eurex_cash_eti_t7_v12_0.no_events.size = 1
 
 -- Display: No Events
@@ -24212,7 +23970,7 @@ end
 -- Security Trading Status
 eurex_cash_eti_t7_v12_0.security_trading_status = {}
 
--- Size: Security Trading Status
+-- Size Of: Security Trading Status
 eurex_cash_eti_t7_v12_0.security_trading_status.size = 1
 
 -- Display: Security Trading Status
@@ -24245,7 +24003,7 @@ end
 -- Imbalance Qty
 eurex_cash_eti_t7_v12_0.imbalance_qty = {}
 
--- Size: Imbalance Qty
+-- Size Of: Imbalance Qty
 eurex_cash_eti_t7_v12_0.imbalance_qty.size = 8
 
 -- Display: Imbalance Qty
@@ -24284,7 +24042,7 @@ end
 -- Potential Exec Volume
 eurex_cash_eti_t7_v12_0.potential_exec_volume = {}
 
--- Size: Potential Exec Volume
+-- Size Of: Potential Exec Volume
 eurex_cash_eti_t7_v12_0.potential_exec_volume.size = 8
 
 -- Display: Potential Exec Volume
@@ -24401,7 +24159,7 @@ end
 -- Party Detail Desk Id
 eurex_cash_eti_t7_v12_0.party_detail_desk_id = {}
 
--- Size: Party Detail Desk Id
+-- Size Of: Party Detail Desk Id
 eurex_cash_eti_t7_v12_0.party_detail_desk_id.size = 3
 
 -- Display: Party Detail Desk Id
@@ -24429,7 +24187,7 @@ end
 -- Party Detail Role Qualifier
 eurex_cash_eti_t7_v12_0.party_detail_role_qualifier = {}
 
--- Size: Party Detail Role Qualifier
+-- Size Of: Party Detail Role Qualifier
 eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size = 1
 
 -- Display: Party Detail Role Qualifier
@@ -24465,7 +24223,7 @@ end
 -- Party Detail Executing Trader
 eurex_cash_eti_t7_v12_0.party_detail_executing_trader = {}
 
--- Size: Party Detail Executing Trader
+-- Size Of: Party Detail Executing Trader
 eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size = 6
 
 -- Display: Party Detail Executing Trader
@@ -24493,7 +24251,7 @@ end
 -- Party Detail Id Executing Trader
 eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader = {}
 
--- Size: Party Detail Id Executing Trader
+-- Size Of: Party Detail Id Executing Trader
 eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size = 4
 
 -- Display: Party Detail Id Executing Trader
@@ -24521,24 +24279,14 @@ end
 -- Party Details Grp Comp
 eurex_cash_eti_t7_v12_0.party_details_grp_comp = {}
 
--- Calculate size of: Party Details Grp Comp
-eurex_cash_eti_t7_v12_0.party_details_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_status.size
-
-  index = index + eurex_cash_eti_t7_v12_0.party_detail_desk_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_1.size
-
-  return index
-end
+-- Size Of: Party Details Grp Comp
+eurex_cash_eti_t7_v12_0.party_details_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_status.size + 
+  eurex_cash_eti_t7_v12_0.party_detail_desk_id.size + 
+  eurex_cash_eti_t7_v12_0.pad_1.size;
 
 -- Display: Party Details Grp Comp
 eurex_cash_eti_t7_v12_0.party_details_grp_comp.display = function(packet, parent, length)
@@ -24597,7 +24345,7 @@ end
 -- No Party Details
 eurex_cash_eti_t7_v12_0.no_party_details = {}
 
--- Size: No Party Details
+-- Size Of: No Party Details
 eurex_cash_eti_t7_v12_0.no_party_details.size = 2
 
 -- Display: No Party Details
@@ -24625,7 +24373,7 @@ end
 -- Last Entity Processed
 eurex_cash_eti_t7_v12_0.last_entity_processed = {}
 
--- Size: Last Entity Processed
+-- Size Of: Last Entity Processed
 eurex_cash_eti_t7_v12_0.last_entity_processed.size = 16
 
 -- Display: Last Entity Processed
@@ -24764,7 +24512,7 @@ end
 -- Session Sub Mode
 eurex_cash_eti_t7_v12_0.session_sub_mode = {}
 
--- Size: Session Sub Mode
+-- Size Of: Session Sub Mode
 eurex_cash_eti_t7_v12_0.session_sub_mode.size = 1
 
 -- Display: Session Sub Mode
@@ -24797,7 +24545,7 @@ end
 -- Session Mode
 eurex_cash_eti_t7_v12_0.session_mode = {}
 
--- Size: Session Mode
+-- Size Of: Session Mode
 eurex_cash_eti_t7_v12_0.session_mode.size = 1
 
 -- Display: Session Mode
@@ -24836,20 +24584,12 @@ end
 -- Sessions Grp Comp
 eurex_cash_eti_t7_v12_0.sessions_grp_comp = {}
 
--- Calculate size of: Sessions Grp Comp
-eurex_cash_eti_t7_v12_0.sessions_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.party_id_session_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.session_mode.size
-
-  index = index + eurex_cash_eti_t7_v12_0.session_sub_mode.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_2.size
-
-  return index
-end
+-- Size Of: Sessions Grp Comp
+eurex_cash_eti_t7_v12_0.sessions_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.party_id_session_id.size + 
+  eurex_cash_eti_t7_v12_0.session_mode.size + 
+  eurex_cash_eti_t7_v12_0.session_sub_mode.size + 
+  eurex_cash_eti_t7_v12_0.pad_2.size;
 
 -- Display: Sessions Grp Comp
 eurex_cash_eti_t7_v12_0.sessions_grp_comp.display = function(packet, parent, length)
@@ -24902,7 +24642,7 @@ end
 -- No Sessions
 eurex_cash_eti_t7_v12_0.no_sessions = {}
 
--- Size: No Sessions
+-- Size Of: No Sessions
 eurex_cash_eti_t7_v12_0.no_sessions.size = 2
 
 -- Display: No Sessions
@@ -25040,7 +24780,7 @@ end
 -- Party Executing Unit
 eurex_cash_eti_t7_v12_0.party_executing_unit = {}
 
--- Size: Party Executing Unit
+-- Size Of: Party Executing Unit
 eurex_cash_eti_t7_v12_0.party_executing_unit.size = 5
 
 -- Display: Party Executing Unit
@@ -25131,22 +24871,13 @@ end
 -- Enrichment Rules Grp Comp
 eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp = {}
 
--- Calculate size of: Enrichment Rules Grp Comp
-eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.enrichment_rule_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.free_text_1.size
-
-  index = index + eurex_cash_eti_t7_v12_0.free_text_2.size
-
-  index = index + eurex_cash_eti_t7_v12_0.free_text_4.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_6.size
-
-  return index
-end
+-- Size Of: Enrichment Rules Grp Comp
+eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.enrichment_rule_id.size + 
+  eurex_cash_eti_t7_v12_0.free_text_1.size + 
+  eurex_cash_eti_t7_v12_0.free_text_2.size + 
+  eurex_cash_eti_t7_v12_0.free_text_4.size + 
+  eurex_cash_eti_t7_v12_0.pad_6.size;
 
 -- Display: Enrichment Rules Grp Comp
 eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.display = function(packet, parent, length)
@@ -25202,7 +24933,7 @@ end
 -- No Enrichment Rules
 eurex_cash_eti_t7_v12_0.no_enrichment_rules = {}
 
--- Size: No Enrichment Rules
+-- Size Of: No Enrichment Rules
 eurex_cash_eti_t7_v12_0.no_enrichment_rules.size = 2
 
 -- Display: No Enrichment Rules
@@ -26461,7 +26192,7 @@ end
 -- Target Party Id Desk Id
 eurex_cash_eti_t7_v12_0.target_party_id_desk_id = {}
 
--- Size: Target Party Id Desk Id
+-- Size Of: Target Party Id Desk Id
 eurex_cash_eti_t7_v12_0.target_party_id_desk_id.size = 3
 
 -- Display: Target Party Id Desk Id
@@ -26575,7 +26306,7 @@ end
 -- Affected Order Request Id
 eurex_cash_eti_t7_v12_0.affected_order_request_id = {}
 
--- Size: Affected Order Request Id
+-- Size Of: Affected Order Request Id
 eurex_cash_eti_t7_v12_0.affected_order_request_id.size = 4
 
 -- Display: Affected Order Request Id
@@ -26603,16 +26334,10 @@ end
 -- Affected Order Requests Grp Comp
 eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp = {}
 
--- Calculate size of: Affected Order Requests Grp Comp
-eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.affected_order_request_id.size
-
-  index = index + eurex_cash_eti_t7_v12_0.pad_4.size
-
-  return index
-end
+-- Size Of: Affected Order Requests Grp Comp
+eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.size =
+  eurex_cash_eti_t7_v12_0.affected_order_request_id.size + 
+  eurex_cash_eti_t7_v12_0.pad_4.size;
 
 -- Display: Affected Order Requests Grp Comp
 eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.display = function(packet, parent, length)
@@ -26659,7 +26384,7 @@ end
 -- No Affected Order Requests
 eurex_cash_eti_t7_v12_0.no_affected_order_requests = {}
 
--- Size: No Affected Order Requests
+-- Size Of: No Affected Order Requests
 eurex_cash_eti_t7_v12_0.no_affected_order_requests.size = 2
 
 -- Display: No Affected Order Requests
@@ -27188,7 +26913,7 @@ end
 -- Appl Id Status
 eurex_cash_eti_t7_v12_0.appl_id_status = {}
 
--- Size: Appl Id Status
+-- Size Of: Appl Id Status
 eurex_cash_eti_t7_v12_0.appl_id_status.size = 4
 
 -- Display: Appl Id Status
@@ -28523,7 +28248,7 @@ end
 -- Template Id
 eurex_cash_eti_t7_v12_0.template_id = {}
 
--- Size: Template Id
+-- Size Of: Template Id
 eurex_cash_eti_t7_v12_0.template_id.size = 2
 
 -- Display: Template Id
@@ -28946,7 +28671,7 @@ end
 -- Body Len
 eurex_cash_eti_t7_v12_0.body_len = {}
 
--- Size: Body Len
+-- Size Of: Body Len
 eurex_cash_eti_t7_v12_0.body_len.size = 4
 
 -- Display: Body Len
@@ -28974,16 +28699,10 @@ end
 -- Message Header
 eurex_cash_eti_t7_v12_0.message_header = {}
 
--- Calculate size of: Message Header
-eurex_cash_eti_t7_v12_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v12_0.body_len.size
-
-  index = index + eurex_cash_eti_t7_v12_0.template_id.size
-
-  return index
-end
+-- Size Of: Message Header
+eurex_cash_eti_t7_v12_0.message_header.size =
+  eurex_cash_eti_t7_v12_0.body_len.size + 
+  eurex_cash_eti_t7_v12_0.template_id.size;
 
 -- Display: Message Header
 eurex_cash_eti_t7_v12_0.message_header.display = function(packet, parent, length)

@@ -99,7 +99,7 @@ end
 -- Message Type
 miax_onyxfutures_mach_v1_0.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 miax_onyxfutures_mach_v1_0.message_type.size = 1
 
 -- Display: Message Type
@@ -224,7 +224,7 @@ end
 -- Session Number
 miax_onyxfutures_mach_v1_0.session_number = {}
 
--- Size: Session Number
+-- Size Of: Session Number
 miax_onyxfutures_mach_v1_0.session_number.size = 1
 
 -- Display: Session Number
@@ -247,7 +247,7 @@ end
 -- Packet Type
 miax_onyxfutures_mach_v1_0.packet_type = {}
 
--- Size: Packet Type
+-- Size Of: Packet Type
 miax_onyxfutures_mach_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
@@ -283,7 +283,7 @@ end
 -- Packet Length
 miax_onyxfutures_mach_v1_0.packet_length = {}
 
--- Size: Packet Length
+-- Size Of: Packet Length
 miax_onyxfutures_mach_v1_0.packet_length.size = 2
 
 -- Display: Packet Length
@@ -306,7 +306,7 @@ end
 -- Sequence Number
 miax_onyxfutures_mach_v1_0.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 miax_onyxfutures_mach_v1_0.sequence_number.size = 8
 
 -- Display: Sequence Number

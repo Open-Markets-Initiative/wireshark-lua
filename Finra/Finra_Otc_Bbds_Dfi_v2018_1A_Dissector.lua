@@ -267,7 +267,7 @@ end
 -- Message Separator
 finra_otc_bbds_dfi_v2018_1a.message_separator = {}
 
--- Size: Message Separator
+-- Size Of: Message Separator
 finra_otc_bbds_dfi_v2018_1a.message_separator.size = 1
 
 -- Display: Message Separator
@@ -290,7 +290,7 @@ end
 -- Reserved
 finra_otc_bbds_dfi_v2018_1a.reserved = {}
 
--- Size: Reserved
+-- Size Of: Reserved
 finra_otc_bbds_dfi_v2018_1a.reserved.size = 1
 
 -- Display: Reserved
@@ -313,7 +313,7 @@ end
 -- Second
 finra_otc_bbds_dfi_v2018_1a.second = {}
 
--- Size: Second
+-- Size Of: Second
 finra_otc_bbds_dfi_v2018_1a.second.size = 1
 
 -- Display: Second
@@ -336,7 +336,7 @@ end
 -- Minute
 finra_otc_bbds_dfi_v2018_1a.minute = {}
 
--- Size: Minute
+-- Size Of: Minute
 finra_otc_bbds_dfi_v2018_1a.minute.size = 1
 
 -- Display: Minute
@@ -359,7 +359,7 @@ end
 -- Hour
 finra_otc_bbds_dfi_v2018_1a.hour = {}
 
--- Size: Hour
+-- Size Of: Hour
 finra_otc_bbds_dfi_v2018_1a.hour.size = 1
 
 -- Display: Hour
@@ -382,7 +382,7 @@ end
 -- Day
 finra_otc_bbds_dfi_v2018_1a.day = {}
 
--- Size: Day
+-- Size Of: Day
 finra_otc_bbds_dfi_v2018_1a.day.size = 1
 
 -- Display: Day
@@ -405,7 +405,7 @@ end
 -- Month
 finra_otc_bbds_dfi_v2018_1a.month = {}
 
--- Size: Month
+-- Size Of: Month
 finra_otc_bbds_dfi_v2018_1a.month.size = 1
 
 -- Display: Month
@@ -428,7 +428,7 @@ end
 -- Year
 finra_otc_bbds_dfi_v2018_1a.year = {}
 
--- Size: Year
+-- Size Of: Year
 finra_otc_bbds_dfi_v2018_1a.year.size = 2
 
 -- Display: Year
@@ -451,24 +451,14 @@ end
 -- Datetime
 finra_otc_bbds_dfi_v2018_1a.datetime = {}
 
--- Calculate size of: Datetime
-finra_otc_bbds_dfi_v2018_1a.datetime.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.year.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.month.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.day.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.hour.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.minute.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.second.size
-
-  return index
-end
+-- Size Of: Datetime
+finra_otc_bbds_dfi_v2018_1a.datetime.size =
+  finra_otc_bbds_dfi_v2018_1a.year.size + 
+  finra_otc_bbds_dfi_v2018_1a.month.size + 
+  finra_otc_bbds_dfi_v2018_1a.day.size + 
+  finra_otc_bbds_dfi_v2018_1a.hour.size + 
+  finra_otc_bbds_dfi_v2018_1a.minute.size + 
+  finra_otc_bbds_dfi_v2018_1a.second.size;
 
 -- Display: Datetime
 finra_otc_bbds_dfi_v2018_1a.datetime.display = function(packet, parent, length)
@@ -521,7 +511,7 @@ end
 -- Market Center Originator Id
 finra_otc_bbds_dfi_v2018_1a.market_center_originator_id = {}
 
--- Size: Market Center Originator Id
+-- Size Of: Market Center Originator Id
 finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.size = 2
 
 -- Display: Market Center Originator Id
@@ -557,7 +547,7 @@ end
 -- Message Sequence Number
 finra_otc_bbds_dfi_v2018_1a.message_sequence_number = {}
 
--- Size: Message Sequence Number
+-- Size Of: Message Sequence Number
 finra_otc_bbds_dfi_v2018_1a.message_sequence_number.size = 8
 
 -- Display: Message Sequence Number
@@ -585,7 +575,7 @@ end
 -- Retransmission Requester
 finra_otc_bbds_dfi_v2018_1a.retransmission_requester = {}
 
--- Size: Retransmission Requester
+-- Size Of: Retransmission Requester
 finra_otc_bbds_dfi_v2018_1a.retransmission_requester.size = 2
 
 -- Display: Retransmission Requester
@@ -608,7 +598,7 @@ end
 -- Session Identifier
 finra_otc_bbds_dfi_v2018_1a.session_identifier = {}
 
--- Size: Session Identifier
+-- Size Of: Session Identifier
 finra_otc_bbds_dfi_v2018_1a.session_identifier.size = 1
 
 -- Display: Session Identifier
@@ -638,24 +628,14 @@ end
 -- Message Header
 finra_otc_bbds_dfi_v2018_1a.message_header = {}
 
--- Calculate size of: Message Header
-finra_otc_bbds_dfi_v2018_1a.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.session_identifier.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.retransmission_requester.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_sequence_number.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.datetime.size(buffer, offset + index)
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.reserved.size
-
-  return index
-end
+-- Size Of: Message Header
+finra_otc_bbds_dfi_v2018_1a.message_header.size =
+  finra_otc_bbds_dfi_v2018_1a.session_identifier.size + 
+  finra_otc_bbds_dfi_v2018_1a.retransmission_requester.size + 
+  finra_otc_bbds_dfi_v2018_1a.message_sequence_number.size + 
+  finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.size + 
+  finra_otc_bbds_dfi_v2018_1a.datetime.size + 
+  finra_otc_bbds_dfi_v2018_1a.reserved.size;
 
 -- Display: Message Header
 finra_otc_bbds_dfi_v2018_1a.message_header.display = function(packet, parent, length)
@@ -708,14 +688,9 @@ end
 -- End Of Trade Reporting Message
 finra_otc_bbds_dfi_v2018_1a.end_of_trade_reporting_message = {}
 
--- Calculate size of: End Of Trade Reporting Message
-finra_otc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: End Of Trade Reporting Message
+finra_otc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: End Of Trade Reporting Message
 finra_otc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.display = function(packet, parent, length)
@@ -753,14 +728,9 @@ end
 -- Sequence Number Reset Message
 finra_otc_bbds_dfi_v2018_1a.sequence_number_reset_message = {}
 
--- Calculate size of: Sequence Number Reset Message
-finra_otc_bbds_dfi_v2018_1a.sequence_number_reset_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Sequence Number Reset Message
+finra_otc_bbds_dfi_v2018_1a.sequence_number_reset_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: Sequence Number Reset Message
 finra_otc_bbds_dfi_v2018_1a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -798,14 +768,9 @@ end
 -- Line Integrity Message
 finra_otc_bbds_dfi_v2018_1a.line_integrity_message = {}
 
--- Calculate size of: Line Integrity Message
-finra_otc_bbds_dfi_v2018_1a.line_integrity_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Line Integrity Message
+finra_otc_bbds_dfi_v2018_1a.line_integrity_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: Line Integrity Message
 finra_otc_bbds_dfi_v2018_1a.line_integrity_message.display = function(packet, parent, length)
@@ -843,14 +808,9 @@ end
 -- End Of Transmissions Message
 finra_otc_bbds_dfi_v2018_1a.end_of_transmissions_message = {}
 
--- Calculate size of: End Of Transmissions Message
-finra_otc_bbds_dfi_v2018_1a.end_of_transmissions_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: End Of Transmissions Message
+finra_otc_bbds_dfi_v2018_1a.end_of_transmissions_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: End Of Transmissions Message
 finra_otc_bbds_dfi_v2018_1a.end_of_transmissions_message.display = function(packet, parent, length)
@@ -888,14 +848,9 @@ end
 -- End Of Retransmission Requests Message
 finra_otc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message = {}
 
--- Calculate size of: End Of Retransmission Requests Message
-finra_otc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: End Of Retransmission Requests Message
+finra_otc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: End Of Retransmission Requests Message
 finra_otc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.display = function(packet, parent, length)
@@ -933,14 +888,9 @@ end
 -- Market Session Close Message
 finra_otc_bbds_dfi_v2018_1a.market_session_close_message = {}
 
--- Calculate size of: Market Session Close Message
-finra_otc_bbds_dfi_v2018_1a.market_session_close_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Market Session Close Message
+finra_otc_bbds_dfi_v2018_1a.market_session_close_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: Market Session Close Message
 finra_otc_bbds_dfi_v2018_1a.market_session_close_message.display = function(packet, parent, length)
@@ -978,14 +928,9 @@ end
 -- Market Session Open Message
 finra_otc_bbds_dfi_v2018_1a.market_session_open_message = {}
 
--- Calculate size of: Market Session Open Message
-finra_otc_bbds_dfi_v2018_1a.market_session_open_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Market Session Open Message
+finra_otc_bbds_dfi_v2018_1a.market_session_open_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: Market Session Open Message
 finra_otc_bbds_dfi_v2018_1a.market_session_open_message.display = function(packet, parent, length)
@@ -1023,14 +968,9 @@ end
 -- End Of Day Message
 finra_otc_bbds_dfi_v2018_1a.end_of_day_message = {}
 
--- Calculate size of: End Of Day Message
-finra_otc_bbds_dfi_v2018_1a.end_of_day_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: End Of Day Message
+finra_otc_bbds_dfi_v2018_1a.end_of_day_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: End Of Day Message
 finra_otc_bbds_dfi_v2018_1a.end_of_day_message.display = function(packet, parent, length)
@@ -1068,14 +1008,9 @@ end
 -- Start Of Day Message
 finra_otc_bbds_dfi_v2018_1a.start_of_day_message = {}
 
--- Calculate size of: Start Of Day Message
-finra_otc_bbds_dfi_v2018_1a.start_of_day_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  return index
-end
+-- Size Of: Start Of Day Message
+finra_otc_bbds_dfi_v2018_1a.start_of_day_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size;
 
 -- Display: Start Of Day Message
 finra_otc_bbds_dfi_v2018_1a.start_of_day_message.display = function(packet, parent, length)
@@ -1225,7 +1160,7 @@ end
 -- Control Message Type
 finra_otc_bbds_dfi_v2018_1a.control_message_type = {}
 
--- Size: Control Message Type
+-- Size Of: Control Message Type
 finra_otc_bbds_dfi_v2018_1a.control_message_type.size = 1
 
 -- Display: Control Message Type
@@ -1324,7 +1259,7 @@ end
 -- Reason Code
 finra_otc_bbds_dfi_v2018_1a.reason_code = {}
 
--- Size: Reason Code
+-- Size Of: Reason Code
 finra_otc_bbds_dfi_v2018_1a.reason_code.size = 6
 
 -- Display: Reason Code
@@ -1347,24 +1282,14 @@ end
 -- Action Datetime
 finra_otc_bbds_dfi_v2018_1a.action_datetime = {}
 
--- Calculate size of: Action Datetime
-finra_otc_bbds_dfi_v2018_1a.action_datetime.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.year.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.month.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.day.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.hour.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.minute.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.second.size
-
-  return index
-end
+-- Size Of: Action Datetime
+finra_otc_bbds_dfi_v2018_1a.action_datetime.size =
+  finra_otc_bbds_dfi_v2018_1a.year.size + 
+  finra_otc_bbds_dfi_v2018_1a.month.size + 
+  finra_otc_bbds_dfi_v2018_1a.day.size + 
+  finra_otc_bbds_dfi_v2018_1a.hour.size + 
+  finra_otc_bbds_dfi_v2018_1a.minute.size + 
+  finra_otc_bbds_dfi_v2018_1a.second.size;
 
 -- Display: Action Datetime
 finra_otc_bbds_dfi_v2018_1a.action_datetime.display = function(packet, parent, length)
@@ -1417,7 +1342,7 @@ end
 -- Action
 finra_otc_bbds_dfi_v2018_1a.action = {}
 
--- Size: Action
+-- Size Of: Action
 finra_otc_bbds_dfi_v2018_1a.action.size = 1
 
 -- Display: Action
@@ -1450,7 +1375,7 @@ end
 -- Stock Symbol
 finra_otc_bbds_dfi_v2018_1a.stock_symbol = {}
 
--- Size: Stock Symbol
+-- Size Of: Stock Symbol
 finra_otc_bbds_dfi_v2018_1a.stock_symbol.size = 11
 
 -- Display: Stock Symbol
@@ -1473,22 +1398,13 @@ end
 -- Trading Action Message
 finra_otc_bbds_dfi_v2018_1a.trading_action_message = {}
 
--- Calculate size of: Trading Action Message
-finra_otc_bbds_dfi_v2018_1a.trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.stock_symbol.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.action.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.action_datetime.size(buffer, offset + index)
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.reason_code.size
-
-  return index
-end
+-- Size Of: Trading Action Message
+finra_otc_bbds_dfi_v2018_1a.trading_action_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size + 
+  finra_otc_bbds_dfi_v2018_1a.stock_symbol.size + 
+  finra_otc_bbds_dfi_v2018_1a.action.size + 
+  finra_otc_bbds_dfi_v2018_1a.action_datetime.size + 
+  finra_otc_bbds_dfi_v2018_1a.reason_code.size;
 
 -- Display: Trading Action Message
 finra_otc_bbds_dfi_v2018_1a.trading_action_message.display = function(packet, parent, length)
@@ -1538,7 +1454,7 @@ end
 -- Text
 finra_otc_bbds_dfi_v2018_1a.text = {}
 
--- Size: Text
+-- Size Of: Text
 finra_otc_bbds_dfi_v2018_1a.text.size = 2
 
 -- Display: Text
@@ -1561,16 +1477,10 @@ end
 -- General Administrative Message
 finra_otc_bbds_dfi_v2018_1a.general_administrative_message = {}
 
--- Calculate size of: General Administrative Message
-finra_otc_bbds_dfi_v2018_1a.general_administrative_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.message_header.size(buffer, offset + index)
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.text.size
-
-  return index
-end
+-- Size Of: General Administrative Message
+finra_otc_bbds_dfi_v2018_1a.general_administrative_message.size =
+  finra_otc_bbds_dfi_v2018_1a.message_header.size + 
+  finra_otc_bbds_dfi_v2018_1a.text.size;
 
 -- Display: General Administrative Message
 finra_otc_bbds_dfi_v2018_1a.general_administrative_message.display = function(packet, parent, length)
@@ -1667,7 +1577,7 @@ end
 -- Administrative Message Type
 finra_otc_bbds_dfi_v2018_1a.administrative_message_type = {}
 
--- Size: Administrative Message Type
+-- Size Of: Administrative Message Type
 finra_otc_bbds_dfi_v2018_1a.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
@@ -1745,7 +1655,7 @@ end
 -- Inside Ask Size
 finra_otc_bbds_dfi_v2018_1a.inside_ask_size = {}
 
--- Size: Inside Ask Size
+-- Size Of: Inside Ask Size
 finra_otc_bbds_dfi_v2018_1a.inside_ask_size.size = 12
 
 -- Display: Inside Ask Size
@@ -1773,7 +1683,7 @@ end
 -- Inside Ask Price
 finra_otc_bbds_dfi_v2018_1a.inside_ask_price = {}
 
--- Size: Inside Ask Price
+-- Size Of: Inside Ask Price
 finra_otc_bbds_dfi_v2018_1a.inside_ask_price.size = 12
 
 -- Display: Inside Ask Price
@@ -1801,7 +1711,7 @@ end
 -- Inside Ask Price Denominator
 finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator = {}
 
--- Size: Inside Ask Price Denominator
+-- Size Of: Inside Ask Price Denominator
 finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.size = 1
 
 -- Display: Inside Ask Price Denominator
@@ -1824,7 +1734,7 @@ end
 -- Inside Bid Size
 finra_otc_bbds_dfi_v2018_1a.inside_bid_size = {}
 
--- Size: Inside Bid Size
+-- Size Of: Inside Bid Size
 finra_otc_bbds_dfi_v2018_1a.inside_bid_size.size = 12
 
 -- Display: Inside Bid Size
@@ -1852,7 +1762,7 @@ end
 -- Inside Bid Price
 finra_otc_bbds_dfi_v2018_1a.inside_bid_price = {}
 
--- Size: Inside Bid Price
+-- Size Of: Inside Bid Price
 finra_otc_bbds_dfi_v2018_1a.inside_bid_price.size = 12
 
 -- Display: Inside Bid Price
@@ -1880,7 +1790,7 @@ end
 -- Inside Bid Price Denominator
 finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator = {}
 
--- Size: Inside Bid Price Denominator
+-- Size Of: Inside Bid Price Denominator
 finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.size = 1
 
 -- Display: Inside Bid Price Denominator
@@ -1903,7 +1813,7 @@ end
 -- Inside Quote Condition
 finra_otc_bbds_dfi_v2018_1a.inside_quote_condition = {}
 
--- Size: Inside Quote Condition
+-- Size Of: Inside Quote Condition
 finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.size = 1
 
 -- Display: Inside Quote Condition
@@ -1933,26 +1843,15 @@ end
 -- Inside Appendage
 finra_otc_bbds_dfi_v2018_1a.inside_appendage = {}
 
--- Calculate size of: Inside Appendage
-finra_otc_bbds_dfi_v2018_1a.inside_appendage.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.inside_bid_price.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.inside_bid_size.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.inside_ask_price.size
-
-  index = index + finra_otc_bbds_dfi_v2018_1a.inside_ask_size.size
-
-  return index
-end
+-- Size Of: Inside Appendage
+finra_otc_bbds_dfi_v2018_1a.inside_appendage.size =
+  finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.size + 
+  finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.size + 
+  finra_otc_bbds_dfi_v2018_1a.inside_bid_price.size + 
+  finra_otc_bbds_dfi_v2018_1a.inside_bid_size.size + 
+  finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.size + 
+  finra_otc_bbds_dfi_v2018_1a.inside_ask_price.size + 
+  finra_otc_bbds_dfi_v2018_1a.inside_ask_size.size;
 
 -- Display: Inside Appendage
 finra_otc_bbds_dfi_v2018_1a.inside_appendage.display = function(packet, parent, length)
@@ -2008,7 +1907,7 @@ end
 -- Inside Appendage Indicator
 finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator = {}
 
--- Size: Inside Appendage Indicator
+-- Size Of: Inside Appendage Indicator
 finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.size = 1
 
 -- Display: Inside Appendage Indicator
@@ -2046,7 +1945,7 @@ end
 -- Currency
 finra_otc_bbds_dfi_v2018_1a.currency = {}
 
--- Size: Currency
+-- Size Of: Currency
 finra_otc_bbds_dfi_v2018_1a.currency.size = 3
 
 -- Display: Currency
@@ -2069,7 +1968,7 @@ end
 -- Ask Size
 finra_otc_bbds_dfi_v2018_1a.ask_size = {}
 
--- Size: Ask Size
+-- Size Of: Ask Size
 finra_otc_bbds_dfi_v2018_1a.ask_size.size = 7
 
 -- Display: Ask Size
@@ -2097,7 +1996,7 @@ end
 -- Ask Price
 finra_otc_bbds_dfi_v2018_1a.ask_price = {}
 
--- Size: Ask Price
+-- Size Of: Ask Price
 finra_otc_bbds_dfi_v2018_1a.ask_price.size = 12
 
 -- Display: Ask Price
@@ -2125,7 +2024,7 @@ end
 -- Ask Price Denominator
 finra_otc_bbds_dfi_v2018_1a.ask_price_denominator = {}
 
--- Size: Ask Price Denominator
+-- Size Of: Ask Price Denominator
 finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.size = 1
 
 -- Display: Ask Price Denominator
@@ -2148,7 +2047,7 @@ end
 -- Bid Size
 finra_otc_bbds_dfi_v2018_1a.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 finra_otc_bbds_dfi_v2018_1a.bid_size.size = 7
 
 -- Display: Bid Size
@@ -2176,7 +2075,7 @@ end
 -- Bid Price
 finra_otc_bbds_dfi_v2018_1a.bid_price = {}
 
--- Size: Bid Price
+-- Size Of: Bid Price
 finra_otc_bbds_dfi_v2018_1a.bid_price.size = 12
 
 -- Display: Bid Price
@@ -2204,7 +2103,7 @@ end
 -- Bid Price Denominator
 finra_otc_bbds_dfi_v2018_1a.bid_price_denominator = {}
 
--- Size: Bid Price Denominator
+-- Size Of: Bid Price Denominator
 finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.size = 1
 
 -- Display: Bid Price Denominator
@@ -2227,7 +2126,7 @@ end
 -- Unsolicited Indicator
 finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator = {}
 
--- Size: Unsolicited Indicator
+-- Size Of: Unsolicited Indicator
 finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.size = 1
 
 -- Display: Unsolicited Indicator
@@ -2263,7 +2162,7 @@ end
 -- Wanted Indicator
 finra_otc_bbds_dfi_v2018_1a.wanted_indicator = {}
 
--- Size: Wanted Indicator
+-- Size Of: Wanted Indicator
 finra_otc_bbds_dfi_v2018_1a.wanted_indicator.size = 1
 
 -- Display: Wanted Indicator
@@ -2286,7 +2185,7 @@ end
 -- Market Participant Quote Condition
 finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition = {}
 
--- Size: Market Participant Quote Condition
+-- Size Of: Market Participant Quote Condition
 finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.size = 1
 
 -- Display: Market Participant Quote Condition
@@ -2337,7 +2236,7 @@ end
 -- Market Participant Status
 finra_otc_bbds_dfi_v2018_1a.market_participant_status = {}
 
--- Size: Market Participant Status
+-- Size Of: Market Participant Status
 finra_otc_bbds_dfi_v2018_1a.market_participant_status.size = 1
 
 -- Display: Market Participant Status
@@ -2376,7 +2275,7 @@ end
 -- Market Participant Location Id
 finra_otc_bbds_dfi_v2018_1a.market_participant_location_id = {}
 
--- Size: Market Participant Location Id
+-- Size Of: Market Participant Location Id
 finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.size = 1
 
 -- Display: Market Participant Location Id
@@ -2399,7 +2298,7 @@ end
 -- Market Participant Identifier
 finra_otc_bbds_dfi_v2018_1a.market_participant_identifier = {}
 
--- Size: Market Participant Identifier
+-- Size Of: Market Participant Identifier
 finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.size = 1
 
 -- Display: Market Participant Identifier
@@ -2422,7 +2321,7 @@ end
 -- Otcbb Type
 finra_otc_bbds_dfi_v2018_1a.otcbb_type = {}
 
--- Size: Otcbb Type
+-- Size Of: Otcbb Type
 finra_otc_bbds_dfi_v2018_1a.otcbb_type.size = 1
 
 -- Display: Otcbb Type
@@ -2445,7 +2344,7 @@ end
 -- Otcbb Symbol
 finra_otc_bbds_dfi_v2018_1a.otcbb_symbol = {}
 
--- Size: Otcbb Symbol
+-- Size Of: Otcbb Symbol
 finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.size = 11
 
 -- Display: Otcbb Symbol
@@ -2509,7 +2408,7 @@ finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.size = funct
   local inside_appendage_indicator = buffer(offset + index - 1, 1):string()
 
   if inside_appendage_indicator == "3" then
-    index = index + finra_otc_bbds_dfi_v2018_1a.inside_appendage.size(buffer, offset + index)
+    index = index + finra_otc_bbds_dfi_v2018_1a.inside_appendage.size
 
   end
 
@@ -2652,7 +2551,7 @@ end
 -- Quotation Message Type
 finra_otc_bbds_dfi_v2018_1a.quotation_message_type = {}
 
--- Size: Quotation Message Type
+-- Size Of: Quotation Message Type
 finra_otc_bbds_dfi_v2018_1a.quotation_message_type.size = 1
 
 -- Display: Quotation Message Type
@@ -2791,7 +2690,7 @@ end
 -- Message Category
 finra_otc_bbds_dfi_v2018_1a.message_category = {}
 
--- Size: Message Category
+-- Size Of: Message Category
 finra_otc_bbds_dfi_v2018_1a.message_category.size = 1
 
 -- Display: Message Category
@@ -2877,7 +2776,7 @@ end
 -- Block Soh
 finra_otc_bbds_dfi_v2018_1a.block_soh = {}
 
--- Size: Block Soh
+-- Size Of: Block Soh
 finra_otc_bbds_dfi_v2018_1a.block_soh.size = 1
 
 -- Display: Block Soh

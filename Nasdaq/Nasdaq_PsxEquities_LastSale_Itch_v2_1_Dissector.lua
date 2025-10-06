@@ -249,7 +249,7 @@ end
 -- Operational Halt Action
 nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_action = {}
 
--- Size: Operational Halt Action
+-- Size Of: Operational Halt Action
 nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_action.size = 1
 
 -- Display: Operational Halt Action
@@ -279,7 +279,7 @@ end
 -- Market Code
 nasdaq_psxequities_lastsale_itch_v2_1.market_code = {}
 
--- Size: Market Code
+-- Size Of: Market Code
 nasdaq_psxequities_lastsale_itch_v2_1.market_code.size = 1
 
 -- Display: Market Code
@@ -312,7 +312,7 @@ end
 -- Stock
 nasdaq_psxequities_lastsale_itch_v2_1.stock = {}
 
--- Size: Stock
+-- Size Of: Stock
 nasdaq_psxequities_lastsale_itch_v2_1.stock.size = 8
 
 -- Display: Stock
@@ -335,18 +335,11 @@ end
 -- Operational Halt Message
 nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_message = {}
 
--- Calculate size of: Operational Halt Message
-nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.stock.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_code.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_action.size
-
-  return index
-end
+-- Size Of: Operational Halt Message
+nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.stock.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.market_code.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_action.size;
 
 -- Display: Operational Halt Message
 nasdaq_psxequities_lastsale_itch_v2_1.operational_halt_message.display = function(packet, parent, length)
@@ -390,7 +383,7 @@ end
 -- Breached Level
 nasdaq_psxequities_lastsale_itch_v2_1.breached_level = {}
 
--- Size: Breached Level
+-- Size Of: Breached Level
 nasdaq_psxequities_lastsale_itch_v2_1.breached_level.size = 1
 
 -- Display: Breached Level
@@ -423,14 +416,9 @@ end
 -- Mwcb Breach Message
 nasdaq_psxequities_lastsale_itch_v2_1.mwcb_breach_message = {}
 
--- Calculate size of: Mwcb Breach Message
-nasdaq_psxequities_lastsale_itch_v2_1.mwcb_breach_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.breached_level.size
-
-  return index
-end
+-- Size Of: Mwcb Breach Message
+nasdaq_psxequities_lastsale_itch_v2_1.mwcb_breach_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.breached_level.size;
 
 -- Display: Mwcb Breach Message
 nasdaq_psxequities_lastsale_itch_v2_1.mwcb_breach_message.display = function(packet, parent, length)
@@ -468,7 +456,7 @@ end
 -- Level 3
 nasdaq_psxequities_lastsale_itch_v2_1.level_3 = {}
 
--- Size: Level 3
+-- Size Of: Level 3
 nasdaq_psxequities_lastsale_itch_v2_1.level_3.size = 8
 
 -- Display: Level 3
@@ -497,7 +485,7 @@ end
 -- Level 2
 nasdaq_psxequities_lastsale_itch_v2_1.level_2 = {}
 
--- Size: Level 2
+-- Size Of: Level 2
 nasdaq_psxequities_lastsale_itch_v2_1.level_2.size = 8
 
 -- Display: Level 2
@@ -526,7 +514,7 @@ end
 -- Level 1
 nasdaq_psxequities_lastsale_itch_v2_1.level_1 = {}
 
--- Size: Level 1
+-- Size Of: Level 1
 nasdaq_psxequities_lastsale_itch_v2_1.level_1.size = 8
 
 -- Display: Level 1
@@ -555,18 +543,11 @@ end
 -- Mwcb Decline Level Message
 nasdaq_psxequities_lastsale_itch_v2_1.mwcb_decline_level_message = {}
 
--- Calculate size of: Mwcb Decline Level Message
-nasdaq_psxequities_lastsale_itch_v2_1.mwcb_decline_level_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.level_1.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.level_2.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.level_3.size
-
-  return index
-end
+-- Size Of: Mwcb Decline Level Message
+nasdaq_psxequities_lastsale_itch_v2_1.mwcb_decline_level_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.level_1.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.level_2.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.level_3.size;
 
 -- Display: Mwcb Decline Level Message
 nasdaq_psxequities_lastsale_itch_v2_1.mwcb_decline_level_message.display = function(packet, parent, length)
@@ -610,7 +591,7 @@ end
 -- Inverse Indicator
 nasdaq_psxequities_lastsale_itch_v2_1.inverse_indicator = {}
 
--- Size: Inverse Indicator
+-- Size Of: Inverse Indicator
 nasdaq_psxequities_lastsale_itch_v2_1.inverse_indicator.size = 1
 
 -- Display: Inverse Indicator
@@ -640,7 +621,7 @@ end
 -- Etp Leverage Factor
 nasdaq_psxequities_lastsale_itch_v2_1.etp_leverage_factor = {}
 
--- Size: Etp Leverage Factor
+-- Size Of: Etp Leverage Factor
 nasdaq_psxequities_lastsale_itch_v2_1.etp_leverage_factor.size = 4
 
 -- Display: Etp Leverage Factor
@@ -663,7 +644,7 @@ end
 -- Etp Flag
 nasdaq_psxequities_lastsale_itch_v2_1.etp_flag = {}
 
--- Size: Etp Flag
+-- Size Of: Etp Flag
 nasdaq_psxequities_lastsale_itch_v2_1.etp_flag.size = 1
 
 -- Display: Etp Flag
@@ -696,7 +677,7 @@ end
 -- Luld Reference Price Tier
 nasdaq_psxequities_lastsale_itch_v2_1.luld_reference_price_tier = {}
 
--- Size: Luld Reference Price Tier
+-- Size Of: Luld Reference Price Tier
 nasdaq_psxequities_lastsale_itch_v2_1.luld_reference_price_tier.size = 1
 
 -- Display: Luld Reference Price Tier
@@ -729,7 +710,7 @@ end
 -- Ipo Flag
 nasdaq_psxequities_lastsale_itch_v2_1.ipo_flag = {}
 
--- Size: Ipo Flag
+-- Size Of: Ipo Flag
 nasdaq_psxequities_lastsale_itch_v2_1.ipo_flag.size = 1
 
 -- Display: Ipo Flag
@@ -762,7 +743,7 @@ end
 -- Short Sale Threshold Indicator
 nasdaq_psxequities_lastsale_itch_v2_1.short_sale_threshold_indicator = {}
 
--- Size: Short Sale Threshold Indicator
+-- Size Of: Short Sale Threshold Indicator
 nasdaq_psxequities_lastsale_itch_v2_1.short_sale_threshold_indicator.size = 1
 
 -- Display: Short Sale Threshold Indicator
@@ -795,7 +776,7 @@ end
 -- Authenticity
 nasdaq_psxequities_lastsale_itch_v2_1.authenticity = {}
 
--- Size: Authenticity
+-- Size Of: Authenticity
 nasdaq_psxequities_lastsale_itch_v2_1.authenticity.size = 1
 
 -- Display: Authenticity
@@ -825,7 +806,7 @@ end
 -- Issue Sub Type
 nasdaq_psxequities_lastsale_itch_v2_1.issue_sub_type = {}
 
--- Size: Issue Sub Type
+-- Size Of: Issue Sub Type
 nasdaq_psxequities_lastsale_itch_v2_1.issue_sub_type.size = 2
 
 -- Display: Issue Sub Type
@@ -1023,7 +1004,7 @@ end
 -- Issue Classification
 nasdaq_psxequities_lastsale_itch_v2_1.issue_classification = {}
 
--- Size: Issue Classification
+-- Size Of: Issue Classification
 nasdaq_psxequities_lastsale_itch_v2_1.issue_classification.size = 1
 
 -- Display: Issue Classification
@@ -1095,7 +1076,7 @@ end
 -- Round Lots Only
 nasdaq_psxequities_lastsale_itch_v2_1.round_lots_only = {}
 
--- Size: Round Lots Only
+-- Size Of: Round Lots Only
 nasdaq_psxequities_lastsale_itch_v2_1.round_lots_only.size = 1
 
 -- Display: Round Lots Only
@@ -1125,7 +1106,7 @@ end
 -- Round Lot Size
 nasdaq_psxequities_lastsale_itch_v2_1.round_lot_size = {}
 
--- Size: Round Lot Size
+-- Size Of: Round Lot Size
 nasdaq_psxequities_lastsale_itch_v2_1.round_lot_size.size = 4
 
 -- Display: Round Lot Size
@@ -1148,7 +1129,7 @@ end
 -- Financial Status Indicator
 nasdaq_psxequities_lastsale_itch_v2_1.financial_status_indicator = {}
 
--- Size: Financial Status Indicator
+-- Size Of: Financial Status Indicator
 nasdaq_psxequities_lastsale_itch_v2_1.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
@@ -1205,7 +1186,7 @@ end
 -- Market Category
 nasdaq_psxequities_lastsale_itch_v2_1.market_category = {}
 
--- Size: Market Category
+-- Size Of: Market Category
 nasdaq_psxequities_lastsale_itch_v2_1.market_category.size = 1
 
 -- Display: Market Category
@@ -1256,40 +1237,22 @@ end
 -- Stock Directory Message
 nasdaq_psxequities_lastsale_itch_v2_1.stock_directory_message = {}
 
--- Calculate size of: Stock Directory Message
-nasdaq_psxequities_lastsale_itch_v2_1.stock_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.stock.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_category.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.financial_status_indicator.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.round_lot_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.round_lots_only.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_classification.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_sub_type.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.authenticity.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.short_sale_threshold_indicator.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.ipo_flag.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.luld_reference_price_tier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.etp_flag.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.etp_leverage_factor.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.inverse_indicator.size
-
-  return index
-end
+-- Size Of: Stock Directory Message
+nasdaq_psxequities_lastsale_itch_v2_1.stock_directory_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.stock.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.market_category.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.financial_status_indicator.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.round_lot_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.round_lots_only.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_classification.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_sub_type.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.authenticity.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.short_sale_threshold_indicator.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.ipo_flag.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.luld_reference_price_tier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.etp_flag.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.etp_leverage_factor.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.inverse_indicator.size;
 
 -- Display: Stock Directory Message
 nasdaq_psxequities_lastsale_itch_v2_1.stock_directory_message.display = function(packet, parent, length)
@@ -1366,7 +1329,7 @@ end
 -- Reg Sho Action
 nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_action = {}
 
--- Size: Reg Sho Action
+-- Size Of: Reg Sho Action
 nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
@@ -1399,16 +1362,10 @@ end
 -- Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_short_sale_price_test_restricted_indicator_message = {}
 
--- Calculate size of: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_short_sale_price_test_restricted_indicator_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.stock.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_action.size
-
-  return index
-end
+-- Size Of: Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_short_sale_price_test_restricted_indicator_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.stock.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_action.size;
 
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_psxequities_lastsale_itch_v2_1.reg_sho_short_sale_price_test_restricted_indicator_message.display = function(packet, parent, length)
@@ -1449,7 +1406,7 @@ end
 -- Trading Action Reason
 nasdaq_psxequities_lastsale_itch_v2_1.trading_action_reason = {}
 
--- Size: Trading Action Reason
+-- Size Of: Trading Action Reason
 nasdaq_psxequities_lastsale_itch_v2_1.trading_action_reason.size = 4
 
 -- Display: Trading Action Reason
@@ -1575,7 +1532,7 @@ end
 -- Current Trading State
 nasdaq_psxequities_lastsale_itch_v2_1.current_trading_state = {}
 
--- Size: Current Trading State
+-- Size Of: Current Trading State
 nasdaq_psxequities_lastsale_itch_v2_1.current_trading_state.size = 1
 
 -- Display: Current Trading State
@@ -1608,7 +1565,7 @@ end
 -- Security Class
 nasdaq_psxequities_lastsale_itch_v2_1.security_class = {}
 
--- Size: Security Class
+-- Size Of: Security Class
 nasdaq_psxequities_lastsale_itch_v2_1.security_class.size = 1
 
 -- Display: Security Class
@@ -1650,7 +1607,7 @@ end
 -- Issue Symbol
 nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol = {}
 
--- Size: Issue Symbol
+-- Size Of: Issue Symbol
 nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size = 8
 
 -- Display: Issue Symbol
@@ -1673,20 +1630,12 @@ end
 -- Trading Action Message
 nasdaq_psxequities_lastsale_itch_v2_1.trading_action_message = {}
 
--- Calculate size of: Trading Action Message
-nasdaq_psxequities_lastsale_itch_v2_1.trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.security_class.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.current_trading_state.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.trading_action_reason.size
-
-  return index
-end
+-- Size Of: Trading Action Message
+nasdaq_psxequities_lastsale_itch_v2_1.trading_action_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.security_class.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.current_trading_state.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.trading_action_reason.size;
 
 -- Display: Trading Action Message
 nasdaq_psxequities_lastsale_itch_v2_1.trading_action_message.display = function(packet, parent, length)
@@ -1733,7 +1682,7 @@ end
 -- Corrected Sale Condition Modifier
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_sale_condition_modifier = {}
 
--- Size: Corrected Sale Condition Modifier
+-- Size Of: Corrected Sale Condition Modifier
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_sale_condition_modifier.size = 4
 
 -- Display: Corrected Sale Condition Modifier
@@ -1756,7 +1705,7 @@ end
 -- Corrected Trade Size
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_size = {}
 
--- Size: Corrected Trade Size
+-- Size Of: Corrected Trade Size
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_size.size = 4
 
 -- Display: Corrected Trade Size
@@ -1779,7 +1728,7 @@ end
 -- Corrected Nav Premium Discount Amount
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount = {}
 
--- Size: Corrected Nav Premium Discount Amount
+-- Size Of: Corrected Nav Premium Discount Amount
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.size = 4
 
 -- Display: Corrected Nav Premium Discount Amount
@@ -1808,7 +1757,7 @@ end
 -- Corrected Trade Price
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price = {}
 
--- Size: Corrected Trade Price
+-- Size Of: Corrected Trade Price
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.size = 4
 
 -- Display: Corrected Trade Price
@@ -1837,7 +1786,7 @@ end
 -- Corrected Trade Control Number
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_control_number = {}
 
--- Size: Corrected Trade Control Number
+-- Size Of: Corrected Trade Control Number
 nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_control_number.size = 10
 
 -- Display: Corrected Trade Control Number
@@ -1860,7 +1809,7 @@ end
 -- Original Sale Condition Modifier
 nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier = {}
 
--- Size: Original Sale Condition Modifier
+-- Size Of: Original Sale Condition Modifier
 nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size = 4
 
 -- Display: Original Sale Condition Modifier
@@ -1883,7 +1832,7 @@ end
 -- Original Trade Size
 nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size = {}
 
--- Size: Original Trade Size
+-- Size Of: Original Trade Size
 nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size = 4
 
 -- Display: Original Trade Size
@@ -1906,7 +1855,7 @@ end
 -- Original Nav Premium Discount Amount
 nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount = {}
 
--- Size: Original Nav Premium Discount Amount
+-- Size Of: Original Nav Premium Discount Amount
 nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.size = 4
 
 -- Display: Original Nav Premium Discount Amount
@@ -1935,7 +1884,7 @@ end
 -- Original Trade Price
 nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price = {}
 
--- Size: Original Trade Price
+-- Size Of: Original Trade Price
 nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size = 4
 
 -- Display: Original Trade Price
@@ -1964,7 +1913,7 @@ end
 -- Original Trade Control Number
 nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number = {}
 
--- Size: Original Trade Control Number
+-- Size Of: Original Trade Control Number
 nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size = 10
 
 -- Display: Original Trade Control Number
@@ -1987,7 +1936,7 @@ end
 -- Market Center Identifier
 nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier = {}
 
--- Size: Market Center Identifier
+-- Size Of: Market Center Identifier
 nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size = 1
 
 -- Display: Market Center Identifier
@@ -2017,38 +1966,21 @@ end
 -- Trade Correction For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_for_next_shares_message = {}
 
--- Calculate size of: Trade Correction For Next Shares Message
-nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_for_next_shares_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.security_class.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_sale_condition_modifier.size
-
-  return index
-end
+-- Size Of: Trade Correction For Next Shares Message
+nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_for_next_shares_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.security_class.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_nav_premium_discount_amount.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_sale_condition_modifier.size;
 
 -- Display: Trade Correction For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_for_next_shares_message.display = function(packet, parent, length)
@@ -2122,34 +2054,19 @@ end
 -- Trade Correction Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_message = {}
 
--- Calculate size of: Trade Correction Message
-nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.security_class.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.corrected_sale_condition_modifier.size
-
-  return index
-end
+-- Size Of: Trade Correction Message
+nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.security_class.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.corrected_sale_condition_modifier.size;
 
 -- Display: Trade Correction Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_correction_message.display = function(packet, parent, length)
@@ -2217,28 +2134,16 @@ end
 -- Trade Cancel Error For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_for_next_shares_message = {}
 
--- Calculate size of: Trade Cancel Error For Next Shares Message
-nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_for_next_shares_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.security_class.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size
-
-  return index
-end
+-- Size Of: Trade Cancel Error For Next Shares Message
+nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_for_next_shares_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.security_class.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_nav_premium_discount_amount.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size;
 
 -- Display: Trade Cancel Error For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_for_next_shares_message.display = function(packet, parent, length)
@@ -2297,26 +2202,15 @@ end
 -- Trade Cancel Error Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_message = {}
 
--- Calculate size of: Trade Cancel Error Message
-nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.security_class.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size
-
-  return index
-end
+-- Size Of: Trade Cancel Error Message
+nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.security_class.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.original_sale_condition_modifier.size;
 
 -- Display: Trade Cancel Error Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_cancel_error_message.display = function(packet, parent, length)
@@ -2372,7 +2266,7 @@ end
 -- Sale Condition Modifier Level 4
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_4 = {}
 
--- Size: Sale Condition Modifier Level 4
+-- Size Of: Sale Condition Modifier Level 4
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_4.size = 1
 
 -- Display: Sale Condition Modifier Level 4
@@ -2435,7 +2329,7 @@ end
 -- Sale Condition Modifier Level 3
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_3 = {}
 
--- Size: Sale Condition Modifier Level 3
+-- Size Of: Sale Condition Modifier Level 3
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_3.size = 1
 
 -- Display: Sale Condition Modifier Level 3
@@ -2474,7 +2368,7 @@ end
 -- Sale Condition Modifier Level 2
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_2 = {}
 
--- Size: Sale Condition Modifier Level 2
+-- Size Of: Sale Condition Modifier Level 2
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_2.size = 1
 
 -- Display: Sale Condition Modifier Level 2
@@ -2516,7 +2410,7 @@ end
 -- Sale Condition Modifier Level 1
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_1 = {}
 
--- Size: Sale Condition Modifier Level 1
+-- Size Of: Sale Condition Modifier Level 1
 nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_1.size = 1
 
 -- Display: Sale Condition Modifier Level 1
@@ -2555,7 +2449,7 @@ end
 -- Nav Premium Discount Amount
 nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount = {}
 
--- Size: Nav Premium Discount Amount
+-- Size Of: Nav Premium Discount Amount
 nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.size = 4
 
 -- Display: Nav Premium Discount Amount
@@ -2584,7 +2478,7 @@ end
 -- Trade Size
 nasdaq_psxequities_lastsale_itch_v2_1.trade_size = {}
 
--- Size: Trade Size
+-- Size Of: Trade Size
 nasdaq_psxequities_lastsale_itch_v2_1.trade_size.size = 4
 
 -- Display: Trade Size
@@ -2607,7 +2501,7 @@ end
 -- Proxy Price
 nasdaq_psxequities_lastsale_itch_v2_1.proxy_price = {}
 
--- Size: Proxy Price
+-- Size Of: Proxy Price
 nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.size = 4
 
 -- Display: Proxy Price
@@ -2636,7 +2530,7 @@ end
 -- Trade Control Number
 nasdaq_psxequities_lastsale_itch_v2_1.trade_control_number = {}
 
--- Size: Trade Control Number
+-- Size Of: Trade Control Number
 nasdaq_psxequities_lastsale_itch_v2_1.trade_control_number.size = 10
 
 -- Display: Trade Control Number
@@ -2659,7 +2553,7 @@ end
 -- Next Shares Symbol
 nasdaq_psxequities_lastsale_itch_v2_1.next_shares_symbol = {}
 
--- Size: Next Shares Symbol
+-- Size Of: Next Shares Symbol
 nasdaq_psxequities_lastsale_itch_v2_1.next_shares_symbol.size = 8
 
 -- Display: Next Shares Symbol
@@ -2682,34 +2576,19 @@ end
 -- Next Shares Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1.next_shares_trade_report_message = {}
 
--- Calculate size of: Next Shares Trade Report Message
-nasdaq_psxequities_lastsale_itch_v2_1.next_shares_trade_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.next_shares_symbol.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.security_class.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_1.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_2.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_3.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_4.size
-
-  return index
-end
+-- Size Of: Next Shares Trade Report Message
+nasdaq_psxequities_lastsale_itch_v2_1.next_shares_trade_report_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.next_shares_symbol.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.security_class.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.proxy_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.nav_premium_discount_amount.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_1.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_2.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_3.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_4.size;
 
 -- Display: Next Shares Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1.next_shares_trade_report_message.display = function(packet, parent, length)
@@ -2777,7 +2656,7 @@ end
 -- Trade Price
 nasdaq_psxequities_lastsale_itch_v2_1.trade_price = {}
 
--- Size: Trade Price
+-- Size Of: Trade Price
 nasdaq_psxequities_lastsale_itch_v2_1.trade_price.size = 4
 
 -- Display: Trade Price
@@ -2806,32 +2685,18 @@ end
 -- Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_report_message = {}
 
--- Calculate size of: Trade Report Message
-nasdaq_psxequities_lastsale_itch_v2_1.trade_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.security_class.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.trade_control_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.trade_price.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.trade_size.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_1.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_2.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_3.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_4.size
-
-  return index
-end
+-- Size Of: Trade Report Message
+nasdaq_psxequities_lastsale_itch_v2_1.trade_report_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.market_center_identifier.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.issue_symbol.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.security_class.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.trade_control_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.trade_price.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.trade_size.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_1.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_2.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_3.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sale_condition_modifier_level_4.size;
 
 -- Display: Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1.trade_report_message.display = function(packet, parent, length)
@@ -2896,7 +2761,7 @@ end
 -- Event Code
 nasdaq_psxequities_lastsale_itch_v2_1.event_code = {}
 
--- Size: Event Code
+-- Size Of: Event Code
 nasdaq_psxequities_lastsale_itch_v2_1.event_code.size = 1
 
 -- Display: Event Code
@@ -2938,14 +2803,9 @@ end
 -- System Event Message
 nasdaq_psxequities_lastsale_itch_v2_1.system_event_message = {}
 
--- Calculate size of: System Event Message
-nasdaq_psxequities_lastsale_itch_v2_1.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.event_code.size
-
-  return index
-end
+-- Size Of: System Event Message
+nasdaq_psxequities_lastsale_itch_v2_1.system_event_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.event_code.size;
 
 -- Display: System Event Message
 nasdaq_psxequities_lastsale_itch_v2_1.system_event_message.display = function(packet, parent, length)
@@ -3127,7 +2987,7 @@ end
 -- Message Type
 nasdaq_psxequities_lastsale_itch_v2_1.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 nasdaq_psxequities_lastsale_itch_v2_1.message_type.size = 1
 
 -- Display: Message Type
@@ -3190,7 +3050,7 @@ end
 -- Timestamp
 nasdaq_psxequities_lastsale_itch_v2_1.timestamp = {}
 
--- Size: Timestamp
+-- Size Of: Timestamp
 nasdaq_psxequities_lastsale_itch_v2_1.timestamp.size = 6
 
 -- Display: Timestamp
@@ -3213,7 +3073,7 @@ end
 -- Tracking Number
 nasdaq_psxequities_lastsale_itch_v2_1.tracking_number = {}
 
--- Size: Tracking Number
+-- Size Of: Tracking Number
 nasdaq_psxequities_lastsale_itch_v2_1.tracking_number.size = 2
 
 -- Display: Tracking Number
@@ -3236,7 +3096,7 @@ end
 -- Message Length
 nasdaq_psxequities_lastsale_itch_v2_1.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 nasdaq_psxequities_lastsale_itch_v2_1.message_length.size = 2
 
 -- Display: Message Length
@@ -3259,20 +3119,12 @@ end
 -- Message Header
 nasdaq_psxequities_lastsale_itch_v2_1.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_psxequities_lastsale_itch_v2_1.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.message_length.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.tracking_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.timestamp.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+nasdaq_psxequities_lastsale_itch_v2_1.message_header.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.message_length.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.timestamp.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.message_type.size;
 
 -- Display: Message Header
 nasdaq_psxequities_lastsale_itch_v2_1.message_header.display = function(packet, parent, length)
@@ -3370,7 +3222,7 @@ end
 -- Message Count
 nasdaq_psxequities_lastsale_itch_v2_1.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 nasdaq_psxequities_lastsale_itch_v2_1.message_count.size = 2
 
 -- Display: Message Count
@@ -3393,7 +3245,7 @@ end
 -- Sequence Number
 nasdaq_psxequities_lastsale_itch_v2_1.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 nasdaq_psxequities_lastsale_itch_v2_1.sequence_number.size = 8
 
 -- Display: Sequence Number
@@ -3416,7 +3268,7 @@ end
 -- Session
 nasdaq_psxequities_lastsale_itch_v2_1.session = {}
 
--- Size: Session
+-- Size Of: Session
 nasdaq_psxequities_lastsale_itch_v2_1.session.size = 10
 
 -- Display: Session
@@ -3455,18 +3307,11 @@ end
 -- Packet Header
 nasdaq_psxequities_lastsale_itch_v2_1.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_psxequities_lastsale_itch_v2_1.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.session.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.sequence_number.size
-
-  index = index + nasdaq_psxequities_lastsale_itch_v2_1.message_count.size
-
-  return index
-end
+-- Size Of: Packet Header
+nasdaq_psxequities_lastsale_itch_v2_1.packet_header.size =
+  nasdaq_psxequities_lastsale_itch_v2_1.session.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.sequence_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1.message_count.size;
 
 -- Display: Packet Header
 nasdaq_psxequities_lastsale_itch_v2_1.packet_header.display = function(packet, parent, length)

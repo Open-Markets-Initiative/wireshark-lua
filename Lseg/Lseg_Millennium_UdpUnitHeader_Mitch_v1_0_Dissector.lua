@@ -84,7 +84,7 @@ end
 -- Payload
 lseg_millennium_udpunitheader_mitch_v1_0.payload = {}
 
--- Size: Payload
+-- Size Of: Payload
 lseg_millennium_udpunitheader_mitch_v1_0.payload.size = 0
 
 -- Display: Payload
@@ -107,7 +107,7 @@ end
 -- Message Type
 lseg_millennium_udpunitheader_mitch_v1_0.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 lseg_millennium_udpunitheader_mitch_v1_0.message_type.size = 1
 
 -- Display: Message Type
@@ -130,7 +130,7 @@ end
 -- Message Length
 lseg_millennium_udpunitheader_mitch_v1_0.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 lseg_millennium_udpunitheader_mitch_v1_0.message_length.size = 1
 
 -- Display: Message Length
@@ -153,16 +153,10 @@ end
 -- Message Header
 lseg_millennium_udpunitheader_mitch_v1_0.message_header = {}
 
--- Calculate size of: Message Header
-lseg_millennium_udpunitheader_mitch_v1_0.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.message_length.size
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+lseg_millennium_udpunitheader_mitch_v1_0.message_header.size =
+  lseg_millennium_udpunitheader_mitch_v1_0.message_length.size + 
+  lseg_millennium_udpunitheader_mitch_v1_0.message_type.size;
 
 -- Display: Message Header
 lseg_millennium_udpunitheader_mitch_v1_0.message_header.display = function(packet, parent, length)
@@ -203,16 +197,10 @@ end
 -- Message
 lseg_millennium_udpunitheader_mitch_v1_0.message = {}
 
--- Calculate size of: Message
-lseg_millennium_udpunitheader_mitch_v1_0.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.message_header.size(buffer, offset + index)
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.payload.size
-
-  return index
-end
+-- Size Of: Message
+lseg_millennium_udpunitheader_mitch_v1_0.message.size =
+  lseg_millennium_udpunitheader_mitch_v1_0.message_header.size + 
+  lseg_millennium_udpunitheader_mitch_v1_0.payload.size;
 
 -- Display: Message
 lseg_millennium_udpunitheader_mitch_v1_0.message.display = function(packet, parent, length)
@@ -259,7 +247,7 @@ end
 -- Sequence Number
 lseg_millennium_udpunitheader_mitch_v1_0.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 lseg_millennium_udpunitheader_mitch_v1_0.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -282,7 +270,7 @@ end
 -- Market Data Group
 lseg_millennium_udpunitheader_mitch_v1_0.market_data_group = {}
 
--- Size: Market Data Group
+-- Size Of: Market Data Group
 lseg_millennium_udpunitheader_mitch_v1_0.market_data_group.size = 1
 
 -- Display: Market Data Group
@@ -305,7 +293,7 @@ end
 -- Message Count
 lseg_millennium_udpunitheader_mitch_v1_0.message_count = {}
 
--- Size: Message Count
+-- Size Of: Message Count
 lseg_millennium_udpunitheader_mitch_v1_0.message_count.size = 1
 
 -- Display: Message Count
@@ -328,7 +316,7 @@ end
 -- Length
 lseg_millennium_udpunitheader_mitch_v1_0.length = {}
 
--- Size: Length
+-- Size Of: Length
 lseg_millennium_udpunitheader_mitch_v1_0.length.size = 2
 
 -- Display: Length
@@ -351,20 +339,12 @@ end
 -- Unit Header
 lseg_millennium_udpunitheader_mitch_v1_0.unit_header = {}
 
--- Calculate size of: Unit Header
-lseg_millennium_udpunitheader_mitch_v1_0.unit_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.length.size
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.message_count.size
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.market_data_group.size
-
-  index = index + lseg_millennium_udpunitheader_mitch_v1_0.sequence_number.size
-
-  return index
-end
+-- Size Of: Unit Header
+lseg_millennium_udpunitheader_mitch_v1_0.unit_header.size =
+  lseg_millennium_udpunitheader_mitch_v1_0.length.size + 
+  lseg_millennium_udpunitheader_mitch_v1_0.message_count.size + 
+  lseg_millennium_udpunitheader_mitch_v1_0.market_data_group.size + 
+  lseg_millennium_udpunitheader_mitch_v1_0.sequence_number.size;
 
 -- Display: Unit Header
 lseg_millennium_udpunitheader_mitch_v1_0.unit_header.display = function(packet, parent, length)

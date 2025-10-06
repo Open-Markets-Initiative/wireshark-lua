@@ -149,7 +149,7 @@ end
 -- Unsequenced Message Type
 nasdaq_common_soupbin_tcp_v3_0.unsequenced_message_type = {}
 
--- Size: Unsequenced Message Type
+-- Size Of: Unsequenced Message Type
 nasdaq_common_soupbin_tcp_v3_0.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
@@ -226,7 +226,7 @@ end
 -- Requested Sequence Number
 nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number = {}
 
--- Size: Requested Sequence Number
+-- Size Of: Requested Sequence Number
 nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size = 20
 
 -- Display: Requested Sequence Number
@@ -249,7 +249,7 @@ end
 -- Requested Session
 nasdaq_common_soupbin_tcp_v3_0.requested_session = {}
 
--- Size: Requested Session
+-- Size Of: Requested Session
 nasdaq_common_soupbin_tcp_v3_0.requested_session.size = 10
 
 -- Display: Requested Session
@@ -272,7 +272,7 @@ end
 -- Password
 nasdaq_common_soupbin_tcp_v3_0.password = {}
 
--- Size: Password
+-- Size Of: Password
 nasdaq_common_soupbin_tcp_v3_0.password.size = 10
 
 -- Display: Password
@@ -295,7 +295,7 @@ end
 -- Username
 nasdaq_common_soupbin_tcp_v3_0.username = {}
 
--- Size: Username
+-- Size Of: Username
 nasdaq_common_soupbin_tcp_v3_0.username.size = 6
 
 -- Display: Username
@@ -318,20 +318,12 @@ end
 -- Login Request Packet
 nasdaq_common_soupbin_tcp_v3_0.login_request_packet = {}
 
--- Calculate size of: Login Request Packet
-nasdaq_common_soupbin_tcp_v3_0.login_request_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.username.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.password.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.requested_session.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size
-
-  return index
-end
+-- Size Of: Login Request Packet
+nasdaq_common_soupbin_tcp_v3_0.login_request_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.username.size + 
+  nasdaq_common_soupbin_tcp_v3_0.password.size + 
+  nasdaq_common_soupbin_tcp_v3_0.requested_session.size + 
+  nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size;
 
 -- Display: Login Request Packet
 nasdaq_common_soupbin_tcp_v3_0.login_request_packet.display = function(packet, parent, length)
@@ -397,7 +389,7 @@ end
 -- Sequenced Message Type
 nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type = {}
 
--- Size: Sequenced Message Type
+-- Size Of: Sequenced Message Type
 nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
@@ -474,7 +466,7 @@ end
 -- Reject Reason Code
 nasdaq_common_soupbin_tcp_v3_0.reject_reason_code = {}
 
--- Size: Reject Reason Code
+-- Size Of: Reject Reason Code
 nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
@@ -497,14 +489,9 @@ end
 -- Login Rejected Packet
 nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet = {}
 
--- Calculate size of: Login Rejected Packet
-nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size
-
-  return index
-end
+-- Size Of: Login Rejected Packet
+nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size;
 
 -- Display: Login Rejected Packet
 nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.display = function(packet, parent, length)
@@ -542,7 +529,7 @@ end
 -- Sequence Number
 nasdaq_common_soupbin_tcp_v3_0.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 nasdaq_common_soupbin_tcp_v3_0.sequence_number.size = 20
 
 -- Display: Sequence Number
@@ -565,7 +552,7 @@ end
 -- Session
 nasdaq_common_soupbin_tcp_v3_0.session = {}
 
--- Size: Session
+-- Size Of: Session
 nasdaq_common_soupbin_tcp_v3_0.session.size = 10
 
 -- Display: Session
@@ -588,16 +575,10 @@ end
 -- Login Accepted Packet
 nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet = {}
 
--- Calculate size of: Login Accepted Packet
-nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.session.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.sequence_number.size
-
-  return index
-end
+-- Size Of: Login Accepted Packet
+nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.session.size + 
+  nasdaq_common_soupbin_tcp_v3_0.sequence_number.size;
 
 -- Display: Login Accepted Packet
 nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.display = function(packet, parent, length)
@@ -638,7 +619,7 @@ end
 -- Text
 nasdaq_common_soupbin_tcp_v3_0.text = {}
 
--- Size: Text
+-- Size Of: Text
 nasdaq_common_soupbin_tcp_v3_0.text.size = 1
 
 -- Display: Text
@@ -661,14 +642,9 @@ end
 -- Debug Packet
 nasdaq_common_soupbin_tcp_v3_0.debug_packet = {}
 
--- Calculate size of: Debug Packet
-nasdaq_common_soupbin_tcp_v3_0.debug_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.text.size
-
-  return index
-end
+-- Size Of: Debug Packet
+nasdaq_common_soupbin_tcp_v3_0.debug_packet.size =
+  nasdaq_common_soupbin_tcp_v3_0.text.size;
 
 -- Display: Debug Packet
 nasdaq_common_soupbin_tcp_v3_0.debug_packet.display = function(packet, parent, length)
@@ -794,7 +770,7 @@ end
 -- Packet Type
 nasdaq_common_soupbin_tcp_v3_0.packet_type = {}
 
--- Size: Packet Type
+-- Size Of: Packet Type
 nasdaq_common_soupbin_tcp_v3_0.packet_type.size = 1
 
 -- Display: Packet Type
@@ -848,7 +824,7 @@ end
 -- Packet Length
 nasdaq_common_soupbin_tcp_v3_0.packet_length = {}
 
--- Size: Packet Length
+-- Size Of: Packet Length
 nasdaq_common_soupbin_tcp_v3_0.packet_length.size = 2
 
 -- Display: Packet Length
@@ -871,16 +847,10 @@ end
 -- Packet Header
 nasdaq_common_soupbin_tcp_v3_0.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_common_soupbin_tcp_v3_0.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.packet_length.size
-
-  index = index + nasdaq_common_soupbin_tcp_v3_0.packet_type.size
-
-  return index
-end
+-- Size Of: Packet Header
+nasdaq_common_soupbin_tcp_v3_0.packet_header.size =
+  nasdaq_common_soupbin_tcp_v3_0.packet_length.size + 
+  nasdaq_common_soupbin_tcp_v3_0.packet_type.size;
 
 -- Display: Packet Header
 nasdaq_common_soupbin_tcp_v3_0.packet_header.display = function(packet, parent, length)

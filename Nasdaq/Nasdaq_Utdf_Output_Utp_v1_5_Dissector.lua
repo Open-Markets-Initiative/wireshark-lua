@@ -430,7 +430,7 @@ end
 -- Participant Token
 nasdaq_utdf_output_utp_v1_5.participant_token = {}
 
--- Size: Participant Token
+-- Size Of: Participant Token
 nasdaq_utdf_output_utp_v1_5.participant_token.size = 8
 
 -- Display: Participant Token
@@ -453,7 +453,7 @@ end
 -- Participant Timestamp
 nasdaq_utdf_output_utp_v1_5.participant_timestamp = {}
 
--- Size: Participant Timestamp
+-- Size Of: Participant Timestamp
 nasdaq_utdf_output_utp_v1_5.participant_timestamp.size = 8
 
 -- Display: Participant Timestamp
@@ -476,7 +476,7 @@ end
 -- Sip Timestamp
 nasdaq_utdf_output_utp_v1_5.sip_timestamp = {}
 
--- Size: Sip Timestamp
+-- Size Of: Sip Timestamp
 nasdaq_utdf_output_utp_v1_5.sip_timestamp.size = 8
 
 -- Display: Sip Timestamp
@@ -499,7 +499,7 @@ end
 -- Sub Market Center Id
 nasdaq_utdf_output_utp_v1_5.sub_market_center_id = {}
 
--- Size: Sub Market Center Id
+-- Size Of: Sub Market Center Id
 nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size = 1
 
 -- Display: Sub Market Center Id
@@ -535,7 +535,7 @@ end
 -- Market Center Originator Id
 nasdaq_utdf_output_utp_v1_5.market_center_originator_id = {}
 
--- Size: Market Center Originator Id
+-- Size Of: Market Center Originator Id
 nasdaq_utdf_output_utp_v1_5.market_center_originator_id.size = 1
 
 -- Display: Market Center Originator Id
@@ -619,22 +619,13 @@ end
 -- Message Info
 nasdaq_utdf_output_utp_v1_5.message_info = {}
 
--- Calculate size of: Message Info
-nasdaq_utdf_output_utp_v1_5.message_info.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_originator_id.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.sip_timestamp.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.participant_timestamp.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.participant_token.size
-
-  return index
-end
+-- Size Of: Message Info
+nasdaq_utdf_output_utp_v1_5.message_info.size =
+  nasdaq_utdf_output_utp_v1_5.market_center_originator_id.size + 
+  nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size + 
+  nasdaq_utdf_output_utp_v1_5.sip_timestamp.size + 
+  nasdaq_utdf_output_utp_v1_5.participant_timestamp.size + 
+  nasdaq_utdf_output_utp_v1_5.participant_token.size;
 
 -- Display: Message Info
 nasdaq_utdf_output_utp_v1_5.message_info.display = function(packet, parent, length)
@@ -1095,7 +1086,7 @@ end
 -- Control Message Type
 nasdaq_utdf_output_utp_v1_5.control_message_type = {}
 
--- Size: Control Message Type
+-- Size Of: Control Message Type
 nasdaq_utdf_output_utp_v1_5.control_message_type.size = 1
 
 -- Display: Control Message Type
@@ -1188,7 +1179,7 @@ end
 -- Current Market Center Volume
 nasdaq_utdf_output_utp_v1_5.current_market_center_volume = {}
 
--- Size: Current Market Center Volume
+-- Size Of: Current Market Center Volume
 nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size = 8
 
 -- Display: Current Market Center Volume
@@ -1211,7 +1202,7 @@ end
 -- Market Center Identifier
 nasdaq_utdf_output_utp_v1_5.market_center_identifier = {}
 
--- Size: Market Center Identifier
+-- Size Of: Market Center Identifier
 nasdaq_utdf_output_utp_v1_5.market_center_identifier.size = 1
 
 -- Display: Market Center Identifier
@@ -1234,16 +1225,10 @@ end
 -- Market Center Volume Attachment
 nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment = {}
 
--- Calculate size of: Market Center Volume Attachment
-nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_identifier.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size
-
-  return index
-end
+-- Size Of: Market Center Volume Attachment
+nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.size =
+  nasdaq_utdf_output_utp_v1_5.market_center_identifier.size + 
+  nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size;
 
 -- Display: Market Center Volume Attachment
 nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.display = function(packet, parent, length)
@@ -1290,7 +1275,7 @@ end
 -- Number Of Market Center Volumes
 nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes = {}
 
--- Size: Number Of Market Center Volumes
+-- Size Of: Number Of Market Center Volumes
 nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.size = 2
 
 -- Display: Number Of Market Center Volumes
@@ -1313,7 +1298,7 @@ end
 -- Total Consolidated Volume
 nasdaq_utdf_output_utp_v1_5.total_consolidated_volume = {}
 
--- Size: Total Consolidated Volume
+-- Size Of: Total Consolidated Volume
 nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.size = 8
 
 -- Display: Total Consolidated Volume
@@ -1440,7 +1425,7 @@ end
 -- Volume Message Type
 nasdaq_utdf_output_utp_v1_5.volume_message_type = {}
 
--- Size: Volume Message Type
+-- Size Of: Volume Message Type
 nasdaq_utdf_output_utp_v1_5.volume_message_type.size = 1
 
 -- Display: Volume Message Type
@@ -1515,7 +1500,7 @@ end
 -- Market Participant Low Price
 nasdaq_utdf_output_utp_v1_5.market_participant_low_price = {}
 
--- Size: Market Participant Low Price
+-- Size Of: Market Participant Low Price
 nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size = 8
 
 -- Display: Market Participant Low Price
@@ -1544,7 +1529,7 @@ end
 -- Market Participant High Price
 nasdaq_utdf_output_utp_v1_5.market_participant_high_price = {}
 
--- Size: Market Participant High Price
+-- Size Of: Market Participant High Price
 nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size = 8
 
 -- Display: Market Participant High Price
@@ -1573,7 +1558,7 @@ end
 -- Market Center Close Indicator
 nasdaq_utdf_output_utp_v1_5.market_center_close_indicator = {}
 
--- Size: Market Center Close Indicator
+-- Size Of: Market Center Close Indicator
 nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size = 1
 
 -- Display: Market Center Close Indicator
@@ -1603,7 +1588,7 @@ end
 -- Market Center Volume
 nasdaq_utdf_output_utp_v1_5.market_center_volume = {}
 
--- Size: Market Center Volume
+-- Size Of: Market Center Volume
 nasdaq_utdf_output_utp_v1_5.market_center_volume.size = 8
 
 -- Display: Market Center Volume
@@ -1626,7 +1611,7 @@ end
 -- Market Center Closing Price
 nasdaq_utdf_output_utp_v1_5.market_center_closing_price = {}
 
--- Size: Market Center Closing Price
+-- Size Of: Market Center Closing Price
 nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size = 8
 
 -- Display: Market Center Closing Price
@@ -1655,24 +1640,14 @@ end
 -- Market Center Closing Price And Volume Summary
 nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary = {}
 
--- Calculate size of: Market Center Closing Price And Volume Summary
-nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_identifier.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_volume.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size
-
-  return index
-end
+-- Size Of: Market Center Closing Price And Volume Summary
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.size =
+  nasdaq_utdf_output_utp_v1_5.market_center_identifier.size + 
+  nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size + 
+  nasdaq_utdf_output_utp_v1_5.market_center_volume.size + 
+  nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size + 
+  nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size + 
+  nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size;
 
 -- Display: Market Center Closing Price And Volume Summary
 nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.display = function(packet, parent, length)
@@ -1731,7 +1706,7 @@ end
 -- Number Of Market Center Summaries
 nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries = {}
 
--- Size: Number Of Market Center Summaries
+-- Size Of: Number Of Market Center Summaries
 nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.size = 2
 
 -- Display: Number Of Market Center Summaries
@@ -1754,7 +1729,7 @@ end
 -- Trading Action Indicator
 nasdaq_utdf_output_utp_v1_5.trading_action_indicator = {}
 
--- Size: Trading Action Indicator
+-- Size Of: Trading Action Indicator
 nasdaq_utdf_output_utp_v1_5.trading_action_indicator.size = 1
 
 -- Display: Trading Action Indicator
@@ -1784,7 +1759,7 @@ end
 -- Consolidated Volume
 nasdaq_utdf_output_utp_v1_5.consolidated_volume = {}
 
--- Size: Consolidated Volume
+-- Size Of: Consolidated Volume
 nasdaq_utdf_output_utp_v1_5.consolidated_volume.size = 8
 
 -- Display: Consolidated Volume
@@ -1807,7 +1782,7 @@ end
 -- Daily Consolidated Closing Price
 nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price = {}
 
--- Size: Daily Consolidated Closing Price
+-- Size Of: Daily Consolidated Closing Price
 nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.size = 8
 
 -- Display: Daily Consolidated Closing Price
@@ -1836,7 +1811,7 @@ end
 -- Daily Consolidated Low Price
 nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price = {}
 
--- Size: Daily Consolidated Low Price
+-- Size Of: Daily Consolidated Low Price
 nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.size = 8
 
 -- Display: Daily Consolidated Low Price
@@ -1865,7 +1840,7 @@ end
 -- Daily Consolidated High Price
 nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price = {}
 
--- Size: Daily Consolidated High Price
+-- Size Of: Daily Consolidated High Price
 nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.size = 8
 
 -- Display: Daily Consolidated High Price
@@ -1894,7 +1869,7 @@ end
 -- Symbol
 nasdaq_utdf_output_utp_v1_5.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 nasdaq_utdf_output_utp_v1_5.symbol.size = 5
 
 -- Display: Symbol
@@ -1991,7 +1966,7 @@ end
 -- Collar Extension Indicator
 nasdaq_utdf_output_utp_v1_5.collar_extension_indicator = {}
 
--- Size: Collar Extension Indicator
+-- Size Of: Collar Extension Indicator
 nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.size = 1
 
 -- Display: Collar Extension Indicator
@@ -2014,7 +1989,7 @@ end
 -- Collar Down Price
 nasdaq_utdf_output_utp_v1_5.collar_down_price = {}
 
--- Size: Collar Down Price
+-- Size Of: Collar Down Price
 nasdaq_utdf_output_utp_v1_5.collar_down_price.size = 8
 
 -- Display: Collar Down Price
@@ -2043,7 +2018,7 @@ end
 -- Collar Up Price
 nasdaq_utdf_output_utp_v1_5.collar_up_price = {}
 
--- Size: Collar Up Price
+-- Size Of: Collar Up Price
 nasdaq_utdf_output_utp_v1_5.collar_up_price.size = 8
 
 -- Display: Collar Up Price
@@ -2072,7 +2047,7 @@ end
 -- Collar Reference Price
 nasdaq_utdf_output_utp_v1_5.collar_reference_price = {}
 
--- Size: Collar Reference Price
+-- Size Of: Collar Reference Price
 nasdaq_utdf_output_utp_v1_5.collar_reference_price.size = 8
 
 -- Display: Collar Reference Price
@@ -2101,7 +2076,7 @@ end
 -- Trading Action Sequence Number
 nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number = {}
 
--- Size: Trading Action Sequence Number
+-- Size Of: Trading Action Sequence Number
 nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.size = 4
 
 -- Display: Trading Action Sequence Number
@@ -2187,7 +2162,7 @@ end
 -- Mwcb Level 3
 nasdaq_utdf_output_utp_v1_5.mwcb_level_3 = {}
 
--- Size: Mwcb Level 3
+-- Size Of: Mwcb Level 3
 nasdaq_utdf_output_utp_v1_5.mwcb_level_3.size = 8
 
 -- Display: Mwcb Level 3
@@ -2210,7 +2185,7 @@ end
 -- Mwcb Level 2
 nasdaq_utdf_output_utp_v1_5.mwcb_level_2 = {}
 
--- Size: Mwcb Level 2
+-- Size Of: Mwcb Level 2
 nasdaq_utdf_output_utp_v1_5.mwcb_level_2.size = 8
 
 -- Display: Mwcb Level 2
@@ -2233,7 +2208,7 @@ end
 -- Mwcb Level 1
 nasdaq_utdf_output_utp_v1_5.mwcb_level_1 = {}
 
--- Size: Mwcb Level 1
+-- Size Of: Mwcb Level 1
 nasdaq_utdf_output_utp_v1_5.mwcb_level_1.size = 8
 
 -- Display: Mwcb Level 1
@@ -2310,7 +2285,7 @@ end
 -- Limit Up Price
 nasdaq_utdf_output_utp_v1_5.limit_up_price = {}
 
--- Size: Limit Up Price
+-- Size Of: Limit Up Price
 nasdaq_utdf_output_utp_v1_5.limit_up_price.size = 8
 
 -- Display: Limit Up Price
@@ -2339,7 +2314,7 @@ end
 -- Limit Down Price
 nasdaq_utdf_output_utp_v1_5.limit_down_price = {}
 
--- Size: Limit Down Price
+-- Size Of: Limit Down Price
 nasdaq_utdf_output_utp_v1_5.limit_down_price.size = 8
 
 -- Display: Limit Down Price
@@ -2368,7 +2343,7 @@ end
 -- Luld Timestamp
 nasdaq_utdf_output_utp_v1_5.luld_timestamp = {}
 
--- Size: Luld Timestamp
+-- Size Of: Luld Timestamp
 nasdaq_utdf_output_utp_v1_5.luld_timestamp.size = 8
 
 -- Display: Luld Timestamp
@@ -2391,7 +2366,7 @@ end
 -- Luld Price Band Indicator
 nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator = {}
 
--- Size: Luld Price Band Indicator
+-- Size Of: Luld Price Band Indicator
 nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.size = 1
 
 -- Display: Luld Price Band Indicator
@@ -2496,7 +2471,7 @@ end
 -- Reg Sho Action
 nasdaq_utdf_output_utp_v1_5.reg_sho_action = {}
 
--- Size: Reg Sho Action
+-- Size Of: Reg Sho Action
 nasdaq_utdf_output_utp_v1_5.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
@@ -2580,7 +2555,7 @@ end
 -- Financial Status Indicator
 nasdaq_utdf_output_utp_v1_5.financial_status_indicator = {}
 
--- Size: Financial Status Indicator
+-- Size Of: Financial Status Indicator
 nasdaq_utdf_output_utp_v1_5.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
@@ -2631,7 +2606,7 @@ end
 -- Round Lot Size
 nasdaq_utdf_output_utp_v1_5.round_lot_size = {}
 
--- Size: Round Lot Size
+-- Size Of: Round Lot Size
 nasdaq_utdf_output_utp_v1_5.round_lot_size.size = 2
 
 -- Display: Round Lot Size
@@ -2654,7 +2629,7 @@ end
 -- Short Sale Threshold Indicator
 nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator = {}
 
--- Size: Short Sale Threshold Indicator
+-- Size Of: Short Sale Threshold Indicator
 nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.size = 1
 
 -- Display: Short Sale Threshold Indicator
@@ -2687,7 +2662,7 @@ end
 -- Authenticity
 nasdaq_utdf_output_utp_v1_5.authenticity = {}
 
--- Size: Authenticity
+-- Size Of: Authenticity
 nasdaq_utdf_output_utp_v1_5.authenticity.size = 1
 
 -- Display: Authenticity
@@ -2723,7 +2698,7 @@ end
 -- Market Tier
 nasdaq_utdf_output_utp_v1_5.market_tier = {}
 
--- Size: Market Tier
+-- Size Of: Market Tier
 nasdaq_utdf_output_utp_v1_5.market_tier.size = 1
 
 -- Display: Market Tier
@@ -2756,7 +2731,7 @@ end
 -- Issue Subtype
 nasdaq_utdf_output_utp_v1_5.issue_subtype = {}
 
--- Size: Issue Subtype
+-- Size Of: Issue Subtype
 nasdaq_utdf_output_utp_v1_5.issue_subtype.size = 2
 
 -- Display: Issue Subtype
@@ -2779,7 +2754,7 @@ end
 -- Issue Type
 nasdaq_utdf_output_utp_v1_5.issue_type = {}
 
--- Size: Issue Type
+-- Size Of: Issue Type
 nasdaq_utdf_output_utp_v1_5.issue_type.size = 1
 
 -- Display: Issue Type
@@ -2851,7 +2826,7 @@ end
 -- Issue Name
 nasdaq_utdf_output_utp_v1_5.issue_name = {}
 
--- Size: Issue Name
+-- Size Of: Issue Name
 nasdaq_utdf_output_utp_v1_5.issue_name.size = 30
 
 -- Display: Issue Name
@@ -2874,7 +2849,7 @@ end
 -- Old Symbol
 nasdaq_utdf_output_utp_v1_5.old_symbol = {}
 
--- Size: Old Symbol
+-- Size Of: Old Symbol
 nasdaq_utdf_output_utp_v1_5.old_symbol.size = 11
 
 -- Display: Old Symbol
@@ -2972,7 +2947,7 @@ end
 -- Action Timestamp
 nasdaq_utdf_output_utp_v1_5.action_timestamp = {}
 
--- Size: Action Timestamp
+-- Size Of: Action Timestamp
 nasdaq_utdf_output_utp_v1_5.action_timestamp.size = 8
 
 -- Display: Action Timestamp
@@ -2995,7 +2970,7 @@ end
 -- Trading Action Code
 nasdaq_utdf_output_utp_v1_5.trading_action_code = {}
 
--- Size: Trading Action Code
+-- Size Of: Trading Action Code
 nasdaq_utdf_output_utp_v1_5.trading_action_code.size = 1
 
 -- Display: Trading Action Code
@@ -3088,7 +3063,7 @@ end
 -- Trading Action Reason
 nasdaq_utdf_output_utp_v1_5.trading_action_reason = {}
 
--- Size: Trading Action Reason
+-- Size Of: Trading Action Reason
 nasdaq_utdf_output_utp_v1_5.trading_action_reason.size = 6
 
 -- Display: Trading Action Reason
@@ -3190,7 +3165,7 @@ end
 -- Text Length
 nasdaq_utdf_output_utp_v1_5.text_length = {}
 
--- Size: Text Length
+-- Size Of: Text Length
 nasdaq_utdf_output_utp_v1_5.text_length.size = 2
 
 -- Display: Text Length
@@ -3384,7 +3359,7 @@ end
 -- Administrative Message Type
 nasdaq_utdf_output_utp_v1_5.administrative_message_type = {}
 
--- Size: Administrative Message Type
+-- Size Of: Administrative Message Type
 nasdaq_utdf_output_utp_v1_5.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
@@ -3486,7 +3461,7 @@ end
 -- Timestamp Of Trade
 nasdaq_utdf_output_utp_v1_5.timestamp_of_trade = {}
 
--- Size: Timestamp Of Trade
+-- Size Of: Timestamp Of Trade
 nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.size = 8
 
 -- Display: Timestamp Of Trade
@@ -3509,7 +3484,7 @@ end
 -- As Of Action
 nasdaq_utdf_output_utp_v1_5.as_of_action = {}
 
--- Size: As Of Action
+-- Size Of: As Of Action
 nasdaq_utdf_output_utp_v1_5.as_of_action.size = 1
 
 -- Display: As Of Action
@@ -3539,7 +3514,7 @@ end
 -- Sellers Sale Days
 nasdaq_utdf_output_utp_v1_5.sellers_sale_days = {}
 
--- Size: Sellers Sale Days
+-- Size Of: Sellers Sale Days
 nasdaq_utdf_output_utp_v1_5.sellers_sale_days.size = 2
 
 -- Display: Sellers Sale Days
@@ -3562,7 +3537,7 @@ end
 -- Trade Through Exempt Flag
 nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag = {}
 
--- Size: Trade Through Exempt Flag
+-- Size Of: Trade Through Exempt Flag
 nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.size = 1
 
 -- Display: Trade Through Exempt Flag
@@ -3585,7 +3560,7 @@ end
 -- Level 4
 nasdaq_utdf_output_utp_v1_5.level_4 = {}
 
--- Size: Level 4
+-- Size Of: Level 4
 nasdaq_utdf_output_utp_v1_5.level_4.size = 1
 
 -- Display: Level 4
@@ -3608,7 +3583,7 @@ end
 -- Level 3
 nasdaq_utdf_output_utp_v1_5.level_3 = {}
 
--- Size: Level 3
+-- Size Of: Level 3
 nasdaq_utdf_output_utp_v1_5.level_3.size = 1
 
 -- Display: Level 3
@@ -3695,7 +3670,7 @@ end
 -- Level 2
 nasdaq_utdf_output_utp_v1_5.level_2 = {}
 
--- Size: Level 2
+-- Size Of: Level 2
 nasdaq_utdf_output_utp_v1_5.level_2.size = 1
 
 -- Display: Level 2
@@ -3746,7 +3721,7 @@ end
 -- Level 1
 nasdaq_utdf_output_utp_v1_5.level_1 = {}
 
--- Size: Level 1
+-- Size Of: Level 1
 nasdaq_utdf_output_utp_v1_5.level_1.size = 1
 
 -- Display: Level 1
@@ -3788,20 +3763,12 @@ end
 -- Sale Condition
 nasdaq_utdf_output_utp_v1_5.sale_condition = {}
 
--- Calculate size of: Sale Condition
-nasdaq_utdf_output_utp_v1_5.sale_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
-
-  return index
-end
+-- Size Of: Sale Condition
+nasdaq_utdf_output_utp_v1_5.sale_condition.size =
+  nasdaq_utdf_output_utp_v1_5.level_1.size + 
+  nasdaq_utdf_output_utp_v1_5.level_2.size + 
+  nasdaq_utdf_output_utp_v1_5.level_3.size + 
+  nasdaq_utdf_output_utp_v1_5.level_4.size;
 
 -- Display: Sale Condition
 nasdaq_utdf_output_utp_v1_5.sale_condition.display = function(packet, parent, length)
@@ -3848,7 +3815,7 @@ end
 -- Trade Volume
 nasdaq_utdf_output_utp_v1_5.trade_volume = {}
 
--- Size: Trade Volume
+-- Size Of: Trade Volume
 nasdaq_utdf_output_utp_v1_5.trade_volume.size = 4
 
 -- Display: Trade Volume
@@ -3871,7 +3838,7 @@ end
 -- Trade Price
 nasdaq_utdf_output_utp_v1_5.trade_price = {}
 
--- Size: Trade Price
+-- Size Of: Trade Price
 nasdaq_utdf_output_utp_v1_5.trade_price.size = 8
 
 -- Display: Trade Price
@@ -3900,7 +3867,7 @@ end
 -- Trade Id
 nasdaq_utdf_output_utp_v1_5.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 nasdaq_utdf_output_utp_v1_5.trade_id.size = 8
 
 -- Display: Trade Id
@@ -3923,7 +3890,7 @@ end
 -- Finra Timestamp
 nasdaq_utdf_output_utp_v1_5.finra_timestamp = {}
 
--- Size: Finra Timestamp
+-- Size Of: Finra Timestamp
 nasdaq_utdf_output_utp_v1_5.finra_timestamp.size = 8
 
 -- Display: Finra Timestamp
@@ -4021,7 +3988,7 @@ end
 -- Market Participant Volume
 nasdaq_utdf_output_utp_v1_5.market_participant_volume = {}
 
--- Size: Market Participant Volume
+-- Size Of: Market Participant Volume
 nasdaq_utdf_output_utp_v1_5.market_participant_volume.size = 8
 
 -- Display: Market Participant Volume
@@ -4044,7 +4011,7 @@ end
 -- Market Participant Last Price
 nasdaq_utdf_output_utp_v1_5.market_participant_last_price = {}
 
--- Size: Market Participant Last Price
+-- Size Of: Market Participant Last Price
 nasdaq_utdf_output_utp_v1_5.market_participant_last_price.size = 8
 
 -- Display: Market Participant Last Price
@@ -4073,7 +4040,7 @@ end
 -- Consolidated Price Change Indicator
 nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator = {}
 
--- Size: Consolidated Price Change Indicator
+-- Size Of: Consolidated Price Change Indicator
 nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.size = 1
 
 -- Display: Consolidated Price Change Indicator
@@ -4121,7 +4088,7 @@ end
 -- Consolidated Last Price
 nasdaq_utdf_output_utp_v1_5.consolidated_last_price = {}
 
--- Size: Consolidated Last Price
+-- Size Of: Consolidated Last Price
 nasdaq_utdf_output_utp_v1_5.consolidated_last_price.size = 8
 
 -- Display: Consolidated Last Price
@@ -4150,7 +4117,7 @@ end
 -- Consolidated Low Price
 nasdaq_utdf_output_utp_v1_5.consolidated_low_price = {}
 
--- Size: Consolidated Low Price
+-- Size Of: Consolidated Low Price
 nasdaq_utdf_output_utp_v1_5.consolidated_low_price.size = 8
 
 -- Display: Consolidated Low Price
@@ -4179,7 +4146,7 @@ end
 -- Consolidated High Price
 nasdaq_utdf_output_utp_v1_5.consolidated_high_price = {}
 
--- Size: Consolidated High Price
+-- Size Of: Consolidated High Price
 nasdaq_utdf_output_utp_v1_5.consolidated_high_price.size = 8
 
 -- Display: Consolidated High Price
@@ -4208,7 +4175,7 @@ end
 -- Corrected Sellers Sale Days
 nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days = {}
 
--- Size: Corrected Sellers Sale Days
+-- Size Of: Corrected Sellers Sale Days
 nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.size = 2
 
 -- Display: Corrected Sellers Sale Days
@@ -4231,7 +4198,7 @@ end
 -- Corrected Trade Through Exempt Flag
 nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag = {}
 
--- Size: Corrected Trade Through Exempt Flag
+-- Size Of: Corrected Trade Through Exempt Flag
 nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.size = 1
 
 -- Display: Corrected Trade Through Exempt Flag
@@ -4254,20 +4221,12 @@ end
 -- Corrected Sale Condition
 nasdaq_utdf_output_utp_v1_5.corrected_sale_condition = {}
 
--- Calculate size of: Corrected Sale Condition
-nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
-
-  return index
-end
+-- Size Of: Corrected Sale Condition
+nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.size =
+  nasdaq_utdf_output_utp_v1_5.level_1.size + 
+  nasdaq_utdf_output_utp_v1_5.level_2.size + 
+  nasdaq_utdf_output_utp_v1_5.level_3.size + 
+  nasdaq_utdf_output_utp_v1_5.level_4.size;
 
 -- Display: Corrected Sale Condition
 nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.display = function(packet, parent, length)
@@ -4314,7 +4273,7 @@ end
 -- Corrected Volume
 nasdaq_utdf_output_utp_v1_5.corrected_volume = {}
 
--- Size: Corrected Volume
+-- Size Of: Corrected Volume
 nasdaq_utdf_output_utp_v1_5.corrected_volume.size = 4
 
 -- Display: Corrected Volume
@@ -4337,7 +4296,7 @@ end
 -- Corrected Trade Price
 nasdaq_utdf_output_utp_v1_5.corrected_trade_price = {}
 
--- Size: Corrected Trade Price
+-- Size Of: Corrected Trade Price
 nasdaq_utdf_output_utp_v1_5.corrected_trade_price.size = 8
 
 -- Display: Corrected Trade Price
@@ -4366,7 +4325,7 @@ end
 -- Corrected Trade Id
 nasdaq_utdf_output_utp_v1_5.corrected_trade_id = {}
 
--- Size: Corrected Trade Id
+-- Size Of: Corrected Trade Id
 nasdaq_utdf_output_utp_v1_5.corrected_trade_id.size = 8
 
 -- Display: Corrected Trade Id
@@ -4389,7 +4348,7 @@ end
 -- Original Sellers Sale Days
 nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days = {}
 
--- Size: Original Sellers Sale Days
+-- Size Of: Original Sellers Sale Days
 nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.size = 2
 
 -- Display: Original Sellers Sale Days
@@ -4412,7 +4371,7 @@ end
 -- Original Trade Through Exempt Flag
 nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag = {}
 
--- Size: Original Trade Through Exempt Flag
+-- Size Of: Original Trade Through Exempt Flag
 nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.size = 1
 
 -- Display: Original Trade Through Exempt Flag
@@ -4435,20 +4394,12 @@ end
 -- Original Sale Condition
 nasdaq_utdf_output_utp_v1_5.original_sale_condition = {}
 
--- Calculate size of: Original Sale Condition
-nasdaq_utdf_output_utp_v1_5.original_sale_condition.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_1.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_2.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_3.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.level_4.size
-
-  return index
-end
+-- Size Of: Original Sale Condition
+nasdaq_utdf_output_utp_v1_5.original_sale_condition.size =
+  nasdaq_utdf_output_utp_v1_5.level_1.size + 
+  nasdaq_utdf_output_utp_v1_5.level_2.size + 
+  nasdaq_utdf_output_utp_v1_5.level_3.size + 
+  nasdaq_utdf_output_utp_v1_5.level_4.size;
 
 -- Display: Original Sale Condition
 nasdaq_utdf_output_utp_v1_5.original_sale_condition.display = function(packet, parent, length)
@@ -4495,7 +4446,7 @@ end
 -- Original Volume
 nasdaq_utdf_output_utp_v1_5.original_volume = {}
 
--- Size: Original Volume
+-- Size Of: Original Volume
 nasdaq_utdf_output_utp_v1_5.original_volume.size = 4
 
 -- Display: Original Volume
@@ -4518,7 +4469,7 @@ end
 -- Original Trade Price
 nasdaq_utdf_output_utp_v1_5.original_trade_price = {}
 
--- Size: Original Trade Price
+-- Size Of: Original Trade Price
 nasdaq_utdf_output_utp_v1_5.original_trade_price.size = 8
 
 -- Display: Original Trade Price
@@ -4547,7 +4498,7 @@ end
 -- Original Trade Id
 nasdaq_utdf_output_utp_v1_5.original_trade_id = {}
 
--- Size: Original Trade Id
+-- Size Of: Original Trade Id
 nasdaq_utdf_output_utp_v1_5.original_trade_id.size = 8
 
 -- Display: Original Trade Id
@@ -4687,7 +4638,7 @@ end
 -- Trade Cancellation Type
 nasdaq_utdf_output_utp_v1_5.trade_cancellation_type = {}
 
--- Size: Trade Cancellation Type
+-- Size Of: Trade Cancellation Type
 nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.size = 1
 
 -- Display: Trade Cancellation Type
@@ -4812,7 +4763,7 @@ end
 -- Participant Price Change Indicator
 nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator = {}
 
--- Size: Participant Price Change Indicator
+-- Size Of: Participant Price Change Indicator
 nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.size = 1
 
 -- Display: Participant Price Change Indicator
@@ -4935,7 +4886,7 @@ end
 -- Trade Volume Short
 nasdaq_utdf_output_utp_v1_5.trade_volume_short = {}
 
--- Size: Trade Volume Short
+-- Size Of: Trade Volume Short
 nasdaq_utdf_output_utp_v1_5.trade_volume_short.size = 2
 
 -- Display: Trade Volume Short
@@ -4958,7 +4909,7 @@ end
 -- Trade Price Short
 nasdaq_utdf_output_utp_v1_5.trade_price_short = {}
 
--- Size: Trade Price Short
+-- Size Of: Trade Price Short
 nasdaq_utdf_output_utp_v1_5.trade_price_short.size = 2
 
 -- Display: Trade Price Short
@@ -5139,7 +5090,7 @@ end
 -- Trade Message Type
 nasdaq_utdf_output_utp_v1_5.trade_message_type = {}
 
--- Size: Trade Message Type
+-- Size Of: Trade Message Type
 nasdaq_utdf_output_utp_v1_5.trade_message_type.size = 1
 
 -- Display: Trade Message Type
@@ -5298,7 +5249,7 @@ end
 -- Message Category
 nasdaq_utdf_output_utp_v1_5.message_category = {}
 
--- Size: Message Category
+-- Size Of: Message Category
 nasdaq_utdf_output_utp_v1_5.message_category.size = 1
 
 -- Display: Message Category
@@ -5321,7 +5272,7 @@ end
 -- Version
 nasdaq_utdf_output_utp_v1_5.version = {}
 
--- Size: Version
+-- Size Of: Version
 nasdaq_utdf_output_utp_v1_5.version.size = 1
 
 -- Display: Version
@@ -5344,7 +5295,7 @@ end
 -- Message Length
 nasdaq_utdf_output_utp_v1_5.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 nasdaq_utdf_output_utp_v1_5.message_length.size = 2
 
 -- Display: Message Length
@@ -5367,18 +5318,11 @@ end
 -- Message Header
 nasdaq_utdf_output_utp_v1_5.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_utdf_output_utp_v1_5.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.message_length.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.version.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.message_category.size
-
-  return index
-end
+-- Size Of: Message Header
+nasdaq_utdf_output_utp_v1_5.message_header.size =
+  nasdaq_utdf_output_utp_v1_5.message_length.size + 
+  nasdaq_utdf_output_utp_v1_5.version.size + 
+  nasdaq_utdf_output_utp_v1_5.message_category.size;
 
 -- Display: Message Header
 nasdaq_utdf_output_utp_v1_5.message_header.display = function(packet, parent, length)
@@ -5473,7 +5417,7 @@ end
 -- Count
 nasdaq_utdf_output_utp_v1_5.count = {}
 
--- Size: Count
+-- Size Of: Count
 nasdaq_utdf_output_utp_v1_5.count.size = 2
 
 -- Display: Count
@@ -5496,7 +5440,7 @@ end
 -- Sequence
 nasdaq_utdf_output_utp_v1_5.sequence = {}
 
--- Size: Sequence
+-- Size Of: Sequence
 nasdaq_utdf_output_utp_v1_5.sequence.size = 8
 
 -- Display: Sequence
@@ -5519,7 +5463,7 @@ end
 -- Session
 nasdaq_utdf_output_utp_v1_5.session = {}
 
--- Size: Session
+-- Size Of: Session
 nasdaq_utdf_output_utp_v1_5.session.size = 10
 
 -- Display: Session
@@ -5542,18 +5486,11 @@ end
 -- Packet Header
 nasdaq_utdf_output_utp_v1_5.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_utdf_output_utp_v1_5.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utdf_output_utp_v1_5.session.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.sequence.size
-
-  index = index + nasdaq_utdf_output_utp_v1_5.count.size
-
-  return index
-end
+-- Size Of: Packet Header
+nasdaq_utdf_output_utp_v1_5.packet_header.size =
+  nasdaq_utdf_output_utp_v1_5.session.size + 
+  nasdaq_utdf_output_utp_v1_5.sequence.size + 
+  nasdaq_utdf_output_utp_v1_5.count.size;
 
 -- Display: Packet Header
 nasdaq_utdf_output_utp_v1_5.packet_header.display = function(packet, parent, length)

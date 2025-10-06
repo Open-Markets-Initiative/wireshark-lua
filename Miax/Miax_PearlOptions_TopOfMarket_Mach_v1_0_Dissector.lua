@@ -243,7 +243,7 @@ end
 -- Expected Event Time Nano Seconds Part
 miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_nano_seconds_part = {}
 
--- Size: Expected Event Time Nano Seconds Part
+-- Size Of: Expected Event Time Nano Seconds Part
 miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_nano_seconds_part.size = 4
 
 -- Display: Expected Event Time Nano Seconds Part
@@ -266,7 +266,7 @@ end
 -- Expected Event Time Seconds Part
 miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_seconds_part = {}
 
--- Size: Expected Event Time Seconds Part
+-- Size Of: Expected Event Time Seconds Part
 miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_seconds_part.size = 4
 
 -- Display: Expected Event Time Seconds Part
@@ -289,7 +289,7 @@ end
 -- Event Reason
 miax_pearloptions_topofmarket_mach_v1_0.event_reason = {}
 
--- Size: Event Reason
+-- Size Of: Event Reason
 miax_pearloptions_topofmarket_mach_v1_0.event_reason.size = 1
 
 -- Display: Event Reason
@@ -319,7 +319,7 @@ end
 -- Trading Status
 miax_pearloptions_topofmarket_mach_v1_0.trading_status = {}
 
--- Size: Trading Status
+-- Size Of: Trading Status
 miax_pearloptions_topofmarket_mach_v1_0.trading_status.size = 1
 
 -- Display: Trading Status
@@ -342,7 +342,7 @@ end
 -- Underlying Symbol
 miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol = {}
 
--- Size: Underlying Symbol
+-- Size Of: Underlying Symbol
 miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.size = 11
 
 -- Display: Underlying Symbol
@@ -365,7 +365,7 @@ end
 -- Timestamp
 miax_pearloptions_topofmarket_mach_v1_0.timestamp = {}
 
--- Size: Timestamp
+-- Size Of: Timestamp
 miax_pearloptions_topofmarket_mach_v1_0.timestamp.size = 4
 
 -- Display: Timestamp
@@ -388,24 +388,14 @@ end
 -- Underlying Trading Status Notification
 miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification = {}
 
--- Calculate size of: Underlying Trading Status Notification
-miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trading_status.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.event_reason.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_seconds_part.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_nano_seconds_part.size
-
-  return index
-end
+-- Size Of: Underlying Trading Status Notification
+miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trading_status.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.event_reason.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_seconds_part.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.expected_event_time_nano_seconds_part.size;
 
 -- Display: Underlying Trading Status Notification
 miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.display = function(packet, parent, length)
@@ -458,7 +448,7 @@ end
 -- Trade Condition
 miax_pearloptions_topofmarket_mach_v1_0.trade_condition = {}
 
--- Size: Trade Condition
+-- Size Of: Trade Condition
 miax_pearloptions_topofmarket_mach_v1_0.trade_condition.size = 1
 
 -- Display: Trade Condition
@@ -481,7 +471,7 @@ end
 -- Trade Size
 miax_pearloptions_topofmarket_mach_v1_0.trade_size = {}
 
--- Size: Trade Size
+-- Size Of: Trade Size
 miax_pearloptions_topofmarket_mach_v1_0.trade_size.size = 4
 
 -- Display: Trade Size
@@ -504,7 +494,7 @@ end
 -- Trade Price
 miax_pearloptions_topofmarket_mach_v1_0.trade_price = {}
 
--- Size: Trade Price
+-- Size Of: Trade Price
 miax_pearloptions_topofmarket_mach_v1_0.trade_price.size = 4
 
 -- Display: Trade Price
@@ -533,7 +523,7 @@ end
 -- Correction Number
 miax_pearloptions_topofmarket_mach_v1_0.correction_number = {}
 
--- Size: Correction Number
+-- Size Of: Correction Number
 miax_pearloptions_topofmarket_mach_v1_0.correction_number.size = 1
 
 -- Display: Correction Number
@@ -556,7 +546,7 @@ end
 -- Trade Id
 miax_pearloptions_topofmarket_mach_v1_0.trade_id = {}
 
--- Size: Trade Id
+-- Size Of: Trade Id
 miax_pearloptions_topofmarket_mach_v1_0.trade_id.size = 4
 
 -- Display: Trade Id
@@ -579,7 +569,7 @@ end
 -- Product Id
 miax_pearloptions_topofmarket_mach_v1_0.product_id = {}
 
--- Size: Product Id
+-- Size Of: Product Id
 miax_pearloptions_topofmarket_mach_v1_0.product_id.size = 4
 
 -- Display: Product Id
@@ -602,26 +592,15 @@ end
 -- Trade Cancel Message
 miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message = {}
 
--- Calculate size of: Trade Cancel Message
-miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.correction_number.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_condition.size
-
-  return index
-end
+-- Size Of: Trade Cancel Message
+miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.correction_number.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_condition.size;
 
 -- Display: Trade Cancel Message
 miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.display = function(packet, parent, length)
@@ -677,7 +656,7 @@ end
 -- Reference Correction Number
 miax_pearloptions_topofmarket_mach_v1_0.reference_correction_number = {}
 
--- Size: Reference Correction Number
+-- Size Of: Reference Correction Number
 miax_pearloptions_topofmarket_mach_v1_0.reference_correction_number.size = 1
 
 -- Display: Reference Correction Number
@@ -700,7 +679,7 @@ end
 -- Reference Trade Id
 miax_pearloptions_topofmarket_mach_v1_0.reference_trade_id = {}
 
--- Size: Reference Trade Id
+-- Size Of: Reference Trade Id
 miax_pearloptions_topofmarket_mach_v1_0.reference_trade_id.size = 4
 
 -- Display: Reference Trade Id
@@ -723,30 +702,17 @@ end
 -- Last Sale Message
 miax_pearloptions_topofmarket_mach_v1_0.last_sale_message = {}
 
--- Calculate size of: Last Sale Message
-miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.correction_number.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.reference_trade_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.reference_correction_number.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.trade_condition.size
-
-  return index
-end
+-- Size Of: Last Sale Message
+miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.correction_number.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.reference_trade_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.reference_correction_number.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.trade_condition.size;
 
 -- Display: Last Sale Message
 miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.display = function(packet, parent, length)
@@ -808,7 +774,7 @@ end
 -- Offer Condition
 miax_pearloptions_topofmarket_mach_v1_0.offer_condition = {}
 
--- Size: Offer Condition
+-- Size Of: Offer Condition
 miax_pearloptions_topofmarket_mach_v1_0.offer_condition.size = 1
 
 -- Display: Offer Condition
@@ -910,7 +876,7 @@ end
 -- Wide Offer Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_offer_priority_customer_size = {}
 
--- Size: Wide Offer Priority Customer Size
+-- Size Of: Wide Offer Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_offer_priority_customer_size.size = 4
 
 -- Display: Wide Offer Priority Customer Size
@@ -933,7 +899,7 @@ end
 -- Wide Offer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_offer_size = {}
 
--- Size: Wide Offer Size
+-- Size Of: Wide Offer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_offer_size.size = 4
 
 -- Display: Wide Offer Size
@@ -956,7 +922,7 @@ end
 -- Wide Offer Price
 miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price = {}
 
--- Size: Wide Offer Price
+-- Size Of: Wide Offer Price
 miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.size = 4
 
 -- Display: Wide Offer Price
@@ -985,7 +951,7 @@ end
 -- Bid Condition
 miax_pearloptions_topofmarket_mach_v1_0.bid_condition = {}
 
--- Size: Bid Condition
+-- Size Of: Bid Condition
 miax_pearloptions_topofmarket_mach_v1_0.bid_condition.size = 1
 
 -- Display: Bid Condition
@@ -1024,7 +990,7 @@ end
 -- Wide Bid Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_bid_priority_customer_size = {}
 
--- Size: Wide Bid Priority Customer Size
+-- Size Of: Wide Bid Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_bid_priority_customer_size.size = 4
 
 -- Display: Wide Bid Priority Customer Size
@@ -1047,7 +1013,7 @@ end
 -- Wide Bid Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_bid_size = {}
 
--- Size: Wide Bid Size
+-- Size Of: Wide Bid Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_bid_size.size = 4
 
 -- Display: Wide Bid Size
@@ -1070,7 +1036,7 @@ end
 -- Wide Bid Price
 miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price = {}
 
--- Size: Wide Bid Price
+-- Size Of: Wide Bid Price
 miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.size = 4
 
 -- Display: Wide Bid Price
@@ -1099,32 +1065,18 @@ end
 -- Wide Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message = {}
 
--- Calculate size of: Wide Double Sided Top Of Market Message
-miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_bid_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_bid_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.bid_condition.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_offer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_offer_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.offer_condition.size
-
-  return index
-end
+-- Size Of: Wide Double Sided Top Of Market Message
+miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_bid_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_bid_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.bid_condition.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_offer_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_offer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_offer_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.offer_condition.size;
 
 -- Display: Wide Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.display = function(packet, parent, length)
@@ -1189,7 +1141,7 @@ end
 -- Offer Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.offer_priority_customer_size = {}
 
--- Size: Offer Priority Customer Size
+-- Size Of: Offer Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.offer_priority_customer_size.size = 2
 
 -- Display: Offer Priority Customer Size
@@ -1212,7 +1164,7 @@ end
 -- Offer Size
 miax_pearloptions_topofmarket_mach_v1_0.offer_size = {}
 
--- Size: Offer Size
+-- Size Of: Offer Size
 miax_pearloptions_topofmarket_mach_v1_0.offer_size.size = 2
 
 -- Display: Offer Size
@@ -1235,7 +1187,7 @@ end
 -- Offer Price
 miax_pearloptions_topofmarket_mach_v1_0.offer_price = {}
 
--- Size: Offer Price
+-- Size Of: Offer Price
 miax_pearloptions_topofmarket_mach_v1_0.offer_price.size = 2
 
 -- Display: Offer Price
@@ -1264,7 +1216,7 @@ end
 -- Bid Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.bid_priority_customer_size = {}
 
--- Size: Bid Priority Customer Size
+-- Size Of: Bid Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.bid_priority_customer_size.size = 2
 
 -- Display: Bid Priority Customer Size
@@ -1287,7 +1239,7 @@ end
 -- Bid Size
 miax_pearloptions_topofmarket_mach_v1_0.bid_size = {}
 
--- Size: Bid Size
+-- Size Of: Bid Size
 miax_pearloptions_topofmarket_mach_v1_0.bid_size.size = 2
 
 -- Display: Bid Size
@@ -1310,7 +1262,7 @@ end
 -- Bid Price
 miax_pearloptions_topofmarket_mach_v1_0.bid_price = {}
 
--- Size: Bid Price
+-- Size Of: Bid Price
 miax_pearloptions_topofmarket_mach_v1_0.bid_price.size = 2
 
 -- Display: Bid Price
@@ -1339,32 +1291,18 @@ end
 -- Compact Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message = {}
 
--- Calculate size of: Compact Double Sided Top Of Market Message
-miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.bid_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.bid_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.bid_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.bid_condition.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.offer_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.offer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.offer_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.offer_condition.size
-
-  return index
-end
+-- Size Of: Compact Double Sided Top Of Market Message
+miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.bid_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.bid_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.bid_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.bid_condition.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.offer_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.offer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.offer_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.offer_condition.size;
 
 -- Display: Compact Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.display = function(packet, parent, length)
@@ -1429,7 +1367,7 @@ end
 -- Pbbo Condition
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition = {}
 
--- Size: Pbbo Condition
+-- Size Of: Pbbo Condition
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size = 1
 
 -- Display: Pbbo Condition
@@ -1468,7 +1406,7 @@ end
 -- Wide Pbbo Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_priority_customer_size = {}
 
--- Size: Wide Pbbo Priority Customer Size
+-- Size Of: Wide Pbbo Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_priority_customer_size.size = 4
 
 -- Display: Wide Pbbo Priority Customer Size
@@ -1491,7 +1429,7 @@ end
 -- Wide Pbbo Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size = {}
 
--- Size: Wide Pbbo Size
+-- Size Of: Wide Pbbo Size
 miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.size = 4
 
 -- Display: Wide Pbbo Size
@@ -1514,7 +1452,7 @@ end
 -- Wide Pbbo Price
 miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price = {}
 
--- Size: Wide Pbbo Price
+-- Size Of: Wide Pbbo Price
 miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size = 4
 
 -- Display: Wide Pbbo Price
@@ -1543,24 +1481,14 @@ end
 -- Wide Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message = {}
 
--- Calculate size of: Wide Top Of Market Best Offer Message
-miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size
-
-  return index
-end
+-- Size Of: Wide Top Of Market Best Offer Message
+miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size;
 
 -- Display: Wide Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.display = function(packet, parent, length)
@@ -1613,24 +1541,14 @@ end
 -- Wide Top Of Market Best Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message = {}
 
--- Calculate size of: Wide Top Of Market Best Bid Message
-miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size
-
-  return index
-end
+-- Size Of: Wide Top Of Market Best Bid Message
+miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size;
 
 -- Display: Wide Top Of Market Best Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.display = function(packet, parent, length)
@@ -1683,7 +1601,7 @@ end
 -- Pbbo Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_priority_customer_size = {}
 
--- Size: Pbbo Priority Customer Size
+-- Size Of: Pbbo Priority Customer Size
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_priority_customer_size.size = 2
 
 -- Display: Pbbo Priority Customer Size
@@ -1706,7 +1624,7 @@ end
 -- Pbbo Size
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_size = {}
 
--- Size: Pbbo Size
+-- Size Of: Pbbo Size
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_size.size = 2
 
 -- Display: Pbbo Size
@@ -1729,7 +1647,7 @@ end
 -- Pbbo Price
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_price = {}
 
--- Size: Pbbo Price
+-- Size Of: Pbbo Price
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size = 2
 
 -- Display: Pbbo Price
@@ -1758,24 +1676,14 @@ end
 -- Compact Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message = {}
 
--- Calculate size of: Compact Top Of Market Best Offer Message
-miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size
-
-  return index
-end
+-- Size Of: Compact Top Of Market Best Offer Message
+miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size;
 
 -- Display: Compact Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.display = function(packet, parent, length)
@@ -1828,24 +1736,14 @@ end
 -- Compact Top Of Market Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message = {}
 
--- Calculate size of: Compact Top Of Market Bid Message
-miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_priority_customer_size.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size
-
-  return index
-end
+-- Size Of: Compact Top Of Market Bid Message
+miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_priority_customer_size.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size;
 
 -- Display: Compact Top Of Market Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.display = function(packet, parent, length)
@@ -1898,7 +1796,7 @@ end
 -- System Status
 miax_pearloptions_topofmarket_mach_v1_0.system_status = {}
 
--- Size: System Status
+-- Size Of: System Status
 miax_pearloptions_topofmarket_mach_v1_0.system_status.size = 1
 
 -- Display: System Status
@@ -1934,7 +1832,7 @@ end
 -- Session Id
 miax_pearloptions_topofmarket_mach_v1_0.session_id = {}
 
--- Size: Session Id
+-- Size Of: Session Id
 miax_pearloptions_topofmarket_mach_v1_0.session_id.size = 4
 
 -- Display: Session Id
@@ -1957,7 +1855,7 @@ end
 -- To M Version
 miax_pearloptions_topofmarket_mach_v1_0.to_m_version = {}
 
--- Size: To M Version
+-- Size Of: To M Version
 miax_pearloptions_topofmarket_mach_v1_0.to_m_version.size = 8
 
 -- Display: To M Version
@@ -1980,7 +1878,7 @@ end
 -- Notification Time
 miax_pearloptions_topofmarket_mach_v1_0.notification_time = {}
 
--- Size: Notification Time
+-- Size Of: Notification Time
 miax_pearloptions_topofmarket_mach_v1_0.notification_time.size = 4
 
 -- Display: Notification Time
@@ -2003,20 +1901,12 @@ end
 -- System State Message
 miax_pearloptions_topofmarket_mach_v1_0.system_state_message = {}
 
--- Calculate size of: System State Message
-miax_pearloptions_topofmarket_mach_v1_0.system_state_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.notification_time.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.to_m_version.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.session_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.system_status.size
-
-  return index
-end
+-- Size Of: System State Message
+miax_pearloptions_topofmarket_mach_v1_0.system_state_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.notification_time.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.to_m_version.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.session_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.system_status.size;
 
 -- Display: System State Message
 miax_pearloptions_topofmarket_mach_v1_0.system_state_message.display = function(packet, parent, length)
@@ -2063,7 +1953,7 @@ end
 -- Reserved 12
 miax_pearloptions_topofmarket_mach_v1_0.reserved_12 = {}
 
--- Size: Reserved 12
+-- Size Of: Reserved 12
 miax_pearloptions_topofmarket_mach_v1_0.reserved_12.size = 12
 
 -- Display: Reserved 12
@@ -2086,7 +1976,7 @@ end
 -- Opening Underlying Market Code
 miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code = {}
 
--- Size: Opening Underlying Market Code
+-- Size Of: Opening Underlying Market Code
 miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.size = 1
 
 -- Display: Opening Underlying Market Code
@@ -2161,7 +2051,7 @@ end
 -- Liquidity Acceptance Increment Indicator
 miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator = {}
 
--- Size: Liquidity Acceptance Increment Indicator
+-- Size Of: Liquidity Acceptance Increment Indicator
 miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.size = 1
 
 -- Display: Liquidity Acceptance Increment Indicator
@@ -2194,7 +2084,7 @@ end
 -- Pearl Bbo Posting Increment Indicator
 miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator = {}
 
--- Size: Pearl Bbo Posting Increment Indicator
+-- Size Of: Pearl Bbo Posting Increment Indicator
 miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.size = 1
 
 -- Display: Pearl Bbo Posting Increment Indicator
@@ -2227,7 +2117,7 @@ end
 -- Active On Pearl
 miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl = {}
 
--- Size: Active On Pearl
+-- Size Of: Active On Pearl
 miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.size = 1
 
 -- Display: Active On Pearl
@@ -2257,7 +2147,7 @@ end
 -- Long Term Option
 miax_pearloptions_topofmarket_mach_v1_0.long_term_option = {}
 
--- Size: Long Term Option
+-- Size Of: Long Term Option
 miax_pearloptions_topofmarket_mach_v1_0.long_term_option.size = 1
 
 -- Display: Long Term Option
@@ -2287,7 +2177,7 @@ end
 -- Restricted Option
 miax_pearloptions_topofmarket_mach_v1_0.restricted_option = {}
 
--- Size: Restricted Option
+-- Size Of: Restricted Option
 miax_pearloptions_topofmarket_mach_v1_0.restricted_option.size = 1
 
 -- Display: Restricted Option
@@ -2317,7 +2207,7 @@ end
 -- Closing Time
 miax_pearloptions_topofmarket_mach_v1_0.closing_time = {}
 
--- Size: Closing Time
+-- Size Of: Closing Time
 miax_pearloptions_topofmarket_mach_v1_0.closing_time.size = 8
 
 -- Display: Closing Time
@@ -2340,7 +2230,7 @@ end
 -- Opening Time
 miax_pearloptions_topofmarket_mach_v1_0.opening_time = {}
 
--- Size: Opening Time
+-- Size Of: Opening Time
 miax_pearloptions_topofmarket_mach_v1_0.opening_time.size = 8
 
 -- Display: Opening Time
@@ -2363,7 +2253,7 @@ end
 -- Call Or Put
 miax_pearloptions_topofmarket_mach_v1_0.call_or_put = {}
 
--- Size: Call Or Put
+-- Size Of: Call Or Put
 miax_pearloptions_topofmarket_mach_v1_0.call_or_put.size = 1
 
 -- Display: Call Or Put
@@ -2393,7 +2283,7 @@ end
 -- Strike Price
 miax_pearloptions_topofmarket_mach_v1_0.strike_price = {}
 
--- Size: Strike Price
+-- Size Of: Strike Price
 miax_pearloptions_topofmarket_mach_v1_0.strike_price.size = 4
 
 -- Display: Strike Price
@@ -2422,7 +2312,7 @@ end
 -- Expiration Date
 miax_pearloptions_topofmarket_mach_v1_0.expiration_date = {}
 
--- Size: Expiration Date
+-- Size Of: Expiration Date
 miax_pearloptions_topofmarket_mach_v1_0.expiration_date.size = 8
 
 -- Display: Expiration Date
@@ -2445,7 +2335,7 @@ end
 -- Security Symbol
 miax_pearloptions_topofmarket_mach_v1_0.security_symbol = {}
 
--- Size: Security Symbol
+-- Size Of: Security Symbol
 miax_pearloptions_topofmarket_mach_v1_0.security_symbol.size = 6
 
 -- Display: Security Symbol
@@ -2468,7 +2358,7 @@ end
 -- Product Add Update Time
 miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time = {}
 
--- Size: Product Add Update Time
+-- Size Of: Product Add Update Time
 miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.size = 4
 
 -- Display: Product Add Update Time
@@ -2491,44 +2381,24 @@ end
 -- Series Update Message
 miax_pearloptions_topofmarket_mach_v1_0.series_update_message = {}
 
--- Calculate size of: Series Update Message
-miax_pearloptions_topofmarket_mach_v1_0.series_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.product_id.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.security_symbol.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.expiration_date.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.strike_price.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.call_or_put.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.opening_time.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.closing_time.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.restricted_option.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.long_term_option.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.reserved_12.size
-
-  return index
-end
+-- Size Of: Series Update Message
+miax_pearloptions_topofmarket_mach_v1_0.series_update_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.security_symbol.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.expiration_date.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.strike_price.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.call_or_put.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.opening_time.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.closing_time.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.restricted_option.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.long_term_option.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.reserved_12.size;
 
 -- Display: Series Update Message
 miax_pearloptions_topofmarket_mach_v1_0.series_update_message.display = function(packet, parent, length)
@@ -2611,14 +2481,9 @@ end
 -- Pearl System Time Message
 miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message = {}
 
--- Calculate size of: Pearl System Time Message
-miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-
-  return index
-end
+-- Size Of: Pearl System Time Message
+miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.size =
+  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size;
 
 -- Display: Pearl System Time Message
 miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.display = function(packet, parent, length)
@@ -2792,7 +2657,7 @@ end
 -- Message Type
 miax_pearloptions_topofmarket_mach_v1_0.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 miax_pearloptions_topofmarket_mach_v1_0.message_type.size = 1
 
 -- Display: Message Type
@@ -2948,7 +2813,7 @@ end
 -- Session Number
 miax_pearloptions_topofmarket_mach_v1_0.session_number = {}
 
--- Size: Session Number
+-- Size Of: Session Number
 miax_pearloptions_topofmarket_mach_v1_0.session_number.size = 1
 
 -- Display: Session Number
@@ -2971,7 +2836,7 @@ end
 -- Packet Type
 miax_pearloptions_topofmarket_mach_v1_0.packet_type = {}
 
--- Size: Packet Type
+-- Size Of: Packet Type
 miax_pearloptions_topofmarket_mach_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
@@ -3007,7 +2872,7 @@ end
 -- Packet Length
 miax_pearloptions_topofmarket_mach_v1_0.packet_length = {}
 
--- Size: Packet Length
+-- Size Of: Packet Length
 miax_pearloptions_topofmarket_mach_v1_0.packet_length.size = 2
 
 -- Display: Packet Length
@@ -3030,7 +2895,7 @@ end
 -- Sequence Number
 miax_pearloptions_topofmarket_mach_v1_0.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 miax_pearloptions_topofmarket_mach_v1_0.sequence_number.size = 8
 
 -- Display: Sequence Number

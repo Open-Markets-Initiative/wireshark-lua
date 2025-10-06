@@ -252,7 +252,7 @@ end
 -- Volume
 nasdaq_phlxoptions_orders_itch_v1_9.volume = {}
 
--- Size: Volume
+-- Size Of: Volume
 nasdaq_phlxoptions_orders_itch_v1_9.volume.size = 4
 
 -- Display: Volume
@@ -275,7 +275,7 @@ end
 -- Debit Or Credit
 nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit = {}
 
--- Size: Debit Or Credit
+-- Size Of: Debit Or Credit
 nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.size = 1
 
 -- Display: Debit Or Credit
@@ -311,7 +311,7 @@ end
 -- Auction Side
 nasdaq_phlxoptions_orders_itch_v1_9.auction_side = {}
 
--- Size: Auction Side
+-- Size Of: Auction Side
 nasdaq_phlxoptions_orders_itch_v1_9.auction_side.size = 1
 
 -- Display: Auction Side
@@ -344,7 +344,7 @@ end
 -- Price
 nasdaq_phlxoptions_orders_itch_v1_9.price = {}
 
--- Size: Price
+-- Size Of: Price
 nasdaq_phlxoptions_orders_itch_v1_9.price.size = 4
 
 -- Display: Price
@@ -373,7 +373,7 @@ end
 -- Auction Type
 nasdaq_phlxoptions_orders_itch_v1_9.auction_type = {}
 
--- Size: Auction Type
+-- Size Of: Auction Type
 nasdaq_phlxoptions_orders_itch_v1_9.auction_type.size = 1
 
 -- Display: Auction Type
@@ -415,7 +415,7 @@ end
 -- Auction Id
 nasdaq_phlxoptions_orders_itch_v1_9.auction_id = {}
 
--- Size: Auction Id
+-- Size Of: Auction Id
 nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size = 4
 
 -- Display: Auction Id
@@ -438,7 +438,7 @@ end
 -- Strategy Id
 nasdaq_phlxoptions_orders_itch_v1_9.strategy_id = {}
 
--- Size: Strategy Id
+-- Size Of: Strategy Id
 nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size = 4
 
 -- Display: Strategy Id
@@ -461,7 +461,7 @@ end
 -- Nanoseconds
 nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds = {}
 
--- Size: Nanoseconds
+-- Size Of: Nanoseconds
 nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size = 4
 
 -- Display: Nanoseconds
@@ -484,7 +484,7 @@ end
 -- Seconds
 nasdaq_phlxoptions_orders_itch_v1_9.seconds = {}
 
--- Size: Seconds
+-- Size Of: Seconds
 nasdaq_phlxoptions_orders_itch_v1_9.seconds.size = 4
 
 -- Display: Seconds
@@ -507,30 +507,17 @@ end
 -- Complex Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message = {}
 
--- Calculate size of: Complex Auction Notification Message
-nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.auction_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.auction_side.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.volume.size
-
-  return index
-end
+-- Size Of: Complex Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.auction_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.auction_side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.volume.size;
 
 -- Display: Complex Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.display = function(packet, parent, length)
@@ -592,7 +579,7 @@ end
 -- Reserved
 nasdaq_phlxoptions_orders_itch_v1_9.reserved = {}
 
--- Size: Reserved
+-- Size Of: Reserved
 nasdaq_phlxoptions_orders_itch_v1_9.reserved.size = 4
 
 -- Display: Reserved
@@ -615,7 +602,7 @@ end
 -- Imbalance Volume
 nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume = {}
 
--- Size: Imbalance Volume
+-- Size Of: Imbalance Volume
 nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size = 4
 
 -- Display: Imbalance Volume
@@ -638,7 +625,7 @@ end
 -- Matched Volume
 nasdaq_phlxoptions_orders_itch_v1_9.matched_volume = {}
 
--- Size: Matched Volume
+-- Size Of: Matched Volume
 nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size = 4
 
 -- Display: Matched Volume
@@ -661,7 +648,7 @@ end
 -- Option Type
 nasdaq_phlxoptions_orders_itch_v1_9.option_type = {}
 
--- Size: Option Type
+-- Size Of: Option Type
 nasdaq_phlxoptions_orders_itch_v1_9.option_type.size = 1
 
 -- Display: Option Type
@@ -694,7 +681,7 @@ end
 -- Explicit Strike Price
 nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price = {}
 
--- Size: Explicit Strike Price
+-- Size Of: Explicit Strike Price
 nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size = 4
 
 -- Display: Explicit Strike Price
@@ -723,7 +710,7 @@ end
 -- Expiration
 nasdaq_phlxoptions_orders_itch_v1_9.expiration = {}
 
--- Size: Expiration
+-- Size Of: Expiration
 nasdaq_phlxoptions_orders_itch_v1_9.expiration.size = 2
 
 -- Display: Expiration
@@ -764,7 +751,7 @@ end
 -- Security Symbol
 nasdaq_phlxoptions_orders_itch_v1_9.security_symbol = {}
 
--- Size: Security Symbol
+-- Size Of: Security Symbol
 nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size = 5
 
 -- Display: Security Symbol
@@ -787,7 +774,7 @@ end
 -- Option Id
 nasdaq_phlxoptions_orders_itch_v1_9.option_id = {}
 
--- Size: Option Id
+-- Size Of: Option Id
 nasdaq_phlxoptions_orders_itch_v1_9.option_id.size = 4
 
 -- Display: Option Id
@@ -810,40 +797,22 @@ end
 -- Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message = {}
 
--- Calculate size of: Auction Notification Message
-nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.auction_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.auction_side.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.reserved.size
-
-  return index
-end
+-- Size Of: Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.auction_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.auction_side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.reserved.size;
 
 -- Display: Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.display = function(packet, parent, length)
@@ -920,7 +889,7 @@ end
 -- Leg Ratio
 nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio = {}
 
--- Size: Leg Ratio
+-- Size Of: Leg Ratio
 nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size = 4
 
 -- Display: Leg Ratio
@@ -943,7 +912,7 @@ end
 -- Side
 nasdaq_phlxoptions_orders_itch_v1_9.side = {}
 
--- Size: Side
+-- Size Of: Side
 nasdaq_phlxoptions_orders_itch_v1_9.side.size = 1
 
 -- Display: Side
@@ -976,7 +945,7 @@ end
 -- Leg Open Close Indicator
 nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator = {}
 
--- Size: Leg Open Close Indicator
+-- Size Of: Leg Open Close Indicator
 nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.size = 1
 
 -- Display: Leg Open Close Indicator
@@ -1009,28 +978,16 @@ end
 -- Complex Order Leg
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg = {}
 
--- Calculate size of: Complex Order Leg
-nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.side.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size
-
-  return index
-end
+-- Size Of: Complex Order Leg
+nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size;
 
 -- Display: Complex Order Leg
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.display = function(packet, parent, length)
@@ -1095,7 +1052,7 @@ end
 -- Number Of Legs
 nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs = {}
 
--- Size: Number Of Legs
+-- Size Of: Number Of Legs
 nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.size = 1
 
 -- Display: Number Of Legs
@@ -1118,7 +1075,7 @@ end
 -- Underlying Symbol
 nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol = {}
 
--- Size: Underlying Symbol
+-- Size Of: Underlying Symbol
 nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.size = 13
 
 -- Display: Underlying Symbol
@@ -1141,7 +1098,7 @@ end
 -- Customer Firm Indicator
 nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator = {}
 
--- Size: Customer Firm Indicator
+-- Size Of: Customer Firm Indicator
 nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.size = 1
 
 -- Display: Customer Firm Indicator
@@ -1183,7 +1140,7 @@ end
 -- Time In Force
 nasdaq_phlxoptions_orders_itch_v1_9.time_in_force = {}
 
--- Size: Time In Force
+-- Size Of: Time In Force
 nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -1216,7 +1173,7 @@ end
 -- All Or None
 nasdaq_phlxoptions_orders_itch_v1_9.all_or_none = {}
 
--- Size: All Or None
+-- Size Of: All Or None
 nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.size = 1
 
 -- Display: All Or None
@@ -1246,7 +1203,7 @@ end
 -- Limit Price
 nasdaq_phlxoptions_orders_itch_v1_9.limit_price = {}
 
--- Size: Limit Price
+-- Size Of: Limit Price
 nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size = 4
 
 -- Display: Limit Price
@@ -1275,7 +1232,7 @@ end
 -- Order Type
 nasdaq_phlxoptions_orders_itch_v1_9.order_type = {}
 
--- Size: Order Type
+-- Size Of: Order Type
 nasdaq_phlxoptions_orders_itch_v1_9.order_type.size = 1
 
 -- Display: Order Type
@@ -1308,7 +1265,7 @@ end
 -- Order Status
 nasdaq_phlxoptions_orders_itch_v1_9.order_status = {}
 
--- Size: Order Status
+-- Size Of: Order Status
 nasdaq_phlxoptions_orders_itch_v1_9.order_status.size = 1
 
 -- Display: Order Status
@@ -1344,7 +1301,7 @@ end
 -- Executable Order Volume
 nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume = {}
 
--- Size: Executable Order Volume
+-- Size Of: Executable Order Volume
 nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.size = 4
 
 -- Display: Executable Order Volume
@@ -1367,7 +1324,7 @@ end
 -- Original Order Volume
 nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume = {}
 
--- Size: Original Order Volume
+-- Size Of: Original Order Volume
 nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.size = 4
 
 -- Display: Original Order Volume
@@ -1390,7 +1347,7 @@ end
 -- Order Id
 nasdaq_phlxoptions_orders_itch_v1_9.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 nasdaq_phlxoptions_orders_itch_v1_9.order_id.size = 4
 
 -- Display: Order Id
@@ -1537,7 +1494,7 @@ end
 -- Open Close Indicator
 nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator = {}
 
--- Size: Open Close Indicator
+-- Size Of: Open Close Indicator
 nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.size = 1
 
 -- Display: Open Close Indicator
@@ -1570,7 +1527,7 @@ end
 -- Market Qualifier
 nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier = {}
 
--- Size: Market Qualifier
+-- Size Of: Market Qualifier
 nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.size = 1
 
 -- Display: Market Qualifier
@@ -1603,50 +1560,27 @@ end
 -- Simple Order Message
 nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message = {}
 
--- Calculate size of: Simple Order Message
-nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.order_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.side.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.order_status.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.order_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.size
-
-  return index
-end
+-- Size Of: Simple Order Message
+nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.order_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.order_status.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.order_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.size;
 
 -- Display: Simple Order Message
 nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.display = function(packet, parent, length)
@@ -1738,7 +1672,7 @@ end
 -- Open State
 nasdaq_phlxoptions_orders_itch_v1_9.open_state = {}
 
--- Size: Open State
+-- Size Of: Open State
 nasdaq_phlxoptions_orders_itch_v1_9.open_state.size = 1
 
 -- Display: Open State
@@ -1768,20 +1702,12 @@ end
 -- Strategy Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message = {}
 
--- Calculate size of: Strategy Open Closed Message
-nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.open_state.size
-
-  return index
-end
+-- Size Of: Strategy Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.open_state.size;
 
 -- Display: Strategy Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.display = function(packet, parent, length)
@@ -1828,28 +1754,16 @@ end
 -- Security Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message = {}
 
--- Calculate size of: Security Open Closed Message
-nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.open_state.size
-
-  return index
-end
+-- Size Of: Security Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.open_state.size;
 
 -- Display: Security Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.display = function(packet, parent, length)
@@ -1908,7 +1822,7 @@ end
 -- Current Trading State
 nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state = {}
 
--- Size: Current Trading State
+-- Size Of: Current Trading State
 nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size = 1
 
 -- Display: Current Trading State
@@ -1938,20 +1852,12 @@ end
 -- Complex Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message = {}
 
--- Calculate size of: Complex Trading Action Message
-nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size
-
-  return index
-end
+-- Size Of: Complex Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size;
 
 -- Display: Complex Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.display = function(packet, parent, length)
@@ -1998,28 +1904,16 @@ end
 -- Security Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message = {}
 
--- Calculate size of: Security Trading Action Message
-nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size
-
-  return index
-end
+-- Size Of: Security Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size;
 
 -- Display: Security Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.display = function(packet, parent, length)
@@ -2078,26 +1972,15 @@ end
 -- Complex Order Strategy Leg
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg = {}
 
--- Calculate size of: Complex Order Strategy Leg
-nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.side.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size
-
-  return index
-end
+-- Size Of: Complex Order Strategy Leg
+nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size;
 
 -- Display: Complex Order Strategy Leg
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.display = function(packet, parent, length)
@@ -2159,7 +2042,7 @@ end
 -- Action
 nasdaq_phlxoptions_orders_itch_v1_9.action = {}
 
--- Size: Action
+-- Size Of: Action
 nasdaq_phlxoptions_orders_itch_v1_9.action.size = 1
 
 -- Display: Action
@@ -2189,7 +2072,7 @@ end
 -- Source
 nasdaq_phlxoptions_orders_itch_v1_9.source = {}
 
--- Size: Source
+-- Size Of: Source
 nasdaq_phlxoptions_orders_itch_v1_9.source.size = 1
 
 -- Display: Source
@@ -2291,7 +2174,7 @@ end
 -- Phlx Tradable
 nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable = {}
 
--- Size: Phlx Tradable
+-- Size Of: Phlx Tradable
 nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.size = 1
 
 -- Display: Phlx Tradable
@@ -2321,7 +2204,7 @@ end
 -- Option Closing Type
 nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type = {}
 
--- Size: Option Closing Type
+-- Size Of: Option Closing Type
 nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.size = 1
 
 -- Display: Option Closing Type
@@ -2354,34 +2237,19 @@ end
 -- Options Directory Message
 nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message = {}
 
--- Calculate size of: Options Directory Message
-nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.expiration.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.source.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.size
-
-  return index
-end
+-- Size Of: Options Directory Message
+nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.source.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.size;
 
 -- Display: Options Directory Message
 nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.display = function(packet, parent, length)
@@ -2449,7 +2317,7 @@ end
 -- Version
 nasdaq_phlxoptions_orders_itch_v1_9.version = {}
 
--- Size: Version
+-- Size Of: Version
 nasdaq_phlxoptions_orders_itch_v1_9.version.size = 1
 
 -- Display: Version
@@ -2472,7 +2340,7 @@ end
 -- Event Code
 nasdaq_phlxoptions_orders_itch_v1_9.event_code = {}
 
--- Size: Event Code
+-- Size Of: Event Code
 nasdaq_phlxoptions_orders_itch_v1_9.event_code.size = 1
 
 -- Display: Event Code
@@ -2520,20 +2388,12 @@ end
 -- System Event Message
 nasdaq_phlxoptions_orders_itch_v1_9.system_event_message = {}
 
--- Calculate size of: System Event Message
-nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.event_code.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.version.size
-
-  return index
-end
+-- Size Of: System Event Message
+nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.event_code.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.version.size;
 
 -- Display: System Event Message
 nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.display = function(packet, parent, length)
@@ -2708,7 +2568,7 @@ end
 -- Message Type
 nasdaq_phlxoptions_orders_itch_v1_9.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 nasdaq_phlxoptions_orders_itch_v1_9.message_type.size = 1
 
 -- Display: Message Type
@@ -2765,7 +2625,7 @@ end
 -- Length
 nasdaq_phlxoptions_orders_itch_v1_9.length = {}
 
--- Size: Length
+-- Size Of: Length
 nasdaq_phlxoptions_orders_itch_v1_9.length.size = 2
 
 -- Display: Length
@@ -2788,16 +2648,10 @@ end
 -- Message Header
 nasdaq_phlxoptions_orders_itch_v1_9.message_header = {}
 
--- Calculate size of: Message Header
-nasdaq_phlxoptions_orders_itch_v1_9.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.length.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.message_type.size
-
-  return index
-end
+-- Size Of: Message Header
+nasdaq_phlxoptions_orders_itch_v1_9.message_header.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.length.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.message_type.size;
 
 -- Display: Message Header
 nasdaq_phlxoptions_orders_itch_v1_9.message_header.display = function(packet, parent, length)
@@ -2842,7 +2696,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.message = {}
 nasdaq_phlxoptions_orders_itch_v1_9.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.message_header.size(buffer, offset + index)
+  index = index + nasdaq_phlxoptions_orders_itch_v1_9.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2895,7 +2749,7 @@ end
 -- Count
 nasdaq_phlxoptions_orders_itch_v1_9.count = {}
 
--- Size: Count
+-- Size Of: Count
 nasdaq_phlxoptions_orders_itch_v1_9.count.size = 2
 
 -- Display: Count
@@ -2918,7 +2772,7 @@ end
 -- Sequence
 nasdaq_phlxoptions_orders_itch_v1_9.sequence = {}
 
--- Size: Sequence
+-- Size Of: Sequence
 nasdaq_phlxoptions_orders_itch_v1_9.sequence.size = 4
 
 -- Display: Sequence
@@ -2941,7 +2795,7 @@ end
 -- Session
 nasdaq_phlxoptions_orders_itch_v1_9.session = {}
 
--- Size: Session
+-- Size Of: Session
 nasdaq_phlxoptions_orders_itch_v1_9.session.size = 10
 
 -- Display: Session
@@ -2964,18 +2818,11 @@ end
 -- Packet Header
 nasdaq_phlxoptions_orders_itch_v1_9.packet_header = {}
 
--- Calculate size of: Packet Header
-nasdaq_phlxoptions_orders_itch_v1_9.packet_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.session.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.sequence.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.count.size
-
-  return index
-end
+-- Size Of: Packet Header
+nasdaq_phlxoptions_orders_itch_v1_9.packet_header.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.session.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.sequence.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.count.size;
 
 -- Display: Packet Header
 nasdaq_phlxoptions_orders_itch_v1_9.packet_header.display = function(packet, parent, length)

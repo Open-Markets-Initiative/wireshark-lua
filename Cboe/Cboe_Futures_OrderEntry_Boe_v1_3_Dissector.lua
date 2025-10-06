@@ -2444,7 +2444,7 @@ end
 -- Reserved 16
 cboe_futures_orderentry_boe_v1_3.reserved_16 = {}
 
--- Size: Reserved 16
+-- Size Of: Reserved 16
 cboe_futures_orderentry_boe_v1_3.reserved_16.size = 16
 
 -- Display: Reserved 16
@@ -2467,7 +2467,7 @@ end
 -- Clearing Size
 cboe_futures_orderentry_boe_v1_3.clearing_size = {}
 
--- Size: Clearing Size
+-- Size Of: Clearing Size
 cboe_futures_orderentry_boe_v1_3.clearing_size.size = 4
 
 -- Display: Clearing Size
@@ -2490,7 +2490,7 @@ end
 -- Clearing Price
 cboe_futures_orderentry_boe_v1_3.clearing_price = {}
 
--- Size: Clearing Price
+-- Size Of: Clearing Price
 cboe_futures_orderentry_boe_v1_3.clearing_price.size = 8
 
 -- Display: Clearing Price
@@ -2513,7 +2513,7 @@ end
 -- Clearing Symbol
 cboe_futures_orderentry_boe_v1_3.clearing_symbol = {}
 
--- Size: Clearing Symbol
+-- Size Of: Clearing Symbol
 cboe_futures_orderentry_boe_v1_3.clearing_symbol.size = 6
 
 -- Display: Clearing Symbol
@@ -2536,7 +2536,7 @@ end
 -- Symbol
 cboe_futures_orderentry_boe_v1_3.symbol = {}
 
--- Size: Symbol
+-- Size Of: Symbol
 cboe_futures_orderentry_boe_v1_3.symbol.size = 6
 
 -- Display: Symbol
@@ -2559,7 +2559,7 @@ end
 -- Exec Id
 cboe_futures_orderentry_boe_v1_3.exec_id = {}
 
--- Size: Exec Id
+-- Size Of: Exec Id
 cboe_futures_orderentry_boe_v1_3.exec_id.size = 8
 
 -- Display: Exec Id
@@ -2582,7 +2582,7 @@ end
 -- Quote Update Id
 cboe_futures_orderentry_boe_v1_3.quote_update_id = {}
 
--- Size: Quote Update Id
+-- Size Of: Quote Update Id
 cboe_futures_orderentry_boe_v1_3.quote_update_id.size = 16
 
 -- Display: Quote Update Id
@@ -2605,7 +2605,7 @@ end
 -- Transaction Time
 cboe_futures_orderentry_boe_v1_3.transaction_time = {}
 
--- Size: Transaction Time
+-- Size Of: Transaction Time
 cboe_futures_orderentry_boe_v1_3.transaction_time.size = 8
 
 -- Display: Transaction Time
@@ -2757,7 +2757,7 @@ end
 -- Frequent Trader Id
 cboe_futures_orderentry_boe_v1_3.frequent_trader_id = {}
 
--- Size: Frequent Trader Id
+-- Size Of: Frequent Trader Id
 cboe_futures_orderentry_boe_v1_3.frequent_trader_id.size = 6
 
 -- Display: Frequent Trader Id
@@ -2780,7 +2780,7 @@ end
 -- Secondary Exec Id
 cboe_futures_orderentry_boe_v1_3.secondary_exec_id = {}
 
--- Size: Secondary Exec Id
+-- Size Of: Secondary Exec Id
 cboe_futures_orderentry_boe_v1_3.secondary_exec_id.size = 8
 
 -- Display: Secondary Exec Id
@@ -2803,7 +2803,7 @@ end
 -- Multileg Reporting Type
 cboe_futures_orderentry_boe_v1_3.multileg_reporting_type = {}
 
--- Size: Multileg Reporting Type
+-- Size Of: Multileg Reporting Type
 cboe_futures_orderentry_boe_v1_3.multileg_reporting_type.size = 1
 
 -- Display: Multileg Reporting Type
@@ -2826,7 +2826,7 @@ end
 -- Trade Date
 cboe_futures_orderentry_boe_v1_3.trade_date = {}
 
--- Size: Trade Date
+-- Size Of: Trade Date
 cboe_futures_orderentry_boe_v1_3.trade_date.size = 4
 
 -- Display: Trade Date
@@ -2849,7 +2849,7 @@ end
 -- Oeoid
 cboe_futures_orderentry_boe_v1_3.oeoid = {}
 
--- Size: Oeoid
+-- Size Of: Oeoid
 cboe_futures_orderentry_boe_v1_3.oeoid.size = 18
 
 -- Display: Oeoid
@@ -2872,7 +2872,7 @@ end
 -- Manual Order Indicator
 cboe_futures_orderentry_boe_v1_3.manual_order_indicator = {}
 
--- Size: Manual Order Indicator
+-- Size Of: Manual Order Indicator
 cboe_futures_orderentry_boe_v1_3.manual_order_indicator.size = 1
 
 -- Display: Manual Order Indicator
@@ -2911,7 +2911,7 @@ end
 -- Cti Code
 cboe_futures_orderentry_boe_v1_3.cti_code = {}
 
--- Size: Cti Code
+-- Size Of: Cti Code
 cboe_futures_orderentry_boe_v1_3.cti_code.size = 1
 
 -- Display: Cti Code
@@ -2947,7 +2947,7 @@ end
 -- Cmta Number
 cboe_futures_orderentry_boe_v1_3.cmta_number = {}
 
--- Size: Cmta Number
+-- Size Of: Cmta Number
 cboe_futures_orderentry_boe_v1_3.cmta_number.size = 4
 
 -- Display: Cmta Number
@@ -2970,7 +2970,7 @@ end
 -- Stop Px
 cboe_futures_orderentry_boe_v1_3.stop_px = {}
 
--- Size: Stop Px
+-- Size Of: Stop Px
 cboe_futures_orderentry_boe_v1_3.stop_px.size = 8
 
 -- Display: Stop Px
@@ -2993,7 +2993,7 @@ end
 -- Fee Code
 cboe_futures_orderentry_boe_v1_3.fee_code = {}
 
--- Size: Fee Code
+-- Size Of: Fee Code
 cboe_futures_orderentry_boe_v1_3.fee_code.size = 2
 
 -- Display: Fee Code
@@ -3016,7 +3016,7 @@ end
 -- Last Px
 cboe_futures_orderentry_boe_v1_3.last_px = {}
 
--- Size: Last Px
+-- Size Of: Last Px
 cboe_futures_orderentry_boe_v1_3.last_px.size = 8
 
 -- Display: Last Px
@@ -3039,7 +3039,7 @@ end
 -- Last Shares
 cboe_futures_orderentry_boe_v1_3.last_shares = {}
 
--- Size: Last Shares
+-- Size Of: Last Shares
 cboe_futures_orderentry_boe_v1_3.last_shares.size = 4
 
 -- Display: Last Shares
@@ -3062,7 +3062,7 @@ end
 -- Orig Cl Ord Id
 cboe_futures_orderentry_boe_v1_3.orig_cl_ord_id = {}
 
--- Size: Orig Cl Ord Id
+-- Size Of: Orig Cl Ord Id
 cboe_futures_orderentry_boe_v1_3.orig_cl_ord_id.size = 20
 
 -- Display: Orig Cl Ord Id
@@ -3085,7 +3085,7 @@ end
 -- Open Close
 cboe_futures_orderentry_boe_v1_3.open_close = {}
 
--- Size: Open Close
+-- Size Of: Open Close
 cboe_futures_orderentry_boe_v1_3.open_close.size = 1
 
 -- Display: Open Close
@@ -3118,7 +3118,7 @@ end
 -- Maturity Date
 cboe_futures_orderentry_boe_v1_3.maturity_date = {}
 
--- Size: Maturity Date
+-- Size Of: Maturity Date
 cboe_futures_orderentry_boe_v1_3.maturity_date.size = 4
 
 -- Display: Maturity Date
@@ -3141,7 +3141,7 @@ end
 -- Prevent Match
 cboe_futures_orderentry_boe_v1_3.prevent_match = {}
 
--- Size: Prevent Match
+-- Size Of: Prevent Match
 cboe_futures_orderentry_boe_v1_3.prevent_match.size = 3
 
 -- Display: Prevent Match
@@ -3164,7 +3164,7 @@ end
 -- Clearing Account
 cboe_futures_orderentry_boe_v1_3.clearing_account = {}
 
--- Size: Clearing Account
+-- Size Of: Clearing Account
 cboe_futures_orderentry_boe_v1_3.clearing_account.size = 4
 
 -- Display: Clearing Account
@@ -3187,7 +3187,7 @@ end
 -- Clearing Firm
 cboe_futures_orderentry_boe_v1_3.clearing_firm = {}
 
--- Size: Clearing Firm
+-- Size Of: Clearing Firm
 cboe_futures_orderentry_boe_v1_3.clearing_firm.size = 4
 
 -- Display: Clearing Firm
@@ -3210,7 +3210,7 @@ end
 -- Account
 cboe_futures_orderentry_boe_v1_3.account = {}
 
--- Size: Account
+-- Size Of: Account
 cboe_futures_orderentry_boe_v1_3.account.size = 16
 
 -- Display: Account
@@ -3233,7 +3233,7 @@ end
 -- Capacity
 cboe_futures_orderentry_boe_v1_3.capacity = {}
 
--- Size: Capacity
+-- Size Of: Capacity
 cboe_futures_orderentry_boe_v1_3.capacity.size = 1
 
 -- Display: Capacity
@@ -3263,7 +3263,7 @@ end
 -- Min Qty
 cboe_futures_orderentry_boe_v1_3.min_qty = {}
 
--- Size: Min Qty
+-- Size Of: Min Qty
 cboe_futures_orderentry_boe_v1_3.min_qty.size = 4
 
 -- Display: Min Qty
@@ -3286,7 +3286,7 @@ end
 -- Time In Force
 cboe_futures_orderentry_boe_v1_3.time_in_force = {}
 
--- Size: Time In Force
+-- Size Of: Time In Force
 cboe_futures_orderentry_boe_v1_3.time_in_force.size = 1
 
 -- Display: Time In Force
@@ -3325,7 +3325,7 @@ end
 -- Ord Type
 cboe_futures_orderentry_boe_v1_3.ord_type = {}
 
--- Size: Ord Type
+-- Size Of: Ord Type
 cboe_futures_orderentry_boe_v1_3.ord_type.size = 1
 
 -- Display: Ord Type
@@ -3358,7 +3358,7 @@ end
 -- Price
 cboe_futures_orderentry_boe_v1_3.price = {}
 
--- Size: Price
+-- Size Of: Price
 cboe_futures_orderentry_boe_v1_3.price.size = 8
 
 -- Display: Price
@@ -3381,7 +3381,7 @@ end
 -- Side
 cboe_futures_orderentry_boe_v1_3.side = {}
 
--- Size: Side
+-- Size Of: Side
 cboe_futures_orderentry_boe_v1_3.side.size = 1
 
 -- Display: Side
@@ -3411,7 +3411,7 @@ end
 -- Variance Restatement Byte 17
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_17 = {}
 
--- Size: Variance Restatement Byte 17
+-- Size Of: Variance Restatement Byte 17
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_17.size = 1
 
 -- Display: Variance Restatement Byte 17
@@ -3499,7 +3499,7 @@ end
 -- Variance Restatement Byte 16
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_16 = {}
 
--- Size: Variance Restatement Byte 16
+-- Size Of: Variance Restatement Byte 16
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_16.size = 1
 
 -- Display: Variance Restatement Byte 16
@@ -3587,7 +3587,7 @@ end
 -- Variance Restatement Byte 15
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_15 = {}
 
--- Size: Variance Restatement Byte 15
+-- Size Of: Variance Restatement Byte 15
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_15.size = 1
 
 -- Display: Variance Restatement Byte 15
@@ -3675,7 +3675,7 @@ end
 -- Variance Restatement Byte 14
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_14 = {}
 
--- Size: Variance Restatement Byte 14
+-- Size Of: Variance Restatement Byte 14
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_14.size = 1
 
 -- Display: Variance Restatement Byte 14
@@ -3763,7 +3763,7 @@ end
 -- Variance Restatement Byte 13
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_13 = {}
 
--- Size: Variance Restatement Byte 13
+-- Size Of: Variance Restatement Byte 13
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_13.size = 1
 
 -- Display: Variance Restatement Byte 13
@@ -3851,7 +3851,7 @@ end
 -- Variance Restatement Byte 12
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_12 = {}
 
--- Size: Variance Restatement Byte 12
+-- Size Of: Variance Restatement Byte 12
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_12.size = 1
 
 -- Display: Variance Restatement Byte 12
@@ -3939,7 +3939,7 @@ end
 -- Variance Restatement Byte 11
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_11 = {}
 
--- Size: Variance Restatement Byte 11
+-- Size Of: Variance Restatement Byte 11
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_11.size = 1
 
 -- Display: Variance Restatement Byte 11
@@ -4027,7 +4027,7 @@ end
 -- Variance Restatement Byte 10
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_10 = {}
 
--- Size: Variance Restatement Byte 10
+-- Size Of: Variance Restatement Byte 10
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_10.size = 1
 
 -- Display: Variance Restatement Byte 10
@@ -4115,7 +4115,7 @@ end
 -- Variance Restatement Byte 9
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_9 = {}
 
--- Size: Variance Restatement Byte 9
+-- Size Of: Variance Restatement Byte 9
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_9.size = 1
 
 -- Display: Variance Restatement Byte 9
@@ -4203,7 +4203,7 @@ end
 -- Variance Restatement Byte 8
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_8 = {}
 
--- Size: Variance Restatement Byte 8
+-- Size Of: Variance Restatement Byte 8
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_8.size = 1
 
 -- Display: Variance Restatement Byte 8
@@ -4291,7 +4291,7 @@ end
 -- Variance Restatement Byte 7
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_7 = {}
 
--- Size: Variance Restatement Byte 7
+-- Size Of: Variance Restatement Byte 7
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_7.size = 1
 
 -- Display: Variance Restatement Byte 7
@@ -4379,7 +4379,7 @@ end
 -- Variance Restatement Byte 6
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_6 = {}
 
--- Size: Variance Restatement Byte 6
+-- Size Of: Variance Restatement Byte 6
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_6.size = 1
 
 -- Display: Variance Restatement Byte 6
@@ -4467,7 +4467,7 @@ end
 -- Variance Restatement Byte 5
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_5 = {}
 
--- Size: Variance Restatement Byte 5
+-- Size Of: Variance Restatement Byte 5
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_5.size = 1
 
 -- Display: Variance Restatement Byte 5
@@ -4555,7 +4555,7 @@ end
 -- Variance Restatement Byte 4
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_4 = {}
 
--- Size: Variance Restatement Byte 4
+-- Size Of: Variance Restatement Byte 4
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_4.size = 1
 
 -- Display: Variance Restatement Byte 4
@@ -4643,7 +4643,7 @@ end
 -- Variance Restatement Byte 3
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_3 = {}
 
--- Size: Variance Restatement Byte 3
+-- Size Of: Variance Restatement Byte 3
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_3.size = 1
 
 -- Display: Variance Restatement Byte 3
@@ -4731,7 +4731,7 @@ end
 -- Variance Restatement Byte 2
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_2 = {}
 
--- Size: Variance Restatement Byte 2
+-- Size Of: Variance Restatement Byte 2
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_2.size = 1
 
 -- Display: Variance Restatement Byte 2
@@ -4819,7 +4819,7 @@ end
 -- Variance Restatement Byte 1
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_1 = {}
 
--- Size: Variance Restatement Byte 1
+-- Size Of: Variance Restatement Byte 1
 cboe_futures_orderentry_boe_v1_3.variance_restatement_byte_1.size = 1
 
 -- Display: Variance Restatement Byte 1
@@ -4907,7 +4907,7 @@ end
 -- Variance Restatement Bitfield Count
 cboe_futures_orderentry_boe_v1_3.variance_restatement_bitfield_count = {}
 
--- Size: Variance Restatement Bitfield Count
+-- Size Of: Variance Restatement Bitfield Count
 cboe_futures_orderentry_boe_v1_3.variance_restatement_bitfield_count.size = 1
 
 -- Display: Variance Restatement Bitfield Count
@@ -5417,7 +5417,7 @@ end
 -- Reserved Internal
 cboe_futures_orderentry_boe_v1_3.reserved_internal = {}
 
--- Size: Reserved Internal
+-- Size Of: Reserved Internal
 cboe_futures_orderentry_boe_v1_3.reserved_internal.size = 1
 
 -- Display: Reserved Internal
@@ -5440,7 +5440,7 @@ end
 -- Cl Ord Id
 cboe_futures_orderentry_boe_v1_3.cl_ord_id = {}
 
--- Size: Cl Ord Id
+-- Size Of: Cl Ord Id
 cboe_futures_orderentry_boe_v1_3.cl_ord_id.size = 20
 
 -- Display: Cl Ord Id
@@ -5526,7 +5526,7 @@ end
 -- Order Qty
 cboe_futures_orderentry_boe_v1_3.order_qty = {}
 
--- Size: Order Qty
+-- Size Of: Order Qty
 cboe_futures_orderentry_boe_v1_3.order_qty.size = 4
 
 -- Display: Order Qty
@@ -5549,7 +5549,7 @@ end
 -- Tas Restatement Byte 17
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_17 = {}
 
--- Size: Tas Restatement Byte 17
+-- Size Of: Tas Restatement Byte 17
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_17.size = 1
 
 -- Display: Tas Restatement Byte 17
@@ -5637,7 +5637,7 @@ end
 -- Tas Restatement Byte 16
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_16 = {}
 
--- Size: Tas Restatement Byte 16
+-- Size Of: Tas Restatement Byte 16
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_16.size = 1
 
 -- Display: Tas Restatement Byte 16
@@ -5725,7 +5725,7 @@ end
 -- Tas Restatement Byte 15
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_15 = {}
 
--- Size: Tas Restatement Byte 15
+-- Size Of: Tas Restatement Byte 15
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_15.size = 1
 
 -- Display: Tas Restatement Byte 15
@@ -5813,7 +5813,7 @@ end
 -- Tas Restatement Byte 14
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_14 = {}
 
--- Size: Tas Restatement Byte 14
+-- Size Of: Tas Restatement Byte 14
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_14.size = 1
 
 -- Display: Tas Restatement Byte 14
@@ -5901,7 +5901,7 @@ end
 -- Tas Restatement Byte 13
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_13 = {}
 
--- Size: Tas Restatement Byte 13
+-- Size Of: Tas Restatement Byte 13
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_13.size = 1
 
 -- Display: Tas Restatement Byte 13
@@ -5989,7 +5989,7 @@ end
 -- Tas Restatement Byte 12
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_12 = {}
 
--- Size: Tas Restatement Byte 12
+-- Size Of: Tas Restatement Byte 12
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_12.size = 1
 
 -- Display: Tas Restatement Byte 12
@@ -6077,7 +6077,7 @@ end
 -- Tas Restatement Byte 11
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_11 = {}
 
--- Size: Tas Restatement Byte 11
+-- Size Of: Tas Restatement Byte 11
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_11.size = 1
 
 -- Display: Tas Restatement Byte 11
@@ -6165,7 +6165,7 @@ end
 -- Tas Restatement Byte 10
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_10 = {}
 
--- Size: Tas Restatement Byte 10
+-- Size Of: Tas Restatement Byte 10
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_10.size = 1
 
 -- Display: Tas Restatement Byte 10
@@ -6253,7 +6253,7 @@ end
 -- Tas Restatement Byte 9
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_9 = {}
 
--- Size: Tas Restatement Byte 9
+-- Size Of: Tas Restatement Byte 9
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_9.size = 1
 
 -- Display: Tas Restatement Byte 9
@@ -6341,7 +6341,7 @@ end
 -- Tas Restatement Byte 8
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_8 = {}
 
--- Size: Tas Restatement Byte 8
+-- Size Of: Tas Restatement Byte 8
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_8.size = 1
 
 -- Display: Tas Restatement Byte 8
@@ -6429,7 +6429,7 @@ end
 -- Tas Restatement Byte 7
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_7 = {}
 
--- Size: Tas Restatement Byte 7
+-- Size Of: Tas Restatement Byte 7
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_7.size = 1
 
 -- Display: Tas Restatement Byte 7
@@ -6517,7 +6517,7 @@ end
 -- Tas Restatement Byte 6
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_6 = {}
 
--- Size: Tas Restatement Byte 6
+-- Size Of: Tas Restatement Byte 6
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_6.size = 1
 
 -- Display: Tas Restatement Byte 6
@@ -6605,7 +6605,7 @@ end
 -- Tas Restatement Byte 5
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_5 = {}
 
--- Size: Tas Restatement Byte 5
+-- Size Of: Tas Restatement Byte 5
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_5.size = 1
 
 -- Display: Tas Restatement Byte 5
@@ -6693,7 +6693,7 @@ end
 -- Tas Restatement Byte 4
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_4 = {}
 
--- Size: Tas Restatement Byte 4
+-- Size Of: Tas Restatement Byte 4
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_4.size = 1
 
 -- Display: Tas Restatement Byte 4
@@ -6781,7 +6781,7 @@ end
 -- Tas Restatement Byte 3
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_3 = {}
 
--- Size: Tas Restatement Byte 3
+-- Size Of: Tas Restatement Byte 3
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_3.size = 1
 
 -- Display: Tas Restatement Byte 3
@@ -6869,7 +6869,7 @@ end
 -- Tas Restatement Byte 2
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_2 = {}
 
--- Size: Tas Restatement Byte 2
+-- Size Of: Tas Restatement Byte 2
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_2.size = 1
 
 -- Display: Tas Restatement Byte 2
@@ -6957,7 +6957,7 @@ end
 -- Tas Restatement Byte 1
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_1 = {}
 
--- Size: Tas Restatement Byte 1
+-- Size Of: Tas Restatement Byte 1
 cboe_futures_orderentry_boe_v1_3.tas_restatement_byte_1.size = 1
 
 -- Display: Tas Restatement Byte 1
@@ -7045,7 +7045,7 @@ end
 -- Tas Restatement Bitfield Count
 cboe_futures_orderentry_boe_v1_3.tas_restatement_bitfield_count = {}
 
--- Size: Tas Restatement Bitfield Count
+-- Size Of: Tas Restatement Bitfield Count
 cboe_futures_orderentry_boe_v1_3.tas_restatement_bitfield_count.size = 1
 
 -- Display: Tas Restatement Bitfield Count
@@ -7627,7 +7627,7 @@ end
 -- Cancelled Order Count
 cboe_futures_orderentry_boe_v1_3.cancelled_order_count = {}
 
--- Size: Cancelled Order Count
+-- Size Of: Cancelled Order Count
 cboe_futures_orderentry_boe_v1_3.cancelled_order_count.size = 4
 
 -- Display: Cancelled Order Count
@@ -7650,7 +7650,7 @@ end
 -- Mass Cancel Id
 cboe_futures_orderentry_boe_v1_3.mass_cancel_id = {}
 
--- Size: Mass Cancel Id
+-- Size Of: Mass Cancel Id
 cboe_futures_orderentry_boe_v1_3.mass_cancel_id.size = 20
 
 -- Display: Mass Cancel Id
@@ -7727,7 +7727,7 @@ end
 -- Risk Reset Result
 cboe_futures_orderentry_boe_v1_3.risk_reset_result = {}
 
--- Size: Risk Reset Result
+-- Size Of: Risk Reset Result
 cboe_futures_orderentry_boe_v1_3.risk_reset_result.size = 1
 
 -- Display: Risk Reset Result
@@ -7781,7 +7781,7 @@ end
 -- Risk Status Id
 cboe_futures_orderentry_boe_v1_3.risk_status_id = {}
 
--- Size: Risk Status Id
+-- Size Of: Risk Status Id
 cboe_futures_orderentry_boe_v1_3.risk_status_id.size = 16
 
 -- Display: Risk Status Id
@@ -7852,7 +7852,7 @@ end
 -- Purge Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_17 = {}
 
--- Size: Purge Rejected Byte 17
+-- Size Of: Purge Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_17.size = 1
 
 -- Display: Purge Rejected Byte 17
@@ -7940,7 +7940,7 @@ end
 -- Purge Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_16 = {}
 
--- Size: Purge Rejected Byte 16
+-- Size Of: Purge Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_16.size = 1
 
 -- Display: Purge Rejected Byte 16
@@ -8028,7 +8028,7 @@ end
 -- Purge Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_15 = {}
 
--- Size: Purge Rejected Byte 15
+-- Size Of: Purge Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_15.size = 1
 
 -- Display: Purge Rejected Byte 15
@@ -8116,7 +8116,7 @@ end
 -- Purge Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_14 = {}
 
--- Size: Purge Rejected Byte 14
+-- Size Of: Purge Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_14.size = 1
 
 -- Display: Purge Rejected Byte 14
@@ -8204,7 +8204,7 @@ end
 -- Purge Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_13 = {}
 
--- Size: Purge Rejected Byte 13
+-- Size Of: Purge Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_13.size = 1
 
 -- Display: Purge Rejected Byte 13
@@ -8292,7 +8292,7 @@ end
 -- Purge Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_12 = {}
 
--- Size: Purge Rejected Byte 12
+-- Size Of: Purge Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_12.size = 1
 
 -- Display: Purge Rejected Byte 12
@@ -8380,7 +8380,7 @@ end
 -- Purge Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_11 = {}
 
--- Size: Purge Rejected Byte 11
+-- Size Of: Purge Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_11.size = 1
 
 -- Display: Purge Rejected Byte 11
@@ -8468,7 +8468,7 @@ end
 -- Purge Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_10 = {}
 
--- Size: Purge Rejected Byte 10
+-- Size Of: Purge Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_10.size = 1
 
 -- Display: Purge Rejected Byte 10
@@ -8556,7 +8556,7 @@ end
 -- Purge Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_9 = {}
 
--- Size: Purge Rejected Byte 9
+-- Size Of: Purge Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_9.size = 1
 
 -- Display: Purge Rejected Byte 9
@@ -8644,7 +8644,7 @@ end
 -- Purge Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_8 = {}
 
--- Size: Purge Rejected Byte 8
+-- Size Of: Purge Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_8.size = 1
 
 -- Display: Purge Rejected Byte 8
@@ -8732,7 +8732,7 @@ end
 -- Purge Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_7 = {}
 
--- Size: Purge Rejected Byte 7
+-- Size Of: Purge Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_7.size = 1
 
 -- Display: Purge Rejected Byte 7
@@ -8820,7 +8820,7 @@ end
 -- Purge Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_6 = {}
 
--- Size: Purge Rejected Byte 6
+-- Size Of: Purge Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_6.size = 1
 
 -- Display: Purge Rejected Byte 6
@@ -8908,7 +8908,7 @@ end
 -- Purge Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_5 = {}
 
--- Size: Purge Rejected Byte 5
+-- Size Of: Purge Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_5.size = 1
 
 -- Display: Purge Rejected Byte 5
@@ -8996,7 +8996,7 @@ end
 -- Purge Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_4 = {}
 
--- Size: Purge Rejected Byte 4
+-- Size Of: Purge Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_4.size = 1
 
 -- Display: Purge Rejected Byte 4
@@ -9084,7 +9084,7 @@ end
 -- Purge Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_3 = {}
 
--- Size: Purge Rejected Byte 3
+-- Size Of: Purge Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_3.size = 1
 
 -- Display: Purge Rejected Byte 3
@@ -9172,7 +9172,7 @@ end
 -- Purge Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_2 = {}
 
--- Size: Purge Rejected Byte 2
+-- Size Of: Purge Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_2.size = 1
 
 -- Display: Purge Rejected Byte 2
@@ -9260,7 +9260,7 @@ end
 -- Purge Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_1 = {}
 
--- Size: Purge Rejected Byte 1
+-- Size Of: Purge Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.purge_rejected_byte_1.size = 1
 
 -- Display: Purge Rejected Byte 1
@@ -9348,7 +9348,7 @@ end
 -- Purge Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.purge_rejected_bitfield_count = {}
 
--- Size: Purge Rejected Bitfield Count
+-- Size Of: Purge Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.purge_rejected_bitfield_count.size = 1
 
 -- Display: Purge Rejected Bitfield Count
@@ -9606,7 +9606,7 @@ end
 -- Text
 cboe_futures_orderentry_boe_v1_3.text = {}
 
--- Size: Text
+-- Size Of: Text
 cboe_futures_orderentry_boe_v1_3.text.size = 60
 
 -- Display: Text
@@ -9629,7 +9629,7 @@ end
 -- Purge Reject Reason
 cboe_futures_orderentry_boe_v1_3.purge_reject_reason = {}
 
--- Size: Purge Reject Reason
+-- Size Of: Purge Reject Reason
 cboe_futures_orderentry_boe_v1_3.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
@@ -9788,7 +9788,7 @@ end
 -- Corrected Size
 cboe_futures_orderentry_boe_v1_3.corrected_size = {}
 
--- Size: Corrected Size
+-- Size Of: Corrected Size
 cboe_futures_orderentry_boe_v1_3.corrected_size.size = 4
 
 -- Display: Corrected Size
@@ -9811,7 +9811,7 @@ end
 -- Trade Cancel Or Correct Byte 17
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_17 = {}
 
--- Size: Trade Cancel Or Correct Byte 17
+-- Size Of: Trade Cancel Or Correct Byte 17
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_17.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 17
@@ -9899,7 +9899,7 @@ end
 -- Trade Cancel Or Correct Byte 16
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_16 = {}
 
--- Size: Trade Cancel Or Correct Byte 16
+-- Size Of: Trade Cancel Or Correct Byte 16
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_16.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 16
@@ -9987,7 +9987,7 @@ end
 -- Trade Cancel Or Correct Byte 15
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_15 = {}
 
--- Size: Trade Cancel Or Correct Byte 15
+-- Size Of: Trade Cancel Or Correct Byte 15
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_15.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 15
@@ -10075,7 +10075,7 @@ end
 -- Trade Cancel Or Correct Byte 14
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_14 = {}
 
--- Size: Trade Cancel Or Correct Byte 14
+-- Size Of: Trade Cancel Or Correct Byte 14
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_14.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 14
@@ -10163,7 +10163,7 @@ end
 -- Trade Cancel Or Correct Byte 13
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_13 = {}
 
--- Size: Trade Cancel Or Correct Byte 13
+-- Size Of: Trade Cancel Or Correct Byte 13
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_13.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 13
@@ -10251,7 +10251,7 @@ end
 -- Trade Cancel Or Correct Byte 12
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_12 = {}
 
--- Size: Trade Cancel Or Correct Byte 12
+-- Size Of: Trade Cancel Or Correct Byte 12
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_12.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 12
@@ -10339,7 +10339,7 @@ end
 -- Trade Cancel Or Correct Byte 11
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_11 = {}
 
--- Size: Trade Cancel Or Correct Byte 11
+-- Size Of: Trade Cancel Or Correct Byte 11
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_11.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 11
@@ -10427,7 +10427,7 @@ end
 -- Trade Cancel Or Correct Byte 10
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_10 = {}
 
--- Size: Trade Cancel Or Correct Byte 10
+-- Size Of: Trade Cancel Or Correct Byte 10
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_10.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 10
@@ -10515,7 +10515,7 @@ end
 -- Trade Cancel Or Correct Byte 9
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_9 = {}
 
--- Size: Trade Cancel Or Correct Byte 9
+-- Size Of: Trade Cancel Or Correct Byte 9
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_9.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 9
@@ -10603,7 +10603,7 @@ end
 -- Trade Cancel Or Correct Byte 8
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_8 = {}
 
--- Size: Trade Cancel Or Correct Byte 8
+-- Size Of: Trade Cancel Or Correct Byte 8
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_8.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 8
@@ -10691,7 +10691,7 @@ end
 -- Trade Cancel Or Correct Byte 7
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_7 = {}
 
--- Size: Trade Cancel Or Correct Byte 7
+-- Size Of: Trade Cancel Or Correct Byte 7
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_7.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 7
@@ -10779,7 +10779,7 @@ end
 -- Trade Cancel Or Correct Byte 6
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_6 = {}
 
--- Size: Trade Cancel Or Correct Byte 6
+-- Size Of: Trade Cancel Or Correct Byte 6
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_6.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 6
@@ -10867,7 +10867,7 @@ end
 -- Trade Cancel Or Correct Byte 5
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_5 = {}
 
--- Size: Trade Cancel Or Correct Byte 5
+-- Size Of: Trade Cancel Or Correct Byte 5
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_5.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 5
@@ -10955,7 +10955,7 @@ end
 -- Trade Cancel Or Correct Byte 4
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_4 = {}
 
--- Size: Trade Cancel Or Correct Byte 4
+-- Size Of: Trade Cancel Or Correct Byte 4
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_4.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 4
@@ -11043,7 +11043,7 @@ end
 -- Trade Cancel Or Correct Byte 3
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_3 = {}
 
--- Size: Trade Cancel Or Correct Byte 3
+-- Size Of: Trade Cancel Or Correct Byte 3
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_3.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 3
@@ -11131,7 +11131,7 @@ end
 -- Trade Cancel Or Correct Byte 2
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_2 = {}
 
--- Size: Trade Cancel Or Correct Byte 2
+-- Size Of: Trade Cancel Or Correct Byte 2
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_2.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 2
@@ -11219,7 +11219,7 @@ end
 -- Trade Cancel Or Correct Byte 1
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_1 = {}
 
--- Size: Trade Cancel Or Correct Byte 1
+-- Size Of: Trade Cancel Or Correct Byte 1
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_byte_1.size = 1
 
 -- Display: Trade Cancel Or Correct Byte 1
@@ -11307,7 +11307,7 @@ end
 -- Trade Cancel Or Correct Bitfield Count
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_bitfield_count = {}
 
--- Size: Trade Cancel Or Correct Bitfield Count
+-- Size Of: Trade Cancel Or Correct Bitfield Count
 cboe_futures_orderentry_boe_v1_3.trade_cancel_or_correct_bitfield_count.size = 1
 
 -- Display: Trade Cancel Or Correct Bitfield Count
@@ -11610,7 +11610,7 @@ end
 -- Orig Time
 cboe_futures_orderentry_boe_v1_3.orig_time = {}
 
--- Size: Orig Time
+-- Size Of: Orig Time
 cboe_futures_orderentry_boe_v1_3.orig_time.size = 8
 
 -- Display: Orig Time
@@ -11633,7 +11633,7 @@ end
 -- Corrected Price
 cboe_futures_orderentry_boe_v1_3.corrected_price = {}
 
--- Size: Corrected Price
+-- Size Of: Corrected Price
 cboe_futures_orderentry_boe_v1_3.corrected_price.size = 8
 
 -- Display: Corrected Price
@@ -11656,7 +11656,7 @@ end
 -- Base Liquidity Indicator
 cboe_futures_orderentry_boe_v1_3.base_liquidity_indicator = {}
 
--- Size: Base Liquidity Indicator
+-- Size Of: Base Liquidity Indicator
 cboe_futures_orderentry_boe_v1_3.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
@@ -11689,7 +11689,7 @@ end
 -- Exec Ref Id
 cboe_futures_orderentry_boe_v1_3.exec_ref_id = {}
 
--- Size: Exec Ref Id
+-- Size Of: Exec Ref Id
 cboe_futures_orderentry_boe_v1_3.exec_ref_id.size = 8
 
 -- Display: Exec Ref Id
@@ -11712,7 +11712,7 @@ end
 -- Order Id
 cboe_futures_orderentry_boe_v1_3.order_id = {}
 
--- Size: Order Id
+-- Size Of: Order Id
 cboe_futures_orderentry_boe_v1_3.order_id.size = 8
 
 -- Display: Order Id
@@ -11825,7 +11825,7 @@ end
 -- Sub Liquidity Indicator
 cboe_futures_orderentry_boe_v1_3.sub_liquidity_indicator = {}
 
--- Size: Sub Liquidity Indicator
+-- Size Of: Sub Liquidity Indicator
 cboe_futures_orderentry_boe_v1_3.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
@@ -11855,7 +11855,7 @@ end
 -- Leaves Qty
 cboe_futures_orderentry_boe_v1_3.leaves_qty = {}
 
--- Size: Leaves Qty
+-- Size Of: Leaves Qty
 cboe_futures_orderentry_boe_v1_3.leaves_qty.size = 4
 
 -- Display: Leaves Qty
@@ -11959,7 +11959,7 @@ end
 -- Pending Status
 cboe_futures_orderentry_boe_v1_3.pending_status = {}
 
--- Size: Pending Status
+-- Size Of: Pending Status
 cboe_futures_orderentry_boe_v1_3.pending_status.size = 1
 
 -- Display: Pending Status
@@ -11989,7 +11989,7 @@ end
 -- Day Avg Px
 cboe_futures_orderentry_boe_v1_3.day_avg_px = {}
 
--- Size: Day Avg Px
+-- Size Of: Day Avg Px
 cboe_futures_orderentry_boe_v1_3.day_avg_px.size = 8
 
 -- Display: Day Avg Px
@@ -12012,7 +12012,7 @@ end
 -- Avg Px
 cboe_futures_orderentry_boe_v1_3.avg_px = {}
 
--- Size: Avg Px
+-- Size Of: Avg Px
 cboe_futures_orderentry_boe_v1_3.avg_px.size = 8
 
 -- Display: Avg Px
@@ -12035,7 +12035,7 @@ end
 -- Day Cum Qty
 cboe_futures_orderentry_boe_v1_3.day_cum_qty = {}
 
--- Size: Day Cum Qty
+-- Size Of: Day Cum Qty
 cboe_futures_orderentry_boe_v1_3.day_cum_qty.size = 4
 
 -- Display: Day Cum Qty
@@ -12058,7 +12058,7 @@ end
 -- Day Order Qty
 cboe_futures_orderentry_boe_v1_3.day_order_qty = {}
 
--- Size: Day Order Qty
+-- Size Of: Day Order Qty
 cboe_futures_orderentry_boe_v1_3.day_order_qty.size = 4
 
 -- Display: Day Order Qty
@@ -12081,7 +12081,7 @@ end
 -- Cum Qty
 cboe_futures_orderentry_boe_v1_3.cum_qty = {}
 
--- Size: Cum Qty
+-- Size Of: Cum Qty
 cboe_futures_orderentry_boe_v1_3.cum_qty.size = 4
 
 -- Display: Cum Qty
@@ -12104,7 +12104,7 @@ end
 -- Expire Time
 cboe_futures_orderentry_boe_v1_3.expire_time = {}
 
--- Size: Expire Time
+-- Size Of: Expire Time
 cboe_futures_orderentry_boe_v1_3.expire_time.size = 8
 
 -- Display: Expire Time
@@ -12127,7 +12127,7 @@ end
 -- Order Execution Byte 17
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_17 = {}
 
--- Size: Order Execution Byte 17
+-- Size Of: Order Execution Byte 17
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_17.size = 1
 
 -- Display: Order Execution Byte 17
@@ -12215,7 +12215,7 @@ end
 -- Order Execution Byte 16
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_16 = {}
 
--- Size: Order Execution Byte 16
+-- Size Of: Order Execution Byte 16
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_16.size = 1
 
 -- Display: Order Execution Byte 16
@@ -12303,7 +12303,7 @@ end
 -- Order Execution Byte 15
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_15 = {}
 
--- Size: Order Execution Byte 15
+-- Size Of: Order Execution Byte 15
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_15.size = 1
 
 -- Display: Order Execution Byte 15
@@ -12391,7 +12391,7 @@ end
 -- Order Execution Byte 14
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_14 = {}
 
--- Size: Order Execution Byte 14
+-- Size Of: Order Execution Byte 14
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_14.size = 1
 
 -- Display: Order Execution Byte 14
@@ -12479,7 +12479,7 @@ end
 -- Order Execution Byte 13
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_13 = {}
 
--- Size: Order Execution Byte 13
+-- Size Of: Order Execution Byte 13
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_13.size = 1
 
 -- Display: Order Execution Byte 13
@@ -12567,7 +12567,7 @@ end
 -- Order Execution Byte 12
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_12 = {}
 
--- Size: Order Execution Byte 12
+-- Size Of: Order Execution Byte 12
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_12.size = 1
 
 -- Display: Order Execution Byte 12
@@ -12655,7 +12655,7 @@ end
 -- Order Execution Byte 11
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_11 = {}
 
--- Size: Order Execution Byte 11
+-- Size Of: Order Execution Byte 11
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_11.size = 1
 
 -- Display: Order Execution Byte 11
@@ -12743,7 +12743,7 @@ end
 -- Order Execution Byte 10
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_10 = {}
 
--- Size: Order Execution Byte 10
+-- Size Of: Order Execution Byte 10
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_10.size = 1
 
 -- Display: Order Execution Byte 10
@@ -12831,7 +12831,7 @@ end
 -- Order Execution Byte 9
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_9 = {}
 
--- Size: Order Execution Byte 9
+-- Size Of: Order Execution Byte 9
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_9.size = 1
 
 -- Display: Order Execution Byte 9
@@ -12919,7 +12919,7 @@ end
 -- Order Execution Byte 8
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_8 = {}
 
--- Size: Order Execution Byte 8
+-- Size Of: Order Execution Byte 8
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_8.size = 1
 
 -- Display: Order Execution Byte 8
@@ -13007,7 +13007,7 @@ end
 -- Order Execution Byte 7
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_7 = {}
 
--- Size: Order Execution Byte 7
+-- Size Of: Order Execution Byte 7
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_7.size = 1
 
 -- Display: Order Execution Byte 7
@@ -13095,7 +13095,7 @@ end
 -- Order Execution Byte 6
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_6 = {}
 
--- Size: Order Execution Byte 6
+-- Size Of: Order Execution Byte 6
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_6.size = 1
 
 -- Display: Order Execution Byte 6
@@ -13183,7 +13183,7 @@ end
 -- Order Execution Byte 5
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_5 = {}
 
--- Size: Order Execution Byte 5
+-- Size Of: Order Execution Byte 5
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_5.size = 1
 
 -- Display: Order Execution Byte 5
@@ -13271,7 +13271,7 @@ end
 -- Order Execution Byte 4
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_4 = {}
 
--- Size: Order Execution Byte 4
+-- Size Of: Order Execution Byte 4
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_4.size = 1
 
 -- Display: Order Execution Byte 4
@@ -13359,7 +13359,7 @@ end
 -- Order Execution Byte 3
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_3 = {}
 
--- Size: Order Execution Byte 3
+-- Size Of: Order Execution Byte 3
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_3.size = 1
 
 -- Display: Order Execution Byte 3
@@ -13447,7 +13447,7 @@ end
 -- Order Execution Byte 2
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_2 = {}
 
--- Size: Order Execution Byte 2
+-- Size Of: Order Execution Byte 2
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_2.size = 1
 
 -- Display: Order Execution Byte 2
@@ -13535,7 +13535,7 @@ end
 -- Order Execution Byte 1
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_1 = {}
 
--- Size: Order Execution Byte 1
+-- Size Of: Order Execution Byte 1
 cboe_futures_orderentry_boe_v1_3.order_execution_byte_1.size = 1
 
 -- Display: Order Execution Byte 1
@@ -13623,7 +13623,7 @@ end
 -- Order Execution Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_execution_bitfield_count = {}
 
--- Size: Order Execution Bitfield Count
+-- Size Of: Order Execution Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_execution_bitfield_count.size = 1
 
 -- Display: Order Execution Bitfield Count
@@ -14160,7 +14160,7 @@ end
 -- Contra Broker
 cboe_futures_orderentry_boe_v1_3.contra_broker = {}
 
--- Size: Contra Broker
+-- Size Of: Contra Broker
 cboe_futures_orderentry_boe_v1_3.contra_broker.size = 4
 
 -- Display: Contra Broker
@@ -14264,7 +14264,7 @@ end
 -- Cancel Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_17 = {}
 
--- Size: Cancel Rejected Byte 17
+-- Size Of: Cancel Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_17.size = 1
 
 -- Display: Cancel Rejected Byte 17
@@ -14352,7 +14352,7 @@ end
 -- Cancel Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_16 = {}
 
--- Size: Cancel Rejected Byte 16
+-- Size Of: Cancel Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_16.size = 1
 
 -- Display: Cancel Rejected Byte 16
@@ -14440,7 +14440,7 @@ end
 -- Cancel Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_15 = {}
 
--- Size: Cancel Rejected Byte 15
+-- Size Of: Cancel Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_15.size = 1
 
 -- Display: Cancel Rejected Byte 15
@@ -14528,7 +14528,7 @@ end
 -- Cancel Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_14 = {}
 
--- Size: Cancel Rejected Byte 14
+-- Size Of: Cancel Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_14.size = 1
 
 -- Display: Cancel Rejected Byte 14
@@ -14616,7 +14616,7 @@ end
 -- Cancel Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_13 = {}
 
--- Size: Cancel Rejected Byte 13
+-- Size Of: Cancel Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_13.size = 1
 
 -- Display: Cancel Rejected Byte 13
@@ -14704,7 +14704,7 @@ end
 -- Cancel Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_12 = {}
 
--- Size: Cancel Rejected Byte 12
+-- Size Of: Cancel Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_12.size = 1
 
 -- Display: Cancel Rejected Byte 12
@@ -14792,7 +14792,7 @@ end
 -- Cancel Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_11 = {}
 
--- Size: Cancel Rejected Byte 11
+-- Size Of: Cancel Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_11.size = 1
 
 -- Display: Cancel Rejected Byte 11
@@ -14880,7 +14880,7 @@ end
 -- Cancel Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_10 = {}
 
--- Size: Cancel Rejected Byte 10
+-- Size Of: Cancel Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_10.size = 1
 
 -- Display: Cancel Rejected Byte 10
@@ -14968,7 +14968,7 @@ end
 -- Cancel Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_9 = {}
 
--- Size: Cancel Rejected Byte 9
+-- Size Of: Cancel Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_9.size = 1
 
 -- Display: Cancel Rejected Byte 9
@@ -15056,7 +15056,7 @@ end
 -- Cancel Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_8 = {}
 
--- Size: Cancel Rejected Byte 8
+-- Size Of: Cancel Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_8.size = 1
 
 -- Display: Cancel Rejected Byte 8
@@ -15144,7 +15144,7 @@ end
 -- Cancel Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_7 = {}
 
--- Size: Cancel Rejected Byte 7
+-- Size Of: Cancel Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_7.size = 1
 
 -- Display: Cancel Rejected Byte 7
@@ -15232,7 +15232,7 @@ end
 -- Cancel Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_6 = {}
 
--- Size: Cancel Rejected Byte 6
+-- Size Of: Cancel Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_6.size = 1
 
 -- Display: Cancel Rejected Byte 6
@@ -15320,7 +15320,7 @@ end
 -- Cancel Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_5 = {}
 
--- Size: Cancel Rejected Byte 5
+-- Size Of: Cancel Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_5.size = 1
 
 -- Display: Cancel Rejected Byte 5
@@ -15408,7 +15408,7 @@ end
 -- Cancel Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_4 = {}
 
--- Size: Cancel Rejected Byte 4
+-- Size Of: Cancel Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_4.size = 1
 
 -- Display: Cancel Rejected Byte 4
@@ -15496,7 +15496,7 @@ end
 -- Cancel Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_3 = {}
 
--- Size: Cancel Rejected Byte 3
+-- Size Of: Cancel Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_3.size = 1
 
 -- Display: Cancel Rejected Byte 3
@@ -15584,7 +15584,7 @@ end
 -- Cancel Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_2 = {}
 
--- Size: Cancel Rejected Byte 2
+-- Size Of: Cancel Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_2.size = 1
 
 -- Display: Cancel Rejected Byte 2
@@ -15672,7 +15672,7 @@ end
 -- Cancel Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_1 = {}
 
--- Size: Cancel Rejected Byte 1
+-- Size Of: Cancel Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_byte_1.size = 1
 
 -- Display: Cancel Rejected Byte 1
@@ -15760,7 +15760,7 @@ end
 -- Cancel Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_bitfield_count = {}
 
--- Size: Cancel Rejected Bitfield Count
+-- Size Of: Cancel Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.cancel_rejected_bitfield_count.size = 1
 
 -- Display: Cancel Rejected Bitfield Count
@@ -16144,7 +16144,7 @@ end
 -- Cancel Reject Reason
 cboe_futures_orderentry_boe_v1_3.cancel_reject_reason = {}
 
--- Size: Cancel Reject Reason
+-- Size Of: Cancel Reject Reason
 cboe_futures_orderentry_boe_v1_3.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
@@ -16306,7 +16306,7 @@ end
 -- Cancel Reason
 cboe_futures_orderentry_boe_v1_3.cancel_reason = {}
 
--- Size: Cancel Reason
+-- Size Of: Cancel Reason
 cboe_futures_orderentry_boe_v1_3.cancel_reason.size = 1
 
 -- Display: Cancel Reason
@@ -16462,7 +16462,7 @@ end
 -- Secondary Order Id
 cboe_futures_orderentry_boe_v1_3.secondary_order_id = {}
 
--- Size: Secondary Order Id
+-- Size Of: Secondary Order Id
 cboe_futures_orderentry_boe_v1_3.secondary_order_id.size = 8
 
 -- Display: Secondary Order Id
@@ -16485,7 +16485,7 @@ end
 -- Order Cancelled Byte 17
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_17 = {}
 
--- Size: Order Cancelled Byte 17
+-- Size Of: Order Cancelled Byte 17
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_17.size = 1
 
 -- Display: Order Cancelled Byte 17
@@ -16573,7 +16573,7 @@ end
 -- Order Cancelled Byte 16
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_16 = {}
 
--- Size: Order Cancelled Byte 16
+-- Size Of: Order Cancelled Byte 16
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_16.size = 1
 
 -- Display: Order Cancelled Byte 16
@@ -16661,7 +16661,7 @@ end
 -- Order Cancelled Byte 15
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_15 = {}
 
--- Size: Order Cancelled Byte 15
+-- Size Of: Order Cancelled Byte 15
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_15.size = 1
 
 -- Display: Order Cancelled Byte 15
@@ -16749,7 +16749,7 @@ end
 -- Order Cancelled Byte 14
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_14 = {}
 
--- Size: Order Cancelled Byte 14
+-- Size Of: Order Cancelled Byte 14
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_14.size = 1
 
 -- Display: Order Cancelled Byte 14
@@ -16837,7 +16837,7 @@ end
 -- Order Cancelled Byte 13
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_13 = {}
 
--- Size: Order Cancelled Byte 13
+-- Size Of: Order Cancelled Byte 13
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_13.size = 1
 
 -- Display: Order Cancelled Byte 13
@@ -16925,7 +16925,7 @@ end
 -- Order Cancelled Byte 12
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_12 = {}
 
--- Size: Order Cancelled Byte 12
+-- Size Of: Order Cancelled Byte 12
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_12.size = 1
 
 -- Display: Order Cancelled Byte 12
@@ -17013,7 +17013,7 @@ end
 -- Order Cancelled Byte 11
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_11 = {}
 
--- Size: Order Cancelled Byte 11
+-- Size Of: Order Cancelled Byte 11
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_11.size = 1
 
 -- Display: Order Cancelled Byte 11
@@ -17101,7 +17101,7 @@ end
 -- Order Cancelled Byte 10
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_10 = {}
 
--- Size: Order Cancelled Byte 10
+-- Size Of: Order Cancelled Byte 10
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_10.size = 1
 
 -- Display: Order Cancelled Byte 10
@@ -17189,7 +17189,7 @@ end
 -- Order Cancelled Byte 9
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_9 = {}
 
--- Size: Order Cancelled Byte 9
+-- Size Of: Order Cancelled Byte 9
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_9.size = 1
 
 -- Display: Order Cancelled Byte 9
@@ -17277,7 +17277,7 @@ end
 -- Order Cancelled Byte 8
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_8 = {}
 
--- Size: Order Cancelled Byte 8
+-- Size Of: Order Cancelled Byte 8
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_8.size = 1
 
 -- Display: Order Cancelled Byte 8
@@ -17365,7 +17365,7 @@ end
 -- Order Cancelled Byte 7
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_7 = {}
 
--- Size: Order Cancelled Byte 7
+-- Size Of: Order Cancelled Byte 7
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_7.size = 1
 
 -- Display: Order Cancelled Byte 7
@@ -17453,7 +17453,7 @@ end
 -- Order Cancelled Byte 6
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_6 = {}
 
--- Size: Order Cancelled Byte 6
+-- Size Of: Order Cancelled Byte 6
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_6.size = 1
 
 -- Display: Order Cancelled Byte 6
@@ -17541,7 +17541,7 @@ end
 -- Order Cancelled Byte 5
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_5 = {}
 
--- Size: Order Cancelled Byte 5
+-- Size Of: Order Cancelled Byte 5
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_5.size = 1
 
 -- Display: Order Cancelled Byte 5
@@ -17629,7 +17629,7 @@ end
 -- Order Cancelled Byte 4
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_4 = {}
 
--- Size: Order Cancelled Byte 4
+-- Size Of: Order Cancelled Byte 4
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_4.size = 1
 
 -- Display: Order Cancelled Byte 4
@@ -17717,7 +17717,7 @@ end
 -- Order Cancelled Byte 3
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_3 = {}
 
--- Size: Order Cancelled Byte 3
+-- Size Of: Order Cancelled Byte 3
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_3.size = 1
 
 -- Display: Order Cancelled Byte 3
@@ -17805,7 +17805,7 @@ end
 -- Order Cancelled Byte 2
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_2 = {}
 
--- Size: Order Cancelled Byte 2
+-- Size Of: Order Cancelled Byte 2
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_2.size = 1
 
 -- Display: Order Cancelled Byte 2
@@ -17893,7 +17893,7 @@ end
 -- Order Cancelled Byte 1
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_1 = {}
 
--- Size: Order Cancelled Byte 1
+-- Size Of: Order Cancelled Byte 1
 cboe_futures_orderentry_boe_v1_3.order_cancelled_byte_1.size = 1
 
 -- Display: Order Cancelled Byte 1
@@ -17981,7 +17981,7 @@ end
 -- Order Cancelled Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_cancelled_bitfield_count = {}
 
--- Size: Order Cancelled Bitfield Count
+-- Size Of: Order Cancelled Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_cancelled_bitfield_count.size = 1
 
 -- Display: Order Cancelled Bitfield Count
@@ -18518,7 +18518,7 @@ end
 -- User Modify Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_17 = {}
 
--- Size: User Modify Rejected Byte 17
+-- Size Of: User Modify Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_17.size = 1
 
 -- Display: User Modify Rejected Byte 17
@@ -18606,7 +18606,7 @@ end
 -- User Modify Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_16 = {}
 
--- Size: User Modify Rejected Byte 16
+-- Size Of: User Modify Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_16.size = 1
 
 -- Display: User Modify Rejected Byte 16
@@ -18694,7 +18694,7 @@ end
 -- User Modify Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_15 = {}
 
--- Size: User Modify Rejected Byte 15
+-- Size Of: User Modify Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_15.size = 1
 
 -- Display: User Modify Rejected Byte 15
@@ -18782,7 +18782,7 @@ end
 -- User Modify Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_14 = {}
 
--- Size: User Modify Rejected Byte 14
+-- Size Of: User Modify Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_14.size = 1
 
 -- Display: User Modify Rejected Byte 14
@@ -18870,7 +18870,7 @@ end
 -- User Modify Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_13 = {}
 
--- Size: User Modify Rejected Byte 13
+-- Size Of: User Modify Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_13.size = 1
 
 -- Display: User Modify Rejected Byte 13
@@ -18958,7 +18958,7 @@ end
 -- User Modify Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_12 = {}
 
--- Size: User Modify Rejected Byte 12
+-- Size Of: User Modify Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_12.size = 1
 
 -- Display: User Modify Rejected Byte 12
@@ -19046,7 +19046,7 @@ end
 -- User Modify Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_11 = {}
 
--- Size: User Modify Rejected Byte 11
+-- Size Of: User Modify Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_11.size = 1
 
 -- Display: User Modify Rejected Byte 11
@@ -19134,7 +19134,7 @@ end
 -- User Modify Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_10 = {}
 
--- Size: User Modify Rejected Byte 10
+-- Size Of: User Modify Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_10.size = 1
 
 -- Display: User Modify Rejected Byte 10
@@ -19222,7 +19222,7 @@ end
 -- User Modify Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_9 = {}
 
--- Size: User Modify Rejected Byte 9
+-- Size Of: User Modify Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_9.size = 1
 
 -- Display: User Modify Rejected Byte 9
@@ -19310,7 +19310,7 @@ end
 -- User Modify Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_8 = {}
 
--- Size: User Modify Rejected Byte 8
+-- Size Of: User Modify Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_8.size = 1
 
 -- Display: User Modify Rejected Byte 8
@@ -19398,7 +19398,7 @@ end
 -- User Modify Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_7 = {}
 
--- Size: User Modify Rejected Byte 7
+-- Size Of: User Modify Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_7.size = 1
 
 -- Display: User Modify Rejected Byte 7
@@ -19486,7 +19486,7 @@ end
 -- User Modify Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_6 = {}
 
--- Size: User Modify Rejected Byte 6
+-- Size Of: User Modify Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_6.size = 1
 
 -- Display: User Modify Rejected Byte 6
@@ -19574,7 +19574,7 @@ end
 -- User Modify Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_5 = {}
 
--- Size: User Modify Rejected Byte 5
+-- Size Of: User Modify Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_5.size = 1
 
 -- Display: User Modify Rejected Byte 5
@@ -19662,7 +19662,7 @@ end
 -- User Modify Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_4 = {}
 
--- Size: User Modify Rejected Byte 4
+-- Size Of: User Modify Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_4.size = 1
 
 -- Display: User Modify Rejected Byte 4
@@ -19750,7 +19750,7 @@ end
 -- User Modify Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_3 = {}
 
--- Size: User Modify Rejected Byte 3
+-- Size Of: User Modify Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_3.size = 1
 
 -- Display: User Modify Rejected Byte 3
@@ -19838,7 +19838,7 @@ end
 -- User Modify Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_2 = {}
 
--- Size: User Modify Rejected Byte 2
+-- Size Of: User Modify Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_2.size = 1
 
 -- Display: User Modify Rejected Byte 2
@@ -19926,7 +19926,7 @@ end
 -- User Modify Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_1 = {}
 
--- Size: User Modify Rejected Byte 1
+-- Size Of: User Modify Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_byte_1.size = 1
 
 -- Display: User Modify Rejected Byte 1
@@ -20014,7 +20014,7 @@ end
 -- User Modify Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_bitfield_count = {}
 
--- Size: User Modify Rejected Bitfield Count
+-- Size Of: User Modify Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.user_modify_rejected_bitfield_count.size = 1
 
 -- Display: User Modify Rejected Bitfield Count
@@ -20263,7 +20263,7 @@ end
 -- Modify Reject Reason
 cboe_futures_orderentry_boe_v1_3.modify_reject_reason = {}
 
--- Size: Modify Reject Reason
+-- Size Of: Modify Reject Reason
 cboe_futures_orderentry_boe_v1_3.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
@@ -20425,7 +20425,7 @@ end
 -- Quote Restatement Reason
 cboe_futures_orderentry_boe_v1_3.quote_restatement_reason = {}
 
--- Size: Quote Restatement Reason
+-- Size Of: Quote Restatement Reason
 cboe_futures_orderentry_boe_v1_3.quote_restatement_reason.size = 1
 
 -- Display: Quote Restatement Reason
@@ -20448,7 +20448,7 @@ end
 -- Working Price
 cboe_futures_orderentry_boe_v1_3.working_price = {}
 
--- Size: Working Price
+-- Size Of: Working Price
 cboe_futures_orderentry_boe_v1_3.working_price.size = 8
 
 -- Display: Working Price
@@ -20537,7 +20537,7 @@ end
 -- Order Modified Byte 17
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_17 = {}
 
--- Size: Order Modified Byte 17
+-- Size Of: Order Modified Byte 17
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_17.size = 1
 
 -- Display: Order Modified Byte 17
@@ -20625,7 +20625,7 @@ end
 -- Order Modified Byte 16
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_16 = {}
 
--- Size: Order Modified Byte 16
+-- Size Of: Order Modified Byte 16
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_16.size = 1
 
 -- Display: Order Modified Byte 16
@@ -20713,7 +20713,7 @@ end
 -- Order Modified Byte 15
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_15 = {}
 
--- Size: Order Modified Byte 15
+-- Size Of: Order Modified Byte 15
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_15.size = 1
 
 -- Display: Order Modified Byte 15
@@ -20801,7 +20801,7 @@ end
 -- Order Modified Byte 14
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_14 = {}
 
--- Size: Order Modified Byte 14
+-- Size Of: Order Modified Byte 14
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_14.size = 1
 
 -- Display: Order Modified Byte 14
@@ -20889,7 +20889,7 @@ end
 -- Order Modified Byte 13
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_13 = {}
 
--- Size: Order Modified Byte 13
+-- Size Of: Order Modified Byte 13
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_13.size = 1
 
 -- Display: Order Modified Byte 13
@@ -20977,7 +20977,7 @@ end
 -- Order Modified Byte 12
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_12 = {}
 
--- Size: Order Modified Byte 12
+-- Size Of: Order Modified Byte 12
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_12.size = 1
 
 -- Display: Order Modified Byte 12
@@ -21065,7 +21065,7 @@ end
 -- Order Modified Byte 11
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_11 = {}
 
--- Size: Order Modified Byte 11
+-- Size Of: Order Modified Byte 11
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_11.size = 1
 
 -- Display: Order Modified Byte 11
@@ -21153,7 +21153,7 @@ end
 -- Order Modified Byte 10
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_10 = {}
 
--- Size: Order Modified Byte 10
+-- Size Of: Order Modified Byte 10
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_10.size = 1
 
 -- Display: Order Modified Byte 10
@@ -21241,7 +21241,7 @@ end
 -- Order Modified Byte 9
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_9 = {}
 
--- Size: Order Modified Byte 9
+-- Size Of: Order Modified Byte 9
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_9.size = 1
 
 -- Display: Order Modified Byte 9
@@ -21329,7 +21329,7 @@ end
 -- Order Modified Byte 8
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_8 = {}
 
--- Size: Order Modified Byte 8
+-- Size Of: Order Modified Byte 8
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_8.size = 1
 
 -- Display: Order Modified Byte 8
@@ -21417,7 +21417,7 @@ end
 -- Order Modified Byte 7
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_7 = {}
 
--- Size: Order Modified Byte 7
+-- Size Of: Order Modified Byte 7
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_7.size = 1
 
 -- Display: Order Modified Byte 7
@@ -21505,7 +21505,7 @@ end
 -- Order Modified Byte 6
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_6 = {}
 
--- Size: Order Modified Byte 6
+-- Size Of: Order Modified Byte 6
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_6.size = 1
 
 -- Display: Order Modified Byte 6
@@ -21593,7 +21593,7 @@ end
 -- Order Modified Byte 5
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_5 = {}
 
--- Size: Order Modified Byte 5
+-- Size Of: Order Modified Byte 5
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_5.size = 1
 
 -- Display: Order Modified Byte 5
@@ -21681,7 +21681,7 @@ end
 -- Order Modified Byte 4
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_4 = {}
 
--- Size: Order Modified Byte 4
+-- Size Of: Order Modified Byte 4
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_4.size = 1
 
 -- Display: Order Modified Byte 4
@@ -21769,7 +21769,7 @@ end
 -- Order Modified Byte 3
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_3 = {}
 
--- Size: Order Modified Byte 3
+-- Size Of: Order Modified Byte 3
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_3.size = 1
 
 -- Display: Order Modified Byte 3
@@ -21857,7 +21857,7 @@ end
 -- Order Modified Byte 2
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_2 = {}
 
--- Size: Order Modified Byte 2
+-- Size Of: Order Modified Byte 2
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_2.size = 1
 
 -- Display: Order Modified Byte 2
@@ -21945,7 +21945,7 @@ end
 -- Order Modified Byte 1
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_1 = {}
 
--- Size: Order Modified Byte 1
+-- Size Of: Order Modified Byte 1
 cboe_futures_orderentry_boe_v1_3.order_modified_byte_1.size = 1
 
 -- Display: Order Modified Byte 1
@@ -22033,7 +22033,7 @@ end
 -- Order Modified Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_modified_bitfield_count = {}
 
--- Size: Order Modified Bitfield Count
+-- Size Of: Order Modified Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_modified_bitfield_count.size = 1
 
 -- Display: Order Modified Bitfield Count
@@ -22561,7 +22561,7 @@ end
 -- Reserved 17
 cboe_futures_orderentry_boe_v1_3.reserved_17 = {}
 
--- Size: Reserved 17
+-- Size Of: Reserved 17
 cboe_futures_orderentry_boe_v1_3.reserved_17.size = 17
 
 -- Display: Reserved 17
@@ -22584,7 +22584,7 @@ end
 -- Quote Reject Reason
 cboe_futures_orderentry_boe_v1_3.quote_reject_reason = {}
 
--- Size: Quote Reject Reason
+-- Size Of: Quote Reject Reason
 cboe_futures_orderentry_boe_v1_3.quote_reject_reason.size = 1
 
 -- Display: Quote Reject Reason
@@ -22661,7 +22661,7 @@ end
 -- Order Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_17 = {}
 
--- Size: Order Rejected Byte 17
+-- Size Of: Order Rejected Byte 17
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_17.size = 1
 
 -- Display: Order Rejected Byte 17
@@ -22749,7 +22749,7 @@ end
 -- Order Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_16 = {}
 
--- Size: Order Rejected Byte 16
+-- Size Of: Order Rejected Byte 16
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_16.size = 1
 
 -- Display: Order Rejected Byte 16
@@ -22837,7 +22837,7 @@ end
 -- Order Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_15 = {}
 
--- Size: Order Rejected Byte 15
+-- Size Of: Order Rejected Byte 15
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_15.size = 1
 
 -- Display: Order Rejected Byte 15
@@ -22925,7 +22925,7 @@ end
 -- Order Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_14 = {}
 
--- Size: Order Rejected Byte 14
+-- Size Of: Order Rejected Byte 14
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_14.size = 1
 
 -- Display: Order Rejected Byte 14
@@ -23013,7 +23013,7 @@ end
 -- Order Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_13 = {}
 
--- Size: Order Rejected Byte 13
+-- Size Of: Order Rejected Byte 13
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_13.size = 1
 
 -- Display: Order Rejected Byte 13
@@ -23101,7 +23101,7 @@ end
 -- Order Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_12 = {}
 
--- Size: Order Rejected Byte 12
+-- Size Of: Order Rejected Byte 12
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_12.size = 1
 
 -- Display: Order Rejected Byte 12
@@ -23189,7 +23189,7 @@ end
 -- Order Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_11 = {}
 
--- Size: Order Rejected Byte 11
+-- Size Of: Order Rejected Byte 11
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_11.size = 1
 
 -- Display: Order Rejected Byte 11
@@ -23277,7 +23277,7 @@ end
 -- Order Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_10 = {}
 
--- Size: Order Rejected Byte 10
+-- Size Of: Order Rejected Byte 10
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_10.size = 1
 
 -- Display: Order Rejected Byte 10
@@ -23365,7 +23365,7 @@ end
 -- Order Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_9 = {}
 
--- Size: Order Rejected Byte 9
+-- Size Of: Order Rejected Byte 9
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_9.size = 1
 
 -- Display: Order Rejected Byte 9
@@ -23453,7 +23453,7 @@ end
 -- Order Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_8 = {}
 
--- Size: Order Rejected Byte 8
+-- Size Of: Order Rejected Byte 8
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_8.size = 1
 
 -- Display: Order Rejected Byte 8
@@ -23541,7 +23541,7 @@ end
 -- Order Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_7 = {}
 
--- Size: Order Rejected Byte 7
+-- Size Of: Order Rejected Byte 7
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_7.size = 1
 
 -- Display: Order Rejected Byte 7
@@ -23629,7 +23629,7 @@ end
 -- Order Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_6 = {}
 
--- Size: Order Rejected Byte 6
+-- Size Of: Order Rejected Byte 6
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_6.size = 1
 
 -- Display: Order Rejected Byte 6
@@ -23717,7 +23717,7 @@ end
 -- Order Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_5 = {}
 
--- Size: Order Rejected Byte 5
+-- Size Of: Order Rejected Byte 5
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_5.size = 1
 
 -- Display: Order Rejected Byte 5
@@ -23805,7 +23805,7 @@ end
 -- Order Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_4 = {}
 
--- Size: Order Rejected Byte 4
+-- Size Of: Order Rejected Byte 4
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_4.size = 1
 
 -- Display: Order Rejected Byte 4
@@ -23893,7 +23893,7 @@ end
 -- Order Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_3 = {}
 
--- Size: Order Rejected Byte 3
+-- Size Of: Order Rejected Byte 3
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_3.size = 1
 
 -- Display: Order Rejected Byte 3
@@ -23981,7 +23981,7 @@ end
 -- Order Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_2 = {}
 
--- Size: Order Rejected Byte 2
+-- Size Of: Order Rejected Byte 2
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_2.size = 1
 
 -- Display: Order Rejected Byte 2
@@ -24069,7 +24069,7 @@ end
 -- Order Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_1 = {}
 
--- Size: Order Rejected Byte 1
+-- Size Of: Order Rejected Byte 1
 cboe_futures_orderentry_boe_v1_3.order_rejected_byte_1.size = 1
 
 -- Display: Order Rejected Byte 1
@@ -24157,7 +24157,7 @@ end
 -- Order Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_rejected_bitfield_count = {}
 
--- Size: Order Rejected Bitfield Count
+-- Size Of: Order Rejected Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_rejected_bitfield_count.size = 1
 
 -- Display: Order Rejected Bitfield Count
@@ -24586,7 +24586,7 @@ end
 -- Order Reject Reason
 cboe_futures_orderentry_boe_v1_3.order_reject_reason = {}
 
--- Size: Order Reject Reason
+-- Size Of: Order Reject Reason
 cboe_futures_orderentry_boe_v1_3.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
@@ -24748,7 +24748,7 @@ end
 -- Reserved 6
 cboe_futures_orderentry_boe_v1_3.reserved_6 = {}
 
--- Size: Reserved 6
+-- Size Of: Reserved 6
 cboe_futures_orderentry_boe_v1_3.reserved_6.size = 6
 
 -- Display: Reserved 6
@@ -24771,7 +24771,7 @@ end
 -- Quote Liquidity Indicator
 cboe_futures_orderentry_boe_v1_3.quote_liquidity_indicator = {}
 
--- Size: Quote Liquidity Indicator
+-- Size Of: Quote Liquidity Indicator
 cboe_futures_orderentry_boe_v1_3.quote_liquidity_indicator.size = 1
 
 -- Display: Quote Liquidity Indicator
@@ -24804,7 +24804,7 @@ end
 -- Quote Result
 cboe_futures_orderentry_boe_v1_3.quote_result = {}
 
--- Size: Quote Result
+-- Size Of: Quote Result
 cboe_futures_orderentry_boe_v1_3.quote_result.size = 1
 
 -- Display: Quote Result
@@ -24870,20 +24870,12 @@ end
 -- Quote Result Group
 cboe_futures_orderentry_boe_v1_3.quote_result_group = {}
 
--- Calculate size of: Quote Result Group
-cboe_futures_orderentry_boe_v1_3.quote_result_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.order_id.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.quote_result.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.quote_liquidity_indicator.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.reserved_6.size
-
-  return index
-end
+-- Size Of: Quote Result Group
+cboe_futures_orderentry_boe_v1_3.quote_result_group.size =
+  cboe_futures_orderentry_boe_v1_3.order_id.size + 
+  cboe_futures_orderentry_boe_v1_3.quote_result.size + 
+  cboe_futures_orderentry_boe_v1_3.quote_liquidity_indicator.size + 
+  cboe_futures_orderentry_boe_v1_3.reserved_6.size;
 
 -- Display: Quote Result Group
 cboe_futures_orderentry_boe_v1_3.quote_result_group.display = function(packet, parent, length)
@@ -24936,7 +24928,7 @@ end
 -- Number Of Quote Results
 cboe_futures_orderentry_boe_v1_3.number_of_quote_results = {}
 
--- Size: Number Of Quote Results
+-- Size Of: Number Of Quote Results
 cboe_futures_orderentry_boe_v1_3.number_of_quote_results.size = 1
 
 -- Display: Number Of Quote Results
@@ -25021,7 +25013,7 @@ end
 -- Order Acknowledgment Byte 17
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_17 = {}
 
--- Size: Order Acknowledgment Byte 17
+-- Size Of: Order Acknowledgment Byte 17
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_17.size = 1
 
 -- Display: Order Acknowledgment Byte 17
@@ -25109,7 +25101,7 @@ end
 -- Order Acknowledgment Byte 16
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_16 = {}
 
--- Size: Order Acknowledgment Byte 16
+-- Size Of: Order Acknowledgment Byte 16
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_16.size = 1
 
 -- Display: Order Acknowledgment Byte 16
@@ -25197,7 +25189,7 @@ end
 -- Order Acknowledgment Byte 15
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_15 = {}
 
--- Size: Order Acknowledgment Byte 15
+-- Size Of: Order Acknowledgment Byte 15
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_15.size = 1
 
 -- Display: Order Acknowledgment Byte 15
@@ -25285,7 +25277,7 @@ end
 -- Order Acknowledgment Byte 14
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_14 = {}
 
--- Size: Order Acknowledgment Byte 14
+-- Size Of: Order Acknowledgment Byte 14
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_14.size = 1
 
 -- Display: Order Acknowledgment Byte 14
@@ -25373,7 +25365,7 @@ end
 -- Order Acknowledgment Byte 13
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_13 = {}
 
--- Size: Order Acknowledgment Byte 13
+-- Size Of: Order Acknowledgment Byte 13
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_13.size = 1
 
 -- Display: Order Acknowledgment Byte 13
@@ -25461,7 +25453,7 @@ end
 -- Order Acknowledgment Byte 12
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_12 = {}
 
--- Size: Order Acknowledgment Byte 12
+-- Size Of: Order Acknowledgment Byte 12
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_12.size = 1
 
 -- Display: Order Acknowledgment Byte 12
@@ -25549,7 +25541,7 @@ end
 -- Order Acknowledgment Byte 11
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_11 = {}
 
--- Size: Order Acknowledgment Byte 11
+-- Size Of: Order Acknowledgment Byte 11
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_11.size = 1
 
 -- Display: Order Acknowledgment Byte 11
@@ -25637,7 +25629,7 @@ end
 -- Order Acknowledgment Byte 10
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_10 = {}
 
--- Size: Order Acknowledgment Byte 10
+-- Size Of: Order Acknowledgment Byte 10
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_10.size = 1
 
 -- Display: Order Acknowledgment Byte 10
@@ -25725,7 +25717,7 @@ end
 -- Order Acknowledgment Byte 9
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_9 = {}
 
--- Size: Order Acknowledgment Byte 9
+-- Size Of: Order Acknowledgment Byte 9
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_9.size = 1
 
 -- Display: Order Acknowledgment Byte 9
@@ -25813,7 +25805,7 @@ end
 -- Order Acknowledgment Byte 8
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_8 = {}
 
--- Size: Order Acknowledgment Byte 8
+-- Size Of: Order Acknowledgment Byte 8
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_8.size = 1
 
 -- Display: Order Acknowledgment Byte 8
@@ -25901,7 +25893,7 @@ end
 -- Order Acknowledgment Byte 7
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_7 = {}
 
--- Size: Order Acknowledgment Byte 7
+-- Size Of: Order Acknowledgment Byte 7
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_7.size = 1
 
 -- Display: Order Acknowledgment Byte 7
@@ -25989,7 +25981,7 @@ end
 -- Order Acknowledgment Byte 6
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_6 = {}
 
--- Size: Order Acknowledgment Byte 6
+-- Size Of: Order Acknowledgment Byte 6
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_6.size = 1
 
 -- Display: Order Acknowledgment Byte 6
@@ -26077,7 +26069,7 @@ end
 -- Order Acknowledgment Byte 5
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_5 = {}
 
--- Size: Order Acknowledgment Byte 5
+-- Size Of: Order Acknowledgment Byte 5
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_5.size = 1
 
 -- Display: Order Acknowledgment Byte 5
@@ -26165,7 +26157,7 @@ end
 -- Order Acknowledgment Byte 4
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_4 = {}
 
--- Size: Order Acknowledgment Byte 4
+-- Size Of: Order Acknowledgment Byte 4
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_4.size = 1
 
 -- Display: Order Acknowledgment Byte 4
@@ -26253,7 +26245,7 @@ end
 -- Order Acknowledgment Byte 3
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_3 = {}
 
--- Size: Order Acknowledgment Byte 3
+-- Size Of: Order Acknowledgment Byte 3
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_3.size = 1
 
 -- Display: Order Acknowledgment Byte 3
@@ -26341,7 +26333,7 @@ end
 -- Order Acknowledgment Byte 2
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_2 = {}
 
--- Size: Order Acknowledgment Byte 2
+-- Size Of: Order Acknowledgment Byte 2
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_2.size = 1
 
 -- Display: Order Acknowledgment Byte 2
@@ -26429,7 +26421,7 @@ end
 -- Order Acknowledgment Byte 1
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_1 = {}
 
--- Size: Order Acknowledgment Byte 1
+-- Size Of: Order Acknowledgment Byte 1
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_byte_1.size = 1
 
 -- Display: Order Acknowledgment Byte 1
@@ -26517,7 +26509,7 @@ end
 -- Order Acknowledgment Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_bitfield_count = {}
 
--- Size: Order Acknowledgment Bitfield Count
+-- Size Of: Order Acknowledgment Bitfield Count
 cboe_futures_orderentry_boe_v1_3.order_acknowledgment_bitfield_count.size = 1
 
 -- Display: Order Acknowledgment Bitfield Count
@@ -27090,7 +27082,7 @@ end
 -- Custom Group Id
 cboe_futures_orderentry_boe_v1_3.custom_group_id = {}
 
--- Size: Custom Group Id
+-- Size Of: Custom Group Id
 cboe_futures_orderentry_boe_v1_3.custom_group_id.size = 2
 
 -- Display: Custom Group Id
@@ -27113,7 +27105,7 @@ end
 -- Product Name
 cboe_futures_orderentry_boe_v1_3.product_name = {}
 
--- Size: Product Name
+-- Size Of: Product Name
 cboe_futures_orderentry_boe_v1_3.product_name.size = 6
 
 -- Display: Product Name
@@ -27136,7 +27128,7 @@ end
 -- Reserved 4
 cboe_futures_orderentry_boe_v1_3.reserved_4 = {}
 
--- Size: Reserved 4
+-- Size Of: Reserved 4
 cboe_futures_orderentry_boe_v1_3.reserved_4.size = 4
 
 -- Display: Reserved 4
@@ -27159,7 +27151,7 @@ end
 -- Risk Reset
 cboe_futures_orderentry_boe_v1_3.risk_reset = {}
 
--- Size: Risk Reset
+-- Size Of: Risk Reset
 cboe_futures_orderentry_boe_v1_3.risk_reset.size = 8
 
 -- Display: Risk Reset
@@ -27255,7 +27247,7 @@ end
 -- Mass Cancel Inst
 cboe_futures_orderentry_boe_v1_3.mass_cancel_inst = {}
 
--- Size: Mass Cancel Inst
+-- Size Of: Mass Cancel Inst
 cboe_futures_orderentry_boe_v1_3.mass_cancel_inst.size = 16
 
 -- Display: Mass Cancel Inst
@@ -27278,7 +27270,7 @@ end
 -- Purge Order Byte 2
 cboe_futures_orderentry_boe_v1_3.purge_order_byte_2 = {}
 
--- Size: Purge Order Byte 2
+-- Size Of: Purge Order Byte 2
 cboe_futures_orderentry_boe_v1_3.purge_order_byte_2.size = 1
 
 -- Display: Purge Order Byte 2
@@ -27366,7 +27358,7 @@ end
 -- Purge Order Byte 1
 cboe_futures_orderentry_boe_v1_3.purge_order_byte_1 = {}
 
--- Size: Purge Order Byte 1
+-- Size Of: Purge Order Byte 1
 cboe_futures_orderentry_boe_v1_3.purge_order_byte_1.size = 1
 
 -- Display: Purge Order Byte 1
@@ -27454,7 +27446,7 @@ end
 -- Purge Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.purge_order_bitfield_count = {}
 
--- Size: Purge Order Bitfield Count
+-- Size Of: Purge Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.purge_order_bitfield_count.size = 1
 
 -- Display: Purge Order Bitfield Count
@@ -27646,7 +27638,7 @@ end
 -- Reserved 12
 cboe_futures_orderentry_boe_v1_3.reserved_12 = {}
 
--- Size: Reserved 12
+-- Size Of: Reserved 12
 cboe_futures_orderentry_boe_v1_3.reserved_12.size = 12
 
 -- Display: Reserved 12
@@ -27669,24 +27661,14 @@ end
 -- Quote Group
 cboe_futures_orderentry_boe_v1_3.quote_group = {}
 
--- Calculate size of: Quote Group
-cboe_futures_orderentry_boe_v1_3.quote_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.symbol.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.side.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.open_close.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.price.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.order_qty.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.reserved_12.size
-
-  return index
-end
+-- Size Of: Quote Group
+cboe_futures_orderentry_boe_v1_3.quote_group.size =
+  cboe_futures_orderentry_boe_v1_3.symbol.size + 
+  cboe_futures_orderentry_boe_v1_3.side.size + 
+  cboe_futures_orderentry_boe_v1_3.open_close.size + 
+  cboe_futures_orderentry_boe_v1_3.price.size + 
+  cboe_futures_orderentry_boe_v1_3.order_qty.size + 
+  cboe_futures_orderentry_boe_v1_3.reserved_12.size;
 
 -- Display: Quote Group
 cboe_futures_orderentry_boe_v1_3.quote_group.display = function(packet, parent, length)
@@ -27745,7 +27727,7 @@ end
 -- Number Of Quotes
 cboe_futures_orderentry_boe_v1_3.number_of_quotes = {}
 
--- Size: Number Of Quotes
+-- Size Of: Number Of Quotes
 cboe_futures_orderentry_boe_v1_3.number_of_quotes.size = 1
 
 -- Display: Number Of Quotes
@@ -27768,7 +27750,7 @@ end
 -- Size Modifier
 cboe_futures_orderentry_boe_v1_3.size_modifier = {}
 
--- Size: Size Modifier
+-- Size Of: Size Modifier
 cboe_futures_orderentry_boe_v1_3.size_modifier.size = 1
 
 -- Display: Size Modifier
@@ -27881,7 +27863,7 @@ end
 -- Cancel Orig On Reject
 cboe_futures_orderentry_boe_v1_3.cancel_orig_on_reject = {}
 
--- Size: Cancel Orig On Reject
+-- Size Of: Cancel Orig On Reject
 cboe_futures_orderentry_boe_v1_3.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
@@ -27911,7 +27893,7 @@ end
 -- Modify Order Byte 2
 cboe_futures_orderentry_boe_v1_3.modify_order_byte_2 = {}
 
--- Size: Modify Order Byte 2
+-- Size Of: Modify Order Byte 2
 cboe_futures_orderentry_boe_v1_3.modify_order_byte_2.size = 1
 
 -- Display: Modify Order Byte 2
@@ -27999,7 +27981,7 @@ end
 -- Modify Order Byte 1
 cboe_futures_orderentry_boe_v1_3.modify_order_byte_1 = {}
 
--- Size: Modify Order Byte 1
+-- Size Of: Modify Order Byte 1
 cboe_futures_orderentry_boe_v1_3.modify_order_byte_1.size = 1
 
 -- Display: Modify Order Byte 1
@@ -28087,7 +28069,7 @@ end
 -- Modify Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.modify_order_bitfield_count = {}
 
--- Size: Modify Order Bitfield Count
+-- Size Of: Modify Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.modify_order_bitfield_count.size = 1
 
 -- Display: Modify Order Bitfield Count
@@ -28336,7 +28318,7 @@ end
 -- Cancel Order Byte 2
 cboe_futures_orderentry_boe_v1_3.cancel_order_byte_2 = {}
 
--- Size: Cancel Order Byte 2
+-- Size Of: Cancel Order Byte 2
 cboe_futures_orderentry_boe_v1_3.cancel_order_byte_2.size = 1
 
 -- Display: Cancel Order Byte 2
@@ -28424,7 +28406,7 @@ end
 -- Cancel Order Byte 1
 cboe_futures_orderentry_boe_v1_3.cancel_order_byte_1 = {}
 
--- Size: Cancel Order Byte 1
+-- Size Of: Cancel Order Byte 1
 cboe_futures_orderentry_boe_v1_3.cancel_order_byte_1.size = 1
 
 -- Display: Cancel Order Byte 1
@@ -28512,7 +28494,7 @@ end
 -- Cancel Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.cancel_order_bitfield_count = {}
 
--- Size: Cancel Order Bitfield Count
+-- Size Of: Cancel Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.cancel_order_bitfield_count.size = 1
 
 -- Display: Cancel Order Bitfield Count
@@ -28704,7 +28686,7 @@ end
 -- New Order Byte 8
 cboe_futures_orderentry_boe_v1_3.new_order_byte_8 = {}
 
--- Size: New Order Byte 8
+-- Size Of: New Order Byte 8
 cboe_futures_orderentry_boe_v1_3.new_order_byte_8.size = 1
 
 -- Display: New Order Byte 8
@@ -28792,7 +28774,7 @@ end
 -- New Order Byte 7
 cboe_futures_orderentry_boe_v1_3.new_order_byte_7 = {}
 
--- Size: New Order Byte 7
+-- Size Of: New Order Byte 7
 cboe_futures_orderentry_boe_v1_3.new_order_byte_7.size = 1
 
 -- Display: New Order Byte 7
@@ -28880,7 +28862,7 @@ end
 -- New Order Byte 6
 cboe_futures_orderentry_boe_v1_3.new_order_byte_6 = {}
 
--- Size: New Order Byte 6
+-- Size Of: New Order Byte 6
 cboe_futures_orderentry_boe_v1_3.new_order_byte_6.size = 1
 
 -- Display: New Order Byte 6
@@ -28968,7 +28950,7 @@ end
 -- New Order Byte 5
 cboe_futures_orderentry_boe_v1_3.new_order_byte_5 = {}
 
--- Size: New Order Byte 5
+-- Size Of: New Order Byte 5
 cboe_futures_orderentry_boe_v1_3.new_order_byte_5.size = 1
 
 -- Display: New Order Byte 5
@@ -29056,7 +29038,7 @@ end
 -- New Order Byte 4
 cboe_futures_orderentry_boe_v1_3.new_order_byte_4 = {}
 
--- Size: New Order Byte 4
+-- Size Of: New Order Byte 4
 cboe_futures_orderentry_boe_v1_3.new_order_byte_4.size = 1
 
 -- Display: New Order Byte 4
@@ -29144,7 +29126,7 @@ end
 -- New Order Byte 3
 cboe_futures_orderentry_boe_v1_3.new_order_byte_3 = {}
 
--- Size: New Order Byte 3
+-- Size Of: New Order Byte 3
 cboe_futures_orderentry_boe_v1_3.new_order_byte_3.size = 1
 
 -- Display: New Order Byte 3
@@ -29232,7 +29214,7 @@ end
 -- New Order Byte 2
 cboe_futures_orderentry_boe_v1_3.new_order_byte_2 = {}
 
--- Size: New Order Byte 2
+-- Size Of: New Order Byte 2
 cboe_futures_orderentry_boe_v1_3.new_order_byte_2.size = 1
 
 -- Display: New Order Byte 2
@@ -29320,7 +29302,7 @@ end
 -- New Order Byte 1
 cboe_futures_orderentry_boe_v1_3.new_order_byte_1 = {}
 
--- Size: New Order Byte 1
+-- Size Of: New Order Byte 1
 cboe_futures_orderentry_boe_v1_3.new_order_byte_1.size = 1
 
 -- Display: New Order Byte 1
@@ -29408,7 +29390,7 @@ end
 -- New Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.new_order_bitfield_count = {}
 
--- Size: New Order Bitfield Count
+-- Size Of: New Order Bitfield Count
 cboe_futures_orderentry_boe_v1_3.new_order_bitfield_count.size = 1
 
 -- Display: New Order Bitfield Count
@@ -29816,7 +29798,7 @@ end
 -- Sequence Number
 cboe_futures_orderentry_boe_v1_3.sequence_number = {}
 
--- Size: Sequence Number
+-- Size Of: Sequence Number
 cboe_futures_orderentry_boe_v1_3.sequence_number.size = 4
 
 -- Display: Sequence Number
@@ -29839,7 +29821,7 @@ end
 -- Unit Number
 cboe_futures_orderentry_boe_v1_3.unit_number = {}
 
--- Size: Unit Number
+-- Size Of: Unit Number
 cboe_futures_orderentry_boe_v1_3.unit_number.size = 1
 
 -- Display: Unit Number
@@ -29862,16 +29844,10 @@ end
 -- Unit Sequence
 cboe_futures_orderentry_boe_v1_3.unit_sequence = {}
 
--- Calculate size of: Unit Sequence
-cboe_futures_orderentry_boe_v1_3.unit_sequence.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.unit_number.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.sequence_number.size
-
-  return index
-end
+-- Size Of: Unit Sequence
+cboe_futures_orderentry_boe_v1_3.unit_sequence.size =
+  cboe_futures_orderentry_boe_v1_3.unit_number.size + 
+  cboe_futures_orderentry_boe_v1_3.sequence_number.size;
 
 -- Display: Unit Sequence
 cboe_futures_orderentry_boe_v1_3.unit_sequence.display = function(packet, parent, length)
@@ -29918,7 +29894,7 @@ end
 -- Number Of Units
 cboe_futures_orderentry_boe_v1_3.number_of_units = {}
 
--- Size: Number Of Units
+-- Size Of: Number Of Units
 cboe_futures_orderentry_boe_v1_3.number_of_units.size = 1
 
 -- Display: Number Of Units
@@ -29941,7 +29917,7 @@ end
 -- Last Received Sequence Number
 cboe_futures_orderentry_boe_v1_3.last_received_sequence_number = {}
 
--- Size: Last Received Sequence Number
+-- Size Of: Last Received Sequence Number
 cboe_futures_orderentry_boe_v1_3.last_received_sequence_number.size = 4
 
 -- Display: Last Received Sequence Number
@@ -29964,7 +29940,7 @@ end
 -- Logout Reason Text
 cboe_futures_orderentry_boe_v1_3.logout_reason_text = {}
 
--- Size: Logout Reason Text
+-- Size Of: Logout Reason Text
 cboe_futures_orderentry_boe_v1_3.logout_reason_text.size = 60
 
 -- Display: Logout Reason Text
@@ -29987,7 +29963,7 @@ end
 -- Logout Reason
 cboe_futures_orderentry_boe_v1_3.logout_reason = {}
 
--- Size: Logout Reason
+-- Size Of: Logout Reason
 cboe_futures_orderentry_boe_v1_3.logout_reason.size = 1
 
 -- Display: Logout Reason
@@ -33128,7 +33104,7 @@ end
 -- Application Message Type
 cboe_futures_orderentry_boe_v1_3.application_message_type = {}
 
--- Size: Application Message Type
+-- Size Of: Application Message Type
 cboe_futures_orderentry_boe_v1_3.application_message_type.size = 1
 
 -- Display: Application Message Type
@@ -33245,7 +33221,7 @@ end
 -- No Unspecified Unit Replay
 cboe_futures_orderentry_boe_v1_3.no_unspecified_unit_replay = {}
 
--- Size: No Unspecified Unit Replay
+-- Size Of: No Unspecified Unit Replay
 cboe_futures_orderentry_boe_v1_3.no_unspecified_unit_replay.size = 1
 
 -- Display: No Unspecified Unit Replay
@@ -33385,7 +33361,7 @@ end
 -- Param Group Type
 cboe_futures_orderentry_boe_v1_3.param_group_type = {}
 
--- Size: Param Group Type
+-- Size Of: Param Group Type
 cboe_futures_orderentry_boe_v1_3.param_group_type.size = 1
 
 -- Display: Param Group Type
@@ -33415,7 +33391,7 @@ end
 -- Param Group Length
 cboe_futures_orderentry_boe_v1_3.param_group_length = {}
 
--- Size: Param Group Length
+-- Size Of: Param Group Length
 cboe_futures_orderentry_boe_v1_3.param_group_length.size = 2
 
 -- Display: Param Group Length
@@ -33438,16 +33414,10 @@ end
 -- Param Header
 cboe_futures_orderentry_boe_v1_3.param_header = {}
 
--- Calculate size of: Param Header
-cboe_futures_orderentry_boe_v1_3.param_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.param_group_length.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.param_group_type.size
-
-  return index
-end
+-- Size Of: Param Header
+cboe_futures_orderentry_boe_v1_3.param_header.size =
+  cboe_futures_orderentry_boe_v1_3.param_group_length.size + 
+  cboe_futures_orderentry_boe_v1_3.param_group_type.size;
 
 -- Display: Param Header
 cboe_futures_orderentry_boe_v1_3.param_header.display = function(packet, parent, length)
@@ -33539,7 +33509,7 @@ end
 -- Number Of Param Groups
 cboe_futures_orderentry_boe_v1_3.number_of_param_groups = {}
 
--- Size: Number Of Param Groups
+-- Size Of: Number Of Param Groups
 cboe_futures_orderentry_boe_v1_3.number_of_param_groups.size = 1
 
 -- Display: Number Of Param Groups
@@ -33562,7 +33532,7 @@ end
 -- Login Response Text
 cboe_futures_orderentry_boe_v1_3.login_response_text = {}
 
--- Size: Login Response Text
+-- Size Of: Login Response Text
 cboe_futures_orderentry_boe_v1_3.login_response_text.size = 60
 
 -- Display: Login Response Text
@@ -33585,7 +33555,7 @@ end
 -- Login Response Status
 cboe_futures_orderentry_boe_v1_3.login_response_status = {}
 
--- Size: Login Response Status
+-- Size Of: Login Response Status
 cboe_futures_orderentry_boe_v1_3.login_response_status.size = 1
 
 -- Display: Login Response Status
@@ -33711,7 +33681,7 @@ end
 -- Password
 cboe_futures_orderentry_boe_v1_3.password = {}
 
--- Size: Password
+-- Size Of: Password
 cboe_futures_orderentry_boe_v1_3.password.size = 10
 
 -- Display: Password
@@ -33734,7 +33704,7 @@ end
 -- Username
 cboe_futures_orderentry_boe_v1_3.username = {}
 
--- Size: Username
+-- Size Of: Username
 cboe_futures_orderentry_boe_v1_3.username.size = 4
 
 -- Display: Username
@@ -33757,7 +33727,7 @@ end
 -- Session Sub Id
 cboe_futures_orderentry_boe_v1_3.session_sub_id = {}
 
--- Size: Session Sub Id
+-- Size Of: Session Sub Id
 cboe_futures_orderentry_boe_v1_3.session_sub_id.size = 4
 
 -- Display: Session Sub Id
@@ -34144,7 +34114,7 @@ end
 -- Matching Unit
 cboe_futures_orderentry_boe_v1_3.matching_unit = {}
 
--- Size: Matching Unit
+-- Size Of: Matching Unit
 cboe_futures_orderentry_boe_v1_3.matching_unit.size = 1
 
 -- Display: Matching Unit
@@ -34167,7 +34137,7 @@ end
 -- Message Type
 cboe_futures_orderentry_boe_v1_3.message_type = {}
 
--- Size: Message Type
+-- Size Of: Message Type
 cboe_futures_orderentry_boe_v1_3.message_type.size = 1
 
 -- Display: Message Type
@@ -34290,7 +34260,7 @@ end
 -- Message Length
 cboe_futures_orderentry_boe_v1_3.message_length = {}
 
--- Size: Message Length
+-- Size Of: Message Length
 cboe_futures_orderentry_boe_v1_3.message_length.size = 2
 
 -- Display: Message Length
@@ -34313,7 +34283,7 @@ end
 -- Start Of Message
 cboe_futures_orderentry_boe_v1_3.start_of_message = {}
 
--- Size: Start Of Message
+-- Size Of: Start Of Message
 cboe_futures_orderentry_boe_v1_3.start_of_message.size = 2
 
 -- Display: Start Of Message
@@ -34336,22 +34306,13 @@ end
 -- Message Header
 cboe_futures_orderentry_boe_v1_3.message_header = {}
 
--- Calculate size of: Message Header
-cboe_futures_orderentry_boe_v1_3.message_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_futures_orderentry_boe_v1_3.start_of_message.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.message_length.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.message_type.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.matching_unit.size
-
-  index = index + cboe_futures_orderentry_boe_v1_3.sequence_number.size
-
-  return index
-end
+-- Size Of: Message Header
+cboe_futures_orderentry_boe_v1_3.message_header.size =
+  cboe_futures_orderentry_boe_v1_3.start_of_message.size + 
+  cboe_futures_orderentry_boe_v1_3.message_length.size + 
+  cboe_futures_orderentry_boe_v1_3.message_type.size + 
+  cboe_futures_orderentry_boe_v1_3.matching_unit.size + 
+  cboe_futures_orderentry_boe_v1_3.sequence_number.size;
 
 -- Display: Message Header
 cboe_futures_orderentry_boe_v1_3.message_header.display = function(packet, parent, length)
